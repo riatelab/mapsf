@@ -65,7 +65,11 @@ grad_line for graduated lines maps, see mf_legend_gl,
 for arguments, default values and details.
 
 " />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="/reference/figures/logo.png" />
+<meta property="og:image:alt" content="An R package for thematic cartography" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@rgeomatic" />
+<meta name="twitter:site" content="@rgeomatic" />
 
 
 
@@ -117,7 +121,12 @@ for arguments, default values and details.
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/riatelab/mapsf/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -132,7 +141,7 @@ for arguments, default values and details.
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Plot a legend</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_legend.R'><code>R/mf_legend.R</code></a></small>
     <div class="hidden name"><code>mf_legend.Rd</code></div>
     </div>
 
@@ -286,18 +295,27 @@ for arguments, default values and details.</p></li>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_import_mtq.html'>mf_import_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"prop"</span>, pos <span class='op'>=</span> <span class='st'>"topright"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>5</span>,<span class='fl'>10</span><span class='op'>)</span>, inches <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"choro"</span>, pos <span class='op'>=</span> <span class='st'>"bottomright"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>,<span class='fl'>20</span>,<span class='fl'>30</span>,<span class='fl'>40</span>,<span class='fl'>50</span><span class='op'>)</span>,
-          pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"Reds 2"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"typo"</span>, pos <span class='op'>=</span> <span class='st'>"topleft"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"D"</span><span class='op'>)</span>,
-          pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"Dynamic"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"symb"</span>, pos <span class='op'>=</span> <span class='st'>"bottomleft"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span><span class='op'>)</span>,
-          pt_pch <span class='op'>=</span> <span class='fl'>21</span><span class='op'>:</span><span class='fl'>23</span>, pt_cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='st'>"Dynamic"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"grad_line"</span>, pos <span class='op'>=</span> <span class='st'>"top"</span>, val <span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='fl'>10</span>,<span class='fl'>15</span><span class='op'>)</span>,
-          lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.2</span>,<span class='fl'>2</span>,<span class='fl'>4</span>,<span class='fl'>5</span>,<span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"prop_line"</span>, pos <span class='op'>=</span> <span class='st'>"bottom"</span>, lwd <span class='op'>=</span> <span class='fl'>20</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>,<span class='fl'>50</span>,<span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"prop"</span>, pos <span class='op'>=</span> <span class='st'>"topright"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>5</span>, <span class='fl'>10</span><span class='op'>)</span>, inches <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>
+  type <span class='op'>=</span> <span class='st'>"choro"</span>, pos <span class='op'>=</span> <span class='st'>"bottomright"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>30</span>, <span class='fl'>40</span>, <span class='fl'>50</span><span class='op'>)</span>,
+  pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"Reds 2"</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>
+  type <span class='op'>=</span> <span class='st'>"typo"</span>, pos <span class='op'>=</span> <span class='st'>"topleft"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"D"</span><span class='op'>)</span>,
+  pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"Dynamic"</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>
+  type <span class='op'>=</span> <span class='st'>"symb"</span>, pos <span class='op'>=</span> <span class='st'>"bottomleft"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span><span class='op'>)</span>,
+  pt_pch <span class='op'>=</span> <span class='fl'>21</span><span class='op'>:</span><span class='fl'>23</span>, pt_cex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>,
+  pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='st'>"Dynamic"</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>
+  type <span class='op'>=</span> <span class='st'>"grad_line"</span>, pos <span class='op'>=</span> <span class='st'>"top"</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>10</span>, <span class='fl'>15</span><span class='op'>)</span>,
+  lwd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.2</span>, <span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>10</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='input'><span class='fu'>mf_legend</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"prop_line"</span>, pos <span class='op'>=</span> <span class='st'>"bottom"</span>, lwd <span class='op'>=</span> <span class='fl'>20</span>, val <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>50</span>, <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='img'><img src='mf_legend-1.png' alt='' width='672' height='672' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

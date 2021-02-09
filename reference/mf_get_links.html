@@ -50,7 +50,11 @@
 
 <meta property="og:title" content="Get a link layer from a data.frame of links. — mf_get_links" />
 <meta property="og:description" content="Create a link layer from a data.frame of links and an sf object." />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="/reference/figures/logo.png" />
+<meta property="og:image:alt" content="An R package for thematic cartography" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@rgeomatic" />
+<meta name="twitter:site" content="@rgeomatic" />
 
 
 
@@ -102,7 +106,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/riatelab/mapsf/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -117,7 +126,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get a link layer from a data.frame of links.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_get_links.R'><code>R/mf_get_links.R</code></a></small>
     <div class="hidden name"><code>mf_get_links.Rd</code></div>
     </div>
 
@@ -136,26 +145,30 @@
     </tr>
     <tr>
       <th>df</th>
-      <td><p>a data.frame that contains identifiers of starting and ending points.</p></td>
+      <td><p>a data.frame that contains identifiers of starting and ending
+points.</p></td>
     </tr>
     <tr>
       <th>x_id</th>
-      <td><p>name of the identifier variable in x, default to the first column (optional)</p></td>
+      <td><p>name of the identifier variable in x, default to the first
+column (optional)</p></td>
     </tr>
     <tr>
       <th>df_id</th>
-      <td><p>names of the identifier variables in df, character vector of length 2, default to
+      <td><p>names of the identifier variables in df, character vector of
+length 2, default to
 the two first columns. (optional)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An sf object is returned, it is composed of df and the sfc (LINESTRING) of links.</p>
+    <p>An sf object is returned, it is composed of df and the sfc
+(LINESTRING) of links.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_import_mtq.html'>mf_import_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>mob</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"csv/mob.csv"</span>, package<span class='op'>=</span><span class='st'>"mapsf"</span><span class='op'>)</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>mob</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"csv/mob.csv"</span>, package <span class='op'>=</span> <span class='st'>"mapsf"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'># Select links from Fort-de-France (97209))</span>
 <span class='va'>mob_97209</span> <span class='op'>&lt;-</span> <span class='va'>mob</span><span class='op'>[</span><span class='va'>mob</span><span class='op'>$</span><span class='va'>i</span> <span class='op'>==</span> <span class='fl'>97209</span>, <span class='op'>]</span>
 <span class='co'># Create a link layer</span>

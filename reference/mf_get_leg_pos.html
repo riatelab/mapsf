@@ -51,7 +51,11 @@
 <meta property="og:title" content="Get the optimal position of a legend — mf_get_leg_pos" />
 <meta property="og:description" content="Find the optimal for one or two legends. The optimal position is
 a position that minimizes overlap between a spatial object and a legend." />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="/reference/figures/logo.png" />
+<meta property="og:image:alt" content="An R package for thematic cartography" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@rgeomatic" />
+<meta name="twitter:site" content="@rgeomatic" />
 
 
 
@@ -103,7 +107,12 @@ a position that minimizes overlap between a spatial object and a legend." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/riatelab/mapsf/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -118,7 +127,7 @@ a position that minimizes overlap between a spatial object and a legend." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get the optimal position of a legend</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_get_leg_pos.R'><code>R/mf_get_leg_pos.R</code></a></small>
     <div class="hidden name"><code>mf_get_leg_pos.Rd</code></div>
     </div>
 
@@ -147,7 +156,7 @@ a position that minimizes overlap between a spatial object and a legend.</p>
     <p>A vector of position is retured</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_import_mtq.html'>mf_import_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'>mf_get_leg_pos</span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "topright"</div></pre>
   </div>

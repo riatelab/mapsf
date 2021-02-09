@@ -52,7 +52,11 @@
 <meta property="og:description" content="Plot an invisible layer with the extent of a spatial object.
 Export a map in png or svg format. It uses a reference
 geographic layer to find a correct ratio for the export." />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="/reference/figures/logo.png" />
+<meta property="og:image:alt" content="An R package for thematic cartography" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@rgeomatic" />
+<meta name="twitter:site" content="@rgeomatic" />
 
 
 
@@ -104,7 +108,12 @@ geographic layer to find a correct ratio for the export." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/riatelab/mapsf/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -119,7 +128,7 @@ geographic layer to find a correct ratio for the export." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Initialize or export a map</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_init.R'><code>R/mf_init.R</code></a></small>
     <div class="hidden name"><code>mf_init.Rd</code></div>
     </div>
 
@@ -201,7 +210,7 @@ the bounding box)</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_import_mtq.html'>mf_import_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>target</span> <span class='op'>&lt;-</span> <span class='va'>mtq</span><span class='op'>[</span><span class='fl'>30</span>, <span class='op'>]</span>
 <span class='fu'>mf_init</span><span class='op'>(</span><span class='va'>target</span>, bg <span class='op'>=</span> <span class='st'>"lightblue"</span><span class='op'>)</span>
 </div><div class='input'><span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>

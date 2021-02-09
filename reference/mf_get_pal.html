@@ -53,7 +53,11 @@
 qualitative color palettes.
 Diverging color palettes can be dissymmetric (different number of colors in
 each of the two gradients)." />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="/reference/figures/logo.png" />
+<meta property="og:image:alt" content="An R package for thematic cartography" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@rgeomatic" />
+<meta name="twitter:site" content="@rgeomatic" />
 
 
 
@@ -105,7 +109,12 @@ each of the two gradients)." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/riatelab/mapsf/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -120,7 +129,7 @@ each of the two gradients)." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get color palettes</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_get_pal.R'><code>R/mf_get_pal.R</code></a></small>
     <div class="hidden name"><code>mf_get_pal.Rd</code></div>
     </div>
 
@@ -142,18 +151,22 @@ each of the two gradients).</p>
     </tr>
     <tr>
       <th>palette</th>
-      <td><p>a valid palette name (one of hcl.pals()). The name is matched to
-the list of available palettes, ignoring upper vs. lower case, spaces, dashes,
+      <td><p>a valid palette name (one of hcl.pals()). The name is matched
+to
+the list of available palettes, ignoring upper vs. lower case, spaces,
+dashes,
 etc. in the matching.</p></td>
     </tr>
     <tr>
       <th>alpha</th>
       <td><p>an alpha-transparency level in the range [0,1] (0 means
-transparent and 1 means opaque), see argument alpha in hsv and hcl, respectively.</p></td>
+transparent and 1 means opaque), see argument alpha in hsv and hcl,
+respectively.</p></td>
     </tr>
     <tr>
       <th>rev</th>
-      <td><p>logical indicating whether the ordering of the colors should be reversed.</p></td>
+      <td><p>logical indicating whether the ordering of the colors should be
+reversed.</p></td>
     </tr>
     <tr>
       <th>neutral</th>
@@ -172,21 +185,24 @@ If two gradients are used, the 'neutral' color can be added between them.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>10</span>, pal <span class='op'>=</span> <span class='st'>"Reds 2"</span><span class='op'>)</span>
-<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_get_pal-1.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='fl'>7</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_get_pal-2.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>,<span class='fl'>5</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_get_pal-3.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>,<span class='fl'>3</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_get_pal-4.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>,<span class='fl'>5</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span>, neutral <span class='op'>=</span> <span class='st'>"grey"</span><span class='op'>)</span>
-<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>11</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>11</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+</div><div class='img'><img src='mf_get_pal-1.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>7</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+</div><div class='img'><img src='mf_get_pal-2.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>5</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+</div><div class='img'><img src='mf_get_pal-3.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>, <span class='fl'>3</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+</div><div class='img'><img src='mf_get_pal-4.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>5</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span>, neutral <span class='op'>=</span> <span class='st'>"grey"</span><span class='op'>)</span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>11</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
 </div><div class='img'><img src='mf_get_pal-5.png' alt='' width='672' height='672' /></div><div class='input'><span class='va'>opar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>bg <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span>
-<span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>,<span class='fl'>3</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.3</span>,<span class='fl'>.7</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+<span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>, <span class='fl'>3</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.3</span>, <span class='fl'>.7</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
 </div><div class='img'><img src='mf_get_pal-6.png' alt='' width='672' height='672' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='va'>opar</span><span class='op'>)</span>
-<span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>,<span class='fl'>5</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span>, rev <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+<span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'>mf_get_pal</span><span class='op'>(</span>
+  n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>5</span><span class='op'>)</span>, pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Reds 2"</span>, <span class='st'>"Greens"</span><span class='op'>)</span>,
+  rev <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>10</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='va'>cols</span>, pch <span class='op'>=</span> <span class='fl'>22</span>, cex <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
 </div><div class='img'><img src='mf_get_pal-7.png' alt='' width='672' height='672' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
