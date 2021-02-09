@@ -1,0 +1,46 @@
+Package: mapsf
+Title: Thematic Cartography
+Version: 0.1.0.0
+Authors@R: c(
+    person("Timothée", "Giraud", email = "timothee.giraud@cnrs.fr", 
+        role = c("cre","aut"), comment = c(ORCID = "0000-0002-1932-3323")), 
+    person("Diego", "Hernangómez", role = "ctb", 
+        comment=c(ORCID="0000-0001-8457-4658")),
+    person("Ian", "Fellows", role = "cph", 
+        comment = "no overlap algorithm for labels, from wordcloud package"), 
+    person("Jim", "Lemon", role = "cph", 
+        comment = "arc drawing algorithm for annotations, from plotrix package")
+    )
+Description: Create and integrate thematic maps in your workflow. This package
+    helps to design various cartographic representations such as proportional
+    symbols, choropleth or typology maps. It also offers several functions to
+    display layout elements that improve the graphic presentation of maps
+    (e.g. scale bar, north arrow, title, labels). `mapsf` maps `sf` objects on
+    `base` graphics.
+License: GPL-3
+LazyData: true
+URL: https://github.com/riatelab/mapsf/
+BugReports: https://github.com/riatelab/mapsf/issues/
+Depends: 
+    R (>= 3.5.0),
+    sf
+Imports: 
+    classInt, 
+    graphics,
+    methods,
+    Rcpp,
+    stats,
+    utils,
+    grDevices
+Suggests: 
+    raster,
+    rgdal,
+    lwgeom,
+    knitr,
+    rmarkdown,
+    tinytest, 
+    covr
+LinkingTo: Rcpp
+Encoding: UTF-8
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr

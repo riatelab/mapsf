@@ -1,0 +1,53 @@
+home:
+  title: An R package for thematic cartography
+  description: >
+    Create maps with simple features. mapsf helps to map sf objects and
+    offers features that improve the graphic presentation of maps
+    (e.g. scale bar, north arrow, title, credits, or legends).
+
+template:
+  opengraph:
+    image:
+      src: man/figures/logo.png
+      alt: "An R package for thematic cartography"
+    twitter:
+      creator: "@rgeomatic"
+      card: summary_large_image
+
+
+reference:
+  - title: "Symbology"
+    desc: These functions build cartographic layers.
+    contents:
+    - mf_map
+    - mf_label
+    - mf_raster
+  - title: "Map Layout"
+    desc: These functions are dedicated to the map layout design.
+    contents:
+    - mf_init
+    - mf_theme
+    - mf_legend
+    - mf_annotation
+    - mf_arrow
+    - mf_credits
+    - mf_layout
+    - mf_title
+    - mf_scale
+  - title: "Utility Functions"
+    desc: These functions are useful for some utility tasks.
+    contents:
+    - mf_get_links
+    - mf_get_pal
+    - mf_get_breaks
+    - mf_get_mtq
+
+figures:
+  dev: grDevices::png
+  dpi: 96
+  dev.args: []
+  fig.ext: png
+  fig.width: 7
+  fig.height: 7
+  fig.retina: 2
+  fig.asp: 1

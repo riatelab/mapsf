@@ -1,0 +1,11 @@
+mtq <- mf_get_mtq()
+mf_map(mtq)
+expect_silent(mf_map(mtq, var = "POP", type = "prop"))
+expect_silent(mf_map(mtq, var = "MED", type = "choro"))
+expect_silent(mf_map(mtq, var = "STATUS", type = "typo"))
+expect_silent(mf_map(mtq, var = "STATUS", type = "symb"))
+expect_silent(mf_map(mtq, var = "POP", type = "grad"))
+expect_silent(mf_map(mtq, var = c('POP', 'MED'), type = 'prop_choro'))
+expect_silent(mf_map(mtq, var = c('POP', 'STATUS'), type = 'prop_typo'))
+expect_silent(mf_map(mtq, var = c('STATUS', 'MED'), type = 'symb_choro'))
+
