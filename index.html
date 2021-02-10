@@ -88,32 +88,33 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>Create maps with simple features. <code>mapsf</code> helps to map <code>sf</code> objects and offers features that improve the graphic presentation of maps (scale bar, north arrow, title or legend).</p>
+<p>Create and integrate thematic maps in your R workflow. This package helps to design various cartographic representations such as proportional symbols, choropleth or typology maps. It also offers several functions to display layout elements that improve the graphic presentation of maps (e.g. scale bar, north arrow, title, labels). <code>mapsf</code> maps <code>sf</code> objects on <code>base</code> graphics.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of mapsf from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<!-- You can install the released version of mapsf  -->
+<!-- from [CRAN](https://CRAN.R-project.org) with: -->
+<!-- ``` r -->
+<!-- install.packages("mapsf") -->
+<!-- ``` -->
+<!-- Alternatively,  -->
+<p>You can install the development version of <code>mapsf</code> from GitHub with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></code></pre></div>
-<p>Alternatively, you can install the development version of mapsf from GitHub with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"riatelab/mapsf"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
 <p>This is a basic example which shows you how to create a map with <code>mapsf</code>. The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf_map()</a></code>.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
-<span class="co">#&gt; Loading required package: sf</span>
-<span class="co">#&gt; Linking to GEOS 3.7.1, GDAL 3.1.2, PROJ 7.1.0</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span>
 <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span>
 <span class="fu"><a href="reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-example-1.png"><!-- --></p>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.png"><!-- --></p>
 <p>A more detailed example:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span>, shadow <span class="op">=</span> <span class="cn">TRUE</span>, shadow_col <span class="op">=</span> <span class="st">"grey10"</span>,
         export <span class="op">=</span> <span class="st">"svg"</span>, filename <span class="op">=</span> <span class="st">"man/figures/mtq.svg"</span>, width <span class="op">=</span> <span class="fl">6</span>, 
         expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.3</span><span class="op">)</span><span class="op">)</span> 
@@ -130,6 +131,12 @@
 <span class="fu"><a href="reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="st">'topleft'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/mtq.svg"></p>
+</div>
+<div id="main-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#main-features" class="anchor"></a>Main features</h2>
+<p>The <strong>type</strong> column indicates the value to use for the <code>type</code> argument in <code><a href="reference/mf_map.html">mf_map(x, var, type)</a></code>. The <strong>data</strong> column displays the relevant data types for each map types.</p>
+<p><img src="reference/figures/features.png"></p>
 </div>
 <div id="background" class="section level2">
 <h2 class="hasAnchor">
@@ -153,7 +160,8 @@
 <div id="community-guidelines" class="section level2">
 <h2 class="hasAnchor">
 <a href="#community-guidelines" class="anchor"></a>Community Guidelines</h2>
-<p>One can contribute to the package through <a href="https://github.com/riatelab/mapsf/pulls">pull requests</a> and report issues or ask questions <a href="https://github.com/riatelab/mapsf/issues">here</a>.</p>
+<p>One can contribute to the package through <a href="https://github.com/riatelab/mapsf/pulls">pull requests</a> and report issues or ask questions <a href="https://github.com/riatelab/mapsf/issues">here</a>.<br>
+This project uses <a href="https://www.conventionalcommits.org/en/v1.0.0-beta.3/">conventional commits</a> and <a href="https://semver.org/">semantic versioning</a>.</p>
 </div>
 </div>
   </div>
