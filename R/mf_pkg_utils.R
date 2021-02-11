@@ -34,3 +34,4 @@ globalVariables(".gmapsf", package = "mapsf", add = FALSE)
   cex = 1,
   font = 2
 )
+.gmapsf$inset <- FALSE
