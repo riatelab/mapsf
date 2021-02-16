@@ -105,19 +105,28 @@
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
-<p>This is a basic example which shows you how to create a map with <code>mapsf</code>. The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf_map()</a></code>.</p>
+<p>This is a basic example which shows how to create a map with <code>mapsf</code>.<br>
+The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf_map()</a></code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<span class="co"># Import the sample dataset</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co"># Plot the base map</span>
 <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span>
+<span class="co"># Plot proportional symbols</span>
 <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span>
-<span class="fu"><a href="reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-2-1.png"><!-- --></p>
+<span class="co"># Plot a map layout</span>
+<span class="fu"><a href="reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population in Martinique"</span>, 
+          credits <span class="op">=</span> <span class="st">"T. Giraud; Sources: INSEE &amp; IGN, 2018"</span>, 
+          frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-example2-1.png"><!-- --></p>
 <p>A more detailed example:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span>, shadow <span class="op">=</span> <span class="cn">TRUE</span>, shadow_col <span class="op">=</span> <span class="st">"grey10"</span>,
+<code class="sourceCode R"><span class="co"># Initiate a map figure with a theme, margins and a shadow</span>
+<span class="fu"><a href="reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span>, shadow <span class="op">=</span> <span class="cn">TRUE</span>, shadow_col <span class="op">=</span> <span class="st">"grey10"</span>,
         export <span class="op">=</span> <span class="st">"svg"</span>, filename <span class="op">=</span> <span class="st">"man/figures/mtq.svg"</span>, width <span class="op">=</span> <span class="fl">6</span>, 
         expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.3</span><span class="op">)</span><span class="op">)</span> 
+<span class="co"># Plot a choropleth map</span>
 <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,
        pal <span class="op">=</span> <span class="st">"Dark Mint"</span>, 
        breaks <span class="op">=</span> <span class="st">"quantile"</span>, 
@@ -125,12 +134,31 @@
        leg_title <span class="op">=</span> <span class="st">"Median Income\n(euros)"</span>, 
        leg_val_rnd <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>, 
        add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
+<span class="co"># Start an inset map</span>
+<span class="fu"><a href="reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"worldmap"</span>, pos <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span>
+<span class="co"># Plot the position of the sample dataset on a worlmap</span>
+<span class="fu"><a href="reference/mf_worldmap.html">mf_worldmap</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"#0E3F5C"</span><span class="op">)</span>
+<span class="co"># Close the inset</span>
+<span class="fu"><a href="reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co"># Plot a title</span>
 <span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Wealth in Martinique, 2015"</span><span class="op">)</span>
+<span class="co"># Plot credits</span>
 <span class="fu"><a href="reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="st">"T. Giraud\nSources: INSEE &amp; IGN, 2018"</span><span class="op">)</span>
+<span class="co"># Plot a scale bar</span>
 <span class="fu"><a href="reference/mf_scale.html">mf_scale</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<span class="co"># Plot a north arrow</span>
 <span class="fu"><a href="reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="st">'topleft'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/mtq.svg"></p>
+<p>Note that <code>mapsf</code> is, to a certain degree, compatible with the pipe syntax:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"barcelona"</span><span class="op">)</span>
+<span class="fu"><a href="reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"prop"</span>, col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>
+<span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span>fg <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-example4-1.png"><!-- --></p>
 </div>
 <div id="main-features" class="section level2">
 <h2 class="hasAnchor">
