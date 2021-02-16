@@ -9,13 +9,12 @@
 #' @export
 #' @details
 #' If x is used (with pos and cex), the width/height ratio of the inset will
-#' match the width/height ratio of x bounding box.
+#' match the width/height ratio of x bounding box.\cr
 #' If fig is used, coordinates (xmin, xmax, ymin, ymax) are expressed as
-#' frations of the mapping space (i.e. excluding margins)
+#' frations of the mapping space (i.e. excluding margins).\cr
 #' If map layers have to be plotted after the inset (i.e after mf_inset_off()),
-#' please use add = TRUE.
-#' It is safer to plot the inset map as the last step of the map making process.
-#' It is not possible to plot an inset within an inset.
+#' please use add = TRUE.\cr
+#' It is not possible to plot an inset within an inset.\cr
 #' It is possible to plot anything (base plots) within the inset, not only map layers.
 #'
 #' @examples
@@ -36,7 +35,9 @@
 #' mf_inset_off()
 mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
   if(.gmapsf$inset){
-    stop("You have already started an inset. Use `mf_inset_off()` to close the current inset.", call. = FALSE)
+    stop(paste0("You have already started an inset. ",
+                "Use `mf_inset_off()` to close the current inset."),
+         call. = FALSE)
   }
   .gmapsf$inset <- TRUE
   pmar <- par("mar")
@@ -108,8 +109,6 @@ mf_inset_off <- function() {
   mf_theme(.gmapsf$oth)
   par(mar = .gmapsf$par$mar)
   points(1,1, col = NA)
-  # rm(par, envir = .gmapsf)
-  # rm(oth, envir = .gmapsf)
 }
 
 
@@ -142,54 +141,54 @@ posinset <- function(pos, pusr, wdest, hdest) {
   pusr <- pusr + c(inset, -inset, inset, -inset)
 
   xy <- switch(pos,
-    bottomleft = c(
-      pusr[1],
-      pusr[1] + wdest,
-      pusr[3],
-      pusr[3] + hdest
-    ),
-    topleft = c(
-      pusr[1],
-      pusr[1] + wdest,
-      pusr[4] - hdest,
-      pusr[4]
-    ),
-    left = c(
-      pusr[1],
-      pusr[1] + wdest,
-      pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
-      pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
-    ),
-    top = c(
-      pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
-      pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
-      pusr[4] - hdest,
-      pusr[4]
-    ),
-    bottom = c(
-      pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
-      pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
-      pusr[3],
-      pusr[3] + hdest
-    ),
-    bottomright = c(
-      pusr[2] - wdest,
-      pusr[2],
-      pusr[3],
-      pusr[3] + hdest
-    ),
-    right = c(
-      pusr[2] - wdest,
-      pusr[2],
-      pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
-      pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
-    ),
-    topright = c(
-      pusr[2] - wdest,
-      pusr[2],
-      pusr[4] - hdest,
-      pusr[4]
-    )
+               bottomleft = c(
+                 pusr[1],
+                 pusr[1] + wdest,
+                 pusr[3],
+                 pusr[3] + hdest
+               ),
+               topleft = c(
+                 pusr[1],
+                 pusr[1] + wdest,
+                 pusr[4] - hdest,
+                 pusr[4]
+               ),
+               left = c(
+                 pusr[1],
+                 pusr[1] + wdest,
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+               ),
+               top = c(
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+                 pusr[4] - hdest,
+                 pusr[4]
+               ),
+               bottom = c(
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+                 pusr[3],
+                 pusr[3] + hdest
+               ),
+               bottomright = c(
+                 pusr[2] - wdest,
+                 pusr[2],
+                 pusr[3],
+                 pusr[3] + hdest
+               ),
+               right = c(
+                 pusr[2] - wdest,
+                 pusr[2],
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+               ),
+               topright = c(
+                 pusr[2] - wdest,
+                 pusr[2],
+                 pusr[4] - hdest,
+                 pusr[4]
+               )
   )
   xy
 }

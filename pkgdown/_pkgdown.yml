@@ -34,6 +34,8 @@ reference:
     - mf_layout
     - mf_title
     - mf_scale
+    - mf_inset_on
+    - mf_worldmap
   - title: "Utility Functions"
     desc: These functions are useful for some utility tasks.
     contents:

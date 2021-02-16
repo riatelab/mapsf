@@ -24,13 +24,12 @@ This function is used to add an inset map to the current map.
 }
 \details{
 If x is used (with pos and cex), the width/height ratio of the inset will
-match the width/height ratio of x bounding box.
+match the width/height ratio of x bounding box.\cr
 If fig is used, coordinates (xmin, xmax, ymin, ymax) are expressed as
-frations of the mapping space (i.e. excluding margins)
+frations of the mapping space (i.e. excluding margins).\cr
 If map layers have to be plotted after the inset (i.e after mf_inset_off()),
-please use add = TRUE.
-It is safer to plot the inset map as the last step of the map making process.
-It is not possible to plot an inset within an inset.
+please use add = TRUE.\cr
+It is not possible to plot an inset within an inset.\cr
 It is possible to plot anything (base plots) within the inset, not only map layers.
 }
 \note{
