@@ -1,6 +1,6 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 0.1.0.0
+Version: 0.1.0
 Authors@R: c(
     person("Timothée", "Giraud", email = "timothee.giraud@cnrs.fr", 
         role = c("cre","aut"), comment = c(ORCID = "0000-0002-1932-3323")), 
@@ -21,7 +21,7 @@ Description: Create and integrate thematic maps in your workflow. This package
     `base` graphics.
 License: GPL-3
 LazyData: true
-URL: https://github.com/riatelab/mapsf/
+URL: https://github.com/riatelab/mapsf/, https://riatelab.github.io/mapsf/
 BugReports: https://github.com/riatelab/mapsf/issues/
 Depends: 
     R (>= 3.5.0),
