@@ -7,9 +7,11 @@ Authors@R: c(
     person("Diego", "Hernangómez", role = "ctb", 
         comment=c(ORCID="0000-0001-8457-4658")),
     person("Ian", "Fellows", role = "cph", 
-        comment = "no overlap algorithm for labels, from wordcloud package"), 
+        comment = "No overlap algorithm for labels, from wordcloud package"), 
     person("Jim", "Lemon", role = "cph", 
-        comment = "arc drawing algorithm for annotations, from plotrix package")
+        comment = "Arc drawing algorithm for annotations, from plotrix package"),
+    person("Florian",  "Zenoni", role = "cph",
+        comment = "Orthographic projection visualisation")
     )
 Description: Create and integrate thematic maps in your workflow. This package
     helps to design various cartographic representations such as proportional
@@ -38,9 +40,11 @@ Suggests:
     lwgeom,
     knitr,
     rmarkdown,
-    tinytest, 
-    covr
+    tinytest,
+    covr,
+    spelling
 LinkingTo: Rcpp
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
+Language: en-US
