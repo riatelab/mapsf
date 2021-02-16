@@ -33,25 +33,33 @@ remotes::install_github("riatelab/mapsf")
 
 ## Examples
 
-This is a basic example which shows you how to create a map with
-`mapsf`. The main `mapsf` function is `mf_map()`.
+This is a basic example which shows how to create a map with `mapsf`.  
+The main `mapsf` function is `mf_map()`.
 
 ``` r
 library(mapsf)
+# Import the sample dataset
 mtq <- mf_get_mtq()
+# Plot the base map
 mf_map(x = mtq)
+# Plot proportional symbols
 mf_map(x = mtq, var = "POP", type = "prop")
-mf_layout(frame = TRUE)
+# Plot a map layout
+mf_layout(title = "Population in Martinique", 
+          credits = "T. Giraud; Sources: INSEE & IGN, 2018", 
+          frame = TRUE)
 ```
 
-![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
+![](man/figures/README-example2-1.png)<!-- -->
 
 A more detailed example:
 
 ``` r
+# Initiate a map figure with a theme, margins and a shadow
 mf_init(x = mtq, theme = "dark", shadow = TRUE, shadow_col = "grey10",
         export = "svg", filename = "man/figures/mtq.svg", width = 6, 
         expandBB = c(0,0,0,.3)) 
+# Plot a choropleth map
 mf_map(x = mtq, var = "MED", type = "choro",
        pal = "Dark Mint", 
        breaks = "quantile", 
@@ -59,14 +67,38 @@ mf_map(x = mtq, var = "MED", type = "choro",
        leg_title = "Median Income\n(euros)", 
        leg_val_rnd = -2, 
        add = T)
+# Start an inset map
+mf_inset_on(x = "worldmap", pos = "right")
+# Plot the position of the sample dataset on a worlmap
+mf_worldmap(mtq, col = "#0E3F5C")
+# Close the inset
+mf_inset_off()
+# Plot a title
 mf_title("Wealth in Martinique, 2015")
+# Plot credits
 mf_credits("T. Giraud\nSources: INSEE & IGN, 2018")
+# Plot a scale bar
 mf_scale(size = 5)
+# Plot a north arrow
 mf_arrow('topleft')
 dev.off()
 ```
 
 ![](man/figures/mtq.svg)
+
+Note that `mapsf` is, to a certain degree, compatible with the pipe
+syntax:
+
+``` r
+library(magrittr)
+mf_theme("barcelona")
+mf_get_mtq() %>% 
+  mf_map() %>%
+  mf_map("POP", "prop", col = "white")
+mf_title(fg = "white")
+```
+
+![](man/figures/README-example4-1.png)<!-- -->
 
 ## Main features
 
