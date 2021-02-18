@@ -29,6 +29,16 @@ mf_title <- function(txt = "Map Title", pos, tab,
   if (missing(bg)) bg <- ar$fg
   if (missing(fg)) fg <- ar$bg
 
+
+  # correct line space for multiplot
+  mmf <- par("mfrow")
+  if (mmf[1] == 2 && mmf[2] == 2){
+    line <- line * 0.83
+  }
+  if(max(mmf)>2){
+    line <- line * .66
+  }
+
   # size refs
   pu <- par("usr")
   hbox <- line * 0.2 * xinch(1)
