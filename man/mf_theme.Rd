@@ -4,29 +4,71 @@
 \alias{mf_theme}
 \title{Set a theme}
 \usage{
-mf_theme(x)
+mf_theme(
+  x,
+  bg = "white",
+  fg = "black",
+  mar = c(5.1, 4.1, 4.1, 2.1),
+  tab = TRUE,
+  pos = "left",
+  inner = FALSE,
+  line = 1.2,
+  cex = 1,
+  font = 2
+)
 }
 \arguments{
 \item{x}{name of a map theme. One of "default", "brutal", "ink",
 "dark", "agolalight", "candy", "darkula", "iceberg", "green", "nevermind",
-"jsk", "barcelona".
-It is also possible to set a custom theme (see Examples).
-The parameters set by this function are the figure margins, background and
-foreground colors and some \link{mf_title} options.
-Use \code{mf_theme('default')} to reset theme settings.}
+"jsk", "barcelona". If x is used other parameters are ignored.}
+
+\item{bg}{background color}
+
+\item{fg}{foreground color}
+
+\item{mar}{margins}
+
+\item{tab}{if TRUE the title is displayed as a 'tab'}
+
+\item{pos}{position, one of 'left', 'center', 'right'}
+
+\item{inner}{if TRUE the title is displayed inside the plot area.}
+
+\item{line}{number of lines used for the title}
+
+\item{cex}{cex of the title}
+
+\item{font}{font of the title}
 }
 \value{
-The (invisible) list of parameters of the current theme.
+The (invisible) list of theme parameters is returned.
 }
 \description{
-This function set a color theme.
+This function set a map theme.
+The parameters set by this function are the figure margins, background and
+foreground colors and some \link{mf_title} options.
+}
+\details{
+It is also possible to set a custom theme using a list of arguments
+(see Examples).
+Use \code{mf_theme('default')} to reset theme settings.
 }
 \examples{
 mtq <- mf_get_mtq()
+
+# built-in theme
 mf_theme("green")
 mf_map(mtq)
 mf_title()
 
+# theme from arguments
+mf_theme(bg = "darkslategrey", fg = "cornsilk3", mar = c(2,2,4,2),
+         tab = FALSE, pos = "center", inner = FALSE,
+         line = 2, cex = 2, font = 4)
+mf_map(mtq)
+mf_layout()
+
+# theme from list
 custom <- list(
   name = "custom",
   bg = "green",
@@ -42,5 +84,6 @@ custom <- list(
 mf_theme(custom)
 mf_map(mtq)
 mf_title()
-mf_theme("default")
+
+(mf_theme("default"))
 }
