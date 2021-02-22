@@ -49,7 +49,9 @@
   
 
 <meta property="og:title" content="Set a theme — mf_theme" />
-<meta property="og:description" content="This function set a color theme." />
+<meta property="og:description" content="This function set a map theme.
+The parameters set by this function are the figure margins, background and
+foreground colors and some mf_title options." />
 <meta property="og:image" content="/reference/figures/logo.png" />
 <meta property="og:image:alt" content="An R package for thematic cartography" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -131,10 +133,23 @@
     </div>
 
     <div class="ref-description">
-    <p>This function set a color theme.</p>
+    <p>This function set a map theme.
+The parameters set by this function are the figure margins, background and
+foreground colors and some <a href='mf_title.html'>mf_title</a> options.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mf_theme</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mf_theme</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  bg <span class='op'>=</span> <span class='st'>"white"</span>,
+  fg <span class='op'>=</span> <span class='st'>"black"</span>,
+  mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5.1</span>, <span class='fl'>4.1</span>, <span class='fl'>4.1</span>, <span class='fl'>2.1</span><span class='op'>)</span>,
+  tab <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  pos <span class='op'>=</span> <span class='st'>"left"</span>,
+  inner <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  line <span class='op'>=</span> <span class='fl'>1.2</span>,
+  cex <span class='op'>=</span> <span class='fl'>1</span>,
+  font <span class='op'>=</span> <span class='fl'>2</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,24 +158,71 @@
       <th>x</th>
       <td><p>name of a map theme. One of "default", "brutal", "ink",
 "dark", "agolalight", "candy", "darkula", "iceberg", "green", "nevermind",
-"jsk", "barcelona".
-It is also possible to set a custom theme (see Examples).
-The parameters set by this function are the figure margins, background and
-foreground colors and some <a href='mf_title.html'>mf_title</a> options.
-Use <code>mf_theme('default')</code> to reset theme settings.</p></td>
+"jsk", "barcelona". If x is used other parameters are ignored.</p></td>
+    </tr>
+    <tr>
+      <th>bg</th>
+      <td><p>background color</p></td>
+    </tr>
+    <tr>
+      <th>fg</th>
+      <td><p>foreground color</p></td>
+    </tr>
+    <tr>
+      <th>mar</th>
+      <td><p>margins</p></td>
+    </tr>
+    <tr>
+      <th>tab</th>
+      <td><p>if TRUE the title is displayed as a 'tab'</p></td>
+    </tr>
+    <tr>
+      <th>pos</th>
+      <td><p>position, one of 'left', 'center', 'right'</p></td>
+    </tr>
+    <tr>
+      <th>inner</th>
+      <td><p>if TRUE the title is displayed inside the plot area.</p></td>
+    </tr>
+    <tr>
+      <th>line</th>
+      <td><p>number of lines used for the title</p></td>
+    </tr>
+    <tr>
+      <th>cex</th>
+      <td><p>cex of the title</p></td>
+    </tr>
+    <tr>
+      <th>font</th>
+      <td><p>font of the title</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The (invisible) list of parameters of the current theme.</p>
+    <p>The (invisible) list of theme parameters is returned.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>It is also possible to set a custom theme using a list of arguments
+(see Examples).
+Use <code>mf_theme('default')</code> to reset theme settings.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># built-in theme</span>
 <span class='fu'>mf_theme</span><span class='op'>(</span><span class='st'>"green"</span><span class='op'>)</span>
 <span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
 </div><div class='input'><span class='fu'><a href='mf_title.html'>mf_title</a></span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='img'><img src='mf_theme-1.png' alt='' width='672' height='672' /></div><div class='input'>
+<span class='co'># theme from arguments</span>
+<span class='fu'>mf_theme</span><span class='op'>(</span>bg <span class='op'>=</span> <span class='st'>"darkslategrey"</span>, fg <span class='op'>=</span> <span class='st'>"cornsilk3"</span>, mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>4</span>,<span class='fl'>2</span><span class='op'>)</span>,
+         tab <span class='op'>=</span> <span class='cn'>FALSE</span>, pos <span class='op'>=</span> <span class='st'>"center"</span>, inner <span class='op'>=</span> <span class='cn'>FALSE</span>,
+         line <span class='op'>=</span> <span class='fl'>2</span>, cex <span class='op'>=</span> <span class='fl'>2</span>, font <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+<span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='mf_layout.html'>mf_layout</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='img'><img src='mf_theme-2.png' alt='' width='672' height='672' /></div><div class='input'>
+<span class='co'># theme from list</span>
 <span class='va'>custom</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
   name <span class='op'>=</span> <span class='st'>"custom"</span>,
   bg <span class='op'>=</span> <span class='st'>"green"</span>,
@@ -176,8 +238,38 @@ Use <code>mf_theme('default')</code> to reset theme settings.</p></td>
 <span class='fu'>mf_theme</span><span class='op'>(</span><span class='va'>custom</span><span class='op'>)</span>
 <span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
 </div><div class='input'><span class='fu'><a href='mf_title.html'>mf_title</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_theme-2.png' alt='' width='672' height='672' /></div><div class='input'><span class='fu'>mf_theme</span><span class='op'>(</span><span class='st'>"default"</span><span class='op'>)</span>
-</div></pre>
+</div><div class='img'><img src='mf_theme-3.png' alt='' width='672' height='672' /></div><div class='input'>
+<span class='op'>(</span><span class='fu'>mf_theme</span><span class='op'>(</span><span class='st'>"default"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $name
+#&gt; [1] "default"
+#&gt; 
+#&gt; $bg
+#&gt; [1] "white"
+#&gt; 
+#&gt; $fg
+#&gt; [1] "black"
+#&gt; 
+#&gt; $mar
+#&gt; [1] 5.1 4.1 4.1 2.1
+#&gt; 
+#&gt; $tab
+#&gt; [1] TRUE
+#&gt; 
+#&gt; $pos
+#&gt; [1] "left"
+#&gt; 
+#&gt; $inner
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $line
+#&gt; [1] 1.2
+#&gt; 
+#&gt; $cex
+#&gt; [1] 1
+#&gt; 
+#&gt; $font
+#&gt; [1] 2
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
