@@ -64,7 +64,7 @@ mf_prop <- function(x,
     maxval <- max(x[[var]])
     x$lwd <- x[[var]] * lwd_max / maxval
     if (add == FALSE) {
-      mf_init(x, bg = bg)
+      mf_init(x)
     }
     par(lend = 1)
     mf_map(x, lwd = x$lwd, add = TRUE, col = col)
@@ -114,7 +114,7 @@ mf_prop <- function(x,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x, bg = bg)
+    mf_init(x)
   }
 
   # Plot the symbols

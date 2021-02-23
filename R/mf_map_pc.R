@@ -110,7 +110,7 @@ mf_prop_choro <- function(x,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x, bg = bg)
+    mf_init(x)
   }
 
   # Plot the symbols

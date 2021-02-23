@@ -109,7 +109,7 @@ mf_prop_typo <- function(x, var,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x, bg = bg)
+    mf_init(x)
   }
 
   # Plot the symbols

@@ -141,7 +141,9 @@ Several datasets are embedded in the package:
 
 ## Base map
 
-`mf_init()` is designed to initiate a map centered on a specific extent (`x` bbox). The `theme` argument allow to select a theme and the `shadow` argument add a shadow.
+`mf_init()` is designed to initiate a map centered on a specific extent (`x` bbox). The `theme` argument allows to select a theme. 
+
+`mf_shadow()` plots the shadow of a polygon layer. 
 
 `mf_map(x, type = "base")` displays `sf` objects geometries.
 
@@ -152,7 +154,9 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # Initiate a base map
-mf_init(x = mtq, shadow = TRUE, theme = "iceberg")
+mf_init(x = mtq, theme = "iceberg")
+# Plot a shadow
+mf_shadow(mtq, add = TRUE)
 # plot municipalities 
 mf_map(mtq, type = "base", add = TRUE)
 # layout
@@ -171,7 +175,9 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # Initiate a base map
-mf_init(x = mtq, shadow = TRUE, theme = "iceberg")
+mf_init(x = mtq, theme = "iceberg")
+# Plot a shadow
+mf_shadow(mtq, add = TRUE)
 # plot municipalities 
 mf_map(mtq, add = TRUE)
 # plot population
@@ -272,7 +278,9 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # set theme
-mf_init(x = mtq, shadow = T, theme = "candy", expandBB = c(0,0,0,.15))
+mf_init(x = mtq, theme = "candy", expandBB = c(0,0,0,.15))
+# Plot a shadow
+mf_shadow(mtq, add = TRUE)
 # Plot the municipalities
 mf_map(mtq, add = TRUE)
 # Plot symbols with choropleth coloration
@@ -308,7 +316,9 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # set theme
-mf_init(x = mtq, shadow = T, theme = "ink", expandBB = c(0,0,0,.15))
+mf_init(x = mtq, theme = "ink", expandBB = c(0,0,0,.15))
+# Plot a shadow
+mf_shadow(mtq, add = TRUE)
 # Plot the municipalities
 mf_map(mtq, add = TRUE)
 # Plot symbols with choropleth coloration
@@ -399,7 +409,9 @@ mob_97209 <- mob[mob$i == 97209, ]
 mob_links <- mf_get_links(x = mtq, df = mob_97209)
 # set figure background color
 # set theme
-mf_init(x = mtq, shadow = T, theme = "dark")
+mf_init(x = mtq, theme = "dark")
+# Plot a shadow
+mf_shadow(mtq, add = TRUE)
 # Plot the municipalities
 mf_map(mtq, add = TRUE)
 # plot graduated links

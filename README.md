@@ -38,6 +38,8 @@ The main `mapsf` function is `mf_map()`.
 
 ``` r
 library(mapsf)
+#> Loading required package: sf
+#> Linking to GEOS 3.7.1, GDAL 3.1.2, PROJ 7.1.0
 # Import the sample dataset
 mtq <- mf_get_mtq()
 # Plot the base map
@@ -48,17 +50,19 @@ mf_map(x = mtq, var = "POP", type = "prop")
 mf_layout(title = "Population in Martinique", 
           credits = "T. Giraud; Sources: INSEE & IGN, 2018", 
           frame = TRUE)
+box(which = "figure")
 ```
 
-![](man/figures/README-example2-1.png)<!-- -->
+![](man/figures/README-example1-1.png)<!-- -->
 
 A more detailed example:
 
 ``` r
-# Initiate a map figure with a theme, margins and a shadow
-mf_init(x = mtq, theme = "dark", shadow = TRUE, shadow_col = "grey10",
-        export = "svg", filename = "man/figures/mtq.svg", width = 6, 
-        expandBB = c(0,0,0,.3)) 
+# Initiate a map figure with a theme and extra margins 
+mf_init(x = mtq, theme = "dark", expandBB = c(0,0,0,.3),
+        export = "svg", filename = "man/figures/mtq.svg", width = 6) 
+# Plot a shadow
+mf_shadow(mtq, col = "grey10", add = TRUE)
 # Plot a choropleth map
 mf_map(x = mtq, var = "MED", type = "choro",
        pal = "Dark Mint", 
@@ -66,7 +70,7 @@ mf_map(x = mtq, var = "MED", type = "choro",
        nbreaks = 6, 
        leg_title = "Median Income\n(euros)", 
        leg_val_rnd = -2, 
-       add = T)
+       add = TRUE)
 # Start an inset map
 mf_inset_on(x = "worldmap", pos = "right")
 # Plot the position of the sample dataset on a worlmap
@@ -91,11 +95,12 @@ syntax:
 
 ``` r
 library(magrittr)
-mf_theme("barcelona")
+mf_theme("agolalight")
 mf_get_mtq() %>% 
-  mf_map() %>%
+  mf_shadow() %>%
+  mf_map(add = TRUE) %>%
   mf_map("POP", "prop", col = "white")
-mf_title(fg = "white")
+mf_title()
 ```
 
 ![](man/figures/README-example4-1.png)<!-- -->

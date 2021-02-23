@@ -52,7 +52,7 @@ This is a basic example which shows how to create a map with `mapsf`.
 The main `mapsf` function is `mf_map()`. 
 
 
-```{r example1, eval = FALSE}
+```{r example1}
 library(mapsf)
 # Import the sample dataset
 mtq <- mf_get_mtq()
@@ -64,28 +64,18 @@ mf_map(x = mtq, var = "POP", type = "prop")
 mf_layout(title = "Population in Martinique", 
           credits = "T. Giraud; Sources: INSEE & IGN, 2018", 
           frame = TRUE)
-```
-
-```{r example2, echo = FALSE}
-opar <- par(bg = "grey90")
-suppressPackageStartupMessages(library(mapsf))
-mtq <- mf_get_mtq()
-mf_map(x = mtq)
-mf_map(x = mtq, var = "POP", type = "prop")
-mf_layout(title = "Population in Martinique", 
-          credits = "T. Giraud; Sources: INSEE & IGN, 2018", 
-          frame = TRUE)
-par(opar)
+box(which = "figure")
 ```
 
 
 A more detailed example:
 
 ```{r example3, results=FALSE}
-# Initiate a map figure with a theme, margins and a shadow
-mf_init(x = mtq, theme = "dark", shadow = TRUE, shadow_col = "grey10",
-        export = "svg", filename = "man/figures/mtq.svg", width = 6, 
-        expandBB = c(0,0,0,.3)) 
+# Initiate a map figure with a theme and extra margins 
+mf_init(x = mtq, theme = "dark", expandBB = c(0,0,0,.3),
+        export = "svg", filename = "man/figures/mtq.svg", width = 6) 
+# Plot a shadow
+mf_shadow(mtq, col = "grey10", add = TRUE)
 # Plot a choropleth map
 mf_map(x = mtq, var = "MED", type = "choro",
        pal = "Dark Mint", 
@@ -93,7 +83,7 @@ mf_map(x = mtq, var = "MED", type = "choro",
        nbreaks = 6, 
        leg_title = "Median Income\n(euros)", 
        leg_val_rnd = -2, 
-       add = T)
+       add = TRUE)
 # Start an inset map
 mf_inset_on(x = "worldmap", pos = "right")
 # Plot the position of the sample dataset on a worlmap
@@ -118,12 +108,12 @@ Note that `mapsf` is, to a certain degree, compatible with the pipe syntax:
 
 ```{r example4, results=FALSE}
 library(magrittr)
-mf_theme("barcelona")
+mf_theme("agolalight")
 mf_get_mtq() %>% 
-  mf_map() %>%
+  mf_shadow() %>%
+  mf_map(add = TRUE) %>%
   mf_map("POP", "prop", col = "white")
-mf_title(fg = "white")
-
+mf_title()
 ```
 
 

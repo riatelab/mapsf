@@ -7,10 +7,6 @@
 mf_init(
   x,
   expandBB = rep(0, 4),
-  bg,
-  shadow = FALSE,
-  shadow_col = "grey50",
-  shadow_cex = 1,
   theme,
   export,
   filename,
@@ -24,15 +20,6 @@ mf_init(
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
-
-\item{bg}{background color}
-
-\item{shadow}{add the shadow of x}
-
-\item{shadow_col}{color of the shadow}
-
-\item{shadow_cex}{shadow extent (1 means 1 percent of the shortest side of
-the bounding box)}
 
 \item{theme}{apply a theme from \code{mf_theme}}
 
@@ -54,6 +41,6 @@ geographic layer to find a correct ratio for the export.
 \examples{
 mtq <- mf_get_mtq()
 target <- mtq[30, ]
-mf_init(target, bg = "lightblue")
+mf_init(target)
 mf_map(mtq, add = TRUE)
 }

@@ -3,13 +3,9 @@
 #' @description Plot an invisible layer with the extent of a spatial object.
 #' Export a map in png or svg format. It uses a reference
 #' geographic layer to find a correct ratio for the export.
-#' @eval my_params(c("xfull", "bg"))
+#' @eval my_params(c("xfull"))
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @param shadow add the shadow of x
-#' @param shadow_col color of the shadow
-#' @param shadow_cex shadow extent (1 means 1 percent of the shortest side of
-#' the bounding box)
 #' @param theme apply a theme from \code{mf_theme}
 #' @param filename path to the exported file
 #' @param export if set to "png" or "svg" a png or svg plot device is opened
@@ -22,14 +18,10 @@
 #' @examples
 #' mtq <- mf_get_mtq()
 #' target <- mtq[30, ]
-#' mf_init(target, bg = "lightblue")
+#' mf_init(target)
 #' mf_map(mtq, add = TRUE)
 mf_init <- function(x,
                     expandBB = rep(0, 4),
-                    bg,
-                    shadow = FALSE,
-                    shadow_col = "grey50",
-                    shadow_cex = 1,
                     theme,
                     export,
                     filename,
@@ -43,7 +35,7 @@ mf_init <- function(x,
     mar <- par("mar")
   }
 
-  if (missing(bg)) bg <- .gmapsf$args$bg
+  bg <- .gmapsf$args$bg
 
   # transform to bbox
   bb <- st_bbox(x)
@@ -100,12 +92,7 @@ mf_init <- function(x,
   # plot with bg and margins
   plot(y, col = NA, bg = bg, border = NA, lwd = 1, expandBB = expandBB, asp = 1)
 
-  # add a shadow
-  if (shadow) {
-    d <- shadow_cex * strwidth("M", units = "user", cex = 1) / 3
-    z <- st_geometry(x) + c(d, -d)
-    plot(z, col = shadow_col, border = shadow_col, lwd = .5, add = TRUE)
-  }
+
   return(invisible(x))
 }
 
