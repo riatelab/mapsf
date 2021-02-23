@@ -96,10 +96,9 @@ syntax:
 ``` r
 library(magrittr)
 mf_theme("agolalight")
-mf_get_mtq() %>% 
-  mf_shadow() %>%
-  mf_map(add = TRUE) %>%
-  mf_map("POP", "prop", col = "white")
+mtq %>% 
+  mf_map() %>%
+  mf_map(c("POP","STATUS"), "prop_typo")
 mf_title()
 ```
 
