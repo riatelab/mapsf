@@ -85,7 +85,7 @@
       <h1 data-toc-skip>mapsf</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-02-22</h4>
+            <h4 class="date">2021-02-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/mapsf.Rmd"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -368,7 +368,8 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <div id="base-map" class="section level2">
 <h2 class="hasAnchor">
 <a href="#base-map" class="anchor"></a>Base map</h2>
-<p><code><a href="../reference/mf_init.html">mf_init()</a></code> is designed to initiate a map centered on a specific extent (<code>x</code> bbox). The <code>theme</code> argument allow to select a theme and the <code>shadow</code> argument add a shadow.</p>
+<p><code><a href="../reference/mf_init.html">mf_init()</a></code> is designed to initiate a map centered on a specific extent (<code>x</code> bbox). The <code>theme</code> argument allows to select a theme.</p>
+<p><code><a href="../reference/mf_shadow.html">mf_shadow()</a></code> plots the shadow of a polygon layer.</p>
 <p><code><a href="../reference/mf_map.html">mf_map(x, type = "base")</a></code> displays <code>sf</code> objects geometries.</p>
 <p><code><a href="../reference/mf_layout.html">mf_layout()</a></code> add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code>, <code><a href="../reference/mf_credits.html">mf_credits()</a></code>, <code><a href="../reference/mf_arrow.html">mf_arrow()</a></code> and <code><a href="../reference/mf_scale.html">mf_scale()</a></code>).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -376,7 +377,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Initiate a base map</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, shadow <span class="op">=</span> <span class="cn">TRUE</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span>
+<span class="co"># Plot a shadow</span>
+<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># plot municipalities </span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, type <span class="op">=</span> <span class="st">"base"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># layout</span>
@@ -395,7 +398,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Initiate a base map</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, shadow <span class="op">=</span> <span class="cn">TRUE</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span>
+<span class="co"># Plot a shadow</span>
+<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># plot municipalities </span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># plot population</span>
@@ -492,7 +497,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, shadow <span class="op">=</span> <span class="cn">T</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># Plot a shadow</span>
+<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot the municipalities</span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot symbols with choropleth coloration</span>
@@ -527,7 +534,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, shadow <span class="op">=</span> <span class="cn">T</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># Plot a shadow</span>
+<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot the municipalities</span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot symbols with choropleth coloration</span>
@@ -615,7 +624,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="va">mob_links</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_links.html">mf_get_links</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, df <span class="op">=</span> <span class="va">mob_97209</span><span class="op">)</span>
 <span class="co"># set figure background color</span>
 <span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, shadow <span class="op">=</span> <span class="cn">T</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span>
+<span class="co"># Plot a shadow</span>
+<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot the municipalities</span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># plot graduated links</span>

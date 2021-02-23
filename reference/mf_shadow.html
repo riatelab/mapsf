@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • mapsf</title>
+<title>Plot a shadow — mf_shadow • mapsf</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Plot a shadow — mf_shadow" />
+<meta property="og:description" content="Plot ther shadow of a polygon layer." />
 <meta property="og:image" content="/reference/figures/logo.png" />
 <meta property="og:image:alt" content="An R package for thematic cartography" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -72,7 +73,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -122,176 +123,50 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Plot a shadow</h1>
+    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_shadow.R'><code>R/mf_shadow.R</code></a></small>
+    <div class="hidden name"><code>mf_shadow.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Plot ther shadow of a polygon layer.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>mf_shadow</span><span class='op'>(</span><span class='va'>x</span>, col <span class='op'>=</span> <span class='st'>"grey50"</span>, cex <span class='op'>=</span> <span class='fl'>1</span>, add <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-symbology" class="hasAnchor"><a href="#section-symbology" class="anchor"></a>Symbology</h2>
-          <p class="section-desc"><p>These functions build cartographic layers.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="mf_map.html">mf_map()</a></code> </p>
-        </td>
-        <td><p>Plot a map</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_label.html">mf_label()</a></code> </p>
-        </td>
-        <td><p>Plot labels</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_raster.html">mf_raster()</a></code> </p>
-        </td>
-        <td><p>Plot a raster</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-map-layout" class="hasAnchor"><a href="#section-map-layout" class="anchor"></a>Map Layout</h2>
-          <p class="section-desc"><p>These functions are dedicated to the map layout design.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="mf_init.html">mf_init()</a></code> </p>
-        </td>
-        <td><p>Initialize or export a map</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_theme.html">mf_theme()</a></code> </p>
-        </td>
-        <td><p>Set a theme</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_shadow.html">mf_shadow()</a></code> </p>
-        </td>
-        <td><p>Plot a shadow</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_legend.html">mf_legend()</a></code> </p>
-        </td>
-        <td><p>Plot a legend</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_annotation.html">mf_annotation()</a></code> </p>
-        </td>
-        <td><p>Plot an annotation</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_arrow.html">mf_arrow()</a></code> </p>
-        </td>
-        <td><p>Plot a north arrow</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_credits.html">mf_credits()</a></code> </p>
-        </td>
-        <td><p>Plot credits</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_layout.html">mf_layout()</a></code> </p>
-        </td>
-        <td><p>Plot a map layout</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_title.html">mf_title()</a></code> </p>
-        </td>
-        <td><p>Plot a title</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_scale.html">mf_scale()</a></code> </p>
-        </td>
-        <td><p>Plot a scale bar</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_inset_on.html">mf_inset_on()</a></code> <code><a href="mf_inset_on.html">mf_inset_off()</a></code> </p>
-        </td>
-        <td><p>Plot an inset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_worldmap.html">mf_worldmap()</a></code> </p>
-        </td>
-        <td><p>Plot a point on a world map</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-utility-functions" class="hasAnchor"><a href="#section-utility-functions" class="anchor"></a>Utility Functions</h2>
-          <p class="section-desc"><p>These functions are useful for some utility tasks.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="mf_get_links.html">mf_get_links()</a></code> </p>
-        </td>
-        <td><p>Get a link layer from a data.frame of links.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_get_pal.html">mf_get_pal()</a></code> </p>
-        </td>
-        <td><p>Get color palettes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_get_breaks.html">mf_get_breaks()</a></code> </p>
-        </td>
-        <td><p>Get class intervals</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mf_get_mtq.html">mf_get_mtq()</a></code> </p>
-        </td>
-        <td><p>Get the 'mtq' dataset</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>an sf or sfc polygon object</p></td>
+    </tr>
+    <tr>
+      <th>col</th>
+      <td><p>shadow color</p></td>
+    </tr>
+    <tr>
+      <th>cex</th>
+      <td><p>shadow extent</p></td>
+    </tr>
+    <tr>
+      <th>add</th>
+      <td><p>whether to add the layer to an existing plot (TRUE) or not (FALSE)</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>x is (invisibly) returned.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>mf_shadow</span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='img'><img src='mf_shadow-1.png' alt='' width='672' height='672' /></div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
