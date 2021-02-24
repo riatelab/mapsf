@@ -114,10 +114,16 @@ data types for each map types.
 
 ## Background
 
-This package aims at reproducing the core features of
-[`cartography`](https://github.com/riatelab/cartography) with a more
-coherent and modern API. It is lighter (less dependencies) and more
-user-friendly.
+`mapsf` is the successor of
+[`cartography`](https://github.com/riatelab/cartography). There are no
+plans for new features or enhancements in `cartography`, but basic
+maintenance and support will continue indefinitely. Existing projects
+that use `cartography` can safely continue to use `cartography`. New
+projects should use `mapsf` because it is friendlier, lighter and more
+robust.  
+See [`mapsf`
+vignette](https://riatelab.github.io/mapsf/articles/mapsf.html#symbology)
+to migrate from `cartography` to `mapsf`.
 
 ## Alternatives
 
