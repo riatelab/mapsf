@@ -32,10 +32,10 @@ mf_title <- function(txt = "Map Title", pos, tab,
 
   # correct line space for multiplot
   mmf <- par("mfrow")
-  if (mmf[1] == 2 && mmf[2] == 2){
+  if (mmf[1] == 2 && mmf[2] == 2) {
     line <- line * 0.83
   }
-  if(max(mmf)>2){
+  if (max(mmf) > 2) {
     line <- line * .66
   }
 

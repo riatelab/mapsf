@@ -34,10 +34,13 @@
 #' mf_map(x = mtq)
 #' mf_inset_off()
 mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
-  if(.gmapsf$inset){
-    stop(paste0("You have already started an inset. ",
-                "Use `mf_inset_off()` to close the current inset."),
-         call. = FALSE)
+  if (.gmapsf$inset) {
+    stop(paste0(
+      "You have already started an inset. ",
+      "Use `mf_inset_off()` to close the current inset."
+    ),
+    call. = FALSE
+    )
   }
   .gmapsf$inset <- TRUE
   pmar <- par("mar")
@@ -89,7 +92,7 @@ mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
     mar = c(0, 0, 0, 0),
     new = TRUE
   )
-  theme$mar <- c(0,0,0,0)
+  theme$mar <- c(0, 0, 0, 0)
   mf_theme(theme)
 }
 
@@ -108,7 +111,7 @@ mf_inset_off <- function() {
   )
   mf_theme(.gmapsf$oth)
   par(mar = .gmapsf$par$mar)
-  points(1,1, col = NA)
+  points(1, 1, col = NA)
 }
 
 
@@ -141,54 +144,54 @@ posinset <- function(pos, pusr, wdest, hdest) {
   pusr <- pusr + c(inset, -inset, inset, -inset)
 
   xy <- switch(pos,
-               bottomleft = c(
-                 pusr[1],
-                 pusr[1] + wdest,
-                 pusr[3],
-                 pusr[3] + hdest
-               ),
-               topleft = c(
-                 pusr[1],
-                 pusr[1] + wdest,
-                 pusr[4] - hdest,
-                 pusr[4]
-               ),
-               left = c(
-                 pusr[1],
-                 pusr[1] + wdest,
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
-               ),
-               top = c(
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
-                 pusr[4] - hdest,
-                 pusr[4]
-               ),
-               bottom = c(
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
-                 pusr[3],
-                 pusr[3] + hdest
-               ),
-               bottomright = c(
-                 pusr[2] - wdest,
-                 pusr[2],
-                 pusr[3],
-                 pusr[3] + hdest
-               ),
-               right = c(
-                 pusr[2] - wdest,
-                 pusr[2],
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
-               ),
-               topright = c(
-                 pusr[2] - wdest,
-                 pusr[2],
-                 pusr[4] - hdest,
-                 pusr[4]
-               )
+    bottomleft = c(
+      pusr[1],
+      pusr[1] + wdest,
+      pusr[3],
+      pusr[3] + hdest
+    ),
+    topleft = c(
+      pusr[1],
+      pusr[1] + wdest,
+      pusr[4] - hdest,
+      pusr[4]
+    ),
+    left = c(
+      pusr[1],
+      pusr[1] + wdest,
+      pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+      pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+    ),
+    top = c(
+      pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+      pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+      pusr[4] - hdest,
+      pusr[4]
+    ),
+    bottom = c(
+      pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+      pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+      pusr[3],
+      pusr[3] + hdest
+    ),
+    bottomright = c(
+      pusr[2] - wdest,
+      pusr[2],
+      pusr[3],
+      pusr[3] + hdest
+    ),
+    right = c(
+      pusr[2] - wdest,
+      pusr[2],
+      pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+      pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+    ),
+    topright = c(
+      pusr[2] - wdest,
+      pusr[2],
+      pusr[4] - hdest,
+      pusr[4]
+    )
   )
   xy
 }

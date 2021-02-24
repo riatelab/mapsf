@@ -62,9 +62,11 @@ mf_map(mtq)
 mf_title()
 
 # theme from arguments
-mf_theme(bg = "darkslategrey", fg = "cornsilk3", mar = c(2,2,4,2),
-         tab = FALSE, pos = "center", inner = FALSE,
-         line = 2, cex = 2, font = 4)
+mf_theme(
+  bg = "darkslategrey", fg = "cornsilk3", mar = c(2, 2, 4, 2),
+  tab = FALSE, pos = "center", inner = FALSE,
+  line = 2, cex = 2, font = 4
+)
 mf_map(mtq)
 mf_layout()
 
