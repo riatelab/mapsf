@@ -11,7 +11,7 @@
 #' If x is used (with pos and cex), the width/height ratio of the inset will
 #' match the width/height ratio of x bounding box.\cr
 #' If fig is used, coordinates (xmin, xmax, ymin, ymax) are expressed as
-#' frations of the mapping space (i.e. excluding margins).\cr
+#' fractions of the mapping space (i.e. excluding margins).\cr
 #' If map layers have to be plotted after the inset (i.e after mf_inset_off()),
 #' please use add = TRUE.\cr
 #' It is not possible to plot an inset within an inset.\cr

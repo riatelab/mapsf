@@ -1,6 +1,6 @@
 #' @title Plot a shadow
 #' @name mf_shadow
-#' @description Plot ther shadow of a polygon layer.
+#' @description Plot the shadow of a polygon layer.
 #' @param x an sf or sfc polygon object
 #' @param col shadow color
 #' @param cex shadow extent

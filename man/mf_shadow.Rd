@@ -19,7 +19,7 @@ mf_shadow(x, col = "grey50", cex = 1, add = FALSE)
 x is (invisibly) returned.
 }
 \description{
-Plot ther shadow of a polygon layer.
+Plot the shadow of a polygon layer.
 }
 \examples{
 mtq <- mf_get_mtq()
