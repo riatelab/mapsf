@@ -1,4 +1,4 @@
-library("raster")
+suppressPackageStartupMessages(library("raster"))
 
 f <- raster(system.file("external/test.grd", package="raster"))
 b <- brick(system.file("external/rlogo.grd", package="raster"))
