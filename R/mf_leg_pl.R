@@ -19,6 +19,7 @@
 #' @param fg foreground of the legend
 #' @keywords internal
 #' @export
+#' @return No return value, a legend is displayed.
 #' @import graphics
 #' @examples
 #' plot.new()
@@ -152,5 +153,5 @@ mf_legend_pl <- function(pos = "left",
     y = xy_box_lab$y, labels = val, cex = val_cex,
     adj = c(0, 0.5), col = fg
   )
-  return(invisible(list(xy_rect = xy_rect, inset = inset, h = xy_title$h)))
+  return(invisible(NULL))
 }

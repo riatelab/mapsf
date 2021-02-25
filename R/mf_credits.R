@@ -7,7 +7,7 @@
 #' @param cex cex of the credits
 #' @param font font of the credits
 #' @export
-#'
+#' @return No return value, credits are displayed.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
@@ -46,4 +46,5 @@ mf_credits <- function(txt, pos = "bottomleft", col, cex = .6, font = 3) {
     cex = cex, xpd = TRUE, adj = adj,
     col = col, srt = srt, font = font
   )
+
 }

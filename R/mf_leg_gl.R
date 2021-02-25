@@ -20,6 +20,7 @@
 #' @keywords internal
 #' @export
 #' @import graphics
+#' @return No return value, a legend is displayed.
 #' @examples
 #' plot.new()
 #' plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
@@ -143,5 +144,5 @@ mf_legend_gl <- function(pos = "topleft", val,
     adj = c(0, 0.5), col = fg
   )
 
-  return(invisible(list(xy_rect = xy_rect, inset = inset, h = xy_title$h)))
+  return(invisible(NULL))
 }

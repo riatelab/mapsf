@@ -81,6 +81,9 @@ mf_legend(
 
 \item{cex}{size of the legend; 2 means two times bigger}
 }
+\value{
+No return value, a legend is displayed.
+}
 \description{
 Plot all types of legend.
 The "type" argument defines the legend type:

@@ -8,7 +8,7 @@
 #' @param arrow display an arrow
 #' @param frame display a frame
 #' @export
-#'
+#' @return No return value, a map layout is displayed.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)

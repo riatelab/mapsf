@@ -12,6 +12,7 @@
 #' arguments bg and r can be modified to set the color and width of the halo.
 #' @param lines if TRUE, then lines are plotted between x,y and the word,
 #' for those words not covering their x,y coordinate
+#' @return No return value, labels are displayed.
 #' @export
 #' @examples
 #' mtq <- mf_get_mtq()

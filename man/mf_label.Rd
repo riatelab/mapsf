@@ -40,6 +40,9 @@ arguments bg and r can be modified to set the color and width of the halo.}
 
 \item{...}{further \link{text} arguments.}
 }
+\value{
+No return value, labels are displayed.
+}
 \description{
 Put labels on a map.
 }

@@ -9,6 +9,7 @@
 #' @param line number of lines used for the title
 #' @param inner if TRUE the title is displayed inside the plot area.
 #' @export
+#' @return No return value, a title is displayed.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)

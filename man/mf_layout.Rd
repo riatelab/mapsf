@@ -23,6 +23,9 @@ mf_layout(
 
 \item{frame}{display a frame}
 }
+\value{
+No return value, a map layout is displayed.
+}
 \description{
 Plot a map layout (title, credits, scalebar,
 north arrow, frame).

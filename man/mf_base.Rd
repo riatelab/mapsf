@@ -19,6 +19,9 @@ mf_base(x, col = "grey80", border = "grey20", lwd = 0.7, add = FALSE, ...)
 
 \item{...}{further parameters from \link{plot} for sfc objects}
 }
+\value{
+No return value, a map is displayed.
+}
 \description{
 Plot an sf object. This is mostly a wrapper around
 \code{plot(st_geometry(x), ...)}.

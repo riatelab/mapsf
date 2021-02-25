@@ -20,7 +20,7 @@
 #' @details See \link{hcl.pals} to get available palette names.
 #' If two gradients are used, the 'neutral' color can be added between them.
 #'
-#' @return \code{mf_get_pal} returns a vector of colors.
+#' @return A vector of colors.
 #' @importFrom grDevices hcl.colors
 #' @export
 #' @examples

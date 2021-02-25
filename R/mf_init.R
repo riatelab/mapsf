@@ -15,6 +15,7 @@
 #' @export
 #' @importFrom grDevices png svg
 #' @importFrom sf st_bbox st_as_sfc st_geometry
+#' @return No return value, a map is initiated.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' target <- mtq[30, ]

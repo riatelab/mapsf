@@ -28,7 +28,7 @@
 #' @param col_na color for missing values
 #' @param pt_cex_na cex of the symbols for missing values
 #' @param pt_pch_na pch of the symbols for missing values
-#'
+#' @return No return value, a legend is displayed.
 #' @export
 #'
 #' @examples
@@ -81,4 +81,5 @@ mf_legend <- function(type, pos, val, pal,
     prop_line = do.call(what = mf_legend_pl, args),
     grad_line = do.call(what = mf_legend_gl, args)
   )
+  return(invisible(NULL))
 }

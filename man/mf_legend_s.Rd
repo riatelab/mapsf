@@ -68,6 +68,9 @@ mf_legend_s(
 
 \item{cex}{size of the legend; 2 means two times bigger}
 }
+\value{
+No return value, a legend is displayed.
+}
 \description{
 This function can plot a legend for a symbols maps.
 }

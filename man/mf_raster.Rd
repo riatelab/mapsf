@@ -15,6 +15,9 @@ not (FALSE).}
 \item{...}{bgalpha, interpolate, or other arguments passed to be passed to
 \code{\link[raster:plotRGB]{plotRGB}} or  \code{\link[raster:plotRGB]{plot}}}
 }
+\value{
+No return value, a map is displayed.
+}
 \description{
 Plot a raster object over a map (RasterLayer and RasterBrick).
 }

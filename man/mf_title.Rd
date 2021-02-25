@@ -25,6 +25,9 @@ mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner)
 
 \item{inner}{if TRUE the title is displayed inside the plot area.}
 }
+\value{
+No return value, a title is displayed.
+}
 \description{
 Plot a title
 }

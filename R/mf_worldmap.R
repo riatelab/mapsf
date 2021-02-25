@@ -4,7 +4,7 @@
 #' @param lon longitude
 #' @param lat latitude
 #' @param ... further parameters to pass to points (cex, pch, col...).
-#'
+#' @return No return value, a world map is displayed.
 #' @export
 #' @note The main part of the code is stolen from @fzenoni
 #' (\url{https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1}).
@@ -42,7 +42,11 @@ mf_worldmap <- function(x, lon, lat, ...) {
     })
   })
   do.call(points, ops)
+  return(invisible(NULL))
+
 }
+
+
 # https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1
 orthomap <- function(lon, lat, disc) {
   ortho <- paste0(

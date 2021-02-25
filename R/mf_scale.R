@@ -11,6 +11,7 @@
 #' @param unit units used for the scale bar. Can be "mi" for miles,
 #' "m" for meters, or "km" for kilometers (default)
 #' @note This scale bar is not accurate on unprojected (long/lat) maps.
+#' @return No return value, a scale bar is displayed.
 #' @export
 #' @examples
 #' mtq <- mf_get_mtq()

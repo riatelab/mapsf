@@ -16,7 +16,7 @@
 #' please use add = TRUE.\cr
 #' It is not possible to plot an inset within an inset.\cr
 #' It is possible to plot anything (base plots) within the inset, not only map layers.
-#'
+#' @return No return value, an inset is initiated or closed.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)

@@ -12,6 +12,7 @@
 #' quality of the \code{*.png} file, the scale of \code{x} and the resolution
 #' setup of the graphic device.
 #' @export
+#' @return No return value, a map is displayed.
 #' @examples
 #' library("raster")
 #' r <- raster(system.file("external/test.grd", package = "raster"))

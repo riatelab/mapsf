@@ -93,6 +93,9 @@ mf_map(
 
 \item{...}{further parameters from \link{plot} for sfc objects}
 }
+\value{
+x is (invisibly) returned.
+}
 \description{
 This is the main function of the package.
 mf_map can be used to plot all types of maps.

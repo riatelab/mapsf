@@ -19,6 +19,9 @@ mf_inset_off()
 
 \item{fig}{coordinates of the inset region (in NDC, see in ?par())}
 }
+\value{
+No return value, an inset is initiated or closed.
+}
 \description{
 This function is used to add an inset map to the current map.
 }

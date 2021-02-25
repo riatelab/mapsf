@@ -17,6 +17,9 @@ mf_credits(txt, pos = "bottomleft", col, cex = 0.6, font = 3)
 
 \item{font}{font of the credits}
 }
+\value{
+No return value, credits are displayed.
+}
 \description{
 Plot credits (sources, author, year...).
 }

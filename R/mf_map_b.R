@@ -12,6 +12,7 @@
 #' @importFrom methods is
 #' @importFrom sf st_geometry
 #' @keywords internal
+#' @return No return value, a map is displayed.
 #' @export
 #' @examples
 #' library(sf)

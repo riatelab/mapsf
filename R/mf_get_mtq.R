@@ -1,7 +1,7 @@
-#' Get the 'mtq' dataset
+#' @title Get the 'mtq' dataset
 #' @name mf_get_mtq
-#' @description Import the mtq dataset.
-#' @return an sf object
+#' @description Import the mtq dataset (Martinique municipalities).
+#' @return an sf object of Martinique municipalities
 #' @export
 #' @details This a wrapper around
 #' \code{st_read(system.file("gpkg/mtq.gpkg", package = "mapsf"),quiet = TRUE)}.

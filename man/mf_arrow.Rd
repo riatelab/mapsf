@@ -14,6 +14,9 @@ mf_arrow(pos = "topleft", col, adjust)
 \item{adjust}{object of class \code{sf} or \code{sfc} used to adjust the
 arrow to the real north}
 }
+\value{
+No return value, a north arrow is displayed.
+}
 \description{
 Plot a north arrow.
 }

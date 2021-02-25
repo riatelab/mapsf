@@ -21,6 +21,7 @@
 #' @importFrom graphics box
 #' @keywords internal
 #' @export
+#' @return No return value, a map is displayed.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)

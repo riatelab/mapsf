@@ -15,6 +15,9 @@ mf_worldmap(x, lon, lat, ...)
 
 \item{...}{further parameters to pass to points (cex, pch, col...).}
 }
+\value{
+No return value, a world map is displayed.
+}
 \description{
 Plot a point on a world map.
 }

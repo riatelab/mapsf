@@ -53,6 +53,7 @@
 #' @param pch pch for symbols
 #' @param ... further parameters from \link{plot} for sfc objects
 #' @export
+#' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)

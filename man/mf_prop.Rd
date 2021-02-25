@@ -56,6 +56,9 @@ mf_prop(
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 }
+\value{
+No return value, a map is displayed.
+}
 \description{
 Plot proportional symbols.
 }

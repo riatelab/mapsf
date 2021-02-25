@@ -39,6 +39,9 @@ mf_annotation(
 
 \item{...}{further \link{text} arguments.}
 }
+\value{
+No return value, an annotation is displayed.
+}
 \description{
 Plot an annotation on a map.
 }

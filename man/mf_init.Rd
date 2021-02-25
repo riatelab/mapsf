@@ -33,6 +33,9 @@ direction (bottom, left, top, right)}
 
 \item{res}{resolution (for png)}
 }
+\value{
+No return value, a map is initiated.
+}
 \description{
 Plot an invisible layer with the extent of a spatial object.
 Export a map in png or svg format. It uses a reference

@@ -6,12 +6,12 @@
 #' @param adjust object of class \code{sf} or \code{sfc} used to adjust the
 #' arrow to the real north
 #' @importFrom sf st_crs st_as_sf st_coordinates st_transform
+#' @return No return value, a north arrow is displayed.
 #' @export
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_arrow(pos = "topright")
-#' @export
 mf_arrow <- function(pos = "topleft", col, adjust) {
   if (missing(col)) {
     col <- .gmapsf$args$fg

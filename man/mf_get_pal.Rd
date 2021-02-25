@@ -26,7 +26,7 @@ reversed.}
 added between them.}
 }
 \value{
-\code{mf_get_pal} returns a vector of colors.
+A vector of colors.
 }
 \description{
 \code{mf_get_pal} builds sequential, diverging and

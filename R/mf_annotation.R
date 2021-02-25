@@ -12,7 +12,7 @@
 #' @param s arrow size (min=1)
 #' @param ... further \link{text} arguments.
 #' @export
-#'
+#' @return No return value, an annotation is displayed.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)

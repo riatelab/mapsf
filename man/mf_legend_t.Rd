@@ -53,6 +53,9 @@ mf_legend_t(
 
 \item{cex}{size of the legend; 2 means two times bigger}
 }
+\value{
+No return value, a legend is displayed.
+}
 \description{
 This function plots a legend for a typology map.
 }

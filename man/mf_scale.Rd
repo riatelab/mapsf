@@ -22,6 +22,9 @@ set, an automatic size is used (1/10 of the map width)}
 \item{unit}{units used for the scale bar. Can be "mi" for miles,
 "m" for meters, or "km" for kilometers (default)}
 }
+\value{
+No return value, a scale bar is displayed.
+}
 \description{
 Plot a scale bar.
 }
