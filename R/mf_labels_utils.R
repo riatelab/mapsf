@@ -52,7 +52,6 @@ wordlayout <- function(x, y, words, cex = 1,
   if (length(cex) == 1) {
     cex <- rep(cex, n)
   }
-  set.seed(999)
   boxes <- list()
   for (i in 1:length(words)) {
     r <- 0
