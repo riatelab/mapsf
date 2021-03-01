@@ -5,8 +5,10 @@
 
 <!-- badges: start -->
 
-[![codecov](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg?token=TPK6HZOLWH)](https://codecov.io/gh/riatelab/mapsf)
+[![CRAN](https://www.r-pkg.org/badges/version/mapsf)](https://cran.r-project.org/package=mapsf)
 [![R-CMD-check](https://github.com/riatelab/mapsf/workflows/R-CMD-check/badge.svg)](https://github.com/riatelab/mapsf/actions)
+[![codecov](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg?token=TPK6HZOLWH)](https://codecov.io/gh/riatelab/mapsf)
+[![status](https://tinyverse.netlify.com/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
 <!-- badges: end -->
 
 Create and integrate thematic maps in your R workflow. This package
@@ -18,14 +20,15 @@ presentation of maps (e.g. scale bar, north arrow, title, labels).
 
 ## Installation
 
-<!-- You can install the released version of mapsf  -->
-<!-- from [CRAN](https://CRAN.R-project.org) with: -->
-<!-- ``` r -->
-<!-- install.packages("mapsf") -->
-<!-- ``` -->
-<!-- Alternatively,  -->
+You can install the released version of mapsf from
+[CRAN](https://cran.r-project.org/package=mapsf) with:
 
-You can install the development version of `mapsf` from GitHub with:
+``` r
+install.packages("mapsf")
+```
+
+Alternatively, you can install the development version of `mapsf` from
+GitHub with:
 
 ``` r
 remotes::install_github("riatelab/mapsf")
