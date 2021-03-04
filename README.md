@@ -63,7 +63,7 @@ A more detailed example:
 ``` r
 # Initiate a map figure with a theme and extra margins 
 mf_init(x = mtq, theme = "dark", expandBB = c(0,0,0,.3),
-        export = "svg", filename = "man/figures/mtq.svg", width = 6) 
+        export = "svg", filename = "mtq.svg", width = 6) 
 # Plot a shadow
 mf_shadow(mtq, col = "grey10", add = TRUE)
 # Plot a choropleth map
