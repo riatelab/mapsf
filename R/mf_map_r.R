@@ -56,12 +56,12 @@ mf_raster <- function(x, add = FALSE, ...) {
     # Default opts
     ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
     ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
-    ops$box <- ifelse(is.null(ops$box), FALSE, ops$bow)
+    ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
     ops$maxpixels <- ifelse(is.null(ops$maxpixels), raster::ncell(x),
       ops$maxpixels
     )
     ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
-    ops$interpolate <- ifelse(is.null(ops$interpolate), TRUE, ops$interpolate)
+    ops$interpolate <- ifelse(is.null(ops$interpolate), FALSE, ops$interpolate)
     do.call(raster::plot, ops)
   }
 }
