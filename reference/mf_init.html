@@ -50,8 +50,10 @@
 
 <meta property="og:title" content="Initialize or export a map — mf_init" />
 <meta property="og:description" content="Plot an invisible layer with the extent of a spatial object.
-Export a map in png or svg format. It uses a reference
-geographic layer to find a correct ratio for the export." />
+If export is set, the map is exported in PNG or SVG format. If
+only one of width or height is set, mf_init uses the
+width/height ratio of x bounding box to find a matching ratio for
+the export." />
 <meta property="og:image" content="/reference/figures/logo.png" />
 <meta property="og:image:alt" content="An R package for thematic cartography" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -134,8 +136,10 @@ geographic layer to find a correct ratio for the export." />
 
     <div class="ref-description">
     <p>Plot an invisible layer with the extent of a spatial object.
-Export a map in png or svg format. It uses a reference
-geographic layer to find a correct ratio for the export.</p>
+If <code>export</code> is set, the map is exported in PNG or SVG format. If
+only one of <code>width</code> or <code>height</code> is set, <code>mf_init</code> uses the
+width/height ratio of <code>x</code> bounding box to find a matching ratio for
+the export.</p>
     </div>
 
     <pre class="usage"><span class='fu'>mf_init</span><span class='op'>(</span>
