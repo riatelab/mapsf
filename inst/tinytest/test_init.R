@@ -7,6 +7,14 @@ expect_silent(mf_init(mtq, export = "png", height = 600,
 dev.off()
 expect_silent(mf_init(mtq, export = "png", filename = tempfile()))
 dev.off()
+
+expect_silent(mf_init(mtq, export = "png", filename = tempfile(),
+                      width = 800, height = 800))
+dev.off()
+
+expect_silent(mf_init(mtq, export = "svg", filename = tempfile(),
+                      width = 6, height = 6))
+dev.off()
 expect_silent(mf_init(mtq, theme = "darkula", export = "svg",
                       filename = tempfile()))
 dev.off()

@@ -38,8 +38,10 @@ No return value, a map is initiated.
 }
 \description{
 Plot an invisible layer with the extent of a spatial object.
-Export a map in png or svg format. It uses a reference
-geographic layer to find a correct ratio for the export.
+If \code{export} is set, the map is exported in PNG or SVG format. If
+only one of \code{width} or \code{height} is set, \code{mf_init} uses the
+width/height ratio of \code{x} bounding box to find a matching ratio for
+the export.
 }
 \examples{
 mtq <- mf_get_mtq()

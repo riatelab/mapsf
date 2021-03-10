@@ -1,8 +1,10 @@
 #' @title Initialize or export a map
 #' @name mf_init
 #' @description Plot an invisible layer with the extent of a spatial object.
-#' Export a map in png or svg format. It uses a reference
-#' geographic layer to find a correct ratio for the export.
+#' If \code{export} is set, the map is exported in PNG or SVG format. If
+#' only one of \code{width} or \code{height} is set, \code{mf_init} uses the
+#' width/height ratio of \code{x} bounding box to find a matching ratio for
+#' the export.
 #' @eval my_params(c("xfull"))
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
@@ -53,33 +55,41 @@ mf_init <- function(x,
 
   if (!missing(export)) {
     if (export == "png") {
-      if (missing(width) & missing(height)) {
-        width <- 600
+      if (!missing(width) & !missing(height)){
+        fd <- c(width, height)
+      } else{
+        if (missing(width) & missing(height)) {
+          width <- 600
+        }
+        fd <- get_ratio(
+          x = bb, width = width, height = height,
+          mar = mar, res = res, format = "png"
+        )
       }
-      fd <- get_ratio(
-        x = bb, width = width, height = height,
-        mar = mar, res = res, format = "png"
-      )
       png(filename, width = fd[1], height = fd[2], res = res)
     }
     if (export == "svg") {
-      if (missing(height) & missing(width)) {
-        width <- 7
+      if (!missing(width) & !missing(height)){
+        fd <- c(width, height)
+      } else{
+        if (missing(height) & missing(width)) {
+          width <- 7
+        }
+        if (!missing(width) && width > 50) {
+          message(paste0(
+            "It is unlikely that you really want to produce a figure",
+            " with more than 50 inches of width.", " The width has been",
+            " set to 7 inches."
+          ))
+          width <- 7
+        }
+        fd <- get_ratio(
+          x = bb,
+          width = width,
+          height = height,
+          mar = mar, res = res, format = "svg"
+        ) / 96
       }
-      if (!missing(width) && width > 50) {
-        message(paste0(
-          "It is unlikely that you really want to produce a figure",
-          " with more than 50 inches of width.", " The width has been",
-          " set to 7 inches."
-        ))
-        width <- 7
-      }
-      fd <- get_ratio(
-        x = bb,
-        width = width,
-        height = height,
-        mar = mar, res = res, format = "svg"
-      ) / 96
       svg(filename = filename, width = fd[1], height = fd[2])
     }
     if (!missing(theme)) {
