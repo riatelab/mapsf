@@ -47,5 +47,4 @@ mf_credits <- function(txt = "Source(s) & Author(s)", pos = "bottomleft",
     cex = cex, xpd = TRUE, adj = adj,
     col = col, srt = srt, font = font
   )
-
 }

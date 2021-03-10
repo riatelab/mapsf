@@ -220,15 +220,15 @@ mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
     }
   }
 
-  if(!missing(bg)) theme$bg <- bg
-  if(!missing(fg)) theme$fg <- fg
-  if(!missing(mar)) theme$mar <- mar
-  if(!missing(tab)) theme$tab <- tab
-  if(!missing(pos)) theme$pos <- pos
-  if(!missing(inner)) theme$inner <- inner
-  if(!missing(line)) theme$line <- line
-  if(!missing(cex)) theme$cex <- cex
-  if(!missing(font)) theme$font <- font
+  if (!missing(bg)) theme$bg <- bg
+  if (!missing(fg)) theme$fg <- fg
+  if (!missing(mar)) theme$mar <- mar
+  if (!missing(tab)) theme$tab <- tab
+  if (!missing(pos)) theme$pos <- pos
+  if (!missing(inner)) theme$inner <- inner
+  if (!missing(line)) theme$line <- line
+  if (!missing(cex)) theme$cex <- cex
+  if (!missing(font)) theme$font <- font
 
 
 

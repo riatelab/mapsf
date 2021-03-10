@@ -43,7 +43,6 @@ mf_worldmap <- function(x, lon, lat, ...) {
   })
   do.call(points, ops)
   return(invisible(NULL))
-
 }
 
 

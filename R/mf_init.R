@@ -55,9 +55,9 @@ mf_init <- function(x,
 
   if (!missing(export)) {
     if (export == "png") {
-      if (!missing(width) & !missing(height)){
+      if (!missing(width) & !missing(height)) {
         fd <- c(width, height)
-      } else{
+      } else {
         if (missing(width) & missing(height)) {
           width <- 600
         }
@@ -69,9 +69,9 @@ mf_init <- function(x,
       png(filename, width = fd[1], height = fd[2], res = res)
     }
     if (export == "svg") {
-      if (!missing(width) & !missing(height)){
+      if (!missing(width) & !missing(height)) {
         fd <- c(width, height)
-      } else{
+      } else {
         if (missing(height) & missing(width)) {
           width <- 7
         }
