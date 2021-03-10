@@ -14,3 +14,4 @@ expect_silent(mf_theme(x = list(
   cex = 2,
   font = 3
 )))
+expect_silent(mf_theme(bg = "green"))

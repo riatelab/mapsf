@@ -55,25 +55,8 @@
 #' mf_title()
 #'
 #' (mf_theme("default"))
-mf_theme <- function(x, bg = "white", fg = "black", mar = c(5.1, 4.1, 4.1, 2.1),
-                     tab = TRUE, pos = "left", inner = FALSE, line = 1.2,
-                     cex = 1, font = 2) {
-  if (missing(x)) {
-    x <- list(
-      name = "custom",
-      bg = bg,
-      fg = fg,
-      mar = mar,
-      tab = tab,
-      pos = pos,
-      inner = inner,
-      line = line,
-      cex = cex,
-      font = font
-    )
-    # print("ojk")
-  }
-
+mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
+                     font) {
   themes <- list(
     default = list(
       name = "default",
@@ -224,7 +207,6 @@ mf_theme <- function(x, bg = "white", fg = "black", mar = c(5.1, 4.1, 4.1, 2.1),
 
   if (is.list(x)) {
     theme <- x
-    # print(theme)
   } else {
     if (!x %in% names(themes)) {
       stop(paste0(
@@ -237,6 +219,19 @@ mf_theme <- function(x, bg = "white", fg = "black", mar = c(5.1, 4.1, 4.1, 2.1),
       theme <- themes[[x]]
     }
   }
+
+  if(!missing(bg)) theme$bg <- bg
+  if(!missing(fg)) theme$fg <- fg
+  if(!missing(mar)) theme$mar <- mar
+  if(!missing(tab)) theme$tab <- tab
+  if(!missing(pos)) theme$pos <- pos
+  if(!missing(inner)) theme$inner <- inner
+  if(!missing(line)) theme$line <- line
+  if(!missing(cex)) theme$cex <- cex
+  if(!missing(font)) theme$font <- font
+
+
+
 
   .gmapsf$args <- as.list(theme)
 
