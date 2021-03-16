@@ -4,7 +4,13 @@
 \alias{mf_credits}
 \title{Plot credits}
 \usage{
-mf_credits(txt, pos = "bottomleft", col, cex = 0.6, font = 3)
+mf_credits(
+  txt = "Source(s) & Author(s)",
+  pos = "bottomleft",
+  col,
+  cex = 0.6,
+  font = 3
+)
 }
 \arguments{
 \item{txt}{text of the credits, use '\\n' to add line breaks}

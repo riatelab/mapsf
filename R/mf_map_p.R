@@ -101,9 +101,12 @@ mf_prop <- function(x,
   )
 
   # size and values for legend, hollow circle (fixmax case)
-  sizeMax <- max(sizes)
-  if (inches <= sizeMax) {
-    inches <- sizeMax
+  size_max <- max(sizes)
+  val <- seq(sqrt(min(dots[[var]])), sqrt(max(dots[[var]])), length.out = 4)
+  val <- val * val
+
+  if (inches <= size_max) {
+    inches <- size_max
     borders <- border
   } else {
     mycols <- c(NA, mycols)
@@ -126,11 +129,9 @@ mf_prop <- function(x,
   )
 
   # symbols size
-  val <- seq(sqrt(min(dots[[var]])), sqrt(max(dots[[var]])), length.out = 4)
-  val <- val * val
   mf_legend_p(
     pos = leg_pos, val = val, title = leg_title,
-    symbol = symbol, inches = inches, col = col,
+    symbol = symbol, inches = size_max, col = col,
     title_cex = leg_title_cex, val_cex = leg_val_cex,
     val_rnd = leg_val_rnd,
     frame = leg_frame, border = border, lwd = lwd,
