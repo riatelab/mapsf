@@ -6,7 +6,7 @@
 #' 'col',
 #' 'border',
 #' 'lwd',
-#' 'add' ))
+#' 'add', 'bg' ))
 #' @param ... further parameters from \link{plot} for sfc objects
 #'
 #' @importFrom methods is
@@ -24,17 +24,21 @@ mf_base <- function(x,
                     border = "grey20",
                     lwd = .7,
                     add = FALSE,
+                    bg,
                     ...) {
   # margins mgmt
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
-  bg <- .gmapsf$args$bg
 
+
+  if (missing(bg)) {
+    bg <- .gmapsf$args$bg
+  }
 
   plot(st_geometry(x),
-    col = col, border = border,
-    lwd = lwd, add = add, bg = bg,
-    asp = 1, ...
+       col = col, border = border,
+       lwd = lwd, add = add, bg = bg,
+       asp = 1, ...
   )
   if (add == FALSE) {
     pu <- par("usr")
