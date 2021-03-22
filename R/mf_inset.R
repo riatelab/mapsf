@@ -87,6 +87,7 @@ mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
     tgx[tgx > 1] <- 1
     tgx[tgx < 0] <- 0
   }
+  par(bg = NA)
   par(
     fig = round(tgx, 3),
     mar = c(0, 0, 0, 0),
