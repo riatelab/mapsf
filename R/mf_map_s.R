@@ -88,7 +88,7 @@ mf_symb <- function(x, var,
   }
   if (length(pch) != length(val_order)) {
     message(paste0(
-      "the length of pch does not match the number of",
+      "the length of pch does not match the number of ",
       "modalities. The first pch is used for all modalities"
     ))
     pch <- rep(pch[1], length(val_order))
@@ -97,7 +97,7 @@ mf_symb <- function(x, var,
   if (length(cex) != length(val_order)) {
     if (length(cex) != 1) {
       message(paste0(
-        "the length of cex does not match the number of",
+        "the length of cex does not match the number of ",
         "modalities. The first cex is used for all modalities"
       ))
     }
