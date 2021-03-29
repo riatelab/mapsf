@@ -72,8 +72,7 @@ mf_legend <- function(type, pos, val, pal,
 
   if (missing(bg)) args$bg <- .gmapsf$args$bg
   if (missing(fg)) args$fg <- .gmapsf$args$fg
-  switch(
-    type,
+  switch(type,
     prop = do.call(what = mf_legend_p, args),
     choro = do.call(what = mf_legend_c, args),
     typo = do.call(what = mf_legend_t, args),

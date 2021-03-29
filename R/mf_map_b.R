@@ -36,8 +36,8 @@ mf_base <- function(x,
   }
 
   plot(st_geometry(x),
-       col = col, border = border,
-       lwd = lwd, add = add, bg = bg, ...
+    col = col, border = border,
+    lwd = lwd, add = add, bg = bg, ...
   )
   if (add == FALSE) {
     pu <- par("usr")
