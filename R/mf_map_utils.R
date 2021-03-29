@@ -96,19 +96,19 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
         fg = border,
         lwd = lwd,
         add = TRUE,
-        inches = FALSE,
+        inches = inches,
         asp = 1
       )
     },
     square = {
       symbols(
         x = dots[, 1:2, drop = TRUE],
-        squares = sizes * 2,
+        squares = sizes,
         bg = mycols,
         fg = border,
         lwd = lwd,
         add = TRUE,
-        inches = FALSE,
+        inches = inches * 2,
         asp = 1
       )
     }
