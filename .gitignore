@@ -15,7 +15,7 @@ vignettes/*.R
 .Rproj.user
 inst/doc
 
-
+test.R
 test.png
 
 docs
