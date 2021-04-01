@@ -13,6 +13,7 @@
 #' setup of the graphic device.
 #' @export
 #' @return No return value, a map is displayed.
+#' @importFrom methods is
 #' @examples
 #' library("raster")
 #' r <- raster(system.file("external/test.grd", package = "raster"))
@@ -33,16 +34,23 @@ mf_raster <- function(x, add = FALSE, ...) {
   on.exit(par(op))
 
   if (add == FALSE) {
-    bbx <- sf::st_as_sfc(sf::st_bbox(x))
-    mf_base(x = bbx, col = NA, border = NA, add = FALSE)
+    bb <- sf::st_bbox(x)
+    xd <- diff(bb[c(1,3)]) * 0.04
+    yd <- diff(bb[c(2,4)]) * 0.04
+    nbb <- bb + c(xd, yd, -xd, -yd)
+    a <- sf::st_as_sfc(sf::st_bbox(nbb), crs = sf::st_crs(x))
+    mf_map(a, col = NA, border = NA, type = "base")
+    add <- TRUE
   }
 
   if (is(x, "RasterBrick")) {
     ops <- list(...)
     ops$x <- x
-    ops$add <- TRUE
+    ops$add <- add
     # Default opts
-    ops$maxpixels <- ifelse(is.null(ops$maxpixels), raster::ncell(x),
+    ops$maxpixels <- ifelse(
+      is.null(ops$maxpixels),
+      raster::ncell(x),
       ops$maxpixels
     )
     ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
@@ -52,12 +60,14 @@ mf_raster <- function(x, add = FALSE, ...) {
   if (is(x, "RasterLayer")) {
     ops <- list(...)
     ops$x <- x
-    ops$add <- TRUE
+    ops$add <- add
     # Default opts
     ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
     ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
     ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
-    ops$maxpixels <- ifelse(is.null(ops$maxpixels), raster::ncell(x),
+    ops$maxpixels <- ifelse(
+      is.null(ops$maxpixels),
+      raster::ncell(x),
       ops$maxpixels
     )
     ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
