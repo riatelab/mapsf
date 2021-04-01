@@ -26,3 +26,6 @@ expect_silent(mf_init(mtq, export = "svg", height = 7,
                        filename = tempfile()))
 dev.off()
 
+b <- raster::brick(system.file("external/rlogo.grd", package="raster"))
+expect_silent(mf_init(b, export = "png", filename = tempfile()))
+dev.off()

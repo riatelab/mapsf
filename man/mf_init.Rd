@@ -17,7 +17,7 @@ mf_init(
 )
 }
 \arguments{
-\item{x}{object of class \code{sf} or \code{sfc}}
+\item{x}{object of class \code{sf}, \code{sfc} or \code{Raster}}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}

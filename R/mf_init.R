@@ -5,7 +5,7 @@
 #' only one of \code{width} or \code{height} is set, \code{mf_init} uses the
 #' width/height ratio of \code{x} bounding box to find a matching ratio for
 #' the export.
-#' @eval my_params(c("xfull"))
+#' @param x object of class \code{sf}, \code{sfc} or \code{Raster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
 #' @param theme apply a theme from \code{mf_theme}
@@ -17,6 +17,7 @@
 #' @param ... further parameters for png or svg export
 #' @export
 #' @importFrom grDevices png svg
+#' @importFrom methods is
 #' @importFrom sf st_bbox st_as_sfc st_geometry
 #' @return No return value, a map is initiated.
 #' @examples
@@ -41,6 +42,14 @@ mf_init <- function(x,
   }
 
   bgmap <- .gmapsf$args$bg
+
+  if(is(x, 'Raster')){
+    bb <- st_bbox(x)
+    xd <- diff(bb[c(1,3)]) * 0.04
+    yd <- diff(bb[c(2,4)]) * 0.04
+    nbb <- bb + c(xd, yd, -xd, -yd)
+    x <- st_as_sfc(st_bbox(nbb), crs = st_crs(x))
+  }
 
   # transform to bbox
   bb <- st_bbox(x)
