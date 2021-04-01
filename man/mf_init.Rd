@@ -12,7 +12,8 @@ mf_init(
   filename,
   width,
   height,
-  res = 72
+  res = 96,
+  ...
 )
 }
 \arguments{
@@ -32,6 +33,8 @@ direction (bottom, left, top, right)}
 \item{height}{height of the figure (pixels for png, inches for svg)}
 
 \item{res}{resolution (for png)}
+
+\item{...}{further parameters for png or svg export}
 }
 \value{
 No return value, a map is initiated.

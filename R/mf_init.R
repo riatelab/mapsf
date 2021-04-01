@@ -14,6 +14,7 @@
 #' @param width width of the figure (pixels for png, inches for svg)
 #' @param height height of the figure (pixels for png, inches for svg)
 #' @param res resolution (for png)
+#' @param ... further parameters for png or svg export
 #' @export
 #' @importFrom grDevices png svg
 #' @importFrom sf st_bbox st_as_sfc st_geometry
@@ -30,7 +31,8 @@ mf_init <- function(x,
                     filename,
                     width,
                     height,
-                    res = 72) {
+                    res = 96,
+                    ...) {
   if (!missing(theme)) {
     ww <- mf_theme(theme)
     mar <- .gmapsf$args$mar
@@ -38,7 +40,7 @@ mf_init <- function(x,
     mar <- par("mar")
   }
 
-  bg <- .gmapsf$args$bg
+  bgmap <- .gmapsf$args$bg
 
   # transform to bbox
   bb <- st_bbox(x)
@@ -66,7 +68,7 @@ mf_init <- function(x,
           mar = mar, res = res, format = "png"
         )
       }
-      png(filename, width = fd[1], height = fd[2], res = res)
+      png(filename, width = fd[1], height = fd[2], res = res, ...)
     }
     if (export == "svg") {
       if (!missing(width) & !missing(height)) {
@@ -90,7 +92,7 @@ mf_init <- function(x,
           mar = mar, res = res, format = "svg"
         ) / 96
       }
-      svg(filename = filename, width = fd[1], height = fd[2])
+      svg(filename = filename, width = fd[1], height = fd[2], ...)
     }
     if (!missing(theme)) {
       mf_theme(theme)
@@ -101,7 +103,7 @@ mf_init <- function(x,
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   # plot with bg and margins
-  plot(y, col = NA, bg = bg, border = NA, lwd = 1, expandBB = expandBB, asp = 1)
+  plot(y, col = NA, bg = bgmap, border = NA, lwd = 1, expandBB = expandBB, asp = 1)
 
 
   return(invisible(x))
