@@ -91,7 +91,7 @@ mf_title <- function(txt = "Map Title", pos, tab,
     ytop = pb[4],
     col = bg,
     xpd = TRUE,
-    border = bg
+    border = NA
   )
   # display title
   text(

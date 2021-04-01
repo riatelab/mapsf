@@ -39,9 +39,9 @@ mf_base <- function(x,
     col = col, border = border,
     lwd = lwd, add = add, bg = bg, ...
   )
-  if (add == FALSE) {
-    pu <- par("usr")
-    rect(pu[1], pu[3], pu[2], pu[4], border = bg, col = NA)
-  }
+  # if (add == FALSE) {
+  #   pu <- par("usr")
+  #   rect(pu[1], pu[3], pu[2], pu[4], border = bg, col = NA)
+  # }
   return(invisible(NULL))
 }
