@@ -150,7 +150,8 @@ the export.</p>
   <span class='va'>filename</span>,
   <span class='va'>width</span>,
   <span class='va'>height</span>,
-  res <span class='op'>=</span> <span class='fl'>72</span>
+  res <span class='op'>=</span> <span class='fl'>96</span>,
+  <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -158,7 +159,7 @@ the export.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>object of class <code>sf</code> or <code>sfc</code></p></td>
+      <td><p>object of class <code>sf</code>, <code>sfc</code> or <code>Raster</code></p></td>
     </tr>
     <tr>
       <th>expandBB</th>
@@ -188,6 +189,10 @@ direction (bottom, left, top, right)</p></td>
     <tr>
       <th>res</th>
       <td><p>resolution (for png)</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>further parameters for png or svg export</p></td>
     </tr>
     </table>
 
