@@ -9,7 +9,8 @@ mf_credits(
   pos = "bottomleft",
   col,
   cex = 0.6,
-  font = 3
+  font = 3,
+  bg = NA
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ mf_credits(
 \item{cex}{cex of the credits}
 
 \item{font}{font of the credits}
+
+\item{bg}{background color}
 }
 \value{
 No return value, credits are displayed.
