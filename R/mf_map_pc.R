@@ -53,13 +53,12 @@ mf_prop_choro <- function(x,
                           leg_val_rnd = c(0, 2),
                           leg_no_data = "No data",
                           leg_frame = c(FALSE, FALSE),
-                          add) {
+                          add = TRUE) {
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
-  if (missing(add)) add <- TRUE
   if (missing(border)) border <- fg
 
   var2 <- var[2]

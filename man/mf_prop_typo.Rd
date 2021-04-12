@@ -22,7 +22,7 @@ mf_prop_typo(
   leg_val_rnd = c(0),
   leg_no_data = "No data",
   leg_frame = c(FALSE, FALSE),
-  add
+  add = TRUE
 )
 }
 \arguments{

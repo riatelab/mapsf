@@ -47,14 +47,13 @@ mf_typo <- function(x,
                     leg_val_cex = .6,
                     leg_no_data = "No data",
                     leg_frame = FALSE,
-                    add) {
+                    add = FALSE) {
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
-  if (missing(add)) add <- FALSE
 
   # get modalities
   val_order <- get_modalities(

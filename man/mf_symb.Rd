@@ -23,7 +23,7 @@ mf_symb(
   leg_val_rnd = 2,
   leg_no_data = "No data",
   leg_frame = FALSE,
-  add
+  add = TRUE
 )
 }
 \arguments{

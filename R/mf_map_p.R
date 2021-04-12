@@ -49,14 +49,13 @@ mf_prop <- function(x,
                     leg_val_cex = .6,
                     leg_val_rnd = 0,
                     leg_frame = FALSE,
-                    add) {
+                    add = TRUE) {
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   lend <- par("lend")
   on.exit(par(op))
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
-  if (missing(add)) add <- TRUE
   if (missing(border)) border <- fg
 
   # linestring special case

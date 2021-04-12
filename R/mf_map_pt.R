@@ -50,14 +50,13 @@ mf_prop_typo <- function(x, var,
                          leg_val_rnd = c(0),
                          leg_no_data = "No data",
                          leg_frame = c(FALSE, FALSE),
-                         add) {
+                         add = TRUE) {
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
-  if (missing(add)) add <- TRUE
 
   var2 <- var[2]
   var1 <- var[1]

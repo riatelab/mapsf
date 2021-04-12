@@ -56,14 +56,13 @@ mf_choro <- function(x, var,
                      leg_val_rnd = 2,
                      leg_no_data = "No data",
                      leg_frame = FALSE,
-                     add) {
+                     add = FALSE) {
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
-  if (missing(add)) add <- FALSE
 
   # get the breaks
   breaks <- mf_get_breaks(x = x[[var]], nbreaks = nbreaks, breaks = breaks)

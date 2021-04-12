@@ -41,14 +41,13 @@ mf_grad <- function(x,
                     leg_val_cex = .6,
                     leg_val_rnd = 2,
                     leg_frame = FALSE,
-                    add) {
+                    add = TRUE) {
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
-  if (missing(add)) add <- TRUE
 
   # data prep
   x <- x[!is.na(x = x[[var]]), ]

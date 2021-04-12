@@ -22,7 +22,7 @@ mf_typo(
   leg_val_cex = 0.6,
   leg_no_data = "No data",
   leg_frame = FALSE,
-  add
+  add = FALSE
 )
 }
 \arguments{

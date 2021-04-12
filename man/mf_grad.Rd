@@ -20,7 +20,7 @@ mf_grad(
   leg_val_cex = 0.6,
   leg_val_rnd = 2,
   leg_frame = FALSE,
-  add
+  add = TRUE
 )
 }
 \arguments{

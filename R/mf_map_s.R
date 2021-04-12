@@ -55,7 +55,7 @@ mf_symb <- function(x, var,
                     leg_val_rnd = 2,
                     leg_no_data = "No data",
                     leg_frame = FALSE,
-                    add) {
+                    add = TRUE) {
 
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
@@ -63,7 +63,6 @@ mf_symb <- function(x, var,
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
-  if (missing(add)) add <- TRUE
 
   # Transform to point
   st_geometry(x) <- st_centroid(st_geometry(x), of_largest_polygon = TRUE)
