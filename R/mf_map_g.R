@@ -70,6 +70,11 @@ mf_grad <- function(x,
     mylwd <- get_col_vec(
       x = x[[var]], breaks = breaks, pal = lwd
     )
+
+    if(add == FALSE){
+      mf_init(x)
+      add <- TRUE
+    }
     # map
     plot(sf::st_geometry(x), col = col, lwd = mylwd, add = add)
     # legend
@@ -105,6 +110,11 @@ mf_grad <- function(x,
   if (pch %in% 21:25) mycolspt <- border
   mycolsptbg <- col[1]
 
+
+  if(add == FALSE){
+    mf_init(x)
+    add <- TRUE
+  }
   # display
   plot(st_geometry(x),
     col = mycolspt, bg = mycolsptbg, cex = mycex, pch = pch,

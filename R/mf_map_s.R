@@ -136,6 +136,10 @@ mf_symb <- function(x, var,
   mycolsptbg <- mycols
 
   ##################################################################
+  if(add == FALSE){
+    mf_init(x)
+    add <- TRUE
+  }
 
   plot(st_geometry(x),
     col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,

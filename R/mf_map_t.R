@@ -76,6 +76,11 @@ mf_typo <- function(x,
   }
   mycols[is.na(mycols)] <- col_na
 
+  if(add == FALSE){
+    mf_init(x)
+    add <- TRUE
+  }
+
   if (is(st_geometry(x), c("sfc_LINESTRING", "sfc_MULTILINESTRING"))) {
     plot(st_geometry(x), col = mycols, lwd = lwd, bg = bg, add = add)
     mf_legend_t(

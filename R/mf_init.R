@@ -112,8 +112,9 @@ mf_init <- function(x,
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   # plot with bg and margins
-  plot(y, col = NA, bg = bgmap, border = NA, lwd = 1, expandBB = expandBB, asp = 1)
-
+  plot(y, col = NA, border = NA, expandBB = expandBB)
+  pux <- par("usr")
+  rect(pux[1], pux[3], pux[2], pux[4], border = NA, col = bgmap)
 
   return(invisible(x))
 }

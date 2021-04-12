@@ -80,6 +80,11 @@ mf_choro <- function(x, var,
   mycols[is.na(mycols)] <- col_na
 
 
+  if(add == FALSE){
+    mf_init(x)
+    add <- TRUE
+  }
+
   if (is(st_geometry(x), c("sfc_LINESTRING", "sfc_MULTILINESTRING"))) {
     plot(st_geometry(x), col = mycols, lwd = lwd, bg = bg, add = add)
   }

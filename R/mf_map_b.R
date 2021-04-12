@@ -35,13 +35,16 @@ mf_base <- function(x,
     bg <- .gmapsf$args$bg
   }
 
+  if(add == FALSE){
+    mf_init(x)
+    add <- TRUE
+  }
+
   plot(st_geometry(x),
-    col = col, border = border,
-    lwd = lwd, add = add, bg = bg, ...
+       col = col, border = border,
+       lwd = lwd, add = add, bg = bg, ...
   )
-  # if (add == FALSE) {
-  #   pu <- par("usr")
-  #   rect(pu[1], pu[3], pu[2], pu[4], border = bg, col = NA)
-  # }
+
+
   return(invisible(NULL))
 }
