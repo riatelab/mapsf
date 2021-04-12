@@ -34,12 +34,7 @@ mf_raster <- function(x, add = FALSE, ...) {
   on.exit(par(op))
 
   if (add == FALSE) {
-    bb <- sf::st_bbox(x)
-    xd <- diff(bb[c(1,3)]) * 0.04
-    yd <- diff(bb[c(2,4)]) * 0.04
-    nbb <- bb + c(xd, yd, -xd, -yd)
-    a <- sf::st_as_sfc(sf::st_bbox(nbb), crs = sf::st_crs(x))
-    mf_map(a, col = NA, border = NA, type = "base")
+    mf_init(x)
     add <- TRUE
   }
 
