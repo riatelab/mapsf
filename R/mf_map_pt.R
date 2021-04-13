@@ -7,7 +7,7 @@
 #' 'lwd',
 #' 'add' ,
 #' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'leg_val_rnd',
-#' 'leg_pos', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
+#' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
 #' 'leg_no_data', 'leg_frame'))
 #'
 #' @importFrom methods is
@@ -120,9 +120,10 @@ mf_prop_typo <- function(x, var,
     inches = inches
   )
 
+  leg_pos <- split_leg(leg_pos)
   # symbols size
   mf_legend_p(
-    pos = leg_pos[1], val = val, title = leg_title[1],
+    pos = leg_pos[[1]], val = val, title = leg_title[1],
     symbol = symbol, inches = size_max, col = "grey80",
     title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
     val_rnd = leg_val_rnd,
@@ -130,7 +131,7 @@ mf_prop_typo <- function(x, var,
   )
 
   mf_legend_t(
-    pos = leg_pos[2], val = val_order, title = leg_title[2],
+    pos = leg_pos[[2]], val = val_order, title = leg_title[2],
     title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
     col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
     frame = leg_frame[2], pal = pal, bg = bg, fg = fg

@@ -11,7 +11,7 @@
 #' 'pal',
 #' 'breaks',
 #' 'nbreaks',
-#' 'leg_pos',
+#' 'leg_pos2',
 #' 'leg_title',
 #' 'leg_title_cex',
 #' 'leg_val_cex',
@@ -149,16 +149,16 @@ mf_symb_choro <- function(x, var,
   )
 
   # box(col = bg)
-
+  leg_pos <- split_leg(leg_pos)
   mf_legend_c(
-    pos = leg_pos[2], val = breaks, title = leg_title[2],
+    pos = leg_pos[[2]], val = breaks, title = leg_title[2],
     title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
     val_rnd = leg_val_rnd,
     col_na = col_na, no_data = no_data[2], no_data_txt = leg_no_data[2],
     frame = leg_frame[2], pal = pal, bg = bg, fg = fg
   )
   mf_legend_s(
-    pos = leg_pos[1],
+    pos = leg_pos[[1]],
     val = val_order,
     title = leg_title[1],
     title_cex = leg_title_cex[1],

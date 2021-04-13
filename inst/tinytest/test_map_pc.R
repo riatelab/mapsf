@@ -3,6 +3,18 @@ expect_silent(mf_prop_choro(mtq, c("POP", "MED"), add = FALSE))
 
 mf_map(mtq)
 expect_silent(mf_prop_choro(mtq, c("POP", "MED")))
+expect_silent(mf_prop_choro(mtq, c("POP", "MED"),
+                            leg_pos = c(673434.5,1642503.7,
+                                        682727.1, 1598170.3 )
+))
+expect_silent(mf_prop_choro(mtq, c("POP", "MED"),
+                            leg_pos = c("topright",  682727.1, 1598170.3 )
+))
+
+
+expect_silent(mf_prop_choro(mtq, c("POP", "MED"),
+                            leg_pos = c(673434.5,1642503.7, "top" )
+))
 
 mf_map(mtq)
 mtq[6, "MED"] <- NA

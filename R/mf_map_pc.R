@@ -8,7 +8,7 @@
 #' 'lwd',
 #' 'add' ,
 #' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'breaks', 'nbreaks',
-#' 'leg_pos', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'leg_val_rnd',
+#' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'leg_val_rnd',
 #' 'leg_no_data', 'leg_frame'))
 #'
 #' @importFrom methods is
@@ -121,9 +121,10 @@ mf_prop_choro <- function(x,
     inches = inches
   )
 
+  leg_pos <- split_leg(leg_pos)
   # symbols size
   mf_legend_p(
-    pos = leg_pos[1], val = val, title = leg_title[1],
+    pos = leg_pos[[1]], val = val, title = leg_title[1],
     symbol = symbol, inches = size_max, col = "grey80",
     title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
     val_rnd = leg_val_rnd[1],
@@ -131,7 +132,7 @@ mf_prop_choro <- function(x,
     bg = bg, fg = fg
   )
   mf_legend_c(
-    pos = leg_pos[2], val = breaks, title = leg_title[2],
+    pos = leg_pos[[2]], val = breaks, title = leg_title[2],
     title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
     val_rnd = leg_val_rnd[2],
     col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
