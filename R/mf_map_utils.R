@@ -175,28 +175,25 @@ get_sym_typo <- function(x, pch, val_order) {
 
 
 # split multiple legend position
-split_leg <- function(x){
+split_leg <- function(x) {
   llp <- length(x)
-  if(llp == 2){
+  if (llp == 2) {
     lp1 <- x[1]
     lp2 <- x[2]
   }
-  if(llp == 3){
-    tt <- tryCatch(as.numeric(x[1]), warning=function(w) w)
-    if(methods::is(tt,"warning")){
+  if (llp == 3) {
+    tt <- tryCatch(as.numeric(x[1]), warning = function(w) w)
+    if (methods::is(tt, "warning")) {
       lp1 <- x[1]
       lp2 <- as.numeric(x[2:3])
-    }else{
+    } else {
       lp1 <- as.numeric(x[1:2])
       lp2 <- x[3]
     }
   }
-  if(llp == 4){
+  if (llp == 4) {
     lp1 <- x[1:2]
     lp2 <- x[3:4]
   }
   list(lp1, lp2)
 }
-
-
-

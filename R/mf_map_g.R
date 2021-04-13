@@ -70,7 +70,7 @@ mf_grad <- function(x,
       x = x[[var]], breaks = breaks, pal = lwd
     )
 
-    if(add == FALSE){
+    if (add == FALSE) {
       mf_init(x)
       add <- TRUE
     }
@@ -110,7 +110,7 @@ mf_grad <- function(x,
   mycolsptbg <- col[1]
 
 
-  if(add == FALSE){
+  if (add == FALSE) {
     mf_init(x)
     add <- TRUE
   }

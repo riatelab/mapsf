@@ -75,7 +75,7 @@ mf_typo <- function(x,
   }
   mycols[is.na(mycols)] <- col_na
 
-  if(add == FALSE){
+  if (add == FALSE) {
     mf_init(x)
     add <- TRUE
   }

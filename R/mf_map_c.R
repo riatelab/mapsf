@@ -79,7 +79,7 @@ mf_choro <- function(x, var,
   mycols[is.na(mycols)] <- col_na
 
 
-  if(add == FALSE){
+  if (add == FALSE) {
     mf_init(x)
     add <- TRUE
   }

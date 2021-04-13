@@ -43,10 +43,10 @@ mf_init <- function(x,
 
   bgmap <- .gmapsf$args$bg
 
-  if(is(x, 'Raster')){
+  if (is(x, "Raster")) {
     bb <- st_bbox(x)
-    xd <- diff(bb[c(1,3)]) * 0.04
-    yd <- diff(bb[c(2,4)]) * 0.04
+    xd <- diff(bb[c(1, 3)]) * 0.04
+    yd <- diff(bb[c(2, 4)]) * 0.04
     nbb <- bb + c(xd, yd, -xd, -yd)
     x <- st_as_sfc(st_bbox(nbb), crs = st_crs(x))
   }

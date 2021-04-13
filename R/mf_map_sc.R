@@ -138,7 +138,7 @@ mf_symb_choro <- function(x, var,
   mycolsptbg <- mycols
 
   ##################################################################
-  if(add == FALSE){
+  if (add == FALSE) {
     mf_init(x)
     add <- TRUE
   }

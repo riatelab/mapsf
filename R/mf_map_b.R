@@ -35,14 +35,14 @@ mf_base <- function(x,
     bg <- .gmapsf$args$bg
   }
 
-  if(add == FALSE){
+  if (add == FALSE) {
     mf_init(x)
     add <- TRUE
   }
 
   plot(st_geometry(x),
-       col = col, border = border,
-       lwd = lwd, add = add, bg = bg, ...
+    col = col, border = border,
+    lwd = lwd, add = add, bg = bg, ...
   )
 
 

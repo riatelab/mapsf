@@ -31,7 +31,6 @@ my_params <- function(x) {
       "c(x1,y1, 'position') or c(x1, y1, x2, y2). ",
       "If leg_pos is 'n' then the legend is not plotted."
     ),
-
     leg_title = "leg_title legend title",
     leg_title_cex = "leg_title_cex size of the legend title",
     leg_val_cex = "leg_val_cex size of the values in the legend",
