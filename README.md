@@ -34,7 +34,7 @@ GitHub with:
 remotes::install_github("riatelab/mapsf")
 ```
 
-## Examples
+## Usage
 
 This is a basic example which shows how to create a map with `mapsf`.  
 The main `mapsf` function is `mf_map()`.
@@ -63,7 +63,7 @@ A more detailed example:
 ``` r
 # Initiate a map figure with a theme and extra margins 
 mf_init(x = mtq, theme = "dark", expandBB = c(0,0,0,.3),
-        export = "svg", filename = "mtq.svg", width = 6) 
+        export = "png", filename = "mtq.png", width = 600) 
 # Plot a shadow
 mf_shadow(mtq, col = "grey10", add = TRUE)
 # Plot a choropleth map
@@ -91,7 +91,7 @@ mf_arrow('topleft')
 dev.off()
 ```
 
-![](man/figures/mtq.svg)
+![](man/figures/mtq.png)
 
 Note that `mapsf` is, to a certain degree, compatible with the pipe
 syntax:
