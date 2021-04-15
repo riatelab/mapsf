@@ -8,6 +8,7 @@
 #' 'add' ,
 #' 'col_na',
 #' 'pal',
+#' 'alpha',
 #' 'breaks',
 #' 'nbreaks',
 #' 'leg_pos',
@@ -40,6 +41,7 @@
 #' )
 mf_choro <- function(x, var,
                      pal = "Mint",
+                     alpha = 1,
                      breaks = "quantile",
                      nbreaks,
                      border,
@@ -68,7 +70,7 @@ mf_choro <- function(x, var,
   breaks <- mf_get_breaks(x = x[[var]], nbreaks = nbreaks, breaks = breaks)
   nbreaks <- length(breaks) - 1
   # get the cols
-  pal <- get_the_pal(pal = pal, nbreaks = nbreaks)
+  pal <- get_the_pal(pal = pal, nbreaks = nbreaks, alpha = alpha)
   # get the color vector
   mycols <- get_col_vec(x = x[[var]], breaks = breaks, pal = pal)
 

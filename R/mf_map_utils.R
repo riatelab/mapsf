@@ -2,12 +2,13 @@
 #'
 #' @param pal pal
 #' @param nbreaks nbreaks
+#' @param alpha alpha
 #' @noRd
 #' @importFrom grDevices hcl.pals hcl.colors
-get_the_pal <- function(pal, nbreaks) {
+get_the_pal <- function(pal, nbreaks, alpha = 1) {
   if (length(pal) == 1) {
     if (pal %in% hcl.pals()) {
-      cols <- hcl.colors(n = nbreaks, palette = pal, rev = TRUE)
+      cols <- hcl.colors(n = nbreaks, palette = pal, alpha = alpha, rev = TRUE)
     } else {
       cols <- rep(pal, nbreaks)
     }

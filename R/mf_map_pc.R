@@ -7,7 +7,7 @@
 #' 'border',
 #' 'lwd',
 #' 'add' ,
-#' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'breaks', 'nbreaks',
+#' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'alpha', 'breaks', 'nbreaks',
 #' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'leg_val_rnd',
 #' 'leg_no_data', 'leg_frame'))
 #'
@@ -41,6 +41,7 @@ mf_prop_choro <- function(x,
                           val_max,
                           symbol = "circle",
                           pal = "Mint",
+                          alpha = 1,
                           breaks = "quantile",
                           nbreaks,
                           border,
@@ -73,7 +74,7 @@ mf_prop_choro <- function(x,
   )
   nbreaks <- length(breaks) - 1
   # get the cols
-  pal <- get_the_pal(pal = pal, nbreaks = nbreaks)
+  pal <- get_the_pal(pal = pal, nbreaks = nbreaks, alpha = alpha)
   # get the color vector
   mycols <- get_col_vec(x = dots[[var2]], breaks = breaks, pal = pal)
 
