@@ -34,6 +34,8 @@ mf_layout <- function(title = "Map Title",
     mf_scale()
   }
   if (frame) {
-    box(col = fg)
+    pux <- par("usr")
+    rect(pux[1], pux[3], pux[2], pux[4], border = fg, col = NA)
+    # box(col = fg)
   }
 }
