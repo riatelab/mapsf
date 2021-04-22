@@ -58,8 +58,9 @@ mf_prop <- function(x,
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
 
+  xtype <- get_geom_type(x)
   # linestring special case
-  if (is(st_geometry(x), c("sfc_LINESTRING", "sfc_MULTILINESTRING"))) {
+  if (xtype == "LINE") {
     x <- x[!is.na(x[[var]]), ]
     maxval <- max(x[[var]])
     x$lwd <- x[[var]] * lwd_max / maxval

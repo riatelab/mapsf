@@ -84,18 +84,18 @@ mf_choro <- function(x, var,
     add <- TRUE
   }
 
-  if (is(st_geometry(x), c("sfc_LINESTRING", "sfc_MULTILINESTRING"))) {
+  xtype <- get_geom_type(x)
+  if (xtype == "LINE") {
     plot(st_geometry(x), col = mycols, lwd = lwd, bg = bg, add = add)
   }
-  if (is(st_geometry(x), c("sfc_POLYGON", "sfc_MULTIPOLYGON"))) {
+  if (xtype == "POLYGON") {
     plot(
       st_geometry(x),
       col = mycols, border = border, lwd = lwd,
       bg = bg, add = add
     )
   }
-  if (is(st_geometry(x), c("sfc_POINT", "sfc_MULTIPOINT"))) {
-    cx <- "point"
+  if (xtype == "POINT") {
     if (pch %in% 21:25) {
       mycolspt <- border
     } else {

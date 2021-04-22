@@ -55,7 +55,8 @@ mf_grad <- function(x,
   breaks <- mf_get_breaks(x = x[[var]], nbreaks = nbreaks, breaks = breaks)
   nbreaks <- length(breaks) - 1
 
-  if (is(st_geometry(x), c("sfc_LINESTRING", "sfc_MULTILINESTRING"))) {
+  xtype <- get_geom_type(x)
+  if (xtype == "LINE") {
     # lwd mgmt
     if (missing(lwd)) {
       lwd <- seq(1, 4, length.out = nbreaks)

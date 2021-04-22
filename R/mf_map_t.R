@@ -80,7 +80,8 @@ mf_typo <- function(x,
     add <- TRUE
   }
 
-  if (is(st_geometry(x), c("sfc_LINESTRING", "sfc_MULTILINESTRING"))) {
+  xtype <- get_geom_type(x)
+  if (xtype == "LINE") {
     plot(st_geometry(x), col = mycols, lwd = lwd, bg = bg, add = add)
     mf_legend_t(
       pos = leg_pos, val = val_order, title = leg_title,
@@ -89,7 +90,7 @@ mf_typo <- function(x,
       frame = leg_frame, pal = pal, bg = bg, fg = fg
     )
   }
-  if (is(st_geometry(x), c("sfc_POLYGON", "sfc_MULTIPOLYGON"))) {
+  if (xtype == "POLYGON") {
     plot(st_geometry(x),
       col = mycols, border = border,
       lwd = lwd, bg = bg, add = add
@@ -101,7 +102,7 @@ mf_typo <- function(x,
       frame = leg_frame, pal = pal, bg = bg, fg = fg
     )
   }
-  if (is(st_geometry(x), c("sfc_POINT", "sfc_MULTIPOINT"))) {
+  if (xtype == "POINT") {
     if (pch %in% 21:25) {
       mycolspt <- border
     } else {
