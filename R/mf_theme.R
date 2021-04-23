@@ -61,15 +61,15 @@ mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
   themes <- list(
     default = list(
       name = "default",
-      bg = "white",
-      fg = "black",
-      mar = c(5.1, 4.1, 4.1, 2.1),
+      bg = "#f7f7f7",
+      fg = "#333333",
+      mar = c(.5, .5, 1.7, .5),
       tab = TRUE,
       pos = "left",
       inner = FALSE,
       line = 1.2,
       cex = 1,
-      font = 2
+      font = 1
     ),
     brutal = list(
       name = "brutal",
