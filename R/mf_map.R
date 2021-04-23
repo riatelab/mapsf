@@ -26,6 +26,7 @@
 #' "xfull",
 #' "var",
 #' "pal",
+#' "alpha",
 #' "breaks",
 #' "nbreaks",
 #' "border",
@@ -72,7 +73,7 @@
 #' mf_map(mtq)
 #' mf_map(mtq, var = c("STATUS", "MED"), type = "symb_choro")
 mf_map <- function(x, var, type = "base",
-                   breaks, nbreaks, pal,
+                   breaks, nbreaks, pal, alpha = 1,
                    inches, val_max, symbol, col,
                    lwd_max, val_order, pch, cex,
                    border, lwd, bg,

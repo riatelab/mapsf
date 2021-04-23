@@ -43,6 +43,10 @@ my_params <- function(x) {
       "pal a set of colors or a palette name",
       " (from \\link{hcl.colors})"
     ),
+    alpha = paste0(
+      "alpha if \\code{pal} is a \\link{hcl.colors} palette name, ",
+      "the alpha-transparency level in the range [0,1]"
+    ),
     col_na = "col_na color for missing values",
     cex_na = "cex_na cex for NA values",
     pch_na = "pch_na pch for NA values",

@@ -10,6 +10,7 @@
 #' 'cex_na',
 #' 'pch_na',
 #' 'pal',
+#' 'alpha',
 #' 'leg_pos',
 #' 'leg_title',
 #' 'leg_title_cex',
@@ -40,6 +41,7 @@
 #' )
 mf_symb <- function(x, var,
                     pal = "Dynamic",
+                    alpha = 1,
                     border,
                     pch,
                     cex = 1,
@@ -74,7 +76,7 @@ mf_symb <- function(x, var,
     val_order = val_order
   )
   # get color list and association
-  pal <- get_the_pal(pal = pal, nbreaks = length(val_order))
+  pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha)
   # get color vector
   mycols <- get_col_typo(
     x = x[[var]], pal = pal,

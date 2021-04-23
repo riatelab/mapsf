@@ -11,6 +11,7 @@ mf_prop_choro(
   val_max,
   symbol = "circle",
   pal = "Mint",
+  alpha = 1,
   breaks = "quantile",
   nbreaks,
   border,
@@ -38,6 +39,8 @@ mf_prop_choro(
 \item{symbol}{type of symbols, 'circle' or 'square'}
 
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
+
+\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
 
 \item{breaks}{either a numeric vector with the actual breaks, or a classification method name (see \link{mf_get_breaks})}
 

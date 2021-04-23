@@ -6,7 +6,7 @@
 #' 'border',
 #' 'lwd',
 #' 'add' ,
-#' 'col_na', 'pal',
+#' 'col_na', 'pal', 'alpha',
 #' 'leg_pos', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
 #' 'leg_no_data', 'leg_frame'))
 #' @param cex cex cex of the symbols if x is a POINT layer
@@ -33,6 +33,7 @@
 mf_typo <- function(x,
                     var,
                     pal = "Dynamic",
+                    alpha = 1,
                     val_order,
                     border,
                     pch = 21,
@@ -62,7 +63,7 @@ mf_typo <- function(x,
   )
 
   # get color list and association
-  pal <- get_the_pal(pal = pal, nbreaks = length(val_order))
+  pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha)
   # get color vector
   mycols <- get_col_typo(
     x = x[[var]], pal = pal,

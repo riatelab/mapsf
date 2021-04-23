@@ -6,7 +6,7 @@
 #' 'border',
 #' 'lwd',
 #' 'add' ,
-#' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'leg_val_rnd',
+#' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'alpha', 'leg_val_rnd',
 #' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
 #' 'leg_no_data', 'leg_frame'))
 #'
@@ -39,6 +39,7 @@ mf_prop_typo <- function(x, var,
                          val_max,
                          symbol = "circle",
                          pal = "Dynamic",
+                         alpha = 1,
                          val_order,
                          border,
                          lwd = .7,
@@ -69,7 +70,7 @@ mf_prop_typo <- function(x, var,
     val_order = val_order
   )
   # get color list and association
-  pal <- get_the_pal(pal = pal, nbreaks = length(val_order))
+  pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha)
   # get color vector
   mycols <- get_col_typo(
     x = dots[[var2]], pal = pal,

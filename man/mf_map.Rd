@@ -11,6 +11,7 @@ mf_map(
   breaks,
   nbreaks,
   pal,
+  alpha = 1,
   inches,
   val_max,
   symbol,
@@ -49,6 +50,8 @@ mf_map(
 \item{nbreaks}{number of classes}
 
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
+
+\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
 
 \item{inches}{size of the biggest symbol (radius for circles, half width for squares) in inches.}
 
