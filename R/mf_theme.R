@@ -18,6 +18,7 @@
 #' It is also possible to set a custom theme using a list of arguments
 #' (see Examples).
 #' Use \code{mf_theme('default')} to reset theme settings.
+#' \code{mf_theme()} returns the current theme settings.
 #' @return The (invisible) list of theme parameters is returned.
 #' @export
 #' @examples
@@ -205,6 +206,10 @@ mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
   )
 
 
+  if (missing(x)){
+    x <- .gmapsf$args
+  }
+
   if (is.list(x)) {
     theme <- x
   } else {
@@ -219,6 +224,8 @@ mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
       theme <- themes[[x]]
     }
   }
+
+
 
   if (!missing(bg)) theme$bg <- bg
   if (!missing(fg)) theme$fg <- fg
