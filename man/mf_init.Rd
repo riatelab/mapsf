@@ -4,17 +4,7 @@
 \alias{mf_init}
 \title{Initialize or export a map}
 \usage{
-mf_init(
-  x,
-  expandBB = rep(0, 4),
-  theme,
-  export,
-  filename,
-  width,
-  height,
-  res = 96,
-  ...
-)
+mf_init(x, expandBB = rep(0, 4), theme)
 }
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{Raster}}
@@ -23,28 +13,12 @@ mf_init(
 direction (bottom, left, top, right)}
 
 \item{theme}{apply a theme from \code{mf_theme}}
-
-\item{export}{if set to "png" or "svg" a png or svg plot device is opened}
-
-\item{filename}{path to the exported file}
-
-\item{width}{width of the figure (pixels for png, inches for svg)}
-
-\item{height}{height of the figure (pixels for png, inches for svg)}
-
-\item{res}{resolution (for png)}
-
-\item{...}{further parameters for png or svg export}
 }
 \value{
 No return value, a map is initiated.
 }
 \description{
 Plot an invisible layer with the extent of a spatial object.
-If \code{export} is set, the map is exported in PNG or SVG format. If
-only one of \code{width} or \code{height} is set, \code{mf_init} uses the
-width/height ratio of \code{x} bounding box to find a matching ratio for
-the export.
 }
 \examples{
 mtq <- mf_get_mtq()
