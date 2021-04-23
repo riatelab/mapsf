@@ -48,5 +48,8 @@ the export.
 }
 \examples{
 mtq <- mf_get_mtq()
-target <- mtq[30, ]
+(filename <-  tempfile(fileext = ".png"))
+mf_export(mtq, filename = filename)
+mf_map(mtq, add = TRUE)
+dev.off()
 }

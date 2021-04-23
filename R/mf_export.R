@@ -22,7 +22,10 @@
 #' @return No return value, a map is initiated.
 #' @examples
 #' mtq <- mf_get_mtq()
-#' target <- mtq[30, ]
+#' (filename <-  tempfile(fileext = ".png"))
+#' mf_export(mtq, filename = filename)
+#' mf_map(mtq, add = TRUE)
+#' dev.off()
 mf_export <- function(x,
                       export = "png",
                       filename = paste0("map.", export),

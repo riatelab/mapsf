@@ -9,7 +9,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-", 
-  fig.width = 5
+  fig.width = 5, fig.height = 6,
+  dev = "png"
   # out.width = "100%"
 )
 ```
@@ -64,18 +65,16 @@ mf_map(x = mtq)
 mf_map(x = mtq, var = "POP", type = "prop")
 # Plot a map layout
 mf_layout(title = "Population in Martinique", 
-          credits = "T. Giraud; Sources: INSEE & IGN, 2018", 
-          frame = TRUE)
-box(which = "figure")
+          credits = "T. Giraud; Sources: INSEE & IGN, 2018")
 ```
 
 
 A more detailed example:
 
-```{r example3, results=FALSE, fig.path="man/figures/"}
-# Initiate a map figure with a theme and extra margins 
-mf_init(x = mtq, theme = "dark", expandBB = c(0,0,0,.3),
-        export = "png", filename = "mtq.png", width = 600) 
+```{r example3, results=FALSE, fig.path="man/figures/", eval = FALSE}
+# Export a map figure with a theme and extra margins 
+mf_export(x = mtq, filename = "mtq.png", width = 600, 
+          theme = "dark", expandBB = c(0,0,0,.3)) 
 # Plot a shadow
 mf_shadow(mtq, col = "grey10", add = TRUE)
 # Plot a choropleth map
