@@ -116,15 +116,13 @@ The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf
 <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span>
 <span class="co"># Plot a map layout</span>
 <span class="fu"><a href="reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="st">"T. Giraud; Sources: INSEE &amp; IGN, 2018"</span>, 
-          frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>which <span class="op">=</span> <span class="st">"figure"</span><span class="op">)</span></code></pre></div>
+          credits <span class="op">=</span> <span class="st">"T. Giraud; Sources: INSEE &amp; IGN, 2018"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-example1-1.png"><!-- --></p>
 <p>A more detailed example:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Initiate a map figure with a theme and extra margins </span>
-<span class="fu"><a href="reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.3</span><span class="op">)</span>,
-        export <span class="op">=</span> <span class="st">"png"</span>, filename <span class="op">=</span> <span class="st">"mtq.png"</span>, width <span class="op">=</span> <span class="fl">600</span><span class="op">)</span> 
+<code class="sourceCode R"><span class="co"># Export a map figure with a theme and extra margins </span>
+<span class="fu"><a href="reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"mtq.png"</span>, width <span class="op">=</span> <span class="fl">600</span>, 
+          theme <span class="op">=</span> <span class="st">"dark"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.3</span><span class="op">)</span><span class="op">)</span> 
 <span class="co"># Plot a shadow</span>
 <span class="fu"><a href="reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"grey10"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot a choropleth map</span>

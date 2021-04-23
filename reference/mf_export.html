@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Initialize or export a map — mf_init • mapsf</title>
+<title>Initialize or export a map — mf_export • mapsf</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,12 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Initialize or export a map — mf_init" />
-<meta property="og:description" content="Plot an invisible layer with the extent of a spatial object." />
+<meta property="og:title" content="Initialize or export a map — mf_export" />
+<meta property="og:description" content="Export a map with the extent of a spatial object.
+The map is exported in PNG or SVG format. If
+only one of width or height is set, mf_init uses the
+width/height ratio of x bounding box to find a matching ratio for
+the export." />
 <meta property="og:image" content="/reference/figures/logo.png" />
 <meta property="og:image:alt" content="An R package for thematic cartography" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -126,15 +130,29 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Initialize or export a map</h1>
-    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_init.R'><code>R/mf_init.R</code></a></small>
-    <div class="hidden name"><code>mf_init.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_export.R'><code>R/mf_export.R</code></a></small>
+    <div class="hidden name"><code>mf_export.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Plot an invisible layer with the extent of a spatial object.</p>
+    <p>Export a map with the extent of a spatial object.
+The map is exported in PNG or SVG format. If
+only one of <code>width</code> or <code>height</code> is set, <code>mf_init</code> uses the
+width/height ratio of <code>x</code> bounding box to find a matching ratio for
+the export.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mf_init</span><span class='op'>(</span><span class='va'>x</span>, expandBB <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>4</span><span class='op'>)</span>, <span class='va'>theme</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mf_export</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  export <span class='op'>=</span> <span class='st'>"png"</span>,
+  filename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"map."</span>, <span class='va'>export</span><span class='op'>)</span>,
+  <span class='va'>width</span>,
+  <span class='va'>height</span>,
+  res <span class='op'>=</span> <span class='fl'>96</span>,
+  <span class='va'>...</span>,
+  expandBB <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>4</span><span class='op'>)</span>,
+  <span class='va'>theme</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -142,6 +160,30 @@
     <tr>
       <th>x</th>
       <td><p>object of class <code>sf</code>, <code>sfc</code> or <code>Raster</code></p></td>
+    </tr>
+    <tr>
+      <th>export</th>
+      <td><p>if set to "png" or "svg" a png or svg plot device is opened</p></td>
+    </tr>
+    <tr>
+      <th>filename</th>
+      <td><p>path to the exported file</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>width of the figure (pixels for png, inches for svg)</p></td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td><p>height of the figure (pixels for png, inches for svg)</p></td>
+    </tr>
+    <tr>
+      <th>res</th>
+      <td><p>resolution (for png)</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>further parameters for png or svg export</p></td>
     </tr>
     <tr>
       <th>expandBB</th>
@@ -160,10 +202,12 @@ direction (bottom, left, top, right)</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>target</span> <span class='op'>&lt;-</span> <span class='va'>mtq</span><span class='op'>[</span><span class='fl'>30</span>, <span class='op'>]</span>
-<span class='fu'>mf_init</span><span class='op'>(</span><span class='va'>target</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_init-1.png' alt='' width='672' height='672' /></div></pre>
+<span class='op'>(</span><span class='va'>filename</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span>fileext <span class='op'>=</span> <span class='st'>".png"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/tmp/RtmpRmBkRN/file32a757693a17.png"</div><div class='input'><span class='fu'>mf_export</span><span class='op'>(</span><span class='va'>mtq</span>, filename <span class='op'>=</span> <span class='va'>filename</span><span class='op'>)</span>
+<span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.off</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; agg_png 
+#&gt;       2 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
