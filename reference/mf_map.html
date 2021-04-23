@@ -179,6 +179,7 @@ a quantitative data classification (<a href='mf_symb_choro.html'>mf_symb_choro</
   <span class='va'>breaks</span>,
   <span class='va'>nbreaks</span>,
   <span class='va'>pal</span>,
+  alpha <span class='op'>=</span> <span class='fl'>1</span>,
   <span class='va'>inches</span>,
   <span class='va'>val_max</span>,
   <span class='va'>symbol</span>,
@@ -231,6 +232,10 @@ a quantitative data classification (<a href='mf_symb_choro.html'>mf_symb_choro</
     <tr>
       <th>pal</th>
       <td><p>a set of colors or a palette name (from <a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a>)</p></td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td><p>if <code>pal</code> is a <a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a> palette name, the alpha-transparency level in the range [0,1]</p></td>
     </tr>
     <tr>
       <th>inches</th>

@@ -143,6 +143,7 @@ data classification.</p>
   <span class='va'>val_max</span>,
   symbol <span class='op'>=</span> <span class='st'>"circle"</span>,
   pal <span class='op'>=</span> <span class='st'>"Mint"</span>,
+  alpha <span class='op'>=</span> <span class='fl'>1</span>,
   breaks <span class='op'>=</span> <span class='st'>"quantile"</span>,
   <span class='va'>nbreaks</span>,
   <span class='va'>border</span>,
@@ -184,6 +185,10 @@ data classification.</p>
     <tr>
       <th>pal</th>
       <td><p>a set of colors or a palette name (from <a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a>)</p></td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td><p>if <code>pal</code> is a <a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a> palette name, the alpha-transparency level in the range [0,1]</p></td>
     </tr>
     <tr>
       <th>breaks</th>
