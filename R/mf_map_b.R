@@ -6,7 +6,7 @@
 #' 'col',
 #' 'border',
 #' 'lwd',
-#' 'add', 'bg' ))
+#' 'add'))
 #' @param ... further parameters from \link{plot} for sfc objects
 #'
 #' @importFrom methods is
@@ -24,25 +24,24 @@ mf_base <- function(x,
                     border = "grey20",
                     lwd = .7,
                     add = FALSE,
-                    bg,
                     ...) {
   # margins mgmt
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
-
-
-  if (missing(bg)) {
-    bg <- .gmapsf$args$bg
-  }
 
   if (add == FALSE) {
     mf_init(x)
     add <- TRUE
   }
 
+  xtype <- get_geom_type(x)
+  if(xtype != "POLYGON" && missing(col)){
+    col <- "grey20"
+  }
+
   plot(st_geometry(x),
     col = col, border = border,
-    lwd = lwd, add = add, bg = bg, ...
+    lwd = lwd, add = add, ...
   )
 
 
