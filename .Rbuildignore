@@ -17,3 +17,4 @@
 ^README\.Rmd$
 ^test
 ^\.github$
+^vignettes/web_only/*

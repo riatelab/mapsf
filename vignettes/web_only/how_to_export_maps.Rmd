@@ -1,0 +1,135 @@
+---
+title: "How to Export Maps"
+author: "Timothée Giraud"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to Export Maps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>", 
+  fig.width = 4, 
+  fig.height = 4
+)
+```
+
+
+
+# mf_export()
+
+`mf_export()` is used to export maps in PNG or SVG formats. 
+An exported map has the same width/height ratio of a spatial object, taking into account margins and title.   
+If `width` is specified, then `height` is deducted from the width/height ratio of `x`, figure margins and title size.  
+If `height` is specified, then `width` is deducted from the width/height ratio of `x`, figure margins and title size.  
+
+Additionally, `mf_export()` can be used to set a theme, to extend the map space on one or several side of the figure, or to center a map on a specific area.
+
+
+## Simple Export
+
+In this example we only set the `width` of the exported figure. 
+
+```{r, results="hide"}
+library(mapsf)
+mtq <- mf_get_mtq()
+mf_export(x = mtq, filename = "fixed_width.png", width = 500)
+mf_map(mtq, add = TRUE)
+mf_title(txt = "PNG export: width=500px, height=605px (deducted)")
+dev.off()
+```
+
+![](fixed_width.png)
+
+**Note that we have to set `add = TRUE` to the first layer plotted.** Internally, `mf_export()` start a device (PNG or SVG) with a specific dimension (figure size) and extent (`x` extent). 
+
+
+## Export with a Theme
+In this example we use the "dark" theme. 
+
+```{r, results="hide"}
+mf_export(x = mtq, filename = "fixed_width_theme.png", 
+          width = 500, theme = "dark")
+mf_map(mtq, add = TRUE)
+mf_title(txt = "PNG export: width=500px, height=611px (deducted)")
+dev.off()
+```
+
+![](fixed_width_theme.png)
+
+
+## Export with Extra Space on the Figure
+Here we have added some space on the right side of the plot (50% of `x` width). 
+```{r, results="hide"}
+mf_export(x = mtq, filename = "fixed_width_expand.png", 
+          width = 500, expandBB = c(0,0,0,.5), theme = "default")
+mf_map(mtq, add = TRUE)
+mf_title(txt = "PNG export: width=500px, height=427px (deducted)")
+dev.off()
+```
+![](fixed_width_expand.png)
+
+
+## Center the Map on a Specific Area
+In this export, the map is focused on a specific spatial object. `height` is fixed and `width` is deducted. 
+
+```{r, results="hide"}
+target <- mtq[5,]
+mf_export(x = target, filename = "fixed_height_centered.png", height = 600)
+mf_map(mtq, add = TRUE)
+mf_shadow(target, add = TRUE)
+mf_map(target, add = TRUE)
+mf_title(txt = "PNG export: height=600px, width=433px (deducted)")
+mf_scale(1, pos = "bottomleft")
+dev.off()
+```
+![](fixed_height_centered.png)
+
+## Other Parameters
+`mf_export()` can produce SVG figures (with `export = "svg"`) and use other parameters of `png()` or `svg()` functions (e.g. `res`, `bg` or `family`).
+
+```{r, results="hide"}
+mf_export(x = mtq, export = "svg", filename = "fixed_width.svg", 
+          width = 5, theme = "nevermind", bg = "black")
+mf_map(mtq, add = TRUE)
+mf_title(txt = "SVG export: bg = 'black'")
+dev.off()
+```
+
+![](fixed_width.svg)
+
+
+## Side Effects
+
+If a theme is set before an `mf_export()` call, the theme is applied to the export. 
+```{r, results="hide"}
+mf_theme('agolalight')
+mf_export(x = mtq, filename = "theme_before.png", width = 200)
+mf_map(mtq, add = TRUE)
+mf_title(txt = "agolalight")
+dev.off()
+```
+![](theme_before.png)
+
+If a theme is set before or within an `mf_export()` call, the theme is also applied after the export. 
+```{r}
+mf_export(x = mtq, filename = "theme_within.png", width = 200, 
+          theme = "darkula")
+mf_map(mtq, add = TRUE)
+mf_title(txt = "darkula")
+dev.off()
+
+mf_map(mtq)
+mf_title("Still 'darkula'")
+```
+
+If a theme is set between an `mf_export()` call and `dev.off()`, the theme is not applied correctly.
+
+
+
