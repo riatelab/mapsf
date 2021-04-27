@@ -3,5 +3,6 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   mapsf: mapsf.html
-last_built: 2021-04-26T15:01Z
+  web_only/how_to_export_maps: how_to_export_maps.html
+last_built: 2021-04-27T11:56Z
 
