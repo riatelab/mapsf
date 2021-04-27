@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_export.R
 \name{mf_export}
 \alias{mf_export}
-\title{Initialize or export a map}
+\title{Export a map}
 \usage{
 mf_export(
   x,
@@ -13,7 +13,7 @@ mf_export(
   res = 96,
   ...,
   expandBB = rep(0, 4),
-  theme
+  theme = "default"
 )
 }
 \arguments{
@@ -42,7 +42,7 @@ No return value, a map is initiated.
 \description{
 Export a map with the extent of a spatial object.
 The map is exported in PNG or SVG format. If
-only one of \code{width} or \code{height} is set, \code{mf_init} uses the
+only one of \code{width} or \code{height} is set, \code{mf_export} uses the
 width/height ratio of \code{x} bounding box to find a matching ratio for
 the export.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_init.R
 \name{mf_init}
 \alias{mf_init}
-\title{Initialize or export a map}
+\title{Initialize a map with a specific extent}
 \usage{
 mf_init(x, expandBB = rep(0, 4), theme)
 }

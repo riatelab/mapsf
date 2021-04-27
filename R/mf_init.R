@@ -1,4 +1,4 @@
-#' @title Initialize or export a map
+#' @title Initialize a map with a specific extent
 #' @name mf_init
 #' @description Plot an invisible layer with the extent of a spatial object.
 #' @param x object of class \code{sf}, \code{sfc} or \code{Raster}

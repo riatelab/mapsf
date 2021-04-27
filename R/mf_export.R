@@ -1,8 +1,8 @@
-#' @title Initialize or export a map
+#' @title Export a map
 #' @name mf_export
 #' @description Export a map with the extent of a spatial object.
 #' The map is exported in PNG or SVG format. If
-#' only one of \code{width} or \code{height} is set, \code{mf_init} uses the
+#' only one of \code{width} or \code{height} is set, \code{mf_export} uses the
 #' width/height ratio of \code{x} bounding box to find a matching ratio for
 #' the export.
 #' @param x object of class \code{sf}, \code{sfc} or \code{Raster}
@@ -33,7 +33,7 @@ mf_export <- function(x,
                       height,
                       res = 96, ...,
                       expandBB = rep(0, 4),
-                      theme) {
+                      theme = "default") {
   if (!missing(theme)) {
     mf_theme(theme)
   }
