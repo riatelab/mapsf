@@ -68,7 +68,7 @@ mf_legend_t <- function(pos = "topright",
   w <- inset
   h <- inset / 1.5
   n <- length(val)
-  # pal <- get_the_pal(pal, n)
+  pal <- get_the_pal(pal, n)
   xy_leg <- NULL
 
   while (TRUE) {

@@ -73,6 +73,7 @@ mf_legend_c <- function(pos = "topleft",
   val <- get_val_rnd(val = val, val_rnd = val_rnd)
   val <- rev(val)
   n <- length(val) - 1
+  pal <- get_the_pal(pal, n)
   pal <- rev(pal)
   xy_leg <- NULL
   while (TRUE) {

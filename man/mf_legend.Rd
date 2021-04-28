@@ -39,7 +39,7 @@ mf_legend(
 
 \item{val}{a vector of values}
 
-\item{pal}{a vector of colors}
+\item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
 \item{col}{a color}
 

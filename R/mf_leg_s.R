@@ -195,6 +195,7 @@ mf_legend_s <- function(pos = "right",
     lt <- max(c(w_cex))
   }
 
+  pal <- get_the_pal(pal, n)
   mycolspt <- pal
   mycolspt[pt_pch %in% 21:25] <- border
   mycolsptbg <- pal
