@@ -55,5 +55,3 @@ mf_init <- function(x,
 
   return(invisible(x))
 }
-
-

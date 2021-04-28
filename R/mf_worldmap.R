@@ -33,13 +33,13 @@ mf_worldmap <- function(x, lon, lat, ...) {
         lat <- co[2]
       }
       plot(orthomap(lon, lat, disc = TRUE),
-           col = "lightblue",
-           border = "lightblue",
-           bg = .gmapsf$args$bg
+        col = "lightblue",
+        border = "lightblue",
+        bg = .gmapsf$args$bg
       )
       plot(orthomap(lon, lat, disc = FALSE),
-           add = TRUE,
-           col = "grey60", border = "grey50", lwd = .8
+        add = TRUE,
+        col = "grey60", border = "grey50", lwd = .8
       )
     })
   })
@@ -108,7 +108,7 @@ orthomap <- function(lon, lat, disc) {
   }
 
   mini_world <- st_read(system.file("gpkg/world.gpkg", package = "mapsf"),
-                        layer = "country", quiet = TRUE
+    layer = "country", quiet = TRUE
   )
   mini_world <- st_geometry(mini_world)
   visible <- st_intersection(

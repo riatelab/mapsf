@@ -35,7 +35,7 @@ mf_base <- function(x,
   }
 
   xtype <- get_geom_type(x)
-  if(xtype != "POLYGON" && missing(col)){
+  if (xtype != "POLYGON" && missing(col)) {
     col <- "grey20"
   }
 

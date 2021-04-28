@@ -22,7 +22,7 @@
 #' @return No return value, a map is initiated.
 #' @examples
 #' mtq <- mf_get_mtq()
-#' (filename <-  tempfile(fileext = ".png"))
+#' (filename <- tempfile(fileext = ".png"))
 #' mf_export(mtq, filename = filename)
 #' mf_map(mtq, add = TRUE)
 #' dev.off()
@@ -102,7 +102,7 @@ mf_export <- function(x,
   }
   if (!missing(theme)) {
     mf_theme(theme)
-  }else{
+  } else {
     mf_theme(mf_theme())
   }
 

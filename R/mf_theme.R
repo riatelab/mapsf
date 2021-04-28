@@ -206,7 +206,7 @@ mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
   )
 
 
-  if (missing(x)){
+  if (missing(x)) {
     x <- .gmapsf$args
   }
 

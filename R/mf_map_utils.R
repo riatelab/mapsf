@@ -201,22 +201,25 @@ split_leg <- function(x) {
 
 
 
-get_geom_type <- function(x){
-  a <- list(other = "GEOMETRY",POINT =  "POINT", LINE = "LINESTRING",
-            POLYGON = "POLYGON",
-            POINT = "MULTIPOINT",
-            LINE = "MULTILINESTRING", POLYGON = "MULTIPOLYGON",
-            other = "GEOMETRYCOLLECTION", other = "CIRCULARSTRING",
-            other = "COMPOUNDCURVE", other = "CURVEPOLYGON",
-            other = "MULTICURVE", other = "MULTISURFACE",
-            other = "CURVE", other = "SURFACE", other = "POLYHEDRALSURFACE",
-            other = "TIN", other = "TRIANGLE")
+get_geom_type <- function(x) {
+  a <- list(
+    other = "GEOMETRY", POINT = "POINT", LINE = "LINESTRING",
+    POLYGON = "POLYGON",
+    POINT = "MULTIPOINT",
+    LINE = "MULTILINESTRING", POLYGON = "MULTIPOLYGON",
+    other = "GEOMETRYCOLLECTION", other = "CIRCULARSTRING",
+    other = "COMPOUNDCURVE", other = "CURVEPOLYGON",
+    other = "MULTICURVE", other = "MULTISURFACE",
+    other = "CURVE", other = "SURFACE", other = "POLYHEDRALSURFACE",
+    other = "TIN", other = "TRIANGLE"
+  )
   type <- st_geometry_type(x)
   levels(type) <- a
   type <- as.character(unique(type))
-  if(length(type)>1){
+  if (length(type) > 1) {
     stop("GEOMETRYCOLLECTION objects should have consistent type",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
   return(type)
 }
