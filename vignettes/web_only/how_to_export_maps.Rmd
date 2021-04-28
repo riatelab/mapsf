@@ -24,10 +24,10 @@ knitr::opts_chunk$set(
 
 # mf_export()
 
-`mf_export()` is used to export maps in PNG or SVG formats. 
-An exported map has the same width/height ratio of a spatial object, taking into account margins and title.   
+`mf_export()` exports maps in PNG or SVG formats. 
+The exported map width/height ratio will match the one of a spatial object. 
 If `width` is specified, then `height` is deducted from the width/height ratio of `x`, figure margins and title size.  
-If `height` is specified, then `width` is deducted from the width/height ratio of `x`, figure margins and title size.  
+If `height` is specified, then `width` is deducted from the width/height ratio of `x`, figure margins and title size. 
 
 Additionally, `mf_export()` can be used to set a theme, to extend the map space on one or several side of the figure, or to center a map on a specific area.
 
