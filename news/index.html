@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot a title — mf_title • mapsf</title>
+<title>Changelog • mapsf</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,7 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Plot a title — mf_title" />
-<meta property="og:description" content="Plot a title" />
+<meta property="og:title" content="Changelog" />
 <meta property="og:image" content="/reference/figures/logo.png" />
 <meta property="og:image:alt" content="An R package for thematic cartography" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -73,7 +72,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -140,73 +139,58 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot a title</h1>
-    <small class="dont-index">Source: <a href='https://github.com/riatelab/mapsf/blob/master/R/mf_title.R'><code>R/mf_title.R</code></a></small>
-    <div class="hidden name"><code>mf_title.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/riatelab/mapsf/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>Plot a title</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>mf_title</span><span class='op'>(</span>txt <span class='op'>=</span> <span class='st'>"Map Title"</span>, <span class='va'>pos</span>, <span class='va'>tab</span>, <span class='va'>bg</span>, <span class='va'>fg</span>, <span class='va'>cex</span>, <span class='va'>line</span>, <span class='va'>font</span>, <span class='va'>inner</span><span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>txt</th>
-      <td><p>title text</p></td>
-    </tr>
-    <tr>
-      <th>pos</th>
-      <td><p>position, one of 'left', 'center', 'right'</p></td>
-    </tr>
-    <tr>
-      <th>tab</th>
-      <td><p>if TRUE the title is displayed as a 'tab'</p></td>
-    </tr>
-    <tr>
-      <th>bg</th>
-      <td><p>background of the title</p></td>
-    </tr>
-    <tr>
-      <th>fg</th>
-      <td><p>foreground of the title</p></td>
-    </tr>
-    <tr>
-      <th>cex</th>
-      <td><p>cex of the title</p></td>
-    </tr>
-    <tr>
-      <th>line</th>
-      <td><p>number of lines used for the title</p></td>
-    </tr>
-    <tr>
-      <th>font</th>
-      <td><p>font of the title</p></td>
-    </tr>
-    <tr>
-      <th>inner</th>
-      <td><p>if TRUE the title is displayed inside the plot area.</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>No return value, a title is displayed.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'>mf_title</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_title-1.png' alt='' width='672' height='672' /></div></pre>
+    <div id="mapsf-020" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0">
+<a href="#mapsf-020" class="anchor"></a>mapsf 0.2.0<small> Unreleased </small>
+</h1>
+<div id="fix" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fix" class="anchor"></a>Fix</h2>
+<ul>
+<li>change default value for interpolate and display without extra margins in mf_raster()</li>
+<li>increase minimal R version to 3.6.0 to use hcl.colors()</li>
+<li>adjust the largest symbol size in mf_map(…, "prop*")</li>
+<li>remove frame around insets</li>
+<li>remove LazyData from DESCRIPTION</li>
+<li>use sf ‘on the fly’ projection for unprojected sf objects</li>
+<li>better display of titles and maps (tiny extra space around maps)</li>
+<li>add explicit default value for “add” arg in mapping functions</li>
+<li>allow to plot (coherent) GEOMETRYCOLLECTIONS</li>
+<li>better default for POINT and LINES in mf_map(…, type = “base”)</li>
+<li>fix mf_worldmap() by bypassing s2 use</li>
+</ul>
+</div>
+<div id="feat" class="section level2">
+<h2 class="hasAnchor">
+<a href="#feat" class="anchor"></a>Feat</h2>
+<ul>
+<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+<li>split mf_init() to mf_init() and mf_export()</li>
+<li>allow width AND height set in mf_export()</li>
+<li>allow raster as input in mf_init() and mf_export()</li>
+<li>allow to change existent theme settings directrly in mf_theme()</li>
+<li>make mf_theme() return the current theme</li>
+<li>add default value for txt, add bg arg (for background) in mf_credits()</li>
+<li>add coordinates positioning for maps with 2 legends</li>
+<li>add alpha arg for transparency in mapping functions using “pal”</li>
+<li>change the default theme value to a theme with only tiny margins</li>
+<li>a web only vignette on map export</li>
+<li>allow hcl.colors palette names use in mf_legend*() functions</li>
+</ul>
+</div>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 
