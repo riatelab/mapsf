@@ -1,2 +1,4 @@
 *.html
 *.R
+web_only/*.png
+web_only/*.svg
