@@ -69,6 +69,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../../articles/web_only/how_to_create_inset_maps.html">How to Create Inset Maps</a>
+    </li>
+    <li>
       <a href="../../articles/web_only/how_to_export_maps.html">How to Export Maps</a>
     </li>
   </ul>
@@ -100,7 +103,7 @@
       <h1 data-toc-skip>How to Export Maps</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-04-29</h4>
+            <h4 class="date">2021-04-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_export_maps.Rmd"><code>vignettes/web_only/how_to_export_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_export_maps.Rmd</code></div>
@@ -109,10 +112,9 @@
 
     
     
-<div id="mf_export" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mf_export" class="anchor"></a>mf_export()</h1>
-<p><code><a href="../../reference/mf_export.html">mf_export()</a></code> exports maps in PNG or SVG formats. The exported map width/height ratio will match the one of a spatial object. If <code>width</code> is specified, then <code>height</code> is deducted from the width/height ratio of <code>x</code>, figure margins and title size.<br>
+<p><strong><code><a href="../../reference/mf_export.html">mf_export()</a></code></strong> exports maps in PNG or SVG formats.<br>
+The exported map width/height ratio will match the one of a spatial object.<br>
+If <code>width</code> is specified, then <code>height</code> is deducted from the width/height ratio of <code>x</code>, figure margins and title size.<br>
 If <code>height</code> is specified, then <code>width</code> is deducted from the width/height ratio of <code>x</code>, figure margins and title size.</p>
 <p>Additionally, <code><a href="../../reference/mf_export.html">mf_export()</a></code> can be used to set a theme, to extend the map space on one or several side of the figure, or to center a map on a specific area.</p>
 <div id="simple-export" class="section level2">
@@ -207,7 +209,6 @@ If <code>height</code> is specified, then <code>width</code> is deducted from th
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Still 'darkula'"</span><span class="op">)</span></code></pre></div>
 <p><img src="how_to_export_maps_files/figure-html/unnamed-chunk-8-1.png" width="384"></p>
 <p>If a theme is set between an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call and <code><a href="https://rdrr.io/r/grDevices/dev.html">dev.off()</a></code>, the theme is not applied correctly.</p>
-</div>
 </div>
   </div>
 

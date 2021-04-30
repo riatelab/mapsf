@@ -3,6 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   mapsf: mapsf.html
+  web_only/how_to_create_inset_maps: how_to_create_inset_maps.html
   web_only/how_to_export_maps: how_to_export_maps.html
-last_built: 2021-04-29T10:38Z
+last_built: 2021-04-30T14:14Z
 
