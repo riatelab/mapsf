@@ -95,7 +95,7 @@ mf_export <- function(x,
         x = bb,
         width = width,
         height = height,
-        mar = mar, res = res, format = "svg"
+        mar = mar, res = 96, format = "svg"
       ) / 96
     }
     svg(filename = filename, width = fd[1], height = fd[2], ...)
