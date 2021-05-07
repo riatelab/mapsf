@@ -192,7 +192,7 @@ mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
       font = 2
     ),
     barcelona = list(
-      name = "1936",
+      name = "barcelona",
       bg = "#160808",
       fg = "#d73e23",
       mar = c(0, 0, 1.2, 0),
