@@ -106,7 +106,7 @@
       <h1 data-toc-skip>How to Export Maps</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-05-07</h4>
+            <h4 class="date">2021-05-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_export_maps.Rmd"><code>vignettes/web_only/how_to_export_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_export_maps.Rmd</code></div>
@@ -117,8 +117,8 @@
     
 <p><strong><code><a href="../../reference/mf_export.html">mf_export()</a></code></strong> exports maps in PNG or SVG formats.<br>
 The exported map width/height ratio will match the one of a spatial object.<br>
-If <code>width</code> is specified, then <code>height</code> is deducted from the width/height ratio of <code>x</code>, figure margins and title size.<br>
-If <code>height</code> is specified, then <code>width</code> is deducted from the width/height ratio of <code>x</code>, figure margins and title size.</p>
+If <code>width</code> is specified, then <code>height</code> is deduced from the width/height ratio of <code>x</code>, figure margins and title size.<br>
+If <code>height</code> is specified, then <code>width</code> is deduced from the width/height ratio of <code>x</code>, figure margins and title size.</p>
 <p>Additionally, <code><a href="../../reference/mf_export.html">mf_export()</a></code> can be used to set a theme, to extend the map space on one or several side of the figure, or to center a map on a specific area.</p>
 <div id="simple-export" class="section level2">
 <h2 class="hasAnchor">
@@ -131,7 +131,7 @@ If <code>height</code> is specified, then <code>width</code> is deducted from th
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width.png"</span>, width <span class="op">=</span> <span class="fl">500</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=605px (deducted)"</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=605px (deduced)"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_width.png"></p>
 <p><strong>Note that we have to set <code>add = TRUE</code> to the first layer plotted.</strong> Internally, <code><a href="../../reference/mf_export.html">mf_export()</a></code> start a device (PNG or SVG) with a specific dimension (figure size) and extent (<code>x</code> extent).</p>
@@ -144,7 +144,7 @@ If <code>height</code> is specified, then <code>width</code> is deducted from th
 <code class="sourceCode R"><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width_theme.png"</span>, 
           width <span class="op">=</span> <span class="fl">500</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=611px (deducted)"</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=611px (deduced)"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_width_theme.png"></p>
 </div>
@@ -156,21 +156,21 @@ If <code>height</code> is specified, then <code>width</code> is deducted from th
 <code class="sourceCode R"><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width_expand.png"</span>, 
           width <span class="op">=</span> <span class="fl">500</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.5</span><span class="op">)</span>, theme <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=427px (deducted)"</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=427px (deduced)"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_width_expand.png"></p>
 </div>
 <div id="center-the-map-on-a-specific-area" class="section level2">
 <h2 class="hasAnchor">
 <a href="#center-the-map-on-a-specific-area" class="anchor"></a>Center the Map on a Specific Area</h2>
-<p>In this export, the map is focused on a specific spatial object. <code>height</code> is fixed and <code>width</code> is deducted.</p>
+<p>In this export, the map is focused on a specific spatial object. <code>height</code> is fixed and <code>width</code> is deduced.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fl">5</span>,<span class="op">]</span>
 <span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">target</span>, filename <span class="op">=</span> <span class="st">"fixed_height_centered.png"</span>, height <span class="op">=</span> <span class="fl">600</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">target</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">target</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: height=600px, width=433px (deducted)"</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: height=600px, width=433px (deduced)"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="fl">1</span>, pos <span class="op">=</span> <span class="st">"bottomleft"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_height_centered.png"></p>
