@@ -23,8 +23,8 @@ knitr::opts_chunk$set(
 
 **`mf_export()`** exports maps in PNG or SVG formats.   
 The exported map width/height ratio will match the one of a spatial object.   
-If `width` is specified, then `height` is deducted from the width/height ratio of `x`, figure margins and title size.  
-If `height` is specified, then `width` is deducted from the width/height ratio of `x`, figure margins and title size. 
+If `width` is specified, then `height` is deduced from the width/height ratio of `x`, figure margins and title size.  
+If `height` is specified, then `width` is deduced from the width/height ratio of `x`, figure margins and title size. 
 
 Additionally, `mf_export()` can be used to set a theme, to extend the map space on one or several side of the figure, or to center a map on a specific area.
 
@@ -38,7 +38,7 @@ library(mapsf)
 mtq <- mf_get_mtq()
 mf_export(x = mtq, filename = "fixed_width.png", width = 500)
 mf_map(mtq, add = TRUE)
-mf_title(txt = "PNG export: width=500px, height=605px (deducted)")
+mf_title(txt = "PNG export: width=500px, height=605px (deduced)")
 dev.off()
 ```
 
@@ -54,7 +54,7 @@ In this example we use the "dark" theme.
 mf_export(x = mtq, filename = "fixed_width_theme.png", 
           width = 500, theme = "dark")
 mf_map(mtq, add = TRUE)
-mf_title(txt = "PNG export: width=500px, height=611px (deducted)")
+mf_title(txt = "PNG export: width=500px, height=611px (deduced)")
 dev.off()
 ```
 
@@ -67,14 +67,14 @@ Here we have added some space on the right side of the plot (50% of `x` width).
 mf_export(x = mtq, filename = "fixed_width_expand.png", 
           width = 500, expandBB = c(0,0,0,.5), theme = "default")
 mf_map(mtq, add = TRUE)
-mf_title(txt = "PNG export: width=500px, height=427px (deducted)")
+mf_title(txt = "PNG export: width=500px, height=427px (deduced)")
 dev.off()
 ```
 ![](fixed_width_expand.png)
 
 
 ## Center the Map on a Specific Area
-In this export, the map is focused on a specific spatial object. `height` is fixed and `width` is deducted. 
+In this export, the map is focused on a specific spatial object. `height` is fixed and `width` is deduced. 
 
 ```{r, results="hide"}
 target <- mtq[5,]
@@ -82,7 +82,7 @@ mf_export(x = target, filename = "fixed_height_centered.png", height = 600)
 mf_map(mtq, add = TRUE)
 mf_shadow(target, add = TRUE)
 mf_map(target, add = TRUE)
-mf_title(txt = "PNG export: height=600px, width=433px (deducted)")
+mf_title(txt = "PNG export: height=600px, width=433px (deduced)")
 mf_scale(1, pos = "bottomleft")
 dev.off()
 ```
