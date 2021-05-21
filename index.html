@@ -127,7 +127,7 @@
 The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf_map()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
-<span class="co">#&gt; Loading required package: sf</span>
+<span class="co">#&gt; Le chargement a nécessité le package : sf</span>
 <span class="co">#&gt; Linking to GEOS 3.7.1, GDAL 3.1.2, PROJ 7.1.0</span>
 <span class="co"># Import the sample dataset</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
@@ -170,15 +170,23 @@ The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf
 <span class="fu"><a href="reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="st">'topleft'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/mtq.png"></p>
-<p>Note that <code>mapsf</code> is, to a certain degree, compatible with the pipe syntax:</p>
+<p>Note that <code>mapsf</code> is, to a certain degree, compatible with the pipe syntax from either <code>magrittr</code> or <code>base</code>(&gt;= 4.1.0):</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"candy"</span><span class="op">)</span>
+<span class="va">mtq</span> |&gt;
+  <span class="fu"><a href="reference/mf_init.html">mf_init</a></span><span class="op">(</span>expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.4</span><span class="op">)</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, <span class="st">"prop_typo"</span><span class="op">)</span>
+<span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Population and Status"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-example4-1.png"><!-- --></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"agolalight"</span><span class="op">)</span>
 <span class="va">mtq</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, <span class="st">"prop_typo"</span><span class="op">)</span>
-<span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-example4-1.png"><!-- --></p>
+  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"MED"</span><span class="op">)</span>, <span class="st">"prop_choro"</span><span class="op">)</span>
+<span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Population and Wealth"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-example5-1.png"><!-- --></p>
 </div>
 <div id="main-features" class="section level2">
 <h2 class="hasAnchor">
