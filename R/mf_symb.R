@@ -25,7 +25,7 @@
 #' @importFrom graphics box
 #' @keywords internal
 #' @export
-#' @return No return value, a map is displayed.
+#' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
@@ -65,7 +65,7 @@ mf_symb <- function(x, var,
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
-
+  xout <- x
   # Transform to point
   st_geometry(x) <- st_centroid(st_geometry(x), of_largest_polygon = TRUE)
 
@@ -155,5 +155,5 @@ mf_symb <- function(x, var,
     pt_cex = cex, pt_pch = pch, pt_cex_na = cex_na,
     pt_pch_na = pch_na, bg = bg, fg = fg
   )
-  return(invisible(NULL))
+  return(invisible(xout))
 }

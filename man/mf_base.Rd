@@ -20,7 +20,7 @@ mf_base(x, col = "grey80", border = "grey20", lwd = 0.7, add = FALSE, ...)
 \item{...}{further parameters from \link{plot} for sfc objects}
 }
 \value{
-No return value, a map is displayed.
+x is (invisibly) returned.
 }
 \description{
 Plot an sf object. This is mostly a wrapper around

@@ -105,15 +105,26 @@ dev.off()
 ![](man/figures/mtq.png)
 
 
-Note that `mapsf` is, to a certain degree, compatible with the pipe syntax:
+Note that `mapsf` is, to a certain degree, compatible with the pipe syntax from either `magrittr` or `base`(>= 4.1.0):
 
-```{r example4, results=FALSE}
+```{r example4, results=FALSE, fig.width = 3*1.5, fig.height = 3*1.5}
+mf_theme("candy")
+mtq |>
+  mf_init(expandBB = c(0,0,0,.4)) |>
+  mf_map(add = TRUE) |>
+  mf_map(c("POP","STATUS"), "prop_typo")
+mf_title("Population and Status")
+```
+
+
+
+```{r example5, results=FALSE, fig.width = 3*1.5, fig.height = 3*1.5}
 library(magrittr)
 mf_theme("agolalight")
 mtq %>% 
   mf_map() %>%
-  mf_map(c("POP","STATUS"), "prop_typo")
-mf_title()
+  mf_map(c("POP","MED"), "prop_choro")
+mf_title("Population and Wealth")
 ```
 
 

@@ -20,7 +20,7 @@
 #' @importFrom graphics box
 #' @keywords internal
 #' @export
-#' @return No return value, a map is displayed.
+#' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
@@ -61,16 +61,16 @@ mf_prop <- function(x,
   xtype <- get_geom_type(x)
   # linestring special case
   if (xtype == "LINE") {
-    x <- x[!is.na(x[[var]]), ]
-    maxval <- max(x[[var]])
-    x$lwd <- x[[var]] * lwd_max / maxval
+    xl <- x[!is.na(x[[var]]), ]
+    maxval <- max(xl[[var]])
+    xl$lwd <- xl[[var]] * lwd_max / maxval
     if (add == FALSE) {
       mf_init(x)
     }
     par(lend = 1)
-    mf_map(x, lwd = x$lwd, add = TRUE, col = col)
+    mf_base(xl, lwd = xl$lwd, add = TRUE, col = col)
 
-    val <- seq(min(x[[var]]), max(x[[var]]), length.out = 4)
+    val <- seq(min(xl[[var]]), max(xl[[var]]), length.out = 4)
     mf_legend_pl(
       pos = leg_pos, val = val, lwd = lwd_max, col = col,
       title = leg_title, title_cex = leg_title_cex,
@@ -80,7 +80,7 @@ mf_prop <- function(x,
 
     par(lend = lend)
 
-    return(invisible(NULL))
+    return(invisible(x))
   }
 
 
@@ -138,5 +138,5 @@ mf_prop <- function(x,
     bg = bg, fg = fg
   )
 
-  return(invisible(NULL))
+  return(invisible(x))
 }

@@ -97,5 +97,5 @@ mf_map <- function(x, var, type = "base",
     symb_choro = do.call(what = mf_symb_choro, argx, envir = parent.frame())
   )
 
-  return(invisible(x))
+  # return(invisible(x))
 }

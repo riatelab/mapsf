@@ -126,11 +126,5 @@ mf_typo <- function(x,
     )
   }
 
-  ################# FIX NA PB ################################"
-
-  # box(col = bg)
-
-
-
-  return(invisible(NULL))
+  return(invisible(x))
 }

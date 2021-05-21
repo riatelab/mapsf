@@ -12,7 +12,7 @@
 #' @importFrom methods is
 #' @importFrom sf st_geometry
 #' @keywords internal
-#' @return No return value, a map is displayed.
+#' @return x is (invisibly) returned.
 #' @export
 #' @examples
 #' library(sf)
@@ -45,5 +45,5 @@ mf_base <- function(x,
   )
 
 
-  return(invisible(NULL))
+  return(invisible(x))
 }

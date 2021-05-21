@@ -21,7 +21,7 @@
 #' @importFrom graphics box
 #' @keywords internal
 #' @export
-#' @return No return value, a map is displayed.
+#' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
@@ -48,6 +48,7 @@ mf_grad <- function(x,
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
+  xout <- x
 
   # data prep
   x <- x[!is.na(x = x[[var]]), ]
@@ -84,7 +85,7 @@ mf_grad <- function(x,
       val_rnd = leg_val_rnd, lwd = lwd, col = col,
       bg = bg, fg = fg, frame = leg_frame
     )
-    return(invisible(NULL))
+    return(invisible(xout))
   }
 
   if (missing(lwd)) lwd <- .7
@@ -129,5 +130,5 @@ mf_grad <- function(x,
     frame = leg_frame, border = border, pal = col, lwd = lwd,
     pt_cex = rev(cex), pt_pch = pch, bg = bg, fg = fg
   )
-  return(invisible(NULL))
+  return(invisible(xout))
 }

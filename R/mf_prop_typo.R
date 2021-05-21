@@ -13,7 +13,7 @@
 #' @importFrom methods is
 #' @keywords internal
 #' @export
-#' @return No return value, a map is displayed.
+#' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
@@ -138,5 +138,5 @@ mf_prop_typo <- function(x, var,
     frame = leg_frame[2], pal = pal, bg = bg, fg = fg
   )
 
-  return(invisible(NULL))
+  return(invisible(x))
 }

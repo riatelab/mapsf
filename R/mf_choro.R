@@ -25,7 +25,7 @@
 #' @importFrom methods is
 #' @keywords internal
 #' @export
-#' @return No return value, a map is displayed.
+#' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_choro(mtq, "MED")
@@ -119,5 +119,5 @@ mf_choro <- function(x, var,
     frame = leg_frame, pal = pal, bg = bg, fg = fg
   )
 
-  return(invisible(NULL))
+  return(invisible(x))
 }
