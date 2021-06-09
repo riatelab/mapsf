@@ -13,8 +13,12 @@
 #' mf_worldmap(mtq)
 #' mf_worldmap(lon = 24, lat = 39)
 mf_worldmap <- function(x, lon, lat, ...) {
-  os2 <- sf::sf_use_s2(FALSE)
-
+  quiet <- function(x) {
+    sink(tempfile())
+    on.exit(sink())
+    invisible(force(x))
+  }
+  os2 <- quiet(sf::sf_use_s2(FALSE))
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   ops <- list(...)
@@ -44,7 +48,7 @@ mf_worldmap <- function(x, lon, lat, ...) {
     })
   })
   do.call(points, ops)
-  sf::sf_use_s2(os2)
+  quiet(sf::sf_use_s2(os2))
 
   return(invisible(NULL))
 }
