@@ -28,6 +28,7 @@ reference:
     - mf_init
     - mf_theme
     - mf_shadow
+    - mf_background
     - mf_legend
     - mf_annotation
     - mf_arrow

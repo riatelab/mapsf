@@ -37,6 +37,8 @@ Imports:
 Suggests: 
     raster,
     rgdal,
+    png, 
+    jpeg,
     lwgeom,
     knitr,
     rmarkdown,

@@ -2,6 +2,7 @@
 
 export(mf_annotation)
 export(mf_arrow)
+export(mf_background)
 export(mf_base)
 export(mf_choro)
 export(mf_credits)
