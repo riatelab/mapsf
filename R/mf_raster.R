@@ -7,7 +7,7 @@
 #' @param ... bgalpha, interpolate, or other arguments passed to be passed to
 #' \code{\link[raster:plotRGB]{plotRGB}} or  \code{\link[raster:plotRGB]{plot}}
 #' @note This function is a wrapper for \code{\link[raster:plotRGB]{plotRGB}}
-#' and  \code{\link[raster:plotRGB]{plot}}
+#' and \code{\link[raster:plotRGB]{plot}}
 #' from the raster package. The accuracy of the final plot depends on the
 #' quality of the \code{*.png} file, the scale of \code{x} and the resolution
 #' setup of the graphic device.
