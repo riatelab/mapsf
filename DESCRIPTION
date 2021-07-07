@@ -35,7 +35,7 @@ Imports:
     utils,
     grDevices
 Suggests: 
-    raster,
+    terra,
     rgdal,
     png, 
     jpeg,

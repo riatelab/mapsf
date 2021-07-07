@@ -7,29 +7,27 @@
 mf_raster(x, add = FALSE, ...)
 }
 \arguments{
-\item{x}{a RasterLayer or RasterBrick object}
+\item{x}{a SpatRaster}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE).}
 
 \item{...}{bgalpha, interpolate, or other arguments passed to be passed to
-\code{\link[raster:plotRGB]{plotRGB}} or  \code{\link[raster:plotRGB]{plot}}}
+\code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}}
 }
 \value{
 No return value, a map is displayed.
 }
 \description{
-Plot a raster object over a map (RasterLayer and RasterBrick).
+Plot a raster object over a map (SpatRaster from terra).
 }
 \note{
-This function is a wrapper for \code{\link[raster:plotRGB]{plotRGB}}
-and \code{\link[raster:plotRGB]{plot}}
-from the raster package. The accuracy of the final plot depends on the
-quality of the \code{*.png} file, the scale of \code{x} and the resolution
-setup of the graphic device.
+The accuracy of the final plot depends on \code{x} resolution
+and on the setup of the graphic device.
 }
 \examples{
-library("raster")
-r <- raster(system.file("external/test.grd", package = "raster"))
-mf_raster(r)
+if(require("terra")){
+  r <- rast(system.file("ex/elev.tif", package="terra"))
+  mf_raster(r)
+}
 }

@@ -40,12 +40,20 @@ mf_export <- function(x,
   mar <- .gmapsf$args$mar
   bgmap <- .gmapsf$args$bg
 
-  if (is(x, "Raster")) {
-    bb <- st_bbox(x)
+  if (is(x, "SpatRaster")) {
+    if (!requireNamespace("terra", quietly = TRUE)) {
+      stop(
+        "'terra' package needed for this function to work. Please install it.",
+        call. = FALSE
+      )
+    }
+    proj <- terra::crs(x)
+    bb <- terra::ext(x)[c(1,3,2,4)]
     xd <- diff(bb[c(1, 3)]) * 0.04
     yd <- diff(bb[c(2, 4)]) * 0.04
     nbb <- bb + c(xd, yd, -xd, -yd)
-    x <- st_as_sfc(st_bbox(nbb), crs = st_crs(x))
+    x <- st_as_sfc(st_bbox(nbb))
+    st_crs(x) <- proj
   }
 
   # transform to bbox

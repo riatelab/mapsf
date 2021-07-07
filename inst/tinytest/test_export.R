@@ -23,6 +23,7 @@ expect_silent(mf_export(mtq, export = "svg", height = 7,
                         filename = tempfile()))
 dev.off()
 
-b <- raster::brick(system.file("external/rlogo.grd", package="raster"))
-expect_silent(mf_export(b))
+r <- terra::rast(system.file("ex/elev.tif", package="terra"))
+expect_silent(mf_export(r))
+mf_raster(r, add = T)
 dev.off()

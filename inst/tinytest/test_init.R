@@ -1,5 +1,6 @@
 # init
 mtq <- mf_get_mtq()
 expect_silent(mf_init(mtq, theme = "darkula"))
-b <- raster::brick(system.file("external/rlogo.grd", package="raster"))
+b <- terra::rast(system.file("ex/elev.tif", package="terra"))
 expect_silent(mf_init(b))
+mf_raster(b, add = T)
