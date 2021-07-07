@@ -23,12 +23,12 @@ mf_init <- function(x,
   mar <- .gmapsf$args$mar
   bgmap <- .gmapsf$args$bg
 
-  if (is(x, "Raster")) {
-    bb <- st_bbox(x)
-    xd <- diff(bb[c(1, 3)]) * 0.04
+  if (is(x, "SpatRaster")) {
+    bb <- terra::ext(x)[c(1,3,2,4)]
+    xd <- diff(bb[c(1, 3)])
     yd <- diff(bb[c(2, 4)]) * 0.04
     nbb <- bb + c(xd, yd, -xd, -yd)
-    x <- st_as_sfc(st_bbox(nbb), crs = st_crs(x))
+    x <- st_as_sfc(st_bbox(nbb), crs = terra::crs(x))
   }
 
   # transform to bbox

@@ -19,15 +19,15 @@
 #' r <- raster(system.file("external/test.grd", package = "raster"))
 #' mf_raster(r)
 mf_raster <- function(x, add = FALSE, ...) {
-  if (!requireNamespace("raster", quietly = TRUE)) {
+  if (!requireNamespace("terra", quietly = TRUE)) {
     stop(
-      "'raster' package needed for this function to work. Please install it.",
+      "'terra' package needed for this function to work. Please install it.",
       call. = FALSE
     )
   }
-  if (!"package:raster" %in% search()) {
-    attachNamespace("raster")
-  }
+  # if (!"package:terra" %in% search()) {
+  #   attachNamespace("raster")
+  # }
 
 
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
@@ -35,38 +35,24 @@ mf_raster <- function(x, add = FALSE, ...) {
 
   if (add == FALSE) {
     mf_init(x)
-    add <- TRUE
   }
 
-  if (is(x, "RasterBrick")) {
+  if (is(x, "SpatRaster")){
     ops <- list(...)
     ops$x <- x
-    ops$add <- add
-    # Default opts
-    ops$maxpixels <- ifelse(
-      is.null(ops$maxpixels),
-      raster::ncell(x),
-      ops$maxpixels
-    )
+    ops$add <- TRUE
+    ops$maxcell <- ifelse(is.null(ops$maxcell), terra::ncell(x), ops$maxcell)
     ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
-    ops$interpolate <- ifelse(is.null(ops$interpolate), TRUE, ops$interpolate)
-    do.call(raster::plotRGB, ops)
-  }
-  if (is(x, "RasterLayer")) {
-    ops <- list(...)
-    ops$x <- x
-    ops$add <- add
-    # Default opts
-    ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
-    ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
-    ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
-    ops$maxpixels <- ifelse(
-      is.null(ops$maxpixels),
-      raster::ncell(x),
-      ops$maxpixels
-    )
-    ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
-    ops$interpolate <- ifelse(is.null(ops$interpolate), FALSE, ops$interpolate)
-    do.call(raster::plot, ops)
+    ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
+    if (terra::nlyr(x)== 3){
+      do.call(terra::plotRGB, ops)
+    }
+    if (terra::nlyr(x)==1){
+      ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
+      ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
+      ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
+      do.call(terra::plot, ops)
+    }
   }
 }
+
