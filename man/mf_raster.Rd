@@ -13,7 +13,7 @@ mf_raster(x, add = FALSE, ...)
 not (FALSE).}
 
 \item{...}{bgalpha, interpolate, or other arguments passed to be passed to
-\code{\link[raster:plotRGB]{plotRGB}} or  \code{\link[raster:plotRGB]{plot}}}
+\code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}}
 }
 \value{
 No return value, a map is displayed.
@@ -22,8 +22,8 @@ No return value, a map is displayed.
 Plot a raster object over a map (SpatRaster from terra).
 }
 \note{
-The accuracy of the final plot depends on the resolutions of \code{x}
-and the setup of the graphic device.
+The accuracy of the final plot depends on \code{x} resolution
+and on the setup of the graphic device.
 }
 \examples{
 if(require("terra")){

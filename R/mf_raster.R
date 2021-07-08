@@ -5,9 +5,9 @@
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE).
 #' @param ... bgalpha, interpolate, or other arguments passed to be passed to
-#' \code{\link[raster:plotRGB]{plotRGB}} or  \code{\link[raster:plotRGB]{plot}}
-#' @note The accuracy of the final plot depends on the resolutions of \code{x}
-#' and the setup of the graphic device.
+#' \code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}
+#' @note The accuracy of the final plot depends on \code{x} resolution
+#' and on the setup of the graphic device.
 #' @export
 #' @return No return value, a map is displayed.
 #' @importFrom methods is
