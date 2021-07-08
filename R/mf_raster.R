@@ -1,23 +1,21 @@
 #' @title Plot a raster
-#' @description Plot a raster object over a map (RasterLayer and RasterBrick).
+#' @description Plot a raster object over a map (SpatRaster from terra).
 #' @name mf_raster
-#' @param x a RasterLayer or RasterBrick object
+#' @param x a SpatRaster
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE).
 #' @param ... bgalpha, interpolate, or other arguments passed to be passed to
 #' \code{\link[raster:plotRGB]{plotRGB}} or  \code{\link[raster:plotRGB]{plot}}
-#' @note This function is a wrapper for \code{\link[raster:plotRGB]{plotRGB}}
-#' and \code{\link[raster:plotRGB]{plot}}
-#' from the raster package. The accuracy of the final plot depends on the
-#' quality of the \code{*.png} file, the scale of \code{x} and the resolution
-#' setup of the graphic device.
+#' @note The accuracy of the final plot depends on the resolutions of \code{x}
+#' and the setup of the graphic device.
 #' @export
 #' @return No return value, a map is displayed.
 #' @importFrom methods is
 #' @examples
-#' library("raster")
-#' r <- raster(system.file("external/test.grd", package = "raster"))
-#' mf_raster(r)
+#' if(require("terra")){
+#'   r <- rast(system.file("ex/elev.tif", package="terra"))
+#'   mf_raster(r)
+#' }
 mf_raster <- function(x, add = FALSE, ...) {
   if (!requireNamespace("terra", quietly = TRUE)) {
     stop(
@@ -25,10 +23,6 @@ mf_raster <- function(x, add = FALSE, ...) {
       call. = FALSE
     )
   }
-  # if (!"package:terra" %in% search()) {
-  #   attachNamespace("raster")
-  # }
-
 
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
