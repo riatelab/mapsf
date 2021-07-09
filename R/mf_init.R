@@ -44,7 +44,7 @@ mf_init <- function(x,
   y <- st_as_sfc(bb, crs = st_crs(x))
 
   if (par("xaxs") == "r") {
-    # expandBB <- expandBB / (1 + 0.08)
+    expandBB <- expandBB / (1 + 0.08)
   }
 
   # margins mgmt
