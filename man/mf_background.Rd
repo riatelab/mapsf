@@ -23,6 +23,8 @@ mtq <- mf_get_mtq()
 mf_init(mtq)
 mf_background(system.file("img/background.jpg", package = "mapsf"))
 mf_map(mtq, lwd = 3, col = NA, border = "white", add = TRUE)
-mf_credits(txt = 'Background photo by Noita Digital on Unsplash',
-           col = "white")
+mf_credits(
+  txt = "Background photo by Noita Digital on Unsplash",
+  col = "white"
+)
 }

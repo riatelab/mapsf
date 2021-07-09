@@ -26,8 +26,8 @@ The accuracy of the final plot depends on \code{x} resolution
 and on the setup of the graphic device.
 }
 \examples{
-if(require("terra")){
-  r <- rast(system.file("ex/elev.tif", package="terra"))
+if (require("terra")) {
+  r <- rast(system.file("ex/elev.tif", package = "terra"))
   mf_raster(r)
 }
 }

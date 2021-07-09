@@ -48,7 +48,7 @@ mf_export <- function(x,
       )
     }
     proj <- terra::crs(x)
-    bb <- terra::ext(x)[c(1,3,2,4)]
+    bb <- terra::ext(x)[c(1, 3, 2, 4)]
     xd <- diff(bb[c(1, 3)]) * 0.04
     yd <- diff(bb[c(2, 4)]) * 0.04
     nbb <- bb + c(xd, yd, -xd, -yd)

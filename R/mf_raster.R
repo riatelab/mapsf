@@ -12,8 +12,8 @@
 #' @return No return value, a map is displayed.
 #' @importFrom methods is
 #' @examples
-#' if(require("terra")){
-#'   r <- rast(system.file("ex/elev.tif", package="terra"))
+#' if (require("terra")) {
+#'   r <- rast(system.file("ex/elev.tif", package = "terra"))
 #'   mf_raster(r)
 #' }
 mf_raster <- function(x, add = FALSE, ...) {
@@ -31,17 +31,17 @@ mf_raster <- function(x, add = FALSE, ...) {
     mf_init(x)
   }
 
-  if (is(x, "SpatRaster")){
+  if (is(x, "SpatRaster")) {
     ops <- list(...)
     ops$x <- x
     ops$add <- TRUE
     ops$maxcell <- ifelse(is.null(ops$maxcell), terra::ncell(x), ops$maxcell)
     ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
     ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
-    if (terra::nlyr(x)== 3){
+    if (terra::nlyr(x) == 3) {
       do.call(terra::plotRGB, ops)
     }
-    if (terra::nlyr(x)==1){
+    if (terra::nlyr(x) == 1) {
       ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
       ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
       ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
@@ -49,4 +49,3 @@ mf_raster <- function(x, add = FALSE, ...) {
     }
   }
 }
-
