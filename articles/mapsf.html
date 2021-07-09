@@ -106,7 +106,7 @@
       <h1 data-toc-skip>mapsf</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-06-15</h4>
+            <h4 class="date">2021-07-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/mapsf.Rmd"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -490,9 +490,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
   x <span class="op">=</span> <span class="va">mtq</span>, 
   var <span class="op">=</span> <span class="st">"STATUS"</span>, 
   type <span class="op">=</span> <span class="st">"typo"</span>,
-  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span><span class="op">)</span>, 
+  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span><span class="op">)</span>, 
   lwd <span class="op">=</span> <span class="fl">.5</span>,
-  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>,
+  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>,
                 <span class="st">"Sub-prefecture"</span>, 
                 <span class="st">"Simple municipality"</span><span class="op">)</span>,
   leg_pos <span class="op">=</span> <span class="st">"topright"</span>,
@@ -518,7 +518,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># Plot a shadow</span>
 <span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot the municipalities</span>
@@ -526,17 +526,17 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># Plot symbols with choropleth coloration</span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, 
+  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, 
   type <span class="op">=</span> <span class="st">"prop_choro"</span>,
   border <span class="op">=</span> <span class="st">"grey50"</span>,
   lwd <span class="op">=</span> <span class="fl">1</span>,
-  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"topright"</span>, <span class="st">"right"</span><span class="op">)</span>, 
-  leg_title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Population"</span>,<span class="st">"Median\nIncome\n(in euros)"</span><span class="op">)</span>,
+  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"topright"</span>, <span class="st">"right"</span><span class="op">)</span>, 
+  leg_title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Population"</span>,<span class="st">"Median\nIncome\n(in euros)"</span><span class="op">)</span>,
   breaks <span class="op">=</span> <span class="st">"equal"</span>, 
   nbreaks <span class="op">=</span> <span class="fl">4</span>, 
   pal <span class="op">=</span> <span class="st">"Greens"</span>,
-  leg_val_rnd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>, 
-  leg_frame <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>
+  leg_val_rnd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>, 
+  leg_frame <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span> 
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population &amp; Wealth in Martinique, 2015"</span>, 
@@ -555,7 +555,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># Plot a shadow</span>
 <span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot the municipalities</span>
@@ -563,14 +563,14 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># Plot symbols with choropleth coloration</span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, 
+  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, 
   type <span class="op">=</span> <span class="st">"prop_typo"</span>,
   symbol <span class="op">=</span> <span class="st">"square"</span>,
   border <span class="op">=</span> <span class="st">"white"</span>,
   lwd <span class="op">=</span> <span class="fl">.5</span>,
-  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"right"</span>,  <span class="st">"topright"</span><span class="op">)</span>, 
-  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"Administrative\nStatus"</span><span class="op">)</span>,
-  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, 
+  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"right"</span>,  <span class="st">"topright"</span><span class="op">)</span>, 
+  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"Administrative\nStatus"</span><span class="op">)</span>,
+  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, 
                 <span class="st">"Simple municipality"</span><span class="op">)</span><span class="op">)</span> 
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, 
@@ -593,7 +593,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
   name <span class="op">=</span> <span class="st">"mytheme"</span>, 
   bg <span class="op">=</span> <span class="st">"lightblue1"</span>, 
   fg <span class="op">=</span> <span class="st">"darkseagreen4"</span>, 
-  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, 
+  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, 
   tab <span class="op">=</span> <span class="cn">TRUE</span>, 
   pos <span class="op">=</span> <span class="st">"left"</span>, 
   inner <span class="op">=</span> <span class="cn">TRUE</span>, 
@@ -655,8 +655,8 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
   x <span class="op">=</span> <span class="va">mob_links</span>, 
   var <span class="op">=</span> <span class="st">"fij"</span>, 
   type <span class="op">=</span> <span class="st">"grad"</span>,
-  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">4679.0</span><span class="op">)</span>,
-  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span>,
+  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span> <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">4679.0</span><span class="op">)</span>,
+  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span>,
   leg_pos <span class="op">=</span> <span class="st">"bottomleft2"</span>,
   leg_title <span class="op">=</span> <span class="st">"Nb. of\nCommuters"</span>,
   col <span class="op">=</span> <span class="st">"red4"</span>, 

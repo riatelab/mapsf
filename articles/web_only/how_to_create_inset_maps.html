@@ -106,7 +106,7 @@
       <h1 data-toc-skip>How to Create Inset Maps</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-06-15</h4>
+            <h4 class="date">2021-07-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_create_inset_maps.Rmd"><code>vignettes/web_only/how_to_create_inset_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_inset_maps.Rmd</code></div>
@@ -140,11 +140,11 @@ It is possible to plot anything (base plots) within the inset, not only map laye
 <span class="co">#&gt; Loading required package: sf</span>
 <span class="co">#&gt; Linking to GEOS 3.6.2, GDAL 2.2.3, PROJ 4.9.3</span>
 <span class="co"># set a theme</span>
-<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># data import</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Selection of a target municipality to display in the inset</span>
-<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
+<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
 <span class="co"># Display the base map</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># display the target on the main map</span>
@@ -162,7 +162,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <code class="sourceCode R"><span class="co"># set a theme</span>
 <span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span><span class="op">)</span>
 <span class="co"># Selection of a target municipality to display in the inset</span>
-<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
+<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
 <span class="co"># Display the base map</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># display the target on the main map</span>
@@ -196,11 +196,11 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <p>In the following example we create an inset for a specific municipality in the bottom left corner of the map.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># set a theme</span>
-<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># Display the base map</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># open the inset</span>
-<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.25</span>,<span class="fl">0</span>,<span class="fl">0.25</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.25</span>,<span class="fl">0</span>,<span class="fl">0.25</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># display a municipality</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">[</span><span class="fl">9</span>,<span class="op">]</span><span class="op">)</span>
 <span class="co"># add a frame</span>
@@ -237,10 +237,10 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,
        pal <span class="op">=</span> <span class="va">pal</span>, breaks <span class="op">=</span> <span class="va">bks</span>, leg_pos <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>
 <span class="co"># start the inset</span>
-<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span> fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="fl">.95</span>, <span class="fl">0.84</span>, <span class="fl">.99</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span> fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="fl">.95</span>, <span class="fl">0.84</span>, <span class="fl">.99</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># draw the histogram</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1.7</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/hist.html">hist</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, breaks <span class="op">=</span> <span class="va">bks</span>, col <span class="op">=</span> <span class="va">pal</span>, border <span class="op">=</span> <span class="va">fg</span>, axes <span class="op">=</span> <span class="cn">F</span>, labels <span class="op">=</span> <span class="st">""</span>, 
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1.7</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/terra/man/hist.html">hist</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, breaks <span class="op">=</span> <span class="va">bks</span>, col <span class="op">=</span> <span class="va">pal</span>, border <span class="op">=</span> <span class="va">fg</span>, axes <span class="op">=</span> <span class="cn">F</span>, labels <span class="op">=</span> <span class="st">""</span>, 
      xlab<span class="op">=</span><span class="st">""</span>, ylab <span class="op">=</span> <span class="st">""</span>, main <span class="op">=</span><span class="st">""</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op">(</span>side <span class="op">=</span> <span class="fl">1</span>, at <span class="op">=</span> <span class="va">bks</span>, las <span class="op">=</span> <span class="fl">2</span>, tick <span class="op">=</span> <span class="cn">FALSE</span>, line <span class="op">=</span> <span class="op">-</span><span class="fl">.9</span>, 
      cex.axis <span class="op">=</span> <span class="fl">.7</span>, col.axis <span class="op">=</span> <span class="va">fg</span><span class="op">)</span>
