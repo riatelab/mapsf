@@ -14,9 +14,7 @@
 #' target <- mtq[30, ]
 #' mf_init(target)
 #' mf_map(mtq, add = TRUE)
-mf_init <- function(x,
-                    expandBB = rep(0, 4),
-                    theme) {
+mf_init <- function(x, expandBB = rep(0, 4), theme) {
   if (!missing(theme)) {
     mf_theme(theme)
   }
@@ -30,13 +28,13 @@ mf_init <- function(x,
         call. = FALSE
       )
     }
+
     proj <- terra::crs(x)
     bb <- terra::ext(x)[c(1, 3, 2, 4)]
-    xd <- diff(bb[c(1, 3)]) * 0.04
-    yd <- diff(bb[c(2, 4)]) * 0.04
-    nbb <- bb + c(xd, yd, -xd, -yd)
-    x <- st_as_sfc(st_bbox(nbb))
-    st_crs(x) <- proj
+    y <- st_as_sfc(st_bbox(bb))
+    st_crs(y) <- proj
+    mf_init(y, expandBB = c(rep(-.04, 4)) + expandBB)
+    return(invisible(x))
   }
 
   # transform to bbox

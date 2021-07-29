@@ -35,7 +35,7 @@ mf_raster <- function(x, add = FALSE, ...) {
     ops <- list(...)
     ops$x <- x
     ops$add <- TRUE
-    ops$maxcell <- ifelse(is.null(ops$maxcell), terra::ncell(x), ops$maxcell)
+    ops$maxcell <- ifelse(is.null(ops$maxcell), Inf, ops$maxcell)
     ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
     ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
     if (terra::nlyr(x) == 3) {
