@@ -15,12 +15,13 @@
 mf_worldmap <- function(x, lon, lat, ...) {
   quiet <- function(x) {
     sink(tempfile())
-    on.exit(sink())
+    on.exit(sink(), add = TRUE)
     invisible(force(x))
   }
   os2 <- quiet(sf::sf_use_s2(FALSE))
+  on.exit(quiet(sf::sf_use_s2(os2)), add = TRUE)
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
   ops <- list(...)
   ops$pch <- ifelse(is.null(ops$pch), 17, ops$pch)
   ops$col <- ifelse(is.null(ops$col), "red", ops$col)
@@ -48,7 +49,6 @@ mf_worldmap <- function(x, lon, lat, ...) {
     })
   })
   do.call(points, ops)
-  quiet(sf::sf_use_s2(os2))
 
   return(invisible(NULL))
 }
