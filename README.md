@@ -124,6 +124,13 @@ data types for each map types.
 
 ![](man/figures/features.png)
 
+## Ressources
+
+-   [Website](https://riatelab.github.io/mapsf/)
+-   `mapsf`, a New Package for Thematic Mapping, useR 2021! -
+    [Video](https://youtu.be/8PMF7cBBH7k?t=2621) -
+    [Slides](https://rcarto.github.io/user2021/)
+
 ## Background
 
 `mapsf` is the successor of
