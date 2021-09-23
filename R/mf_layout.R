@@ -1,6 +1,10 @@
 #' @title Plot a map layout
 #' @description Plot a map layout (title, credits, scalebar,
 #' north arrow, frame).
+#'
+#' This function uses \code{\link{mf_title}}, \code{\link{mf_credits}},
+#' \code{\link{mf_scale}} and \code{\link{mf_scale}} with default values.
+#'
 #' @name mf_layout
 #' @param title title of the map
 #' @param credits credits
@@ -36,6 +40,5 @@ mf_layout <- function(title = "Map Title",
   if (frame) {
     pux <- par("usr")
     rect(pux[1], pux[3], pux[2], pux[4], border = fg, col = NA)
-    # box(col = fg)
   }
 }

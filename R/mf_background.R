@@ -22,7 +22,7 @@ mf_background <- function(filename, ...) {
   if (ex == "png") {
     if (!requireNamespace("png", quietly = TRUE)) {
       stop(
-        "'png' package needed for this function to work. Please install it.",
+        "'png' is package needed for this function to work. Please install it.",
         call. = FALSE
       )
     }
@@ -31,7 +31,7 @@ mf_background <- function(filename, ...) {
   if (ex %in% c("jpg", "jpeg")) {
     if (!requireNamespace("jpeg", quietly = TRUE)) {
       stop(
-        "'jpeg' package needed for this function to work. Please install it.",
+        "'jpeg' is package needed for this function to work. Please install it.",
         call. = FALSE
       )
     }

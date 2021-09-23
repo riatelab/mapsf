@@ -24,7 +24,7 @@ mf_init <- function(x, expandBB = rep(0, 4), theme) {
   if (is(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
-        "'terra' package needed for this function to work. Please install it.",
+        "'terra' package is needed for this function to work. Please install it.",
         call. = FALSE
       )
     }

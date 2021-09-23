@@ -19,11 +19,7 @@ not (FALSE).}
 No return value, a map is displayed.
 }
 \description{
-Plot a raster object over a map (SpatRaster from terra).
-}
-\note{
-The accuracy of the final plot depends on \code{x} resolution
-and on the setup of the graphic device.
+Plot a raster object (SpatRaster from terra).
 }
 \examples{
 if (require("terra")) {

@@ -43,7 +43,7 @@ mf_export <- function(x,
   if (is(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
-        "'terra' package needed for this function to work. Please install it.",
+        "'terra' package is needed for this function to work. Please install it.",
         call. = FALSE
       )
     }

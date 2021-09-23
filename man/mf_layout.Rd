@@ -29,6 +29,9 @@ No return value, a map layout is displayed.
 \description{
 Plot a map layout (title, credits, scalebar,
 north arrow, frame).
+
+This function uses \code{\link{mf_title}}, \code{\link{mf_credits}},
+\code{\link{mf_scale}} and \code{\link{mf_scale}} with default values.
 }
 \examples{
 mtq <- mf_get_mtq()

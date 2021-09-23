@@ -1,13 +1,11 @@
 #' @title Plot a raster
-#' @description Plot a raster object over a map (SpatRaster from terra).
+#' @description Plot a raster object (SpatRaster from terra).
 #' @name mf_raster
 #' @param x a SpatRaster
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE).
 #' @param ... bgalpha, interpolate, or other arguments passed to be passed to
 #' \code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}
-#' @note The accuracy of the final plot depends on \code{x} resolution
-#' and on the setup of the graphic device.
 #' @export
 #' @return No return value, a map is displayed.
 #' @importFrom methods is
@@ -19,7 +17,7 @@
 mf_raster <- function(x, add = FALSE, ...) {
   if (!requireNamespace("terra", quietly = TRUE)) {
     stop(
-      "'terra' package needed for this function to work. Please install it.",
+      "'terra' package is needed for this function to work. Please install it.",
       call. = FALSE
     )
   }
