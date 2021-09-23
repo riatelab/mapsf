@@ -1,3 +1,17 @@
+# mapsf 0.3.0
+
+## Fix
+* add support for native pipe
+* suppress messages that appear when s2 use is switched with mf_worldmap()
+* replace raster by terra in all things raster
+
+## Feat
+* add a web only vignette on insets
+* add a web only vignette on themes
+* add mf_background(), a function to plot a background image for map
+* add support for raster in mf_export() and mf_init()
+
+
 # mapsf 0.2.0
 
 ## Fix
