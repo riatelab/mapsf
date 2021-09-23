@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -149,13 +149,37 @@
       <small>Source: <a href='https://github.com/riatelab/mapsf/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="mapsf-020" class="section level1">
-<h1 class="page-header" data-toc-text="0.2.0">
-<a href="#mapsf-020" class="anchor"></a>mapsf 0.2.0<small> 2021-04-29 </small>
+    <div id="mapsf-030" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.0">
+<a href="#mapsf-030" class="anchor"></a>mapsf 0.3.0<small> Unreleased </small>
 </h1>
 <div id="fix" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fix" class="anchor"></a>Fix</h2>
+<ul>
+<li>add support for native pipe</li>
+<li>suppress messages that appear when s2 use is switched with mf_worldmap()</li>
+<li>replace raster by terra in all things raster</li>
+</ul>
+</div>
+<div id="feat" class="section level2">
+<h2 class="hasAnchor">
+<a href="#feat" class="anchor"></a>Feat</h2>
+<ul>
+<li>add a web only vignette on insets</li>
+<li>add a web only vignette on themes</li>
+<li>add mf_background(), a function to plot a background image for map</li>
+<li>add support for raster in mf_export() and mf_init()</li>
+</ul>
+</div>
+</div>
+    <div id="mapsf-020" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0">
+<a href="#mapsf-020" class="anchor"></a>mapsf 0.2.0<small> 2021-04-29 </small>
+</h1>
+<div id="fix-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fix-1" class="anchor"></a>Fix</h2>
 <ul>
 <li>change default value for interpolate and display without extra margins in mf_raster()</li>
 <li>increase minimal R version to 3.6.0 to use hcl.colors()</li>
@@ -170,9 +194,9 @@
 <li>fix mf_worldmap() by bypassing s2 use</li>
 </ul>
 </div>
-<div id="feat" class="section level2">
+<div id="feat-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#feat" class="anchor"></a>Feat</h2>
+<a href="#feat-1" class="anchor"></a>Feat</h2>
 <ul>
 <li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
 <li>split mf_init() to mf_init() and mf_export()</li>
