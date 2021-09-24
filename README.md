@@ -146,11 +146,11 @@ to migrate from `cartography` to `mapsf`.
 
 ## Alternatives
 
--   [cartography](https://github.com/riatelab/cartography)
--   [tmap](https://github.com/mtennekes/tmap)  
+-   [cartography](https://github.com/riatelab/cartography) (*superseded
+    by `mapsf`*)
+-   [tmap](https://github.com/r-tmap/tmap)  
 -   [ggplot2](https://github.com/tidyverse/ggplot2) +
-    [ggspatial](https://github.com/paleolimbot/ggspatial)  
--   [oceanis](https://github.com/insee-psar-at/oceanis-package)
+    [ggspatial](https://github.com/paleolimbot/ggspatial)
 
 ## Community Guidelines
 
