@@ -1,0 +1,59 @@
+---
+title: "How to Use a Custom Font Family"
+author: "Timothée Giraud"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to Use a Custom Font Family}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>", 
+  fig.width = 5, 
+  fig.height = 6
+)
+```
+
+
+
+To use a custom font family, the user can use the `family` argument of the `par()` function before plotting the map.
+For example, use `par(family = "Fira Code")` to use the **Fira Code** font family.   
+Note that the font has to be installed on your system and recognized by R. 
+
+
+```{r}
+library(mapsf)
+# import the sample data set
+mtq <- mf_get_mtq()
+# population density (inhab./km2) using sf::st_area()
+mtq$POPDENS <- 1e6 * mtq$POP / st_area(mtq)
+# Define the font family
+# "mono" should work on all systems
+par(family="mono")
+# set a theme
+mf_theme("green")
+# plot population density
+mf_map(
+  x = mtq, 
+  var = "POPDENS",
+  type = "choro",
+  breaks = "q6",
+  nbreaks = 4,
+  pal = "Greens",
+  border = "grey60", 
+  lwd = 0.5,
+  leg_val_rnd = 0,
+  leg_pos = "topright", 
+  leg_title = "Population Density\n(people per km2)"
+) 
+# layout
+mf_layout(title = "Population Distribution in Martinique", 
+          credits = paste0("Sources: Insee and IGN, 2018\n",
+                           "mapsf ", 
+                           packageVersion("mapsf")))
+```
+
