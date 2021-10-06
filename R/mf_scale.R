@@ -6,8 +6,8 @@
 #' set, an automatic size is used (1/10 of the map width)
 #' @param lwd width of the scale bar
 #' @param cex cex of the text
-#' @param pos position of the legend, default to "bottomright".
-#' "bottomright" or a vector of two coordinates (c(x, y)) are possible.
+#' @param pos position. It can be one of 'bottomright', 'bottomleft',
+#' or a vector of two coordinates in map units (c(x, y)).
 #' @param unit units used for the scale bar. Can be "mi" for miles,
 #' "m" for meters, or "km" for kilometers (default)
 #' @note This scale bar is not accurate on unprojected (long/lat) maps.
