@@ -25,7 +25,7 @@ For example, use `par(family = "Fira Code")` to use the **Fira Code** font famil
 Note that the font has to be installed on your system and recognized by R. 
 
 
-```{r}
+```{r,   fig.width = 5, fig.height = 6}
 library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
