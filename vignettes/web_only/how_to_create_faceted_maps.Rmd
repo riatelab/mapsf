@@ -1,0 +1,58 @@
+---
+title: "How to Create Faceted Maps"
+author: "Timothée Giraud"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to Create Faceted Maps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>", 
+  fig.width = 4, 
+  fig.height = 4
+)
+```
+
+
+To plot several maps on the same figure, the user can use the `mfrow` argument of the `par()` function before plotting the maps. 
+For example, use `par(mfrow = c(1, 2))` (i.e. 1 row, 2 columns) to plot two maps side by side). 
+
+```{r fig1, fig.width = 7}
+library(mapsf)
+mtq <- mf_get_mtq()
+# define the figure layout (1 row, 2 columns)
+par(mfrow = c(1, 2))
+# 1st map
+mf_map(mtq)
+mf_map(mtq, "POP", "prop")
+mf_title("Population")
+# 2nd map
+mf_map(mtq, "MED", "choro")
+mf_title("Median Income")
+```
+
+
+When relevant the user can use a `for` loop. 
+```{r fig2, fig.width = 7, fig.height = 8}
+# define the figure layout (6 rows, 6 columns)
+par(mfrow = c(6,6))
+for (i in 1:nrow(mtq)){
+  # center the map on a targeted municipality and its 
+  # neighborhood (with mf_init() and its expandBB arg)
+  mf_init(mtq[i, ], expandBB = c(.3,.3,.3,.3))
+  # plot the municpalities
+  mf_map(mtq, border = "white", lwd = .5, add = TRUE)
+  # plot the shadow of the targeted municpality
+  mf_shadow(mtq[i, ], cex = .75, col = "grey60", add = TRUE)
+  # plot the targeted municipality
+  mf_map(mtq[i, ], col = "tomato1", border = "grey60", add = TRUE)
+  # add a title
+  mf_title(mtq[[i, "LIBGEO"]])
+}
+
+```
