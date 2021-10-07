@@ -9,36 +9,28 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>", 
-  cache = FALSE
-)
-```
-
-
 To plot several maps on the same figure, the user can use the `mfrow` argument of the `par()` function before plotting the maps. 
 For example, use `par(mfrow = c(1, 2))` (i.e. 1 row, 2 columns) to plot two maps side by side). 
 
-```{r fig1, fig.width = 7, fig.height = 4, cache = FALSE}
+```{r figure1, fig.width = 7, fig.height = 4, cache = FALSE}
 library(mapsf)
 mtq <- mf_get_mtq()
 # define the figure layout (1 row, 2 columns)
 par(mfrow = c(1, 2))
-# 1st map
+# first map
 mf_map(mtq)
 mf_map(mtq, "POP", "prop")
 mf_title("Population")
-# 2nd map
+# second map
 mf_map(mtq, "MED", "choro")
 mf_title("Median Income")
+
 ```
 
 
 When relevant the user can use a `for` loop. 
-```{r fig2, fig.width = 7, fig.height = 8, cache = FALSE}
-# define the figure layout (6 rows, 6 columns)
+```{r figure2, fig.width = 7, fig.height = 8, cache = FALSE}
+# define the figure layout (6 rows and 6 columns)
 par(mfrow = c(6,6))
 for (i in 1:nrow(mtq)){
   # center the map on a targeted municipality and its 
@@ -53,5 +45,4 @@ for (i in 1:nrow(mtq)){
   # add a title
   mf_title(mtq[[i, "LIBGEO"]])
 }
-
 ```
