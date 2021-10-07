@@ -7,6 +7,7 @@
 
 [![CRAN](https://www.r-pkg.org/badges/version/mapsf)](https://cran.r-project.org/package=mapsf)
 [![R-CMD-check](https://github.com/riatelab/mapsf/workflows/R-CMD-check/badge.svg)](https://github.com/riatelab/mapsf/actions)
+[![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
 [![codecov](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg?token=TPK6HZOLWH)](https://codecov.io/gh/riatelab/mapsf)
 [![status](https://tinyverse.netlify.com/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
 <!-- badges: end -->
@@ -42,7 +43,7 @@ The main `mapsf` function is `mf_map()`.
 ``` r
 library(mapsf)
 #> Le chargement a nécessité le package : sf
-#> Linking to GEOS 3.7.1, GDAL 3.1.2, PROJ 7.1.0
+#> Linking to GEOS 3.9.0, GDAL 3.2.2, PROJ 7.1.0
 # Import the sample dataset
 mtq <- mf_get_mtq()
 # Plot the base map
@@ -92,7 +93,7 @@ dev.off()
 ![](man/figures/mtq.png)
 
 Note that `mapsf` is, to a certain degree, compatible with the pipe
-syntax from either `magrittr` or `base`(&gt;= 4.1.0):
+syntax from either `magrittr` or `base`(>= 4.1.0):
 
 ``` r
 mf_theme("candy")
