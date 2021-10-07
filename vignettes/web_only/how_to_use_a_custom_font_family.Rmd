@@ -9,12 +9,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
-  fig.width = 5, 
-  fig.height = 6
+  cache=FALSE
 )
 ```
 
@@ -25,7 +24,7 @@ For example, use `par(family = "Fira Code")` to use the **Fira Code** font famil
 Note that the font has to be installed on your system and recognized by R. 
 
 
-```{r,   fig.width = 5, fig.height = 6}
+```{r,   fig.width = 5, fig.height = 6, cache=FALSE}
 library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()

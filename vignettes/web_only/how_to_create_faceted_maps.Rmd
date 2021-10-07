@@ -13,8 +13,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
-  fig.width = 4, 
-  fig.height = 4
+  cache = FALSE
 )
 ```
 
@@ -22,7 +21,7 @@ knitr::opts_chunk$set(
 To plot several maps on the same figure, the user can use the `mfrow` argument of the `par()` function before plotting the maps. 
 For example, use `par(mfrow = c(1, 2))` (i.e. 1 row, 2 columns) to plot two maps side by side). 
 
-```{r fig1, fig.width = 7, fig.height = 4}
+```{r fig1, fig.width = 7, fig.height = 4, cache = FALSE}
 library(mapsf)
 mtq <- mf_get_mtq()
 # define the figure layout (1 row, 2 columns)
@@ -38,7 +37,7 @@ mf_title("Median Income")
 
 
 When relevant the user can use a `for` loop. 
-```{r fig2, fig.width = 7, fig.height = 8}
+```{r fig2, fig.width = 7, fig.height = 8, cache = FALSE}
 # define the figure layout (6 rows, 6 columns)
 par(mfrow = c(6,6))
 for (i in 1:nrow(mtq)){
