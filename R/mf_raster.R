@@ -36,7 +36,7 @@ mf_raster <- function(x, add = FALSE, ...) {
     ops$maxcell <- ifelse(is.null(ops$maxcell), Inf, ops$maxcell)
     ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
     ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
-    if (terra::nlyr(x) == 3) {
+    if (terra::nlyr(x) >= 2) {
       do.call(terra::plotRGB, ops)
     }
     if (terra::nlyr(x) == 1) {
