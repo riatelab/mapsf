@@ -21,7 +21,7 @@
 <meta property="og:title" content="How to Use a Custom Font Family">
 <meta property="og:description" content="mapsf">
 <meta property="og:image" content="/reference/figures/logo.png">
-<meta property="og:image:alt" content="An R package for thematic cartography">
+<meta property="og:image:alt" content="mapsf: thematic cartography">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@rgeomatic">
 <meta name="twitter:site" content="@rgeomatic">
@@ -121,7 +121,7 @@
 
     
     
-<p>To use a custom font family, the user can use the <code>family</code> argument of the <code><a href="https://rdrr.io/r/graphics/par.html">par()</a></code> function before plotting the map. For example, use <code><a href="https://rdrr.io/r/graphics/par.html">par(family = "Fira Code")</a></code> to use the <strong>Fira Code</strong> font family.<br>
+<p>To use a custom font family, the user can use the <code>family</code> argument of the <code><a href="https://rdrr.io/r/graphics/par.html">par()</a></code> function before plotting the map. For example, use <code><a href="https://rdrr.io/r/graphics/par.html">par(family = "Purisa")</a></code> to use the <strong>Purisa</strong> font family.<br>
 Note that the font has to be installed on your system and recognized by R.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span></code></pre></div>
@@ -133,8 +133,8 @@ Note that the font has to be installed on your system and recognized by R.</p>
 <span class="co"># population density (inhab./km2) using sf::st_area()</span>
 <span class="va">mtq</span><span class="op">$</span><span class="va">POPDENS</span> <span class="op">&lt;-</span> <span class="fl">1e6</span> <span class="op">*</span> <span class="va">mtq</span><span class="op">$</span><span class="va">POP</span> <span class="op">/</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_area</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># Define the font family</span>
-<span class="co"># "mono" should work on all systems</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>family<span class="op">=</span><span class="st">"mono"</span><span class="op">)</span>
+<span class="co"># !! Select a font already installed on your system !!</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>family<span class="op">=</span><span class="st">"Purisa"</span><span class="op">)</span>
 <span class="co"># set a theme</span>
 <span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"green"</span><span class="op">)</span>
 <span class="co"># plot population density</span>
@@ -156,7 +156,7 @@ Note that the font has to be installed on your system and recognized by R.</p>
           credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
                            <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="how_to_use_a_custom_font_family_files/figure-html/figure0%20-1.png" width="480"></p>
+<p><img src="how_to_use_a_custom_font_family_files/figure-html/figure0-1.png" width="576"></p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
