@@ -7,6 +7,7 @@ Authors@R: c(
     person("Diego", "Hernangómez", role = "ctb", 
         comment=c(ORCID="0000-0001-8457-4658")),
     person("Hugues", "Pecout", role = "ctb"),
+    person("Ronan", "Ysebaert", role = "ctb"),
     person("Ian", "Fellows", role = "cph", 
         comment = "No overlap algorithm for labels, from wordcloud package"), 
     person("Jim", "Lemon", role = "cph", 

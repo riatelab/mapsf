@@ -47,8 +47,10 @@ The main part of the code is stolen from @fzenoni
 mtq <- mf_get_mtq()
 mf_worldmap(mtq)
 mf_worldmap(lon = 24, lat = 39)
-mf_worldmap(lon = 106, lat = 26,
-            pch = 4, lwd = 3, cex = 2, col = "tomato4",
-            col_water = "#232525", col_land = "#A9B7C6",
-            col_border = "white", lwd_border = 1)
+mf_worldmap(
+  lon = 106, lat = 26,
+  pch = 4, lwd = 3, cex = 2, col = "tomato4",
+  col_water = "#232525", col_land = "#A9B7C6",
+  col_border = "white", lwd_border = 1
+)
 }
