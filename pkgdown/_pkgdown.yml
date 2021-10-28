@@ -1,5 +1,5 @@
 home:
-  title: An R package for thematic cartography
+  title: "mapsf: thematic cartography"
   description: >
     Create maps with simple features. mapsf helps to map sf objects and
     offers features that improve the graphic presentation of maps
@@ -9,7 +9,7 @@ template:
   opengraph:
     image:
       src: man/figures/logo.png
-      alt: "An R package for thematic cartography"
+      alt: "mapsf: thematic cartography"
     twitter:
       creator: "@rgeomatic"
       card: summary_large_image
@@ -49,10 +49,3 @@ reference:
 
 figures:
   dev: grDevices::png
-  dpi: 96
-  dev.args: []
-  fig.ext: png
-  fig.width: 7
-  fig.height: 7
-  fig.retina: 2
-  fig.asp: 1

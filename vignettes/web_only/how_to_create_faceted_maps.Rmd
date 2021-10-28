@@ -9,6 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
 To plot several maps on the same figure, the user can use the `mfrow` argument of the `par()` function before plotting the maps. 
 For example, use `par(mfrow = c(1, 2))` (i.e. 1 row, 2 columns) to plot two maps side by side). 
 
