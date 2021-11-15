@@ -1,0 +1,17 @@
+---
+title: "Cheat Sheet"
+author: "Ronan Ysebaert"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Cheat Sheet}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/cheat_sheet.png")
+```
+
+[Download PDF version](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/fig/cheat_sheet.pdf)
