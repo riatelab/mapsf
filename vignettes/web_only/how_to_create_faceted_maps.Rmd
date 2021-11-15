@@ -10,10 +10,19 @@ vignette: >
 ---
 
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7, 
+  fig.height = 4
+)
+```
+
 To plot several maps on the same figure, the user can use the `mfrow` argument of the `par()` function before plotting the maps. 
 For example, use `par(mfrow = c(1, 2))` (i.e. 1 row, 2 columns) to plot two maps side by side). 
 
-```{r figure1, fig.width = 7, fig.height = 4, cache = FALSE}
+```{r fig1, fig.height=4, fig.width=7, results = FALSE, fig.path="img/", eval = FALSE}
 library(mapsf)
 mtq <- mf_get_mtq()
 # define the figure layout (1 row, 2 columns)
@@ -25,12 +34,13 @@ mf_title("Population")
 # second map
 mf_map(mtq, "MED", "choro")
 mf_title("Median Income")
-
 ```
+
+![](img/fig1-1.png)
 
 
 When relevant the user can use a `for` loop. 
-```{r figure2, fig.width = 7, fig.height = 8, cache = FALSE}
+```{r fig2, fig.height = 8, fig.width = 7, results = FALSE, fig.path="img/", eval = FALSE}
 # define the figure layout (6 rows and 6 columns)
 par(mfrow = c(6,6))
 for (i in 1:nrow(mtq)){
@@ -47,3 +57,6 @@ for (i in 1:nrow(mtq)){
   mf_title(mtq[[i, "LIBGEO"]])
 }
 ```
+
+
+![](img/fig2-1.png)

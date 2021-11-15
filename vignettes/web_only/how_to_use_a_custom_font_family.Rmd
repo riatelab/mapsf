@@ -15,7 +15,7 @@ For example, use `par(family = "Purisa")` to use the **Purisa** font family.
 Note that the font has to be installed on your system and recognized by R. 
 
 
-```{r figure0, fig.width = 6, fig.height = 7, cache=FALSE}
+```{r font, fig.width = 6, fig.height = 7, cache=FALSE, dpi=110, eval = FALSE, fig.path="img/"}
 library(mapsf)
 # Import the sample data set
 mtq <- mf_get_mtq()
@@ -48,3 +48,4 @@ mf_layout(title = "Population Distribution in Martinique",
 
 ```
 
+![](img/font-1.png)
