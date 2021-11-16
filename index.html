@@ -70,6 +70,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/web_only/cheat_sheet.html">Cheat Sheet</a>
+    </li>
+    <li>
       <a href="articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a>
     </li>
     <li>
@@ -188,8 +191,8 @@ The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"agolalight"</span><span class="op">)</span>
-<span class="va">mtq</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<span class="va">mtq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"MED"</span><span class="op">)</span>, <span class="st">"prop_choro"</span><span class="op">)</span>
 <span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Population and Wealth"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-example5-1.png"><!-- --></p>
@@ -197,7 +200,7 @@ The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf
 <div id="main-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#main-features" class="anchor"></a>Main features</h2>
-<p>The <strong>type</strong> column indicates the value to use for the <code>type</code> argument in <code><a href="reference/mf_map.html">mf_map(x, var, type)</a></code>. The <strong>data</strong> column displays the relevant data types for each map types.</p>
+<p>The <strong>type</strong> column indicates the value to use for the <code>type</code> argument in <code>mf_map(x, var, type)</code>. The <strong>data</strong> column displays the relevant data types for each map types.</p>
 <p><img src="reference/figures/features.png"></p>
 </div>
 <div id="ressources" class="section level2">

@@ -69,6 +69,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/web_only/cheat_sheet.html">Cheat Sheet</a>
+    </li>
+    <li>
       <a href="../articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a>
     </li>
     <li>
@@ -112,7 +115,7 @@
       <h1 data-toc-skip>mapsf</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-10-29</h4>
+            <h4 class="date">2021-11-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/mapsf.Rmd"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -153,7 +156,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <div id="symbology" class="section level2">
 <h2 class="hasAnchor">
 <a href="#symbology" class="anchor"></a>Symbology</h2>
-<p>The <strong>type</strong> column indicates the value to use for the <code>type</code> argument in <code><a href="../reference/mf_map.html">mf_map(x, var, type)</a></code>. The <strong>data</strong> column displays the relevant data types for each map types. The <strong>cartography</strong> column indicates the corresponding function in <code>cartography</code>.</p>
+<p>The <strong>type</strong> column indicates the value to use for the <code>type</code> argument in <code>mf_map(x, var, type)</code>. The <strong>data</strong> column displays the relevant data types for each map types. The <strong>cartography</strong> column indicates the corresponding function in <code>cartography</code>.</p>
 <table class="table">
 <colgroup>
 <col width="18%">
@@ -397,7 +400,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <a href="#base-map" class="anchor"></a>Base map</h2>
 <p><code><a href="../reference/mf_init.html">mf_init()</a></code> is designed to initiate a map centered on a specific extent (<code>x</code> bbox). The <code>theme</code> argument allows to select a theme.</p>
 <p><code><a href="../reference/mf_shadow.html">mf_shadow()</a></code> plots the shadow of a polygon layer.</p>
-<p><code><a href="../reference/mf_map.html">mf_map(x, type = "base")</a></code> displays <code>sf</code> objects geometries.</p>
+<p><code>mf_map(x, type = "base")</code> displays <code>sf</code> objects geometries.</p>
 <p><code><a href="../reference/mf_layout.html">mf_layout()</a></code> add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code>, <code><a href="../reference/mf_credits.html">mf_credits()</a></code>, <code><a href="../reference/mf_arrow.html">mf_arrow()</a></code> and <code><a href="../reference/mf_scale.html">mf_scale()</a></code>).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
@@ -419,7 +422,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <div id="proportional-symbols" class="section level2">
 <h2 class="hasAnchor">
 <a href="#proportional-symbols" class="anchor"></a>Proportional Symbols</h2>
-<p><code><a href="../reference/mf_map.html">mf_map(x, var, type = "prop")</a></code> displays symbols with areas proportional to a quantitative variable (stocks). The <code>inches</code> argument is used to customize the symbols sizes.</p>
+<p><code>mf_map(x, var, type = "prop")</code> displays symbols with areas proportional to a quantitative variable (stocks). The <code>inches</code> argument is used to customize the symbols sizes.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
@@ -450,7 +453,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <div id="choropleth-map" class="section level2">
 <h2 class="hasAnchor">
 <a href="#choropleth-map" class="anchor"></a>Choropleth Map</h2>
-<p>In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.<br><code><a href="../reference/mf_map.html">mf_map(x, var, type = "choro")</a></code> displays choropleth maps . Arguments <code>nbreaks</code>, and <code>breaks</code> allow to customize the variable classification. <code><a href="../reference/mf_get_breaks.html">mf_get_breaks()</a></code> allows to classify data outside of the function itself. Colors palettes, defined with <code>pal</code>, can be created with <code><a href="../reference/mf_get_pal.html">mf_get_pal()</a></code> or you can use palette names from <code><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.pals()</a></code>.</p>
+<p>In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.<br><code>mf_map(x, var, type = "choro")</code> displays choropleth maps . Arguments <code>nbreaks</code>, and <code>breaks</code> allow to customize the variable classification. <code><a href="../reference/mf_get_breaks.html">mf_get_breaks()</a></code> allows to classify data outside of the function itself. Colors palettes, defined with <code>pal</code>, can be created with <code><a href="../reference/mf_get_pal.html">mf_get_pal()</a></code> or you can use palette names from <code><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.pals()</a></code>.</p>
 <p>Use <code><a href="../reference/mf_theme.html">mf_theme()</a></code> to set a theme without plotting anything.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
@@ -483,7 +486,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <div id="typology-map" class="section level2">
 <h2 class="hasAnchor">
 <a href="#typology-map" class="anchor"></a>Typology Map</h2>
-<p><code><a href="../reference/mf_map.html">mf_map(x, var, type = "typo")</a></code> displays a typology map of a qualitative variable. <code>val_order</code> is used to set the modalities order in the legend.</p>
+<p><code>mf_map(x, var, type = "typo")</code> displays a typology map of a qualitative variable. <code>val_order</code> is used to set the modalities order in the legend.</p>
 <p><code><a href="../reference/mf_label.html">mf_label()</a></code> displays labels on the map.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
@@ -517,7 +520,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <div id="proportional-symbols-using-choropleth-coloration" class="section level2">
 <h2 class="hasAnchor">
 <a href="#proportional-symbols-using-choropleth-coloration" class="anchor"></a>Proportional Symbols using Choropleth Coloration</h2>
-<p><code><a href="../reference/mf_map.html">mf_map(x, var, type = "prop_choro")</a></code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.</p>
+<p><code>mf_map(x, var, type = "prop_choro")</code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.</p>
 <p><code>expandBB</code> argument in <code><a href="../reference/mf_init.html">mf_init()</a></code> allows to expand the map space. Here, we increase the space available on the right of the map to avoid overlaps between the legends and the map.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
@@ -637,7 +640,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <h2 class="hasAnchor">
 <a href="#links-map" class="anchor"></a>Links Map</h2>
 <p><code><a href="../reference/mf_get_links.html">mf_get_links()</a></code> creates a link layer from an <code>sf</code> object and a link <code>data.frame</code> (long format).</p>
-<p><code><a href="../reference/mf_map.html">mf_map(x, var, type = "grad")</a></code> displays graduated links.</p>
+<p><code>mf_map(x, var, type = "grad")</code> displays graduated links.</p>
 <p>We have used <code>leg_pos = "bottomleft2"</code> to display the legend in the bottom left corner of the map with an extra space to avoid overlaps between the legend and the credits.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>

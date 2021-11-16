@@ -113,6 +113,9 @@ plot(st_geometry(x), ...)." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/web_only/cheat_sheet.html">Cheat Sheet</a>
+    </li>
+    <li>
       <a href="../articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a>
     </li>
     <li>
@@ -160,7 +163,7 @@ plot(st_geometry(x), ...)." />
 
     <div class="ref-description">
     <p>Plot an sf object. This is mostly a wrapper around
-<code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot(st_geometry(x), ...)</a></code>.</p>
+<code>plot(st_geometry(x), ...)</code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>mf_base</span><span class='op'>(</span><span class='va'>x</span>, col <span class='op'>=</span> <span class='st'>"grey80"</span>, border <span class='op'>=</span> <span class='st'>"grey20"</span>, lwd <span class='op'>=</span> <span class='fl'>0.7</span>, add <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
@@ -190,7 +193,7 @@ plot(st_geometry(x), ...)." />
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further parameters from <a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a> for sfc objects</p></td>
+      <td><p>further parameters from <a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a> for sfc objects</p></td>
     </tr>
     </table>
 
@@ -199,11 +202,13 @@ plot(st_geometry(x), ...)." />
     <p>x is (invisibly) returned.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
-<span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'>mf_base</span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_base-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>mf_base</span><span class='op'>(</span><span class='va'>mtq</span>, col <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_base-2.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>mf_base</span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_base-1.png' alt='' width='672' height='672' /></span>
+<span class='r-in'><span class='fu'>mf_base</span><span class='op'>(</span><span class='va'>mtq</span>, col <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_base-2.png' alt='' width='672' height='672' /></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

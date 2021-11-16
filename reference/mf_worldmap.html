@@ -112,6 +112,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/web_only/cheat_sheet.html">Cheat Sheet</a>
+    </li>
+    <li>
       <a href="../articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a>
     </li>
     <li>
@@ -219,16 +222,19 @@
 (<a href='https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1'>https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1</a>).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'>mf_worldmap</span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_worldmap-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>mf_worldmap</span><span class='op'>(</span>lon <span class='op'>=</span> <span class='fl'>24</span>, lat <span class='op'>=</span> <span class='fl'>39</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_worldmap-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>mf_worldmap</span><span class='op'>(</span>
-  lon <span class='op'>=</span> <span class='fl'>106</span>, lat <span class='op'>=</span> <span class='fl'>26</span>,
-  pch <span class='op'>=</span> <span class='fl'>4</span>, lwd <span class='op'>=</span> <span class='fl'>3</span>, cex <span class='op'>=</span> <span class='fl'>2</span>, col <span class='op'>=</span> <span class='st'>"tomato4"</span>,
-  col_water <span class='op'>=</span> <span class='st'>"#232525"</span>, col_land <span class='op'>=</span> <span class='st'>"#A9B7C6"</span>,
-  col_border <span class='op'>=</span> <span class='st'>"white"</span>, lwd_border <span class='op'>=</span> <span class='fl'>1</span>
-<span class='op'>)</span>
-</div><div class='img'><img src='mf_worldmap-3.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>mf_worldmap</span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_worldmap-1.png' alt='' width='672' height='672' /></span>
+<span class='r-in'><span class='fu'>mf_worldmap</span><span class='op'>(</span>lon <span class='op'>=</span> <span class='fl'>24</span>, lat <span class='op'>=</span> <span class='fl'>39</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_worldmap-2.png' alt='' width='672' height='672' /></span>
+<span class='r-in'><span class='fu'>mf_worldmap</span><span class='op'>(</span></span>
+<span class='r-in'>  lon <span class='op'>=</span> <span class='fl'>106</span>, lat <span class='op'>=</span> <span class='fl'>26</span>,</span>
+<span class='r-in'>  pch <span class='op'>=</span> <span class='fl'>4</span>, lwd <span class='op'>=</span> <span class='fl'>3</span>, cex <span class='op'>=</span> <span class='fl'>2</span>, col <span class='op'>=</span> <span class='st'>"tomato4"</span>,</span>
+<span class='r-in'>  col_water <span class='op'>=</span> <span class='st'>"#232525"</span>, col_land <span class='op'>=</span> <span class='st'>"#A9B7C6"</span>,</span>
+<span class='r-in'>  col_border <span class='op'>=</span> <span class='st'>"white"</span>, lwd_border <span class='op'>=</span> <span class='fl'>1</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_worldmap-3.png' alt='' width='672' height='672' /></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

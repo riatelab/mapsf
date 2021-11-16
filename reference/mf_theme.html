@@ -114,6 +114,9 @@ foreground colors and some mf_title options." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/web_only/cheat_sheet.html">Cheat Sheet</a>
+    </li>
+    <li>
       <a href="../articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a>
     </li>
     <li>
@@ -225,70 +228,74 @@ Use <code>mf_theme('default')</code> to reset theme settings.
 <code>mf_theme()</code> returns the current theme settings.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='co'># built-in theme</span>
-<span class='fu'>mf_theme</span><span class='op'>(</span><span class='st'>"green"</span><span class='op'>)</span>
-<span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='mf_title.html'>mf_title</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_theme-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># theme from arguments</span>
-<span class='fu'>mf_theme</span><span class='op'>(</span>
-  bg <span class='op'>=</span> <span class='st'>"darkslategrey"</span>, fg <span class='op'>=</span> <span class='st'>"cornsilk3"</span>, mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/terra/man/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>2</span><span class='op'>)</span>,
-  tab <span class='op'>=</span> <span class='cn'>FALSE</span>, pos <span class='op'>=</span> <span class='st'>"center"</span>, inner <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  line <span class='op'>=</span> <span class='fl'>2</span>, cex <span class='op'>=</span> <span class='fl'>2</span>, font <span class='op'>=</span> <span class='fl'>4</span>
-<span class='op'>)</span>
-<span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='mf_layout.html'>mf_layout</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_theme-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># theme from list</span>
-<span class='va'>custom</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-  name <span class='op'>=</span> <span class='st'>"custom"</span>,
-  bg <span class='op'>=</span> <span class='st'>"green"</span>,
-  fg <span class='op'>=</span> <span class='st'>"red"</span>,
-  mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/terra/man/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>,
-  tab <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  pos <span class='op'>=</span> <span class='st'>"center"</span>,
-  inner <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  line <span class='op'>=</span> <span class='fl'>2</span>,
-  cex <span class='op'>=</span> <span class='fl'>1.5</span>,
-  font <span class='op'>=</span> <span class='fl'>3</span>
-<span class='op'>)</span>
-<span class='fu'>mf_theme</span><span class='op'>(</span><span class='va'>custom</span><span class='op'>)</span>
-<span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='mf_title.html'>mf_title</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='mf_theme-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='op'>(</span><span class='fu'>mf_theme</span><span class='op'>(</span><span class='st'>"default"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $name
-#&gt; [1] "default"
-#&gt; 
-#&gt; $bg
-#&gt; [1] "#f7f7f7"
-#&gt; 
-#&gt; $fg
-#&gt; [1] "#333333"
-#&gt; 
-#&gt; $mar
-#&gt; [1] 0.5 0.5 1.7 0.5
-#&gt; 
-#&gt; $tab
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $pos
-#&gt; [1] "left"
-#&gt; 
-#&gt; $inner
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $line
-#&gt; [1] 1.2
-#&gt; 
-#&gt; $cex
-#&gt; [1] 1
-#&gt; 
-#&gt; $font
-#&gt; [1] 1
-#&gt; </div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>mtq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mf_get_mtq.html'>mf_get_mtq</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># built-in theme</span></span>
+<span class='r-in'><span class='fu'>mf_theme</span><span class='op'>(</span><span class='st'>"green"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='mf_title.html'>mf_title</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_theme-1.png' alt='' width='672' height='672' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># theme from arguments</span></span>
+<span class='r-in'><span class='fu'>mf_theme</span><span class='op'>(</span></span>
+<span class='r-in'>  bg <span class='op'>=</span> <span class='st'>"darkslategrey"</span>, fg <span class='op'>=</span> <span class='st'>"cornsilk3"</span>, mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/terra/man/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
+<span class='r-in'>  tab <span class='op'>=</span> <span class='cn'>FALSE</span>, pos <span class='op'>=</span> <span class='st'>"center"</span>, inner <span class='op'>=</span> <span class='cn'>FALSE</span>,</span>
+<span class='r-in'>  line <span class='op'>=</span> <span class='fl'>2</span>, cex <span class='op'>=</span> <span class='fl'>2</span>, font <span class='op'>=</span> <span class='fl'>4</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='mf_layout.html'>mf_layout</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_theme-2.png' alt='' width='672' height='672' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># theme from list</span></span>
+<span class='r-in'><span class='va'>custom</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span class='r-in'>  name <span class='op'>=</span> <span class='st'>"custom"</span>,</span>
+<span class='r-in'>  bg <span class='op'>=</span> <span class='st'>"green"</span>,</span>
+<span class='r-in'>  fg <span class='op'>=</span> <span class='st'>"red"</span>,</span>
+<span class='r-in'>  mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/terra/man/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
+<span class='r-in'>  tab <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  pos <span class='op'>=</span> <span class='st'>"center"</span>,</span>
+<span class='r-in'>  inner <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  line <span class='op'>=</span> <span class='fl'>2</span>,</span>
+<span class='r-in'>  cex <span class='op'>=</span> <span class='fl'>1.5</span>,</span>
+<span class='r-in'>  font <span class='op'>=</span> <span class='fl'>3</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>mf_theme</span><span class='op'>(</span><span class='va'>custom</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='mf_map.html'>mf_map</a></span><span class='op'>(</span><span class='va'>mtq</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='mf_title.html'>mf_title</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='mf_theme-3.png' alt='' width='672' height='672' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='op'>(</span><span class='fu'>mf_theme</span><span class='op'>(</span><span class='st'>"default"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $name</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "default"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $bg</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "#f7f7f7"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $fg</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "#333333"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $mar</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 0.5 0.5 1.7 0.5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $tab</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $pos</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "left"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $inner</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $line</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $cex</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $font</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

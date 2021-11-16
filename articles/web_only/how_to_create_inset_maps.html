@@ -69,6 +69,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../../articles/web_only/cheat_sheet.html">Cheat Sheet</a>
+    </li>
+    <li>
       <a href="../../articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a>
     </li>
     <li>
@@ -112,7 +115,7 @@
       <h1 data-toc-skip>How to Create Inset Maps</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-10-29</h4>
+            <h4 class="date">2021-11-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_create_inset_maps.Rmd"><code>vignettes/web_only/how_to_create_inset_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_inset_maps.Rmd</code></div>
@@ -198,7 +201,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <span class="co"># display credits</span>
 <span class="fu"><a href="../../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"T. Giraud, 2021"</span><span class="op">)</span></code></pre></div>
 <p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-3-1.png" width="600"></p>
-<p>The second solution to set the size and position of an inset is to use the <code>fig</code> argument.<br><code>fig</code> coordinates (xmin, xmax, ymin, ymax) are expressed as fractions of the mapping space (i.e. excluding margins).<br><code><a href="../../reference/mf_inset_on.html">mf_inset_on(fig = c(0, 0.25, 0, 0.25))</a></code> will create an inset on the bottomleft corner of the map and will cover a quarter of the map in width and height.</p>
+<p>The second solution to set the size and position of an inset is to use the <code>fig</code> argument.<br><code>fig</code> coordinates (xmin, xmax, ymin, ymax) are expressed as fractions of the mapping space (i.e. excluding margins).<br><code>mf_inset_on(fig = c(0, 0.25, 0, 0.25))</code> will create an inset on the bottomleft corner of the map and will cover a quarter of the map in width and height.</p>
 <p>In the following example we create an inset for a specific municipality in the bottom left corner of the map.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># set a theme</span>

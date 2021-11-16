@@ -3,10 +3,11 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   mapsf: mapsf.html
+  web_only/cheat_sheet: cheat_sheet.html
   web_only/how_to_create_faceted_maps: how_to_create_faceted_maps.html
   web_only/how_to_create_inset_maps: how_to_create_inset_maps.html
   web_only/how_to_export_maps: how_to_export_maps.html
   web_only/how_to_use_a_custom_font_family: how_to_use_a_custom_font_family.html
   web_only/how_to_use_themes: how_to_use_themes.html
-last_built: 2021-10-29T08:25Z
+last_built: 2021-11-16T10:23Z
 

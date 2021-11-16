@@ -69,6 +69,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../../articles/web_only/cheat_sheet.html">Cheat Sheet</a>
+    </li>
+    <li>
       <a href="../../articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a>
     </li>
     <li>
@@ -112,7 +115,7 @@
       <h1 data-toc-skip>How to Use a Custom Font Family</h1>
                         <h4 class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-10-29</h4>
+            <h4 class="date">2021-11-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_use_a_custom_font_family.Rmd"><code>vignettes/web_only/how_to_use_a_custom_font_family.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_use_a_custom_font_family.Rmd</code></div>
@@ -121,14 +124,11 @@
 
     
     
-<p>To use a custom font family, the user can use the <code>family</code> argument of the <code><a href="https://rdrr.io/r/graphics/par.html">par()</a></code> function before plotting the map. For example, use <code><a href="https://rdrr.io/r/graphics/par.html">par(family = "Purisa")</a></code> to use the <strong>Purisa</strong> font family.<br>
+<p>To use a custom font family, the user can use the <code>family</code> argument of the <code><a href="https://rdrr.io/r/graphics/par.html">par()</a></code> function before plotting the map. For example, use <code>par(family = "Purisa")</code> to use the <strong>Purisa</strong> font family.<br>
 Note that the font has to be installed on your system and recognized by R.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span></code></pre></div>
-<pre><code>## Loading required package: sf</code></pre>
-<pre><code>## Linking to GEOS 3.6.2, GDAL 2.2.3, PROJ 4.9.3</code></pre>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Import the sample data set</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<span class="co"># Import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># population density (inhab./km2) using sf::st_area()</span>
 <span class="va">mtq</span><span class="op">$</span><span class="va">POPDENS</span> <span class="op">&lt;-</span> <span class="fl">1e6</span> <span class="op">*</span> <span class="va">mtq</span><span class="op">$</span><span class="va">POP</span> <span class="op">/</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_area</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
@@ -156,7 +156,7 @@ Note that the font has to be installed on your system and recognized by R.</p>
           credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
                            <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="how_to_use_a_custom_font_family_files/figure-html/figure0-1.png" width="576"></p>
+<p><img src="img/font-1.png"></p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
