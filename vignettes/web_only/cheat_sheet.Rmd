@@ -14,4 +14,4 @@ vignette: >
 knitr::include_graphics("img/cheat_sheet.png")
 ```
 
-[Download PDF version](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/fig/cheat_sheet.pdf)
+[Download PDF version](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf)
