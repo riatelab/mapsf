@@ -55,7 +55,7 @@ mf_choro(
 
 \item{pch_na}{pch for NA values if x is a POINT layer}
 
-\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos is 'n' then the legend is not plotted.}
+\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted.}
 
 \item{leg_title}{legend title}
 
