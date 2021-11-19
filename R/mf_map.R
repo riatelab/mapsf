@@ -82,19 +82,40 @@ mf_map <- function(x, var, type = "base",
                    leg_val_cex, leg_val_rnd, leg_no_data,
                    leg_frame, add,
                    ...) {
+
+  if(!type %in% c( "base", "prop", "choro", "typo", "symb", "grad",
+                   "prop_choro", "prop_typo", "symb_choro")){
+    stop(paste0('\'type\' should be one of "base", "prop", "choro", "typo", ',
+                '"symb", "grad", "prop_choro", "prop_typo" or "symb_choro".'),
+         call. = FALSE)
+  }
+
+
+  if(!missing(var)){
+    if(!var %in% names(x)){
+      stop(paste0("It is likely that 'var' is not a valid variable in 'x'."),
+           call. = FALSE)
+    }
+  }
+
+  if(!missing(var) && type == "base"){
+    message("Please use the 'type' argument to map variables.")
+  }
+
+
   argx <- as.list(match.call()[-1])
   argx <- argx[names(argx) != "type"]
 
   switch(type,
-    prop = do.call(what = mf_prop, argx, envir = parent.frame()),
-    choro = do.call(what = mf_choro, argx, envir = parent.frame()),
-    typo = do.call(what = mf_typo, argx, envir = parent.frame()),
-    symb = do.call(what = mf_symb, argx, envir = parent.frame()),
-    base = do.call(what = mf_base, argx, envir = parent.frame()),
-    grad = do.call(what = mf_grad, argx, envir = parent.frame()),
-    prop_choro = do.call(what = mf_prop_choro, argx, envir = parent.frame()),
-    prop_typo = do.call(what = mf_prop_typo, argx, envir = parent.frame()),
-    symb_choro = do.call(what = mf_symb_choro, argx, envir = parent.frame())
+         prop = do.call(what = mf_prop, argx, envir = parent.frame()),
+         choro = do.call(what = mf_choro, argx, envir = parent.frame()),
+         typo = do.call(what = mf_typo, argx, envir = parent.frame()),
+         symb = do.call(what = mf_symb, argx, envir = parent.frame()),
+         base = do.call(what = mf_base, argx, envir = parent.frame()),
+         grad = do.call(what = mf_grad, argx, envir = parent.frame()),
+         prop_choro = do.call(what = mf_prop_choro, argx, envir = parent.frame()),
+         prop_typo = do.call(what = mf_prop_typo, argx, envir = parent.frame()),
+         symb_choro = do.call(what = mf_symb_choro, argx, envir = parent.frame())
   )
 
   # return(invisible(x))
