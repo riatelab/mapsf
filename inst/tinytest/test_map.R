@@ -8,4 +8,7 @@ expect_silent(mf_map(mtq, var = "POP", type = "grad"))
 expect_silent(mf_map(mtq, var = c('POP', 'MED'), type = 'prop_choro'))
 expect_silent(mf_map(mtq, var = c('POP', 'STATUS'), type = 'prop_typo'))
 expect_silent(mf_map(mtq, var = c('STATUS', 'MED'), type = 'symb_choro'))
+expect_message(mf_map(mtq, "POP"))
+expect_error(mf_map(mtq, "POP", "props"))
+expect_error(mf_map(mtq, "POPx", "prop"))
 

@@ -9,7 +9,7 @@ get_xy_box_s <- function(x, y, n, w_cex, h_cex, inset) {
   ybottom <- rep(NA, n)
   ytop[1] <- y
   ybottom[1] <- y - h_cex[1]
-  if(n>=2){
+  if (n >= 2) {
     for (i in 2:n) {
       ytop[i] <- ybottom[i - 1] - inset
       ybottom[i] <- ytop[i] - h_cex[i]
