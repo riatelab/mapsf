@@ -8,10 +8,10 @@ mf_worldmap(
   x,
   lon,
   lat,
-  col_water = "lightblue",
-  col_land = "grey60",
-  col_border = "grey40",
-  lwd_border = 0.8,
+  water_col = "lightblue",
+  land_col = "grey60",
+  border_col = "grey40",
+  border_lwd = 0.8,
   ...
 )
 }
@@ -22,13 +22,13 @@ mf_worldmap(
 
 \item{lat}{latitude}
 
-\item{col_water}{color of the water}
+\item{water_col}{color of the water}
 
-\item{col_land}{color of the land}
+\item{land_col}{color of the land}
 
-\item{col_border}{color of the borders}
+\item{border_col}{color of the borders}
 
-\item{lwd_border}{width of the borders}
+\item{border_lwd}{width of the borders}
 
 \item{...}{further parameters related to the plotted point aspect
 (cex, pch, col...)}
@@ -50,7 +50,7 @@ mf_worldmap(lon = 24, lat = 39)
 mf_worldmap(
   lon = 106, lat = 26,
   pch = 4, lwd = 3, cex = 2, col = "tomato4",
-  col_water = "#232525", col_land = "#A9B7C6",
-  col_border = "white", lwd_border = 1
+  water_col = "#232525", land_col = "#A9B7C6",
+  border_col = "white", border_lwd = 1
 )
 }
