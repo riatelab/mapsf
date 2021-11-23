@@ -168,10 +168,10 @@
   <span class='va'>x</span>,
   <span class='va'>lon</span>,
   <span class='va'>lat</span>,
-  col_water <span class='op'>=</span> <span class='st'>"lightblue"</span>,
-  col_land <span class='op'>=</span> <span class='st'>"grey60"</span>,
-  col_border <span class='op'>=</span> <span class='st'>"grey40"</span>,
-  lwd_border <span class='op'>=</span> <span class='fl'>0.8</span>,
+  water_col <span class='op'>=</span> <span class='st'>"lightblue"</span>,
+  land_col <span class='op'>=</span> <span class='st'>"grey60"</span>,
+  border_col <span class='op'>=</span> <span class='st'>"grey40"</span>,
+  border_lwd <span class='op'>=</span> <span class='fl'>0.8</span>,
   <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
@@ -191,19 +191,19 @@
       <td><p>latitude</p></td>
     </tr>
     <tr>
-      <th>col_water</th>
+      <th>water_col</th>
       <td><p>color of the water</p></td>
     </tr>
     <tr>
-      <th>col_land</th>
+      <th>land_col</th>
       <td><p>color of the land</p></td>
     </tr>
     <tr>
-      <th>col_border</th>
+      <th>border_col</th>
       <td><p>color of the borders</p></td>
     </tr>
     <tr>
-      <th>lwd_border</th>
+      <th>border_lwd</th>
       <td><p>width of the borders</p></td>
     </tr>
     <tr>
@@ -230,8 +230,8 @@
 <span class='r-in'><span class='fu'>mf_worldmap</span><span class='op'>(</span></span>
 <span class='r-in'>  lon <span class='op'>=</span> <span class='fl'>106</span>, lat <span class='op'>=</span> <span class='fl'>26</span>,</span>
 <span class='r-in'>  pch <span class='op'>=</span> <span class='fl'>4</span>, lwd <span class='op'>=</span> <span class='fl'>3</span>, cex <span class='op'>=</span> <span class='fl'>2</span>, col <span class='op'>=</span> <span class='st'>"tomato4"</span>,</span>
-<span class='r-in'>  col_water <span class='op'>=</span> <span class='st'>"#232525"</span>, col_land <span class='op'>=</span> <span class='st'>"#A9B7C6"</span>,</span>
-<span class='r-in'>  col_border <span class='op'>=</span> <span class='st'>"white"</span>, lwd_border <span class='op'>=</span> <span class='fl'>1</span></span>
+<span class='r-in'>  water_col <span class='op'>=</span> <span class='st'>"#232525"</span>, land_col <span class='op'>=</span> <span class='st'>"#A9B7C6"</span>,</span>
+<span class='r-in'>  border_col <span class='op'>=</span> <span class='st'>"white"</span>, border_lwd <span class='op'>=</span> <span class='fl'>1</span></span>
 <span class='r-in'><span class='op'>)</span></span>
 <span class='r-plt img'><img src='mf_worldmap-3.png' alt='' width='672' height='672' /></span>
 </pre>
