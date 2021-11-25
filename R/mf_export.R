@@ -8,9 +8,11 @@
 #' @param x object of class \code{sf}, \code{sfc} or \code{Raster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @param theme apply a theme from \code{mf_theme}
-#' @param filename path to the exported file
-#' @param export if set to "png" or "svg" a png or svg plot device is opened
+#' @param theme apply a theme
+#' @param filename path to the exported file. If the file extention is ".png" a
+#' png graphic device is opened, if the file extension is ".svg" a svg graphic
+#' device is opened.
+#' @param export deprecated
 #' @param width width of the figure (pixels for png, inches for svg)
 #' @param height height of the figure (pixels for png, inches for svg)
 #' @param res resolution (for png)
@@ -27,18 +29,34 @@
 #' mf_map(mtq, add = TRUE)
 #' dev.off()
 mf_export <- function(x,
-                      export = "png",
-                      filename = paste0("map.", export),
+                      filename = "map.png",
                       width,
                       height,
-                      res = 96, ...,
+                      res = 96,
+                      ...,
                       expandBB = rep(0, 4),
-                      theme = "default") {
+                      theme,
+                      export = "png") {
   if (!missing(theme)) {
     mf_theme(theme)
   }
   mar <- .gmapsf$args$mar
   bgmap <- .gmapsf$args$bg
+  if (!missing(export)) {
+    message('"export" is deprecated.')
+  }
+  nc <- nchar(filename)
+  ext <- substr(filename, nc - 3, nc)
+  if (ext == ".png") {
+    export <- "png"
+  }
+  if (ext == ".svg") {
+    export <- "svg"
+  }
+  if (!ext %in% c(".png", ".svg")) {
+    stop('The filename extension should be ".png" or ".svg".', call. = FALSE)
+  }
+
 
   if (is(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {

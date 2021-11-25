@@ -6,22 +6,22 @@
 \usage{
 mf_export(
   x,
-  export = "png",
-  filename = paste0("map.", export),
+  filename = "map.png",
   width,
   height,
   res = 96,
   ...,
   expandBB = rep(0, 4),
-  theme = "default"
+  theme,
+  export = "png"
 )
 }
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{Raster}}
 
-\item{export}{if set to "png" or "svg" a png or svg plot device is opened}
-
-\item{filename}{path to the exported file}
+\item{filename}{path to the exported file. If the file extention is ".png" a
+png graphic device is opened, if the file extension is ".svg" a svg graphic
+device is opened.}
 
 \item{width}{width of the figure (pixels for png, inches for svg)}
 
@@ -34,7 +34,9 @@ mf_export(
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
 
-\item{theme}{apply a theme from \code{mf_theme}}
+\item{theme}{apply a theme}
+
+\item{export}{deprecated}
 }
 \value{
 No return value, a map is initiated.
