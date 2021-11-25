@@ -18,3 +18,4 @@
 ^test
 ^\.github$
 ^vignettes/web_only/*
+^CITATION\.cff$

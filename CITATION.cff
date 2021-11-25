@@ -1,0 +1,59 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.1.1
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "mapsf" in publications use:'
+type: software
+license: GPL-3.0-only
+title: 'mapsf: Thematic Cartography'
+version: 0.3.0
+abstract: Create and integrate thematic maps in your workflow. This package helps
+  to design various cartographic representations such as proportional symbols, choropleth
+  or typology maps. It also offers several functions to display layout elements that
+  improve the graphic presentation of maps (e.g. scale bar, north arrow, title, labels).
+  'mapsf' maps 'sf' objects on 'base' graphics.
+authors:
+- family-names: Giraud
+  given-names: Timothée
+  email: timothee.giraud@cnrs.fr
+  orcid: https://orcid.org/0000-0002-1932-3323
+preferred-citation:
+  type: manual
+  title: 'mapsf: Thematic Cartography'
+  authors:
+  - family-names: Giraud
+    given-names: Timothée
+    email: timothee.giraud@cnrs.fr
+    orcid: https://orcid.org/0000-0002-1932-3323
+  version: 0.3.0
+  abstract: Create and integrate thematic maps in your workflow. This package helps
+    to design various cartographic representations such as proportional symbols, choropleth
+    or typology maps. It also offers several functions to display layout elements
+    that improve the graphic presentation of maps (e.g. scale bar, north arrow, title,
+    labels). 'mapsf' maps 'sf' objects on 'base' graphics.
+  repository: https://CRAN.R-project.org/package=mapsf
+  repository-code: https://github.com/riatelab/mapsf/issues/
+  url: https://github.com/riatelab/mapsf/
+  identifiers:
+  - type: url
+    value: https://riatelab.github.io/mapsf/
+  contact:
+  - family-names: Giraud
+    given-names: Timothée
+    email: timothee.giraud@cnrs.fr
+    orcid: https://orcid.org/0000-0002-1932-3323
+  license: GPL-3.0-only
+  year: '2021'
+repository: https://CRAN.R-project.org/package=mapsf
+repository-code: https://github.com/riatelab/mapsf/issues/
+url: https://github.com/riatelab/mapsf/
+contact:
+- family-names: Giraud
+  given-names: Timothée
+  email: timothee.giraud@cnrs.fr
+  orcid: https://orcid.org/0000-0002-1932-3323
+identifiers:
+- type: url
+  value: https://riatelab.github.io/mapsf/
