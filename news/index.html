@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
       </span>
     </div>
 
@@ -75,6 +75,25 @@
       <small>Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.4.0" id="mapsf-040">mapsf 0.4.0<a class="anchor" aria-label="anchor" href="#mapsf-040"></a></h2>
+<div class="section level3">
+<h3 id="fix-0-4-0">Fix<a class="anchor" aria-label="anchor" href="#fix-0-4-0"></a></h3>
+<ul><li>allow the display of raster with &gt;=2 bands (not only exactly 3)</li>
+<li>avoid mf_map(…, type=“symb”) failing when there is only one modality</li>
+<li>make mf_export() aware of the export format with the filename extension only (+ deprecate “export”" arg)</li>
+<li>add a default maximum to maxcell arg for raster display in mf_raster()</li>
+<li>change smooth defaults in mf_raster(), TRUE if nlyr&gt;=2, FALSE otherwise</li>
+</ul></div>
+<div class="section level3">
+<h3 id="feat-0-4-0">Feat<a class="anchor" aria-label="anchor" href="#feat-0-4-0"></a></h3>
+<ul><li>add a web only vignette on faceted maps</li>
+<li>add a web only vignette on custom fonts</li>
+<li>add a cheat sheet</li>
+<li>add parameters to customize worldmaps (land and ocean colors and borders)</li>
+<li>add informatives messages concerning mf_map() input (checking type and variable names)</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="mapsf-030">mapsf 0.3.0<small>2021-09-24</small><a class="anchor" aria-label="anchor" href="#mapsf-030"></a></h2>
 <div class="section level3">
