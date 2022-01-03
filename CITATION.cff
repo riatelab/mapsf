@@ -8,7 +8,7 @@ message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-only
 title: 'mapsf: Thematic Cartography'
-version: 0.3.0
+version: 0.4.0
 abstract: Create and integrate thematic maps in your workflow. This package helps
   to design various cartographic representations such as proportional symbols, choropleth
   or typology maps. It also offers several functions to display layout elements that
@@ -27,7 +27,7 @@ preferred-citation:
     given-names: Timothée
     email: timothee.giraud@cnrs.fr
     orcid: https://orcid.org/0000-0002-1932-3323
-  version: 0.3.0
+  version: 0.4.0
   abstract: Create and integrate thematic maps in your workflow. This package helps
     to design various cartographic representations such as proportional symbols, choropleth
     or typology maps. It also offers several functions to display layout elements
@@ -45,7 +45,7 @@ preferred-citation:
     email: timothee.giraud@cnrs.fr
     orcid: https://orcid.org/0000-0002-1932-3323
   license: GPL-3.0-only
-  year: '2021'
+  year: '2022'
 repository: https://CRAN.R-project.org/package=mapsf
 repository-code: https://github.com/riatelab/mapsf/issues/
 url: https://github.com/riatelab/mapsf/
