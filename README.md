@@ -43,7 +43,7 @@ The main `mapsf` function is `mf_map()`.
 ``` r
 library(mapsf)
 #> Le chargement a nécessité le package : sf
-#> Linking to GEOS 3.9.0, GDAL 3.2.2, PROJ 7.1.0
+#> Linking to GEOS 3.9.0, GDAL 3.2.2, PROJ 7.1.0; sf_use_s2() is TRUE
 # Import the sample dataset
 mtq <- mf_get_mtq()
 # Plot the base map
@@ -55,17 +55,9 @@ mf_layout(title = "Population in Martinique",
           credits = "T. Giraud; Sources: INSEE & IGN, 2018")
 ```
 
-![](man/figures/README-example1-1.png)<!-- -->
+![](man/figures/example1-1.png)<!-- -->
 
 A more detailed example:
-<table >
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>
 
 ``` r
 # Export a map with a theme and extra margins 
@@ -102,53 +94,7 @@ mf_arrow('topleft')
 dev.off()
 ```
 
-</td>
-<td>
 <img src='man/figures/mtq.png'/>
-</td>
-</tr>
-</tbody>
-</table>
-
-Note that `mapsf` is, to a certain degree, compatible with the pipe
-syntax from either `magrittr` or `base`(>= 4.1.0):
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>
-
-``` r
-mf_theme("candy")
-mtq |>
-  mf_init(expandBB = c(0,0,0,.4)) |>
-  mf_map(add = TRUE) |>
-  mf_map(c("POP","STATUS"), "prop_typo")
-mf_title("Population and Status")
-```
-
-![](man/figures/README-example4-1.png)<!-- -->
-</td>
-<td>
-
-``` r
-library(magrittr)
-mf_theme("agolalight")
-mtq %>% 
-  mf_map() %>%
-  mf_map(c("POP","MED"), "prop_choro")
-mf_title("Population and Wealth")
-```
-
-![](man/figures/README-example5-1.png)<!-- -->
-</td>
-</tr>
-</tbody>
-</table>
 
 ## Ressources
 
@@ -161,7 +107,7 @@ mf_title("Population and Wealth")
 <tr class="odd">
 <td style="text-align: center;">
 <p>
-<a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf"><img src="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.png"/></a>
+<a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf"><img src="vignettes/web_only/img/mapsf_cheatsheet.png"/></a>
 </p>
 <p>
 <a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf">Cheat
@@ -170,7 +116,7 @@ Sheet</a>
 </td>
 <td style="text-align: center;">
 <p>
-<a href="https://riatelab.github.io/mapsf/"><img src="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/website.png" /></a>
+<a href="https://riatelab.github.io/mapsf/"><img src="vignettes/web_only/img/website.png" /></a>
 </p>
 <p>
 <a href="https://riatelab.github.io/mapsf/">Website</a>

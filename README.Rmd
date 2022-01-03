@@ -8,7 +8,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/README-", 
+  fig.path = "man/figures/", 
   fig.width = 5, fig.height = 6,
   dev = "png"
   # out.width = "100%"
@@ -71,15 +71,7 @@ mf_layout(title = "Population in Martinique",
 
 
 A more detailed example:
-<table >
-  <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
-  </colgroup>
-  <tbody>
-    <tr class="odd">
-      <td>
-      
+
 ```{r example3, results=FALSE, eval = FALSE}
 # Export a map with a theme and extra margins 
 mf_export(x = mtq, filename = "mtq.png",  
@@ -116,59 +108,7 @@ dev.off()
 ```
 
 
-
-      </td>
-      <td >
-
 <img src='man/figures/mtq.png'/>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-
-
-
-Note that `mapsf` is, to a certain degree, compatible with the pipe syntax from either `magrittr` or `base`(>= 4.1.0):
-
-<table>
-  <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
-  </colgroup>
-  <tbody>
-    <tr class="odd">
-      <td >
-```{r example4, results=FALSE, fig.width = 3*1.5, fig.height = 3*1.5}
-mf_theme("candy")
-mtq |>
-  mf_init(expandBB = c(0,0,0,.4)) |>
-  mf_map(add = TRUE) |>
-  mf_map(c("POP","STATUS"), "prop_typo")
-mf_title("Population and Status")
-```
-      </td>
-      <td >
-```{r example5, results=FALSE, fig.width = 3*1.5, fig.height = 3*1.5}
-library(magrittr)
-mf_theme("agolalight")
-mtq %>% 
-  mf_map() %>%
-  mf_map(c("POP","MED"), "prop_choro")
-mf_title("Population and Wealth")
-```
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-
 
 
 
@@ -183,11 +123,11 @@ mf_title("Population and Wealth")
   <tbody>
     <tr class="odd">
       <td style="text-align: center;">
-        <p><a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf"><img src="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.png"/></a></p>
+        <p><a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf"><img src="vignettes/web_only/img/mapsf_cheatsheet.png"/></a></p>
         <p><a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf">Cheat Sheet</a></p>
       </td>
       <td style="text-align: center;">
-        <p><a href="https://riatelab.github.io/mapsf/"><img src="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/website.png" /></a></p>
+        <p><a href="https://riatelab.github.io/mapsf/"><img src="vignettes/web_only/img/website.png" /></a></p>
         <p><a href="https://riatelab.github.io/mapsf/">Website</a></p>
         </td>
     </tr>

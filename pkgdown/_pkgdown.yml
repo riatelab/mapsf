@@ -16,6 +16,10 @@ template:
 
 
 reference:
+  - title: Package
+    desc: Package description
+    contents:
+    - mapsf
   - title: "Symbology"
     desc: These functions build cartographic layers.
     contents:
