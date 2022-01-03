@@ -1,13 +1,13 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1
+pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   mapsf: mapsf.html
-  web_only/cheat_sheet: cheat_sheet.html
-  web_only/how_to_create_faceted_maps: how_to_create_faceted_maps.html
-  web_only/how_to_create_inset_maps: how_to_create_inset_maps.html
-  web_only/how_to_export_maps: how_to_export_maps.html
-  web_only/how_to_use_a_custom_font_family: how_to_use_a_custom_font_family.html
-  web_only/how_to_use_themes: how_to_use_themes.html
-last_built: 2021-11-25T14:10Z
+  cheat_sheet: web_only/cheat_sheet.html
+  how_to_create_faceted_maps: web_only/how_to_create_faceted_maps.html
+  how_to_create_inset_maps: web_only/how_to_create_inset_maps.html
+  how_to_export_maps: web_only/how_to_export_maps.html
+  how_to_use_a_custom_font_family: web_only/how_to_use_a_custom_font_family.html
+  how_to_use_themes: web_only/how_to_use_themes.html
+last_built: 2022-01-03T12:21Z
 

@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -43,18 +45,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../../articles/mapsf.html">Get started</a>
 </li>
@@ -94,7 +90,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/riatelab/mapsf/">
+  <a href="https://github.com/riatelab/mapsf/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -113,11 +109,11 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>How to Export Maps</h1>
-                        <h4 class="author">Timothée Giraud</h4>
+                        <h4 data-toc-skip class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-11-25</h4>
+            <h4 data-toc-skip class="date">2022-01-03</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_export_maps.Rmd"><code>vignettes/web_only/how_to_export_maps.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_export_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_export_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_export_maps.Rmd</code></div>
 
     </div>
@@ -129,49 +125,49 @@ The exported map width/height ratio will match the one of a spatial object.<br>
 If <code>width</code> is specified, then <code>height</code> is deduced from the width/height ratio of <code>x</code>, figure margins and title size.<br>
 If <code>height</code> is specified, then <code>width</code> is deduced from the width/height ratio of <code>x</code>, figure margins and title size.</p>
 <p>Additionally, <code><a href="../../reference/mf_export.html">mf_export()</a></code> can be used to set a theme, to extend the map space on one or several side of the figure, or to center a map on a specific area.</p>
-<div id="simple-export" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simple-export" class="anchor"></a>Simple Export</h2>
+<div class="section level2">
+<h2 id="simple-export">Simple Export<a class="anchor" aria-label="anchor" href="#simple-export"></a>
+</h2>
 <p>In this example we only set the <code>width</code> of the exported figure.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: sf</span>
-<span class="co">#&gt; Linking to GEOS 3.6.2, GDAL 2.2.3, PROJ 4.9.3</span>
+<span class="co">#&gt; Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1; sf_use_s2() is TRUE</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width.png"</span>, width <span class="op">=</span> <span class="fl">500</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=605px (deduced)"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_width.png"></p>
 <p><strong>Note that we have to set <code>add = TRUE</code> to the first layer plotted.</strong> Internally, <code><a href="../../reference/mf_export.html">mf_export()</a></code> start a device (PNG or SVG) with a specific dimension (figure size) and extent (<code>x</code> extent).</p>
 </div>
-<div id="export-with-a-theme" class="section level2">
-<h2 class="hasAnchor">
-<a href="#export-with-a-theme" class="anchor"></a>Export with a Theme</h2>
+<div class="section level2">
+<h2 id="export-with-a-theme">Export with a Theme<a class="anchor" aria-label="anchor" href="#export-with-a-theme"></a>
+</h2>
 <p>In this example we use the “dark” theme.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width_theme.png"</span>, 
           width <span class="op">=</span> <span class="fl">500</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=611px (deduced)"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_width_theme.png"></p>
 </div>
-<div id="export-with-extra-space-on-the-figure" class="section level2">
-<h2 class="hasAnchor">
-<a href="#export-with-extra-space-on-the-figure" class="anchor"></a>Export with Extra Space on the Figure</h2>
+<div class="section level2">
+<h2 id="export-with-extra-space-on-the-figure">Export with Extra Space on the Figure<a class="anchor" aria-label="anchor" href="#export-with-extra-space-on-the-figure"></a>
+</h2>
 <p>Here we have added some space on the right side of the plot (50% of <code>x</code> width).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width_expand.png"</span>, 
-          width <span class="op">=</span> <span class="fl">500</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.5</span><span class="op">)</span>, theme <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span>
+          width <span class="op">=</span> <span class="fl">500</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.5</span><span class="op">)</span>, theme <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=427px (deduced)"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_width_expand.png"></p>
 </div>
-<div id="center-the-map-on-a-specific-area" class="section level2">
-<h2 class="hasAnchor">
-<a href="#center-the-map-on-a-specific-area" class="anchor"></a>Center the Map on a Specific Area</h2>
+<div class="section level2">
+<h2 id="center-the-map-on-a-specific-area">Center the Map on a Specific Area<a class="anchor" aria-label="anchor" href="#center-the-map-on-a-specific-area"></a>
+</h2>
 <p>In this export, the map is focused on a specific spatial object. <code>height</code> is fixed and <code>width</code> is deduced.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fl">5</span>,<span class="op">]</span>
@@ -181,32 +177,32 @@ If <code>height</code> is specified, then <code>width</code> is deduced from the
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">target</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: height=600px, width=433px (deduced)"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="fl">1</span>, pos <span class="op">=</span> <span class="st">"bottomleft"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_height_centered.png"></p>
 </div>
-<div id="other-parameters" class="section level2">
-<h2 class="hasAnchor">
-<a href="#other-parameters" class="anchor"></a>Other Parameters</h2>
-<p><code><a href="../../reference/mf_export.html">mf_export()</a></code> can produce SVG figures (with <code>export = "svg"</code>) and use other parameters of <code><a href="https://rdrr.io/r/grDevices/png.html">png()</a></code> or <code><a href="https://rdrr.io/r/grDevices/cairo.html">svg()</a></code> functions (e.g. <code>res</code>, <code>bg</code> or <code>family</code>).</p>
+<div class="section level2">
+<h2 id="other-parameters">Other Parameters<a class="anchor" aria-label="anchor" href="#other-parameters"></a>
+</h2>
+<p><code><a href="../../reference/mf_export.html">mf_export()</a></code> can produce SVG figures (with <code>export = "svg"</code>) and use other parameters of <code><a href="https://rdrr.io/r/grDevices/png.html" class="external-link">png()</a></code> or <code><a href="https://rdrr.io/r/grDevices/cairo.html" class="external-link">svg()</a></code> functions (e.g. <code>res</code>, <code>bg</code> or <code>family</code>).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, export <span class="op">=</span> <span class="st">"svg"</span>, filename <span class="op">=</span> <span class="st">"fixed_width.svg"</span>, 
           width <span class="op">=</span> <span class="fl">5</span>, theme <span class="op">=</span> <span class="st">"nevermind"</span>, bg <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>
 <span class="co">#&gt; "export" is deprecated.</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"SVG export: bg = 'black'"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="fixed_width.svg"></p>
 </div>
-<div id="side-effects" class="section level2">
-<h2 class="hasAnchor">
-<a href="#side-effects" class="anchor"></a>Side Effects</h2>
+<div class="section level2">
+<h2 id="side-effects">Side Effects<a class="anchor" aria-label="anchor" href="#side-effects"></a>
+</h2>
 <p>If a theme is set before an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call, the theme is applied to the export.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">'agolalight'</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"theme_before.png"</span>, width <span class="op">=</span> <span class="fl">200</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"agolalight"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="theme_before.png"></p>
 <p>If a theme is set before or within an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call, the theme is also applied after the export.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -214,14 +210,14 @@ If <code>height</code> is specified, then <code>width</code> is deduced from the
           theme <span class="op">=</span> <span class="st">"darkula"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"darkula"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; png </span>
 <span class="co">#&gt;   2</span>
 
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Still 'darkula'"</span><span class="op">)</span></code></pre></div>
 <p><img src="how_to_export_maps_files/figure-html/unnamed-chunk-8-1.png" width="384"></p>
-<p>If a theme is set between an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call and <code><a href="https://rdrr.io/r/grDevices/dev.html">dev.off()</a></code>, the theme is not applied correctly.</p>
+<p>If a theme is set between an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call and <code><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off()</a></code>, the theme is not applied correctly.</p>
 </div>
   </div>
 
@@ -236,11 +232,13 @@ If <code>height</code> is specified, then <code>width</code> is deduced from the
 
 
       <footer><div class="copyright">
-  <p>Developed by Timothée Giraud.</p>
+  <p></p>
+<p>Developed by Timothée Giraud.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -248,6 +246,8 @@ If <code>height</code> is specified, then <code>width</code> is deduced from the
 
   
 
+
+  
 
   </body>
 </html>

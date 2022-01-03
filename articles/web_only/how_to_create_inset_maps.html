@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -43,18 +45,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../../articles/mapsf.html">Get started</a>
 </li>
@@ -94,7 +90,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/riatelab/mapsf/">
+  <a href="https://github.com/riatelab/mapsf/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -113,11 +109,11 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>How to Create Inset Maps</h1>
-                        <h4 class="author">Timothée Giraud</h4>
+                        <h4 data-toc-skip class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-11-25</h4>
+            <h4 data-toc-skip class="date">2022-01-03</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_create_inset_maps.Rmd"><code>vignettes/web_only/how_to_create_inset_maps.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_create_inset_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_create_inset_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_inset_maps.Rmd</code></div>
 
     </div>
@@ -128,9 +124,9 @@
 <p>If map layers have to be plotted after the inset (i.e after <code><a href="../../reference/mf_inset_on.html">mf_inset_off()</a></code>), please use <code>add = TRUE</code>.<br>
 It is not possible to plot an inset within an inset.<br>
 It is possible to plot anything (base plots) within the inset, not only map layers.</p>
-<div id="size-and-position" class="section level2">
-<h2 class="hasAnchor">
-<a href="#size-and-position" class="anchor"></a>Size and Position</h2>
+<div class="section level2">
+<h2 id="size-and-position">Size and Position<a class="anchor" aria-label="anchor" href="#size-and-position"></a>
+</h2>
 <p>There is 2 solution for defining the size and position of an inset.</p>
 <p>The first solution is based on <code>x</code>, <code>pos</code> and <code>cex</code> arguments:</p>
 <ul>
@@ -145,15 +141,15 @@ It is possible to plot anything (base plots) within the inset, not only map laye
 </ul>
 <p>In the following example we create an inset for a specific municipality in the topright corner of the map.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: sf</span>
-<span class="co">#&gt; Linking to GEOS 3.6.2, GDAL 2.2.3, PROJ 4.9.3</span>
+<span class="co">#&gt; Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1; sf_use_s2() is TRUE</span>
 <span class="co"># set a theme</span>
-<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># data import</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Selection of a target municipality to display in the inset</span>
-<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
+<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
 <span class="co"># Display the base map</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># display the target on the main map</span>
@@ -171,7 +167,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <code class="sourceCode R"><span class="co"># set a theme</span>
 <span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span><span class="op">)</span>
 <span class="co"># Selection of a target municipality to display in the inset</span>
-<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
+<span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>
 <span class="co"># Display the base map</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># display the target on the main map</span>
@@ -191,7 +187,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <span class="co"># display a scale bar</span>
 <span class="fu"><a href="../../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 <span class="co"># dispaly a frame around the inset</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/box.html" class="external-link">box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># close the inset</span>
 <span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># display the map layout of the main map</span>
@@ -205,40 +201,42 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <p>In the following example we create an inset for a specific municipality in the bottom left corner of the map.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># set a theme</span>
-<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># Display the base map</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># open the inset</span>
-<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.25</span>,<span class="fl">0</span>,<span class="fl">0.25</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.25</span>,<span class="fl">0</span>,<span class="fl">0.25</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># display a municipality</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">[</span><span class="fl">9</span>,<span class="op">]</span><span class="op">)</span>
 <span class="co"># add a frame</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/box.html" class="external-link">box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># close the inset</span>
 <span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-4-1.png" width="480"></p>
 </div>
-<div id="world-map-inset" class="section level2">
-<h2 class="hasAnchor">
-<a href="#world-map-inset" class="anchor"></a>World Map Inset</h2>
+<div class="section level2">
+<h2 id="world-map-inset">World Map Inset<a class="anchor" aria-label="anchor" href="#world-map-inset"></a>
+</h2>
 <p>It is easy to create an inset with a world map (see <code><a href="../../reference/mf_worldmap.html">mf_worldmap()</a></code>) using <code>x = "worldmap"</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"worldmap"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_worldmap.html">mf_worldmap</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
+<span class="co">#&gt; Spherical geometry (s2) switched off</span>
+<span class="co">#&gt; Spherical geometry (s2) switched on</span>
 <span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-5-1.png" width="480"></p>
 </div>
-<div id="non-cartographic-insets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#non-cartographic-insets" class="anchor"></a>Non-cartographic Insets</h2>
+<div class="section level2">
+<h2 id="non-cartographic-insets">Non-cartographic Insets<a class="anchor" aria-label="anchor" href="#non-cartographic-insets"></a>
+</h2>
 <p>Insets can be used for regular plots. In the next map we create an inset with an histogram of the median income distribution using the map classification.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># create classes</span>
 <span class="va">bks</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_breaks.html">mf_get_breaks</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, nbreaks <span class="op">=</span> <span class="fl">5</span>, breaks <span class="op">=</span> <span class="st">"quantile"</span><span class="op">)</span> 
-<span class="va">bks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">bks</span>, digits <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span>
+<span class="va">bks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">bks</span>, digits <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span>
 <span class="co"># define a color palette</span>
-<span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.colors</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, palette <span class="op">=</span> <span class="st">"Dark Mint"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, palette <span class="op">=</span> <span class="st">"Dark Mint"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># set a theme</span>
 <span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"candy"</span><span class="op">)</span>
 <span class="va">fg</span> <span class="op">&lt;-</span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fg</span>
@@ -246,22 +244,22 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,
        pal <span class="op">=</span> <span class="va">pal</span>, breaks <span class="op">=</span> <span class="va">bks</span>, leg_pos <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>
 <span class="co"># start the inset</span>
-<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span> fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="fl">.95</span>, <span class="fl">0.84</span>, <span class="fl">.99</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span> fig <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="fl">.95</span>, <span class="fl">0.84</span>, <span class="fl">.99</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># draw the histogram</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1.7</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/terra/man/hist.html">hist</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, breaks <span class="op">=</span> <span class="va">bks</span>, col <span class="op">=</span> <span class="va">pal</span>, border <span class="op">=</span> <span class="va">fg</span>, axes <span class="op">=</span> <span class="cn">F</span>, labels <span class="op">=</span> <span class="st">""</span>, 
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1.7</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/terra/man/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, breaks <span class="op">=</span> <span class="va">bks</span>, col <span class="op">=</span> <span class="va">pal</span>, border <span class="op">=</span> <span class="va">fg</span>, axes <span class="op">=</span> <span class="cn">F</span>, labels <span class="op">=</span> <span class="st">""</span>, 
      xlab<span class="op">=</span><span class="st">""</span>, ylab <span class="op">=</span> <span class="st">""</span>, main <span class="op">=</span><span class="st">""</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op">(</span>side <span class="op">=</span> <span class="fl">1</span>, at <span class="op">=</span> <span class="va">bks</span>, las <span class="op">=</span> <span class="fl">2</span>, tick <span class="op">=</span> <span class="cn">FALSE</span>, line <span class="op">=</span> <span class="op">-</span><span class="fl">.9</span>, 
+<span class="fu"><a href="https://rdrr.io/r/graphics/axis.html" class="external-link">axis</a></span><span class="op">(</span>side <span class="op">=</span> <span class="fl">1</span>, at <span class="op">=</span> <span class="va">bks</span>, las <span class="op">=</span> <span class="fl">2</span>, tick <span class="op">=</span> <span class="cn">FALSE</span>, line <span class="op">=</span> <span class="op">-</span><span class="fl">.9</span>, 
      cex.axis <span class="op">=</span> <span class="fl">.7</span>, col.axis <span class="op">=</span> <span class="va">fg</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="st">"Median Income\nin euros"</span>, cex.main <span class="op">=</span> <span class="fl">.8</span>, col.main <span class="op">=</span> <span class="va">fg</span>, 
+<span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"Median Income\nin euros"</span>, cex.main <span class="op">=</span> <span class="fl">.8</span>, col.main <span class="op">=</span> <span class="va">fg</span>, 
       font.main <span class="op">=</span> <span class="fl">1</span>, adj <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co"># close the inset</span>
 <span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Add map layout</span>
 <span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Wealth in Martinique, 2015"</span>, pos <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>
-<span class="fu"><a href="../../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                  <span class="st">"mapsf "</span>, <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+                  <span class="st">"mapsf "</span>, <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-6-1.png" width="600"></p>
 </div>
   </div>
@@ -277,11 +275,13 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 
 
       <footer><div class="copyright">
-  <p>Developed by Timothée Giraud.</p>
+  <p></p>
+<p>Developed by Timothée Giraud.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -289,6 +289,8 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 
   
 
+
+  
 
   </body>
 </html>

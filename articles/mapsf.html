@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -43,18 +45,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/mapsf.html">Get started</a>
 </li>
@@ -94,7 +90,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/riatelab/mapsf/">
+  <a href="https://github.com/riatelab/mapsf/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -113,23 +109,23 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>mapsf</h1>
-                        <h4 class="author">Timothée Giraud</h4>
+                        <h4 data-toc-skip class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-11-25</h4>
+            <h4 data-toc-skip class="date">2022-01-03</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/mapsf.Rmd"><code>vignettes/mapsf.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/mapsf.Rmd" class="external-link"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
 
     </div>
 
     
     
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h1>
+<div class="section level1">
+<h1 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h1>
 <p>The aim of <code>mapsf</code> is to obtain thematic maps with the visual quality of those build with a classical mapping or GIS software.</p>
 <p>Users of the package could belong to one of two categories: cartographers willing to use R or R users willing to create maps. Therefore, its functions have to be intuitive to cartographers and ensure compatibility with common R workflows.</p>
-<p><code>mapsf</code> uses <a href="https://CRAN.R-project.org/package=sf"><code>sf</code></a> objects to produce <code>base</code> graphics.</p>
+<p><code>mapsf</code> uses <a href="https://CRAN.R-project.org/package=sf" class="external-link"><code>sf</code></a> objects to produce <code>base</code> graphics.</p>
 <p><code>mapsf</code> functions can be classified in the following categories :</p>
 <ul>
 <li>
@@ -150,12 +146,12 @@ Along with the cartographic functions, some other functions are dedicated to lay
 A set of functions is dedicated to the creation of spatial objects (e.g. links creation) or other utility tasks (e.g. color palette management, class intervals extraction, sample dataset import…).</p></li>
 </ul>
 </div>
-<div id="main-features" class="section level1">
-<h1 class="hasAnchor">
-<a href="#main-features" class="anchor"></a>Main Features</h1>
-<div id="symbology" class="section level2">
-<h2 class="hasAnchor">
-<a href="#symbology" class="anchor"></a>Symbology</h2>
+<div class="section level1">
+<h1 id="main-features">Main Features<a class="anchor" aria-label="anchor" href="#main-features"></a>
+</h1>
+<div class="section level2">
+<h2 id="symbology">Symbology<a class="anchor" aria-label="anchor" href="#symbology"></a>
+</h2>
 <p>The <strong>type</strong> column indicates the value to use for the <code>type</code> argument in <code>mf_map(x, var, type)</code>. The <strong>data</strong> column displays the relevant data types for each map types. The <strong>cartography</strong> column indicates the corresponding function in <code>cartography</code>.</p>
 <table class="table">
 <colgroup>
@@ -261,9 +257,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 </tbody>
 </table>
 </div>
-<div id="map-layout" class="section level2">
-<h2 class="hasAnchor">
-<a href="#map-layout" class="anchor"></a>Map Layout</h2>
+<div class="section level2">
+<h2 id="map-layout">Map Layout<a class="anchor" aria-label="anchor" href="#map-layout"></a>
+</h2>
 <table class="table"><tbody><tr class="odd">
 <td align="center"><img src="fig/deco.svg" style="width:4in"></td>
 </tr></tbody></table>
@@ -306,9 +302,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 </tbody>
 </table>
 </div>
-<div id="themes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#themes" class="anchor"></a>Themes</h2>
+<div class="section level2">
+<h2 id="themes">Themes<a class="anchor" aria-label="anchor" href="#themes"></a>
+</h2>
 <p><code><a href="../reference/mf_theme.html">mf_theme()</a></code> defines a map theme. It sets the margins of the figure, a background color, a foreground color and some parameters of the title. A set of theme is included in the package and it is possible to create custom ones.</p>
 <table class="table"><tbody>
 <tr class="odd">
@@ -333,20 +329,20 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 </tr>
 </tbody></table>
 </div>
-<div id="export" class="section level2">
-<h2 class="hasAnchor">
-<a href="#export" class="anchor"></a>Export</h2>
+<div class="section level2">
+<h2 id="export">Export<a class="anchor" aria-label="anchor" href="#export"></a>
+</h2>
 <p>The <code><a href="../reference/mf_export.html">mf_export()</a></code> function exports maps in raster (.png) or vector formats (.svg). The size of the exported map will fit the height/width ratio of a spatial object.</p>
 </div>
-<div id="datasets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#datasets" class="anchor"></a>Datasets</h2>
+<div class="section level2">
+<h2 id="datasets">Datasets<a class="anchor" aria-label="anchor" href="#datasets"></a>
+</h2>
 <p>Several datasets are embedded in the package:</p>
 <ul>
 <li>
-<p>A <a href="https://www.geopackage.org/">GeoPackage</a> of Martinique municipalities can be imported with <code><a href="../reference/mf_get_mtq.html">mf_get_mtq()</a></code> (or via <code><a href="https://r-spatial.github.io/sf/reference/st_read.html">sf::st_read()</a></code>).</p>
+<p>A <a href="https://www.geopackage.org/" class="external-link">GeoPackage</a> of Martinique municipalities can be imported with <code><a href="../reference/mf_get_mtq.html">mf_get_mtq()</a></code> (or via <code><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">sf::st_read()</a></code>).</p>
 <ul>
-<li><p>Sources: <a href="https://www.insee.fr/fr/statistiques/2521169">Base comparateur de territoires</a> (upload date: 2018-09-25) &amp; <a href="https://geoservices.ign.fr/documentation/donnees/vecteur/adminexpress">ADMIN EXPRESS-COG</a> (2018 edition).</p></li>
+<li><p>Sources: <a href="https://www.insee.fr/fr/statistiques/2521169" class="external-link">Base comparateur de territoires</a> (upload date: 2018-09-25) &amp; <a href="https://geoservices.ign.fr/documentation/donnees/vecteur/adminexpress" class="external-link">ADMIN EXPRESS-COG</a> (2018 edition).</p></li>
 <li><p>Citation: Insee and IGN, 2018</p></li>
 <li>
 <p>Fields:</p>
@@ -372,7 +368,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <li>
 <p>A csv file of professional mobility flows between Martinique municipalities.</p>
 <ul>
-<li><p>Sources: <a href="https://www.insee.fr/fr/statistiques/3566477">Flux de mobilité - déplacements domicile-lieu de travail</a> (upload date: 2018-08-01)</p></li>
+<li><p>Sources: <a href="https://www.insee.fr/fr/statistiques/3566477" class="external-link">Flux de mobilité - déplacements domicile-lieu de travail</a> (upload date: 2018-08-01)</p></li>
 <li><p>Citation: Insee, 2018</p></li>
 <li>
 <p>Fields:</p>
@@ -392,18 +388,18 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 </ul>
 </div>
 </div>
-<div id="examples-of-thematic-maps" class="section level1">
-<h1 class="hasAnchor">
-<a href="#examples-of-thematic-maps" class="anchor"></a>Examples of thematic maps</h1>
-<div id="base-map" class="section level2">
-<h2 class="hasAnchor">
-<a href="#base-map" class="anchor"></a>Base map</h2>
+<div class="section level1">
+<h1 id="examples-of-thematic-maps">Examples of thematic maps<a class="anchor" aria-label="anchor" href="#examples-of-thematic-maps"></a>
+</h1>
+<div class="section level2">
+<h2 id="base-map">Base map<a class="anchor" aria-label="anchor" href="#base-map"></a>
+</h2>
 <p><code><a href="../reference/mf_init.html">mf_init()</a></code> is designed to initiate a map centered on a specific extent (<code>x</code> bbox). The <code>theme</code> argument allows to select a theme.</p>
 <p><code><a href="../reference/mf_shadow.html">mf_shadow()</a></code> plots the shadow of a polygon layer.</p>
 <p><code>mf_map(x, type = "base")</code> displays <code>sf</code> objects geometries.</p>
 <p><code><a href="../reference/mf_layout.html">mf_layout()</a></code> add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code>, <code><a href="../reference/mf_credits.html">mf_credits()</a></code>, <code><a href="../reference/mf_arrow.html">mf_arrow()</a></code> and <code><a href="../reference/mf_scale.html">mf_scale()</a></code>).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Initiate a base map</span>
@@ -414,17 +410,17 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, type <span class="op">=</span> <span class="st">"base"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: IGN, 2018\n"</span>, 
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: IGN, 2018\n"</span>, 
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_init-1.png" width="480"></p>
 </div>
-<div id="proportional-symbols" class="section level2">
-<h2 class="hasAnchor">
-<a href="#proportional-symbols" class="anchor"></a>Proportional Symbols</h2>
+<div class="section level2">
+<h2 id="proportional-symbols">Proportional Symbols<a class="anchor" aria-label="anchor" href="#proportional-symbols"></a>
+</h2>
 <p><code>mf_map(x, var, type = "prop")</code> displays symbols with areas proportional to a quantitative variable (stocks). The <code>inches</code> argument is used to customize the symbols sizes.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Initiate a base map</span>
@@ -445,22 +441,22 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="op">)</span>
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_prop-1.png" width="480"></p>
 </div>
-<div id="choropleth-map" class="section level2">
-<h2 class="hasAnchor">
-<a href="#choropleth-map" class="anchor"></a>Choropleth Map</h2>
-<p>In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.<br><code>mf_map(x, var, type = "choro")</code> displays choropleth maps . Arguments <code>nbreaks</code>, and <code>breaks</code> allow to customize the variable classification. <code><a href="../reference/mf_get_breaks.html">mf_get_breaks()</a></code> allows to classify data outside of the function itself. Colors palettes, defined with <code>pal</code>, can be created with <code><a href="../reference/mf_get_pal.html">mf_get_pal()</a></code> or you can use palette names from <code><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.pals()</a></code>.</p>
+<div class="section level2">
+<h2 id="choropleth-map">Choropleth Map<a class="anchor" aria-label="anchor" href="#choropleth-map"></a>
+</h2>
+<p>In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.<br><code>mf_map(x, var, type = "choro")</code> displays choropleth maps . Arguments <code>nbreaks</code>, and <code>breaks</code> allow to customize the variable classification. <code><a href="../reference/mf_get_breaks.html">mf_get_breaks()</a></code> allows to classify data outside of the function itself. Colors palettes, defined with <code>pal</code>, can be created with <code><a href="../reference/mf_get_pal.html">mf_get_pal()</a></code> or you can use palette names from <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals()</a></code>.</p>
 <p>Use <code><a href="../reference/mf_theme.html">mf_theme()</a></code> to set a theme without plotting anything.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># population density (inhab./km2) using sf::st_area()</span>
-<span class="va">mtq</span><span class="op">$</span><span class="va">POPDENS</span> <span class="op">&lt;-</span> <span class="fl">1e6</span> <span class="op">*</span> <span class="va">mtq</span><span class="op">$</span><span class="va">POP</span> <span class="op">/</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_area</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
+<span class="va">mtq</span><span class="op">$</span><span class="va">POPDENS</span> <span class="op">&lt;-</span> <span class="fl">1e6</span> <span class="op">*</span> <span class="va">mtq</span><span class="op">$</span><span class="va">POP</span> <span class="op">/</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html" class="external-link">st_area</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="co"># set a theme</span>
 <span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"green"</span><span class="op">)</span>
 <span class="co"># plot population density</span>
@@ -478,18 +474,18 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="op">)</span> 
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_c-1.png" width="480"></p>
 </div>
-<div id="typology-map" class="section level2">
-<h2 class="hasAnchor">
-<a href="#typology-map" class="anchor"></a>Typology Map</h2>
+<div class="section level2">
+<h2 id="typology-map">Typology Map<a class="anchor" aria-label="anchor" href="#typology-map"></a>
+</h2>
 <p><code>mf_map(x, var, type = "typo")</code> displays a typology map of a qualitative variable. <code>val_order</code> is used to set the modalities order in the legend.</p>
 <p><code><a href="../reference/mf_label.html">mf_label()</a></code> displays labels on the map.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
@@ -499,9 +495,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
   x <span class="op">=</span> <span class="va">mtq</span>, 
   var <span class="op">=</span> <span class="st">"STATUS"</span>, 
   type <span class="op">=</span> <span class="st">"typo"</span>,
-  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span><span class="op">)</span>, 
+  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span><span class="op">)</span>, 
   lwd <span class="op">=</span> <span class="fl">.5</span>,
-  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>,
+  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>,
                 <span class="st">"Sub-prefecture"</span>, 
                 <span class="st">"Simple municipality"</span><span class="op">)</span>,
   leg_pos <span class="op">=</span> <span class="st">"topright"</span>,
@@ -512,22 +508,22 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
          cex <span class="op">=</span> <span class="fl">0.9</span>, halo <span class="op">=</span> <span class="cn">TRUE</span>, r <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span>
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Administrative Status"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_t-1.png" width="480"></p>
 </div>
-<div id="proportional-symbols-using-choropleth-coloration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#proportional-symbols-using-choropleth-coloration" class="anchor"></a>Proportional Symbols using Choropleth Coloration</h2>
+<div class="section level2">
+<h2 id="proportional-symbols-using-choropleth-coloration">Proportional Symbols using Choropleth Coloration<a class="anchor" aria-label="anchor" href="#proportional-symbols-using-choropleth-coloration"></a>
+</h2>
 <p><code>mf_map(x, var, type = "prop_choro")</code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.</p>
 <p><code>expandBB</code> argument in <code><a href="../reference/mf_init.html">mf_init()</a></code> allows to expand the map space. Here, we increase the space available on the right of the map to avoid overlaps between the legends and the map.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># Plot a shadow</span>
 <span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot the municipalities</span>
@@ -535,36 +531,36 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># Plot symbols with choropleth coloration</span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, 
+  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, 
   type <span class="op">=</span> <span class="st">"prop_choro"</span>,
   border <span class="op">=</span> <span class="st">"grey50"</span>,
   lwd <span class="op">=</span> <span class="fl">1</span>,
-  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"topright"</span>, <span class="st">"right"</span><span class="op">)</span>, 
-  leg_title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Population"</span>,<span class="st">"Median\nIncome\n(in euros)"</span><span class="op">)</span>,
+  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"topright"</span>, <span class="st">"right"</span><span class="op">)</span>, 
+  leg_title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>,<span class="st">"Median\nIncome\n(in euros)"</span><span class="op">)</span>,
   breaks <span class="op">=</span> <span class="st">"equal"</span>, 
   nbreaks <span class="op">=</span> <span class="fl">4</span>, 
   pal <span class="op">=</span> <span class="st">"Greens"</span>,
-  leg_val_rnd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>, 
-  leg_frame <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>
+  leg_val_rnd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>, 
+  leg_frame <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span> 
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population &amp; Wealth in Martinique, 2015"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
           frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_pc-1.png" width="480"></p>
 </div>
-<div id="proportional-symbols-using-typology-coloration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#proportional-symbols-using-typology-coloration" class="anchor"></a>Proportional Symbols using Typology Coloration</h2>
+<div class="section level2">
+<h2 id="proportional-symbols-using-typology-coloration">Proportional Symbols using Typology Coloration<a class="anchor" aria-label="anchor" href="#proportional-symbols-using-typology-coloration"></a>
+</h2>
 <p><code>f_map(x, var, type = "prop_typo")</code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># Plot a shadow</span>
 <span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># Plot the municipalities</span>
@@ -572,37 +568,37 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="co"># Plot symbols with choropleth coloration</span>
 <span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, 
+  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, 
   type <span class="op">=</span> <span class="st">"prop_typo"</span>,
   symbol <span class="op">=</span> <span class="st">"square"</span>,
   border <span class="op">=</span> <span class="st">"white"</span>,
   lwd <span class="op">=</span> <span class="fl">.5</span>,
-  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"right"</span>,  <span class="st">"topright"</span><span class="op">)</span>, 
-  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"Administrative\nStatus"</span><span class="op">)</span>,
-  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, 
+  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"right"</span>,  <span class="st">"topright"</span><span class="op">)</span>, 
+  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"Administrative\nStatus"</span><span class="op">)</span>,
+  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, 
                 <span class="st">"Simple municipality"</span><span class="op">)</span><span class="op">)</span> 
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_pt-1.png" width="480"></p>
 </div>
-<div id="label-map" class="section level2">
-<h2 class="hasAnchor">
-<a href="#label-map" class="anchor"></a>Label Map</h2>
+<div class="section level2">
+<h2 id="label-map">Label Map<a class="anchor" aria-label="anchor" href="#label-map"></a>
+</h2>
 <p><code><a href="../reference/mf_label.html">mf_label()</a></code> is dedicated to the display of labels on a map. The <code>overlap = FALSE</code> argument displays non overlapping labels.</p>
 <p>In this example we have built a custom theme with <code><a href="../reference/mf_theme.html">mf_theme()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># set theme</span>
-<span class="va">my_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+<span class="va">my_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
   name <span class="op">=</span> <span class="st">"mytheme"</span>, 
   bg <span class="op">=</span> <span class="st">"lightblue1"</span>, 
   fg <span class="op">=</span> <span class="st">"darkseagreen4"</span>, 
-  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, 
+  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, 
   tab <span class="op">=</span> <span class="cn">TRUE</span>, 
   pos <span class="op">=</span> <span class="st">"left"</span>, 
   inner <span class="op">=</span> <span class="cn">TRUE</span>, 
@@ -628,26 +624,26 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="op">)</span>
 <span class="co"># layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Municipalities of Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
           arrow <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co"># north arrow</span>
 <span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span>pos <span class="op">=</span><span class="st">'topright'</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_label-1.png" width="480"></p>
 </div>
-<div id="links-map" class="section level2">
-<h2 class="hasAnchor">
-<a href="#links-map" class="anchor"></a>Links Map</h2>
+<div class="section level2">
+<h2 id="links-map">Links Map<a class="anchor" aria-label="anchor" href="#links-map"></a>
+</h2>
 <p><code><a href="../reference/mf_get_links.html">mf_get_links()</a></code> creates a link layer from an <code>sf</code> object and a link <code>data.frame</code> (long format).</p>
 <p><code>mf_map(x, var, type = "grad")</code> displays graduated links.</p>
 <p>We have used <code>leg_pos = "bottomleft2"</code> to display the legend in the bottom left corner of the map with an extra space to avoid overlaps between the legend and the credits.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="co"># import the sample data set</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># import the csv file embedded in mapsf</span>
-<span class="va">mob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"csv/mob.csv"</span>, package<span class="op">=</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">mob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"csv/mob.csv"</span>, package<span class="op">=</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># Select links from Fort-de-France (97209))</span>
 <span class="va">mob_97209</span> <span class="op">&lt;-</span> <span class="va">mob</span><span class="op">[</span><span class="va">mob</span><span class="op">$</span><span class="va">i</span> <span class="op">==</span> <span class="fl">97209</span>, <span class="op">]</span>
 <span class="co"># create an sf object of links</span>
@@ -664,8 +660,8 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
   x <span class="op">=</span> <span class="va">mob_links</span>, 
   var <span class="op">=</span> <span class="st">"fij"</span>, 
   type <span class="op">=</span> <span class="st">"grad"</span>,
-  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span> <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">4679.0</span><span class="op">)</span>,
-  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span>,
+  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">4679.0</span><span class="op">)</span>,
+  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span>,
   leg_pos <span class="op">=</span> <span class="st">"bottomleft2"</span>,
   leg_title <span class="op">=</span> <span class="st">"Nb. of\nCommuters"</span>,
   col <span class="op">=</span> <span class="st">"red4"</span>, 
@@ -673,9 +669,9 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <span class="op">)</span> 
 <span class="co"># map layout</span>
 <span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Commuting to Fort-de-France"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
+          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
                            <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
+                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
           arrow <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_grad-1.png" width="480"></p>
 </div>
@@ -693,11 +689,13 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 
 
       <footer><div class="copyright">
-  <p>Developed by Timothée Giraud.</p>
+  <p></p>
+<p>Developed by Timothée Giraud.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -705,6 +703,8 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 
   
 
+
+  
 
   </body>
 </html>

@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -43,18 +45,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../../articles/mapsf.html">Get started</a>
 </li>
@@ -94,7 +90,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/riatelab/mapsf/">
+  <a href="https://github.com/riatelab/mapsf/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -113,23 +109,23 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>How to Create Faceted Maps</h1>
-                        <h4 class="author">Timothée Giraud</h4>
+                        <h4 data-toc-skip class="author">Timothée Giraud</h4>
             
-            <h4 class="date">2021-11-25</h4>
+            <h4 data-toc-skip class="date">2022-01-03</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/master/vignettes/web_only/how_to_create_faceted_maps.Rmd"><code>vignettes/web_only/how_to_create_faceted_maps.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_create_faceted_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_create_faceted_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_faceted_maps.Rmd</code></div>
 
     </div>
 
     
     
-<p>To plot several maps on the same figure, the user can use the <code>mfrow</code> argument of the <code><a href="https://rdrr.io/r/graphics/par.html">par()</a></code> function before plotting the maps. For example, use <code>par(mfrow = c(1, 2))</code> (i.e. 1 row, 2 columns) to plot two maps side by side).</p>
+<p>To plot several maps on the same figure, the user can use the <code>mfrow</code> argument of the <code><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par()</a></code> function before plotting the maps. For example, use <code>par(mfrow = c(1, 2))</code> (i.e. 1 row, 2 columns) to plot two maps side by side).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/">mapsf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
 <span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># define the figure layout (1 row, 2 columns)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># first map</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
 <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, <span class="st">"POP"</span>, <span class="st">"prop"</span><span class="op">)</span>
@@ -141,11 +137,11 @@
 <p>When relevant the user can use a <code>for</code> loop.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># define the figure layout (6 rows and 6 columns)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html">nrow</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
   <span class="co"># center the map on a targeted municipality and its </span>
   <span class="co"># neighborhood (with mf_init() and its expandBB arg)</span>
-  <span class="fu"><a href="../../reference/mf_init.html">mf_init</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html">c</a></span><span class="op">(</span><span class="fl">.3</span>,<span class="fl">.3</span>,<span class="fl">.3</span>,<span class="fl">.3</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="../../reference/mf_init.html">mf_init</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.3</span>,<span class="fl">.3</span>,<span class="fl">.3</span>,<span class="fl">.3</span><span class="op">)</span><span class="op">)</span>
   <span class="co"># plot the municpalities</span>
   <span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, border <span class="op">=</span> <span class="st">"white"</span>, lwd <span class="op">=</span> <span class="fl">.5</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
   <span class="co"># plot the shadow of the targeted municpality</span>
@@ -167,11 +163,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Timothée Giraud.</p>
+  <p></p>
+<p>Developed by Timothée Giraud.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -179,6 +177,8 @@
 
   
 
+
+  
 
   </body>
 </html>
