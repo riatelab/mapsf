@@ -1,3 +1,20 @@
+# mapsf 0.4.0
+
+## Fix
+- allow the display of raster with >=2 bands (not only exactly 3)
+- avoid mf_map(..., type="symb") failing when there is only one modality
+- make mf_export() aware of the export format with the filename extension only (+ deprecate "export"" arg)
+- add a default maximum to maxcell arg for raster display in mf_raster()
+- change smooth defaults in mf_raster(), TRUE if nlyr>=2, FALSE otherwise 
+
+## Feat
+- add a web only vignette on faceted maps
+- add a web only vignette on custom fonts
+- add a cheat sheet
+- add parameters to customize worldmaps (land and ocean colors and borders)
+- add informatives messages concerning mf_map() input (checking type and variable names)
+
+
 # mapsf 0.3.0
 
 ## Fix

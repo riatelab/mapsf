@@ -8,7 +8,7 @@
 [![CRAN](https://www.r-pkg.org/badges/version/mapsf)](https://cran.r-project.org/package=mapsf)
 [![R-CMD-check](https://github.com/riatelab/mapsf/workflows/R-CMD-check/badge.svg)](https://github.com/riatelab/mapsf/actions)
 [![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
-[![codecov](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg?token=TPK6HZOLWH)](https://codecov.io/gh/riatelab/mapsf)
+<!-- [![codecov](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg?token=TPK6HZOLWH)](https://codecov.io/gh/riatelab/mapsf) -->
 [![status](https://tinyverse.netlify.com/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
 <!-- badges: end -->
 
@@ -107,7 +107,7 @@ dev.off()
 <tr class="odd">
 <td style="text-align: center;">
 <p>
-<a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf"><img src="vignettes/web_only/img/mapsf_cheatsheet.png"/></a>
+<a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf"><img src="man/figures/mapsf_cheatsheet.png"/></a>
 </p>
 <p>
 <a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf">Cheat
@@ -116,7 +116,7 @@ Sheet</a>
 </td>
 <td style="text-align: center;">
 <p>
-<a href="https://riatelab.github.io/mapsf/"><img src="vignettes/web_only/img/website.png" /></a>
+<a href="https://riatelab.github.io/mapsf/"><img src="man/figures/website.png" /></a>
 </p>
 <p>
 <a href="https://riatelab.github.io/mapsf/">Website</a>
