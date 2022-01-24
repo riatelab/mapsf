@@ -70,7 +70,7 @@ mf_export <- function(x,
     y <- st_as_sfc(st_bbox(bb))
     st_crs(y) <- proj
     mf_export(
-      x = y, export = export, filename = filename, width = width, height = height, res = res,
+      x = y, filename = filename, width = width, height = height, res = res,
       expandBB = c(rep(-.04, 4)) + expandBB, theme = theme, ...
     )
     return(invisible(x))
