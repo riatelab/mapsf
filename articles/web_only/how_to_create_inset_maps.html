@@ -111,7 +111,7 @@
       <h1 data-toc-skip>How to Create Inset Maps</h1>
                         <h4 data-toc-skip class="author">Timothée Giraud</h4>
             
-            <h4 data-toc-skip class="date">2022-01-12</h4>
+            <h4 data-toc-skip class="date">2022-01-24</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_create_inset_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_create_inset_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_inset_maps.Rmd</code></div>
@@ -234,7 +234,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># create classes</span>
 <span class="va">bks</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_breaks.html">mf_get_breaks</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, nbreaks <span class="op">=</span> <span class="fl">5</span>, breaks <span class="op">=</span> <span class="st">"quantile"</span><span class="op">)</span> 
-<span class="va">bks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">bks</span>, digits <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span>
+<span class="va">bks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/math-generics.html" class="external-link">round</a></span><span class="op">(</span><span class="va">bks</span>, digits <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span>
 <span class="co"># define a color palette</span>
 <span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, palette <span class="op">=</span> <span class="st">"Dark Mint"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co"># set a theme</span>
@@ -281,7 +281,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
