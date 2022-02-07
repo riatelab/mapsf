@@ -22,7 +22,6 @@ mf_map(
   cex,
   border,
   lwd,
-  bg,
   col_na,
   cex_na,
   pch_na,
@@ -72,8 +71,6 @@ mf_map(
 \item{border}{border color}
 
 \item{lwd}{border width}
-
-\item{bg}{background color}
 
 \item{col_na}{color for missing values}
 
