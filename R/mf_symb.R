@@ -5,7 +5,10 @@
 #' 'var',
 #' 'border',
 #' 'lwd',
-#' 'add' ,
+#' 'add',
+#' 'pch',
+#' 'cexs',
+#' 'val_order',
 #' 'col_na',
 #' 'cex_na',
 #' 'pch_na',
@@ -18,9 +21,6 @@
 #' 'leg_val_rnd',
 #' 'leg_no_data',
 #' 'leg_frame'))
-#' @param cex cex for symbols
-#' @param pch pch for symbols
-#' @param val_order val order
 #' @importFrom methods is
 #' @importFrom graphics box
 #' @keywords internal

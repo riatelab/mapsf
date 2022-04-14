@@ -9,6 +9,11 @@
 #' 'add' ,
 #' 'col_na',
 #' 'pal',
+#' 'cexs',
+#' 'pch',
+#' 'pch_na',
+#' 'cex_na',
+#' 'val_order',
 #' 'alpha',
 #' 'breaks',
 #' 'nbreaks',
@@ -19,11 +24,6 @@
 #' 'leg_val_rnd',
 #' 'leg_no_data',
 #' 'leg_frame'))
-#' @param cex cex for symbols
-#' @param pch pch for symbols
-#' @param cex_na cex for NA values
-#' @param pch_na pch for NA values
-#' @param val_order val order
 #' @importFrom methods is
 #' @importFrom graphics box
 #' @keywords internal

@@ -50,8 +50,8 @@
 #' 'val_order'))
 #' @param type one of "base", "prop", "choro", "typo", "symb", "grad",
 #' "prop_choro", "prop_typo", "symb_choro"
-#' @param cex cex for symbols
-#' @param pch pch for symbols
+#' @param cex cex (point size) for symbols
+#' @param pch pch (point type) for symbols
 #' @param ... further parameters from \link{plot} for sfc objects
 #' @export
 #' @return x is (invisibly) returned.

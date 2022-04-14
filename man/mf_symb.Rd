@@ -38,19 +38,19 @@ mf_symb(
 
 \item{border}{border color}
 
-\item{pch}{pch for symbols}
+\item{pch}{pch (point type) for symbols}
 
-\item{cex}{cex for symbols}
+\item{cex}{cex (point size) for symbols}
 
 \item{lwd}{border width}
 
 \item{col_na}{color for missing values}
 
-\item{pch_na}{pch for NA values}
+\item{pch_na}{pch (point type) for NA values}
 
-\item{cex_na}{cex for NA values}
+\item{cex_na}{cex (point size) for NA values}
 
-\item{val_order}{val order}
+\item{val_order}{values order, a character vector that matches var modalities}
 
 \item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted.}
 

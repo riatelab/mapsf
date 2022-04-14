@@ -5,6 +5,8 @@
 #' 'var',
 #' 'border',
 #' 'lwd',
+#' 'cexs',
+#' 'pch',
 #' 'add' ,
 #' 'col',
 #' 'leg_pos',
@@ -15,8 +17,6 @@
 #' 'leg_frame',
 #' 'breaks',
 #' 'nbreaks'))
-#' @param cex cex for symbols
-#' @param pch pch for symbols
 #' @importFrom methods is
 #' @importFrom graphics box
 #' @keywords internal

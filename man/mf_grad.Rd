@@ -36,9 +36,9 @@ mf_grad(
 
 \item{border}{border color}
 
-\item{pch}{pch for symbols}
+\item{pch}{pch (point type) for symbols}
 
-\item{cex}{cex for symbols}
+\item{cex}{cex (point size) for symbols}
 
 \item{lwd}{border width}
 

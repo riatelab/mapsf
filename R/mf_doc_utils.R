@@ -48,8 +48,8 @@ my_params <- function(x) {
       "the alpha-transparency level in the range [0,1]"
     ),
     col_na = "col_na color for missing values",
-    cex_na = "cex_na cex for NA values",
-    pch_na = "pch_na pch for NA values",
+    cex_na = "cex_na cex (point size) for NA values",
+    pch_na = "pch_na pch (point type) for NA values",
     val_max = "val_max maximum value used for proportional symbols",
     breaks = "breaks either a numeric vector with the actual breaks, or a classification method name (see \\link{mf_get_breaks})",
     nbreaks = "nbreaks number of classes",
@@ -66,7 +66,9 @@ my_params <- function(x) {
     frame = "frame whether to add a frame to the legend (TRUE) or not (FALSE)",
     no_data_txt = "no_data_txt label for missing values",
     no_data = "no_data if TRUE a 'missing values' box is plotted",
-    cex = "cex size of the legend; 2 means two times bigger"
+    cex = "cex size of the legend; 2 means two times bigger",
+    cexs = "cex cex (point size) for symbols",
+    pch = "pch pch (point type) for symbols"
   )
 
 

@@ -44,19 +44,19 @@ mf_symb_choro(
 
 \item{border}{border color}
 
-\item{pch}{pch for symbols}
+\item{pch}{pch (point type) for symbols}
 
-\item{cex}{cex for symbols}
+\item{cex}{cex (point size) for symbols}
 
 \item{lwd}{border width}
 
-\item{pch_na}{pch for NA values}
+\item{pch_na}{pch (point type) for NA values}
 
-\item{cex_na}{cex for NA values}
+\item{cex_na}{cex (point size) for NA values}
 
 \item{col_na}{color for missing values}
 
-\item{val_order}{val order}
+\item{val_order}{values order, a character vector that matches var modalities}
 
 \item{leg_pos}{position of the legend, two of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or vector of two coordinates in map units (c(x, y)). leg_pos argument can be c('position', 'position'), c('position', x2, y2), c(x1,y1, 'position') or c(x1, y1, x2, y2). If leg_pos = NA then the legend is not plotted.}
 
