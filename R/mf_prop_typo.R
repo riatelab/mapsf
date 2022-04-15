@@ -128,7 +128,8 @@ mf_prop_typo <- function(x, var,
     symbol = symbol, inches = size_max, col = "grey80",
     title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
     val_rnd = leg_val_rnd,
-    frame = leg_frame[1], border = border, lwd = lwd, bg = bg, fg = fg
+    frame = leg_frame[1], border = border, lwd = lwd, bg = bg, fg = fg,
+    self_adjust = TRUE
   )
 
   mf_legend_t(

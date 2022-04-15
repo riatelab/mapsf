@@ -21,6 +21,8 @@
 #' @param col color of the symbols
 #' @param bg background of the legend
 #' @param fg foreground of the legend
+#' @param self_adjust if TRUE values are self-adjusted to keep min, max and
+#' intermediate rounded values
 #' @keywords internal
 #' @export
 #' @return No return value, a legend is displayed.
@@ -43,7 +45,8 @@ mf_legend_p <- function(pos = "left",
                         frame = FALSE,
                         bg,
                         fg,
-                        cex = 1) {
+                        cex = 1,
+                        self_adjust = FALSE) {
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))
   # stop if the position is not valid
@@ -68,8 +71,14 @@ mf_legend_p <- function(pos = "left",
   if (missing(fg)) fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
 
-
+  if(self_adjust==TRUE){
+    val <- self_adjust(val, inches, val_cex)
+  }
   val <- sort(val, decreasing = TRUE)
+
+
+
+
   valleg <- get_val_rnd(val = val, val_rnd = val_rnd)
   xy_leg <- NULL
 
@@ -134,8 +143,8 @@ mf_legend_p <- function(pos = "left",
     )
   }
   text(xy_title$x,
-    y = xy_title$y, labels = title, cex = title_cex,
-    adj = c(0, 0), col = fg
+       y = xy_title$y, labels = title, cex = title_cex,
+       adj = c(0, 0), col = fg
   )
   dots <- data.frame(xy_symbols$x, xy_symbols$y)
 
@@ -148,8 +157,8 @@ mf_legend_p <- function(pos = "left",
     y1 = xy_lines$y1, col = border
   )
   text(xy_lab$x,
-    y = xy_lab$y, labels = rev(valleg), cex = val_cex,
-    adj = c(0, 0.5), col = fg
+       y = xy_lab$y, labels = rev(valleg), cex = val_cex,
+       adj = c(0, 0.5), col = fg
   )
 
   return(invisible(NULL))

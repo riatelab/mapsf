@@ -19,7 +19,8 @@ mf_legend_p(
   frame = FALSE,
   bg,
   fg,
-  cex = 1
+  cex = 1,
+  self_adjust = FALSE
 )
 }
 \arguments{
@@ -57,6 +58,9 @@ the legend.}
 \item{fg}{foreground of the legend}
 
 \item{cex}{size of the legend; 2 means two times bigger}
+
+\item{self_adjust}{if TRUE values are self-adjusted to keep min, max and
+intermediate rounded values}
 }
 \value{
 No return value, a legend is displayed.

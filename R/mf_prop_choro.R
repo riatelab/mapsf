@@ -130,7 +130,7 @@ mf_prop_choro <- function(x,
     title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
     val_rnd = leg_val_rnd[1],
     frame = leg_frame[1], border = border, lwd = lwd,
-    bg = bg, fg = fg
+    bg = bg, fg = fg, self_adjust = TRUE
   )
   mf_legend_c(
     pos = leg_pos[[2]], val = breaks, title = leg_title[2],

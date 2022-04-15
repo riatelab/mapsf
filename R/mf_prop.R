@@ -135,7 +135,7 @@ mf_prop <- function(x,
     title_cex = leg_title_cex, val_cex = leg_val_cex,
     val_rnd = leg_val_rnd,
     frame = leg_frame, border = border, lwd = lwd,
-    bg = bg, fg = fg
+    bg = bg, fg = fg, self_adjust = TRUE
   )
 
   return(invisible(x))
