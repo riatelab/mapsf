@@ -35,3 +35,12 @@ globalVariables(".gmapsf", package = "mapsf", add = FALSE)
   font = 1
 )
 .gmapsf$inset <- FALSE
+.gmapsf$positions <- c(
+  "bottomleft", "left", "topleft", "top", "bottom",
+  "bottomright", "right", "topright",
+  "bottomleft1", "bottomright1", "bottom1",
+  "bottomleft2", "bottomright2", "bottom2",
+  "topright1", "topleft1", "top1",
+  "topright2", "topleft2", "top2",
+  "interactive"
+)

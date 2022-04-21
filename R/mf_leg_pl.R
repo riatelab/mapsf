@@ -3,7 +3,7 @@
 #'
 #' @param pos position of the legend, one of "topleft", "top",
 #' "topright", "right", "bottomright", "bottom", "bottomleft",
-#' "left" or a vector of two coordinates in map units
+#' "left", "interactive" or a vector of two coordinates in map units
 #' (c(x, y)).
 #' @param lwd width of the largest line
 #' @param val vector of values (at least min and max).
@@ -38,16 +38,8 @@ mf_legend_pl <- function(pos = "left",
                          fg,
                          cex = 1) {
   # stop if the position is not valid
-  positions <- c(
-    "bottomleft", "left", "topleft", "top", "bottom",
-    "bottomright", "right", "topright",
-    "bottomleft1", "bottomright1", "bottom1",
-    "bottomleft2", "bottomright2", "bottom2",
-    "topright1", "topleft1", "top1",
-    "topright2", "topleft2", "top2"
-  )
   if (length(pos) == 1) {
-    if (!pos %in% positions) {
+    if (!pos %in% .gmapsf$positions) {
       return(invisible())
     }
   }

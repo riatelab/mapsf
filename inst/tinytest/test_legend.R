@@ -10,3 +10,4 @@ expect_silent(mf_legend(type = "symb", pos = "bottomleft", val = c("A", "B", "C"
 expect_silent(mf_legend(type = "grad_line", pos = "top", val =c(1,2,3,4,10,15),
                         lwd = c(0.2,2,4,5,10)))
 expect_silent(mf_legend(type = "prop_line", pos = "bottom", lwd = 20, val = c(5,50,100)))
+expect_error(mf_legend(type = "prop_line", pos = "interactive", lwd = 20, val = c(5,50,100)))

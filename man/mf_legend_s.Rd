@@ -29,7 +29,7 @@ mf_legend_s(
 \arguments{
 \item{pos}{position of the legend, one of "topleft", "top",
 "topright", "right", "bottomright", "bottom", "bottomleft",
-"left" or a vector of two coordinates in map units
+"left", "interactive" or a vector of two coordinates in map units
 (c(x, y)).}
 
 \item{val}{vector of categories.}
