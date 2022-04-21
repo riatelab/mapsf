@@ -4,7 +4,7 @@
 #' @param x a SpatRaster
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE).
-#' @param ... bgalpha, interpolate, maxcell or other arguments passed to be
+#' @param ... bgalpha, smooth, maxcell or other arguments passed to be
 #' passed to
 #' \code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}
 #' @export

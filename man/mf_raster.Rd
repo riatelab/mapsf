@@ -12,7 +12,7 @@ mf_raster(x, add = FALSE, ...)
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE).}
 
-\item{...}{bgalpha, interpolate, maxcell or other arguments passed to be
+\item{...}{bgalpha, smooth, maxcell or other arguments passed to be
 passed to
 \code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}}
 }
