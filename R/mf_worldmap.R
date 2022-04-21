@@ -31,8 +31,9 @@ mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
     on.exit(sink(), add = TRUE)
     invisible(force(x))
   }
-  os2 <- quiet(sf::sf_use_s2(FALSE))
-  on.exit(quiet(sf::sf_use_s2(os2)), add = TRUE)
+
+  os2 <- suppressMessages(quiet(sf::sf_use_s2(FALSE)))
+  on.exit(suppressMessages(quiet(sf::sf_use_s2(os2))), add = TRUE)
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op), add = TRUE)
   ops <- list(...)
