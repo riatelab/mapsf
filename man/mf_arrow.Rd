@@ -7,7 +7,7 @@
 mf_arrow(pos = "topleft", col, adjust)
 }
 \arguments{
-\item{pos}{position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left' or a vector of two coordinates in map units (c(x, y))}
+\item{pos}{position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of two coordinates in map units (c(x, y))}
 
 \item{col}{arrow color}
 

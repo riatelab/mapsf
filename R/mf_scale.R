@@ -7,6 +7,7 @@
 #' @param lwd width of the scale bar
 #' @param cex cex of the text
 #' @param pos position. It can be one of 'bottomright', 'bottomleft',
+#' 'interactive'
 #' or a vector of two coordinates in map units (c(x, y)).
 #' @param unit units used for the scale bar. Can be "mi" for miles,
 #' "m" for meters, or "km" for kilometers (default)
@@ -53,6 +54,11 @@ mf_scale <- function(size, pos = "bottomright",
       xscale <- pos[1]
       yscale <- pos[2]
     } else {
+      if (pos == "interactive") {
+        isc <- interleg(txt = c("scale bar", "Scale bar"))
+        xscale <- isc[1]
+        yscale <- isc[2]
+      }
       if (pos == "bottomleft") {
         xscale <- pu[1] + inset
         yscale <- pu[3] + inset

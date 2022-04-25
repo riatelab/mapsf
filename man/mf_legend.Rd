@@ -35,7 +35,7 @@ mf_legend(
 \item{type}{type of legend; one of "prop", "choro", "typo", "symb",
 "prop_line", "grad_line"}
 
-\item{pos}{position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left' or a vector of two coordinates in map units (c(x, y))}
+\item{pos}{position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of two coordinates in map units (c(x, y))}
 
 \item{val}{a vector of values}
 

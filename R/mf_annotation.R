@@ -3,7 +3,7 @@
 #' @param x an sf object with 1 row, a couple of coordinates (c(x, y)).
 #' @param txt the text to display
 #' @param pos position of the text, one of "topleft", "topright", "bottomright",
-#' "bottomleft"
+#' "bottomleft" or "interactive"
 #' @param cex size of the text
 #' @param col_arrow arrow color
 #' @param col_txt text color
@@ -45,6 +45,9 @@ mf_annotation <- function(x, txt, pos = "topright",
   }
 
 
+  if (inherits(x, "character") && length(x)){
+    x <- interleg(txt = c("annotation", "Annotation"))
+  }
 
   if (inherits(x, c("sf", "sfc"))) {
     xy <- sf::st_coordinates(

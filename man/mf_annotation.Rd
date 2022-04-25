@@ -23,7 +23,7 @@ mf_annotation(
 \item{txt}{the text to display}
 
 \item{pos}{position of the text, one of "topleft", "topright", "bottomright",
-"bottomleft"}
+"bottomleft" or "interactive"}
 
 \item{cex}{size of the text}
 

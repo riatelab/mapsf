@@ -29,6 +29,9 @@ mf_arrow <- function(pos = "topleft", col, adjust) {
   ye <- mapExtent[3:4]
   inset <- strwidth("M", units = "user", cex = 1)
 
+
+
+
   if (is.numeric(pos) & length(pos) == 2) {
     xarrow <- pos[1]
     yarrow <- pos[2]
@@ -65,6 +68,11 @@ mf_arrow <- function(pos = "topleft", col, adjust) {
       right = {
         xarrow <- xe[2] - inset * 1.5
         yarrow <- ye[1] + diff(ye) * 0.5 - inset
+      },
+      interactive = {
+        iar <- interleg(txt = c("arrow", "Arrow"))
+        xarrow <- iar[1]
+        yarrow <- iar[2]
       }
     )
   }

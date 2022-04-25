@@ -82,11 +82,11 @@ get_pos_leg <- function(pos, xy_rect, inset, xy_title, frame = FALSE) {
   return(unname(xy))
 }
 
-interleg <- function(){
+interleg <- function(txt = c("legend", "Legend")){
   if(interactive()){
-    message("Click on the map to choose the legend position.")
+    message(paste0("Click on the map to choose the ",txt[1], " position."))
     x <- unlist(locator(1))
-    message(paste0("Legend coordinates: c(", x[[1]], ", ", x[[2]], ")"))
+    message(paste0(txt[2]," coordinates:\nc(", x[[1]], ", ", x[[2]], ")"))
     return(x)
   }else{
     stop('You cannot use "interactive" in a non-interactive R session.',

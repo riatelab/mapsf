@@ -11,6 +11,7 @@ mf_scale(size, pos = "bottomright", lwd = 1.5, cex = 0.6, col, unit = "km")
 set, an automatic size is used (1/10 of the map width)}
 
 \item{pos}{position. It can be one of 'bottomright', 'bottomleft',
+'interactive'
 or a vector of two coordinates in map units (c(x, y)).}
 
 \item{lwd}{width of the scale bar}

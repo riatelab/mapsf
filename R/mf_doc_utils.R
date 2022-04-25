@@ -58,7 +58,7 @@ my_params <- function(x) {
     pos = paste0(
       "pos position. It can be one of 'topleft', 'top',",
       "'topright', 'right', 'bottomright', 'bottom',",
-      "'bottomleft', 'left' or a vector of two coordinates ",
+      "'bottomleft', 'left', 'interactive' or a vector of two coordinates ",
       "in map units (c(x, y))"
     ),
     title = "title legend title",
