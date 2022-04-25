@@ -11,3 +11,22 @@ expect_silent(mf_legend(type = "grad_line", pos = "top", val =c(1,2,3,4,10,15),
                         lwd = c(0.2,2,4,5,10)))
 expect_silent(mf_legend(type = "prop_line", pos = "bottom", lwd = 20, val = c(5,50,100)))
 expect_error(mf_legend(type = "prop_line", pos = "interactive", lwd = 20, val = c(5,50,100)))
+
+
+expect_silent(mf_legend(type = "grad_line", pos = "NA", val =c(1,2,3,4,10,15),
+                        lwd = c(0.2,2,4,5,10)))
+
+expect_silent(mf_legend(type = "grad_line", pos = c(737788.682080213, 1628182.17278935),
+                        val =c(1,2,3,4,10,15),
+                        lwd = c(0.2,2,4,5,10), frame = TRUE))
+expect_silent(mf_legend(type = "grad_line", pos = NA,
+                        val =c(1,2,3,4,10,15),
+                        lwd = c(0.2,2,4,5,10)))
+
+expect_silent(mf_legend(type = "prop_line", pos = NA,
+                        lwd = 20,
+                        val = c(5,50,100)))
+expect_silent(mf_legend(type = "prop_line", pos = c(737788.682080213, 1628182.17278935),
+                        lwd = 20,
+                        val = c(5,50,100),
+                        frame = TRUE))
