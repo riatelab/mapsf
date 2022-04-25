@@ -45,7 +45,7 @@ mf_annotation <- function(x, txt, pos = "topright",
   }
 
 
-  if (inherits(x, "character") && length(x)){
+  if (inherits(x, "character") && length(x)) {
     x <- interleg(txt = c("annotation", "Annotation"))
   }
 

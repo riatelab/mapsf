@@ -63,7 +63,7 @@ mf_legend_p <- function(pos = "left",
   if (missing(fg)) fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
 
-  if(self_adjust==TRUE){
+  if (self_adjust == TRUE) {
     val <- self_adjust(val, inches, val_cex)
   }
   val <- sort(val, decreasing = TRUE)
@@ -135,8 +135,8 @@ mf_legend_p <- function(pos = "left",
     )
   }
   text(xy_title$x,
-       y = xy_title$y, labels = title, cex = title_cex,
-       adj = c(0, 0), col = fg
+    y = xy_title$y, labels = title, cex = title_cex,
+    adj = c(0, 0), col = fg
   )
   dots <- data.frame(xy_symbols$x, xy_symbols$y)
 
@@ -149,8 +149,8 @@ mf_legend_p <- function(pos = "left",
     y1 = xy_lines$y1, col = border
   )
   text(xy_lab$x,
-       y = xy_lab$y, labels = rev(valleg), cex = val_cex,
-       adj = c(0, 0.5), col = fg
+    y = xy_lab$y, labels = rev(valleg), cex = val_cex,
+    adj = c(0, 0.5), col = fg
   )
 
   return(invisible(NULL))
