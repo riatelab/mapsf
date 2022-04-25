@@ -4,7 +4,15 @@
 \alias{mf_base}
 \title{Plot an sf object}
 \usage{
-mf_base(x, col = "grey80", border = "grey20", lwd = 0.7, add = FALSE, ...)
+mf_base(
+  x,
+  col = "grey80",
+  border = "grey20",
+  lwd = 0.7,
+  pch = 20,
+  add = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{sf} or \code{sfc}}
@@ -14,6 +22,8 @@ mf_base(x, col = "grey80", border = "grey20", lwd = 0.7, add = FALSE, ...)
 \item{border}{border color}
 
 \item{lwd}{border width}
+
+\item{pch}{pch (point type) for symbols}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 

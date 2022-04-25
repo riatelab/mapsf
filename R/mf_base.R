@@ -5,7 +5,7 @@
 #' 'xfull',
 #' 'col',
 #' 'border',
-#' 'lwd',
+#' 'lwd', 'pch',
 #' 'add'))
 #' @param ... further parameters from \link{plot} for sfc objects
 #'
@@ -23,6 +23,7 @@ mf_base <- function(x,
                     col = "grey80",
                     border = "grey20",
                     lwd = .7,
+                    pch = 20,
                     add = FALSE,
                     ...) {
   # margins mgmt
@@ -41,7 +42,7 @@ mf_base <- function(x,
 
   plot(st_geometry(x),
     col = col, border = border,
-    lwd = lwd, add = add, ...
+    lwd = lwd, add = add, pch = pch, ...
   )
 
 
