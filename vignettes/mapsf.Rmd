@@ -208,7 +208,7 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # population density (inhab./km2) using sf::st_area()
-mtq$POPDENS <- 1e6 * mtq$POP / st_area(mtq)
+mtq$POPDENS <- 1e6 * mtq$POP / sf::st_area(mtq)
 # set a theme
 mf_theme("green")
 # plot population density

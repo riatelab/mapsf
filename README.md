@@ -45,8 +45,6 @@ The main `mapsf` function is `mf_map()`.
 
 ``` r
 library(mapsf)
-#> Le chargement a nécessité le package : sf
-#> Linking to GEOS 3.9.0, GDAL 3.2.2, PROJ 7.2.1; sf_use_s2() is TRUE
 # Import the sample dataset
 mtq <- mf_get_mtq()
 # Plot the base map
