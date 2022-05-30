@@ -1,3 +1,16 @@
+# mapsf 0.5.0
+
+## Fix
+- remove "export" arg for exports based on terra rasters
+- remove "bg"" arg in mf_map()
+- add "pch = 20" default to plot points with mf_base()
+- get sf back from Depends to Imports
+- remove s2 related message for recent version of sf in mf_worldmap()
+
+## Feat 
+- add "interactive" position for legends, north arrow, scale bar, annotation
+- add self-adjusted rounded values for proportional circles legends
+
 # mapsf 0.4.0
 
 ## Fix
