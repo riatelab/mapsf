@@ -1,9 +1,10 @@
 #' @title Plot an annotation
 #' @description Plot an annotation on a map.
-#' @param x an sf object with 1 row, a couple of coordinates (c(x, y)).
+#' @param x an sf object with 1 row, a couple of coordinates (c(x, y)) or
+#' "interactive"
 #' @param txt the text to display
 #' @param pos position of the text, one of "topleft", "topright", "bottomright",
-#' "bottomleft" or "interactive"
+#' "bottomleft"
 #' @param cex size of the text
 #' @param col_arrow arrow color
 #' @param col_txt text color
