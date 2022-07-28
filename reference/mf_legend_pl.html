@@ -81,20 +81,20 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_legend_pl</span><span class="op">(</span>
-  pos <span class="op">=</span> <span class="st">"left"</span>,
-  <span class="va">val</span>,
-  <span class="va">lwd</span>,
-  col <span class="op">=</span> <span class="st">"tomato4"</span>,
-  title <span class="op">=</span> <span class="st">"Legend Title"</span>,
-  title_cex <span class="op">=</span> <span class="fl">0.8</span>,
-  val_cex <span class="op">=</span> <span class="fl">0.6</span>,
-  val_rnd <span class="op">=</span> <span class="fl">0</span>,
-  frame <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">bg</span>,
-  <span class="va">fg</span>,
-  cex <span class="op">=</span> <span class="fl">1</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_legend_pl</span><span class="op">(</span></span>
+<span>  pos <span class="op">=</span> <span class="st">"left"</span>,</span>
+<span>  <span class="va">val</span>,</span>
+<span>  <span class="va">lwd</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"tomato4"</span>,</span>
+<span>  title <span class="op">=</span> <span class="st">"Legend Title"</span>,</span>
+<span>  title_cex <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>  val_cex <span class="op">=</span> <span class="fl">0.6</span>,</span>
+<span>  val_rnd <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  frame <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">bg</span>,</span>
+<span>  <span class="va">fg</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -104,40 +104,65 @@
 "topright", "right", "bottomright", "bottom", "bottomleft",
 "left", "interactive" or a vector of two coordinates in map units
 (c(x, y)).</p></dd>
+
+
 <dt>val</dt>
 <dd><p>vector of values (at least min and max).</p></dd>
+
+
 <dt>lwd</dt>
 <dd><p>width of the largest line</p></dd>
+
+
 <dt>col</dt>
 <dd><p>color of the lines</p></dd>
+
+
 <dt>title</dt>
 <dd><p>title of the legend</p></dd>
+
+
 <dt>title_cex</dt>
 <dd><p>size of the legend title</p></dd>
+
+
 <dt>val_cex</dt>
 <dd><p>size of the values in the legend</p></dd>
+
+
 <dt>val_rnd</dt>
 <dd><p>number of decimal places of the values in
 the legend.</p></dd>
+
+
 <dt>frame</dt>
 <dd><p>whether to add a frame to the legend (TRUE) or not (FALSE)</p></dd>
+
+
 <dt>bg</dt>
 <dd><p>background of the legend</p></dd>
+
+
 <dt>fg</dt>
 <dd><p>foreground of the legend</p></dd>
+
+
 <dt>cex</dt>
 <dd><p>size of the legend; 2 means two times bigger</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>No return value, a legend is displayed.</p>
+    
+
+<p>No return value, a legend is displayed.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/frame.html" class="external-link">plot.new</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">plot.window</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, asp <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend_pl</span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">20</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">50</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/frame.html" class="external-link">plot.new</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">plot.window</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, asp <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend_pl</span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">20</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">50</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_legend_pl-1.png" alt="" width="672" height="672"></span>
 </code></pre></div>
     </div>
@@ -153,7 +178,7 @@ the legend.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

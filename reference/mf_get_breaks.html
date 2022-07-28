@@ -81,31 +81,44 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_get_breaks</span><span class="op">(</span><span class="va">x</span>, <span class="va">nbreaks</span>, <span class="va">breaks</span>, k <span class="op">=</span> <span class="fl">1</span>, central <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_get_breaks</span><span class="op">(</span><span class="va">x</span>, <span class="va">nbreaks</span>, <span class="va">breaks</span>, k <span class="op">=</span> <span class="fl">1</span>, central <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a vector of numeric values</p></dd>
+
+
 <dt>nbreaks</dt>
 <dd><p>a number of classes</p></dd>
+
+
 <dt>breaks</dt>
 <dd><p>a classification method; one of "fixed", "sd", "equal",
 "pretty", "quantile",
 "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih", "q6", "geom",
  "arith", "em" or "msd" (see Details).</p></dd>
+
+
 <dt>k</dt>
 <dd><p>number of standard deviation for "msd" method (see Details)</p></dd>
+
+
 <dt>central</dt>
 <dd><p>creation of a central class for "msd" method (see Details)</p></dd>
+
+
 <dt>...</dt>
 <dd><p>further arguments
 of <code><a href="https://r-spatial.github.io/classInt/reference/classIntervals.html" class="external-link">classIntervals</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric vector of breaks</p>
+    
+
+<p>A numeric vector of breaks</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -144,8 +157,8 @@ of <code><a href="https://r-spatial.github.io/classInt/reference/classIntervals.
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_get_breaks</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, nbreaks <span class="op">=</span> <span class="fl">6</span>, breaks <span class="op">=</span> <span class="st">"quantile"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_get_breaks</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>, nbreaks <span class="op">=</span> <span class="fl">6</span>, breaks <span class="op">=</span> <span class="st">"quantile"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 11929.0 13667.0 14786.0 15685.5 16860.0 18622.0 21761.0</span>
 </code></pre></div>
     </div>
@@ -161,7 +174,7 @@ of <code><a href="https://r-spatial.github.io/classInt/reference/classIntervals.
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

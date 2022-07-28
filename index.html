@@ -118,10 +118,10 @@
 </h2>
 <p>You can install the released version of <code>mapsf</code> from <a href="https://cran.r-project.org/package=mapsf" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install the development version of <code>mapsf</code> from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"riatelab/mapsf"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"riatelab/mapsf"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -129,49 +129,49 @@
 <p>This is a basic example which shows how to create a map with <code>mapsf</code>.<br>
 The main <code>mapsf</code> function is <code><a href="reference/mf_map.html">mf_map()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># Import the sample dataset</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># Plot the base map</span>
-<span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span>
-<span class="co"># Plot proportional symbols</span>
-<span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span>
-<span class="co"># Plot a map layout</span>
-<span class="fu"><a href="reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="st">"T. Giraud; Sources: INSEE &amp; IGN, 2018"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># Import the sample dataset</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Plot the base map</span></span>
+<span><span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span></span>
+<span><span class="co"># Plot proportional symbols</span></span>
+<span><span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span></span>
+<span><span class="co"># Plot a map layout</span></span>
+<span><span class="fu"><a href="reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population in Martinique"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="st">"T. Giraud; Sources: INSEE &amp; IGN, 2018"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/example1-1.png"><!-- --></p>
 <p>A more detailed example:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Export a map with a theme and extra margins </span>
-<span class="fu"><a href="reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"mtq.png"</span>,  
-          width <span class="op">=</span> <span class="fl">600</span>, res <span class="op">=</span> <span class="fl">120</span>, 
-          theme <span class="op">=</span> <span class="st">"green"</span>, 
-          expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.3</span><span class="op">)</span><span class="op">)</span> 
-<span class="co"># Plot a shadow</span>
-<span class="fu"><a href="reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"grey10"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Plot a choropleth map</span>
-<span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,
-       pal <span class="op">=</span> <span class="st">"Dark Mint"</span>, 
-       breaks <span class="op">=</span> <span class="st">"quantile"</span>, 
-       nbreaks <span class="op">=</span> <span class="fl">6</span>, 
-       leg_title <span class="op">=</span> <span class="st">"Median Income\n(euros)"</span>, 
-       leg_val_rnd <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>, 
-       add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Start an inset map</span>
-<span class="fu"><a href="reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"worldmap"</span>, pos <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span>
-<span class="co"># Plot mtq position on a worldmap</span>
-<span class="fu"><a href="reference/mf_worldmap.html">mf_worldmap</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"#0E3F5C"</span><span class="op">)</span>
-<span class="co"># Close the inset</span>
-<span class="fu"><a href="reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># Plot a title</span>
-<span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Wealth in Martinique, 2015"</span><span class="op">)</span>
-<span class="co"># Plot credits</span>
-<span class="fu"><a href="reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="st">"T. Giraud\nSources: INSEE &amp; IGN, 2018"</span><span class="op">)</span>
-<span class="co"># Plot a scale bar</span>
-<span class="fu"><a href="reference/mf_scale.html">mf_scale</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-<span class="co"># Plot a north arrow</span>
-<span class="fu"><a href="reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="st">'topleft'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Export a map with a theme and extra margins </span></span>
+<span><span class="fu"><a href="reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"mtq.png"</span>,  </span>
+<span>          width <span class="op">=</span> <span class="fl">600</span>, res <span class="op">=</span> <span class="fl">120</span>, </span>
+<span>          theme <span class="op">=</span> <span class="st">"green"</span>, </span>
+<span>          expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.3</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="co"># Plot a shadow</span></span>
+<span><span class="fu"><a href="reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"grey10"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Plot a choropleth map</span></span>
+<span><span class="fu"><a href="reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,</span>
+<span>       pal <span class="op">=</span> <span class="st">"Dark Mint"</span>, </span>
+<span>       breaks <span class="op">=</span> <span class="st">"quantile"</span>, </span>
+<span>       nbreaks <span class="op">=</span> <span class="fl">6</span>, </span>
+<span>       leg_title <span class="op">=</span> <span class="st">"Median Income\n(euros)"</span>, </span>
+<span>       leg_val_rnd <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>, </span>
+<span>       add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Start an inset map</span></span>
+<span><span class="fu"><a href="reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"worldmap"</span>, pos <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span></span>
+<span><span class="co"># Plot mtq position on a worldmap</span></span>
+<span><span class="fu"><a href="reference/mf_worldmap.html">mf_worldmap</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"#0E3F5C"</span><span class="op">)</span></span>
+<span><span class="co"># Close the inset</span></span>
+<span><span class="fu"><a href="reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Plot a title</span></span>
+<span><span class="fu"><a href="reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Wealth in Martinique, 2015"</span><span class="op">)</span></span>
+<span><span class="co"># Plot credits</span></span>
+<span><span class="fu"><a href="reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="st">"T. Giraud\nSources: INSEE &amp; IGN, 2018"</span><span class="op">)</span></span>
+<span><span class="co"># Plot a scale bar</span></span>
+<span><span class="fu"><a href="reference/mf_scale.html">mf_scale</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="co"># Plot a north arrow</span></span>
+<span><span class="fu"><a href="reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="st">'topleft'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/mtq.png"></p>
 </div>
 <div class="section level2">
@@ -285,7 +285,7 @@ This project uses <a href="https://www.conventionalcommits.org/en/v1.0.0-beta.3/
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

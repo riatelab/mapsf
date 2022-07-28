@@ -108,32 +108,32 @@ for arguments, default values and details.</p></li>
 </ul></div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_legend</span><span class="op">(</span>
-  <span class="va">type</span>,
-  <span class="va">pos</span>,
-  <span class="va">val</span>,
-  <span class="va">pal</span>,
-  <span class="va">col</span>,
-  <span class="va">inches</span>,
-  <span class="va">lwd</span>,
-  <span class="va">border</span>,
-  <span class="va">symbol</span>,
-  <span class="va">pt_pch</span>,
-  <span class="va">pt_cex</span>,
-  <span class="va">title</span>,
-  <span class="va">title_cex</span>,
-  <span class="va">val_cex</span>,
-  <span class="va">val_rnd</span>,
-  <span class="va">col_na</span>,
-  <span class="va">pt_cex_na</span>,
-  <span class="va">pt_pch_na</span>,
-  <span class="va">no_data</span>,
-  <span class="va">no_data_txt</span>,
-  <span class="va">frame</span>,
-  <span class="va">bg</span>,
-  <span class="va">fg</span>,
-  <span class="va">cex</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_legend</span><span class="op">(</span></span>
+<span>  <span class="va">type</span>,</span>
+<span>  <span class="va">pos</span>,</span>
+<span>  <span class="va">val</span>,</span>
+<span>  <span class="va">pal</span>,</span>
+<span>  <span class="va">col</span>,</span>
+<span>  <span class="va">inches</span>,</span>
+<span>  <span class="va">lwd</span>,</span>
+<span>  <span class="va">border</span>,</span>
+<span>  <span class="va">symbol</span>,</span>
+<span>  <span class="va">pt_pch</span>,</span>
+<span>  <span class="va">pt_cex</span>,</span>
+<span>  <span class="va">title</span>,</span>
+<span>  <span class="va">title_cex</span>,</span>
+<span>  <span class="va">val_cex</span>,</span>
+<span>  <span class="va">val_rnd</span>,</span>
+<span>  <span class="va">col_na</span>,</span>
+<span>  <span class="va">pt_cex_na</span>,</span>
+<span>  <span class="va">pt_pch_na</span>,</span>
+<span>  <span class="va">no_data</span>,</span>
+<span>  <span class="va">no_data_txt</span>,</span>
+<span>  <span class="va">frame</span>,</span>
+<span>  <span class="va">bg</span>,</span>
+<span>  <span class="va">fg</span>,</span>
+<span>  <span class="va">cex</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -141,81 +141,130 @@ for arguments, default values and details.</p></li>
     <dl><dt>type</dt>
 <dd><p>type of legend; one of "prop", "choro", "typo", "symb",
 "prop_line", "grad_line"</p></dd>
+
+
 <dt>pos</dt>
 <dd><p>position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of two coordinates in map units (c(x, y))</p></dd>
+
+
 <dt>val</dt>
 <dd><p>a vector of values</p></dd>
+
+
 <dt>pal</dt>
 <dd><p>a set of colors or a palette name (from <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a>)</p></dd>
+
+
 <dt>col</dt>
 <dd><p>a color</p></dd>
+
+
 <dt>inches</dt>
 <dd><p>size of the biggest symbol (radius for circles, half width for squares) in inches.</p></dd>
+
+
 <dt>lwd</dt>
 <dd><p>line width(s)</p></dd>
+
+
 <dt>border</dt>
 <dd><p>border color</p></dd>
+
+
 <dt>symbol</dt>
 <dd><p>type of symbols, 'circle' or 'square'</p></dd>
+
+
 <dt>pt_pch</dt>
 <dd><p>pch of the symbols (0:25)</p></dd>
+
+
 <dt>pt_cex</dt>
 <dd><p>cex of the symbols</p></dd>
+
+
 <dt>title</dt>
 <dd><p>legend title</p></dd>
+
+
 <dt>title_cex</dt>
 <dd><p>size of the legend title</p></dd>
+
+
 <dt>val_cex</dt>
 <dd><p>size of the values in the legend</p></dd>
+
+
 <dt>val_rnd</dt>
 <dd><p>number of decimal places of the values in the legend</p></dd>
+
+
 <dt>col_na</dt>
 <dd><p>color for missing values</p></dd>
+
+
 <dt>pt_cex_na</dt>
 <dd><p>cex of the symbols for missing values</p></dd>
+
+
 <dt>pt_pch_na</dt>
 <dd><p>pch of the symbols for missing values</p></dd>
+
+
 <dt>no_data</dt>
 <dd><p>if TRUE a 'missing values' box is plotted</p></dd>
+
+
 <dt>no_data_txt</dt>
 <dd><p>label for missing values</p></dd>
+
+
 <dt>frame</dt>
 <dd><p>whether to add a frame to the legend (TRUE) or not (FALSE)</p></dd>
+
+
 <dt>bg</dt>
 <dd><p>background color</p></dd>
+
+
 <dt>fg</dt>
 <dd><p>foreground color</p></dd>
+
+
 <dt>cex</dt>
 <dd><p>size of the legend; 2 means two times bigger</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>No return value, a legend is displayed.</p>
+    
+
+<p>No return value, a legend is displayed.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"prop"</span>, pos <span class="op">=</span> <span class="st">"topright"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span>, inches <span class="op">=</span> <span class="fl">.3</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend</span><span class="op">(</span></span>
-<span class="r-in">  type <span class="op">=</span> <span class="st">"choro"</span>, pos <span class="op">=</span> <span class="st">"bottomright"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">40</span>, <span class="fl">50</span><span class="op">)</span>,</span>
-<span class="r-in">  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">4</span>, <span class="st">"Reds 2"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend</span><span class="op">(</span></span>
-<span class="r-in">  type <span class="op">=</span> <span class="st">"typo"</span>, pos <span class="op">=</span> <span class="st">"topleft"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span>,</span>
-<span class="r-in">  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">4</span>, <span class="st">"Dynamic"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend</span><span class="op">(</span></span>
-<span class="r-in">  type <span class="op">=</span> <span class="st">"symb"</span>, pos <span class="op">=</span> <span class="st">"bottomleft"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,</span>
-<span class="r-in">  pt_pch <span class="op">=</span> <span class="fl">21</span><span class="op">:</span><span class="fl">23</span>, pt_cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span class="r-in">  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">3</span>, <span class="st">"Dynamic"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend</span><span class="op">(</span></span>
-<span class="r-in">  type <span class="op">=</span> <span class="st">"grad_line"</span>, pos <span class="op">=</span> <span class="st">"top"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">10</span>, <span class="fl">15</span><span class="op">)</span>,</span>
-<span class="r-in">  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"prop_line"</span>, pos <span class="op">=</span> <span class="st">"bottom"</span>, lwd <span class="op">=</span> <span class="fl">20</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">50</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"prop"</span>, pos <span class="op">=</span> <span class="st">"topright"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span>, inches <span class="op">=</span> <span class="fl">.3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"choro"</span>, pos <span class="op">=</span> <span class="st">"bottomright"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">40</span>, <span class="fl">50</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">4</span>, <span class="st">"Reds 2"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"typo"</span>, pos <span class="op">=</span> <span class="st">"topleft"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">4</span>, <span class="st">"Dynamic"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"symb"</span>, pos <span class="op">=</span> <span class="st">"bottomleft"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pt_pch <span class="op">=</span> <span class="fl">21</span><span class="op">:</span><span class="fl">23</span>, pt_cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">3</span>, <span class="st">"Dynamic"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"grad_line"</span>, pos <span class="op">=</span> <span class="st">"top"</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">10</span>, <span class="fl">15</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"prop_line"</span>, pos <span class="op">=</span> <span class="st">"bottom"</span>, lwd <span class="op">=</span> <span class="fl">20</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">50</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_legend-1.png" alt="" width="672" height="672"></span>
 </code></pre></div>
     </div>
@@ -231,7 +280,7 @@ for arguments, default values and details.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

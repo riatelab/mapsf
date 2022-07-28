@@ -81,93 +81,134 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_symb</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">var</span>,
-  pal <span class="op">=</span> <span class="st">"Dynamic"</span>,
-  alpha <span class="op">=</span> <span class="fl">1</span>,
-  <span class="va">border</span>,
-  <span class="va">pch</span>,
-  cex <span class="op">=</span> <span class="fl">1</span>,
-  lwd <span class="op">=</span> <span class="fl">0.7</span>,
-  col_na <span class="op">=</span> <span class="st">"grey"</span>,
-  pch_na <span class="op">=</span> <span class="fl">4</span>,
-  cex_na <span class="op">=</span> <span class="fl">1</span>,
-  <span class="va">val_order</span>,
-  leg_pos <span class="op">=</span> <span class="fu"><a href="mf_get_leg_pos.html">mf_get_leg_pos</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,
-  leg_title <span class="op">=</span> <span class="va">var</span>,
-  leg_title_cex <span class="op">=</span> <span class="fl">0.8</span>,
-  leg_val_cex <span class="op">=</span> <span class="fl">0.6</span>,
-  leg_val_rnd <span class="op">=</span> <span class="fl">2</span>,
-  leg_no_data <span class="op">=</span> <span class="st">"No data"</span>,
-  leg_frame <span class="op">=</span> <span class="cn">FALSE</span>,
-  add <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_symb</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">var</span>,</span>
+<span>  pal <span class="op">=</span> <span class="st">"Dynamic"</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  <span class="va">border</span>,</span>
+<span>  <span class="va">pch</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>  col_na <span class="op">=</span> <span class="st">"grey"</span>,</span>
+<span>  pch_na <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  cex_na <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  <span class="va">val_order</span>,</span>
+<span>  leg_pos <span class="op">=</span> <span class="fu"><a href="mf_get_leg_pos.html">mf_get_leg_pos</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span>
+<span>  leg_title <span class="op">=</span> <span class="va">var</span>,</span>
+<span>  leg_title_cex <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>  leg_val_cex <span class="op">=</span> <span class="fl">0.6</span>,</span>
+<span>  leg_val_rnd <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  leg_no_data <span class="op">=</span> <span class="st">"No data"</span>,</span>
+<span>  leg_frame <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  add <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>object of class <code>sf</code></p></dd>
+
+
 <dt>var</dt>
 <dd><p>name(s) of the variable(s) to plot</p></dd>
+
+
 <dt>pal</dt>
 <dd><p>a set of colors or a palette name (from <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a>)</p></dd>
+
+
 <dt>alpha</dt>
 <dd><p>if <code>pal</code> is a <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a> palette name, the alpha-transparency level in the range [0,1]</p></dd>
+
+
 <dt>border</dt>
 <dd><p>border color</p></dd>
+
+
 <dt>pch</dt>
 <dd><p>pch (point type) for symbols</p></dd>
+
+
 <dt>cex</dt>
 <dd><p>cex (point size) for symbols</p></dd>
+
+
 <dt>lwd</dt>
 <dd><p>border width</p></dd>
+
+
 <dt>col_na</dt>
 <dd><p>color for missing values</p></dd>
+
+
 <dt>pch_na</dt>
 <dd><p>pch (point type) for NA values</p></dd>
+
+
 <dt>cex_na</dt>
 <dd><p>cex (point size) for NA values</p></dd>
+
+
 <dt>val_order</dt>
 <dd><p>values order, a character vector that matches var modalities</p></dd>
+
+
 <dt>leg_pos</dt>
 <dd><p>position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.</p></dd>
+
+
 <dt>leg_title</dt>
 <dd><p>legend title</p></dd>
+
+
 <dt>leg_title_cex</dt>
 <dd><p>size of the legend title</p></dd>
+
+
 <dt>leg_val_cex</dt>
 <dd><p>size of the values in the legend</p></dd>
+
+
 <dt>leg_val_rnd</dt>
 <dd><p>number of decimal places of the values in the legend</p></dd>
+
+
 <dt>leg_no_data</dt>
 <dd><p>label for missing values</p></dd>
+
+
 <dt>leg_frame</dt>
 <dd><p>whether to add a frame to the legend (TRUE) or not (FALSE)</p></dd>
+
+
 <dt>add</dt>
 <dd><p>whether to add the layer to an existing plot (TRUE) or not (FALSE)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>x is (invisibly) returned.</p>
+    
+
+<p>x is (invisibly) returned.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_symb</span><span class="op">(</span><span class="va">mtq</span>, <span class="st">"STATUS"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_symb</span><span class="op">(</span><span class="va">mtq</span>, <span class="st">"STATUS"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_symb-1.png" alt="" width="672" height="672"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">mtq</span><span class="op">[</span><span class="fl">6</span>, <span class="st">"STATUS"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_symb</span><span class="op">(</span></span>
-<span class="r-in">  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span><span class="op">:</span><span class="fl">23</span><span class="op">)</span>, pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red1"</span>, <span class="st">"tan1"</span>, <span class="st">"khaki1"</span><span class="op">)</span>,</span>
-<span class="r-in">  border <span class="op">=</span> <span class="st">"grey20"</span>, cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="fl">1</span>, <span class="fl">.9</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">.5</span>,</span>
-<span class="r-in">  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, <span class="st">"Simple municipality"</span><span class="op">)</span>,</span>
-<span class="r-in">  pch_na <span class="op">=</span> <span class="fl">24</span>, leg_frame <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mtq</span><span class="op">[</span><span class="fl">6</span>, <span class="st">"STATUS"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_symb</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span><span class="op">:</span><span class="fl">23</span><span class="op">)</span>, pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red1"</span>, <span class="st">"tan1"</span>, <span class="st">"khaki1"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  border <span class="op">=</span> <span class="st">"grey20"</span>, cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="fl">1</span>, <span class="fl">.9</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">.5</span>,</span></span>
+<span class="r-in"><span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, <span class="st">"Simple municipality"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pch_na <span class="op">=</span> <span class="fl">24</span>, leg_frame <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_symb-2.png" alt="" width="672" height="672"></span>
 </code></pre></div>
     </div>
@@ -183,7 +224,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

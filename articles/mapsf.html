@@ -111,7 +111,7 @@
       <h1 data-toc-skip>mapsf</h1>
                         <h4 data-toc-skip class="author">Timothée Giraud</h4>
             
-            <h4 data-toc-skip class="date">2022-06-03</h4>
+            <h4 data-toc-skip class="date">2022-07-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/mapsf.Rmd" class="external-link"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -399,20 +399,20 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <p><code>mf_map(x, type = "base")</code> displays <code>sf</code> objects geometries.</p>
 <p><code><a href="../reference/mf_layout.html">mf_layout()</a></code> add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code>, <code><a href="../reference/mf_credits.html">mf_credits()</a></code>, <code><a href="../reference/mf_arrow.html">mf_arrow()</a></code> and <code><a href="../reference/mf_scale.html">mf_scale()</a></code>).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># Initiate a base map</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span>
-<span class="co"># Plot a shadow</span>
-<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># plot municipalities </span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, type <span class="op">=</span> <span class="st">"base"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: IGN, 2018\n"</span>, 
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Initiate a base map</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span></span>
+<span><span class="co"># Plot a shadow</span></span>
+<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># plot municipalities </span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, type <span class="op">=</span> <span class="st">"base"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Martinique"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: IGN, 2018\n"</span>, </span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_init-1.png" width="480"></p>
 </div>
 <div class="section level3">
@@ -420,30 +420,30 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 </h3>
 <p><code>mf_map(x, var, type = "prop")</code> displays symbols with areas proportional to a quantitative variable (stocks). The <code>inches</code> argument is used to customize the symbols sizes.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># Initiate a base map</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span>
-<span class="co"># Plot a shadow</span>
-<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># plot municipalities </span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># plot population</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="st">"POP"</span>,
-  type <span class="op">=</span> <span class="st">"prop"</span>,
-  inches <span class="op">=</span> <span class="fl">0.25</span>, 
-  col <span class="op">=</span> <span class="st">"brown4"</span>,
-  leg_pos <span class="op">=</span> <span class="st">"bottomleft2"</span>,  
-  leg_title <span class="op">=</span> <span class="st">"Total population"</span>
-<span class="op">)</span>
-<span class="co"># layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Initiate a base map</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span></span>
+<span><span class="co"># Plot a shadow</span></span>
+<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># plot municipalities </span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># plot population</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  var <span class="op">=</span> <span class="st">"POP"</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"prop"</span>,</span>
+<span>  inches <span class="op">=</span> <span class="fl">0.25</span>, </span>
+<span>  col <span class="op">=</span> <span class="st">"brown4"</span>,</span>
+<span>  leg_pos <span class="op">=</span> <span class="st">"bottomleft2"</span>,  </span>
+<span>  leg_title <span class="op">=</span> <span class="st">"Total population"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co"># layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_prop-1.png" width="480"></p>
 </div>
 <div class="section level3">
@@ -452,31 +452,31 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <p>In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.<br><code>mf_map(x, var, type = "choro")</code> displays choropleth maps . Arguments <code>nbreaks</code>, and <code>breaks</code> allow to customize the variable classification. <code><a href="../reference/mf_get_breaks.html">mf_get_breaks()</a></code> allows to classify data outside of the function itself. Colors palettes, defined with <code>pal</code>, can be created with <code><a href="../reference/mf_get_pal.html">mf_get_pal()</a></code> or you can use palette names from <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals()</a></code>.</p>
 <p>Use <code><a href="../reference/mf_theme.html">mf_theme()</a></code> to set a theme without plotting anything.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># population density (inhab./km2) using sf::st_area()</span>
-<span class="va">mtq</span><span class="op">$</span><span class="va">POPDENS</span> <span class="op">&lt;-</span> <span class="fl">1e6</span> <span class="op">*</span> <span class="va">mtq</span><span class="op">$</span><span class="va">POP</span> <span class="op">/</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html" class="external-link">st_area</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span>
-<span class="co"># set a theme</span>
-<span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"green"</span><span class="op">)</span>
-<span class="co"># plot population density</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="st">"POPDENS"</span>,
-  type <span class="op">=</span> <span class="st">"choro"</span>,
-  breaks <span class="op">=</span> <span class="st">"geom"</span>,
-  nbreaks <span class="op">=</span> <span class="fl">5</span>,
-  pal <span class="op">=</span> <span class="st">"Greens"</span>,
-  border <span class="op">=</span> <span class="st">"white"</span>, 
-  lwd <span class="op">=</span> <span class="fl">0.5</span>,
-  leg_pos <span class="op">=</span> <span class="st">"topright"</span>, 
-  leg_title <span class="op">=</span> <span class="st">"Population Density\n(people per km2)"</span>
-<span class="op">)</span> 
-<span class="co"># layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># population density (inhab./km2) using sf::st_area()</span></span>
+<span><span class="va">mtq</span><span class="op">$</span><span class="va">POPDENS</span> <span class="op">&lt;-</span> <span class="fl">1e6</span> <span class="op">*</span> <span class="va">mtq</span><span class="op">$</span><span class="va">POP</span> <span class="op">/</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html" class="external-link">st_area</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
+<span><span class="co"># set a theme</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"green"</span><span class="op">)</span></span>
+<span><span class="co"># plot population density</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  var <span class="op">=</span> <span class="st">"POPDENS"</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"choro"</span>,</span>
+<span>  breaks <span class="op">=</span> <span class="st">"geom"</span>,</span>
+<span>  nbreaks <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  pal <span class="op">=</span> <span class="st">"Greens"</span>,</span>
+<span>  border <span class="op">=</span> <span class="st">"white"</span>, </span>
+<span>  lwd <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>  leg_pos <span class="op">=</span> <span class="st">"topright"</span>, </span>
+<span>  leg_title <span class="op">=</span> <span class="st">"Population Density\n(people per km2)"</span></span>
+<span><span class="op">)</span> </span>
+<span><span class="co"># layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_c-1.png" width="480"></p>
 </div>
 <div class="section level3">
@@ -485,32 +485,32 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <p><code>mf_map(x, var, type = "typo")</code> displays a typology map of a qualitative variable. <code>val_order</code> is used to set the modalities order in the legend.</p>
 <p><code><a href="../reference/mf_label.html">mf_label()</a></code> displays labels on the map.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span><span class="op">)</span>
-<span class="co"># plot administrative status</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="st">"STATUS"</span>, 
-  type <span class="op">=</span> <span class="st">"typo"</span>,
-  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span><span class="op">)</span>, 
-  lwd <span class="op">=</span> <span class="fl">.5</span>,
-  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>,
-                <span class="st">"Sub-prefecture"</span>, 
-                <span class="st">"Simple municipality"</span><span class="op">)</span>,
-  leg_pos <span class="op">=</span> <span class="st">"topright"</span>,
-  leg_title <span class="op">=</span> <span class="st">""</span>
-<span class="op">)</span>
-<span class="co"># labels for a few  municipalities</span>
-<span class="fu"><a href="../reference/mf_label.html">mf_label</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">[</span><span class="va">mtq</span><span class="op">$</span><span class="va">STATUS</span> <span class="op">!=</span> <span class="st">"Simple municipality"</span>,<span class="op">]</span>, var <span class="op">=</span> <span class="st">"LIBGEO"</span>, 
-         cex <span class="op">=</span> <span class="fl">0.9</span>, halo <span class="op">=</span> <span class="cn">TRUE</span>, r <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span>
-<span class="co"># layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Administrative Status"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># set theme</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span><span class="op">)</span></span>
+<span><span class="co"># plot administrative status</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  var <span class="op">=</span> <span class="st">"STATUS"</span>, </span>
+<span>  type <span class="op">=</span> <span class="st">"typo"</span>,</span>
+<span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span><span class="op">)</span>, </span>
+<span>  lwd <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>,</span>
+<span>                <span class="st">"Sub-prefecture"</span>, </span>
+<span>                <span class="st">"Simple municipality"</span><span class="op">)</span>,</span>
+<span>  leg_pos <span class="op">=</span> <span class="st">"topright"</span>,</span>
+<span>  leg_title <span class="op">=</span> <span class="st">""</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co"># labels for a few  municipalities</span></span>
+<span><span class="fu"><a href="../reference/mf_label.html">mf_label</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">[</span><span class="va">mtq</span><span class="op">$</span><span class="va">STATUS</span> <span class="op">!=</span> <span class="st">"Simple municipality"</span>,<span class="op">]</span>, var <span class="op">=</span> <span class="st">"LIBGEO"</span>, </span>
+<span>         cex <span class="op">=</span> <span class="fl">0.9</span>, halo <span class="op">=</span> <span class="cn">TRUE</span>, r <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span>
+<span><span class="co"># layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Administrative Status"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_t-1.png" width="480"></p>
 </div>
 <div class="section level3">
@@ -519,36 +519,36 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <p><code>mf_map(x, var, type = "prop_choro")</code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.</p>
 <p><code>expandBB</code> argument in <code><a href="../reference/mf_init.html">mf_init()</a></code> allows to expand the map space. Here, we increase the space available on the right of the map to avoid overlaps between the legends and the map.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
-<span class="co"># Plot a shadow</span>
-<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Plot the municipalities</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Plot symbols with choropleth coloration</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, 
-  type <span class="op">=</span> <span class="st">"prop_choro"</span>,
-  border <span class="op">=</span> <span class="st">"grey50"</span>,
-  lwd <span class="op">=</span> <span class="fl">1</span>,
-  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"topright"</span>, <span class="st">"right"</span><span class="op">)</span>, 
-  leg_title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>,<span class="st">"Median\nIncome\n(in euros)"</span><span class="op">)</span>,
-  breaks <span class="op">=</span> <span class="st">"equal"</span>, 
-  nbreaks <span class="op">=</span> <span class="fl">4</span>, 
-  pal <span class="op">=</span> <span class="st">"Greens"</span>,
-  leg_val_rnd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>, 
-  leg_frame <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>
-<span class="op">)</span> 
-<span class="co"># layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population &amp; Wealth in Martinique, 2015"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
-          frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># set theme</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Plot a shadow</span></span>
+<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Plot the municipalities</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Plot symbols with choropleth coloration</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, </span>
+<span>  type <span class="op">=</span> <span class="st">"prop_choro"</span>,</span>
+<span>  border <span class="op">=</span> <span class="st">"grey50"</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"topright"</span>, <span class="st">"right"</span><span class="op">)</span>, </span>
+<span>  leg_title<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>,<span class="st">"Median\nIncome\n(in euros)"</span><span class="op">)</span>,</span>
+<span>  breaks <span class="op">=</span> <span class="st">"equal"</span>, </span>
+<span>  nbreaks <span class="op">=</span> <span class="fl">4</span>, </span>
+<span>  pal <span class="op">=</span> <span class="st">"Greens"</span>,</span>
+<span>  leg_val_rnd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>, </span>
+<span>  leg_frame <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="op">)</span> </span>
+<span><span class="co"># layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population &amp; Wealth in Martinique, 2015"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>          frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_pc-1.png" width="480"></p>
 </div>
 <div class="section level3">
@@ -556,32 +556,32 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 </h3>
 <p><code>f_map(x, var, type = "prop_typo")</code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span>
-<span class="co"># Plot a shadow</span>
-<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Plot the municipalities</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Plot symbols with choropleth coloration</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, 
-  type <span class="op">=</span> <span class="st">"prop_typo"</span>,
-  symbol <span class="op">=</span> <span class="st">"square"</span>,
-  border <span class="op">=</span> <span class="st">"white"</span>,
-  lwd <span class="op">=</span> <span class="fl">.5</span>,
-  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"right"</span>,  <span class="st">"topright"</span><span class="op">)</span>, 
-  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"Administrative\nStatus"</span><span class="op">)</span>,
-  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, 
-                <span class="st">"Simple municipality"</span><span class="op">)</span><span class="op">)</span> 
-<span class="co"># layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># set theme</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Plot a shadow</span></span>
+<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Plot the municipalities</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Plot symbols with choropleth coloration</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>,<span class="st">"STATUS"</span><span class="op">)</span>, </span>
+<span>  type <span class="op">=</span> <span class="st">"prop_typo"</span>,</span>
+<span>  symbol <span class="op">=</span> <span class="st">"square"</span>,</span>
+<span>  border <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span>  leg_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"right"</span>,  <span class="st">"topright"</span><span class="op">)</span>, </span>
+<span>  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"Administrative\nStatus"</span><span class="op">)</span>,</span>
+<span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, </span>
+<span>                <span class="st">"Simple municipality"</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="co"># layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Population Distribution in Martinique"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_map_pt-1.png" width="480"></p>
 </div>
 <div class="section level3">
@@ -590,46 +590,46 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <p><code><a href="../reference/mf_label.html">mf_label()</a></code> is dedicated to the display of labels on a map. The <code>overlap = FALSE</code> argument displays non overlapping labels.</p>
 <p>In this example we have built a custom theme with <code><a href="../reference/mf_theme.html">mf_theme()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># set theme</span>
-<span class="va">my_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-  name <span class="op">=</span> <span class="st">"mytheme"</span>, 
-  bg <span class="op">=</span> <span class="st">"lightblue1"</span>, 
-  fg <span class="op">=</span> <span class="st">"darkseagreen4"</span>, 
-  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, 
-  tab <span class="op">=</span> <span class="cn">TRUE</span>, 
-  pos <span class="op">=</span> <span class="st">"left"</span>, 
-  inner <span class="op">=</span> <span class="cn">TRUE</span>, 
-  line <span class="op">=</span> <span class="fl">1</span>, 
-  cex <span class="op">=</span> <span class="fl">.9</span>, 
-  font <span class="op">=</span> <span class="fl">3</span>
-  <span class="op">)</span>
-<span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="va">my_theme</span><span class="op">)</span>
-<span class="co"># plot municipalities</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"#e4e9de"</span>, border <span class="op">=</span> <span class="st">"darkseagreen4"</span><span class="op">)</span>
-<span class="co"># plot labels</span>
-<span class="fu"><a href="../reference/mf_label.html">mf_label</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">mtq</span>, 
-  var <span class="op">=</span> <span class="st">"LIBGEO"</span>, 
-  col <span class="op">=</span> <span class="st">"black"</span>, 
-  cex <span class="op">=</span> <span class="fl">0.7</span>, 
-  font <span class="op">=</span> <span class="fl">4</span>,
-  halo <span class="op">=</span> <span class="cn">TRUE</span>, 
-  bg <span class="op">=</span> <span class="st">"white"</span>, 
-  r <span class="op">=</span> <span class="fl">0.1</span>, 
-  overlap <span class="op">=</span> <span class="cn">FALSE</span>, 
-  lines <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-<span class="co"># layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Municipalities of Martinique"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
-          arrow <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="co"># north arrow</span>
-<span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span>pos <span class="op">=</span><span class="st">'topright'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># set theme</span></span>
+<span><span class="va">my_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  name <span class="op">=</span> <span class="st">"mytheme"</span>, </span>
+<span>  bg <span class="op">=</span> <span class="st">"lightblue1"</span>, </span>
+<span>  fg <span class="op">=</span> <span class="st">"darkseagreen4"</span>, </span>
+<span>  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, </span>
+<span>  tab <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>  pos <span class="op">=</span> <span class="st">"left"</span>, </span>
+<span>  inner <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>  line <span class="op">=</span> <span class="fl">1</span>, </span>
+<span>  cex <span class="op">=</span> <span class="fl">.9</span>, </span>
+<span>  font <span class="op">=</span> <span class="fl">3</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="va">my_theme</span><span class="op">)</span></span>
+<span><span class="co"># plot municipalities</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, col <span class="op">=</span> <span class="st">"#e4e9de"</span>, border <span class="op">=</span> <span class="st">"darkseagreen4"</span><span class="op">)</span></span>
+<span><span class="co"># plot labels</span></span>
+<span><span class="fu"><a href="../reference/mf_label.html">mf_label</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  var <span class="op">=</span> <span class="st">"LIBGEO"</span>, </span>
+<span>  col <span class="op">=</span> <span class="st">"black"</span>, </span>
+<span>  cex <span class="op">=</span> <span class="fl">0.7</span>, </span>
+<span>  font <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  halo <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>  bg <span class="op">=</span> <span class="st">"white"</span>, </span>
+<span>  r <span class="op">=</span> <span class="fl">0.1</span>, </span>
+<span>  overlap <span class="op">=</span> <span class="cn">FALSE</span>, </span>
+<span>  lines <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co"># layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Municipalities of Martinique"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>          arrow <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co"># north arrow</span></span>
+<span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span>pos <span class="op">=</span><span class="st">'topright'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_label-1.png" width="480"></p>
 </div>
 <div class="section level3">
@@ -639,40 +639,40 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 <p><code>mf_map(x, var, type = "grad")</code> displays graduated links.</p>
 <p>We have used <code>leg_pos = "bottomleft2"</code> to display the legend in the bottom left corner of the map with an extra space to avoid overlaps between the legend and the credits.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span>
-<span class="co"># import the sample data set</span>
-<span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># import the csv file embedded in mapsf</span>
-<span class="va">mob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"csv/mob.csv"</span>, package<span class="op">=</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>
-<span class="co"># Select links from Fort-de-France (97209))</span>
-<span class="va">mob_97209</span> <span class="op">&lt;-</span> <span class="va">mob</span><span class="op">[</span><span class="va">mob</span><span class="op">$</span><span class="va">i</span> <span class="op">==</span> <span class="fl">97209</span>, <span class="op">]</span>
-<span class="co"># create an sf object of links</span>
-<span class="va">mob_links</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_links.html">mf_get_links</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, df <span class="op">=</span> <span class="va">mob_97209</span><span class="op">)</span>
-<span class="co"># set figure background color</span>
-<span class="co"># set theme</span>
-<span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span>
-<span class="co"># Plot a shadow</span>
-<span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Plot the municipalities</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># plot graduated links</span>
-<span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">mob_links</span>, 
-  var <span class="op">=</span> <span class="st">"fij"</span>, 
-  type <span class="op">=</span> <span class="st">"grad"</span>,
-  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">4679.0</span><span class="op">)</span>,
-  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span>,
-  leg_pos <span class="op">=</span> <span class="st">"bottomleft2"</span>,
-  leg_title <span class="op">=</span> <span class="st">"Nb. of\nCommuters"</span>,
-  col <span class="op">=</span> <span class="st">"red4"</span>, 
-  leg_frame <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span> 
-<span class="co"># map layout</span>
-<span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Commuting to Fort-de-France"</span>, 
-          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,
-                           <span class="st">"mapsf "</span>, 
-                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, 
-          arrow <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<span><span class="co"># import the sample data set</span></span>
+<span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># import the csv file embedded in mapsf</span></span>
+<span><span class="va">mob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"csv/mob.csv"</span>, package<span class="op">=</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Select links from Fort-de-France (97209))</span></span>
+<span><span class="va">mob_97209</span> <span class="op">&lt;-</span> <span class="va">mob</span><span class="op">[</span><span class="va">mob</span><span class="op">$</span><span class="va">i</span> <span class="op">==</span> <span class="fl">97209</span>, <span class="op">]</span></span>
+<span><span class="co"># create an sf object of links</span></span>
+<span><span class="va">mob_links</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_links.html">mf_get_links</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, df <span class="op">=</span> <span class="va">mob_97209</span><span class="op">)</span></span>
+<span><span class="co"># set figure background color</span></span>
+<span><span class="co"># set theme</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span></span>
+<span><span class="co"># Plot a shadow</span></span>
+<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Plot the municipalities</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># plot graduated links</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mob_links</span>, </span>
+<span>  var <span class="op">=</span> <span class="st">"fij"</span>, </span>
+<span>  type <span class="op">=</span> <span class="st">"grad"</span>,</span>
+<span>  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">4679.0</span><span class="op">)</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span>,</span>
+<span>  leg_pos <span class="op">=</span> <span class="st">"bottomleft2"</span>,</span>
+<span>  leg_title <span class="op">=</span> <span class="st">"Nb. of\nCommuters"</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"red4"</span>, </span>
+<span>  leg_frame <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span> </span>
+<span><span class="co"># map layout</span></span>
+<span><span class="fu"><a href="../reference/mf_layout.html">mf_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Commuting to Fort-de-France"</span>, </span>
+<span>          credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
+<span>                           <span class="st">"mapsf "</span>, </span>
+<span>                           <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>          arrow <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="mapsf_files/figure-html/mf_grad-1.png" width="480"></p>
 </div>
 </div>
@@ -695,7 +695,7 @@ A set of functions is dedicated to the creation of spatial objects (e.g. links 
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

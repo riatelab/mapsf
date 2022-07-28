@@ -85,7 +85,7 @@ foreground colors and some <a href="mf_title.html">mf_title</a> options.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_theme</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"default"</span>, <span class="va">bg</span>, <span class="va">fg</span>, <span class="va">mar</span>, <span class="va">tab</span>, <span class="va">pos</span>, <span class="va">inner</span>, <span class="va">line</span>, <span class="va">cex</span>, <span class="va">font</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_theme</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"default"</span>, <span class="va">bg</span>, <span class="va">fg</span>, <span class="va">mar</span>, <span class="va">tab</span>, <span class="va">pos</span>, <span class="va">inner</span>, <span class="va">line</span>, <span class="va">cex</span>, <span class="va">font</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -94,28 +94,49 @@ foreground colors and some <a href="mf_title.html">mf_title</a> options.</p>
 <dd><p>name of a map theme. One of "default", "brutal", "ink",
 "dark", "agolalight", "candy", "darkula", "iceberg", "green", "nevermind",
 "jsk", "barcelona". If x is used other parameters are ignored.</p></dd>
+
+
 <dt>bg</dt>
 <dd><p>background color</p></dd>
+
+
 <dt>fg</dt>
 <dd><p>foreground color</p></dd>
+
+
 <dt>mar</dt>
 <dd><p>margins</p></dd>
+
+
 <dt>tab</dt>
 <dd><p>if TRUE the title is displayed as a 'tab'</p></dd>
+
+
 <dt>pos</dt>
 <dd><p>position, one of 'left', 'center', 'right'</p></dd>
+
+
 <dt>inner</dt>
 <dd><p>if TRUE the title is displayed inside the plot area.</p></dd>
+
+
 <dt>line</dt>
 <dd><p>number of lines used for the title</p></dd>
+
+
 <dt>cex</dt>
 <dd><p>cex of the title</p></dd>
+
+
 <dt>font</dt>
 <dd><p>font of the title</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The (invisible) list of theme parameters is returned.</p>
+    
+
+<p>The (invisible) list of theme parameters is returned.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -127,43 +148,43 @@ Use <code>mf_theme('default')</code> to reset theme settings.
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># built-in theme</span></span>
-<span class="r-in"><span class="fu">mf_theme</span><span class="op">(</span><span class="st">"green"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_title.html">mf_title</a></span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># built-in theme</span></span></span>
+<span class="r-in"><span><span class="fu">mf_theme</span><span class="op">(</span><span class="st">"green"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_title.html">mf_title</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_theme-1.png" alt="" width="672" height="672"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># theme from arguments</span></span>
-<span class="r-in"><span class="fu">mf_theme</span><span class="op">(</span></span>
-<span class="r-in">  bg <span class="op">=</span> <span class="st">"darkslategrey"</span>, fg <span class="op">=</span> <span class="st">"cornsilk3"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span class="r-in">  tab <span class="op">=</span> <span class="cn">FALSE</span>, pos <span class="op">=</span> <span class="st">"center"</span>, inner <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">  line <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">2</span>, font <span class="op">=</span> <span class="fl">4</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_layout.html">mf_layout</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># theme from arguments</span></span></span>
+<span class="r-in"><span><span class="fu">mf_theme</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  bg <span class="op">=</span> <span class="st">"darkslategrey"</span>, fg <span class="op">=</span> <span class="st">"cornsilk3"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  tab <span class="op">=</span> <span class="cn">FALSE</span>, pos <span class="op">=</span> <span class="st">"center"</span>, inner <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>  line <span class="op">=</span> <span class="fl">2</span>, cex <span class="op">=</span> <span class="fl">2</span>, font <span class="op">=</span> <span class="fl">4</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_layout.html">mf_layout</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_theme-2.png" alt="" width="672" height="672"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># theme from list</span></span>
-<span class="r-in"><span class="va">custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span class="r-in">  name <span class="op">=</span> <span class="st">"custom"</span>,</span>
-<span class="r-in">  bg <span class="op">=</span> <span class="st">"green"</span>,</span>
-<span class="r-in">  fg <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span class="r-in">  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span class="r-in">  tab <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">  pos <span class="op">=</span> <span class="st">"center"</span>,</span>
-<span class="r-in">  inner <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">  line <span class="op">=</span> <span class="fl">2</span>,</span>
-<span class="r-in">  cex <span class="op">=</span> <span class="fl">1.5</span>,</span>
-<span class="r-in">  font <span class="op">=</span> <span class="fl">3</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_theme</span><span class="op">(</span><span class="va">custom</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_title.html">mf_title</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># theme from list</span></span></span>
+<span class="r-in"><span><span class="va">custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  name <span class="op">=</span> <span class="st">"custom"</span>,</span></span>
+<span class="r-in"><span>  bg <span class="op">=</span> <span class="st">"green"</span>,</span></span>
+<span class="r-in"><span>  fg <span class="op">=</span> <span class="st">"red"</span>,</span></span>
+<span class="r-in"><span>  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  tab <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  pos <span class="op">=</span> <span class="st">"center"</span>,</span></span>
+<span class="r-in"><span>  inner <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  line <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>  cex <span class="op">=</span> <span class="fl">1.5</span>,</span></span>
+<span class="r-in"><span>  font <span class="op">=</span> <span class="fl">3</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_theme</span><span class="op">(</span><span class="va">custom</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_title.html">mf_title</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_theme-3.png" alt="" width="672" height="672"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="op">(</span><span class="fu">mf_theme</span><span class="op">(</span><span class="st">"default"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">(</span><span class="fu">mf_theme</span><span class="op">(</span><span class="st">"default"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "default"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -208,7 +229,7 @@ Use <code>mf_theme('default')</code> to reset theme settings.
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

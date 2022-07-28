@@ -81,29 +81,36 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_arrow</span><span class="op">(</span>pos <span class="op">=</span> <span class="st">"topleft"</span>, <span class="va">col</span>, <span class="va">adjust</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_arrow</span><span class="op">(</span>pos <span class="op">=</span> <span class="st">"topleft"</span>, <span class="va">col</span>, <span class="va">adjust</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>pos</dt>
 <dd><p>position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of two coordinates in map units (c(x, y))</p></dd>
+
+
 <dt>col</dt>
 <dd><p>arrow color</p></dd>
+
+
 <dt>adjust</dt>
 <dd><p>object of class <code>sf</code> or <code>sfc</code> used to adjust the
 arrow to the real north</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>No return value, a north arrow is displayed.</p>
+    
+
+<p>No return value, a north arrow is displayed.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_arrow</span><span class="op">(</span>pos <span class="op">=</span> <span class="st">"topright"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_arrow</span><span class="op">(</span>pos <span class="op">=</span> <span class="st">"topright"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_arrow-1.png" alt="" width="672" height="672"></span>
 </code></pre></div>
     </div>
@@ -119,7 +126,7 @@ arrow to the real north</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

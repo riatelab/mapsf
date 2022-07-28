@@ -116,130 +116,189 @@ a quantitative data classification (<a href="mf_symb_choro.html">mf_symb_choro</
 </ul></div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_map</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">var</span>,
-  type <span class="op">=</span> <span class="st">"base"</span>,
-  <span class="va">breaks</span>,
-  <span class="va">nbreaks</span>,
-  <span class="va">pal</span>,
-  alpha <span class="op">=</span> <span class="fl">1</span>,
-  <span class="va">inches</span>,
-  <span class="va">val_max</span>,
-  <span class="va">symbol</span>,
-  <span class="va">col</span>,
-  <span class="va">lwd_max</span>,
-  <span class="va">val_order</span>,
-  <span class="va">pch</span>,
-  <span class="va">cex</span>,
-  <span class="va">border</span>,
-  <span class="va">lwd</span>,
-  <span class="va">col_na</span>,
-  <span class="va">cex_na</span>,
-  <span class="va">pch_na</span>,
-  <span class="va">leg_pos</span>,
-  <span class="va">leg_title</span>,
-  <span class="va">leg_title_cex</span>,
-  <span class="va">leg_val_cex</span>,
-  <span class="va">leg_val_rnd</span>,
-  <span class="va">leg_no_data</span>,
-  <span class="va">leg_frame</span>,
-  <span class="va">add</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_map</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">var</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"base"</span>,</span>
+<span>  <span class="va">breaks</span>,</span>
+<span>  <span class="va">nbreaks</span>,</span>
+<span>  <span class="va">pal</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  <span class="va">inches</span>,</span>
+<span>  <span class="va">val_max</span>,</span>
+<span>  <span class="va">symbol</span>,</span>
+<span>  <span class="va">col</span>,</span>
+<span>  <span class="va">lwd_max</span>,</span>
+<span>  <span class="va">val_order</span>,</span>
+<span>  <span class="va">pch</span>,</span>
+<span>  <span class="va">cex</span>,</span>
+<span>  <span class="va">border</span>,</span>
+<span>  <span class="va">lwd</span>,</span>
+<span>  <span class="va">col_na</span>,</span>
+<span>  <span class="va">cex_na</span>,</span>
+<span>  <span class="va">pch_na</span>,</span>
+<span>  <span class="va">leg_pos</span>,</span>
+<span>  <span class="va">leg_title</span>,</span>
+<span>  <span class="va">leg_title_cex</span>,</span>
+<span>  <span class="va">leg_val_cex</span>,</span>
+<span>  <span class="va">leg_val_rnd</span>,</span>
+<span>  <span class="va">leg_no_data</span>,</span>
+<span>  <span class="va">leg_frame</span>,</span>
+<span>  <span class="va">add</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>object of class <code>sf</code> or <code>sfc</code></p></dd>
+
+
 <dt>var</dt>
 <dd><p>name(s) of the variable(s) to plot</p></dd>
+
+
 <dt>type</dt>
 <dd><p>one of "base", "prop", "choro", "typo", "symb", "grad",
 "prop_choro", "prop_typo", "symb_choro"</p></dd>
+
+
 <dt>breaks</dt>
 <dd><p>either a numeric vector with the actual breaks, or a classification method name (see <a href="mf_get_breaks.html">mf_get_breaks</a>)</p></dd>
+
+
 <dt>nbreaks</dt>
 <dd><p>number of classes</p></dd>
+
+
 <dt>pal</dt>
 <dd><p>a set of colors or a palette name (from <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a>)</p></dd>
+
+
 <dt>alpha</dt>
 <dd><p>if <code>pal</code> is a <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a> palette name, the alpha-transparency level in the range [0,1]</p></dd>
+
+
 <dt>inches</dt>
 <dd><p>size of the biggest symbol (radius for circles, half width for squares) in inches.</p></dd>
+
+
 <dt>val_max</dt>
 <dd><p>maximum value used for proportional symbols</p></dd>
+
+
 <dt>symbol</dt>
 <dd><p>type of symbols, 'circle' or 'square'</p></dd>
+
+
 <dt>col</dt>
 <dd><p>color</p></dd>
+
+
 <dt>lwd_max</dt>
 <dd><p>line width of the largest line</p></dd>
+
+
 <dt>val_order</dt>
 <dd><p>values order, a character vector that matches var modalities</p></dd>
+
+
 <dt>pch</dt>
 <dd><p>pch (point type) for symbols</p></dd>
+
+
 <dt>cex</dt>
 <dd><p>cex (point size) for symbols</p></dd>
+
+
 <dt>border</dt>
 <dd><p>border color</p></dd>
+
+
 <dt>lwd</dt>
 <dd><p>border width</p></dd>
+
+
 <dt>col_na</dt>
 <dd><p>color for missing values</p></dd>
+
+
 <dt>cex_na</dt>
 <dd><p>cex (point size) for NA values</p></dd>
+
+
 <dt>pch_na</dt>
 <dd><p>pch (point type) for NA values</p></dd>
+
+
 <dt>leg_pos</dt>
 <dd><p>position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.</p></dd>
+
+
 <dt>leg_title</dt>
 <dd><p>legend title</p></dd>
+
+
 <dt>leg_title_cex</dt>
 <dd><p>size of the legend title</p></dd>
+
+
 <dt>leg_val_cex</dt>
 <dd><p>size of the values in the legend</p></dd>
+
+
 <dt>leg_val_rnd</dt>
 <dd><p>number of decimal places of the values in the legend</p></dd>
+
+
 <dt>leg_no_data</dt>
 <dd><p>label for missing values</p></dd>
+
+
 <dt>leg_frame</dt>
 <dd><p>whether to add a frame to the legend (TRUE) or not (FALSE)</p></dd>
+
+
 <dt>add</dt>
 <dd><p>whether to add the layer to an existing plot (TRUE) or not (FALSE)</p></dd>
+
+
 <dt>...</dt>
 <dd><p>further parameters from <a href="https://r-spatial.github.io/sf/reference/plot.html" class="external-link">plot</a> for sfc objects</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>x is (invisibly) returned.</p>
+    
+
+<p>x is (invisibly) returned.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-1.png" alt="" width="672" height="672"></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-2.png" alt="" width="672" height="672"></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, type <span class="op">=</span> <span class="st">"typo"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, type <span class="op">=</span> <span class="st">"typo"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-3.png" alt="" width="672" height="672"></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, type <span class="op">=</span> <span class="st">"symb"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, type <span class="op">=</span> <span class="st">"symb"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-4.png" alt="" width="672" height="672"></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"grad"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"grad"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-5.png" alt="" width="672" height="672"></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"prop_choro"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"prop_choro"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-6.png" alt="" width="672" height="672"></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"STATUS"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"prop_typo"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"STATUS"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"prop_typo"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-7.png" alt="" width="672" height="672"></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"STATUS"</span>, <span class="st">"MED"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"symb_choro"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"STATUS"</span>, <span class="st">"MED"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"symb_choro"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-8.png" alt="" width="672" height="672"></span>
 </code></pre></div>
     </div>
@@ -255,7 +314,7 @@ a quantitative data classification (<a href="mf_symb_choro.html">mf_symb_choro</
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -81,58 +81,79 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_label</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">var</span>,
-  <span class="va">col</span>,
-  cex <span class="op">=</span> <span class="fl">0.7</span>,
-  overlap <span class="op">=</span> <span class="cn">TRUE</span>,
-  lines <span class="op">=</span> <span class="cn">TRUE</span>,
-  halo <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">bg</span>,
-  r <span class="op">=</span> <span class="fl">0.1</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_label</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">var</span>,</span>
+<span>  <span class="va">col</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>  overlap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  lines <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  halo <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">bg</span>,</span>
+<span>  r <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>object of class <code>sf</code></p></dd>
+
+
 <dt>var</dt>
 <dd><p>name(s) of the variable(s) to plot</p></dd>
+
+
 <dt>col</dt>
 <dd><p>labels color</p></dd>
+
+
 <dt>cex</dt>
 <dd><p>labels cex</p></dd>
+
+
 <dt>overlap</dt>
 <dd><p>if FALSE, labels are moved so they do not overlap.</p></dd>
+
+
 <dt>lines</dt>
 <dd><p>if TRUE, then lines are plotted between x,y and the word,
 for those words not covering their x,y coordinate</p></dd>
+
+
 <dt>halo</dt>
 <dd><p>If TRUE, then a 'halo' is printed around the text and additional
 arguments bg and r can be modified to set the color and width of the halo.</p></dd>
+
+
 <dt>bg</dt>
 <dd><p>halo color</p></dd>
+
+
 <dt>r</dt>
 <dd><p>width of the halo</p></dd>
+
+
 <dt>...</dt>
 <dd><p>further <a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a> arguments.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>No return value, labels are displayed.</p>
+    
+
+<p>No return value, labels are displayed.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_label</span><span class="op">(</span></span>
-<span class="r-in">  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"LIBGEO"</span>, halo <span class="op">=</span> <span class="cn">TRUE</span>, cex <span class="op">=</span> <span class="fl">0.8</span>,</span>
-<span class="r-in">  overlap <span class="op">=</span> <span class="cn">FALSE</span>, lines <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_label</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"LIBGEO"</span>, halo <span class="op">=</span> <span class="cn">TRUE</span>, cex <span class="op">=</span> <span class="fl">0.8</span>,</span></span>
+<span class="r-in"><span>  overlap <span class="op">=</span> <span class="cn">FALSE</span>, lines <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_label-1.png" alt="" width="672" height="672"></span>
 </code></pre></div>
     </div>
@@ -148,7 +169,7 @@ arguments bg and r can be modified to set the color and width of the halo.</p></
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

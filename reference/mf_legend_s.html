@@ -81,27 +81,27 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mf_legend_s</span><span class="op">(</span>
-  pos <span class="op">=</span> <span class="st">"right"</span>,
-  <span class="va">val</span>,
-  <span class="va">pal</span>,
-  <span class="va">pt_pch</span>,
-  <span class="va">pt_cex</span>,
-  <span class="va">border</span>,
-  lwd <span class="op">=</span> <span class="fl">0.7</span>,
-  title <span class="op">=</span> <span class="st">"Legend title"</span>,
-  title_cex <span class="op">=</span> <span class="fl">0.8</span>,
-  val_cex <span class="op">=</span> <span class="fl">0.6</span>,
-  pt_cex_na <span class="op">=</span> <span class="fl">1</span>,
-  pt_pch_na <span class="op">=</span> <span class="fl">4</span>,
-  col_na <span class="op">=</span> <span class="st">"white"</span>,
-  no_data <span class="op">=</span> <span class="cn">FALSE</span>,
-  no_data_txt <span class="op">=</span> <span class="st">"No Data"</span>,
-  frame <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">bg</span>,
-  <span class="va">fg</span>,
-  cex <span class="op">=</span> <span class="fl">1</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_legend_s</span><span class="op">(</span></span>
+<span>  pos <span class="op">=</span> <span class="st">"right"</span>,</span>
+<span>  <span class="va">val</span>,</span>
+<span>  <span class="va">pal</span>,</span>
+<span>  <span class="va">pt_pch</span>,</span>
+<span>  <span class="va">pt_cex</span>,</span>
+<span>  <span class="va">border</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>  title <span class="op">=</span> <span class="st">"Legend title"</span>,</span>
+<span>  title_cex <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>  val_cex <span class="op">=</span> <span class="fl">0.6</span>,</span>
+<span>  pt_cex_na <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  pt_pch_na <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  col_na <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>  no_data <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  no_data_txt <span class="op">=</span> <span class="st">"No Data"</span>,</span>
+<span>  frame <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">bg</span>,</span>
+<span>  <span class="va">fg</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -111,56 +111,95 @@
 "topright", "right", "bottomright", "bottom", "bottomleft",
 "left", "interactive" or a vector of two coordinates in map units
 (c(x, y)).</p></dd>
+
+
 <dt>val</dt>
 <dd><p>vector of categories.</p></dd>
+
+
 <dt>pal</dt>
 <dd><p>a set of colors</p></dd>
+
+
 <dt>pt_pch</dt>
 <dd><p>pch of the symbols (0:25)</p></dd>
+
+
 <dt>pt_cex</dt>
 <dd><p>cex of the symbols</p></dd>
+
+
 <dt>border</dt>
 <dd><p>type = "prop": color of the symbols borders</p></dd>
+
+
 <dt>lwd</dt>
 <dd><p>width of the symbols borders</p></dd>
+
+
 <dt>title</dt>
 <dd><p>title of the legend</p></dd>
+
+
 <dt>title_cex</dt>
 <dd><p>size of the legend title</p></dd>
+
+
 <dt>val_cex</dt>
 <dd><p>size of the values in the legend</p></dd>
+
+
 <dt>pt_cex_na</dt>
 <dd><p>cex of the symbols for missing values</p></dd>
+
+
 <dt>pt_pch_na</dt>
 <dd><p>pch of the symbols for missing values</p></dd>
+
+
 <dt>col_na</dt>
 <dd><p>color for missing values</p></dd>
+
+
 <dt>no_data</dt>
 <dd><p>if TRUE a "missing value" box is plotted</p></dd>
+
+
 <dt>no_data_txt</dt>
 <dd><p>label for missing values.</p></dd>
+
+
 <dt>frame</dt>
 <dd><p>whether to add a frame to the legend (TRUE) or not (FALSE)</p></dd>
+
+
 <dt>bg</dt>
 <dd><p>background of the legend</p></dd>
+
+
 <dt>fg</dt>
 <dd><p>foreground of the legend</p></dd>
+
+
 <dt>cex</dt>
 <dd><p>size of the legend; 2 means two times bigger</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>No return value, a legend is displayed.</p>
+    
+
+<p>No return value, a legend is displayed.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/frame.html" class="external-link">plot.new</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">plot.window</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, asp <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mf_legend_s</span><span class="op">(</span></span>
-<span class="r-in">  val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Type C"</span>, <span class="st">"Type D"</span><span class="op">)</span>, pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cyan"</span>, <span class="st">"plum"</span><span class="op">)</span>,</span>
-<span class="r-in">  pt_pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">23</span><span class="op">)</span>, pt_cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/frame.html" class="external-link">plot.new</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">plot.window</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, asp <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_legend_s</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Type C"</span>, <span class="st">"Type D"</span><span class="op">)</span>, pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cyan"</span>, <span class="st">"plum"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pt_pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">23</span><span class="op">)</span>, pt_cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_legend_s-1.png" alt="" width="672" height="672"></span>
 </code></pre></div>
     </div>
@@ -176,7 +215,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
