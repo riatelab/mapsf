@@ -62,7 +62,11 @@ mf_prop <- function(x,
   # linestring special case
   if (xtype == "LINE") {
     xl <- x[!is.na(x[[var]]), ]
-    maxval <- max(xl[[var]])
+    if(!missing(val_max)){
+      maxval <- val_max
+    } else {
+      maxval <- max(xl[[var]])
+    }
     xl$lwd <- xl[[var]] * lwd_max / maxval
     if (add == FALSE) {
       mf_init(x)
@@ -72,7 +76,7 @@ mf_prop <- function(x,
 
     val <- seq(min(xl[[var]]), max(xl[[var]]), length.out = 4)
     mf_legend_pl(
-      pos = leg_pos, val = val, lwd = lwd_max, col = col,
+      pos = leg_pos, val = val, lwd = max(xl$lwd), col = col,
       title = leg_title, title_cex = leg_title_cex,
       val_cex = leg_val_cex, val_rnd = leg_val_rnd,
       frame = leg_frame, bg = bg, fg = fg
