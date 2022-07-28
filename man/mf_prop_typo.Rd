@@ -15,6 +15,7 @@ mf_prop_typo(
   val_order,
   border,
   lwd = 0.7,
+  lwd_max = 15,
   col_na = "white",
   leg_pos = mf_get_leg_pos(x, 2),
   leg_title = var,
@@ -46,6 +47,8 @@ mf_prop_typo(
 \item{border}{border color}
 
 \item{lwd}{border width}
+
+\item{lwd_max}{line width of the largest line}
 
 \item{col_na}{color for missing values}
 

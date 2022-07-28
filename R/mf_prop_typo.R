@@ -5,7 +5,7 @@
 #' 'var',
 #' 'border',
 #' 'lwd',
-#' 'add' ,
+#' 'add' , 'lwd_max',
 #' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'alpha', 'leg_val_rnd',
 #' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
 #' 'leg_no_data', 'leg_frame'))
@@ -43,6 +43,7 @@ mf_prop_typo <- function(x, var,
                          val_order,
                          border,
                          lwd = .7,
+                         lwd_max = 15,
                          col_na = "white",
                          leg_pos = mf_get_leg_pos(x, 2),
                          leg_title = var,
@@ -54,6 +55,8 @@ mf_prop_typo <- function(x, var,
                          add = TRUE) {
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  lend <- par("lend")
+
   on.exit(par(op))
   bg <- .gmapsf$args$bg
   fg <- .gmapsf$args$fg
@@ -61,6 +64,65 @@ mf_prop_typo <- function(x, var,
 
   var2 <- var[2]
   var1 <- var[1]
+
+
+  xtype <- get_geom_type(x)
+  # linestring special case
+  if (xtype == "LINE") {
+    xl <- x[!is.na(x[[var1]]), ]
+    if(!missing(val_max)){
+      maxval <- val_max
+    } else {
+      maxval <- max(xl[[var1]])
+    }
+    xl$lwd <- xl[[var1]] * lwd_max / maxval
+    if (add == FALSE) {
+      mf_init(x)
+    }
+    xl <- xl[xl[[var1]] != 0, ]
+    # turn to positive values
+    xl[[var1]] <- abs(xl[[var1]])
+    # Order the dots
+    xl <- xl[order(xl[[var1]], decreasing = TRUE), ]
+
+    val_order <- get_modalities(
+      x = xl[[var2]],
+      val_order = val_order
+    )
+    # get color list and association
+    pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha)
+    # get color vector
+    mycols <- get_col_typo(
+      x = xl[[var2]], pal = pal,
+      val_order = val_order
+    )
+
+    no_data <- FALSE
+    if (max(is.na(mycols)) == 1) {
+      no_data <- TRUE
+    }
+    mycols[is.na(mycols)] <- col_na
+    par(lend = 1)
+    mf_base(xl, lwd = xl$lwd, add = TRUE, col = mycols)
+    val <- seq(min(xl[[var1]]), max(xl[[var1]]), length.out = 4)
+    leg_pos <- split_leg(leg_pos)
+    mf_legend_pl(
+      pos = leg_pos[[1]], val = val, lwd = max(xl$lwd),
+      col = "grey20",
+      title = leg_title[1], title_cex = leg_title_cex[1],
+      val_cex = leg_val_cex[1], val_rnd = leg_val_rnd,
+      frame = leg_frame[1], bg = bg, fg = fg
+    )
+    mf_legend_t(
+      pos = leg_pos[[2]], val = val_order, title = leg_title[2],
+      title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
+      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
+      frame = leg_frame[2], pal = pal, bg = bg, fg = fg
+    )
+    par(lend = lend)
+    return(invisible(x))
+  }
+
   # check merge and order
   dots <- create_dots(x = x, var = var1)
 
