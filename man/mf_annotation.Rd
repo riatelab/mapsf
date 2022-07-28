@@ -18,12 +18,13 @@ mf_annotation(
 )
 }
 \arguments{
-\item{x}{an sf object with 1 row, a couple of coordinates (c(x, y)).}
+\item{x}{an sf object with 1 row, a couple of coordinates (c(x, y)) or
+"interactive"}
 
 \item{txt}{the text to display}
 
 \item{pos}{position of the text, one of "topleft", "topright", "bottomright",
-"bottomleft" or "interactive"}
+"bottomleft"}
 
 \item{cex}{size of the text}
 

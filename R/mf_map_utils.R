@@ -203,15 +203,24 @@ split_leg <- function(x) {
 
 get_geom_type <- function(x) {
   a <- list(
-    other = "GEOMETRY", POINT = "POINT", LINE = "LINESTRING",
-    POLYGON = "POLYGON",
+    POINT = "POINT",
     POINT = "MULTIPOINT",
-    LINE = "MULTILINESTRING", POLYGON = "MULTIPOLYGON",
-    other = "GEOMETRYCOLLECTION", other = "CIRCULARSTRING",
-    other = "COMPOUNDCURVE", other = "CURVEPOLYGON",
-    other = "MULTICURVE", other = "MULTISURFACE",
-    other = "CURVE", other = "SURFACE", other = "POLYHEDRALSURFACE",
-    other = "TIN", other = "TRIANGLE"
+    LINE = "LINESTRING",
+    LINE = "MULTILINESTRING",
+    POLYGON = "POLYGON",
+    POLYGON = "MULTIPOLYGON",
+    other = "GEOMETRY",
+    other = "GEOMETRYCOLLECTION",
+    other = "CIRCULARSTRING",
+    other = "COMPOUNDCURVE",
+    other = "CURVEPOLYGON",
+    other = "MULTICURVE",
+    other = "MULTISURFACE",
+    other = "CURVE",
+    other = "SURFACE",
+    other = "POLYHEDRALSURFACE",
+    other = "TIN",
+    other = "TRIANGLE"
   )
   type <- st_geometry_type(x)
   levels(type) <- a
