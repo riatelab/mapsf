@@ -20,7 +20,7 @@
 #' @export
 #' @importFrom grDevices png svg
 #' @importFrom methods is
-#' @importFrom sf st_bbox st_as_sfc st_geometry
+#' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs
 #' @return No return value, a map is initiated.
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -74,6 +74,12 @@ mf_export <- function(x,
       expandBB = c(rep(-.04, 4)) + expandBB, theme = theme, ...
     )
     return(invisible(x))
+  }
+
+  if(isTRUE(st_is_longlat(st_crs(x)))){
+    message(paste0("Exports using unprojected objects may produce figures ",
+                   "with inaccurate height/width ratio. ",
+                   "You may want to check 'x' CRS. "))
   }
 
   # transform to bbox
