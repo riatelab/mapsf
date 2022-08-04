@@ -93,6 +93,15 @@ mf_map <- function(x, var, type = "base",
     call. = FALSE
     )
   }
+
+  cl <- inherits(x = x, what = c("sf", "sfc"), which = TRUE) != 0
+  if(cl[1] == FALSE & cl[2] == TRUE & type != "base"){
+    stop(paste0("'x' should be an sf object."), call. = FALSE)
+  }
+  if(cl[1] == FALSE & cl[2] == FALSE){
+    stop(paste0("'x' should be an sf or sfc object."), call. = FALSE)
+  }
+
   if (!missing(var)) {
     if (type == "base") {
       message("Please use the 'type' argument to map variables.")
@@ -106,7 +115,6 @@ mf_map <- function(x, var, type = "base",
       }
     }
   }
-
 
   argx <- as.list(match.call()[-1])
   argx <- argx[names(argx) != "type"]

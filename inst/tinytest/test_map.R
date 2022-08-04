@@ -11,4 +11,5 @@ expect_silent(mf_map(mtq, var = c('STATUS', 'MED'), type = 'symb_choro'))
 expect_message(mf_map(mtq, "POP"))
 expect_error(mf_map(mtq, "POP", "props"))
 expect_error(mf_map(mtq, "POPx", "prop"))
-
+expect_error(mf_map("not an sf object"))
+expect_error(mf_map(st_geometry(mtq), "POP", "prop"))
