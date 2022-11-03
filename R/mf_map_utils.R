@@ -88,10 +88,16 @@ get_size <- function(var, inches, val_max, symbol) {
 
 # Plot symbols
 plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
+  if (inherits(dots, c("sf", "sfc"))) {
+    XY <- sf::st_set_geometry(dots[, 1:2], NULL)
+  } else {
+    XY <- dots
+  }
   switch(symbol,
     circle = {
       symbols(
-        x = dots[, 1:2, drop = TRUE],
+        x = XY[, 1],
+        y = XY[, 2],
         circles = sizes,
         bg = mycols,
         fg = border,
@@ -103,7 +109,8 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
     },
     square = {
       symbols(
-        x = dots[, 1:2, drop = TRUE],
+        x = XY[, 1],
+        y = XY[, 2],
         squares = sizes,
         bg = mycols,
         fg = border,
@@ -117,29 +124,9 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
 }
 
 
-#' @name check_order
-#' @title checkOrder
-#' @description check if col order match legend.values.order
-#' @param val_order val_order
-#' @param mod vector of modalities
-#' @return  a vector of legend.values.order.
-#' @noRd
-check_order <- function(val_order, mod) {
-  if (!missing(val_order)) {
-    m <- match(mod, val_order)
-    m <- m[!is.na(m)]
 
-    if (length(m) != length(mod) | length(mod) != length(val_order)) {
-      stop(
-        paste(
-          "'val_order' modalities must fit the modalities of 'var' (",
-          paste(mod, collapse = ","), ").",
-          sep = ""
-        ),
-        call. = FALSE
-      )
-    }
-  } else {
+check_order <- function(val_order, mod) {
+  if (missing(val_order)) {
     val_order <- sort(mod)
   }
   return(val_order)

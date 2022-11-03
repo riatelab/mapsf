@@ -63,6 +63,11 @@ mf_legend_p <- function(pos = "left",
   if (missing(fg)) fg <- .gmapsf$args$fg
   if (missing(border)) border <- fg
 
+  val <- unique(val)
+  if (length(val) == 1) {
+    self_adjust <- FALSE
+  }
+
   if (self_adjust == TRUE) {
     val <- self_adjust(val, inches, val_cex)
   }

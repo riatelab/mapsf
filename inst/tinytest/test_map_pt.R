@@ -21,14 +21,6 @@ expect_silent(
 )
 
 
-expect_error(
-  mf_prop_typo(mtq, c("POP", "STATUS"),
-            val_order =  c("Prefere",
-                               "Sub-prefecture", "Simple municipality")
-  ))
-
-
-
 mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
 mob_97209 <- mob[mob$i == 97209, ]
 mob_links <- mf_get_links(x = mtq, df = mob_97209)
