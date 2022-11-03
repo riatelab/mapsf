@@ -86,19 +86,20 @@ mf_map <- function(x, var, type = "base",
     "base", "prop", "choro", "typo", "symb", "grad",
     "prop_choro", "prop_typo", "symb_choro"
   )) {
-    stop(paste0(
-      '\'type\' should be one of "base", "prop", "choro", "typo", ',
-      '"symb", "grad", "prop_choro", "prop_typo" or "symb_choro".'
-    ),
-    call. = FALSE
+    stop(
+      paste0(
+        '\'type\' should be one of "base", "prop", "choro", "typo", ',
+        '"symb", "grad", "prop_choro", "prop_typo" or "symb_choro".'
+      ),
+      call. = FALSE
     )
   }
 
   cl <- inherits(x = x, what = c("sf", "sfc"), which = TRUE) != 0
-  if(cl[1] == FALSE & cl[2] == TRUE & type != "base"){
+  if (cl[1] == FALSE & cl[2] == TRUE & type != "base") {
     stop(paste0("'x' should be an sf object."), call. = FALSE)
   }
-  if(cl[1] == FALSE & cl[2] == FALSE){
+  if (cl[1] == FALSE & cl[2] == FALSE) {
     stop(paste0("'x' should be an sf or sfc object."), call. = FALSE)
   }
 

@@ -68,7 +68,6 @@ mf_symb_choro <- function(x, var,
                           leg_no_data = c("No data", "No data"),
                           leg_frame = c(FALSE, FALSE),
                           add = TRUE) {
-
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))

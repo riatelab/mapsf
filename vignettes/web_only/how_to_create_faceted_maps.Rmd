@@ -14,7 +14,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.width = 7, 
+  fig.width = 7,
   fig.height = 4
 )
 ```
@@ -42,11 +42,11 @@ mf_title("Median Income")
 When relevant the user can use a `for` loop. 
 ```{r fig2, fig.height = 8, fig.width = 7, results = FALSE, fig.path="img/", eval = FALSE}
 # define the figure layout (6 rows and 6 columns)
-par(mfrow = c(6,6))
-for (i in 1:nrow(mtq)){
-  # center the map on a targeted municipality and its 
+par(mfrow = c(6, 6))
+for (i in 1:nrow(mtq)) {
+  # center the map on a targeted municipality and its
   # neighborhood (with mf_init() and its expandBB arg)
-  mf_init(mtq[i, ], expandBB = c(.3,.3,.3,.3))
+  mf_init(mtq[i, ], expandBB = c(.3, .3, .3, .3))
   # plot the municpalities
   mf_map(mtq, border = "white", lwd = .5, add = TRUE)
   # plot the shadow of the targeted municpality

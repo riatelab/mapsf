@@ -58,7 +58,6 @@ mf_symb <- function(x, var,
                     leg_no_data = "No data",
                     leg_frame = FALSE,
                     add = TRUE) {
-
   # default
   op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
   on.exit(par(op))

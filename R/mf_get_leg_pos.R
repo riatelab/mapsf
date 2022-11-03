@@ -17,11 +17,12 @@ mf_get_leg_pos <- function(x, n = 1) {
     bb <- sf::st_bbox(x)
   } else {
     p <- par("usr")
-    bb <- sf::st_bbox(c(
-      xmin = p[1], ymin = p[3],
-      xmax = p[2], ymax = p[4]
-    ),
-    crs = sf::st_crs(x)
+    bb <- sf::st_bbox(
+      c(
+        xmin = p[1], ymin = p[3],
+        xmax = p[2], ymax = p[4]
+      ),
+      crs = sf::st_crs(x)
     )
   }
   g <- sf::st_make_grid(x = sf::st_as_sfc(bb), n = c(3, 3), crs = sf::st_crs(x))

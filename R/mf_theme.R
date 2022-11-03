@@ -214,11 +214,12 @@ mf_theme <- function(x = "default", bg, fg, mar, tab, pos, inner, line, cex,
     theme <- x
   } else {
     if (!x %in% names(themes)) {
-      stop(paste0(
-        "x should be one of ",
-        paste0(names(themes), collapse = ", ")
-      ),
-      call. = FALSE
+      stop(
+        paste0(
+          "x should be one of ",
+          paste0(names(themes), collapse = ", ")
+        ),
+        call. = FALSE
       )
     } else {
       theme <- themes[[x]]

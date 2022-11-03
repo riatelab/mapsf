@@ -35,11 +35,12 @@
 #' mf_inset_off()
 mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
   if (.gmapsf$inset) {
-    stop(paste0(
-      "You have already started an inset. ",
-      "Use `mf_inset_off()` to close the current inset."
-    ),
-    call. = FALSE
+    stop(
+      paste0(
+        "You have already started an inset. ",
+        "Use `mf_inset_off()` to close the current inset."
+      ),
+      call. = FALSE
     )
   }
   .gmapsf$inset <- TRUE

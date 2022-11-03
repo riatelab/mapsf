@@ -46,11 +46,11 @@ In the following example we create an inset for a specific municipality in the t
 ```{r, fig.height=6, fig.width=5, results = FALSE}
 library(mapsf)
 # set a theme
-mf_theme("default", mar = c(0,0,0,0))
+mf_theme("default", mar = c(0, 0, 0, 0))
 # data import
 mtq <- mf_get_mtq()
 # Selection of a target municipality to display in the inset
-mtq_target <- mtq[c(26),]
+mtq_target <- mtq[c(26), ]
 # Display the base map
 mf_map(mtq)
 # display the target on the main map
@@ -70,7 +70,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 # set a theme
 mf_theme("dark")
 # Selection of a target municipality to display in the inset
-mtq_target <- mtq[c(26),]
+mtq_target <- mtq[c(26), ]
 # Display the base map
 mf_map(mtq)
 # display the target on the main map
@@ -109,13 +109,13 @@ In the following example we create an inset for a specific municipality in the b
 
 ```{r, fig.height=6, fig.width=5, results = FALSE}
 # set a theme
-mf_theme("default", mar = c(0,0,0,0))
+mf_theme("default", mar = c(0, 0, 0, 0))
 # Display the base map
 mf_map(mtq)
 # open the inset
-mf_inset_on(fig = c(0,0.25,0,0.25))
+mf_inset_on(fig = c(0, 0.25, 0, 0.25))
 # display a municipality
-mf_map(mtq[9,])
+mf_map(mtq[9, ])
 # add a frame
 box()
 # close the inset
@@ -141,32 +141,42 @@ Insets can be used for regular plots. In the next map we create an inset with an
 
 ```{r, fig.height=7.58, fig.width=6.25, results = FALSE}
 # create classes
-bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = "quantile") 
+bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = "quantile")
 bks <- round(bks, digits = -2)
 # define a color palette
 pal <- hcl.colors(n = 5, palette = "Dark Mint", rev = TRUE)
 # set a theme
 mf_theme("candy")
-fg <-mf_theme()$fg
+fg <- mf_theme()$fg
 # Create the map
-mf_map(x = mtq, var = "MED", type = "choro",
-       pal = pal, breaks = bks, leg_pos = NA)
+mf_map(
+  x = mtq, var = "MED", type = "choro",
+  pal = pal, breaks = bks, leg_pos = NA
+)
 # start the inset
-mf_inset_on( fig = c(0.75, .95, 0.84, .99))
+mf_inset_on(fig = c(0.75, .95, 0.84, .99))
 # draw the histogram
-par(mar = c(0,0,1.7,0))
-hist(mtq$MED, breaks = bks, col = pal, border = fg, axes = F, labels = "", 
-     xlab="", ylab = "", main ="")
-axis(side = 1, at = bks, las = 2, tick = FALSE, line = -.9, 
-     cex.axis = .7, col.axis = fg)
-title("Median Income\nin euros", cex.main = .8, col.main = fg, 
-      font.main = 1, adj = 0)
+par(mar = c(0, 0, 1.7, 0))
+hist(mtq$MED,
+  breaks = bks, col = pal, border = fg, axes = F, labels = "",
+  xlab = "", ylab = "", main = ""
+)
+axis(
+  side = 1, at = bks, las = 2, tick = FALSE, line = -.9,
+  cex.axis = .7, col.axis = fg
+)
+title("Median Income\nin euros",
+  cex.main = .8, col.main = fg,
+  font.main = 1, adj = 0
+)
 # close the inset
 mf_inset_off()
 # Add map layout
 mf_title("Wealth in Martinique, 2015", pos = "left")
 mf_scale(5)
-mf_credits(paste0("Sources: Insee and IGN, 2018\n",
-                  "mapsf ", packageVersion("mapsf")))
+mf_credits(paste0(
+  "Sources: Insee and IGN, 2018\n",
+  "mapsf ", packageVersion("mapsf")
+))
 ```
 

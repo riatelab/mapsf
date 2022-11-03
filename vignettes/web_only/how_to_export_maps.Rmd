@@ -14,8 +14,8 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>", 
-  fig.width = 4, 
+  comment = "#>",
+  fig.width = 4,
   fig.height = 4
 )
 ```
@@ -51,8 +51,10 @@ dev.off()
 In this example we use the "dark" theme. 
 
 ```{r, results="hide"}
-mf_export(x = mtq, filename = "fixed_width_theme.png", 
-          width = 500, theme = "dark")
+mf_export(
+  x = mtq, filename = "fixed_width_theme.png",
+  width = 500, theme = "dark"
+)
 mf_map(mtq, add = TRUE)
 mf_title(txt = "PNG export: width=500px, height=611px (deduced)")
 dev.off()
@@ -64,8 +66,10 @@ dev.off()
 ## Export with Extra Space on the Figure
 Here we have added some space on the right side of the plot (50% of `x` width). 
 ```{r, results="hide"}
-mf_export(x = mtq, filename = "fixed_width_expand.png", 
-          width = 500, expandBB = c(0,0,0,.5), theme = "default")
+mf_export(
+  x = mtq, filename = "fixed_width_expand.png",
+  width = 500, expandBB = c(0, 0, 0, .5), theme = "default"
+)
 mf_map(mtq, add = TRUE)
 mf_title(txt = "PNG export: width=500px, height=427px (deduced)")
 dev.off()
@@ -77,7 +81,7 @@ dev.off()
 In this export, the map is focused on a specific spatial object. `height` is fixed and `width` is deduced. 
 
 ```{r, results="hide"}
-target <- mtq[5,]
+target <- mtq[5, ]
 mf_export(x = target, filename = "fixed_height_centered.png", height = 600)
 mf_map(mtq, add = TRUE)
 mf_shadow(target, add = TRUE)
@@ -92,8 +96,10 @@ dev.off()
 `mf_export()` can produce SVG figures (with `export = "svg"`) and use other parameters of `png()` or `svg()` functions (e.g. `res`, `bg` or `family`).
 
 ```{r, results="hide"}
-mf_export(x = mtq, export = "svg", filename = "fixed_width.svg", 
-          width = 5, theme = "nevermind", bg = "black")
+mf_export(
+  x = mtq, export = "svg", filename = "fixed_width.svg",
+  width = 5, theme = "nevermind", bg = "black"
+)
 mf_map(mtq, add = TRUE)
 mf_title(txt = "SVG export: bg = 'black'")
 dev.off()
@@ -106,7 +112,7 @@ dev.off()
 
 If a theme is set before an `mf_export()` call, the theme is applied to the export. 
 ```{r, results="hide"}
-mf_theme('agolalight')
+mf_theme("agolalight")
 mf_export(x = mtq, filename = "theme_before.png", width = 200)
 mf_map(mtq, add = TRUE)
 mf_title(txt = "agolalight")
@@ -116,8 +122,10 @@ dev.off()
 
 If a theme is set before or within an `mf_export()` call, the theme is also applied after the export. 
 ```{r}
-mf_export(x = mtq, filename = "theme_within.png", width = 200, 
-          theme = "darkula")
+mf_export(
+  x = mtq, filename = "theme_within.png", width = 200,
+  theme = "darkula"
+)
 mf_map(mtq, add = TRUE)
 mf_title(txt = "darkula")
 dev.off()

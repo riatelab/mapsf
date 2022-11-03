@@ -52,8 +52,10 @@ mf_map(x = mtq)
 # Plot proportional symbols
 mf_map(x = mtq, var = "POP", type = "prop")
 # Plot a map layout
-mf_layout(title = "Population in Martinique", 
-          credits = "T. Giraud; Sources: INSEE & IGN, 2018")
+mf_layout(
+  title = "Population in Martinique",
+  credits = "T. Giraud; Sources: INSEE & IGN, 2018"
+)
 ```
 
 ![](man/figures/example1-1.png)<!-- -->
@@ -61,21 +63,25 @@ mf_layout(title = "Population in Martinique",
 A more detailed example:
 
 ``` r
-# Export a map with a theme and extra margins 
-mf_export(x = mtq, filename = "mtq.png",  
-          width = 600, res = 120, 
-          theme = "green", 
-          expandBB = c(0,0,0,.3)) 
+# Export a map with a theme and extra margins
+mf_export(
+  x = mtq, filename = "mtq.png",
+  width = 600, res = 120,
+  theme = "green",
+  expandBB = c(0, 0, 0, .3)
+)
 # Plot a shadow
 mf_shadow(mtq, col = "grey10", add = TRUE)
 # Plot a choropleth map
-mf_map(x = mtq, var = "MED", type = "choro",
-       pal = "Dark Mint", 
-       breaks = "quantile", 
-       nbreaks = 6, 
-       leg_title = "Median Income\n(euros)", 
-       leg_val_rnd = -2, 
-       add = TRUE)
+mf_map(
+  x = mtq, var = "MED", type = "choro",
+  pal = "Dark Mint",
+  breaks = "quantile",
+  nbreaks = 6,
+  leg_title = "Median Income\n(euros)",
+  leg_val_rnd = -2,
+  add = TRUE
+)
 # Start an inset map
 mf_inset_on(x = "worldmap", pos = "right")
 # Plot mtq position on a worldmap
@@ -89,7 +95,7 @@ mf_credits("T. Giraud\nSources: INSEE & IGN, 2018")
 # Plot a scale bar
 mf_scale(size = 5)
 # Plot a north arrow
-mf_arrow('topleft')
+mf_arrow("topleft")
 dev.off()
 ```
 

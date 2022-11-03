@@ -70,7 +70,7 @@ mf_prop_typo <- function(x, var,
   # linestring special case
   if (xtype == "LINE") {
     xl <- x[!is.na(x[[var1]]), ]
-    if(!missing(val_max)){
+    if (!missing(val_max)) {
       maxval <- val_max
     } else {
       maxval <- max(xl[[var1]])

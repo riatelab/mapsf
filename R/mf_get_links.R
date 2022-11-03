@@ -48,11 +48,12 @@ mf_get_links <- function(x, df, x_id, df_id) {
     stop("No links were created. df_id and x_id do not match.", call. = FALSE)
   }
   if ((d1 - d2) > 0) {
-    warning(paste0(
-      (d1 - d2),
-      " links were not created. Some ids from df were not found in x."
-    ),
-    call. = FALSE
+    warning(
+      paste0(
+        (d1 - d2),
+        " links were not created. Some ids from df were not found in x."
+      ),
+      call. = FALSE
     )
   }
   # build the link

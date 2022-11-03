@@ -76,10 +76,12 @@ mf_export <- function(x,
     return(invisible(x))
   }
 
-  if(isTRUE(st_is_longlat(st_crs(x)))){
-    message(paste0("Exports using unprojected objects may produce figures ",
-                   "with inaccurate height/width ratio. ",
-                   "You may want to check 'x' CRS. "))
+  if (isTRUE(st_is_longlat(st_crs(x)))) {
+    message(paste0(
+      "Exports using unprojected objects may produce figures ",
+      "with inaccurate height/width ratio. ",
+      "You may want to check 'x' CRS. "
+    ))
   }
 
   # transform to bbox

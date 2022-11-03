@@ -23,29 +23,32 @@ mtq <- mf_get_mtq()
 mtq$POPDENS <- 1e6 * mtq$POP / st_area(mtq)
 # Define the font family
 # !! Select a font already installed on your system !!
-par(family="Purisa")
+par(family = "Purisa")
 # set a theme
 mf_theme("green")
 # plot population density
 mf_map(
-  x = mtq, 
+  x = mtq,
   var = "POPDENS",
   type = "choro",
   breaks = "q6",
   nbreaks = 4,
   pal = "Greens",
-  border = "grey60", 
+  border = "grey60",
   lwd = 0.5,
   leg_val_rnd = 0,
-  leg_pos = "topright", 
+  leg_pos = "topright",
   leg_title = "Population Density\n(people per km2)"
-) 
+)
 # layout
-mf_layout(title = "Population Distribution in Martinique", 
-          credits = paste0("Sources: Insee and IGN, 2018\n",
-                           "mapsf ", 
-                           packageVersion("mapsf")))
-
+mf_layout(
+  title = "Population Distribution in Martinique",
+  credits = paste0(
+    "Sources: Insee and IGN, 2018\n",
+    "mapsf ",
+    packageVersion("mapsf")
+  )
+)
 ```
 
 ![](img/font-1.png)
