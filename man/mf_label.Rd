@@ -31,7 +31,7 @@ mf_label(
 \item{lines}{if TRUE, then lines are plotted between x,y and the word,
 for those words not covering their x,y coordinate}
 
-\item{halo}{If TRUE, then a 'halo' is printed around the text and additional
+\item{halo}{if TRUE, a 'halo' is displayed around the text and additional
 arguments bg and r can be modified to set the color and width of the halo.}
 
 \item{bg}{halo color}

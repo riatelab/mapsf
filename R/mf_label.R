@@ -8,7 +8,7 @@
 #' @param bg halo color
 #' @param r width of the halo
 #' @param overlap if FALSE, labels are moved so they do not overlap.
-#' @param halo If TRUE, then a 'halo' is printed around the text and additional
+#' @param halo if TRUE, a 'halo' is displayed around the text and additional
 #' arguments bg and r can be modified to set the color and width of the halo.
 #' @param lines if TRUE, then lines are plotted between x,y and the word,
 #' for those words not covering their x,y coordinate
