@@ -109,9 +109,10 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>How to Use Themes</h1>
-                        <h4 data-toc-skip class="author">Timothée Giraud</h4>
+                        <h4 data-toc-skip class="author">Timothée
+Giraud</h4>
             
-            <h4 data-toc-skip class="date">2022-08-04</h4>
+            <h4 data-toc-skip class="date">2022-11-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_use_themes.Rmd" class="external-link"><code>vignettes/web_only/how_to_use_themes.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_use_themes.Rmd</code></div>
@@ -120,13 +121,34 @@
 
     
     
-<p><strong><code><a href="../../reference/mf_theme.html">mf_theme()</a></code></strong> sets a map theme. A theme is a set of graphical parameters that are applied to maps created with <code>mapsf</code>. These parameters are the figure margins, background and foreground colors and <code><a href="../../reference/mf_title.html">mf_title()</a></code> options. <code>mapsf</code> offers some builtin themes. It’s possible to modify an existing theme or to start a theme from scratch. The map theme can also be set with <code><a href="../../reference/mf_init.html">mf_init()</a></code> and <code><a href="../../reference/mf_export.html">mf_export()</a></code>.</p>
+<p><strong><code><a href="../../reference/mf_theme.html">mf_theme()</a></code></strong> sets a map theme. A theme is
+a set of graphical parameters that are applied to maps created with
+<code>mapsf</code>. These parameters are the figure margins, background
+and foreground colors and <code><a href="../../reference/mf_title.html">mf_title()</a></code> options.
+<code>mapsf</code> offers some builtin themes. It’s possible to modify
+an existing theme or to start a theme from scratch. The map theme can
+also be set with <code><a href="../../reference/mf_init.html">mf_init()</a></code> and
+<code><a href="../../reference/mf_export.html">mf_export()</a></code>.</p>
 <div class="section level2">
 <h2 id="builtin-themes">Builtin themes<a class="anchor" aria-label="anchor" href="#builtin-themes"></a>
 </h2>
-<p>Here are the builtin themes. We have added a grey background color to make the margins more visible. <img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-1.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-2.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-3.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-4.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-5.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-6.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-7.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-8.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-9.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-10.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-11.png" width="384"></p>
+<p>Here are the builtin themes. We have added a grey background color to
+make the margins more visible.
+<img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-1.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-2.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-3.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-4.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-5.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-6.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-7.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-8.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-9.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-10.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-11.png" width="384"></p>
 <p>The following table displays the parameters of these themes.</p>
 <table class="table">
+<colgroup>
+<col width="13%">
+<col width="9%">
+<col width="9%">
+<col width="26%">
+<col width="7%">
+<col width="8%">
+<col width="7%">
+<col width="6%">
+<col width="4%">
+<col width="6%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">name</th>
 <th align="left">bg</th>
@@ -278,7 +300,8 @@
 <div class="section level2">
 <h2 id="how-to-modify-an-existing-theme">How to modify an existing theme<a class="anchor" aria-label="anchor" href="#how-to-modify-an-existing-theme"></a>
 </h2>
-<p>It is possible to modify an existing theme. In this example we use the “default” theme and modify some title parameters.</p>
+<p>It is possible to modify an existing theme. In this example we use
+the “default” theme and modify some title parameters.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -292,9 +315,11 @@
 </h2>
 <p>It is possible to create a new theme.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span>bg <span class="op">=</span> <span class="st">"lightblue"</span>, fg <span class="op">=</span> <span class="st">"tomato1"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">2</span>,<span class="fl">0</span>,<span class="fl">2</span><span class="op">)</span>, </span>
-<span>         tab <span class="op">=</span> <span class="cn">TRUE</span>, inner <span class="op">=</span> <span class="cn">TRUE</span>, line <span class="op">=</span> <span class="fl">1.3</span>, pos <span class="op">=</span> <span class="st">"center"</span>, </span>
-<span>         cex <span class="op">=</span> <span class="fl">1.1</span>, font <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span></span>
+<span>  bg <span class="op">=</span> <span class="st">"lightblue"</span>, fg <span class="op">=</span> <span class="st">"tomato1"</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">0</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  tab <span class="op">=</span> <span class="cn">TRUE</span>, inner <span class="op">=</span> <span class="cn">TRUE</span>, line <span class="op">=</span> <span class="fl">1.3</span>, pos <span class="op">=</span> <span class="st">"center"</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1.1</span>, font <span class="op">=</span> <span class="fl">3</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"New theme"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="how_to_use_themes_files/figure-html/unnamed-chunk-6-1.png" width="384"></p>
