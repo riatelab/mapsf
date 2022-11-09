@@ -65,7 +65,7 @@ The **type** column indicates the value to use for the `type` argument in `mf_ma
 +------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
 | Symbols                      | `"symb"`       | category         | ![](fig/poly_s.svg)  | ![](fig/point_s.svg)  |                     | \-                        |
 +------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Proportional Symbols + Typo  | `"prop_typo"`  | stock & category | ![](fig/poly_pt.svg) | ![](fig/point_pt.svg) |                     | `propSymbolsTypoLayer()`  |
+| Proportional Symbols + Typo  | `"prop_typo"`  | stock & category | ![](fig/poly_pt.svg) | ![](fig/point_pt.svg) | ![](fig/line_pt.svg) | `propSymbolsTypoLayer()`  |
 +------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
 | Proportional Symbols + Choro | `"prop_choro"` | stock & ratio    | ![](fig/poly_pc.svg) | ![](fig/point_pc.svg) |                     | `propSymbolsChoroLayer()` |
 +------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
