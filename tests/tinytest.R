@@ -1,5 +1,5 @@
 
 if (requireNamespace("tinytest", quietly = TRUE)) {
-  library(sf)
+  suppressPackageStartupMessages(library(sf))
   tinytest::test_package("mapsf")
 }
