@@ -19,3 +19,4 @@
 ^\.github$
 ^vignettes/web_only/*
 ^CITATION\.cff$
+^codecov\.yml$
