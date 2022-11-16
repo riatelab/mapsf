@@ -17,7 +17,7 @@ mf_export(
 )
 }
 \arguments{
-\item{x}{object of class \code{sf}, \code{sfc} or \code{Raster}}
+\item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
 
 \item{filename}{path to the exported file. If the file extention is ".png" a
 png graphic device is opened, if the file extension is ".svg" a svg graphic

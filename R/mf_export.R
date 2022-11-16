@@ -5,7 +5,7 @@
 #' only one of \code{width} or \code{height} is set, \code{mf_export} uses the
 #' width/height ratio of \code{x} bounding box to find a matching ratio for
 #' the export.
-#' @param x object of class \code{sf}, \code{sfc} or \code{Raster}
+#' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
 #' @param theme apply a theme
