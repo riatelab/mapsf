@@ -13,7 +13,7 @@ get_the_pal <- function(pal, nbreaks, alpha = 1) {
       cols <- rep(pal, nbreaks)
     }
   } else {
-    cols <- pal
+    cols <- pal[1:nbreaks]
   }
   return(cols)
 }
