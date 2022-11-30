@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2022-11-16</h4>
+            <h4 data-toc-skip class="date">2022-11-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/mapsf.Rmd" class="external-link"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -451,8 +451,8 @@ municipality</li>
 <h3 id="base-map">Base map<a class="anchor" aria-label="anchor" href="#base-map"></a>
 </h3>
 <p><code><a href="../reference/mf_init.html">mf_init()</a></code> is designed to initiate a map centered on a
-specific extent (<code>x</code> bbox). The <code>theme</code> argument
-allows to select a theme.</p>
+specific extent (<code>x</code> bounding box). The <code>theme</code>
+argument allows to select a theme.</p>
 <p><code><a href="../reference/mf_shadow.html">mf_shadow()</a></code> plots the shadow of a polygon layer.</p>
 <p><code>mf_map(x, type = "base")</code> displays <code>sf</code>
 objects geometries.</p>
@@ -461,7 +461,7 @@ credits, north arrow, scale bar). Each layout elements can also be set
 separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code>, <code><a href="../reference/mf_credits.html">mf_credits()</a></code>,
 <code><a href="../reference/mf_arrow.html">mf_arrow()</a></code> and <code><a href="../reference/mf_scale.html">mf_scale()</a></code>).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># Initiate a base map</span></span>
@@ -488,7 +488,7 @@ separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code
 areas proportional to a quantitative variable (stocks). The
 <code>inches</code> argument is used to customize the symbols sizes.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># Initiate a base map</span></span>
@@ -533,7 +533,7 @@ defined with <code>pal</code>, can be created with
 <p>Use <code><a href="../reference/mf_theme.html">mf_theme()</a></code> to set a theme without plotting
 anything.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># population density (inhab./km2) using sf::st_area()</span></span>
@@ -572,7 +572,7 @@ a qualitative variable. <code>val_order</code> is used to set the
 modalities order in the legend.</p>
 <p><code><a href="../reference/mf_label.html">mf_label()</a></code> displays labels on the map.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
@@ -618,7 +618,7 @@ to reflect the classification of a second variable.</p>
 expand the map space. Here, we increase the space available on the right
 of the map to avoid overlaps between the legends and the map.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
@@ -661,7 +661,7 @@ of the map to avoid overlaps between the legends and the map.</p>
 symbols that are proportional to values of a first variable and colored
 to reflect the modalities of a second qualitative variable.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
@@ -705,7 +705,7 @@ labels.</p>
 <p>In this example we have built a custom theme with
 <code><a href="../reference/mf_theme.html">mf_theme()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
@@ -763,7 +763,7 @@ links.</p>
 legend in the bottom left corner of the map with an extra space to avoid
 overlaps between the legend and the credits.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># import the csv file embedded in mapsf</span></span>
