@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.2
+# CITATION file created with {cffr} R package, v0.4.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -8,7 +8,7 @@ message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-only
 title: 'mapsf: Thematic Cartography'
-version: 0.5.0
+version: 0.6.0
 abstract: Create and integrate thematic maps in your workflow. This package helps
   to design various cartographic representations such as proportional symbols, choropleth
   or typology maps. It also offers several functions to display layout elements that
@@ -19,36 +19,9 @@ authors:
   given-names: Timothée
   email: timothee.giraud@cnrs.fr
   orcid: https://orcid.org/0000-0002-1932-3323
-preferred-citation:
-  type: manual
-  title: 'mapsf: Thematic Cartography'
-  authors:
-  - family-names: Giraud
-    given-names: Timothée
-    email: timothee.giraud@cnrs.fr
-    orcid: https://orcid.org/0000-0002-1932-3323
-  version: 0.5.0
-  abstract: Create and integrate thematic maps in your workflow. This package helps
-    to design various cartographic representations such as proportional symbols, choropleth
-    or typology maps. It also offers several functions to display layout elements
-    that improve the graphic presentation of maps (e.g. scale bar, north arrow, title,
-    labels). 'mapsf' maps 'sf' objects on 'base' graphics.
-  repository: https://CRAN.R-project.org/package=mapsf
-  repository-code: https://github.com/riatelab/mapsf/issues/
-  url: https://github.com/riatelab/mapsf/
-  identifiers:
-  - type: url
-    value: https://riatelab.github.io/mapsf/
-  contact:
-  - family-names: Giraud
-    given-names: Timothée
-    email: timothee.giraud@cnrs.fr
-    orcid: https://orcid.org/0000-0002-1932-3323
-  license: GPL-3.0-only
-  year: '2022'
 repository: https://CRAN.R-project.org/package=mapsf
 repository-code: https://github.com/riatelab/mapsf/issues/
-url: https://github.com/riatelab/mapsf/
+url: https://riatelab.github.io/mapsf/
 contact:
 - family-names: Giraud
   given-names: Timothée
@@ -58,37 +31,27 @@ references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
   notes: Depends
+  url: https://www.R-project.org/
   authors:
   - name: R Core Team
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
   version: '>= 3.6.0'
 - type: software
-  title: sf
-  abstract: 'sf: Simple Features for R'
-  notes: Depends
-  authors:
-  - family-names: Pebesma
-    given-names: Edzer
-    email: edzer.pebesma@uni-muenster.de
-    orcid: https://orcid.org/0000-0001-8049-7069
-  year: '2022'
-  url: https://CRAN.R-project.org/package=sf
-- type: software
   title: classInt
   abstract: 'classInt: Choose Univariate Class Intervals'
   notes: Imports
+  url: https://r-spatial.github.io/classInt/
+  repository: https://CRAN.R-project.org/package=classInt
   authors:
   - family-names: Bivand
     given-names: Roger
     email: Roger.Bivand@nhh.no
     orcid: https://orcid.org/0000-0003-2392-6140
   year: '2022'
-  url: https://CRAN.R-project.org/package=classInt
 - type: software
   title: graphics
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -98,7 +61,6 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
@@ -110,13 +72,14 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
   title: Rcpp
   abstract: 'Rcpp: Seamless R and C++ Integration'
   notes: Imports
+  url: https://www.rcpp.org
+  repository: https://CRAN.R-project.org/package=Rcpp
   authors:
   - family-names: Eddelbuettel
     given-names: Dirk
@@ -137,7 +100,18 @@ references:
   - family-names: Chambers
     given-names: John
   year: '2022'
-  url: https://CRAN.R-project.org/package=Rcpp
+- type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Imports
+  url: https://r-spatial.github.io/sf/
+  repository: https://CRAN.R-project.org/package=sf
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2022'
 - type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -147,7 +121,6 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
@@ -159,7 +132,6 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
@@ -171,66 +143,72 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
   title: terra
   abstract: 'terra: Spatial Data Analysis'
   notes: Suggests
+  url: https://rspatial.org/terra/
+  repository: https://CRAN.R-project.org/package=terra
   authors:
   - family-names: Hijmans
     given-names: Robert J.
     email: r.hijmans@gmail.com
     orcid: https://orcid.org/0000-0001-5872-2872
   year: '2022'
-  url: https://CRAN.R-project.org/package=terra
 - type: software
   title: png
   abstract: 'png: Read and write PNG images'
   notes: Suggests
+  url: http://www.rforge.net/png/
+  repository: https://CRAN.R-project.org/package=png
   authors:
   - family-names: Urbanek
     given-names: Simon
     email: Simon.Urbanek@r-project.org
   year: '2022'
-  url: https://CRAN.R-project.org/package=png
 - type: software
   title: jpeg
   abstract: 'jpeg: Read and write JPEG images'
   notes: Suggests
+  url: https://www.rforge.net/jpeg/
+  repository: https://CRAN.R-project.org/package=jpeg
   authors:
   - family-names: Urbanek
     given-names: Simon
     email: Simon.Urbanek@r-project.org
   year: '2022'
-  url: https://CRAN.R-project.org/package=jpeg
 - type: software
   title: lwgeom
   abstract: 'lwgeom: Bindings to Selected ''liblwgeom'' Functions for Simple Features'
   notes: Suggests
+  url: https://github.com/r-spatial/lwgeom/
+  repository: https://CRAN.R-project.org/package=lwgeom
   authors:
   - family-names: Pebesma
     given-names: Edzer
     email: edzer.pebesma@uni-muenster.de
     orcid: https://orcid.org/0000-0001-8049-7069
   year: '2022'
-  url: https://CRAN.R-project.org/package=lwgeom
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
   authors:
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2022'
-  url: https://CRAN.R-project.org/package=knitr
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
   authors:
   - family-names: Allaire
     given-names: JJ
@@ -265,28 +243,26 @@ references:
     email: rich@rstudio.com
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2022'
-  url: https://CRAN.R-project.org/package=rmarkdown
 - type: software
   title: tinytest
   abstract: 'tinytest: Lightweight and Feature Complete Unit Testing Framework'
   notes: Suggests
+  url: https://github.com/markvanderloo/tinytest
+  repository: https://CRAN.R-project.org/package=tinytest
   authors:
   - family-names: van der Loo
     given-names: Mark
     email: mark.vanderloo@gmail.com
     orcid: https://orcid.org/0000-0002-9807-4686
   year: '2022'
-  url: https://CRAN.R-project.org/package=tinytest
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
   notes: Suggests
+  url: https://covr.r-lib.org
+  repository: https://CRAN.R-project.org/package=covr
   authors:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=covr
-identifiers:
-- type: url
-  value: https://riatelab.github.io/mapsf/

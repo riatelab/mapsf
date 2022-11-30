@@ -4,17 +4,16 @@
   "identifier": "mapsf",
   "description": "Create and integrate thematic maps in your workflow. This package helps to design various cartographic representations such as proportional symbols, choropleth or typology maps. It also offers several functions to display layout elements that improve the graphic presentation of maps (e.g. scale bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base' graphics.",
   "name": "mapsf: Thematic Cartography",
-  "relatedLink": ["https://riatelab.github.io/mapsf/", "https://CRAN.R-project.org/package=mapsf"],
-  "codeRepository": "https://github.com/riatelab/mapsf/",
+  "codeRepository": "https://riatelab.github.io/mapsf/",
   "issueTracker": "https://github.com/riatelab/mapsf/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -181,18 +180,6 @@
     },
     "2": {
       "@type": "SoftwareApplication",
-      "identifier": "sf",
-      "name": "sf",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=sf"
-    },
-    "3": {
-      "@type": "SoftwareApplication",
       "identifier": "classInt",
       "name": "classInt",
       "provider": {
@@ -203,17 +190,17 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=classInt"
     },
-    "4": {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "graphics",
       "name": "graphics"
     },
-    "5": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods"
     },
-    "6": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "Rcpp",
       "name": "Rcpp",
@@ -224,6 +211,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=Rcpp"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
     },
     "7": {
       "@type": "SoftwareApplication",
@@ -242,10 +241,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "5392.293KB",
-  "releaseNotes": "https://github.com/riatelab/mapsf/blob/master/NEWS.md",
-  "readme": "https://github.com/riatelab/mapsf/blob/master/README.md",
-  "contIntegration": ["https://github.com/riatelab/mapsf/actions", "https://codecov.io/gh/riatelab/mapsf"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["r", "map", "spatial", "spatial-analysis", "cartography", "r-package", "rstats"]
+  "fileSize": "5437.014KB"
 }
