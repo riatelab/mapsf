@@ -140,7 +140,7 @@ Several datasets are embedded in the package:
 
 ## Base map
 
-`mf_init()` is designed to initiate a map centered on a specific extent (`x` bbox). The `theme` argument allows to select a theme.
+`mf_init()` is designed to initiate a map centered on a specific extent (`x` bounding box). The `theme` argument allows to select a theme.
 
 `mf_shadow()` plots the shadow of a polygon layer.
 
