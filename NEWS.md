@@ -1,3 +1,23 @@
+# mapsf 0.6.0
+
+
+## Fix
+- use val_max in mf_prop() for LINES
+- add message when mf_export() is based on longlat obj
+- add a test for "x" class in mf_map() 
+- enable proportional symbol plots for single points (type %in% c("prop", "prop_typo", "prop_choro"); see #45
+- fix a bug in color assignment when there is a mismatch between the number of classes and the size of the color palette
+
+
+## Feat
+- add "prop_typo"" maps for LINES objects 
+- add mf_get_ratio() to get appropriate values for map width & height
+
+
+
+
+
+
 # mapsf 0.5.0
 
 ## Fix
