@@ -7,7 +7,8 @@
 mf_get_breaks(x, nbreaks, breaks, k = 1, central = FALSE, ...)
 }
 \arguments{
-\item{x}{a vector of numeric values}
+\item{x}{a vector of numeric values. NA and Inf values are not used in the
+classification.}
 
 \item{nbreaks}{a number of classes}
 

@@ -8,6 +8,7 @@
 - enable proportional symbol plots for single points (type %in% c("prop", "prop_typo", "prop_choro"); see #45
 - fix a bug in color assignment when there is a mismatch between the number of classes and the size of the color palette
 - add an error for method "geom" in mf_get_breaks() when min(x) <= 0
+- remove Inf values from x when using mf_get_breaks()
 
 ## Feat
 - add "prop_typo"" maps for LINES objects 

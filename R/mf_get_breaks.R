@@ -1,7 +1,8 @@
 #' @title Get class intervals
 #' @name mf_get_breaks
 #' @description A function to classify continuous variables.
-#' @param x a vector of numeric values
+#' @param x a vector of numeric values. NA and Inf values are not used in the
+#' classification.
 #' @param nbreaks a number of classes
 #' @param breaks a classification method; one of "fixed", "sd", "equal",
 #' "pretty", "quantile",
@@ -49,6 +50,7 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   }
 
   x <- as.vector(na.omit(x))
+  x <- x[is.finite(x)]
   customMethods <- c("geom", "arith", "q6", "em", "msd")
 
   # default number of classes
