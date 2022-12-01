@@ -23,7 +23,7 @@
 #' The "q6" method uses the following \code{\link[stats:quantile]{quantile}}
 #' probabilities: 0, 0.05, 0.275, 0.5, 0.725, 0.95, 1.\cr\cr
 #' The "geom" method is based on a geometric progression along
-#' the variable values.\cr\cr
+#' the variable values, all values must be strictly greater than zero.\cr\cr
 #' The "arith" method is based on an arithmetic progression along
 #' the variable values.\cr\cr
 #' The "em" method is based on nested averages computation.\cr\cr
@@ -65,6 +65,13 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   } else {
     if (breaks == "geom") {
       intervals <- min(x)
+      if(intervals <= 0){
+        stop(
+          paste0("All values must be strictly greater ",
+                 "than 0 when using the 'geom' method."),
+          call. = FALSE
+        )
+      }
       intervals <- c(intervals, max(x))
       r <- exp((log(max(x)) - log(min(x))) / nbreaks) # raison
       tmp <- min(x)
@@ -87,8 +94,8 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
     }
     if (breaks == "q6") {
       intervals <- as.vector(quantile(x,
-        probs =
-          c(0, 5, 27.5, 50, 72.5, 95, 100) / 100
+                                      probs =
+                                        c(0, 5, 27.5, 50, 72.5, 95, 100) / 100
       ))
     }
     if (breaks == "em") {

@@ -40,7 +40,7 @@ quite similar results but Fisher is much faster. \cr\cr
 The "q6" method uses the following \code{\link[stats:quantile]{quantile}}
 probabilities: 0, 0.05, 0.275, 0.5, 0.725, 0.95, 1.\cr\cr
 The "geom" method is based on a geometric progression along
-the variable values.\cr\cr
+the variable values, all values must be strictly greater than zero.\cr\cr
 The "arith" method is based on an arithmetic progression along
 the variable values.\cr\cr
 The "em" method is based on nested averages computation.\cr\cr
