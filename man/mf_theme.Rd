@@ -36,11 +36,11 @@ The (invisible) list of theme parameters is returned.
 This function set a map theme.
 The parameters set by this function are the figure margins, background and
 foreground colors and some \link{mf_title} options.
+Use \code{mf_theme('default')} to reset to default theme settings.
 }
 \details{
 It is also possible to set a custom theme using a list of arguments
 (see Examples).
-Use \code{mf_theme('default')} to reset theme settings.
 \code{mf_theme()} returns the current theme settings.
 }
 \examples{
