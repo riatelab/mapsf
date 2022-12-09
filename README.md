@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![CRAN](https://www.r-pkg.org/badges/version/mapsf)](https://cran.r-project.org/package=mapsf)
+[![CRAN](https://www.r-pkg.org/badges/version-ago/mapsf)](https://cran.r-project.org/package=mapsf)
 [![R-CMD-check](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml)
 [![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
 [![codecov](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg?token=TPK6HZOLWH)](https://app.codecov.io/gh/riatelab/mapsf)
@@ -131,13 +131,13 @@ Sheet</a>
 </tbody>
 </table>
 
--   `mapsf`, a New Package for Thematic Mapping - useR 2021!
-    [Video](https://youtu.be/8PMF7cBBH7k?t=2621) &
-    [Slides](https://rcarto.github.io/user2021/) - FOSS4G 2021
-    [Video](https://www.youtube.com/watch?v=dBNp0bzD454) &
-    [Slides](https://rcarto.github.io/foss4g2021/) (EN)  
--   Créer des cartes reproductibles avec `mapsf` - Les lundis de
-    l’Ined - [Slides](https://rcarto.github.io/ined2021/) (FR)
+- `mapsf`, a New Package for Thematic Mapping - useR 2021!
+  [Video](https://youtu.be/8PMF7cBBH7k?t=2621) &
+  [Slides](https://rcarto.github.io/user2021/) - FOSS4G 2021
+  [Video](https://www.youtube.com/watch?v=dBNp0bzD454) &
+  [Slides](https://rcarto.github.io/foss4g2021/) (EN)  
+- Créer des cartes reproductibles avec `mapsf` - Les lundis de l’Ined -
+  [Slides](https://rcarto.github.io/ined2021/) (FR)
 
 ## Background
 
@@ -154,11 +154,11 @@ to migrate from `cartography` to `mapsf`.
 
 ## Alternatives
 
--   [cartography](https://github.com/riatelab/cartography) (*superseded
-    by `mapsf`*)
--   [tmap](https://github.com/r-tmap/tmap)  
--   [ggplot2](https://github.com/tidyverse/ggplot2) +
-    [ggspatial](https://github.com/paleolimbot/ggspatial)
+- [cartography](https://github.com/riatelab/cartography) (*superseded by
+  `mapsf`*)
+- [tmap](https://github.com/r-tmap/tmap)  
+- [ggplot2](https://github.com/tidyverse/ggplot2) +
+  [ggspatial](https://github.com/paleolimbot/ggspatial)
 
 ## Community Guidelines
 
