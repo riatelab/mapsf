@@ -85,7 +85,7 @@ create_dots <- function(x = x, var = var) {
 
   # turn to positive values
   if(min(x[[var]]) < 0){
-    message("Negative values are transformed to potitive values.")
+    message("Negative values have been transformed into positive values.")
     x[[var]] <- abs(x[[var]])
   }
 
