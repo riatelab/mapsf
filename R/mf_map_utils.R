@@ -62,14 +62,14 @@ create_dots <- function(x = x, var = var) {
 
   if(nna > 0){
     if(nna == 1){
-      message("1 'NA' value is not plotted on the map")
+      message("1 'NA' value is not plotted on the map.")
     }else{
       message(paste0(nna, " 'NA' values are not plotted on the map."))
     }
   }
   if(nn0 > 0){
     if(nn0 == 1){
-      message("1 '0' value is not plotted on the map")
+      message("1 '0' value is not plotted on the map.")
     }else{
       message(paste0(nn0, " '0' values are not plotted on the map."))
     }
@@ -77,7 +77,7 @@ create_dots <- function(x = x, var = var) {
 
   if(nnI > 0){
     if(nnI == 1){
-      message("1 'Infinite' value is not plotted on the map")
+      message("1 'Infinite' value is not plotted on the map.")
     }else{
       message(paste0(nnI, " 'Infinite' values are not plotted on the map."))
     }

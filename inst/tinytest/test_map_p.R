@@ -14,3 +14,17 @@ expect_silent(mf_prop(x = mtq, var = "POP", inches = .2, symbol = "circle",
                        leg_title_cex = 1, leg_val_cex = .8, leg_val_rnd = 0,
                        leg_frame = TRUE))
 expect_silent(mf_prop(sf::st_cast(mtq, "MULTILINESTRING"), "POP"))
+
+mtq$POP[1] <- 0
+expect_message(mf_prop(x = mtq, var = "POP", add = FALSE))
+mtq$POP[2] <- NA
+expect_message(mf_prop(x = mtq, var = "POP", add = FALSE))
+mtq$POP[3] <- Inf
+expect_message(mf_prop(x = mtq, var = "POP", add = FALSE))
+mtq$POP[1:3] <- 0
+expect_message(mf_prop(x = mtq, var = "POP", add = FALSE))
+mtq$POP[4:6] <- NA
+expect_message(mf_prop(x = mtq, var = "POP", add = FALSE))
+mtq$POP[8:12] <- Inf
+expect_message(mf_prop(x = mtq, var = "POP", add = FALSE))
+
