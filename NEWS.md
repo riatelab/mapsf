@@ -12,6 +12,7 @@
 - remove Inf values from x when using "prop", "prop_typo" & "prop_choro" maps
 - add informative message when NA, 0 & Inf values are removed when using "prop", "prop_typo" & "prop_choro" maps
 - add informative message when negative values are transformed to positive values when using "prop", "prop_typo" & "prop_choro" maps
+- add explicit support for sfg objects in mf_base(), mf_map(..., type = "base")
 
 ## Feat
 - add "prop_typo"" maps for LINES objects 

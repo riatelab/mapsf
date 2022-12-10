@@ -15,7 +15,7 @@ mf_base(
 )
 }
 \arguments{
-\item{x}{object of class \code{sf} or \code{sfc}}
+\item{x}{object of class \code{sf}, \code{sfc} or \code{sfg}}
 
 \item{col}{color}
 

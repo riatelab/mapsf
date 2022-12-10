@@ -1,8 +1,8 @@
 #' @title Plot an sf object
 #' @description Plot an sf object. This is mostly a wrapper around
 #' \code{plot(st_geometry(x), ...)}.
+#' @param x	object of class \code{sf}, \code{sfc} or \code{sfg}
 #' @eval my_params(c(
-#' 'xfull',
 #' 'col',
 #' 'border',
 #' 'lwd', 'pch',
