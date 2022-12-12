@@ -1,7 +1,9 @@
 #' @title Initialize a map with a specific extent
 #' @name mf_init
-#' @description Plot an invisible layer with the extent of a spatial object.
-#' @param x object of class \code{sf}, \code{sfc} or \code{Raster}
+#' @description Plot an invisible layer with the extent of a spatial object.\cr
+#' Always use \code{add = TRUE} in \code{mf_map} calls following an
+#' \code{mf_init} call.
+#' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
 #' @param theme apply a theme from \code{mf_theme}

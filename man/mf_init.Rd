@@ -7,7 +7,7 @@
 mf_init(x, expandBB = rep(0, 4), theme)
 }
 \arguments{
-\item{x}{object of class \code{sf}, \code{sfc} or \code{Raster}}
+\item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
@@ -18,7 +18,9 @@ direction (bottom, left, top, right)}
 No return value, a map is initiated.
 }
 \description{
-Plot an invisible layer with the extent of a spatial object.
+Plot an invisible layer with the extent of a spatial object.\cr
+Always use \code{add = TRUE} in \code{mf_map} calls following an
+\code{mf_init} call.
 }
 \examples{
 mtq <- mf_get_mtq()
