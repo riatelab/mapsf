@@ -50,27 +50,17 @@ Users of the package could belong to one of two categories: cartographers willin
 
 The **type** column indicates the value to use for the `type` argument in `mf_map(x, var, type)`. The **data** column displays the relevant data types for each map types. The **cartography** column indicates the corresponding function in `cartography`.
 
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| map type                     | type           | data             | polygon              | point                 | line                | cartography               |
-+==============================+================+==================+======================+=======================+=====================+===========================+
-| Base Map                     | `"base"`       | geometry         | ![](fig/poly.svg)    | ![](fig/point.svg)    | ![](fig/line.svg)   | \-                        |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Proportional Symbols         | `"prop"`       | stock            | ![](fig/poly_p.svg)  | ![](fig/point_p.svg)  | ![](fig/line_p.svg) | `propSymbolsLayer()`      |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Typology                     | `"typo"`       | category         | ![](fig/poly_t.svg)  | ![](fig/point_t.svg)  | ![](fig/line_t.svg) | `typoLayer()`             |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Choropleth                   | `"choro"`      | ratio            | ![](fig/poly_c.svg)  | ![](fig/point_c.svg)  | ![](fig/line_c.svg) | `choroLayer()`            |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Graduated Symbols            | `"grad"`       | stock            | ![](fig/poly_g.svg)  | ![](fig/point_g.svg)  | ![](fig/line_g.svg) | \-                        |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Symbols                      | `"symb"`       | category         | ![](fig/poly_s.svg)  | ![](fig/point_s.svg)  |                     | \-                        |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
+| map type                     | type           | data             | polygon              | point                 | line                 | cartography               |
+|---------|---------|---------|---------|---------|---------|---------|
+| Base Map                     | `"base"`       | geometry         | ![](fig/poly.svg)    | ![](fig/point.svg)    | ![](fig/line.svg)    | \-                        |
+| Proportional Symbols         | `"prop"`       | stock            | ![](fig/poly_p.svg)  | ![](fig/point_p.svg)  | ![](fig/line_p.svg)  | `propSymbolsLayer()`      |
+| Typology                     | `"typo"`       | category         | ![](fig/poly_t.svg)  | ![](fig/point_t.svg)  | ![](fig/line_t.svg)  | `typoLayer()`             |
+| Choropleth                   | `"choro"`      | ratio            | ![](fig/poly_c.svg)  | ![](fig/point_c.svg)  | ![](fig/line_c.svg)  | `choroLayer()`            |
+| Graduated Symbols            | `"grad"`       | stock            | ![](fig/poly_g.svg)  | ![](fig/point_g.svg)  | ![](fig/line_g.svg)  | \-                        |
+| Symbols                      | `"symb"`       | category         | ![](fig/poly_s.svg)  | ![](fig/point_s.svg)  |                      | \-                        |
 | Proportional Symbols + Typo  | `"prop_typo"`  | stock & category | ![](fig/poly_pt.svg) | ![](fig/point_pt.svg) | ![](fig/line_pt.svg) | `propSymbolsTypoLayer()`  |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Proportional Symbols + Choro | `"prop_choro"` | stock & ratio    | ![](fig/poly_pc.svg) | ![](fig/point_pc.svg) |                     | `propSymbolsChoroLayer()` |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
-| Symbols + Choro              | `"symb_choro"` | category & ratio | ![](fig/poly_sc.svg) | ![](fig/point_sc.svg) |                     | \-                        |
-+------------------------------+----------------+------------------+----------------------+-----------------------+---------------------+---------------------------+
+| Proportional Symbols + Choro | `"prop_choro"` | stock & ratio    | ![](fig/poly_pc.svg) | ![](fig/point_pc.svg) |                      | `propSymbolsChoroLayer()` |
+| Symbols + Choro              | `"symb_choro"` | category & ratio | ![](fig/poly_sc.svg) | ![](fig/point_sc.svg) |                      | \-                        |
 
 ## Map Layout
 
@@ -93,7 +83,7 @@ The **type** column indicates the value to use for the `type` argument in `mf_ma
 `mf_theme()` defines a map theme. It sets the margins of the figure, a background color, a foreground color and some parameters of the title. A set of theme is included in the package and it is possible to create custom ones.
 
 |                                      |                                         |                                      |
-|:------------------------------------:|:---------------------------------------:|:------------------------------------:|
+|:----------------------:|:-----------------------:|:----------------------:|
 | ![](fig/th_default.svg){width="2in"} | ![](fig/th_agolalight.svg){width="2in"} | ![](fig/th_brutal.svg){width="2in"}  |
 |  ![](fig/th_candy.svg){width="192"}  |    ![](fig/th_dark.svg){width="192"}    | ![](fig/th_darkula.svg){width="192"} |
 |  ![](fig/th_green.svg){width="192"}  |  ![](fig/th_iceberg.svg){width="192"}   |   ![](fig/th_ink.svg){width="192"}   |
@@ -331,7 +321,7 @@ mf_layout(
 
 ## Proportional Symbols using Typology Coloration
 
-`f_map(x, var, type = "prop_typo")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.
+`mf_map(x, var, type = "prop_typo")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.
 
 ```{r mf_map_pt, fig.width=5}
 library(mapsf)
