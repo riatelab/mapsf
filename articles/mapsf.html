@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2022-12-10</h4>
+            <h4 data-toc-skip class="date">2022-12-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/mapsf.Rmd" class="external-link"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -175,16 +175,15 @@ import…).</p></li>
 <strong>data</strong> column displays the relevant data types for each
 map types. The <strong>cartography</strong> column indicates the
 corresponding function in <code>cartography</code>.</p>
-<table style="width:96%;" class="table">
+<table style="width:100%;" class="table">
 <colgroup>
-<col width="18%">
-<col width="9%">
-<col width="11%">
-<col width="13%">
 <col width="14%">
-<col width="12%">
-<col width="16%">
-<col width="0%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
 </colgroup>
 <thead><tr class="header">
 <th>map type</th>
@@ -194,7 +193,6 @@ corresponding function in <code>cartography</code>.</p>
 <th>point</th>
 <th>line</th>
 <th>cartography</th>
-<th></th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -205,7 +203,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point.svg"></td>
 <td><img src="fig/line.svg"></td>
 <td>-</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Proportional Symbols</td>
@@ -215,7 +212,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point_p.svg"></td>
 <td><img src="fig/line_p.svg"></td>
 <td><code>propSymbolsLayer()</code></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Typology</td>
@@ -225,7 +221,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point_t.svg"></td>
 <td><img src="fig/line_t.svg"></td>
 <td><code>typoLayer()</code></td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Choropleth</td>
@@ -235,7 +230,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point_c.svg"></td>
 <td><img src="fig/line_c.svg"></td>
 <td><code>choroLayer()</code></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Graduated Symbols</td>
@@ -245,7 +239,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point_g.svg"></td>
 <td><img src="fig/line_g.svg"></td>
 <td>-</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Symbols</td>
@@ -255,7 +248,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point_s.svg"></td>
 <td></td>
 <td>-</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Proportional Symbols + Typo</td>
@@ -263,10 +255,8 @@ corresponding function in <code>cartography</code>.</p>
 <td>stock &amp; category</td>
 <td><img src="fig/poly_pt.svg"></td>
 <td><img src="fig/point_pt.svg"></td>
-<td colspan="3">
-<img src="fig/line_pt.svg"> |
-<code>propSymbolsTypoLayer()</code>
-</td>
+<td><img src="fig/line_pt.svg"></td>
+<td><code>propSymbolsTypoLayer()</code></td>
 </tr>
 <tr class="even">
 <td>Proportional Symbols + Choro</td>
@@ -276,7 +266,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point_pc.svg"></td>
 <td></td>
 <td><code>propSymbolsChoroLayer()</code></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Symbols + Choro</td>
@@ -286,7 +275,6 @@ corresponding function in <code>cartography</code>.</p>
 <td><img src="fig/point_sc.svg"></td>
 <td></td>
 <td>-</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -346,7 +334,7 @@ possible to create custom ones.</p>
 <table class="table">
 <colgroup>
 <col width="32%">
-<col width="35%">
+<col width="34%">
 <col width="32%">
 </colgroup>
 <tbody>
@@ -657,7 +645,7 @@ of the map to avoid overlaps between the legends and the map.</p>
 <div class="section level3">
 <h3 id="proportional-symbols-using-typology-coloration">Proportional Symbols using Typology Coloration<a class="anchor" aria-label="anchor" href="#proportional-symbols-using-typology-coloration"></a>
 </h3>
-<p><code>f_map(x, var, type = "prop_typo")</code> creates a map of
+<p><code>mf_map(x, var, type = "prop_typo")</code> creates a map of
 symbols that are proportional to values of a first variable and colored
 to reflect the modalities of a second qualitative variable.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
