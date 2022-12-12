@@ -67,10 +67,12 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   } else {
     if (breaks == "geom") {
       intervals <- min(x)
-      if(intervals <= 0){
+      if (intervals <= 0) {
         stop(
-          paste0("All values must be strictly greater ",
-                 "than 0 when using the 'geom' method."),
+          paste0(
+            "All values must be strictly greater ",
+            "than 0 when using the 'geom' method."
+          ),
           call. = FALSE
         )
       }
@@ -96,8 +98,8 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
     }
     if (breaks == "q6") {
       intervals <- as.vector(quantile(x,
-                                      probs =
-                                        c(0, 5, 27.5, 50, 72.5, 95, 100) / 100
+        probs =
+          c(0, 5, 27.5, 50, 72.5, 95, 100) / 100
       ))
     }
     if (breaks == "em") {

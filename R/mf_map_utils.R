@@ -60,31 +60,31 @@ create_dots <- function(x = x, var = var) {
   nn0 <- lx - nna - lx0
   nnI <- lx - nna - nn0 - lxinf
 
-  if(nna > 0){
-    if(nna == 1){
+  if (nna > 0) {
+    if (nna == 1) {
       message("1 'NA' value is not plotted on the map.")
-    }else{
+    } else {
       message(paste0(nna, " 'NA' values are not plotted on the map."))
     }
   }
-  if(nn0 > 0){
-    if(nn0 == 1){
+  if (nn0 > 0) {
+    if (nn0 == 1) {
       message("1 '0' value is not plotted on the map.")
-    }else{
+    } else {
       message(paste0(nn0, " '0' values are not plotted on the map."))
     }
   }
 
-  if(nnI > 0){
-    if(nnI == 1){
+  if (nnI > 0) {
+    if (nnI == 1) {
       message("1 'Infinite' value is not plotted on the map.")
-    }else{
+    } else {
       message(paste0(nnI, " 'Infinite' values are not plotted on the map."))
     }
   }
 
   # turn to positive values
-  if(min(x[[var]]) < 0){
+  if (min(x[[var]]) < 0) {
     message("Negative values have been transformed into positive values.")
     x[[var]] <- abs(x[[var]])
   }
@@ -109,14 +109,14 @@ create_dots <- function(x = x, var = var) {
 #' @noRd
 get_size <- function(var, inches, val_max, symbol) {
   switch(symbol,
-         circle = {
-           smax <- inches * inches * pi
-           size <- sqrt((var * smax / val_max) / pi)
-         },
-         square = {
-           smax <- inches * inches
-           size <- sqrt(var * smax / val_max)
-         }
+    circle = {
+      smax <- inches * inches * pi
+      size <- sqrt((var * smax / val_max) / pi)
+    },
+    square = {
+      smax <- inches * inches
+      size <- sqrt(var * smax / val_max)
+    }
   )
   return(size)
 }
@@ -133,32 +133,32 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
     XY <- dots
   }
   switch(symbol,
-         circle = {
-           symbols(
-             x = XY[, 1],
-             y = XY[, 2],
-             circles = sizes,
-             bg = mycols,
-             fg = border,
-             lwd = lwd,
-             add = TRUE,
-             inches = inches,
-             asp = 1
-           )
-         },
-         square = {
-           symbols(
-             x = XY[, 1],
-             y = XY[, 2],
-             squares = sizes,
-             bg = mycols,
-             fg = border,
-             lwd = lwd,
-             add = TRUE,
-             inches = inches * 2,
-             asp = 1
-           )
-         }
+    circle = {
+      symbols(
+        x = XY[, 1],
+        y = XY[, 2],
+        circles = sizes,
+        bg = mycols,
+        fg = border,
+        lwd = lwd,
+        add = TRUE,
+        inches = inches,
+        asp = 1
+      )
+    },
+    square = {
+      symbols(
+        x = XY[, 1],
+        y = XY[, 2],
+        squares = sizes,
+        bg = mycols,
+        fg = border,
+        lwd = lwd,
+        add = TRUE,
+        inches = inches * 2,
+        asp = 1
+      )
+    }
   )
 }
 
@@ -253,7 +253,7 @@ get_geom_type <- function(x) {
   type <- as.character(unique(type))
   if (length(type) > 1) {
     stop("GEOMETRYCOLLECTION objects should have consistent type",
-         call. = FALSE
+      call. = FALSE
     )
   }
   return(type)
