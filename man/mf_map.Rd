@@ -105,9 +105,8 @@ mf_map can be used to plot all types of maps.
 The three main arguments are: \code{x} (sf object), \code{var} (variable to map), and
 \code{type} (map type).
 
-Relevant arguments and default values are detailed in specific functions.
-
-Maps types:
+Relevant arguments and default values for each map types are detailed in
+specific functions:
 \itemize{
 \item \strong{base}, base maps (\link{mf_base});
 \item \strong{prop}, proportional symbols maps (\link{mf_prop});

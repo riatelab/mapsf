@@ -4,9 +4,8 @@
 #' The three main arguments are: `x` (sf object), `var` (variable to map), and
 #' `type` (map type).
 #'
-#' Relevant arguments and default values are detailed in specific functions.
-#'
-#' Maps types:
+#' Relevant arguments and default values for each map types are detailed in
+#' specific functions:
 #' * **base**, base maps (\link{mf_base});
 #' * **prop**, proportional symbols maps (\link{mf_prop});
 #' * **choro**, choropleth maps (\link{mf_choro});
@@ -20,8 +19,6 @@
 #' * **symb_choro**, symbols maps with symbols colors based on
 #' a quantitative data classification (\link{mf_symb_choro}).
 #' @md
-#'
-#'
 #' @eval my_params(c(
 #' "xfull",
 #' "var",
