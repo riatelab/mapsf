@@ -2,11 +2,11 @@
 #' @description Put labels on a map.
 #' @name mf_label
 #' @eval my_params(c('x', 'var'))
-#' @param col labels color
-#' @param cex labels cex
+#' @param col labels color, it can be a single color or a vector of colors
+#' @param cex labels cex, it can be a single size or a vector of sizes
 #' @param ... further \link{text} arguments.
-#' @param bg halo color
-#' @param r width of the halo
+#' @param bg halo color, it can be a single color or a vector of colors
+#' @param r width of the halo, it can be a single value or a vector of values
 #' @param overlap if FALSE, labels are moved so they do not overlap.
 #' @param halo if TRUE, a 'halo' is displayed around the text and additional
 #' arguments bg and r can be modified to set the color and width of the halo.
@@ -17,8 +17,9 @@
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
+#' mtq$cex <- c(rep(.8, 8), 2, rep(.8, 25))
 #' mf_label(
-#'   x = mtq, var = "LIBGEO", halo = TRUE, cex = 0.8,
+#'   x = mtq, var = "LIBGEO", col = "grey10", halo = TRUE, cex = mtq$cex,
 #'   overlap = FALSE, lines = FALSE
 #' )
 mf_label <- function(x, var,
@@ -49,22 +50,28 @@ mf_label <- function(x, var,
   }
 
   if (!overlap) {
-    x <- unlist(cc[, 1])
-    y <- unlist(cc[, 2])
-    lay <- wordlayout(x, y, words, cex)
+    xo <- unlist(cc[, 1])
+    yo <- unlist(cc[, 2])
+    lay <- wordlayout(xo, yo, words, cex)
 
     if (lines) {
-      for (i in 1:length(x)) {
+      nlab <- length(xo)
+      if(length(col) != nlab){
+        col <- rep(col[1], nlab)
+      }
+      for (i in 1:length(xo)) {
         xl <- lay[i, 1]
         yl <- lay[i, 2]
         w <- lay[i, 3]
         h <- lay[i, 4]
-        if (x[i] < xl || x[i] > xl + w ||
-          y[i] < yl || y[i] > yl + h) {
-          points(x[i], y[i], pch = 16, col = col, cex = .5)
+        if (xo[i] < xl || xo[i] > xl + w ||
+            yo[i] < yl || yo[i] > yl + h) {
+          points(xo[i], yo[i], pch = 16, col = col[i], cex = .5)
           nx <- xl + .5 * w
           ny <- yl + .5 * h
-          lines(c(x[i], nx), c(y[i], ny), col = col, lwd = 1)
+          # ny <- yl
+
+          lines(c(xo[i], nx), c(yo[i], ny), col = col[i], lwd = 1)
         }
       }
     }

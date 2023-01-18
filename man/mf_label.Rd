@@ -22,9 +22,9 @@ mf_label(
 
 \item{var}{name(s) of the variable(s) to plot}
 
-\item{col}{labels color}
+\item{col}{labels color, it can be a single color or a vector of colors}
 
-\item{cex}{labels cex}
+\item{cex}{labels cex, it can be a single size or a vector of sizes}
 
 \item{overlap}{if FALSE, labels are moved so they do not overlap.}
 
@@ -34,9 +34,9 @@ for those words not covering their x,y coordinate}
 \item{halo}{if TRUE, a 'halo' is displayed around the text and additional
 arguments bg and r can be modified to set the color and width of the halo.}
 
-\item{bg}{halo color}
+\item{bg}{halo color, it can be a single color or a vector of colors}
 
-\item{r}{width of the halo}
+\item{r}{width of the halo, it can be a single value or a vector of values}
 
 \item{...}{further \link{text} arguments.}
 }
@@ -49,8 +49,9 @@ Put labels on a map.
 \examples{
 mtq <- mf_get_mtq()
 mf_map(mtq)
+mtq$cex <- c(rep(.8, 8), 2, rep(.8, 25))
 mf_label(
-  x = mtq, var = "LIBGEO", halo = TRUE, cex = 0.8,
+  x = mtq, var = "LIBGEO", col = "grey10", halo = TRUE, cex = mtq$cex,
   overlap = FALSE, lines = FALSE
 )
 }
