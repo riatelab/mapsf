@@ -1,5 +1,3 @@
-
-
 # get coordinates of boxes and total size of box extent
 # for symbols
 get_xy_box_s <- function(x, y, n, w_cex, h_cex, inset) {

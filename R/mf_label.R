@@ -56,7 +56,7 @@ mf_label <- function(x, var,
 
     if (lines) {
       nlab <- length(xo)
-      if(length(col) != nlab){
+      if (length(col) != nlab) {
         col <- rep(col[1], nlab)
       }
       for (i in 1:length(xo)) {
@@ -65,7 +65,7 @@ mf_label <- function(x, var,
         w <- lay[i, 3]
         h <- lay[i, 4]
         if (xo[i] < xl || xo[i] > xl + w ||
-            yo[i] < yl || yo[i] > yl + h) {
+          yo[i] < yl || yo[i] > yl + h) {
           points(xo[i], yo[i], pch = 16, col = col[i], cex = .5)
           nx <- xl + .5 * w
           ny <- yl + .5 * h

@@ -30,10 +30,14 @@ m_borders <- mf_get_borders(x = m)
 # Plot polygons
 mf_map(m)
 # Plot borders
-mf_map(m_borders, col = 1:4, lwd = c(8, 6, 4, 2),
-       add = TRUE)
+mf_map(m_borders,
+  col = 1:4, lwd = c(8, 6, 4, 2),
+  add = TRUE
+)
 # Plot labels
-mf_label(m_borders, "id", overlap = FALSE,
-         lines = FALSE, halo = TRUE,
-         col = 1:4)
+mf_label(m_borders, "id",
+  overlap = FALSE,
+  lines = FALSE, halo = TRUE,
+  col = 1:4
+)
 }

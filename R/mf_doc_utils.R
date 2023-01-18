@@ -1,4 +1,3 @@
-
 my_params <- function(x) {
   params <- list(
     xfull = "x object of class \\code{sf} or \\code{sfc}",

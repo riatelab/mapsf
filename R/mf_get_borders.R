@@ -17,28 +17,33 @@
 #' # Plot polygons
 #' mf_map(m)
 #' # Plot borders
-#' mf_map(m_borders, col = 1:4, lwd = c(8, 6, 4, 2),
-#'        add = TRUE)
+#' mf_map(m_borders,
+#'   col = 1:4, lwd = c(8, 6, 4, 2),
+#'   add = TRUE
+#' )
 #' # Plot labels
-#' mf_label(m_borders, "id", overlap = FALSE,
-#'          lines = FALSE, halo = TRUE,
-#'          col = 1:4)
+#' mf_label(m_borders, "id",
+#'   overlap = FALSE,
+#'   lines = FALSE, halo = TRUE,
+#'   col = 1:4
+#' )
 #' @export
-mf_get_borders <- function(x, id){
-  if(get_geom_type(x) != "POLYGON"){
+mf_get_borders <- function(x, id) {
+  if (get_geom_type(x) != "POLYGON") {
     stop(paste0('"x" should be a POLYGON sf object'), call. = FALSE)
   }
 
-  if(sf::st_is_longlat(x)){
-    stop(paste0('This function does not work with unprojected objects'),
-         call. = FALSE)
+  if (sf::st_is_longlat(x)) {
+    stop(paste0("This function does not work with unprojected objects"),
+      call. = FALSE
+    )
   }
 
-  if(missing(id)){
+  if (missing(id)) {
     id <- names(x)[1]
   }
 
-  sf::st_geometry(x) <-  sf::st_buffer(x = sf::st_geometry(x), 1, nQuadSegs = 5)
+  sf::st_geometry(x) <- sf::st_buffer(x = sf::st_geometry(x), 1, nQuadSegs = 5)
   lx <- sf::st_cast(x, "MULTILINESTRING")
 
   l <- sf::st_intersects(x, x, sparse = FALSE)
@@ -69,8 +74,8 @@ mf_get_borders <- function(x, id){
       id2 <- myl[[i]][[j]]
       po <- x[x[[id]] == id2, ]
       Inter <- sf::st_intersection(sf::st_geometry(li), sf::st_geometry(po))
-      df[ind,] <- c(paste0(id1,"_",id2), id1, id2)
-      lgeo[[ind]]   <- Inter[[1]]
+      df[ind, ] <- c(paste0(id1, "_", id2), id1, id2)
+      lgeo[[ind]] <- Inter[[1]]
       ind <- ind + 1
     }
   }
@@ -79,7 +84,7 @@ mf_get_borders <- function(x, id){
   df <- sf::st_cast(x = df, to = "MULTILINESTRING")
   sf::st_set_crs(df, sf::st_crs(x))
 
-  df2 <- df[, c(1,3,2)]
+  df2 <- df[, c(1, 3, 2)]
 
   names(df2) <- c("id", "id1", "id2", "geometry")
   df2$id <- paste(df2$id1, df2$id2, sep = "_")
@@ -87,5 +92,3 @@ mf_get_borders <- function(x, id){
   row.names(borderlines) <- borderlines$id
   return(borderlines)
 }
-
-
