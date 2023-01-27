@@ -17,18 +17,17 @@
 mf_title <- function(txt = "Map Title", pos, tab,
                      bg, fg, cex, line, font,
                      inner) {
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  ar <- .gmapsf$args
-  if (missing(tab)) tab <- ar$tab
-  if (missing(pos)) pos <- ar$pos
-  if (missing(inner)) inner <- ar$inner
-  if (missing(line)) line <- ar$line
-  if (missing(cex)) cex <- ar$cex
-  if (missing(font)) font <- ar$font
-  if (missing(bg)) bg <- ar$fg
-  if (missing(fg)) fg <- ar$bg
+  if (missing(tab)) tab <- getOption("mapsf.tab")
+  if (missing(pos)) pos <- getOption("mapsf.pos")
+  if (missing(inner)) inner <- getOption("mapsf.inner")
+  if (missing(line)) line <- getOption("mapsf.line")
+  if (missing(cex)) cex <- getOption("mapsf.cex")
+  if (missing(font)) font <- getOption("mapsf.font")
+  if (missing(bg)) bg <- getOption("mapsf.fg")
+  if (missing(fg)) fg <- getOption("mapsf.bg")
 
 
   # correct line space for multiplot

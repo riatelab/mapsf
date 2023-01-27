@@ -19,3 +19,4 @@ expect_silent(mf_theme(bg = "darkslategrey", fg = "cornsilk3",
                        tab = FALSE, pos = "center", inner = FALSE,
                        line = 2, cex = 2, font = 4)
 )
+expect_silent(mf_theme(NULL))

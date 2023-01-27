@@ -23,7 +23,7 @@ mf_raster <- function(x, add = FALSE, ...) {
     )
   }
 
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
   if (add == FALSE) {

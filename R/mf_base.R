@@ -27,7 +27,7 @@ mf_base <- function(x,
                     add = FALSE,
                     ...) {
   # margins mgmt
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
   if (add == FALSE) {

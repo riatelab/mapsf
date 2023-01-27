@@ -34,7 +34,7 @@ mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
 
   os2 <- suppressMessages(quiet(sf::sf_use_s2(FALSE)))
   on.exit(suppressMessages(quiet(sf::sf_use_s2(os2))), add = TRUE)
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op), add = TRUE)
   ops <- list(...)
   ops$pch <- ifelse(is.null(ops$pch), 17, ops$pch)
@@ -54,7 +54,7 @@ mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
       plot(orthomap(lon, lat, disc = TRUE),
         col = water_col,
         border = water_col,
-        bg = .gmapsf$args$bg
+        bg = getOption("mapsf.bg")
       )
       plot(orthomap(lon, lat, disc = FALSE),
         add = TRUE,

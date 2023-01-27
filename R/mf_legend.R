@@ -66,11 +66,11 @@ mf_legend <- function(type, pos, val, pal,
 
   args <- args[-1]
 
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  if (missing(bg)) args$bg <- .gmapsf$args$bg
-  if (missing(fg)) args$fg <- .gmapsf$args$fg
+  if (missing(bg)) args$bg <- getOption("mapsf.bg")
+  if (missing(fg)) args$fg <- getOption("mapsf.fg")
   switch(type,
     prop = do.call(what = mf_legend_p, args),
     choro = do.call(what = mf_legend_c, args),

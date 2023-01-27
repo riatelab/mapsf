@@ -30,14 +30,14 @@ mf_label <- function(x, var,
                      bg,
                      r = 0.1, ...) {
   # margins mgmt
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
   if (missing(col)) {
-    col <- .gmapsf$args$fg
+    col <- getOption("mapsf.fg")
   }
   if (missing(bg)) {
-    bg <- .gmapsf$args$bg
+    bg <- getOption("mapsf.bg")
   }
   words <- x[[var]]
   cc <- sf::st_coordinates(sf::st_centroid(

@@ -14,11 +14,11 @@
 #' mf_arrow(pos = "topright")
 mf_arrow <- function(pos = "topleft", col, adjust) {
   if (missing(col)) {
-    col <- .gmapsf$args$fg
+    col <- getOption("mapsf.fg")
   }
 
   # why commented, test?
-  # op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  # op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   # on.exit(par(op))
 
   azim <- "N"

@@ -43,8 +43,8 @@ mf_export <- function(x,
   if (!missing(theme)) {
     mf_theme(theme)
   }
-  mar <- .gmapsf$args$mar
-  bgmap <- .gmapsf$args$bg
+  mar <- getOption("mapsf.mar")
+  bgmap <- getOption("mapsf.bg")
   if (!missing(export)) {
     message('"export" is deprecated.')
   }
@@ -147,7 +147,7 @@ mf_export <- function(x,
 
 
   # margins mgmt
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
   # plot with bg and margins
   plot(y, col = NA, border = NA, expandBB = expandBB)

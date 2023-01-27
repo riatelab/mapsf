@@ -32,17 +32,17 @@
 mf_annotation <- function(x, txt, pos = "topright",
                           cex = 0.8, col_arrow,
                           col_txt, halo = FALSE, bg, s = 1, ...) {
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
   if (missing(col_arrow)) {
     col_arrow <- "black"
   }
   if (missing(col_txt)) {
-    col_txt <- .gmapsf$args$fg
+    col_txt <- getOption("mapsf.fg")
   }
   if (missing(bg)) {
-    bg <- .gmapsf$args$bg
+    bg <- getOption("mapsf.bg")
   }
 
 

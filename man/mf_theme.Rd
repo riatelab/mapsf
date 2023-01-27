@@ -4,7 +4,7 @@
 \alias{mf_theme}
 \title{Set a theme}
 \usage{
-mf_theme(x = "default", bg, fg, mar, tab, pos, inner, line, cex, font)
+mf_theme(x, bg, fg, mar, tab, pos, inner, line, cex, font)
 }
 \arguments{
 \item{x}{name of a map theme. One of "default", "brutal", "ink",

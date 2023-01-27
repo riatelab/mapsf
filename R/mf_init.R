@@ -20,8 +20,8 @@ mf_init <- function(x, expandBB = rep(0, 4), theme) {
   if (!missing(theme)) {
     mf_theme(theme)
   }
-  mar <- .gmapsf$args$mar
-  bgmap <- .gmapsf$args$bg
+  mar <- getOption("mapsf.mar")
+  bgmap <- getOption("mapsf.bg")
 
   if (is(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
@@ -48,7 +48,7 @@ mf_init <- function(x, expandBB = rep(0, 4), theme) {
   }
 
   # margins mgmt
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
   # plot with bg and margins

@@ -20,7 +20,7 @@ mf_credits <- function(txt = "Source(s) & Author(s)",
                        font = 3,
                        bg = NA) {
   if (missing(col)) {
-    col <- .gmapsf$args$fg
+    col <- getOption("mapsf.fg")
   }
   pd <- par("usr")
   pw <- pd[2] - pd[1]

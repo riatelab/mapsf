@@ -36,7 +36,7 @@ mf_legend_gl <- function(pos = "topleft", val,
                          bg,
                          fg,
                          cex = 1) {
-  op <- par(mar = .gmapsf$args$mar, no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
   # stop if the position is not valid
   if (length(pos) == 1) {
@@ -48,8 +48,8 @@ mf_legend_gl <- function(pos = "topleft", val,
   # default values
   insetf <- strwidth("MM", units = "user", cex = 1)
   inset <- insetf * cex
-  if (missing(bg)) bg <- .gmapsf$args$bg
-  if (missing(fg)) fg <- .gmapsf$args$fg
+  if (missing(bg)) bg <- getOption("mapsf.bg")
+  if (missing(fg)) fg <- getOption("mapsf.fg")
 
 
   w <- inset

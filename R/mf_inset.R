@@ -80,7 +80,7 @@ mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
     tgx <- c(ffig[1] + ffig2[1:2], ffig[3] + ffig2[3:4])
   }
 
-  theme <- .gmapsf$args
+  theme <- mf_theme()
   .gmapsf$oth <- theme
 
 

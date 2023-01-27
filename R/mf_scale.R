@@ -22,7 +22,7 @@ mf_scale <- function(size, pos = "bottomright",
                      lwd = 1.5, cex = 0.6, col, unit = "km") {
   # default color
   if (missing(col)) {
-    col <- .gmapsf$args$fg
+    col <- getOption("mapsf.fg")
   }
 
   # get the current plot dimensions

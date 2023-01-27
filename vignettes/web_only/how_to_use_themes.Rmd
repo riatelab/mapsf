@@ -48,8 +48,8 @@ for (i in themes) {
   ax <- mf_theme(i)
   a <- rbind(a, paste0(ax))
 }
-a <- as.data.frame(a)
-names(a) <- c("name", "bg", "fg", "mar", "tab", "pos", "inner", "line", "cex", "font")
+a <- as.data.frame(a, row.names = themes)
+names(a) <- c("bg", "fg", "mar", "tab", "pos", "inner", "line", "cex", "font")
 # pipe tables by default
 knitr::kable(a)
 ```
