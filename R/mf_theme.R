@@ -66,7 +66,6 @@ mf_theme <- function(x,
                      line,
                      cex,
                      font) {
-
   # current theme
   theme <- list(
     bg = getOption("mapsf.bg"),
@@ -92,7 +91,7 @@ mf_theme <- function(x,
 
 
   # input a theme name
-  if(!missing(x)){
+  if (!missing(x)) {
     # if is.null(x) => set default theme
     if (is.null(x)) {
       x <- "default"
