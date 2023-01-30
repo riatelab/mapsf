@@ -143,7 +143,8 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # Initiate a base map
-mf_init(x = mtq, theme = "iceberg")
+mf_theme("iceberg")
+mf_init(x = mtq)
 # Plot a shadow
 mf_shadow(mtq, add = TRUE)
 # plot municipalities
@@ -168,7 +169,8 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # Initiate a base map
-mf_init(x = mtq, theme = "iceberg")
+mf_theme("darkula")
+mf_init(x = mtq)
 # Plot a shadow
 mf_shadow(mtq, add = TRUE)
 # plot municipalities
@@ -287,7 +289,9 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # set theme
-mf_init(x = mtq, theme = "candy", expandBB = c(0, 0, 0, .15))
+mf_theme("candy")
+# expand the map space
+mf_init(x = mtq, expandBB = c(0, 0, 0, .15))
 # Plot a shadow
 mf_shadow(mtq, add = TRUE)
 # Plot the municipalities
@@ -328,7 +332,9 @@ library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
 # set theme
-mf_init(x = mtq, theme = "ink", expandBB = c(0, 0, 0, .15))
+mf_theme("ink")
+# expand the map space
+mf_init(x = mtq, expandBB = c(0, 0, 0, .15))
 # Plot a shadow
 mf_shadow(mtq, add = TRUE)
 # Plot the municipalities
@@ -430,9 +436,10 @@ mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
 mob_97209 <- mob[mob$i == 97209, ]
 # create an sf object of links
 mob_links <- mf_get_links(x = mtq, df = mob_97209)
-# set figure background color
 # set theme
-mf_init(x = mtq, theme = "dark")
+mf_theme("dark")
+# initiate map
+mf_init(x = mtq)
 # Plot a shadow
 mf_shadow(mtq, add = TRUE)
 # Plot the municipalities

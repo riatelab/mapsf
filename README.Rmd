@@ -77,10 +77,10 @@ A more detailed example:
 
 ```{r example3, results=FALSE, eval = FALSE}
 # Export a map with a theme and extra margins
+mf_theme("green")
 mf_export(
   x = mtq, filename = "mtq.png",
   width = 600, res = 120,
-  theme = "green",
   expandBB = c(0, 0, 0, .3)
 )
 # Plot a shadow

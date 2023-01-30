@@ -10,7 +10,7 @@ mf_get_ratio(
   height,
   res = 96,
   expandBB = rep(0, 4),
-  theme = "default"
+  theme = mf_theme()
 )
 }
 \arguments{

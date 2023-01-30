@@ -19,11 +19,12 @@ knitr::opts_chunk$set(
 ```
 
 
-**`mf_theme()`** sets a map theme. A theme is a set of graphical parameters that are applied to maps created with `mapsf`. These parameters are the figure margins, background and foreground colors and `mf_title()` options. `mapsf` offers some builtin themes. It's possible to modify an existing theme or to start a theme from scratch. The map theme can also be set with `mf_init()` and `mf_export()`.
+**`mf_theme()`** sets a map theme. A theme is a set of graphical parameters that are applied to maps created with `mapsf`. These parameters are the figure margins, background and foreground colors and `mf_title()` options. `mapsf` offers some builtin themes. It's possible to modify an existing theme or to start a theme from scratch.
+Themes are persistent across maps produced by `mapsf` (e.g. they survive a `dev.off()` call). 
 
 ## Builtin themes
 
-Here are the builtin themes. We have added a grey background color to make the margins more visible. 
+Here are the builtin themes. We have added a grey background color to make the margins more visible.   
 ```{r, echo = FALSE}
 par(bg = "grey")
 suppressPackageStartupMessages(library(mapsf))
@@ -82,5 +83,19 @@ mf_map(mtq)
 mf_title("New theme")
 ```
 
+
+It is also possible to assign a theme to a variable. 
+
+
+```{r}
+blue_theme <- mf_theme("dark", bg = "lightblue")
+green_theme <- mf_theme("default", bg = "lightgreen")
+mf_theme(blue_theme)
+mf_map(mtq)
+mf_title("Blue Theme")
+mf_theme(green_theme)
+mf_map(mtq)
+mf_title("Green Theme")
+```
 
 

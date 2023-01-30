@@ -15,9 +15,14 @@ dev.off()
 expect_silent(mf_export(mtq, filename = paste0(tempfile(), ".svg"),
                         width = 6, height = 6))
 dev.off()
-expect_silent(mf_export(mtq, theme = "darkula",
+expect_warning(mf_export(mtq, theme = "darkula",
                         filename = paste0(tempfile(), ".svg")))
 dev.off()
+
+expect_silent(mf_export(mtq, filename = paste0(tempfile(), ".svg")))
+dev.off()
+
+
 expect_message(mf_export(mtq, width = 51,
                          filename = paste0(tempfile(), ".svg")))
 dev.off()

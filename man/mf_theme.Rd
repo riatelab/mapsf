@@ -9,7 +9,7 @@ mf_theme(x, bg, fg, mar, tab, pos, inner, line, cex, font)
 \arguments{
 \item{x}{name of a map theme. One of "default", "brutal", "ink",
 "dark", "agolalight", "candy", "darkula", "iceberg", "green", "nevermind",
-"jsk", "barcelona". If x is used other parameters are ignored.}
+"jsk", "barcelona".}
 
 \item{bg}{background color}
 
@@ -19,7 +19,7 @@ mf_theme(x, bg, fg, mar, tab, pos, inner, line, cex, font)
 
 \item{tab}{if TRUE the title is displayed as a 'tab'}
 
-\item{pos}{position, one of 'left', 'center', 'right'}
+\item{pos}{title position, one of 'left', 'center', 'right'}
 
 \item{inner}{if TRUE the title is displayed inside the plot area.}
 
@@ -36,7 +36,8 @@ The (invisible) list of theme parameters is returned.
 This function set a map theme.
 The parameters set by this function are the figure margins, background and
 foreground colors and some \link{mf_title} options.
-Use \code{mf_theme('default')} to reset to default theme settings.
+Use \code{mf_theme(NULL)} or \code{mf_theme('default')} to reset to default
+theme settings.
 }
 \details{
 It is also possible to set a custom theme using a list of arguments
@@ -46,23 +47,32 @@ It is also possible to set a custom theme using a list of arguments
 \examples{
 mtq <- mf_get_mtq()
 
-# built-in theme
-mf_theme("green")
+# Choosing a theme by name:
+mf_theme("default")
 mf_map(mtq)
 mf_title()
 
-# theme from arguments
-mf_theme(
-  bg = "darkslategrey", fg = "cornsilk3", mar = c(2, 2, 4, 2),
-  tab = FALSE, pos = "center", inner = FALSE,
-  line = 2, cex = 2, font = 4
-)
+# Specifying some values directly:
+mf_theme(bg = "darkslategrey", fg = "lightgrey")
 mf_map(mtq)
-mf_layout()
+mf_title()
 
-# theme from list
-custom <- list(
-  name = "custom",
+# Using a mix of the above:
+mf_theme("brutal", fg = "lightgreen", pos = "center", font = 2, tab = FALSE)
+mf_map(mtq)
+mf_title()
+
+# Specifying a list with theme values:
+theme <- mf_theme("default")
+theme$mar <- c(1, 1, 3, 1)
+theme$line <- 2
+theme$cex <- 1.5
+mf_theme(theme)
+mf_map(mtq)
+mf_title()
+
+# or
+theme <- list(
   bg = "green",
   fg = "red",
   mar = c(2, 2, 2, 2),
@@ -73,9 +83,15 @@ custom <- list(
   cex = 1.5,
   font = 3
 )
-mf_theme(custom)
+mf_theme(theme)
 mf_map(mtq)
 mf_title()
 
-(mf_theme("default"))
+# Obtaining a list of parameters for the current theme:
+mf_theme()
+
+# Removing the current theme:
+mf_theme(NULL)
+# or
+mf_theme("default")
 }

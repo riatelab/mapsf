@@ -116,6 +116,7 @@ mf_map <- function(x, var, type = "base",
 
   argx <- as.list(match.call()[-1])
   argx <- argx[names(argx) != "type"]
+  # a <- do.call(what = get(paste0("mf_",type)), argx, envir = parent.frame())
 
   switch(type,
     prop = do.call(what = mf_prop, argx, envir = parent.frame()),

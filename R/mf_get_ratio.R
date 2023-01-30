@@ -26,7 +26,7 @@ mf_get_ratio <- function(x,
                          width, height,
                          res = 96,
                          expandBB = rep(0, 4),
-                         theme = "default") {
+                         theme = mf_theme()) {
   if (is(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
@@ -48,9 +48,16 @@ mf_get_ratio <- function(x,
       "You may want to check 'x' CRS. "
     ))
   }
-  old_theme <- mf_theme()
-  new_theme <- mf_theme(theme)
-  mar <- new_theme$mar
+
+  if(missing(theme)){
+    mar <- getOption("mapsf.mar")
+  }else{
+    old_theme <- mf_theme()
+    mf_theme(theme)
+    mar <- getOption("mapsf.mar")
+    mf_theme(old_theme)
+  }
+
 
   # transform to bbox
   bb <- st_bbox(x)
@@ -84,6 +91,6 @@ mf_get_ratio <- function(x,
     heightmar <- height - (0.2 * (mar[1] + mar[3]) * res)
     width <- (heightmar / hw) + (0.2 * (mar[2] + mar[4]) * res)
   }
-  mf_theme(old_theme)
+
   return(unname(round(c(width, height) / 96, 2)))
 }

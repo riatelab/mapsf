@@ -11,7 +11,7 @@
 #' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @param theme apply a theme
+#' @param theme apply a theme (deprecated)
 #' @param filename path to the exported file. If the file extention is ".png" a
 #' png graphic device is opened, if the file extension is ".svg" a svg graphic
 #' device is opened.
@@ -41,8 +41,13 @@ mf_export <- function(x,
                       theme,
                       export = "png") {
   if (!missing(theme)) {
+    warning(paste0("'theme' is deprecated.\n",
+                   "In the next version of mapsf the current theme ",
+                   "will be applied to the export."),
+            call. = FALSE)
     mf_theme(theme)
   }
+
   mar <- getOption("mapsf.mar")
   bgmap <- getOption("mapsf.bg")
   if (!missing(export)) {
@@ -74,7 +79,7 @@ mf_export <- function(x,
     st_crs(y) <- proj
     mf_export(
       x = y, filename = filename, width = width, height = height, res = res,
-      expandBB = c(rep(-.04, 4)) + expandBB, theme = theme, ...
+      expandBB = c(rep(-.04, 4)) + expandBB, ...
     )
     return(invisible(x))
   }
@@ -139,11 +144,11 @@ mf_export <- function(x,
     }
     svg(filename = filename, width = fd[1], height = fd[2], ...)
   }
-  if (!missing(theme)) {
-    mf_theme(theme)
-  } else {
-    mf_theme(mf_theme())
-  }
+  # if (!missing(theme)) {
+  #   mf_theme(theme)
+  # } else {
+  #   mf_theme(mf_theme())
+  # }
 
 
   # margins mgmt

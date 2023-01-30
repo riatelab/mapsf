@@ -34,7 +34,7 @@ device is opened.}
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
 
-\item{theme}{apply a theme}
+\item{theme}{apply a theme (deprecated)}
 
 \item{export}{deprecated}
 }

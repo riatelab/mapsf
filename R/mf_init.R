@@ -6,7 +6,7 @@
 #' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @param theme apply a theme from \code{mf_theme}
+#' @param theme apply a theme (deprecated)
 #' @export
 #' @importFrom methods is
 #' @importFrom sf st_bbox st_as_sfc st_geometry `st_crs<-`
@@ -18,6 +18,10 @@
 #' mf_map(mtq, add = TRUE)
 mf_init <- function(x, expandBB = rep(0, 4), theme) {
   if (!missing(theme)) {
+    warning(paste0("'theme' is deprecated.\n",
+                   "In the next version of mapsf the current theme ",
+                   "will be applied."),
+            call. = FALSE)
     mf_theme(theme)
   }
   mar <- getOption("mapsf.mar")

@@ -12,7 +12,7 @@ mf_init(x, expandBB = rep(0, 4), theme)
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
 
-\item{theme}{apply a theme from \code{mf_theme}}
+\item{theme}{apply a theme (deprecated)}
 }
 \value{
 No return value, a map is initiated.
