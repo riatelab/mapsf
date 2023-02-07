@@ -32,6 +32,7 @@ mf_map(
   leg_val_rnd,
   leg_no_data,
   leg_frame,
+  expandBB,
   add,
   ...
 )
@@ -91,6 +92,9 @@ mf_map(
 \item{leg_no_data}{label for missing values}
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
+
+\item{expandBB}{fractional values to expand the bounding box with, in each
+direction (bottom, left, top, right)}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 
