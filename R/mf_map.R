@@ -147,7 +147,8 @@ mf_map <- function(x, var, type = "base",
     argx$add <- add
   }
 
-
+  # enabling pipe without side effect
+  argx$x <- eval(x)
 
   x <- do.call(what = get(paste0("mf_",type)), argx, envir = parent.frame())
 
