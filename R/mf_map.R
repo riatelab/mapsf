@@ -49,6 +49,8 @@
 #' "prop_choro", "prop_typo", "symb_choro"
 #' @param cex cex (point size) for symbols
 #' @param pch pch (point type) for symbols
+#' @param expandBB fractional values to expand the bounding box with, in each
+#' direction (bottom, left, top, right)
 #' @param ... further parameters from \link{plot} for sfc objects
 #' @export
 #' @return x is (invisibly) returned.
@@ -76,7 +78,7 @@ mf_map <- function(x, var, type = "base",
                    col_na, cex_na, pch_na,
                    leg_pos, leg_title, leg_title_cex,
                    leg_val_cex, leg_val_rnd, leg_no_data,
-                   leg_frame, add,
+                   leg_frame, expandBB, add,
                    ...) {
   # check args
   if (!type %in% c(
@@ -108,27 +110,31 @@ mf_map <- function(x, var, type = "base",
       lin <- var %in% names(x)
       if (lv != length(lin[lin == TRUE])) {
         stop(paste0("It is likely that 'var' is not a valid variable name."),
-          call. = FALSE
+             call. = FALSE
         )
       }
     }
   }
 
+
+
+
+
+  # print(add)
   argx <- as.list(match.call()[-1])
-  argx <- argx[names(argx) != "type"]
-  # a <- do.call(what = get(paste0("mf_",type)), argx, envir = parent.frame())
+  argx <- argx[!names(argx) %in% c("type", "expandBB")]
 
-  switch(type,
-    prop = do.call(what = mf_prop, argx, envir = parent.frame()),
-    choro = do.call(what = mf_choro, argx, envir = parent.frame()),
-    typo = do.call(what = mf_typo, argx, envir = parent.frame()),
-    symb = do.call(what = mf_symb, argx, envir = parent.frame()),
-    base = do.call(what = mf_base, argx, envir = parent.frame()),
-    grad = do.call(what = mf_grad, argx, envir = parent.frame()),
-    prop_choro = do.call(what = mf_prop_choro, argx, envir = parent.frame()),
-    prop_typo = do.call(what = mf_prop_typo, argx, envir = parent.frame()),
-    symb_choro = do.call(what = mf_symb_choro, argx, envir = parent.frame())
-  )
 
-  # return(invisible(x))
+  if (!missing(expandBB) && !add){
+    mf_init(x, expandBB = expandBB)
+    argx$add <- TRUE
+  } else {
+    argx$add <- add
+  }
+
+
+
+  x <- do.call(what = get(paste0("mf_",type)), argx, envir = parent.frame())
+
+ return(invisible(x))
 }
