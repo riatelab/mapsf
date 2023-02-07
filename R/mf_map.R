@@ -116,11 +116,26 @@ mf_map <- function(x, var, type = "base",
     }
   }
 
+  # add mgmgt, set default add, do not add if no device is launch
+  if(missing(add)){
+    add <- switch(type,
+                  prop = TRUE,
+                  choro = FALSE,
+                  typo = FALSE,
+                  symb = TRUE,
+                  base = FALSE,
+                  grad = TRUE,
+                  prop_choro = TRUE,
+                  prop_typo = TRUE,
+                  symb_choro = TRUE)
+  }
 
 
+  if(is.null(grDevices::dev.list())){
+    add <- FALSE
+  }
 
 
-  # print(add)
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% c("type", "expandBB")]
 
