@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.0</span>
       </span>
     </div>
 
@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2023-01-23</h4>
+            <h4 data-toc-skip class="date">2023-02-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_use_themes.Rmd" class="external-link"><code>vignettes/web_only/how_to_use_themes.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_use_themes.Rmd</code></div>
@@ -126,15 +126,14 @@ a set of graphical parameters that are applied to maps created with
 <code>mapsf</code>. These parameters are the figure margins, background
 and foreground colors and <code><a href="../../reference/mf_title.html">mf_title()</a></code> options.
 <code>mapsf</code> offers some builtin themes. It’s possible to modify
-an existing theme or to start a theme from scratch. The map theme can
-also be set with <code><a href="../../reference/mf_init.html">mf_init()</a></code> and
-<code><a href="../../reference/mf_export.html">mf_export()</a></code>.</p>
+an existing theme or to start a theme from scratch. Themes are
+persistent across maps produced by <code>mapsf</code> (e.g. they survive
+a <code><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off()</a></code> call).</p>
 <div class="section level2">
 <h2 id="builtin-themes">Builtin themes<a class="anchor" aria-label="anchor" href="#builtin-themes"></a>
 </h2>
 <p>Here are the builtin themes. We have added a grey background color to
-make the margins more visible.
-<img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-1.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-2.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-3.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-4.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-5.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-6.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-7.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-8.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-9.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-10.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-11.png" width="384"></p>
+make the margins more visible.<br><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-1.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-2.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-3.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-4.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-5.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-6.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-7.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-8.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-9.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-10.png" width="384"><img src="how_to_use_themes_files/figure-html/unnamed-chunk-2-11.png" width="384"></p>
 <p>The following table displays the parameters of these themes.</p>
 <table class="table">
 <colgroup>
@@ -150,7 +149,7 @@ make the margins more visible.
 <col width="6%">
 </colgroup>
 <thead><tr class="header">
-<th align="left">name</th>
+<th align="left"></th>
 <th align="left">bg</th>
 <th align="left">fg</th>
 <th align="left">mar</th>
@@ -323,6 +322,19 @@ the “default” theme and modify some title parameters.</p>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"New theme"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="how_to_use_themes_files/figure-html/unnamed-chunk-6-1.png" width="384"></p>
+<p>It is also possible to assign a theme to a variable.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">blue_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span>, bg <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span></span>
+<span><span class="va">green_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"default"</span>, bg <span class="op">=</span> <span class="st">"lightgreen"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="va">blue_theme</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Blue Theme"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="how_to_use_themes_files/figure-html/unnamed-chunk-7-1.png" width="384"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="va">green_theme</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Green Theme"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="how_to_use_themes_files/figure-html/unnamed-chunk-7-2.png" width="384"></p>
 </div>
   </div>
 

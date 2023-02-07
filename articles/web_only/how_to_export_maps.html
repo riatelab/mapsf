@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.0</span>
       </span>
     </div>
 
@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2023-01-23</h4>
+            <h4 data-toc-skip class="date">2023-02-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_export_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_export_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_export_maps.Rmd</code></div>
@@ -126,14 +126,14 @@ formats.<br>
 The exported map width/height ratio will match the one of a spatial
 object.<br>
 If <code>width</code> is specified, then <code>height</code> is deduced
-from the width/height ratio of <code>x</code>, figure margins and title
-size.<br>
+from the width/height ratio of <code>x</code> and some theme parameters
+(figure margins and title size).<br>
 If <code>height</code> is specified, then <code>width</code> is deduced
-from the width/height ratio of <code>x</code>, figure margins and title
-size.</p>
-<p>Additionally, <code><a href="../../reference/mf_export.html">mf_export()</a></code> can be used to set a theme, to
-extend the map space on one or several side of the figure, or to center
-a map on a specific area.</p>
+from the width/height ratio of <code>x</code>and some theme parameters
+(figure margins and title size).<br>
+Additionally, <code><a href="../../reference/mf_export.html">mf_export()</a></code> (and <code><a href="../../reference/mf_init.html">mf_init()</a></code>) can
+be used to extend the map space on one or several side of the figure, or
+to center a map on a specific area.</p>
 <div class="section level2">
 <h2 id="simple-export">Simple Export<a class="anchor" aria-label="anchor" href="#simple-export"></a>
 </h2>
@@ -142,7 +142,11 @@ figure.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width.png"</span>, width <span class="op">=</span> <span class="fl">500</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  filename <span class="op">=</span> <span class="st">"fixed_width.png"</span>, </span>
+<span>  width <span class="op">=</span> <span class="fl">500</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=605px (deduced)"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -153,40 +157,36 @@ device (PNG or SVG) with a specific dimension (figure size) and extent
 (<code>x</code> extent).</p>
 </div>
 <div class="section level2">
-<h2 id="export-with-a-theme">Export with a Theme<a class="anchor" aria-label="anchor" href="#export-with-a-theme"></a>
-</h2>
-<p>In this example we use the “dark” theme.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width_theme.png"</span>,</span>
-<span>  width <span class="op">=</span> <span class="fl">500</span>, theme <span class="op">=</span> <span class="st">"dark"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=611px (deduced)"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fixed_width_theme.png"></p>
-</div>
-<div class="section level2">
 <h2 id="export-with-extra-space-on-the-figure">Export with Extra Space on the Figure<a class="anchor" aria-label="anchor" href="#export-with-extra-space-on-the-figure"></a>
 </h2>
 <p>Here we have added some space on the right side of the plot (50% of
 <code>x</code> width).</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"fixed_width_expand.png"</span>,</span>
-<span>  width <span class="op">=</span> <span class="fl">500</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.5</span><span class="op">)</span>, theme <span class="op">=</span> <span class="st">"default"</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  filename <span class="op">=</span> <span class="st">"fixed_width_expand.png"</span>,</span>
+<span>  width <span class="op">=</span> <span class="fl">500</span>, theme <span class="op">=</span> <span class="st">"dark"</span>,</span>
+<span>  expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.5</span><span class="op">)</span>,</span>
 <span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: 'theme' is deprecated.</span></span>
+<span><span class="co">#&gt; In the next version of mapsf the current theme will be applied to the export.</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=427px (deduced)"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=432px (deduced)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 <p><img src="fixed_width_expand.png"></p>
+<p><strong>Note that <code><a href="../../reference/mf_export.html">mf_export()</a></code> uses the current theme. If
+a theme is set between an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call and a
+<code><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off()</a></code> call it will not be correctly
+applied.</strong></p>
 </div>
 <div class="section level2">
 <h2 id="center-the-map-on-a-specific-area">Center the Map on a Specific Area<a class="anchor" aria-label="anchor" href="#center-the-map-on-a-specific-area"></a>
 </h2>
 <p>In this export, the map is focused on a specific spatial object.
 <code>height</code> is fixed and <code>width</code> is deduced.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fl">5</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">target</span>, filename <span class="op">=</span> <span class="st">"fixed_height_centered.png"</span>, height <span class="op">=</span> <span class="fl">600</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -204,47 +204,19 @@ device (PNG or SVG) with a specific dimension (figure size) and extent
 <code>export = "svg"</code>) and use other parameters of
 <code><a href="https://rdrr.io/r/grDevices/png.html" class="external-link">png()</a></code> or <code><a href="https://rdrr.io/r/grDevices/cairo.html" class="external-link">svg()</a></code> functions
 (e.g. <code>res</code>, <code>bg</code> or <code>family</code>).</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="va">mtq</span>, export <span class="op">=</span> <span class="st">"svg"</span>, filename <span class="op">=</span> <span class="st">"fixed_width.svg"</span>,</span>
-<span>  width <span class="op">=</span> <span class="fl">5</span>, theme <span class="op">=</span> <span class="st">"nevermind"</span>, bg <span class="op">=</span> <span class="st">"black"</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"nevermind"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">mtq</span>, </span>
+<span>  filename <span class="op">=</span> <span class="st">"fixed_width.svg"</span>,</span>
+<span>  width <span class="op">=</span> <span class="fl">5</span>, </span>
+<span>  bg <span class="op">=</span> <span class="st">"black"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; "export" is deprecated.</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"SVG export: bg = 'black'"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fixed_width.svg"></p>
-</div>
-<div class="section level2">
-<h2 id="side-effects">Side Effects<a class="anchor" aria-label="anchor" href="#side-effects"></a>
-</h2>
-<p>If a theme is set before an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call, the theme
-is applied to the export.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"agolalight"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"theme_before.png"</span>, width <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"agolalight"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="theme_before.png"></p>
-<p>If a theme is set before or within an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call,
-the theme is also applied after the export.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../../reference/mf_export.html">mf_export</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="va">mtq</span>, filename <span class="op">=</span> <span class="st">"theme_within.png"</span>, width <span class="op">=</span> <span class="fl">200</span>,</span>
-<span>  theme <span class="op">=</span> <span class="st">"darkula"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"darkula"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; png </span></span>
-<span><span class="co">#&gt;   2</span></span>
-<span></span>
-<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Still 'darkula'"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="how_to_export_maps_files/figure-html/unnamed-chunk-8-1.png" width="384"></p>
-<p>If a theme is set between an <code><a href="../../reference/mf_export.html">mf_export()</a></code> call and
-<code><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off()</a></code>, the theme is not applied correctly.</p>
+<span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<p><img src="fixed_width.svg"></p>
 </div>
   </div>
 

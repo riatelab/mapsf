@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mapsf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.0</span>
       </span>
     </div>
 
@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2023-01-23</h4>
+            <h4 data-toc-skip class="date">2023-02-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/mapsf.Rmd" class="external-link"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -453,7 +453,8 @@ separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># Initiate a base map</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"iceberg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="co"># Plot a shadow</span></span>
 <span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># plot municipalities</span></span>
@@ -480,7 +481,8 @@ areas proportional to a quantitative variable (stocks). The
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># Initiate a base map</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"iceberg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"darkula"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="co"># Plot a shadow</span></span>
 <span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># plot municipalities</span></span>
@@ -610,7 +612,9 @@ of the map to avoid overlaps between the legends and the map.</p>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"candy"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"candy"</span><span class="op">)</span></span>
+<span><span class="co"># expand the map space</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># Plot a shadow</span></span>
 <span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># Plot the municipalities</span></span>
@@ -653,7 +657,9 @@ to reflect the modalities of a second qualitative variable.</p>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"ink"</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"ink"</span><span class="op">)</span></span>
+<span><span class="co"># expand the map space</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># Plot a shadow</span></span>
 <span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># Plot the municipalities</span></span>
@@ -760,9 +766,10 @@ overlaps between the legend and the credits.</p>
 <span><span class="va">mob_97209</span> <span class="op">&lt;-</span> <span class="va">mob</span><span class="op">[</span><span class="va">mob</span><span class="op">$</span><span class="va">i</span> <span class="op">==</span> <span class="fl">97209</span>, <span class="op">]</span></span>
 <span><span class="co"># create an sf object of links</span></span>
 <span><span class="va">mob_links</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_links.html">mf_get_links</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, df <span class="op">=</span> <span class="va">mob_97209</span><span class="op">)</span></span>
-<span><span class="co"># set figure background color</span></span>
 <span><span class="co"># set theme</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span><span class="op">)</span></span>
+<span><span class="co"># initiate map</span></span>
+<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="co"># Plot a shadow</span></span>
 <span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># Plot the municipalities</span></span>
