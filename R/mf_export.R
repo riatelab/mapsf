@@ -118,7 +118,13 @@ mf_export <- function(x,
         mar = mar, res = res, format = "png"
       )
     }
-    png(filename, width = fd[1], height = fd[2], res = res, ...)
+    if (isTRUE(capabilities("cairo"))){
+      png(filename, width = fd[1], height = fd[2], res = res, type = "cairo-png", ...)
+    }else{
+      png(filename, width = fd[1], height = fd[2], res = res, ...)
+    }
+
+
   }
   if (export == "svg") {
     if (!missing(width) & !missing(height)) {
