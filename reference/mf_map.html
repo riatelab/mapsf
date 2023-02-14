@@ -166,7 +166,7 @@ a quantitative data classification (<a href="mf_symb_choro.html">mf_symb_choro</
 
 
 <dt>breaks</dt>
-<dd><p>either a numeric vector with the actual breaks, or a classification method name (see <a href="mf_get_breaks.html">mf_get_breaks</a>)</p></dd>
+<dd><p>either a numeric vector with the actual breaks, or a classification method name (see <a href="mf_get_breaks.html">mf_get_breaks</a> and Details)</p></dd>
 
 
 <dt>nbreaks</dt>
@@ -279,6 +279,15 @@ direction (bottom, left, top, right)</p></dd>
     
 
 <p>x is (invisibly) returned.</p>
+    </div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>Breaks defined by a numeric vector or a classification method are
+left-closed: breaks defined by <code>c(2, 5, 10, 15, 20)</code>
+will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
+The "jenks" method is an exception and has to be right-closed.
+Jenks breaks computed as <code>c(2, 5, 10, 15, 20)</code>
+will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].</p>
     </div>
 
     <div id="ref-examples">
