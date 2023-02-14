@@ -41,10 +41,14 @@ mf_export <- function(x,
                       theme,
                       export = "png") {
   if (!missing(theme)) {
-    warning(paste0("'theme' is deprecated.\n",
-                   "In the next version of mapsf the current theme ",
-                   "will be applied to the export."),
-            call. = FALSE)
+    warning(
+      paste0(
+        "'theme' is deprecated.\n",
+        "In the next version of mapsf the current theme ",
+        "will be applied to the export."
+      ),
+      call. = FALSE
+    )
     mf_theme(theme)
   }
 
@@ -118,13 +122,11 @@ mf_export <- function(x,
         mar = mar, res = res, format = "png"
       )
     }
-    if (isTRUE(capabilities("cairo"))){
+    if (isTRUE(capabilities("cairo"))) {
       png(filename, width = fd[1], height = fd[2], res = res, type = "cairo-png", ...)
-    }else{
+    } else {
       png(filename, width = fd[1], height = fd[2], res = res, ...)
     }
-
-
   }
   if (export == "svg") {
     if (!missing(width) & !missing(height)) {

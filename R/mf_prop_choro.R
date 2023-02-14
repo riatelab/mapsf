@@ -75,7 +75,7 @@ mf_prop_choro <- function(x,
 
   # jenks
   jen <- FALSE
-  if (any(breaks %in% "jenks")){
+  if (any(breaks %in% "jenks")) {
     jen <- TRUE
   }
   # get the breaks

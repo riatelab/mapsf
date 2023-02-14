@@ -91,7 +91,7 @@ mf_symb_choro <- function(x, var,
   ################### COLORS ##########################
   # jenks
   jen <- FALSE
-  if (any(breaks %in% "jenks")){
+  if (any(breaks %in% "jenks")) {
     jen <- TRUE
   }
   # get the breaks

@@ -49,9 +49,9 @@ mf_get_ratio <- function(x,
     ))
   }
 
-  if(missing(theme)){
+  if (missing(theme)) {
     mar <- getOption("mapsf.mar")
-  }else{
+  } else {
     old_theme <- mf_theme()
     mf_theme(theme)
     mar <- getOption("mapsf.mar")

@@ -62,7 +62,7 @@ mf_grad <- function(x,
   x <- x[order(x[[var]], decreasing = TRUE), ]
   # jenks
   jen <- FALSE
-  if (any(breaks %in% "jenks")){
+  if (any(breaks %in% "jenks")) {
     jen <- TRUE
   }
   breaks <- mf_get_breaks(x = x[[var]], nbreaks = nbreaks, breaks = breaks)

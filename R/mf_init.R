@@ -18,10 +18,14 @@
 #' mf_map(mtq, add = TRUE)
 mf_init <- function(x, expandBB = rep(0, 4), theme) {
   if (!missing(theme)) {
-    warning(paste0("'theme' is deprecated.\n",
-                   "In the next version of mapsf the current theme ",
-                   "will be applied."),
-            call. = FALSE)
+    warning(
+      paste0(
+        "'theme' is deprecated.\n",
+        "In the next version of mapsf the current theme ",
+        "will be applied."
+      ),
+      call. = FALSE
+    )
     mf_theme(theme)
   }
   mar <- getOption("mapsf.mar")

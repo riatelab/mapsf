@@ -20,7 +20,7 @@ get_the_pal <- function(pal, nbreaks, alpha = 1) {
 
 
 get_col_vec <- function(x, breaks, pal, jen = FALSE) {
-  if (jen){
+  if (jen) {
     itv <- apply(array(apply(outer(x, breaks, ">"), 1, sum)), 1, max, 1)
   } else {
     itv <- findInterval(x, breaks, all.inside = FALSE, rightmost.closed = TRUE)
@@ -113,14 +113,14 @@ create_dots <- function(x = x, var = var) {
 #' @noRd
 get_size <- function(var, inches, val_max, symbol) {
   switch(symbol,
-         circle = {
-           smax <- inches * inches * pi
-           size <- sqrt((var * smax / val_max) / pi)
-         },
-         square = {
-           smax <- inches * inches
-           size <- sqrt(var * smax / val_max)
-         }
+    circle = {
+      smax <- inches * inches * pi
+      size <- sqrt((var * smax / val_max) / pi)
+    },
+    square = {
+      smax <- inches * inches
+      size <- sqrt(var * smax / val_max)
+    }
   )
   return(size)
 }
@@ -137,32 +137,32 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
     XY <- dots
   }
   switch(symbol,
-         circle = {
-           symbols(
-             x = XY[, 1],
-             y = XY[, 2],
-             circles = sizes,
-             bg = mycols,
-             fg = border,
-             lwd = lwd,
-             add = TRUE,
-             inches = FALSE,
-             asp = 1
-           )
-         },
-         square = {
-           symbols(
-             x = XY[, 1],
-             y = XY[, 2],
-             squares = sizes,
-             bg = mycols,
-             fg = border,
-             lwd = lwd,
-             add = TRUE,
-             inches = inches * 2,
-             asp = 1
-           )
-         }
+    circle = {
+      symbols(
+        x = XY[, 1],
+        y = XY[, 2],
+        circles = sizes,
+        bg = mycols,
+        fg = border,
+        lwd = lwd,
+        add = TRUE,
+        inches = FALSE,
+        asp = 1
+      )
+    },
+    square = {
+      symbols(
+        x = XY[, 1],
+        y = XY[, 2],
+        squares = sizes,
+        bg = mycols,
+        fg = border,
+        lwd = lwd,
+        add = TRUE,
+        inches = inches * 2,
+        asp = 1
+      )
+    }
   )
 }
 
@@ -257,7 +257,7 @@ get_geom_type <- function(x) {
   type <- as.character(unique(type))
   if (length(type) > 1) {
     stop("GEOMETRYCOLLECTION objects should have consistent type",
-         call. = FALSE
+      call. = FALSE
     )
   }
   return(type)

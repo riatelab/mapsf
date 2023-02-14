@@ -117,28 +117,29 @@ mf_map <- function(x, var, type = "base",
       lin <- var %in% names(x)
       if (lv != length(lin[lin == TRUE])) {
         stop(paste0("It is likely that 'var' is not a valid variable name."),
-             call. = FALSE
+          call. = FALSE
         )
       }
     }
   }
 
   # add mgmgt, set default add, do not add if no device is launch
-  if(missing(add)){
+  if (missing(add)) {
     add <- switch(type,
-                  prop = TRUE,
-                  choro = FALSE,
-                  typo = FALSE,
-                  symb = TRUE,
-                  base = FALSE,
-                  grad = TRUE,
-                  prop_choro = TRUE,
-                  prop_typo = TRUE,
-                  symb_choro = TRUE)
+      prop = TRUE,
+      choro = FALSE,
+      typo = FALSE,
+      symb = TRUE,
+      base = FALSE,
+      grad = TRUE,
+      prop_choro = TRUE,
+      prop_typo = TRUE,
+      symb_choro = TRUE
+    )
   }
 
 
-  if(is.null(grDevices::dev.list())){
+  if (is.null(grDevices::dev.list())) {
     add <- FALSE
   }
 
@@ -147,7 +148,7 @@ mf_map <- function(x, var, type = "base",
   argx <- argx[!names(argx) %in% c("type", "expandBB")]
 
 
-  if (!missing(expandBB) && !add){
+  if (!missing(expandBB) && !add) {
     mf_init(x, expandBB = expandBB)
     argx$add <- TRUE
   } else {
@@ -157,7 +158,7 @@ mf_map <- function(x, var, type = "base",
   # enabling pipe without side effect
   argx$x <- eval(x)
 
-  x <- do.call(what = get(paste0("mf_",type)), argx, envir = parent.frame())
+  x <- do.call(what = get(paste0("mf_", type)), argx, envir = parent.frame())
 
- return(invisible(x))
+  return(invisible(x))
 }

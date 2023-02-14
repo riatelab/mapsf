@@ -36,8 +36,8 @@ In this example we only set the `width` of the exported figure.
 library(mapsf)
 mtq <- mf_get_mtq()
 mf_export(
-  x = mtq, 
-  filename = "fixed_width.png", 
+  x = mtq,
+  filename = "fixed_width.png",
   width = 500
 )
 mf_map(mtq, add = TRUE)
@@ -57,7 +57,7 @@ Here we have added some space on the right side of the plot (50% of `x` width).
 ```{r, results="hide"}
 mf_theme("dark")
 mf_export(
-  x = mtq, 
+  x = mtq,
   filename = "fixed_width_expand.png",
   width = 500, theme = "dark",
   expandBB = c(0, 0, 0, .5),
@@ -93,9 +93,9 @@ dev.off()
 ```{r, results="hide"}
 mf_theme("nevermind")
 mf_export(
-  x = mtq, 
+  x = mtq,
   filename = "fixed_width.svg",
-  width = 5, 
+  width = 5,
   bg = "black"
 )
 mf_map(mtq, add = TRUE)

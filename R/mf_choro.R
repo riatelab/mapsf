@@ -75,7 +75,7 @@ mf_choro <- function(x, var,
 
   # jenks
   jen <- FALSE
-  if (any(breaks %in% "jenks")){
+  if (any(breaks %in% "jenks")) {
     jen <- TRUE
   }
 
