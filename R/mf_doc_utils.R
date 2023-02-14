@@ -52,7 +52,7 @@ my_params <- function(x) {
     cex_na = "cex_na cex (point size) for NA values",
     pch_na = "pch_na pch (point type) for NA values",
     val_max = "val_max maximum value used for proportional symbols",
-    breaks = "breaks either a numeric vector with the actual breaks, or a classification method name (see \\link{mf_get_breaks})",
+    breaks = "breaks either a numeric vector with the actual breaks, or a classification method name (see \\link{mf_get_breaks} and Details)",
     nbreaks = "nbreaks number of classes",
     pos = paste0(
       "pos position. It can be one of 'topleft', 'top',",

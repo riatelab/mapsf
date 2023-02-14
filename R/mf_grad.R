@@ -17,6 +17,13 @@
 #' 'leg_frame',
 #' 'breaks',
 #' 'nbreaks'))
+#' @details
+#' Breaks defined by a numeric vector or a classification method are
+#' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
+#' will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
+#' The "jenks" method is an exception and has to be right-closed.
+#' Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
+#' will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
 #' @importFrom methods is
 #' @importFrom graphics box
 #' @keywords internal
@@ -53,6 +60,11 @@ mf_grad <- function(x,
   # data prep
   x <- x[!is.na(x = x[[var]]), ]
   x <- x[order(x[[var]], decreasing = TRUE), ]
+  # jenks
+  jen <- FALSE
+  if (any(breaks %in% "jenks")){
+    jen <- TRUE
+  }
   breaks <- mf_get_breaks(x = x[[var]], nbreaks = nbreaks, breaks = breaks)
   nbreaks <- length(breaks) - 1
 
@@ -69,7 +81,7 @@ mf_grad <- function(x,
       ), call. = FALSE)
     }
     mylwd <- get_col_vec(
-      x = x[[var]], breaks = breaks, pal = lwd
+      x = x[[var]], breaks = breaks, pal = lwd, jen = jen
     )
 
     if (add == FALSE) {
@@ -103,7 +115,7 @@ mf_grad <- function(x,
     ), call. = FALSE)
   }
   mycex <- get_col_vec(
-    x = x[[var]], breaks = breaks, pal = cex
+    x = x[[var]], breaks = breaks, pal = cex, jen = jen
   )
   # color mgmt
   pch <- pch[1]

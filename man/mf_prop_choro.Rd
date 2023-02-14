@@ -42,7 +42,7 @@ mf_prop_choro(
 
 \item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
 
-\item{breaks}{either a numeric vector with the actual breaks, or a classification method name (see \link{mf_get_breaks})}
+\item{breaks}{either a numeric vector with the actual breaks, or a classification method name (see \link{mf_get_breaks} and Details)}
 
 \item{nbreaks}{number of classes}
 
@@ -74,6 +74,14 @@ x is (invisibly) returned.
 \description{
 Plot proportional symbols with colors based on a quantitative
 data classification.
+}
+\details{
+Breaks defined by a numeric vector or a classification method are
+left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
+will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
+The "jenks" method is an exception and has to be right-closed.
+Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
+will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
 }
 \examples{
 mtq <- mf_get_mtq()
