@@ -51,7 +51,6 @@
 #' @param pch pch (point type) for symbols
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @param ... further parameters from \link{plot} for sfc objects
 #' @details
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
@@ -146,6 +145,22 @@ mf_map <- function(x, var, type = "base",
 
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% c("type", "expandBB")]
+
+  # arg checking depending on type
+  # argxx <- argx
+  # n_rel <- !names(argxx) %in% names(formals(get(paste0("mf_", type))))
+  # if(sum(n_rel) > 1){
+  # message(paste0(
+  # "The following arguments are not relevant when using type = '", type, "': '",
+  # paste0(names(argxx[n_rel]),collapse = "', '"), "'."))
+  # }
+  #
+  # if(sum(n_rel) == 1){
+  #   message(paste0(
+  #     "The following argument is not relevant when using type = '", type, "': '",
+  #     paste0(names(argxx[n_rel]),collapse = "', '"), "'."))
+  # }
+  # argx <- argx[!n_rel]
 
 
   if (!missing(expandBB) && !add) {

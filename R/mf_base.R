@@ -7,7 +7,6 @@
 #' 'border',
 #' 'lwd', 'pch',
 #' 'add'))
-#' @param ... further parameters from \link{plot} for sfc objects
 #'
 #' @importFrom methods is
 #' @importFrom sf st_geometry
@@ -24,8 +23,7 @@ mf_base <- function(x,
                     border = "grey20",
                     lwd = .7,
                     pch = 20,
-                    add = FALSE,
-                    ...) {
+                    add = FALSE) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -42,7 +40,7 @@ mf_base <- function(x,
 
   plot(st_geometry(x),
     col = col, border = border,
-    lwd = lwd, add = add, pch = pch, ...
+    lwd = lwd, add = add, pch = pch
   )
 
 
