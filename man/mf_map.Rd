@@ -11,7 +11,7 @@ mf_map(
   breaks,
   nbreaks,
   pal,
-  alpha = 1,
+  alpha,
   inches,
   val_max,
   symbol,
@@ -33,8 +33,7 @@ mf_map(
   leg_no_data,
   leg_frame,
   expandBB,
-  add,
-  ...
+  add
 )
 }
 \arguments{
@@ -42,8 +41,21 @@ mf_map(
 
 \item{var}{name(s) of the variable(s) to plot}
 
-\item{type}{one of "base", "prop", "choro", "typo", "symb", "grad",
-"prop_choro", "prop_typo", "symb_choro"}
+\item{type}{map type:
+\itemize{
+\item \strong{base}, base maps,
+\item \strong{prop}, proportional symbols maps,
+\item \strong{choro}, choropleth maps,
+\item \strong{typo}, typology maps,
+\item \strong{symb}, symbols maps,
+\item \strong{grad}, graduated symbols maps,
+\item \strong{prop_choro}, proportional symbols maps with symbols colors based
+on a quantitative data classification,
+\item \strong{prop_typo}, proportional symbols maps with symbols colors based
+on qualitative data,
+\item \strong{symb_choro}, symbols maps with symbols colors based on
+a quantitative data classification
+}}
 
 \item{breaks}{either a numeric vector with the actual breaks, or a classification method name (see \link{mf_get_breaks} and Details)}
 
@@ -103,10 +115,13 @@ x is (invisibly) returned.
 }
 \description{
 This is the main function of the package.
-mf_map can be used to plot all types of maps.
+\code{mf_map()} can be used to plot all types of maps.\cr
 The three main arguments are: \code{x} (sf object), \code{var} (variable to map), and
-\code{type} (map type).
-
+\code{type} (map type).\cr
+Relevant arguments and default values for each map types are detailed in
+specific functions, see Details.
+}
+\details{
 Relevant arguments and default values for each map types are detailed in
 specific functions:
 \itemize{
@@ -123,14 +138,13 @@ on qualitative data (\link{mf_prop_typo});
 \item \strong{symb_choro}, symbols maps with symbols colors based on
 a quantitative data classification (\link{mf_symb_choro}).
 }
-}
-\details{
+
 Breaks defined by a numeric vector or a classification method are
 left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
-will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
+will be mapped as:\cr[2 - 5[ \cr [5 - 10[ \cr [10 - 15[ \cr [15 - 20]\cr
 The "jenks" method is an exception and has to be right-closed.
 Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
+will be mapped as:\cr[2 - 5] \cr ]5 - 10] \cr ]10 - 15] \cr ]15 - 20]
 }
 \examples{
 mtq <- mf_get_mtq()

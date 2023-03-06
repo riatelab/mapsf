@@ -73,12 +73,6 @@ my_params <- function(x) {
   )
 
 
-
-
-
-
-
-
   for (i in 1:length(params)) {
     params[[i]] <- paste0(
       "@param ", " ",

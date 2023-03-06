@@ -43,6 +43,5 @@ mf_base <- function(x,
     lwd = lwd, add = add, pch = pch
   )
 
-
   return(invisible(x))
 }
