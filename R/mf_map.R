@@ -150,7 +150,7 @@ mf_map <- function(x,
       lin <- var %in% names(x)
       if (lv != length(lin[lin == TRUE])) {
         stop(paste0("It is likely that 'var' is not a valid variable name."),
-             call. = FALSE
+          call. = FALSE
         )
       }
     }
@@ -159,15 +159,15 @@ mf_map <- function(x,
   # add mgmgt, set default add, do not add if no device is launch
   if (missing(add)) {
     add <- switch(type,
-                  prop = TRUE,
-                  choro = FALSE,
-                  typo = FALSE,
-                  symb = TRUE,
-                  base = FALSE,
-                  grad = TRUE,
-                  prop_choro = TRUE,
-                  prop_typo = TRUE,
-                  symb_choro = TRUE
+      prop = TRUE,
+      choro = FALSE,
+      typo = FALSE,
+      symb = TRUE,
+      base = FALSE,
+      grad = TRUE,
+      prop_choro = TRUE,
+      prop_typo = TRUE,
+      symb_choro = TRUE
     )
   }
 
@@ -183,15 +183,16 @@ mf_map <- function(x,
   # arg checking depending on type
   n_rel <- !names(argx) %in% names(formals(get(paste0("mf_", type))))
   s_n_rel <- sum(n_rel)
-  if(s_n_rel >= 1){
+  if (s_n_rel >= 1) {
     mes <- "The following arguments are not relevant when using type = '"
-    if(s_n_rel == 1){
+    if (s_n_rel == 1) {
       mes <- "The following argument is not relevant when using type = '"
     }
     message(
-      paste0(mes, type, "': ",
-             paste0(names(argx[n_rel]),collapse = ", "),
-             "."
+      paste0(
+        mes, type, "': ",
+        paste0(names(argx[n_rel]), collapse = ", "),
+        "."
       )
     )
     argx <- argx[!n_rel]
