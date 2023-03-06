@@ -181,21 +181,21 @@ mf_map <- function(x,
   argx <- argx[!names(argx) %in% c("type", "expandBB")]
 
   # arg checking depending on type
-  # n_rel <- !names(argx) %in% names(formals(get(paste0("mf_", type))))
-  # s_n_rel <- sum(n_rel)
-  # if(s_n_rel >= 1){
-  #   mes <- "The following arguments are not relevant when using type = '"
-  #   if(s_n_rel == 1){
-  #     mes <- "The following argument is not relevant when using type = '"
-  #   }
-  #   message(
-  #     paste0(mes, type, "': ",
-  #            paste0(names(argx[n_rel]),collapse = ", "),
-  #            "."
-  #     )
-  #   )
-  #   argx <- argx[!n_rel]
-  # }
+  n_rel <- !names(argx) %in% names(formals(get(paste0("mf_", type))))
+  s_n_rel <- sum(n_rel)
+  if(s_n_rel >= 1){
+    mes <- "The following arguments are not relevant when using type = '"
+    if(s_n_rel == 1){
+      mes <- "The following argument is not relevant when using type = '"
+    }
+    message(
+      paste0(mes, type, "': ",
+             paste0(names(argx[n_rel]),collapse = ", "),
+             "."
+      )
+    )
+    argx <- argx[!n_rel]
+  }
 
 
   if (!missing(expandBB) && !add) {
