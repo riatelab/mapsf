@@ -101,7 +101,7 @@ dev.off()
 
 <img src='man/figures/mtq.png'/>
 
-## Ressources
+## Resources
 
 <table>
 <colgroup>
