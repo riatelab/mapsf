@@ -128,7 +128,7 @@ mf_prop_choro <- function(x,
 
   # Plot the symbols
   plot_symbols(
-    symbol = symbol, dots = dots, sizes = xinch(sizes),
+    symbol = symbol, dots = dots, sizes = mxinch(sizes),
     mycols = mycols, border = borders, lwd = lwd,
     inches = inches
   )
