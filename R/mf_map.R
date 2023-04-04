@@ -198,18 +198,31 @@ mf_map <- function(x,
     argx <- argx[!n_rel]
   }
 
+  # proj_lonlat <- function(x){
+  #   if (!st_is_longlat(x)){
+  #     return(x)
+  #   }
+  #   lat_ts = mean(sf::st_bbox(x)[c(2,4)]) # latitude of true scale
+  #   x = st_transform(x, paste0("+proj=eqc +lat_ts=", lat_ts))
+  #   message('"x" has been reprojected on the fly.')
+  #   return(x)
+  # }
+
+
+  # enabling pipe without side effect
+  argx$x <- eval(x)
+  # argx$x <- eval(proj_lonlat(x))
 
   if (!missing(expandBB) && !add) {
-    mf_init(x, expandBB = expandBB)
+    mf_init(argx$x, expandBB = expandBB)
     argx$add <- TRUE
   } else {
     argx$add <- add
   }
 
-  # enabling pipe without side effect
-  argx$x <- eval(x)
 
-  x <- do.call(what = get(paste0("mf_", type)), argx, envir = parent.frame())
+
+  do.call(what = get(paste0("mf_", type)), argx, envir = parent.frame())
 
   return(invisible(x))
 }
