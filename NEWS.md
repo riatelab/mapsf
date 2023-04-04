@@ -1,3 +1,18 @@
+# mapsf 0.7.0
+
+## Fix
+- use a vector of colors for lines if necessary in mf_label()
+
+
+
+## Feat
+- add mf_get_borders(), get MULTILINESTRING of borders between polygons
+
+
+
+
+
+
 # mapsf 0.6.1
 
 
