@@ -167,9 +167,8 @@ mf_export <- function(x,
   pux <- par("usr")
   rect(pux[1], pux[3], pux[2], pux[4], border = NA, col = bgmap)
 
-  return(invisible(x))
+  return(invisible(NULL))
 }
-
 
 
 
