@@ -42,11 +42,8 @@ mf_get_ratio <- function(x,
   }
 
   if (isTRUE(st_is_longlat(st_crs(x)))) {
-    message(paste0(
-      "Exports using unprojected objects may produce figures ",
-      "with inaccurate height/width ratio. ",
-      "You may want to check 'x' CRS. "
-    ))
+    lat_ts = mean(sf::st_bbox(x)[c(2,4)]) # latitude of true scale
+    x = st_transform(x = x,paste0("+proj=eqc +lat_ts=", lat_ts))
   }
 
   if (missing(theme)) {
