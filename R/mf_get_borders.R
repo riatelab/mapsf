@@ -34,15 +34,19 @@ mf_get_borders <- function(x, id) {
   }
 
   if (sf::st_is_longlat(x)) {
-    stop(paste0("This function does not work with unprojected objects"),
-      call. = FALSE
-    )
+    er <- paste0("This feature only works with projected layers.\n",
+                 "It seems that you are using an unprojected geographic ",
+                 "layer (using longitude and latitude).\n",
+                 "You can use crssuggest::suggest_crs(x) to find a candidate CRS then ",
+                 "sf::st_tranform(x, crs) to transform the layer.")
+    stop(er, call. = FALSE)
+
   }
 
   if (missing(id)) {
     id <- names(x)[1]
   }
-
+  oproj <- sf::st_crs(x)
   sf::st_geometry(x) <- sf::st_buffer(x = sf::st_geometry(x), 1, nQuadSegs = 5)
   lx <- sf::st_cast(x, "MULTILINESTRING")
 
@@ -82,13 +86,12 @@ mf_get_borders <- function(x, id) {
 
   df <- sf::st_sf(df, geometry = sf::st_sfc(lgeo))
   df <- sf::st_cast(x = df, to = "MULTILINESTRING")
-  sf::st_set_crs(df, sf::st_crs(x))
-
   df2 <- df[, c(1, 3, 2)]
-
   names(df2) <- c("id", "id1", "id2", "geometry")
   df2$id <- paste(df2$id1, df2$id2, sep = "_")
+
   borderlines <- rbind(df, df2)
   row.names(borderlines) <- borderlines$id
+  borderlines <- sf::st_set_crs(borderlines, oproj)
   return(borderlines)
 }
