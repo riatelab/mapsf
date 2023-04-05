@@ -30,7 +30,7 @@ No return value, a scale bar is displayed.
 Plot a scale bar.
 }
 \note{
-This scale bar is not accurate on unprojected (long/lat) maps.
+This scale bar does not work on unprojected (long/lat) maps.
 }
 \examples{
 mtq <- mf_get_mtq()

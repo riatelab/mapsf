@@ -223,6 +223,6 @@ mf_map <- function(x,
 
 
   do.call(what = get(paste0("mf_", type)), argx, envir = parent.frame())
-
+  plot_is_lonlat("message")
   return(invisible(x))
 }

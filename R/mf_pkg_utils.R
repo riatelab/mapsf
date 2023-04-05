@@ -205,3 +205,30 @@ test_cur_plot <- function() {
     stop("You can only use this feature on an existing plot.", call. = FALSE)
   }
 }
+
+
+plot_is_lonlat <- function(type){
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
+  opt <- options(error = NULL)
+  on.exit(options(opt), add = TRUE)
+  on.exit(par(op), add = TRUE)
+  usr <- par("usr")
+  pin <- par("pin")
+  if(diff(usr[1:2]/pin[1]) - diff(usr[3:4]/pin[2]) >= 10e-4) {
+    if(type == "error"){
+      stop(paste0("This feature only works with projected layers.\n",
+                  "It seems that you are using an unprojected geographic ",
+                  "layer (using longitude and latitude).\n",
+                  "You can use crssuggest::suggest_crs(x) to find a candidate CRS then ",
+                  "sf::st_tranform(x, crs) to transform the layer."), call. = FALSE)
+    }
+    if(type == "message"){
+      message(paste0("Most cartographic features work better with projected layers.\n",
+                     "It seems that you are using an unprojected geographic ",
+                     "layer (using longitude and latitude).\n",
+                     "You can use crssuggest::suggest_crs(x) to find a candidate CRS then ",
+                     "sf::st_tranform(x, crs) to transform the layer."))
+
+    }
+  }
+}

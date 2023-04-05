@@ -11,7 +11,7 @@
 #' or a vector of two coordinates in map units (c(x, y)).
 #' @param unit units used for the scale bar. Can be "mi" for miles,
 #' "m" for meters, or "km" for kilometers (default)
-#' @note This scale bar is not accurate on unprojected (long/lat) maps.
+#' @note This scale bar does not work on unprojected (long/lat) maps.
 #' @return No return value, a scale bar is displayed.
 #' @export
 #' @examples
@@ -21,6 +21,7 @@
 mf_scale <- function(size, pos = "bottomright",
                      lwd = 1.5, cex = 0.6, col, unit = "km") {
   test_cur_plot()
+  plot_is_lonlat('error')
   # default color
   if (missing(col)) {
     col <- getOption("mapsf.fg")
