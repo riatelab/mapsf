@@ -19,6 +19,7 @@ mf_credits <- function(txt = "Source(s) & Author(s)",
                        cex = .6,
                        font = 3,
                        bg = NA) {
+  test_cur_plot()
   if (missing(col)) {
     col <- getOption("mapsf.fg")
   }

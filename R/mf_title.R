@@ -17,6 +17,8 @@
 mf_title <- function(txt = "Map Title", pos, tab,
                      bg, fg, cex, line, font,
                      inner) {
+  test_cur_plot()
+
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 

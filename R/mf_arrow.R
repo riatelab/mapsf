@@ -13,6 +13,7 @@
 #' mf_map(mtq)
 #' mf_arrow(pos = "topright")
 mf_arrow <- function(pos = "topleft", col, adjust) {
+  test_cur_plot()
   if (missing(col)) {
     col <- getOption("mapsf.fg")
   }

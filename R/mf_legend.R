@@ -61,6 +61,7 @@ mf_legend <- function(type, pos, val, pal,
                       col_na, pt_cex_na, pt_pch_na,
                       no_data, no_data_txt,
                       frame, bg, fg, cex) {
+  test_cur_plot()
   args <- as.list(match.call())
   args <- args[names(args) != "type"]
 

@@ -29,6 +29,7 @@ mf_label <- function(x, var,
                      halo = FALSE,
                      bg,
                      r = 0.1, ...) {
+  test_cur_plot()
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

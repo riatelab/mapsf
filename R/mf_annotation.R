@@ -32,6 +32,7 @@
 mf_annotation <- function(x, txt, pos = "topright",
                           cex = 0.8, col_arrow,
                           col_txt, halo = FALSE, bg, s = 1, ...) {
+  test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 

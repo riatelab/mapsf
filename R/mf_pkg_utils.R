@@ -196,3 +196,12 @@ globalVariables(".gmapsf", package = "mapsf", add = FALSE)
     mapsf.font = theme$font
   )
 }
+
+
+
+#' @importFrom grDevices dev.list
+test_cur_plot <- function() {
+  if (is.null(dev.list())) {
+    stop("You can only use this feature on an existing plot.", call. = FALSE)
+  }
+}

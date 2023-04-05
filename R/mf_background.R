@@ -17,6 +17,7 @@
 #'   col = "white"
 #' )
 mf_background <- function(filename, ...) {
+  test_cur_plot()
   ex <- strsplit(basename(filename), split = "\\.")[[1]]
   ex <- tolower(ex[length(ex)])
   if (ex == "png") {

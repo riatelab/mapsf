@@ -34,6 +34,7 @@
 #' mf_map(x = mtq)
 #' mf_inset_off()
 mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
+  test_cur_plot()
   if (.gmapsf$inset) {
     stop(
       paste0(
