@@ -40,6 +40,7 @@ mf_export <- function(x,
                       expandBB = rep(0, 4),
                       theme,
                       export = "png") {
+  # deprecated args mgmt
   if (!missing(theme)) {
     warning(
       paste0(
@@ -51,29 +52,31 @@ mf_export <- function(x,
     )
     mf_theme(theme)
   }
-
-  mar <- getOption("mapsf.mar")
-  bgmap <- getOption("mapsf.bg")
   if (!missing(export)) {
     message('"export" is deprecated.')
   }
+
+  # input test
+  if(!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))){
+    stop(paste0("x should be an object of class sf, sfc, sfg, bbox, ",
+                "SpatRaster or SpatVector"),
+         call. = FALSE)
+  }
+
+  # file format
   nc <- nchar(filename)
   ext <- substr(filename, nc - 3, nc)
-  if (ext == ".png") {
-    export <- "png"
-  }
-  if (ext == ".svg") {
-    export <- "svg"
-  }
-  if (!ext %in% c(".png", ".svg")) {
+  if (ext %in% c(".png", ".svg")) {
+    export <- substr(ext, 2, 4)
+  } else {
     stop('The filename extension should be ".png" or ".svg".', call. = FALSE)
   }
 
 
-  if (is(x, "SpatRaster")) {
+  if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
-      stop(
-        "'terra' package is needed for this function to work. Please install it.",
+      stop(paste0("'terra' package is needed for this function to work. ",
+                  "Please install it."),
         call. = FALSE
       )
     }
@@ -88,13 +91,8 @@ mf_export <- function(x,
     return(invisible(x))
   }
 
-  if (isTRUE(st_is_longlat(st_crs(x)))) {
-    message(paste0(
-      "Exports using unprojected objects may produce figures ",
-      "with inaccurate height/width ratio. ",
-      "You may want to check 'x' CRS. "
-    ))
-  }
+  mar <- getOption("mapsf.mar")
+  bgmap <- getOption("mapsf.bg")
 
   # transform to bbox
   bb <- st_bbox(x)
@@ -118,8 +116,12 @@ mf_export <- function(x,
         width <- 600
       }
       fd <- get_ratio(
-        x = bb, width = width, height = height,
-        mar = mar, res = res, format = "png"
+        x = bb,
+        width = width,
+        height = height,
+        mar = mar,
+        res = res,
+        format = "png"
       )
     }
     if (isTRUE(capabilities("cairo"))) {
@@ -152,12 +154,6 @@ mf_export <- function(x,
     }
     svg(filename = filename, width = fd[1], height = fd[2], ...)
   }
-  # if (!missing(theme)) {
-  #   mf_theme(theme)
-  # } else {
-  #   mf_theme(mf_theme())
-  # }
-
 
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
@@ -176,6 +172,13 @@ mf_export <- function(x,
 
 
 get_ratio <- function(x, width, height, mar, res, format) {
+  if(isTRUE(sf::st_is_longlat(x))){
+    x <- st_as_sfc(x)
+    lat_ts <- mean(sf::st_bbox(x)[c(2,4)]) # latitude of true scale
+    x <- st_transform(x = x,paste0("+proj=eqc +lat_ts=", lat_ts))
+    x <- st_bbox(x)
+  }
+
   iw <- x[3] - x[1]
   ih <- x[4] - x[2]
   if (missing(height)) {

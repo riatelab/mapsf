@@ -1,5 +1,6 @@
 mtq <- mf_get_mtq()
 
+library(tinytest)
 
 
 expect_silent(mf_export(mtq, height = 600,
@@ -32,7 +33,7 @@ expect_silent(mf_export(mtq, height = 7,
 dev.off()
 
 r <- terra::rast(system.file("ex/elev.tif", package="terra"))
-expect_message(mf_export(r))
+expect_silent(mf_export(r))
 mf_raster(r, add = T)
 dev.off()
 
@@ -40,6 +41,6 @@ expect_message(mf_export(mtq, height = 600,export = "png",
                          filename = paste0(tempfile(), ".png")))
 dev.off()
 
-expect_message(mf_export(st_transform(mtq, "epsg:4326"),
+expect_silent(mf_export(st_transform(mtq, "epsg:4326"),
                          filename = paste0(tempfile(), ".png")))
 dev.off()
