@@ -36,8 +36,8 @@ mf_get_ratio <- function(x,
     }
     proj <- terra::crs(x)
     bb <- terra::ext(x)[c(1, 3, 2, 4)]
-    y <- st_as_sfc(st_bbox(bb))
-    st_crs(y) <- proj
+    x <- st_as_sfc(st_bbox(bb))
+    st_crs(x) <- proj
     expandBB <- c(rep(-.04, 4))
   }
 
