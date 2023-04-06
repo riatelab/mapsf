@@ -14,7 +14,6 @@
 #' @param width width of the figure (inches), use only one of width or height
 #' @param height height of the figure (inches), use only one of width or height
 #' @param res resolution
-#' @importFrom methods is
 #' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs
 #' @return Width and height are returned in inches.
 #' @export
@@ -27,7 +26,15 @@ mf_get_ratio <- function(x,
                          res = 96,
                          expandBB = rep(0, 4),
                          theme = mf_theme()) {
-  if (is(x, "SpatRaster")) {
+
+
+  # input test
+  if(!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))){
+    stop(paste0("x should be an object of class sf, sfc, sfg, bbox, ",
+                "SpatRaster or SpatVector"),
+         call. = FALSE)
+  }
+  if (inherits(x, c("SpatRaster", "SpatVector"))) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
         "'terra' package is needed for this function to work. Please install it.",
@@ -42,8 +49,9 @@ mf_get_ratio <- function(x,
   }
 
   if (isTRUE(st_is_longlat(st_crs(x)))) {
-    lat_ts = mean(sf::st_bbox(x)[c(2,4)]) # latitude of true scale
-    x = st_transform(x = x,paste0("+proj=eqc +lat_ts=", lat_ts))
+    x <- st_as_sfc(st_bbox(x))
+    lat_ts <- mean(sf::st_bbox(x)[c(2,4)]) # latitude of true scale
+    x <- st_transform(x = x,paste0("+proj=eqc +lat_ts=", lat_ts))
   }
 
   if (missing(theme)) {
@@ -58,7 +66,6 @@ mf_get_ratio <- function(x,
 
   # transform to bbox
   bb <- st_bbox(x)
-  y <- st_as_sfc(bb)
 
   if (par("xaxs") == "r") {
     expandBB <- expandBB / (1 + 0.08)

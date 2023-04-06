@@ -9,7 +9,6 @@
 #' \code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}
 #' @export
 #' @return No return value, a map is displayed.
-#' @importFrom methods is
 #' @examples
 #' if (require("terra")) {
 #'   r <- rast(system.file("ex/elev.tif", package = "terra"))
@@ -22,6 +21,13 @@ mf_raster <- function(x, add = FALSE, ...) {
       call. = FALSE
     )
   }
+
+  # input test
+  if(!inherits(x, "SpatRaster")){
+    stop(paste0("x should be a SpatRaster."),
+         call. = FALSE)
+  }
+
 
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -36,22 +42,21 @@ mf_raster <- function(x, add = FALSE, ...) {
     mcell <- 1e6
   }
 
-  if (is(x, "SpatRaster")) {
-    ops <- list(...)
-    ops$x <- x
-    ops$add <- TRUE
-    ops$maxcell <- ifelse(is.null(ops$maxcell), mcell, ops$maxcell)
-    ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
-    if (terra::nlyr(x) >= 2) {
-      ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
-      do.call(terra::plotRGB, ops)
-    }
-    if (terra::nlyr(x) == 1) {
-      ops$smooth <- ifelse(is.null(ops$smooth), FALSE, ops$smooth)
-      ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
-      ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
-      ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
-      do.call(terra::plot, ops)
-    }
+  ops <- list(...)
+  ops$x <- x
+  ops$add <- TRUE
+  ops$maxcell <- ifelse(is.null(ops$maxcell), mcell, ops$maxcell)
+  ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
+  if (terra::nlyr(x) >= 2) {
+    ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
+    do.call(terra::plotRGB, ops)
   }
+  if (terra::nlyr(x) == 1) {
+    ops$smooth <- ifelse(is.null(ops$smooth), FALSE, ops$smooth)
+    ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
+    ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
+    ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
+    do.call(terra::plot, ops)
+  }
+
 }
