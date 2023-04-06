@@ -10,7 +10,6 @@
 #' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
 #' 'leg_no_data', 'leg_frame'))
 #'
-#' @importFrom methods is
 #' @keywords internal
 #' @export
 #' @return x is (invisibly) returned.

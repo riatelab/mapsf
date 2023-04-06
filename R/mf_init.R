@@ -8,7 +8,6 @@
 #' direction (bottom, left, top, right)
 #' @param theme apply a theme (deprecated)
 #' @export
-#' @importFrom methods is
 #' @importFrom sf st_bbox st_as_sfc st_geometry `st_crs<-`
 #' @return No return value, a map is initiated.
 #' @examples
@@ -31,7 +30,7 @@ mf_init <- function(x, expandBB = rep(0, 4), theme) {
   mar <- getOption("mapsf.mar")
   bgmap <- getOption("mapsf.bg")
 
-  if (is(x, "SpatRaster")) {
+  if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
         "'terra' package is needed for this function to work. Please install it.",

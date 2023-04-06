@@ -21,7 +21,6 @@
 #' 'leg_val_rnd',
 #' 'leg_no_data',
 #' 'leg_frame'))
-#' @importFrom methods is
 #' @importFrom graphics box
 #' @keywords internal
 #' @export

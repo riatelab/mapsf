@@ -29,7 +29,6 @@
 #' The "jenks" method is an exception and has to be right-closed.
 #' Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
 #' will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
-#' @importFrom methods is
 #' @keywords internal
 #' @export
 #' @return x is (invisibly) returned.

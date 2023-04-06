@@ -218,7 +218,7 @@ split_leg <- function(x) {
   }
   if (llp == 3) {
     tt <- tryCatch(as.numeric(x[1]), warning = function(w) w)
-    if (methods::is(tt, "warning")) {
+    if (inherits(tt, "warning")) {
       lp1 <- x[1]
       lp2 <- as.numeric(x[2:3])
     } else {

@@ -8,7 +8,6 @@
 #' 'lwd', 'pch',
 #' 'add'))
 #'
-#' @importFrom methods is
 #' @importFrom sf st_geometry
 #' @keywords internal
 #' @return x is (invisibly) returned.

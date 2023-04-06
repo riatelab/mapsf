@@ -13,7 +13,6 @@
 #' @param pch pch type of pch if x is a POINT layer
 #' @param pch_na pch for NA values if x is a POINT layer
 #' @param cex_na cex for NA values if x is a POINT layer
-#' @importFrom methods is
 #' @keywords internal
 #' @export
 #' @return No return value, a map is displayed.

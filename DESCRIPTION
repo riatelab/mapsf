@@ -29,7 +29,6 @@ Depends:
 Imports: 
     classInt, 
     graphics,
-    methods,
     Rcpp,
     sf,
     stats,
