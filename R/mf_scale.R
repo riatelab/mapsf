@@ -21,7 +21,7 @@
 mf_scale <- function(size, pos = "bottomright",
                      lwd = 1.5, cex = 0.6, col, unit = "km") {
   test_cur_plot()
-  plot_is_lonlat('error')
+  plot_is_lonlat("error")
   # default color
   if (missing(col)) {
     col <- getOption("mapsf.fg")

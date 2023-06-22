@@ -34,13 +34,14 @@ mf_get_borders <- function(x, id) {
   }
 
   if (sf::st_is_longlat(x)) {
-    er <- paste0("This feature only works with projected layers.\n",
-                 "It seems that you are using an unprojected geographic ",
-                 "layer (using longitude and latitude).\n",
-                 "You can use crssuggest::suggest_crs(x) to find a candidate CRS then ",
-                 "sf::st_tranform(x, crs) to transform the layer.")
+    er <- paste0(
+      "This feature only works with projected layers.\n",
+      "It seems that you are using an unprojected geographic ",
+      "layer (using longitude and latitude).\n",
+      "You can use crssuggest::suggest_crs(x) to find a candidate CRS then ",
+      "sf::st_tranform(x, crs) to transform the layer."
+    )
     stop(er, call. = FALSE)
-
   }
 
   if (missing(id)) {

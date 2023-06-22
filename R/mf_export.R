@@ -56,10 +56,14 @@ mf_export <- function(x,
   }
 
   # input test
-  if(!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))){
-    stop(paste0("x should be an object of class sf, sfc, sfg, bbox, ",
-                "SpatRaster or SpatVector"),
-         call. = FALSE)
+  if (!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))) {
+    stop(
+      paste0(
+        "x should be an object of class sf, sfc, sfg, bbox, ",
+        "SpatRaster or SpatVector"
+      ),
+      call. = FALSE
+    )
   }
 
   # file format
@@ -74,8 +78,11 @@ mf_export <- function(x,
 
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
-      stop(paste0("'terra' package is needed for this function to work. ",
-                  "Please install it."),
+      stop(
+        paste0(
+          "'terra' package is needed for this function to work. ",
+          "Please install it."
+        ),
         call. = FALSE
       )
     }
@@ -171,10 +178,10 @@ mf_export <- function(x,
 
 
 get_ratio <- function(x, width, height, mar, res, format) {
-  if(isTRUE(sf::st_is_longlat(x))){
+  if (isTRUE(sf::st_is_longlat(x))) {
     x <- st_as_sfc(x)
-    lat_ts <- mean(sf::st_bbox(x)[c(2,4)]) # latitude of true scale
-    x <- st_transform(x = x,paste0("+proj=eqc +lat_ts=", lat_ts))
+    lat_ts <- mean(sf::st_bbox(x)[c(2, 4)]) # latitude of true scale
+    x <- st_transform(x = x, paste0("+proj=eqc +lat_ts=", lat_ts))
     x <- st_bbox(x)
   }
 

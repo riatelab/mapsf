@@ -23,9 +23,10 @@ mf_raster <- function(x, add = FALSE, ...) {
   }
 
   # input test
-  if(!inherits(x, "SpatRaster")){
+  if (!inherits(x, "SpatRaster")) {
     stop(paste0("x should be a SpatRaster."),
-         call. = FALSE)
+      call. = FALSE
+    )
   }
 
 
@@ -58,5 +59,4 @@ mf_raster <- function(x, add = FALSE, ...) {
     ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
     do.call(terra::plot, ops)
   }
-
 }
