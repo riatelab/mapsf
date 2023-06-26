@@ -53,7 +53,7 @@ wordlayout <- function(x, y, words, cex = 1,
     cex <- rep(cex, n)
   }
   boxes <- list()
-  for (i in 1:length(words)) {
+  for (i in seq_along(words)) {
     r <- 0
     theta <- runif(1, 0, 2 * pi)
     x1 <- xo <- x[i]
@@ -67,13 +67,13 @@ wordlayout <- function(x, y, words, cex = 1,
     if (grepl(tails, words[i])) {
       ht <- ht + ht * .2
     }
-    isOverlaped <- TRUE
-    while (isOverlaped) {
+    is_overlaped <- TRUE
+    while (is_overlaped) {
       if (!is_overlap(x1 - .5 * wid, y1 - .5 * ht, wid, ht, boxes) &&
         x1 - .5 * wid > xlim[1] && y1 - .5 * ht > ylim[1] &&
         x1 + .5 * wid < xlim[2] && y1 + .5 * ht < ylim[2]) {
         boxes[[length(boxes) + 1]] <- c(x1 - .5 * wid, y1 - .5 * ht, wid, ht)
-        isOverlaped <- FALSE
+        is_overlaped <- FALSE
       } else {
         theta <- theta + tstep
         r <- r + rstep * tstep / (2 * pi)

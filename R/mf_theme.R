@@ -95,16 +95,12 @@ mf_theme <- function(x,
     font = getOption("mapsf.font")
   )
 
-
-
   # if no arg input => return param list
   defined <- ls()
   passed <- names(as.list(match.call())[-1])
   if (!any(passed %in% defined)) {
     return(theme)
   }
-
-
 
   # input a theme name
   if (!missing(x)) {

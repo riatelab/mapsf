@@ -52,7 +52,7 @@ mf_scale <- function(size, pos = "bottomright",
   yscale <- pu[3] + inset
 
   if (!missing(pos)) {
-    if (is.numeric(pos) & length(pos) == 2) {
+    if (is.numeric(pos) && length(pos) == 2) {
       xscale <- pos[1]
       yscale <- pos[2]
     } else {
@@ -93,9 +93,6 @@ mf_scale <- function(size, pos = "bottomright",
 #' @param unit_out output unit
 #' @noRd
 unit_conversion <- function(size, unit_in, unit_out) {
-  # uncomment comments if the function is eventually exported
-
-  # if(!unit_in %in% c('km','m','mi')) stop("unit must be 'km', 'm', or 'mi'")
   if (!unit_out %in% c("km", "m", "mi")) stop("unit must be 'km', 'm', or 'mi'")
 
   if (unit_out == "m") {

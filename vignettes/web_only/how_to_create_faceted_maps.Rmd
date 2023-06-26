@@ -43,7 +43,7 @@ When relevant the user can use a `for` loop.
 ```{r fig2, fig.height = 8, fig.width = 7, results = FALSE, fig.path="img/", eval = FALSE}
 # define the figure layout (6 rows and 6 columns)
 par(mfrow = c(6, 6))
-for (i in 1:nrow(mtq)) {
+for (i in seq_len(nrow(mtq))) {
   # center the map on a targeted municipality and its
   # neighborhood (with mf_init() and its expandBB arg)
   mf_init(mtq[i, ], expandBB = c(.3, .3, .3, .3))

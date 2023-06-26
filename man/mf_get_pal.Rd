@@ -47,10 +47,16 @@ cols <- mf_get_pal(n = c(5, 5), pal = c("Reds 2", "Greens"))
 plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
 cols <- mf_get_pal(n = c(7, 3), pal = c("Reds 2", "Greens"))
 plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
-cols <- mf_get_pal(n = c(5, 5), pal = c("Reds 2", "Greens"), neutral = "grey")
+cols <- mf_get_pal(
+  n = c(5, 5), pal = c("Reds 2", "Greens"),
+  neutral = "grey"
+)
 plot(1:11, rep(1, 11), bg = cols, pch = 22, cex = 4)
 opar <- par(bg = "black")
-cols <- mf_get_pal(n = c(7, 3), pal = c("Reds 2", "Greens"), alpha = c(.3, .7))
+cols <- mf_get_pal(
+  n = c(7, 3), pal = c("Reds 2", "Greens"),
+  alpha = c(.3, .7)
+)
 plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
 par(opar)
 cols <- mf_get_pal(

@@ -135,10 +135,10 @@ mf_map <- function(x,
   }
 
   cl <- inherits(x = x, what = c("sf", "sfc", "sfg"), which = TRUE) != 0
-  if (cl[1] == FALSE & cl[2] == TRUE & type != "base") {
+  if (cl[1] == FALSE && cl[2] == TRUE && type != "base") {
     stop(paste0("'x' should be an sf object."), call. = FALSE)
   }
-  if (cl[1] == FALSE & cl[2] == FALSE & cl[3] == FALSE) {
+  if (cl[1] == FALSE && cl[2] == FALSE && cl[3] == FALSE) {
     stop(paste0("'x' should be an sf, sfc or sfg object."), call. = FALSE)
   }
 

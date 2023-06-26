@@ -27,13 +27,15 @@ mf_init <- function(x, expandBB = rep(0, 4), theme) {
     )
     mf_theme(theme)
   }
-  mar <- getOption("mapsf.mar")
   bgmap <- getOption("mapsf.bg")
 
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
-        "'terra' package is needed for this function to work. Please install it.",
+        paste0(
+          "'terra' package is needed for this function to work. ",
+          "Please install it."
+        ),
         call. = FALSE
       )
     }

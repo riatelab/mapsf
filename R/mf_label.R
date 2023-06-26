@@ -60,7 +60,7 @@ mf_label <- function(x, var,
       if (length(col) != nlab) {
         col <- rep(col[1], nlab)
       }
-      for (i in 1:length(xo)) {
+      for (i in seq_along(xo)) {
         xl <- lay[i, 1]
         yl <- lay[i, 2]
         w <- lay[i, 3]
@@ -70,8 +70,6 @@ mf_label <- function(x, var,
           points(xo[i], yo[i], pch = 16, col = col[i], cex = .5)
           nx <- xl + .5 * w
           ny <- yl + .5 * h
-          # ny <- yl
-
           lines(c(xo[i], nx), c(yo[i], ny), col = col[i], lwd = 1)
         }
       }

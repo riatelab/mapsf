@@ -32,7 +32,10 @@ mf_background <- function(filename, ...) {
   if (ex %in% c("jpg", "jpeg")) {
     if (!requireNamespace("jpeg", quietly = TRUE)) {
       stop(
-        "'jpeg' is package needed for this function to work. Please install it.",
+        paste0(
+          "'jpeg' is package needed for this function to work. ",
+          "Please install it."
+        ),
         call. = FALSE
       )
     }

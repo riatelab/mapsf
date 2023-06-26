@@ -25,8 +25,7 @@ mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
 mob_97209 <- mob[mob$i == 97209, ]
 mob_links <- mf_get_links(x = mtq, df = mob_97209)
 mf_map(mtq)
-expect_silent(mf_map(mob_links,c("fij", "sj"), "prop_typo", add = TRUE))
+expect_silent(mf_map(mob_links, c("fij", "sj"), "prop_typo", add = TRUE))
 mob_links[2, "sj"] <- NA
-expect_silent(mf_map(mob_links,c("fij", "sj"), "prop_typo",
-                     val_max=5000, add = FALSE, col_na = "red"))
-
+expect_silent(mf_map(mob_links, c("fij", "sj"), "prop_typo",
+                     val_max = 5000, add = FALSE, col_na = "red"))

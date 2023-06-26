@@ -39,7 +39,10 @@ mf_get_ratio <- function(x,
   if (inherits(x, c("SpatRaster", "SpatVector"))) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
-        "'terra' package is needed for this function to work. Please install it.",
+        paste0(
+          "'terra' package is needed for this function to work. ",
+          "Please install it."
+        ),
         call. = FALSE
       )
     }

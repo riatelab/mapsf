@@ -90,7 +90,7 @@ mf_legend_s <- function(pos = "right",
   xy_leg <- NULL
 
   while (TRUE) {
-    if (length(pos) == 2 & is.numeric(pos)) {
+    if (length(pos) == 2 && is.numeric(pos)) {
       xy_leg <- pos
     }
     xy_title <- get_xy_title(

@@ -70,17 +70,16 @@ mf_get_borders <- function(x, id) {
   df <- data.frame(id = rep(NA, long), id1 = rep(NA, long), id2 = rep(NA, long))
 
   lgeo <- vector(mode = "list", length = long)
-  lgeo2 <- vector(mode = "list", length = long)
   ind <- 1
-  for (i in 1:length(myl)) {
+  for (i in seq_along(myl)) {
     id1 <- names(myl[i])
     li <- lx[lx[[id]] == id1, ]
-    for (j in 1:length(myl[[i]])) {
+    for (j in seq_along(myl[[i]])) {
       id2 <- myl[[i]][[j]]
       po <- x[x[[id]] == id2, ]
-      Inter <- sf::st_intersection(sf::st_geometry(li), sf::st_geometry(po))
+      inter <- sf::st_intersection(sf::st_geometry(li), sf::st_geometry(po))
       df[ind, ] <- c(paste0(id1, "_", id2), id1, id2)
-      lgeo[[ind]] <- Inter[[1]]
+      lgeo[[ind]] <- inter[[1]]
       ind <- ind + 1
     }
   }

@@ -116,7 +116,7 @@ mf_symb_choro <- function(x, var,
 
   if (missing(pch)) {
     pchs <- c(0:25, 32:127)
-    pch <- pchs[1:length(val_order)]
+    pch <- pchs[seq_along(val_order)]
   }
 
   if (length(cex) != length(val_order)) {
@@ -161,7 +161,6 @@ mf_symb_choro <- function(x, var,
     lwd = lwd, add = add
   )
 
-  # box(col = bg)
   leg_pos <- split_leg(leg_pos)
   mf_legend_c(
     pos = leg_pos[[2]], val = breaks, title = leg_title[2],

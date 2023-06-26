@@ -55,9 +55,6 @@ mf_legend_pl <- function(pos = "left",
   h <- inset / 1.5
   n <- length(val)
 
-  # lwd = 5
-  # val <- c(1,5,10)
-  #
   val <- sort(val)
   lwds <- lwd * val / max(val)
   val <- get_val_rnd(val = val, val_rnd = val_rnd)
@@ -68,7 +65,7 @@ mf_legend_pl <- function(pos = "left",
 
 
   while (TRUE) {
-    if (length(pos) == 2 & is.numeric(pos)) {
+    if (length(pos) == 2 && is.numeric(pos)) {
       xy_leg <- pos
     }
     xy_title <- get_xy_title(

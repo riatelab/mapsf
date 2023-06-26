@@ -51,14 +51,14 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
 
   x <- as.vector(na.omit(x))
   x <- x[is.finite(x)]
-  customMethods <- c("geom", "arith", "q6", "em", "msd")
+  custom_methods <- c("geom", "arith", "q6", "em", "msd")
 
   # default number of classes
   if (missing(nbreaks)) {
     nbreaks <- round(1 + 3.3 * log10(length(x)), 0)
   }
 
-  if (!breaks %in% customMethods) {
+  if (!breaks %in% custom_methods) {
     intervals <- classInt::classIntervals(
       var = x,
       n = nbreaks,
@@ -107,21 +107,21 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
       if (t != 0) {
         stop("The number of classes must be a power of 2")
       } else {
-        minVec <- min(x)
-        maxVec <- max(x)
+        min_vec <- min(x)
+        max_vec <- max(x)
         it <- log2(nbreaks)
 
-        int <- c(minVec, maxVec)
+        int <- c(min_vec, max_vec)
 
         for (a in 1:it) {
           valprv <- c()
           for (i in 1:(length(int) - 1)) {
             if (i == 1) {
-              subVec <- x[x >= int[i] & x <= int[i + 1]]
+              sub_vec <- x[x >= int[i] & x <= int[i + 1]]
             } else {
-              subVec <- x[x > int[i] & x <= int[i + 1]]
+              sub_vec <- x[x > int[i] & x <= int[i + 1]]
             }
-            valprv <- c(valprv, mean(subVec))
+            valprv <- c(valprv, mean(sub_vec))
           }
           int <- c(int, valprv)
           int <- int[order(int)]
@@ -130,33 +130,33 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
       }
     }
     if (breaks == "msd") {
-      minVec <- min(x)
-      maxVec <- max(x)
-      avgVec <- mean(x)
-      sdVec <- sqrt(sum((x - avgVec)^2) / length(x))
+      min_vec <- min(x)
+      max_vec <- max(x)
+      avg_vec <- mean(x)
+      sd_vec <- sqrt(sum((x - avg_vec)^2) / length(x))
 
       if (central == FALSE) {
-        pose <- ceiling((maxVec - avgVec) / (sdVec * k))
-        nege <- ceiling((avgVec - minVec) / (sdVec * k))
+        pose <- ceiling((max_vec - avg_vec) / (sd_vec * k))
+        nege <- ceiling((avg_vec - min_vec) / (sd_vec * k))
 
-        avgVec + (1:pose) * (sdVec * k)
+        avg_vec + (1:pose) * (sd_vec * k)
         bks <- c(
-          avgVec - (1:nege) * (sdVec * k),
-          avgVec,
-          avgVec + (1:pose) * (sdVec * k)
+          avg_vec - (1:nege) * (sd_vec * k),
+          avg_vec,
+          avg_vec + (1:pose) * (sd_vec * k)
         )
-        intervals <- c(minVec, bks[bks > minVec & bks < maxVec], maxVec)
+        intervals <- c(min_vec, bks[bks > min_vec & bks < max_vec], max_vec)
       } else {
-        pose <- ceiling((maxVec - (avgVec + 0.5 * sdVec * k)) / (sdVec * k))
-        nege <- ceiling(((avgVec - 0.5 * sdVec * k) - minVec) / (sdVec * k))
+        pose <- ceiling((max_vec - (avg_vec + 0.5 * sd_vec * k)) / (sd_vec * k))
+        nege <- ceiling(((avg_vec - 0.5 * sd_vec * k) - min_vec) / (sd_vec * k))
 
         bks <- c(
-          (avgVec - 0.5 * sdVec * k) - (1:nege) * (sdVec * k),
-          (avgVec - 0.5 * sdVec * k),
-          (avgVec + 0.5 * sdVec * k),
-          (avgVec + 0.5 * sdVec * k) + (1:pose) * (sdVec * k)
+          (avg_vec - 0.5 * sd_vec * k) - (1:nege) * (sd_vec * k),
+          (avg_vec - 0.5 * sd_vec * k),
+          (avg_vec + 0.5 * sd_vec * k),
+          (avg_vec + 0.5 * sd_vec * k) + (1:pose) * (sd_vec * k)
         )
-        intervals <- c(minVec, bks[bks > minVec & bks < maxVec], maxVec)
+        intervals <- c(min_vec, bks[bks > min_vec & bks < max_vec], max_vec)
       }
       intervals <- intervals[order(intervals)]
     }

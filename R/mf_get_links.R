@@ -61,7 +61,7 @@ mf_get_links <- function(x, df, x_id, df_id) {
     "LINESTRING(", link$X.y, " ", link$Y.y, ", ",
     link$X.x, " ", link$Y.x, ")"
   )
-  link <- sf::st_sf(link[, 1:ncol(df)],
+  link <- sf::st_sf(link[, seq_len(ncol(df))],
     geometry = sf::st_as_sfc(stringo, crs = sf::st_crs(x))
   )
   return(link)

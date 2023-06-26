@@ -115,10 +115,10 @@ mf_export <- function(x,
 
 
   if (export == "png") {
-    if (!missing(width) & !missing(height)) {
+    if (!missing(width) && !missing(height)) {
       fd <- c(width, height)
     } else {
-      if (missing(width) & missing(height)) {
+      if (missing(width) && missing(height)) {
         width <- 600
       }
       fd <- get_ratio(
@@ -131,16 +131,19 @@ mf_export <- function(x,
       )
     }
     if (isTRUE(capabilities("cairo"))) {
-      png(filename, width = fd[1], height = fd[2], res = res, type = "cairo-png", ...)
+      png(filename,
+        width = fd[1], height = fd[2], res = res,
+        type = "cairo-png", ...
+      )
     } else {
       png(filename, width = fd[1], height = fd[2], res = res, ...)
     }
   }
   if (export == "svg") {
-    if (!missing(width) & !missing(height)) {
+    if (!missing(width) && !missing(height)) {
       fd <- c(width, height)
     } else {
-      if (missing(height) & missing(width)) {
+      if (missing(height) && missing(width)) {
         width <- 7
       }
       if (!missing(width) && width > 50) {

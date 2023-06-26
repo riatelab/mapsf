@@ -15,7 +15,8 @@
 #' If map layers have to be plotted after the inset (i.e after mf_inset_off()),
 #' please use add = TRUE.\cr
 #' It is not possible to plot an inset within an inset.\cr
-#' It is possible to plot anything (base plots) within the inset, not only map layers.
+#' It is possible to plot anything (base plots) within the inset, not only map
+#' layers.
 #' @return No return value, an inset is initiated or closed.
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -45,7 +46,6 @@ mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
     )
   }
   .gmapsf$inset <- TRUE
-  pmar <- par("mar")
   pusr <- par("usr")
   .gmapsf$par <- par(no.readonly = TRUE)
   if (!missing(x)) {
@@ -85,7 +85,7 @@ mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
   .gmapsf$oth <- theme
 
 
-  if (max(tgx) > 1 | min(tgx) < 0) {
+  if (max(tgx) > 1 || min(tgx) < 0) {
     tgx[tgx > 1] <- 1
     tgx[tgx < 0] <- 0
   }

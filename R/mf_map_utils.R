@@ -31,7 +31,6 @@ get_col_vec <- function(x, breaks, pal, jen = FALSE) {
   } else {
     itv <- findInterval(x, breaks, all.inside = FALSE, rightmost.closed = TRUE)
   }
-  # itv[itv == 0] <- length(breaks)
   colvec <- pal[itv]
   return(colvec)
 }
@@ -68,7 +67,7 @@ create_dots <- function(x = x, var = var) {
 
   nna <- lx - lxna
   nn0 <- lx - nna - lx0
-  nnI <- lx - nna - nn0 - lxinf
+  nni <- lx - nna - nn0 - lxinf
 
   if (nna > 0) {
     if (nna == 1) {
@@ -85,11 +84,11 @@ create_dots <- function(x = x, var = var) {
     }
   }
 
-  if (nnI > 0) {
-    if (nnI == 1) {
+  if (nni > 0) {
+    if (nni == 1) {
       message("1 'Infinite' value is not plotted on the map.")
     } else {
-      message(paste0(nnI, " 'Infinite' values are not plotted on the map."))
+      message(paste0(nni, " 'Infinite' values are not plotted on the map."))
     }
   }
 
@@ -138,15 +137,15 @@ get_size <- function(var, inches, val_max, symbol) {
 # Plot symbols
 plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
   if (inherits(dots, c("sf", "sfc"))) {
-    XY <- sf::st_set_geometry(dots[, 1:2], NULL)
+    xy <- sf::st_set_geometry(dots[, 1:2], NULL)
   } else {
-    XY <- dots
+    xy <- dots
   }
   switch(symbol,
     circle = {
       symbols(
-        x = XY[, 1],
-        y = XY[, 2],
+        x = xy[, 1],
+        y = xy[, 2],
         circles = sizes,
         bg = mycols,
         fg = border,
@@ -158,8 +157,8 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
     },
     square = {
       symbols(
-        x = XY[, 1],
-        y = XY[, 2],
+        x = xy[, 1],
+        y = xy[, 2],
         squares = sizes,
         bg = mycols,
         fg = border,
@@ -197,6 +196,7 @@ get_col_typo <- function(x, pal, val_order) {
     stringsAsFactors = FALSE
   )
   mycols <- refcol[match(x, refcol[, 1]), 2]
+  mycols
 }
 
 get_sym_typo <- function(x, pch, val_order) {
@@ -207,6 +207,7 @@ get_sym_typo <- function(x, pch, val_order) {
     stringsAsFactors = FALSE
   )
   mysym <- refsym[match(x, refsym[, 1]), 2]
+  mysym
 }
 
 

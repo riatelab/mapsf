@@ -1,1 +1,1 @@
-expect_silent(mapsf:::my_params('x'))
+expect_silent(mapsf:::my_params("x"))

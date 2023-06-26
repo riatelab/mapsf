@@ -1,6 +1,6 @@
 mtq <- mf_get_mtq()
 expect_silent(mf_get_borders(mtq))
 expect_error(mf_get_borders(st_transform(mtq, 4326)))
-expect_error(mf_get_borders(st_cast(mtq, 'MULTIPOINT')))
+expect_error(mf_get_borders(st_cast(mtq, "MULTIPOINT")))
 x <- mf_get_borders(mtq)
 expect_equal(nrow(x), 142)

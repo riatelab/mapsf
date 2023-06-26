@@ -242,28 +242,6 @@ drawarc <- function(x = 1, y = NULL, radius = 1, deg1 = 0, deg2 = 45, col) {
   xylim <- par("usr")
   ymult <- 1
   devunits <- grDevices::dev.size("px")
-  draw.arc.0 <- function(x, y, radius, angle1, angle2, n, col,
-                         lwd, ...) {
-    delta.angle <- (angle2 - angle1)
-    if (n != as.integer(n)) {
-      n <- as.integer(1 + delta.angle / n)
-    }
-    delta.angle <- delta.angle / n
-    angleS <- angle1 + seq(0, length = n) * delta.angle
-    angleE <- c(angleS[-1], angle2)
-    if (n > 1) {
-      half.lwd.user <- (lwd / 2) * (xylim[2] - xylim[1]) / devunits[1]
-      adj.angle <- delta.angle * half.lwd.user / (2 * (radius +
-        half.lwd.user))
-      angleS[2:n] <- angleS[2:n] - adj.angle
-      angleE[1:(n - 1)] <- angleE[1:(n - 1)] + adj.angle
-    }
-    p1x <- x + radius * cos(angleS)
-    p1y <- y + radius * sin(angleS) * ymult
-    p2x <- x + radius * cos(angleE)
-    p2y <- y + radius * sin(angleE) * ymult
-    segments(p1x, p1y, p2x, p2y, col = col, lwd = lwd, lend = 3)
-  }
   xy <- grDevices::xy.coords(x, y)
   x <- xy$x
   y <- xy$y
@@ -271,9 +249,35 @@ drawarc <- function(x = 1, y = NULL, radius = 1, deg1 = 0, deg2 = 45, col) {
   a2 <- pmax(angle1, angle2)
   angle1 <- a1
   angle2 <- a2
-  args <- data.frame(x, y, radius, angle1, angle2, n, col,
-    lwd,
-    stringsAsFactors = FALSE
+  args <- data.frame(
+    x, y, radius, angle1, angle2, n, col, lwd, xylim,
+    devunits, ymult
   )
-  for (i in 1:nrow(args)) do.call("draw.arc.0", c(args[i, ]))
+  for (i in seq_len(nrow(args))) {
+    do.call(draw_arc_0, c(args[i, ]))
+  }
+}
+
+
+draw_arc_0 <- function(x, y, radius, angle1, angle2, n, col, lwd, xylim,
+                       devunits, ymult, ...) {
+  delta_angle <- (angle2 - angle1)
+  if (n != as.integer(n)) {
+    n <- as.integer(1 + delta_angle / n)
+  }
+  delta_angle <- delta_angle / n
+  angle_s <- angle1 + seq(0, length = n) * delta_angle
+  angle_e <- c(angle_s[-1], angle2)
+  if (n > 1) {
+    half_lwd_user <- (lwd / 2) * (xylim[2] - xylim[1]) / devunits[1]
+    adj_angle <- delta_angle * half_lwd_user /
+      (2 * (radius + half_lwd_user))
+    angle_s[2:n] <- angle_s[2:n] - adj_angle
+    angle_e[1:(n - 1)] <- angle_e[1:(n - 1)] + adj_angle
+  }
+  p1x <- x + radius * cos(angle_s)
+  p1y <- y + radius * sin(angle_s) * ymult
+  p2x <- x + radius * cos(angle_e)
+  p2y <- y + radius * sin(angle_e) * ymult
+  segments(p1x, p1y, p2x, p2y, col = col, lwd = lwd, lend = 3)
 }

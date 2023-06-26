@@ -33,7 +33,8 @@ fractions of the mapping space (i.e. excluding margins).\cr
 If map layers have to be plotted after the inset (i.e after mf_inset_off()),
 please use add = TRUE.\cr
 It is not possible to plot an inset within an inset.\cr
-It is possible to plot anything (base plots) within the inset, not only map layers.
+It is possible to plot anything (base plots) within the inset, not only map
+layers.
 }
 \note{
 This function does not work when mfrow is used in par().

@@ -86,7 +86,10 @@ mf_shadow(mtq_target, add = TRUE)
 # display the target municipality
 mf_map(mtq_target, add = TRUE, col = "tomato")
 # display a title
-mf_title("Saint-Anne", pos = "left", tab = TRUE, cex = .9, line = 1, inner = TRUE)
+mf_title("Saint-Anne",
+  pos = "left", tab = TRUE,
+  cex = .9, line = 1, inner = TRUE
+)
 # display a scale bar
 mf_scale(size = 2)
 # dispaly a frame around the inset
@@ -158,7 +161,7 @@ mf_inset_on(fig = c(0.75, .95, 0.84, .99))
 # draw the histogram
 par(mar = c(0, 0, 1.7, 0))
 hist(mtq$MED,
-  breaks = bks, col = pal, border = fg, axes = F, labels = "",
+  breaks = bks, col = pal, border = fg, axes = FALSE, labels = "",
   xlab = "", ylab = "", main = ""
 )
 axis(
