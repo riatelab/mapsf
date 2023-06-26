@@ -69,11 +69,10 @@ mf_export <- function(x,
   # file format
   nc <- nchar(filename)
   ext <- substr(filename, nc - 3, nc)
-  if (ext %in% c(".png", ".svg")) {
-    export <- substr(ext, 2, 4)
-  } else {
+  if (!ext %in% c(".png", ".svg")) {
     stop('The filename extension should be ".png" or ".svg".', call. = FALSE)
   }
+  export <- substr(ext, 2, 4)
 
 
   if (inherits(x, "SpatRaster")) {
@@ -94,7 +93,7 @@ mf_export <- function(x,
       x = y, filename = filename, width = width, height = height, res = res,
       expandBB = c(rep(-.04, 4)) + expandBB, ...
     )
-    return(invisible(x))
+    return(invisible(NULL))
   }
 
   mar <- getOption("mapsf.mar")
