@@ -32,7 +32,7 @@
 #' 'val_max',
 #' 'symbol',
 #' 'val_order'))
-#'
+#' @param ... further parameters from \link{plot} for sfc objects
 #' @param type map type:
 #' * **base**, base maps,
 #' * **prop**, proportional symbols maps,
@@ -46,8 +46,8 @@
 #' on qualitative data,
 #' * **symb_choro**, symbols maps with symbols colors based on
 #' a quantitative data classification
-#' @param cex cex (point size) for symbols
-#' @param pch pch (point type) for symbols
+#' @param cex point size
+#' @param pch point type
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
 #' @details
@@ -119,7 +119,8 @@ mf_map <- function(x,
                    leg_no_data,
                    leg_frame,
                    expandBB,
-                   add) {
+                   add,
+                   ...) {
   # check args
   if (!type %in% c(
     "base", "prop", "choro", "typo", "symb", "grad",

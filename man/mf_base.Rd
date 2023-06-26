@@ -4,7 +4,18 @@
 \alias{mf_base}
 \title{Plot an sf object}
 \usage{
-mf_base(x, col = "grey80", border = "grey20", lwd = 0.7, pch = 20, add = FALSE)
+mf_base(
+  x,
+  col = "grey80",
+  border = "grey20",
+  bg = "white",
+  cex = 1,
+  pch = 20,
+  lwd = 0.7,
+  lty = 1,
+  add = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{sfg}}
@@ -13,11 +24,19 @@ mf_base(x, col = "grey80", border = "grey20", lwd = 0.7, pch = 20, add = FALSE)
 
 \item{border}{border color}
 
-\item{lwd}{border width}
+\item{bg}{background color}
+
+\item{cex}{point size}
 
 \item{pch}{pch (point type) for symbols}
 
+\item{lwd}{border width}
+
+\item{lty}{line or border type}
+
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
+
+\item{...}{further parameters from \link{plot} for sfc objects}
 }
 \value{
 x is (invisibly) returned.

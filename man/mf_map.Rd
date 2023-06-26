@@ -33,7 +33,8 @@ mf_map(
   leg_no_data,
   leg_frame,
   expandBB,
-  add
+  add,
+  ...
 )
 }
 \arguments{
@@ -77,9 +78,9 @@ a quantitative data classification
 
 \item{val_order}{values order, a character vector that matches var modalities}
 
-\item{pch}{pch (point type) for symbols}
+\item{pch}{point type}
 
-\item{cex}{cex (point size) for symbols}
+\item{cex}{point size}
 
 \item{border}{border color}
 
@@ -109,6 +110,8 @@ a quantitative data classification
 direction (bottom, left, top, right)}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
+
+\item{...}{further parameters from \link{plot} for sfc objects}
 }
 \value{
 x is (invisibly) returned.

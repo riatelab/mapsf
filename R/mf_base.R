@@ -7,7 +7,10 @@
 #' 'border',
 #' 'lwd', 'pch',
 #' 'add'))
-#'
+#' @param cex point size
+#' @param bg background color
+#' @param lty line or border type
+#' @param ... further parameters from \link{plot} for sfc objects
 #' @importFrom sf st_geometry
 #' @keywords internal
 #' @return x is (invisibly) returned.
@@ -20,9 +23,13 @@
 mf_base <- function(x,
                     col = "grey80",
                     border = "grey20",
-                    lwd = .7,
+                    bg = "white",
+                    cex = 1,
                     pch = 20,
-                    add = FALSE) {
+                    lwd = .7,
+                    lty = 1,
+                    add = FALSE,
+                    ...) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -39,7 +46,9 @@ mf_base <- function(x,
 
   plot(st_geometry(x),
     col = col, border = border,
-    lwd = lwd, add = add, pch = pch
+    lwd = lwd, add = add, pch = pch,
+    bg = bg, lty = lty, cex = cex,
+    ...
   )
 
   return(invisible(x))
