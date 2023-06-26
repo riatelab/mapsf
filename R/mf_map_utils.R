@@ -1,9 +1,3 @@
-mxinch <- function(x) {
-  x * diff(par("usr")[1L:2]) / par("fin")[1L]
-}
-
-
-
 #' Title
 #'
 #' @param pal pal
