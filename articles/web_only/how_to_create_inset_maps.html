@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2023-06-22</h4>
+            <h4 data-toc-skip class="date">2023-06-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_create_inset_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_create_inset_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_inset_maps.Rmd</code></div>
@@ -193,7 +193,10 @@ municipalities and a frame.</p>
 <span><span class="co"># display the target municipality</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq_target</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"tomato"</span><span class="op">)</span></span>
 <span><span class="co"># display a title</span></span>
-<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Saint-Anne"</span>, pos <span class="op">=</span> <span class="st">"left"</span>, tab <span class="op">=</span> <span class="cn">TRUE</span>, cex <span class="op">=</span> <span class="fl">.9</span>, line <span class="op">=</span> <span class="fl">1</span>, inner <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Saint-Anne"</span>,</span>
+<span>  pos <span class="op">=</span> <span class="st">"left"</span>, tab <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">.9</span>, line <span class="op">=</span> <span class="fl">1</span>, inner <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
 <span><span class="co"># display a scale bar</span></span>
 <span><span class="fu"><a href="../../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co"># dispaly a frame around the inset</span></span>
@@ -266,7 +269,7 @@ classification.</p>
 <span><span class="co"># draw the histogram</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1.7</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">$</span><span class="va">MED</span>,</span>
-<span>  breaks <span class="op">=</span> <span class="va">bks</span>, col <span class="op">=</span> <span class="va">pal</span>, border <span class="op">=</span> <span class="va">fg</span>, axes <span class="op">=</span> <span class="cn">F</span>, labels <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  breaks <span class="op">=</span> <span class="va">bks</span>, col <span class="op">=</span> <span class="va">pal</span>, border <span class="op">=</span> <span class="va">fg</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>, labels <span class="op">=</span> <span class="st">""</span>,</span>
 <span>  xlab <span class="op">=</span> <span class="st">""</span>, ylab <span class="op">=</span> <span class="st">""</span>, main <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/axis.html" class="external-link">axis</a></span><span class="op">(</span></span>

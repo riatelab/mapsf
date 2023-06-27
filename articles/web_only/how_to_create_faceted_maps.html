@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2023-06-22</h4>
+            <h4 data-toc-skip class="date">2023-06-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_create_faceted_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_create_faceted_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_faceted_maps.Rmd</code></div>
@@ -142,7 +142,7 @@ plotting the maps. For example, use <code>par(mfrow = c(1, 2))</code>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># define the figure layout (6 rows and 6 columns)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># center the map on a targeted municipality and its</span></span>
 <span>  <span class="co"># neighborhood (with mf_init() and its expandBB arg)</span></span>
 <span>  <span class="fu"><a href="../../reference/mf_init.html">mf_init</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.3</span>, <span class="fl">.3</span>, <span class="fl">.3</span>, <span class="fl">.3</span><span class="op">)</span><span class="op">)</span></span>
