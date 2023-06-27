@@ -6,7 +6,7 @@ get_xy_s <- function(x, y, val, inches, symbol) {
     val_max = max(val),
     symbol = symbol
   )
-  sizesi <- xinch(sizes)
+  sizesi <- yinch(sizes)
   x <- rep(x + sizesi[1], length(val))
   y <- y - sizesi[1] * 2 + sizesi
   h <- sizesi[1] * 2
@@ -78,7 +78,7 @@ self_adjust <- function(var, inches, val_cex) {
   v <- sort(unique(v))
 
   # circle sizes in map units for candidate values
-  si <- xinch(get_size(
+  si <- yinch(get_size(
     var = v, inches = inches,
     val_max = max(val), symbol = "circle"
   ))

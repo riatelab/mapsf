@@ -145,7 +145,7 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
         fg = border,
         lwd = lwd,
         add = TRUE,
-        inches = FALSE,
+        inches = inches,
         asp = 1
       )
     },
@@ -263,3 +263,14 @@ get_geom_type <- function(x) {
   }
   return(type)
 }
+
+
+# proj_lonlat <- function(x){
+#   if (!st_is_longlat(x)){
+#     return(x)
+#   }
+#   lat_ts = mean(sf::st_bbox(x)[c(2,4)]) # latitude of true scale
+#   x = st_transform(x, paste0("+proj=eqc +lat_ts=", lat_ts))
+#   message('"x" has been reprojected on the fly.')
+#   return(x)
+# }
