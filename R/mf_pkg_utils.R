@@ -200,19 +200,19 @@ plot_is_lonlat <- function(type) {
     if (type == "error") {
       stop(paste0(
         "This feature only works with projected layers.\n",
-        "It seems that you are using an unprojected geographic ",
-        "layer (using longitude and latitude).\n",
-        "You can use crssuggest::suggest_crs(x) to find a candidate CRS then ",
-        "sf::st_tranform(x, crs) to transform the layer."
+        "It seems that you are using an unprojected geographic layer\n",
+        "(using longitude and latitude).\n",
+        "You can use crssuggest::suggest_crs(x) to find a candidate CRS,\n",
+        "then sf::st_tranform(x, 'crs_code') to transform the layer."
       ), call. = FALSE)
     }
     if (type == "message") {
       message(paste0(
         "Most cartographic features work better with projected layers.\n",
-        "It seems that you are using an unprojected geographic ",
-        "layer (using longitude and latitude).\n",
-        "You can use crssuggest::suggest_crs(x) to find a candidate CRS then ",
-        "sf::st_tranform(x, crs) to transform the layer."
+        "It seems that you are using an unprojected geographic layer\n",
+        "(using longitude and latitude).\n",
+        "You can use crssuggest::suggest_crs(x) to find a candidate CRS,\n",
+        "then sf::st_tranform(x, 'crs_code') to transform the layer."
       ))
     }
   }
