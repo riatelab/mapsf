@@ -165,6 +165,12 @@ globalVariables(".gmapsf", package = "mapsf", add = FALSE)
 
 
 .onLoad <- function(libname, pkgname) {
+  load_default_theme()
+}
+
+
+
+load_default_theme <- function() {
   theme <- .gmapsf$themes$default
   options(
     mapsf.bg = theme$bg,
@@ -189,7 +195,7 @@ test_cur_plot <- function() {
 }
 
 
-plot_is_lonlat <- function(type) {
+plot_is_lonlat <- function() {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   opt <- options(error = NULL)
   on.exit(options(opt), add = TRUE)
@@ -197,23 +203,13 @@ plot_is_lonlat <- function(type) {
   usr <- par("usr")
   pin <- par("pin")
   if (diff(usr[1:2] / pin[1]) - diff(usr[3:4] / pin[2]) >= 10e-4) {
-    if (type == "error") {
-      stop(paste0(
-        "This feature only works with projected layers.\n",
-        "It seems that you are using an unprojected geographic layer\n",
-        "(using longitude and latitude).\n",
-        "You can use crssuggest::suggest_crs(x) to find a candidate CRS,\n",
-        "then sf::st_tranform(x, 'crs_code') to transform the layer."
-      ), call. = FALSE)
-    }
-    if (type == "message") {
-      message(paste0(
-        "Most cartographic features work better with projected layers.\n",
-        "It seems that you are using an unprojected geographic layer\n",
-        "(using longitude and latitude).\n",
-        "You can use crssuggest::suggest_crs(x) to find a candidate CRS,\n",
-        "then sf::st_tranform(x, 'crs_code') to transform the layer."
-      ))
-    }
+    stop(paste0(
+      "This feature only works with projected layers.\n",
+      "It seems that you are using an unprojected geographic layer\n",
+      "(using longitude and latitude).\n",
+      "You can use crssuggest::suggest_crs(x) to find a candidate CRS,\n",
+      "then sf::st_tranform(x, 'crs_code') to transform the layer."
+    ), call. = FALSE)
   }
 }
+
