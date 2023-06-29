@@ -4,10 +4,13 @@
 \alias{mf_raster}
 \title{Plot a raster}
 \usage{
-mf_raster(x, add = FALSE, ...)
+mf_raster(x, expandBB = rep(0, 4), add = FALSE, ...)
 }
 \arguments{
 \item{x}{a SpatRaster}
+
+\item{expandBB}{fractional values to expand the bounding box with, in each
+direction (bottom, left, top, right)}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE).}

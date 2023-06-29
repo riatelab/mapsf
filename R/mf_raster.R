@@ -2,6 +2,8 @@
 #' @description Plot a raster object (SpatRaster from terra).
 #' @name mf_raster
 #' @param x a SpatRaster
+#' @param expandBB fractional values to expand the bounding box with, in each
+#' direction (bottom, left, top, right)
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE).
 #' @param ... bgalpha, smooth, maxcell or other arguments passed to be
@@ -14,7 +16,7 @@
 #'   r <- rast(system.file("ex/elev.tif", package = "terra"))
 #'   mf_raster(r)
 #' }
-mf_raster <- function(x, add = FALSE, ...) {
+mf_raster <- function(x, expandBB = rep(0, 4), add = FALSE, ...) {
   if (!requireNamespace("terra", quietly = TRUE)) {
     stop(
       "'terra' package is needed for this function to work. Please install it.",
@@ -34,7 +36,7 @@ mf_raster <- function(x, add = FALSE, ...) {
   on.exit(par(op))
 
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB)
   }
   # maxcell mgmt
   dx <- dim(x)
