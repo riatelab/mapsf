@@ -81,13 +81,18 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_raster</span><span class="op">(</span><span class="va">x</span>, add <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_raster</span><span class="op">(</span><span class="va">x</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a SpatRaster</p></dd>
+
+
+<dt>expandBB</dt>
+<dd><p>fractional values to expand the bounding box with, in each
+direction (bottom, left, top, right)</p></dd>
 
 
 <dt>add</dt>
