@@ -93,19 +93,18 @@ mf_scale <- function(size, pos = "bottomright",
 #' @param unit_out output unit
 #' @noRd
 unit_conversion <- function(size, unit_in, unit_out) {
-  if (!unit_out %in% c("km", "m", "mi")) stop("unit must be 'km', 'm', or 'mi'")
-
+  if (!unit_out %in% c("km", "m", "mi")) {
+    stop("unit must be 'km', 'm', or 'mi'")
+  }
   if (unit_out == "m") {
     if (unit_in == "km") size <- size * 1000
     if (unit_in == "mi") size <- size * 1609.344
   }
   if (unit_out == "km") {
     if (unit_in == "m") size <- size / 1000
-    # if(unit_in == "mi") size <- size * 1.609344
   }
   if (unit_out == "mi") {
     if (unit_in == "m") size <- size / 1609.344
-    # if(unit_in == "km") size <- size / 1.609344
   }
   return(size)
 }

@@ -201,19 +201,15 @@ mf_map <- function(x,
 
   # enabling pipe without side effect
   argx$x <- eval(x)
-  # argx$x <- eval(proj_lonlat(x))
 
-  if (!missing(expandBB) && !add) {
+    if (!missing(expandBB) && !add) {
     mf_init(argx$x, expandBB = expandBB)
     argx$add <- TRUE
   } else {
     argx$add <- add
   }
 
-
-
   do.call(what = get(paste0("mf_", type)), argx, envir = parent.frame())
-
 
   return(invisible(x))
 }

@@ -1,4 +1,4 @@
-if(!is.null(dev.list())){
+if (!is.null(dev.list())) {
   dev.off()
 }
 expect_error(mapsf:::test_cur_plot())

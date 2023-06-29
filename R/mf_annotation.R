@@ -69,9 +69,11 @@ mf_annotation <- function(x, txt, pos = "topright",
   inset <- strwidth("M", units = "user", cex = 1) / 2
   radius <- 5 * s * inset
 
-  res <- annot_pos_params(pos = pos, xy = xy,
-                          radius = radius,
-                          inset = inset)
+  res <- annot_pos_params(
+    pos = pos, xy = xy,
+    radius = radius,
+    inset = inset
+  )
 
   drawarc(
     x = res$x_arc,
@@ -143,13 +145,10 @@ drawarc <- function(x = 1, y = NULL, radius = 1, deg1 = 0, deg2 = 45, col) {
   p2x <- x + radius * cos(angle_e)
   p2y <- y + radius * sin(angle_e) * ymult
   segments(p1x, p1y, p2x, p2y, col = col, lwd = lwd, lend = 3)
-
-
 }
 
 
 annot_pos_params <- function(pos, xy, radius, inset) {
-
   if (pos == "topright") {
     x_arc <- xy[1] + radius
     y_arc <- xy[2] + inset
@@ -161,7 +160,7 @@ annot_pos_params <- function(pos, xy, radius, inset) {
       xy[1] + inset / 3,
       xy[1] - inset / 3
     )
-    y_poly <-  c(
+    y_poly <- c(
       xy[2] + 2 * inset,
       xy[2] + 5 * inset / 6,
       xy[2] + 2 * inset,
@@ -183,7 +182,7 @@ annot_pos_params <- function(pos, xy, radius, inset) {
       xy[1] + inset / 3,
       xy[1] - inset / 3
     )
-    y_poly <-  c(
+    y_poly <- c(
       xy[2] + 2 * inset,
       xy[2] + 5 * inset / 6,
       xy[2] + 2 * inset,
@@ -205,7 +204,7 @@ annot_pos_params <- function(pos, xy, radius, inset) {
       xy[1] + inset / 3,
       xy[1] - inset / 3
     )
-    y_poly <-  c(
+    y_poly <- c(
       xy[2] - 2 * inset,
       xy[2] - 5 * inset / 6,
       xy[2] - 2 * inset,
@@ -227,7 +226,7 @@ annot_pos_params <- function(pos, xy, radius, inset) {
       xy[1] + inset / 3,
       xy[1] - inset / 3
     )
-    y_poly <-  c(
+    y_poly <- c(
       xy[2] - 2 * inset,
       xy[2] - 5 * inset / 6,
       xy[2] - 2 * inset,
@@ -249,6 +248,6 @@ annot_pos_params <- function(pos, xy, radius, inset) {
     y_poly = y_poly,
     x_txt = x_txt,
     y_txt = y_txt,
-    adj = adj)
-  )
+    adj = adj
+  ))
 }

@@ -212,4 +212,3 @@ plot_is_lonlat <- function() {
     ), call. = FALSE)
   }
 }
-
