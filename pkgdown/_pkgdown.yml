@@ -21,11 +21,12 @@ reference:
     contents:
     - mapsf
   - title: "Symbology"
-    desc: These functions build cartographic layers.
+    desc: These functions display cartographic layers.
     contents:
     - mf_map
     - mf_label
     - mf_raster
+    - mf_graticule
   - title: "Map Layout"
     desc: These functions are dedicated to the map layout design.
     contents:
