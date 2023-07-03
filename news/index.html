@@ -82,18 +82,20 @@
 <ul><li>use a vector of colors for lines if necessary in mf_label() (<a href="https://github.com/riatelab/mapsf/issues/50" class="external-link">#50</a>)</li>
 <li>enable pipe without side effects (no extra plot)</li>
 <li>use a default transparent background for insets</li>
-<li>deprecate “theme”” arg in relevant function, adapt docs and vignettes</li>
-<li>fix: force the use of cairo device, if available, in mf_export() for png</li>
-<li>fix: wrong class allocation when using breaks = “jenks” fix <a href="https://github.com/riatelab/mapsf/issues/53" class="external-link">#53</a></li>
+<li>deprecate “theme” arg in relevant function, adapt docs and vignettes, use options() for themes instead of global variable &amp; mimic the behaviour of basetheme package</li>
+<li>force the use of cairo device, if available, in mf_export() for png</li>
+<li>fix wrong class allocation when using breaks = “jenks” (<a href="https://github.com/riatelab/mapsf/issues/53" class="external-link">#53</a>)</li>
+<li>exports using unprojected objects do not produce figures with inaccurate height/width ratio anymore.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="feat-0-7-0">Feat<a class="anchor" aria-label="anchor" href="#feat-0-7-0"></a></h3>
-<ul><li>add mf_get_borders(), get MULTILINESTRING of borders between polygons</li>
-<li>add expandBB arg in mf_map()</li>
-<li>refactor: use options() for themes instead of global variable &amp; mimic the behaviour of basetheme</li>
-<li>feat: add arg checking depending on type in mf_map()</li>
-<li>feat: add error message for functions that need a pre-existing plot</li>
-<li>feat: add message or error for unprojected layer use in relevant functions</li>
+<ul><li>add expandBB arg in mf_map()</li>
+<li>add expandBB arg in mf_raster()</li>
+<li>add arg checking depending on type in mf_map()</li>
+<li>add an error message for functions that need a pre-existing plot</li>
+<li>add error for unprojected layer use in (ir)relevant functions</li>
+<li>add mf_graticule() to add graticule lines and labels</li>
+<li>set internally the ‘add’ arg for each map types in mf_map()</li>
 </ul></div>
 </div>
     <div class="section level2">

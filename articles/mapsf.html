@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2023-06-29</h4>
+            <h4 data-toc-skip class="date">2023-07-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/mapsf.Rmd" class="external-link"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="hidden name"><code>mapsf.Rmd</code></div>
@@ -438,9 +438,7 @@ municipality</li>
 <div class="section level3">
 <h3 id="base-map">Base map<a class="anchor" aria-label="anchor" href="#base-map"></a>
 </h3>
-<p><code><a href="../reference/mf_init.html">mf_init()</a></code> is designed to initiate a map centered on a
-specific extent (<code>x</code> bounding box). The <code>theme</code>
-argument allows to select a theme.</p>
+<p><code><a href="../reference/mf_theme.html">mf_theme()</a></code> allows to apply a theme to the map.</p>
 <p><code><a href="../reference/mf_shadow.html">mf_shadow()</a></code> plots the shadow of a polygon layer.</p>
 <p><code>mf_map(x, type = "base")</code> displays <code>sf</code>
 objects geometries.</p>
@@ -452,11 +450,10 @@ separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co"># Initiate a base map</span></span>
+<span><span class="co"># set a theme</span></span>
 <span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"iceberg"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span></span>
-<span><span class="co"># Plot a shadow</span></span>
-<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># plot a shadow</span></span>
+<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="co"># plot municipalities</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, type <span class="op">=</span> <span class="st">"base"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># layout</span></span>
@@ -468,7 +465,7 @@ separately (with <code><a href="../reference/mf_title.html">mf_title()</a></code
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_init-1.png" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_basemap-1.png" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="proportional-symbols">Proportional Symbols<a class="anchor" aria-label="anchor" href="#proportional-symbols"></a>
@@ -480,11 +477,10 @@ areas proportional to a quantitative variable (stocks). The
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/" class="external-link">mapsf</a></span><span class="op">)</span></span>
 <span><span class="co"># import the sample data set</span></span>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co"># Initiate a base map</span></span>
+<span><span class="co"># set a theme</span></span>
 <span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"darkula"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span></span>
-<span><span class="co"># Plot a shadow</span></span>
-<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># plot a shadow</span></span>
+<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="co"># plot municipalities</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># plot population</span></span>
@@ -604,7 +600,7 @@ modalities order in the legend.</p>
 <p><code>mf_map(x, var, type = "prop_choro")</code> creates a map of
 symbols that are proportional to values of a first variable and colored
 to reflect the classification of a second variable.</p>
-<p><code>expandBB</code> argument in <code><a href="../reference/mf_init.html">mf_init()</a></code> allows to
+<p><code>expandBB</code> argument in <code><a href="../reference/mf_map.html">mf_map()</a></code> allows to
 expand the map space. Here, we increase the space available on the right
 of the map to avoid overlaps between the legends and the map.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -613,12 +609,8 @@ of the map to avoid overlaps between the legends and the map.</p>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
 <span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"candy"</span><span class="op">)</span></span>
-<span><span class="co"># expand the map space</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co"># Plot a shadow</span></span>
-<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co"># Plot the municipalities</span></span>
-<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Plot the municipalities and expand the map space on the right</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># Plot symbols with choropleth coloration</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">mtq</span>,</span>
@@ -658,13 +650,9 @@ to reflect the modalities of a second qualitative variable.</p>
 <span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
 <span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"ink"</span><span class="op">)</span></span>
-<span><span class="co"># expand the map space</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co"># Plot a shadow</span></span>
-<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co"># Plot the municipalities</span></span>
-<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co"># Plot symbols with choropleth coloration</span></span>
+<span><span class="co"># plot the municipalities and expand the map space on the right</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.15</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># plot symbols with choropleth coloration</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">mtq</span>,</span>
 <span>  var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"STATUS"</span><span class="op">)</span>,</span>
@@ -768,12 +756,8 @@ overlaps between the legend and the credits.</p>
 <span><span class="va">mob_links</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_get_links.html">mf_get_links</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span>, df <span class="op">=</span> <span class="va">mob_97209</span><span class="op">)</span></span>
 <span><span class="co"># set theme</span></span>
 <span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"dark"</span><span class="op">)</span></span>
-<span><span class="co"># initiate map</span></span>
-<span><span class="fu"><a href="../reference/mf_init.html">mf_init</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq</span><span class="op">)</span></span>
-<span><span class="co"># Plot a shadow</span></span>
-<span><span class="fu"><a href="../reference/mf_shadow.html">mf_shadow</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># Plot the municipalities</span></span>
-<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="co"># plot graduated links</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">mob_links</span>,</span>

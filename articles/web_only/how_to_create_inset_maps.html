@@ -112,7 +112,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2023-06-29</h4>
+            <h4 data-toc-skip class="date">2023-07-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/web_only/how_to_create_inset_maps.Rmd" class="external-link"><code>vignettes/web_only/how_to_create_inset_maps.Rmd</code></a></small>
       <div class="hidden name"><code>how_to_create_inset_maps.Rmd</code></div>
@@ -132,7 +132,7 @@ map layers.</p>
 <div class="section level2">
 <h2 id="size-and-position">Size and Position<a class="anchor" aria-label="anchor" href="#size-and-position"></a>
 </h2>
-<p>There is 2 solution for defining the size and position of an
+<p>There is 2 solutions for defining the size and position of an
 inset.</p>
 <p>The first solution is based on <code>x</code>, <code>pos</code> and
 <code>cex</code> arguments:</p>
@@ -160,16 +160,16 @@ municipality in the topright corner of the map.</p>
 <span><span class="co"># Selection of a target municipality to display in the inset</span></span>
 <span><span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="co"># Display the base map</span></span>
-<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.25</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># display the target on the main map</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq_target</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"tomato"</span><span class="op">)</span></span>
 <span><span class="co"># open the inset</span></span>
-<span><span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq_target</span>, pos <span class="op">=</span> <span class="st">"topright"</span>, cex <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq_target</span>, pos <span class="op">=</span> <span class="st">"topright"</span>, cex <span class="op">=</span> <span class="fl">.3</span><span class="op">)</span></span>
 <span><span class="co"># display the target municipality</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq_target</span>, add <span class="op">=</span> <span class="cn">FALSE</span>, col <span class="op">=</span> <span class="st">"tomato"</span><span class="op">)</span></span>
 <span><span class="co"># close the inset</span></span>
 <span><span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-2-1.png" width="480"></p>
+<p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-2-1.png" width="576"></p>
 <p>Once an inset is opened, map elements can be added to it.<br>
 Here we add a title, a shadow, a scale bar, other Martinique
 municipalities and a frame.</p>
@@ -179,13 +179,13 @@ municipalities and a frame.</p>
 <span><span class="co"># Selection of a target municipality to display in the inset</span></span>
 <span><span class="va">mtq_target</span> <span class="op">&lt;-</span> <span class="va">mtq</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="co"># Display the base map</span></span>
-<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">.25</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># display the target on the main map</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq_target</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"tomato"</span><span class="op">)</span></span>
 <span><span class="co"># open the inset</span></span>
-<span><span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq_target</span>, pos <span class="op">=</span> <span class="st">"topright"</span>, cex <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtq_target</span>, pos <span class="op">=</span> <span class="st">"topright"</span>, cex <span class="op">=</span> <span class="fl">.3</span><span class="op">)</span></span>
 <span><span class="co"># center on on the target munucipality</span></span>
-<span><span class="fu"><a href="../../reference/mf_init.html">mf_init</a></span><span class="op">(</span><span class="va">mtq_target</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq_target</span>, col <span class="op">=</span> <span class="cn">NA</span>, border <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="co"># display all municipalities</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># display the target municipality shadow</span></span>
@@ -209,7 +209,7 @@ municipalities and a frame.</p>
 <span><span class="fu"><a href="../../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co"># display credits</span></span>
 <span><span class="fu"><a href="../../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"T. Giraud, 2021"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-3-1.png" width="600"></p>
+<p><img src="how_to_create_inset_maps_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
 <p>The second solution to set the size and position of an inset is to
 use the <code>fig</code> argument.<br><code>fig</code> coordinates (xmin, xmax, ymin, ymax) are expressed as
 fractions of the mapping space (i.e. excluding margins).<br><code>mf_inset_on(fig = c(0, 0.25, 0, 0.25))</code> will create an inset
@@ -258,7 +258,7 @@ classification.</p>
 <span><span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, palette <span class="op">=</span> <span class="st">"Dark Mint"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># set a theme</span></span>
 <span><span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"candy"</span><span class="op">)</span></span>
-<span><span class="va">fg</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">fg</span></span>
+<span><span class="va">fg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"mapsf.fg"</span><span class="op">)</span></span>
 <span><span class="co"># Create the map</span></span>
 <span><span class="fu"><a href="../../reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,</span>
