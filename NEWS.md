@@ -4,18 +4,22 @@
 - use a vector of colors for lines if necessary in mf_label() (#50)
 - enable pipe without side effects (no extra plot)
 - use a default transparent background for insets 
-- deprecate "theme"" arg in relevant function, adapt docs and vignettes
-- fix: force the use of cairo device, if available, in mf_export() for png
-- fix: wrong class allocation when using breaks = "jenks" fix #53
-
+- deprecate "theme" arg in relevant function, adapt docs and vignettes, use 
+options() for themes instead of global variable & mimic the behaviour of 
+basetheme package
+- force the use of cairo device, if available, in mf_export() for png
+- fix wrong class allocation when using breaks = "jenks" (#53)
+- exports using unprojected objects do not produce figures with inaccurate 
+height/width ratio anymore. 
 
 ## Feat
-- add mf_get_borders(), get MULTILINESTRING of borders between polygons
 - add expandBB arg in mf_map()
-- refactor: use options() for themes instead of global variable & mimic the behaviour of basetheme
-- feat: add arg checking depending on type in mf_map()
-- feat: add error message for functions that need a pre-existing plot
-- feat: add message or error for unprojected layer use in relevant functions
+- add expandBB arg in mf_raster()
+- add arg checking depending on type in mf_map()
+- add an error message for functions that need a pre-existing plot
+- add error for unprojected layer use in (ir)relevant functions
+- add mf_graticule() to add graticule lines and labels
+- set internally the 'add' arg for each map types in mf_map()
 
 
 
