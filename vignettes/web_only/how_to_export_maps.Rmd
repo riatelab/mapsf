@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 The exported map width/height ratio will match the one of a spatial object.   
 If `width` is specified, then `height` is deduced from the width/height ratio of `x` and some theme parameters (figure margins and title size).  
 If `height` is specified, then `width` is deduced from the width/height ratio of `x`and some theme parameters (figure margins and title size).  
-Additionally, `mf_export()` (and `mf_init()`) can be used to extend the map space on one or several side of the figure, or to center a map on a specific area.
+Additionally, `mf_export()` (and `mf_map()`) can be used to extend the map space on one or several side of the figure, or to center a map on a specific area.
 
 
 ## Simple Export

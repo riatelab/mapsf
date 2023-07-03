@@ -33,7 +33,7 @@ It is possible to plot anything (base plots) within the inset, not only map laye
 
 ## Size and Position
 
-There is 2 solution for defining the size and position of an inset.   
+There is 2 solutions for defining the size and position of an inset.   
 
 The first solution is based on `x`, `pos` and `cex` arguments:  
 
@@ -43,7 +43,7 @@ The first solution is based on `x`, `pos` and `cex` arguments:
 
 In the following example we create an inset for a specific municipality in the topright corner of the map. 
 
-```{r, fig.height=6, fig.width=5, results = FALSE}
+```{r, fig.height=5.71, fig.width=6, results = FALSE}
 library(mapsf)
 # set a theme
 mf_theme("default", mar = c(0, 0, 0, 0))
@@ -52,11 +52,11 @@ mtq <- mf_get_mtq()
 # Selection of a target municipality to display in the inset
 mtq_target <- mtq[c(26), ]
 # Display the base map
-mf_map(mtq)
+mf_map(mtq, expandBB = c(0, 0, 0, .25))
 # display the target on the main map
 mf_map(mtq_target, add = TRUE, col = "tomato")
 # open the inset
-mf_inset_on(x = mtq_target, pos = "topright", cex = .4)
+mf_inset_on(x = mtq_target, pos = "topright", cex = .3)
 # display the target municipality
 mf_map(mtq_target, add = FALSE, col = "tomato")
 # close the inset
@@ -66,19 +66,19 @@ mf_inset_off()
 Once an inset is opened, map elements can be added to it.  
 Here we add a title, a shadow, a scale bar, other Martinique municipalities and a frame.  
 
-```{r, fig.height=7.58, fig.width=6.25, results = FALSE}
+```{r, fig.height=5.71, fig.width=6, results = FALSE}
 # set a theme
 mf_theme("dark")
 # Selection of a target municipality to display in the inset
 mtq_target <- mtq[c(26), ]
 # Display the base map
-mf_map(mtq)
+mf_map(mtq, expandBB = c(0, 0, 0, .25))
 # display the target on the main map
 mf_map(mtq_target, add = TRUE, col = "tomato")
 # open the inset
-mf_inset_on(x = mtq_target, pos = "topright", cex = .4)
+mf_inset_on(x = mtq_target, pos = "topright", cex = .3)
 # center on on the target munucipality
-mf_init(mtq_target)
+mf_map(mtq_target, col = NA, border = NA)
 # display all municipalities
 mf_map(mtq, add = TRUE)
 # display the target municipality shadow
@@ -150,7 +150,7 @@ bks <- round(bks, digits = -2)
 pal <- hcl.colors(n = 5, palette = "Dark Mint", rev = TRUE)
 # set a theme
 mf_theme("candy")
-fg <- mf_theme()$fg
+fg <- getOption("mapsf.fg")
 # Create the map
 mf_map(
   x = mtq, var = "MED", type = "choro",

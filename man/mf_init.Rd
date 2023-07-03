@@ -21,6 +21,7 @@ No return value, a map is initiated.
 Plot an invisible layer with the extent of a spatial object.\cr
 Always use \code{add = TRUE} in \code{mf_map} calls following an
 \code{mf_init} call.
+This function is similar to \code{mf_map(x, col = NA, border = NA)}.
 }
 \examples{
 mtq <- mf_get_mtq()

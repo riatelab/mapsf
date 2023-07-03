@@ -3,6 +3,7 @@
 #' @description Plot an invisible layer with the extent of a spatial object.\cr
 #' Always use \code{add = TRUE} in \code{mf_map} calls following an
 #' \code{mf_init} call.
+#' This function is similar to \code{mf_map(x, col = NA, border = NA)}.
 #' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
