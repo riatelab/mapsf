@@ -144,10 +144,10 @@ a quantitative data classification (\link{mf_symb_choro}).
 
 Breaks defined by a numeric vector or a classification method are
 left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
-will be mapped as:\cr[2 - 5[ \cr [5 - 10[ \cr [10 - 15[ \cr [15 - 20]\cr
+will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
 The "jenks" method is an exception and has to be right-closed.
 Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-will be mapped as:\cr[2 - 5] \cr ]5 - 10] \cr ]10 - 15] \cr ]15 - 20]
+will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
 }
 \examples{
 mtq <- mf_get_mtq()
