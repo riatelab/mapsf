@@ -194,21 +194,3 @@ test_cur_plot <- function() {
   }
 }
 
-
-plot_is_lonlat <- function() {
-  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  opt <- options(error = NULL)
-  on.exit(options(opt), add = TRUE)
-  on.exit(par(op), add = TRUE)
-  usr <- par("usr")
-  pin <- par("pin")
-  if (diff(usr[1:2] / pin[1]) - diff(usr[3:4] / pin[2]) >= 10e-4) {
-    stop(paste0(
-      "This feature only works with projected layers.\n",
-      "It seems that you are using an unprojected geographic layer\n",
-      "(using longitude and latitude).\n",
-      "You can use crssuggest::suggest_crs(x) to find a candidate CRS,\n",
-      "then sf::st_tranform(x, 'crs_code') to transform the layer."
-    ), call. = FALSE)
-  }
-}

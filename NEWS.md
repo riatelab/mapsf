@@ -17,7 +17,6 @@ height/width ratio anymore.
 - add expandBB arg in mf_raster()
 - add arg checking depending on type in mf_map()
 - add an error message for functions that need a pre-existing plot
-- add error for unprojected layer use in (ir)relevant functions
 - add mf_graticule() to add graticule lines and labels
 - set internally the 'add' arg for each map types in mf_map()
 
