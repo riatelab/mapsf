@@ -265,6 +265,25 @@ get_geom_type <- function(x) {
 }
 
 
+# arg checking depending on type
+check_args <- function(argx, type){
+  n_rel <- !names(argx) %in% names(formals(get(paste0("mf_", type))))
+  s_n_rel <- sum(n_rel)
+  if (s_n_rel >= 1) {
+    mes <- "The following arguments are not relevant when using type = '"
+    if (s_n_rel == 1) {
+      mes <- "The following argument is not relevant when using type = '"
+    }
+    message(paste0(mes, type, "': ",
+                   paste0(names(argx[n_rel]), collapse = ", "),
+                   "."))
+    argx <- argx[!n_rel]
+  }
+  argx
+}
+
+
+
 # proj_lonlat <- function(x){
 #   if (!st_is_longlat(x)){
 #     return(x)

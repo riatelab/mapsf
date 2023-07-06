@@ -33,18 +33,18 @@
 #' 'symbol',
 #' 'val_order'))
 #' @param ... further parameters from \link{plot} for sfc objects
-#' @param type map type:
-#' * **base**, base maps,
-#' * **prop**, proportional symbols maps,
-#' * **choro**, choropleth maps,
-#' * **typo**, typology maps,
-#' * **symb**, symbols maps,
-#' * **grad**, graduated symbols maps,
-#' * **prop_choro**, proportional symbols maps with symbols colors based
-#' on a quantitative data classification,
-#' * **prop_typo**, proportional symbols maps with symbols colors based
-#' on qualitative data,
-#' * **symb_choro**, symbols maps with symbols colors based on
+#' @param type
+#' * **base**: base maps
+#' * **prop**: proportional symbols maps
+#' * **choro**: choropleth maps
+#' * **typo**: typology maps
+#' * **symb**: symbols maps
+#' * **grad**: graduated symbols maps
+#' * **prop_choro**: proportional symbols maps with symbols colors based
+#' on a quantitative data classification
+#' * **prop_typo**: proportional symbols maps with symbols colors based
+#' on qualitative data
+#' * **symb_choro**: symbols maps with symbols colors based on
 #' a quantitative data classification
 #' @param cex point size
 #' @param pch point type
@@ -52,20 +52,20 @@
 #' direction (bottom, left, top, right)
 #' @details
 #'
-#' Relevant arguments and default values for each map types are detailed in
-#' specific functions:
-#' * **base**, base maps (\link{mf_base});
-#' * **prop**, proportional symbols maps (\link{mf_prop});
-#' * **choro**, choropleth maps (\link{mf_choro});
-#' * **typo**, typology maps (\link{mf_typo});
-#' * **symb**, symbols maps (\link{mf_symb});
-#' * **grad**, graduated symbols maps (\link{mf_grad});
-#' * **prop_choro**, proportional symbols maps with symbols colors based
-#' on a quantitative data classification (\link{mf_prop_choro});
-#' * **prop_typo**, proportional symbols maps with symbols colors based
-#' on qualitative data (\link{mf_prop_typo});
-#' * **symb_choro**, symbols maps with symbols colors based on
-#' a quantitative data classification (\link{mf_symb_choro}).
+#' Relevant arguments, default values and examples for each map types are
+#' detailed in specific functions:
+#' * **base**: base maps - \link{mf_base}
+#' * **prop**: proportional symbols maps - \link{mf_prop}
+#' * **choro**: choropleth maps - \link{mf_choro}
+#' * **typo**: typology maps - \link{mf_typo}
+#' * **symb**: symbols maps - \link{mf_symb}
+#' * **grad**: graduated symbols maps - \link{mf_grad}
+#' * **prop_choro**: proportional symbols maps with symbols colors based
+#' on a quantitative data classification - \link{mf_prop_choro}
+#' * **prop_typo**: proportional symbols maps with symbols colors based
+#' on qualitative data - \link{mf_prop_typo}
+#' * **symb_choro**: symbols maps with symbols colors based on
+#' a quantitative data classification - \link{mf_symb_choro}
 #'
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
@@ -150,7 +150,8 @@ mf_map <- function(x,
       lv <- length(var)
       lin <- var %in% names(x)
       if (lv != length(lin[lin == TRUE])) {
-        stop(paste0("It is likely that 'var' is not a valid variable name."),
+        stop(
+          paste0("It is likely that 'var' is not a valid variable name."),
           call. = FALSE
         )
       }
@@ -177,32 +178,18 @@ mf_map <- function(x,
     add <- FALSE
   }
 
-
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% c("type", "expandBB")]
 
-  # arg checking depending on type
-  n_rel <- !names(argx) %in% names(formals(get(paste0("mf_", type))))
-  s_n_rel <- sum(n_rel)
-  if (s_n_rel >= 1) {
-    mes <- "The following arguments are not relevant when using type = '"
-    if (s_n_rel == 1) {
-      mes <- "The following argument is not relevant when using type = '"
-    }
-    message(
-      paste0(
-        mes, type, "': ",
-        paste0(names(argx[n_rel]), collapse = ", "),
-        "."
-      )
-    )
-    argx <- argx[!n_rel]
+
+  if(type != "base") {
+    argx <- check_args(argx, type)
   }
 
   # enabling pipe without side effect
   argx$x <- eval(x)
 
-    if (!missing(expandBB) && !add) {
+  if (!missing(expandBB) && !add) {
     mf_init(argx$x, expandBB = expandBB)
     argx$add <- TRUE
   } else {

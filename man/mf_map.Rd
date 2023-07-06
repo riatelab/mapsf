@@ -42,19 +42,18 @@ mf_map(
 
 \item{var}{name(s) of the variable(s) to plot}
 
-\item{type}{map type:
-\itemize{
-\item \strong{base}, base maps,
-\item \strong{prop}, proportional symbols maps,
-\item \strong{choro}, choropleth maps,
-\item \strong{typo}, typology maps,
-\item \strong{symb}, symbols maps,
-\item \strong{grad}, graduated symbols maps,
-\item \strong{prop_choro}, proportional symbols maps with symbols colors based
-on a quantitative data classification,
-\item \strong{prop_typo}, proportional symbols maps with symbols colors based
-on qualitative data,
-\item \strong{symb_choro}, symbols maps with symbols colors based on
+\item{type}{\itemize{
+\item \strong{base}: base maps
+\item \strong{prop}: proportional symbols maps
+\item \strong{choro}: choropleth maps
+\item \strong{typo}: typology maps
+\item \strong{symb}: symbols maps
+\item \strong{grad}: graduated symbols maps
+\item \strong{prop_choro}: proportional symbols maps with symbols colors based
+on a quantitative data classification
+\item \strong{prop_typo}: proportional symbols maps with symbols colors based
+on qualitative data
+\item \strong{symb_choro}: symbols maps with symbols colors based on
 a quantitative data classification
 }}
 
@@ -125,21 +124,21 @@ Relevant arguments and default values for each map types are detailed in
 specific functions, see Details.
 }
 \details{
-Relevant arguments and default values for each map types are detailed in
-specific functions:
+Relevant arguments, default values and examples for each map types are
+detailed in specific functions:
 \itemize{
-\item \strong{base}, base maps (\link{mf_base});
-\item \strong{prop}, proportional symbols maps (\link{mf_prop});
-\item \strong{choro}, choropleth maps (\link{mf_choro});
-\item \strong{typo}, typology maps (\link{mf_typo});
-\item \strong{symb}, symbols maps (\link{mf_symb});
-\item \strong{grad}, graduated symbols maps (\link{mf_grad});
-\item \strong{prop_choro}, proportional symbols maps with symbols colors based
-on a quantitative data classification (\link{mf_prop_choro});
-\item \strong{prop_typo}, proportional symbols maps with symbols colors based
-on qualitative data (\link{mf_prop_typo});
-\item \strong{symb_choro}, symbols maps with symbols colors based on
-a quantitative data classification (\link{mf_symb_choro}).
+\item \strong{base}: base maps - \link{mf_base}
+\item \strong{prop}: proportional symbols maps - \link{mf_prop}
+\item \strong{choro}: choropleth maps - \link{mf_choro}
+\item \strong{typo}: typology maps - \link{mf_typo}
+\item \strong{symb}: symbols maps - \link{mf_symb}
+\item \strong{grad}: graduated symbols maps - \link{mf_grad}
+\item \strong{prop_choro}: proportional symbols maps with symbols colors based
+on a quantitative data classification - \link{mf_prop_choro}
+\item \strong{prop_typo}: proportional symbols maps with symbols colors based
+on qualitative data - \link{mf_prop_typo}
+\item \strong{symb_choro}: symbols maps with symbols colors based on
+a quantitative data classification - \link{mf_symb_choro}
 }
 
 Breaks defined by a numeric vector or a classification method are
