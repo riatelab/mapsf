@@ -20,3 +20,5 @@
 ^vignettes/web_only/*
 ^CITATION\.cff$
 ^codecov\.yml$
+^map.png
+^note.md
