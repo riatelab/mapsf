@@ -32,10 +32,10 @@ install.packages("mapsf")
 ```
 
 Alternatively, you can install the development version of `mapsf` from
-GitHub with:
+GitHub (**dev** branch) with:
 
 ``` r
-remotes::install_github("riatelab/mapsf")
+remotes::install_github("riatelab/mapsf", ref = "dev")
 ```
 
 ## Usage
