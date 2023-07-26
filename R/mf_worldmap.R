@@ -26,14 +26,8 @@
 mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
                         land_col = "grey60", border_col = "grey40",
                         border_lwd = .8, ...) {
-  quiet <- function(x) {
-    sink(tempfile())
-    on.exit(sink(), add = TRUE)
-    invisible(force(x))
-  }
-
-  os2 <- suppressMessages(quiet(sf::sf_use_s2(FALSE)))
-  on.exit(suppressMessages(quiet(sf::sf_use_s2(os2))), add = TRUE)
+  os2 <- suppressMessages(sf::sf_use_s2(FALSE))
+  on.exit(suppressMessages(sf::sf_use_s2(os2)), add = TRUE)
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op), add = TRUE)
   ops <- list(...)
