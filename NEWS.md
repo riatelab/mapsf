@@ -1,3 +1,10 @@
+
+# mapsf 0.7.1
+
+## Fix
+- fix bug in color assignment in 'choro', 'prop_choro' and 'symb_choro' maps 
+when supplying "incomplete" breaks (#56) 
+
 # mapsf 0.7.0
 
 ## Fix

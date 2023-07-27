@@ -25,6 +25,7 @@ get_col_vec <- function(x, breaks, pal, jen = FALSE) {
   } else {
     itv <- findInterval(x, breaks, all.inside = FALSE, rightmost.closed = TRUE)
   }
+  itv[itv == 0] <- length(breaks)
   colvec <- pal[itv]
   return(colvec)
 }
