@@ -3,9 +3,32 @@
 \docType{package}
 \name{mapsf}
 \alias{mapsf}
+\alias{mapsf-package}
 \title{Package description}
 \description{
 Create maps with simple features. mapsf helps to map sf objects and offers
 features that improve the graphic presentation of maps (scale bar,
 north arrow, title or legend).
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://riatelab.github.io/mapsf/}
+  \item Report bugs at \url{https://github.com/riatelab/mapsf/issues/}
+}
+
+}
+\author{
+\strong{Maintainer}: Timothée Giraud \email{timothee.giraud@cnrs.fr} (\href{https://orcid.org/0000-0002-1932-3323}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Diego Hernangómez (\href{https://orcid.org/0000-0001-8457-4658}{ORCID}) [contributor]
+  \item Hugues Pecout [contributor]
+  \item Ronan Ysebaert [contributor]
+  \item Ian Fellows (No overlap algorithm for labels, from wordcloud package) [copyright holder]
+  \item Jim Lemon (Arc drawing algorithm for annotations, from plotrix package) [copyright holder]
+  \item Florian Zenoni (Orthographic projection visualisation) [copyright holder]
+}
+
 }

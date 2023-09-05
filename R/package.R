@@ -6,4 +6,4 @@
 #' north arrow, title or legend).
 #'
 #' @docType package
-NULL
+"_PACKAGE"
