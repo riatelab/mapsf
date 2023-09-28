@@ -87,6 +87,11 @@ create_dots <- function(x = x, var = var) {
     }
   }
 
+  # check if there is something to plot
+  if (nrow(x) == 0) {
+    stop("Nothing is plotted on the map.", call. = FALSE)
+  }
+
   # turn to positive values
   if (min(x[[var]]) < 0) {
     message("Negative values have been transformed into positive values.")

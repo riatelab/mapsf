@@ -29,3 +29,5 @@ mtq$POP[8:12] <- Inf
 expect_message(mf_prop(x = mtq, var = "POP", add = FALSE))
 mtq$MED <- mtq$MED * -1
 expect_message(mf_prop(x = mtq, var = "MED", add = FALSE))
+mtq$POP <- NA
+suppressMessages(expect_error(mf_prop(x = mtq, var = "POP", add = FALSE)))

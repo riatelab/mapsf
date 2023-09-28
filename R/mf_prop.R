@@ -90,6 +90,7 @@ mf_prop <- function(x,
 
   # check merge and order
   dots <- create_dots(x = x, var = var)
+
   # default col
   mycols <- rep(col, nrow(dots))
 
