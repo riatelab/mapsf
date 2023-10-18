@@ -4,16 +4,66 @@
 \alias{mf_raster}
 \title{Plot a raster}
 \usage{
-mf_raster(x, expandBB = rep(0, 4), add = FALSE, ...)
+mf_raster(
+  x,
+  pal,
+  expandBB = rep(0, 4),
+  alpha = 1,
+  leg_pos = "right",
+  leg_title = names(x),
+  leg_title_cex = 0.8,
+  leg_val_cex = 0.6,
+  leg_val_rnd = 2,
+  leg_no_data = "No data",
+  leg_frame = FALSE,
+  leg_frame_border = getOption("mapsf.fg"),
+  leg_horiz = FALSE,
+  leg_adj = c(0, 0),
+  leg_fg = getOption("mapsf.fg"),
+  leg_bg = getOption("mapsf.bg"),
+  leg_size = 1,
+  add = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{a SpatRaster}
 
+\item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
+
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
 
+\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
+
+\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.}
+
+\item{leg_title}{legend title}
+
+\item{leg_title_cex}{size of the legend title}
+
+\item{leg_val_cex}{size of the values in the legend}
+
+\item{leg_val_rnd}{number of decimal places of the values in the legend}
+
+\item{leg_no_data}{label for missing values}
+
+\item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
+
+\item{leg_frame_border}{border color of the legend frame}
+
+\item{leg_horiz}{display the legend horizontally}
+
+\item{leg_adj}{adjust the postion of the legend in x and y directions}
+
+\item{leg_fg}{color of the legend foreground}
+
+\item{leg_bg}{color of the legend backgournd}
+
+\item{leg_size}{size of the legend; 2 means two times bigger}
+
 \item{add}{whether to add the layer to an existing plot (TRUE) or
-not (FALSE).}
+not (FALSE)}
 
 \item{...}{bgalpha, smooth, maxcell or other arguments passed to be
 passed to
