@@ -25,6 +25,8 @@ mf_map(
   col_na,
   cex_na,
   pch_na,
+  expandBB,
+  add,
   leg_pos,
   leg_title,
   leg_title_cex,
@@ -32,8 +34,15 @@ mf_map(
   leg_val_rnd,
   leg_no_data,
   leg_frame,
-  expandBB,
-  add,
+  leg_frame_border,
+  leg_horiz,
+  leg_adj,
+  leg_bg,
+  leg_fg,
+  leg_size,
+  leg_border,
+  leg_box_border,
+  leg_box_cex,
   ...
 )
 }
@@ -91,6 +100,11 @@ a quantitative data classification
 
 \item{pch_na}{pch (point type) for NA values}
 
+\item{expandBB}{fractional values to expand the bounding box with, in each
+direction (bottom, left, top, right)}
+
+\item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
+
 \item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.}
 
 \item{leg_title}{legend title}
@@ -105,10 +119,23 @@ a quantitative data classification
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
 
-\item{expandBB}{fractional values to expand the bounding box with, in each
-direction (bottom, left, top, right)}
+\item{leg_frame_border}{border color of the legend frame}
 
-\item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
+\item{leg_horiz}{display the legend horizontally (for proportional symbols and choropleth types)}
+
+\item{leg_adj}{adjust the postion of the legend in x and y directions}
+
+\item{leg_bg}{color of the legend backgournd}
+
+\item{leg_fg}{color of the legend foreground}
+
+\item{leg_size}{size of the legend; 2 means two times bigger}
+
+\item{leg_border}{symbol border color(s)}
+
+\item{leg_box_border}{border color of legend boxes}
+
+\item{leg_box_cex}{width and height size expansion of boxes}
 
 \item{...}{further parameters from \link{plot} for sfc objects}
 }

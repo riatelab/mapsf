@@ -52,11 +52,15 @@ the legend.}
 No return value, a legend is displayed.
 }
 \description{
+Deprecated.
+
 This function plots a legend for graduated lines maps.
 }
 \examples{
+\dontrun{
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
 mf_legend_gl(lwd = c(0.2, 2, 4, 5, 10), val = c(1, 2, 3, 4, 10.2, 15.2))
+}
 }
 \keyword{internal}

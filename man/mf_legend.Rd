@@ -28,7 +28,8 @@ mf_legend(
   frame,
   bg,
   fg,
-  cex
+  cex,
+  ...
 )
 }
 \arguments{
@@ -80,29 +81,21 @@ mf_legend(
 \item{fg}{foreground color}
 
 \item{cex}{size of the legend; 2 means two times bigger}
+
+\item{...}{other arguments passed to maplegend::leg()}
 }
 \value{
 No return value, a legend is displayed.
 }
 \description{
+This function is deprecated. Use maplegeng::leg() instead.
+
+mf_legend is a wrapper for maplegend::leg().
+
 Plot all types of legend.
-The "type" argument defines the legend type:
-\itemize{
-\item \strong{prop}, for proportional symbols maps, see \link{mf_legend_p}
-for arguments, default values and details;
-\item \strong{choro}, for choropleth maps, see \link{mf_legend_c}
-for arguments, default values and details;
-\item \strong{typo}, for typology maps, see \link{mf_legend_t} for arguments,
-default values and details;
-\item \strong{symb} for symbols maps, see \link{mf_legend_s}
-for arguments, default values and details;
-\item \strong{prop_line}, for proportional lines maps, see \link{mf_legend_pl}
-for arguments, default values and details;
-\item \strong{grad_line} for graduated lines maps, see \link{mf_legend_gl},
-for arguments, default values and details.
-}
 }
 \examples{
+\dontrun{
 mtq <- mf_get_mtq()
 mf_map(mtq)
 mf_legend(type = "prop", pos = "topright", val = c(1, 5, 10), inches = .3)
@@ -124,4 +117,5 @@ mf_legend(
   lwd = c(0.2, 2, 4, 5, 10)
 )
 mf_legend(type = "prop_line", pos = "bottom", lwd = 20, val = c(5, 50, 100))
+}
 }

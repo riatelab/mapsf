@@ -16,7 +16,13 @@
 #' 'leg_title_cex',
 #' 'leg_val_cex',
 #' 'leg_val_rnd',
-#' 'leg_frame'))
+#' 'leg_frame',
+#' 'leg_horiz',
+#' 'leg_frame_border',
+#' 'leg_bg',
+#' 'leg_fg',
+#' 'leg_size',
+#' 'leg_adj'))
 #' @importFrom graphics box
 #' @keywords internal
 #' @export
@@ -41,7 +47,7 @@ mf_prop <- function(x,
                     lwd_max = 20,
                     symbol = "circle",
                     col = "tomato4",
-                    border,
+                    border = getOption("mapsf.fg"),
                     lwd = .7,
                     leg_pos = mf_get_leg_pos(x),
                     leg_title = var,
@@ -49,14 +55,16 @@ mf_prop <- function(x,
                     leg_val_cex = .6,
                     leg_val_rnd = 0,
                     leg_frame = FALSE,
+                    leg_frame_border = getOption("mapsf.fg"),
+                    leg_horiz = FALSE,
+                    leg_adj = c(0, 0),
+                    leg_fg = getOption("mapsf.fg"),
+                    leg_bg = getOption("mapsf.bg"),
+                    leg_size = 1,
                     add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  lend <- par("lend")
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
 
   xtype <- get_geom_type(x)
   # linestring special case
@@ -71,18 +79,20 @@ mf_prop <- function(x,
     if (add == FALSE) {
       mf_init(x)
     }
-    par(lend = 1)
+    op2 <- par(lend = 1)
     mf_base(xl, lwd = xl$lwd, add = TRUE, col = col)
 
     val <- seq(min(xl[[var]]), max(xl[[var]]), length.out = 4)
-    mf_legend_pl(
+    leg(
+      type = "prop_line",
       pos = leg_pos, val = val, lwd = max(xl$lwd), col = col,
       title = leg_title, title_cex = leg_title_cex,
       val_cex = leg_val_cex, val_rnd = leg_val_rnd,
-      frame = leg_frame, bg = bg, fg = fg
+      frame = leg_frame, bg = leg_bg, fg = leg_fg, adj = leg_adj,
+      frame_border = leg_frame_border, size = leg_size
     )
 
-    par(lend = lend)
+    par(op2)
 
     return(invisible(x))
   }
@@ -134,13 +144,16 @@ mf_prop <- function(x,
   )
 
   # symbols size
-  mf_legend_p(
+  leg(
+    type = "prop",
     pos = leg_pos, val = val, title = leg_title,
     symbol = symbol, inches = size_max, col = col,
     title_cex = leg_title_cex, val_cex = leg_val_cex,
-    val_rnd = leg_val_rnd,
-    frame = leg_frame, border = border, lwd = lwd,
-    bg = bg, fg = fg, self_adjust = TRUE
+    val_rnd = leg_val_rnd, horiz = leg_horiz,
+    frame = leg_frame, border = border, lwd = lwd, adj = leg_adj,
+    bg = leg_bg, fg = leg_fg, self_adjust = TRUE,
+    mar = getOption("mapsf.mar"), frame_border = leg_frame_border,
+    size = leg_size
   )
 
   return(invisible(x))

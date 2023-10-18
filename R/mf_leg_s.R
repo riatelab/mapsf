@@ -1,5 +1,10 @@
 #' Plot a legend for a symbols map
-#' @description This function can plot a legend for a symbols maps.
+#' @description
+#'
+#' Deprecated.
+#'
+#'
+#' This function can plot a legend for a symbols maps.
 #'
 #' @param pal a set of colors
 #' @param col_na color for missing values
@@ -53,174 +58,24 @@ mf_legend_s <- function(pos = "right",
                         bg,
                         fg,
                         cex = 1) {
-  # stop if the position is not valid
-  if (length(pos) == 1) {
-    if (!pos %in% .gmapsf$positions) {
-      return(invisible())
-    }
-  }
-
-  # default values
-  insetf <- strwidth("MM", units = "user", cex = 1)
-  inset <- insetf * cex
-  if (missing(bg)) bg <- par("bg")
-  if (missing(fg)) fg <- par("fg")
-  if (missing(border)) border <- fg
-
-
-  w <- inset
-  h <- inset / 1.5
-  n <- length(val)
-
-  s_cex <- pt_cex
-  for (i in seq_along(pt_cex)) {
-    s_cex[i] <- strheight("M", units = "user", cex = s_cex[i]) * .7
-  }
-  w_cex <- s_cex
-  h_cex <- s_cex
-  w_cex[w_cex < w] <- w
-  h_cex[h_cex < h] <- h
-
-  s_cex_na <- strheight("M", units = "user", cex = pt_cex_na) * .7
-  w_cex_na <- s_cex_na
-  h_cex_na <- s_cex_na
-  w_cex_na[w_cex_na < w] <- w
-  h_cex_na[h_cex_na < h] <- h
-
-  xy_leg <- NULL
-
-  while (TRUE) {
-    if (length(pos) == 2 && is.numeric(pos)) {
-      xy_leg <- pos
-    }
-    xy_title <- get_xy_title(
-      x = xy_leg[1],
-      y = xy_leg[2],
-      title = title,
-      title_cex = title_cex
-    )
-
-
-    xy_box <- get_xy_box_s(
-      x = xy_title$x,
-      y = xy_title$y - inset / 2,
-      n = n,
-      w_cex = w_cex,
-      h_cex = h_cex,
-      inset = inset / 3
-    )
-    xy_nabox <- get_xy_nabox(
-      x = xy_title$x,
-      y = xy_box$ybottom[n] - inset / 2,
-      w = w_cex_na,
-      h = h_cex_na
-    )
-
-    xy_box_lab <- get_xy_box_lab_s(
-      x = xy_title$x + max(c(w_cex, w_cex_na)) + inset / 4,
-      y = xy_title$y - inset / 2,
-      h = h_cex,
-      val = val,
-      val_cex = val_cex,
-      inset = inset / 3
-    )
-
-    xy_nabox_lab <- get_xy_nabox_lab(
-      x = xy_title$x + max(c(w_cex, w_cex_na)) + inset / 4,
-      y = xy_nabox$ytop,
-      h = h,
-      no_data_txt = no_data_txt,
-      val_cex = val_cex
-    )
-
-
-    xy_rect <- get_xy_rect(
-      xy_title = xy_title,
-      xy_box = xy_box,
-      xy_nabox = xy_nabox,
-      xy_box_lab = xy_box_lab,
-      xy_nabox_lab = xy_nabox_lab,
-      no_data = no_data,
-      inset = inset,
-      w = max(c(w_cex, w_cex_na)),
-      cho = FALSE
-    )
-    if (!is.null(xy_leg)) {
-      break
-    }
-    xy_leg <- get_pos_leg(
-      pos = pos,
-      xy_rect = unlist(xy_rect),
-      inset = inset,
-      xy_title = xy_title,
-      frame = frame
-    )
-  }
-
-
-
-
-
-
-
-
-  if (frame) {
-    rect(
-      xleft = xy_rect[[1]] - insetf / 4,
-      ybottom = xy_rect[[2]] - insetf / 4,
-      xright = xy_rect[[3]] + insetf / 4,
-      ytop = xy_rect[[4]] + insetf / 4,
-      col = bg, border = fg, lwd = .7, xpd = TRUE
-    )
-  }
-  text(xy_title$x,
-    y = xy_title$y, labels = title, cex = title_cex,
-    adj = c(0, 0), col = fg
+  .Deprecated(
+    new = "maplegend::leg()",
+    package = "maplegend",
+    msg = paste0(
+      "'mf_legend_s()' is deprecated. ",
+      "Use 'maplegend::leg(type = 'symb', ...)' instead."
+    ),
+    old = "mf_legend()"
   )
 
-  # centepoints
-  if (no_data) {
-    lv <- max(xy_box[[3]], xy_nabox[[3]])
-    lt <- max(c(w_cex, w_cex_na))
-  } else {
-    lv <- max(xy_box[[3]])
-    lt <- max(c(w_cex))
-  }
-
-  pal <- get_the_pal(pal, n)
-  mycolspt <- pal
-  mycolspt[pt_pch %in% 21:25] <- border
-  mycolsptbg <- pal
-
-
-  points(xy_box[[1]] + (lv - xy_box[[1]]) / 2,
-    xy_box[[2]] + (xy_box[[4]] - xy_box[[2]]) / 2,
-    col = mycolspt, pch = pt_pch, cex = pt_cex, bg = mycolsptbg,
-    lwd = lwd
-  )
-  text(xy_box[[1]] + lt + inset / 4,
-    y = xy_box[[2]] + (xy_box[[4]] - xy_box[[2]]) / 2,
-    labels = val, cex = val_cex,
-    adj = c(0, 0.5), col = fg
-  )
-  if (no_data) {
-    # rect(xy_nabox[[1]], xy_nabox[[2]], xy_nabox[[3]], xy_nabox[[4]],
-    #      col = col_na, border = fg, lwd = .7
-    # )
-    col_nafg <- col_na
-    col_nafg[pt_pch_na %in% 21:25] <- border
-    col_nabg <- col_na
-    points(xy_nabox[[1]] + (lv - xy_nabox[[1]]) / 2,
-      xy_nabox[[2]] + (xy_nabox[[4]] - xy_nabox[[2]]) / 2,
-      col = col_nafg, pch = pt_pch_na, cex = pt_cex_na, bg = col_nabg,
-      lwd = lwd
-    )
-    text(xy_nabox[[1]] + lt + inset / 4,
-      y = xy_nabox_lab$y, labels = no_data_txt,
-      cex = val_cex, adj = c(0, 0.5), col = fg
-    )
-  }
-
+  test_cur_plot()
+  args <- as.list(match.call())
+  args <- args[-1]
+  args$type <- "symb"
+  if (missing(bg)) args$bg <- getOption("mapsf.bg")
+  if (missing(fg)) args$fg <- getOption("mapsf.fg")
+  if (missing(border)) args$border <- getOption("mapsf.fg")
+  mf_call_leg(args)
 
 
   return(invisible(NULL))

@@ -1,18 +1,10 @@
 #' @title Plot a legend
-#' @description Plot all types of legend.
-#' The "type" argument defines the legend type:
-#' * **prop**, for proportional symbols maps, see \link{mf_legend_p}
-#' for arguments, default values and details;
-#' * **choro**, for choropleth maps, see \link{mf_legend_c}
-#' for arguments, default values and details;
-#' * **typo**, for typology maps, see \link{mf_legend_t} for arguments,
-#' default values and details;
-#' * **symb** for symbols maps, see \link{mf_legend_s}
-#' for arguments, default values and details;
-#' * **prop_line**, for proportional lines maps, see \link{mf_legend_pl}
-#' for arguments, default values and details;
-#' * **grad_line** for graduated lines maps, see \link{mf_legend_gl},
-#' for arguments, default values and details.
+#' @description
+#' This function is deprecated. Use maplegeng::leg() instead.
+#'
+#' mf_legend is a wrapper for maplegend::leg().
+#'
+#' Plot all types of legend.
 #' @md
 #' @param type type of legend; one of "prop", "choro", "typo", "symb",
 #' "prop_line", "grad_line"
@@ -27,10 +19,12 @@
 #' @param col_na color for missing values
 #' @param pt_cex_na cex of the symbols for missing values
 #' @param pt_pch_na pch of the symbols for missing values
+#' @param ... other arguments passed to maplegend::leg()
 #' @return No return value, a legend is displayed.
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_legend(type = "prop", pos = "topright", val = c(1, 5, 10), inches = .3)
@@ -52,6 +46,7 @@
 #'   lwd = c(0.2, 2, 4, 5, 10)
 #' )
 #' mf_legend(type = "prop_line", pos = "bottom", lwd = 20, val = c(5, 50, 100))
+#' }
 mf_legend <- function(type, pos, val, pal,
                       col,
                       inches,
@@ -60,25 +55,41 @@ mf_legend <- function(type, pos, val, pal,
                       title, title_cex, val_cex, val_rnd,
                       col_na, pt_cex_na, pt_pch_na,
                       no_data, no_data_txt,
-                      frame, bg, fg, cex) {
+                      frame, bg, fg, cex, ...) {
+  .Deprecated(
+    new = "maplegend::leg()",
+    package = "maplegend",
+    msg = paste0(
+      "'mf_legend()' is deprecated. ",
+      "Use 'maplegend::leg(type = '",
+      type,
+      "', ...)' instead."
+    ),
+    old = "mf_legend()"
+  )
   test_cur_plot()
   args <- as.list(match.call())
-  args <- args[names(args) != "type"]
-
   args <- args[-1]
-
-  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
-
   if (missing(bg)) args$bg <- getOption("mapsf.bg")
   if (missing(fg)) args$fg <- getOption("mapsf.fg")
-  switch(type,
-    prop = do.call(what = mf_legend_p, args),
-    choro = do.call(what = mf_legend_c, args),
-    typo = do.call(what = mf_legend_t, args),
-    symb = do.call(what = mf_legend_s, args),
-    prop_line = do.call(what = mf_legend_pl, args),
-    grad_line = do.call(what = mf_legend_gl, args)
-  )
+
+  mf_call_leg(args)
+
+
+
   return(invisible(NULL))
+}
+
+
+
+mf_call_leg <- function(args) {
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
+  on.exit(par(op))
+  names_args <- names(args)
+  names(args)[which(names_args == "cex")] <- "size"
+  names(args)[which(names_args == "pt_pch")] <- "pch"
+  names(args)[which(names_args == "pt_cex")] <- "cex"
+  names(args)[which(names_args == "pt_cex_na")] <- "cex_na"
+  names(args)[which(names_args == "pt_pch_na")] <- "pch_na"
+  do.call(what = get("leg"), args, envir = parent.frame())
 }

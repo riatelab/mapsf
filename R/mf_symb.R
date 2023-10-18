@@ -20,7 +20,12 @@
 #' 'leg_val_cex',
 #' 'leg_val_rnd',
 #' 'leg_no_data',
-#' 'leg_frame'))
+#' 'leg_frame_border',
+#' 'leg_fg',
+#' 'leg_bg',
+#' 'leg_size',
+#' 'leg_frame',
+#' 'leg_adj'))
 #' @importFrom graphics box
 #' @keywords internal
 #' @export
@@ -41,7 +46,7 @@
 mf_symb <- function(x, var,
                     pal = "Dynamic",
                     alpha = 1,
-                    border,
+                    border = getOption("mapsf.fg"),
                     pch,
                     cex = 1,
                     lwd = .7,
@@ -56,18 +61,20 @@ mf_symb <- function(x, var,
                     leg_val_rnd = 2,
                     leg_no_data = "No data",
                     leg_frame = FALSE,
+                    leg_frame_border = getOption("mapsf.fg"),
+                    leg_adj = c(0, 0),
+                    leg_fg = getOption("mapsf.fg"),
+                    leg_bg = getOption("mapsf.bg"),
+                    leg_size = 1,
                     add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
+
   xout <- x
   # Transform to point
   st_geometry(x) <- st_centroid(st_geometry(x), of_largest_polygon = TRUE)
 
-  ################### COLORS ##########################
   # get modalities
   val_order <- get_modalities(
     x = x[[var]],
@@ -103,9 +110,6 @@ mf_symb <- function(x, var,
     cex <- rep(cex[1], length(val_order))
   }
 
-
-
-
   # get symbol vector
   mysym <- get_sym_typo(
     x = x[[var]],
@@ -119,8 +123,6 @@ mf_symb <- function(x, var,
     val_order = val_order
   )
 
-
-
   no_data <- FALSE
   if (max(is.na(mycols)) == 1) {
     no_data <- TRUE
@@ -130,29 +132,32 @@ mf_symb <- function(x, var,
   mycex[is.na(mycex)] <- cex_na
 
 
+  border <- border[[1]]
+  lwd <- lwd[[1]]
+
   mycolspt <- mycols
   mycolspt[mysym %in% 21:25] <- border
   mycolsptbg <- mycols
 
-  ##################################################################
   if (add == FALSE) {
     mf_init(x)
-    add <- TRUE
   }
 
   plot(st_geometry(x),
     col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,
-    lwd = lwd, add = add
+    lwd = lwd, add = TRUE
   )
 
-  mf_legend_s(
+  leg(
+    type = "symb",
     pos = leg_pos, val = val_order, title = leg_title,
     title_cex = leg_title_cex,
     val_cex = leg_val_cex, col_na = col_na, no_data = no_data,
     no_data_txt = leg_no_data,
     frame = leg_frame, border = border, pal = pal, lwd = lwd,
-    pt_cex = cex, pt_pch = pch, pt_cex_na = cex_na,
-    pt_pch_na = pch_na, bg = bg, fg = fg
+    cex = cex, pch = pch, cex_na = cex_na,
+    pch_na = pch_na, bg = leg_bg, fg = leg_fg, adj = leg_adj,
+    size = leg_size, frame_border = leg_frame_border
   )
   return(invisible(xout))
 }

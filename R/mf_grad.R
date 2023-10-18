@@ -16,7 +16,14 @@
 #' 'leg_val_rnd',
 #' 'leg_frame',
 #' 'breaks',
-#' 'nbreaks'))
+#' 'nbreaks',
+#' 'leg_adj',
+#' 'leg_size',
+#' 'leg_border',
+#' 'leg_box_cex',
+#' 'leg_fg',
+#' 'leg_bg',
+#' 'leg_frame_border'))
 #' @details
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
@@ -37,7 +44,7 @@ mf_grad <- function(x,
                     breaks = "quantile",
                     nbreaks = 3,
                     col = "tomato4",
-                    border,
+                    border = getOption("mapsf.fg"),
                     pch = 21,
                     cex,
                     lwd,
@@ -47,13 +54,17 @@ mf_grad <- function(x,
                     leg_val_cex = .6,
                     leg_val_rnd = 2,
                     leg_frame = FALSE,
+                    leg_adj = c(0, 0),
+                    leg_size = 1,
+                    leg_border = border,
+                    leg_box_cex = c(1, 1),
+                    leg_fg = getOption("mapsf.fg"),
+                    leg_bg = getOption("mapsf.bg"),
+                    leg_frame_border = getOption("mapsf.fg"),
                     add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
   xout <- x
 
   # data prep
@@ -85,16 +96,27 @@ mf_grad <- function(x,
 
     if (add == FALSE) {
       mf_init(x)
-      add <- TRUE
     }
     # map
-    plot(sf::st_geometry(x), col = col, lwd = mylwd, add = add)
+    plot(sf::st_geometry(x), col = col, lwd = mylwd, add = TRUE)
     # legend
-    mf_legend_gl(
-      pos = leg_pos, val = breaks, title = leg_title,
-      title_cex = leg_title_cex, val_cex = leg_val_cex,
-      val_rnd = leg_val_rnd, lwd = lwd, col = col,
-      bg = bg, fg = fg, frame = leg_frame
+    leg(
+      type = "grad_line",
+      pos = leg_pos,
+      val = breaks,
+      title = leg_title,
+      title_cex = leg_title_cex,
+      val_cex = leg_val_cex,
+      val_rnd = leg_val_rnd,
+      lwd = lwd,
+      col = col,
+      bg = leg_bg,
+      fg = leg_fg,
+      size = leg_size,
+      frame = leg_frame,
+      box_cex = leg_box_cex,
+      frame_border = leg_frame_border,
+      adj = leg_adj
     )
     return(invisible(xout))
   }
@@ -125,21 +147,33 @@ mf_grad <- function(x,
 
   if (add == FALSE) {
     mf_init(x)
-    add <- TRUE
   }
   # display
   plot(st_geometry(x),
     col = mycolspt, bg = mycolsptbg, cex = mycex, pch = pch,
-    lwd = lwd, add = add
+    lwd = lwd, add = TRUE
   )
   # legend
   lb <- length(breaks)
   lab <- paste0(breaks[1:(lb - 1)], rep(" - ", lb - 1), breaks[2:lb])
-  mf_legend_s(
-    pos = leg_pos, val = rev(lab), title = leg_title, title_cex = leg_title_cex,
+  leg(
+    type = "symb",
+    pos = leg_pos,
+    val = rev(lab),
+    title = leg_title,
+    title_cex = leg_title_cex,
     val_cex = leg_val_cex,
-    frame = leg_frame, border = border, pal = col, lwd = lwd,
-    pt_cex = rev(cex), pt_pch = pch, bg = bg, fg = fg
+    frame = leg_frame,
+    border = leg_border,
+    pal = col,
+    lwd = lwd,
+    cex = rev(cex),
+    pch = pch,
+    bg = leg_bg,
+    fg = leg_fg,
+    size = leg_size,
+    frame_border = leg_frame_border,
+    adj = leg_adj
   )
   return(invisible(xout))
 }

@@ -23,7 +23,15 @@
 #' 'leg_val_cex',
 #' 'leg_val_rnd',
 #' 'leg_no_data',
-#' 'leg_frame'))
+#' 'leg_frame',
+#' 'leg_horiz',
+#' 'leg_frame_border',
+#' 'leg_fg',
+#' 'leg_bg',
+#' 'leg_size',
+#' 'leg_box_border',
+#' 'leg_box_cex',
+#' 'leg_adj'))
 #' @details
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
@@ -58,7 +66,7 @@ mf_symb_choro <- function(x, var,
                           alpha = 1,
                           breaks = "quantile",
                           nbreaks,
-                          border,
+                          border = getOption("mapsf.fg"),
                           pch,
                           cex = 1,
                           lwd = .7,
@@ -66,20 +74,26 @@ mf_symb_choro <- function(x, var,
                           cex_na = 1,
                           col_na = "white",
                           val_order,
-                          leg_pos = mf_get_leg_pos(x, 2),
+                          leg_pos = mf_get_leg_pos(x, 1),
                           leg_title = var,
                           leg_title_cex = c(.8, .8),
                           leg_val_cex = c(.6, .6),
                           leg_val_rnd = 2,
                           leg_no_data = c("No data", "No data"),
                           leg_frame = c(FALSE, FALSE),
+                          leg_frame_border = getOption("mapsf.fg"),
+                          leg_horiz = FALSE,
+                          leg_adj = c(0, 0),
+                          leg_fg = getOption("mapsf.fg"),
+                          leg_bg = getOption("mapsf.bg"),
+                          leg_size = 1,
+                          leg_box_border = getOption("mapsf.fg"),
+                          leg_box_cex = c(1, 1),
                           add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
+
   xout <- x
   var2 <- var[2]
   var1 <- var[1]
@@ -146,6 +160,9 @@ mf_symb_choro <- function(x, var,
   mysym[is.na(mysym)] <- pch_na
   mycex[is.na(mycex)] <- cex_na
 
+  border <- border[[1]]
+  lwd <- lwd[[1]]
+
   mycolspt <- mycols
   mycolspt[mysym %in% 21:25] <- border
   mycolsptbg <- mycols
@@ -153,35 +170,95 @@ mf_symb_choro <- function(x, var,
   ##################################################################
   if (add == FALSE) {
     mf_init(x)
-    add <- TRUE
   }
 
   plot(st_geometry(x),
-    col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,
-    lwd = lwd, add = add
+       col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,
+       lwd = lwd, add = TRUE
   )
 
   leg_pos <- split_leg(leg_pos)
-  mf_legend_c(
-    pos = leg_pos[[2]], val = breaks, title = leg_title[2],
-    title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
-    val_rnd = leg_val_rnd,
-    col_na = col_na, no_data = no_data[2], no_data_txt = leg_no_data[2],
-    frame = leg_frame[2], pal = pal, bg = bg, fg = fg
-  )
-  mf_legend_s(
-    pos = leg_pos[[1]],
-    val = val_order,
-    title = leg_title[1],
-    title_cex = leg_title_cex[1],
-    val_cex = leg_val_cex[1],
-    col_na = "grey",
-    no_data = no_data[1],
-    no_data_txt = leg_no_data[1],
-    frame = leg_frame[1], border = border,
-    pal = rep("grey", length(val_order)),
-    pt_cex = cex, pt_pch = pch, pt_cex_na = cex_na,
-    pt_pch_na = pch_na, bg = bg, fg = fg
-  )
+  if (length(leg_pos) == 1) {
+    la1 <- list(
+      type = "symb",
+      val = val_order,
+      title = leg_title[1],
+      col_na = "grey",
+      no_data = no_data[1],
+      no_data_txt = leg_no_data[1],
+      pal = rep("grey", length(val_order)),
+      cex = cex,
+      pch = pch,
+      lwd = lwd,
+      cex_na = cex_na,
+      pch_na = pch_na
+    )
+    lg <- do.call(leg_comp, la1)
+    la2 <- list(
+      leg = lg,
+      type = "choro",
+      val = breaks,
+      title = leg_title[2],
+      val_rnd = leg_val_rnd,
+      col_na = col_na,
+      no_data = no_data[2],
+      no_data_txt = leg_no_data[2],
+      pal = pal,
+      horiz = leg_horiz,
+      box_border = leg_box_border,
+      box_cex = leg_box_cex
+    )
+    lg <- do.call(leg_comp, la2)
+    leg_draw(lg,
+             pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
+             frame = leg_frame[1], title_cex = leg_title_cex[1],
+             val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
+             adj = leg_adj, frame_border = leg_frame_border
+    )
+  } else {
+    leg(
+      type = "symb",
+      pos = leg_pos[[1]],
+      val = val_order,
+      title = leg_title[1],
+      title_cex = leg_title_cex[1],
+      val_cex = leg_val_cex[1],
+      col_na = "grey",
+      no_data = no_data[1],
+      no_data_txt = leg_no_data[1],
+      frame = leg_frame[1],
+      border = border,
+      pal = rep("grey", length(val_order)),
+      cex = cex,
+      pch = pch,
+      cex_na = cex_na,
+      pch_na = pch_na,
+      lwd = lwd,
+      bg = leg_bg,
+      fg = leg_fg,
+      size = leg_size,
+      frame_border = leg_frame_border
+    )
+    leg(
+      type = "choro",
+      pos = leg_pos[[2]],
+      val = breaks,
+      title = leg_title[2],
+      title_cex = leg_title_cex[2],
+      val_cex = leg_val_cex[2],
+      val_rnd = leg_val_rnd,
+      col_na = col_na,
+      no_data = no_data[2],
+      no_data_txt = leg_no_data[2],
+      frame = leg_frame[2],
+      frame_border = leg_frame_border,
+      box_cex = leg_box_cex,
+      box_border = leg_box_border,
+      pal = pal,
+      bg = leg_bg,
+      fg = leg_fg,
+      horiz = leg_horiz
+    )
+  }
   return(invisible(xout))
 }

@@ -6,9 +6,23 @@
 #' 'border',
 #' 'lwd',
 #' 'add' ,
-#' 'col_na', 'pal', 'alpha',
-#' 'leg_pos', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
-#' 'leg_no_data', 'leg_frame'))
+#' 'col_na',
+#' 'pal',
+#' 'alpha',
+#' 'leg_pos',
+#' 'leg_title',
+#' 'leg_title_cex',
+#' 'leg_val_cex',
+#' 'val_order',
+#' 'leg_no_data',
+#' 'leg_frame',
+#' 'leg_frame_border',
+#' 'leg_size',
+#' 'leg_box_border',
+#' 'leg_box_cex',
+#' 'leg_fg',
+#' 'leg_bg',
+#' 'leg_adj'))
 #' @param cex cex cex of the symbols if x is a POINT layer
 #' @param pch pch type of pch if x is a POINT layer
 #' @param pch_na pch for NA values if x is a POINT layer
@@ -34,7 +48,7 @@ mf_typo <- function(x,
                     pal = "Dynamic",
                     alpha = 1,
                     val_order,
-                    border,
+                    border = getOption("mapsf.fg"),
                     pch = 21,
                     cex = 1,
                     lwd = .7,
@@ -47,13 +61,17 @@ mf_typo <- function(x,
                     leg_val_cex = .6,
                     leg_no_data = "No data",
                     leg_frame = FALSE,
+                    leg_frame_border = getOption("mapsf.fg"),
+                    leg_adj = c(0, 0),
+                    leg_size = 1,
+                    leg_box_border = getOption("mapsf.fg"),
+                    leg_box_cex = c(1, 1),
+                    leg_fg = getOption("mapsf.fg"),
+                    leg_bg = getOption("mapsf.bg"),
                     add = FALSE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
 
   # get modalities
   val_order <- get_modalities(
@@ -77,29 +95,56 @@ mf_typo <- function(x,
 
   if (add == FALSE) {
     mf_init(x)
-    add <- TRUE
   }
 
   xtype <- get_geom_type(x)
   if (xtype == "LINE") {
-    plot(st_geometry(x), col = mycols, lwd = lwd, bg = bg, add = add)
-    mf_legend_t(
-      pos = leg_pos, val = val_order, title = leg_title,
-      title_cex = leg_title_cex, val_cex = leg_val_cex,
-      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-      frame = leg_frame, pal = pal, bg = bg, fg = fg
+    plot(st_geometry(x), col = mycols, lwd = lwd, add = TRUE)
+    leg(
+      type = "typo",
+      pos = leg_pos,
+      val = val_order,
+      title = leg_title,
+      title_cex = leg_title_cex,
+      val_cex = leg_val_cex,
+      col_na = col_na,
+      no_data = no_data,
+      no_data_txt = leg_no_data,
+      box_border = NA,
+      frame = leg_frame,
+      frame_border = leg_frame_border,
+      pal = pal,
+      bg = leg_bg,
+      fg = leg_fg,
+      box_cex = c(1.2, .1),
+      adj = leg_adj,
+      size = leg_size,
     )
   }
   if (xtype == "POLYGON") {
     plot(st_geometry(x),
       col = mycols, border = border,
-      lwd = lwd, bg = bg, add = add
+      lwd = lwd, add = TRUE
     )
-    mf_legend_t(
-      pos = leg_pos, val = val_order, title = leg_title,
-      title_cex = leg_title_cex, val_cex = leg_val_cex,
-      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-      frame = leg_frame, pal = pal, bg = bg, fg = fg
+    leg(
+      type = "typo",
+      pos = leg_pos,
+      val = val_order,
+      title = leg_title,
+      title_cex = leg_title_cex,
+      val_cex = leg_val_cex,
+      col_na = col_na,
+      no_data = no_data,
+      no_data_txt = leg_no_data,
+      size = leg_size,
+      box_border = leg_box_border,
+      box_cex = leg_box_cex,
+      frame_border = leg_frame_border,
+      frame = leg_frame,
+      pal = pal,
+      bg = leg_bg,
+      fg = leg_fg,
+      adj = leg_adj
     )
   }
   if (xtype == "POINT") {
@@ -111,17 +156,19 @@ mf_typo <- function(x,
     mycolsptbg <- mycols
     plot(st_geometry(x),
       col = mycolspt, bg = mycolsptbg, cex = cex, pch = pch,
-      lwd = lwd, add = add
+      lwd = lwd, add = TRUE
     )
     n <- length(val_order)
-    mf_legend_s(
+    leg(
+      type = "symb",
       pos = leg_pos, val = val_order, title = leg_title,
       title_cex = leg_title_cex,
       val_cex = leg_val_cex, col_na = col_na, no_data = no_data,
       no_data_txt = leg_no_data,
       frame = leg_frame, border = border, pal = pal, lwd = lwd,
-      pt_cex = rep(cex, n), pt_pch = rep(pch, n), pt_cex_na = cex_na,
-      pt_pch_na = pch_na, bg = bg, fg = fg
+      cex = rep(cex, n), pch = rep(pch, n), cex_na = cex_na,
+      pch_na = pch_na, bg = leg_bg, fg = leg_fg, adj = leg_adj,
+      size = leg_size, frame_border = leg_frame_border
     )
   }
 

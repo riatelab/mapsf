@@ -9,7 +9,7 @@ mf_symb(
   var,
   pal = "Dynamic",
   alpha = 1,
-  border,
+  border = getOption("mapsf.fg"),
   pch,
   cex = 1,
   lwd = 0.7,
@@ -24,6 +24,11 @@ mf_symb(
   leg_val_rnd = 2,
   leg_no_data = "No data",
   leg_frame = FALSE,
+  leg_frame_border = getOption("mapsf.fg"),
+  leg_adj = c(0, 0),
+  leg_fg = getOption("mapsf.fg"),
+  leg_bg = getOption("mapsf.bg"),
+  leg_size = 1,
   add = TRUE
 )
 }
@@ -65,6 +70,16 @@ mf_symb(
 \item{leg_no_data}{label for missing values}
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
+
+\item{leg_frame_border}{border color of the legend frame}
+
+\item{leg_adj}{adjust the postion of the legend in x and y directions}
+
+\item{leg_fg}{color of the legend foreground}
+
+\item{leg_bg}{color of the legend backgournd}
+
+\item{leg_size}{size of the legend; 2 means two times bigger}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 }

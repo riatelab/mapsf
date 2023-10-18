@@ -56,7 +56,7 @@ mf_get_leg_pos <- function(x, n = 1) {
     }
   }
   tpos <- c(
-    "bottomleft1", "bottom", "bottomright1",
+    "bottomleft", "bottom", "bottomright",
     "left", "center", "right",
     "topleft", "top", "topright"
   )

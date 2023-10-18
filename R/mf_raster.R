@@ -27,7 +27,7 @@ mf_raster <- function(x, expandBB = rep(0, 4), add = FALSE, ...) {
   # input test
   if (!inherits(x, "SpatRaster")) {
     stop(paste0("x should be a SpatRaster."),
-      call. = FALSE
+         call. = FALSE
     )
   }
 

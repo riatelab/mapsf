@@ -17,7 +17,15 @@
 #' 'leg_val_cex',
 #' 'leg_val_rnd',
 #' 'leg_no_data',
-#' 'leg_frame'))
+#' 'leg_frame',
+#' 'leg_adj',
+#' 'leg_horiz',
+#' 'leg_size',
+#' 'leg_box_border',
+#' 'leg_box_cex',
+#' 'leg_fg',
+#' 'leg_bg',
+#' 'leg_frame_border'))
 #' @param cex cex cex of the symbols if x is a POINT layer
 #' @param pch pch type of pch if x is a POINT layer
 #' @param pch_na pch for NA values if x is a POINT layer
@@ -50,7 +58,7 @@ mf_choro <- function(x, var,
                      alpha = 1,
                      breaks = "quantile",
                      nbreaks,
-                     border,
+                     border = getOption("mapsf.fg"),
                      pch = 21,
                      cex = 1,
                      lwd = .7,
@@ -64,13 +72,18 @@ mf_choro <- function(x, var,
                      leg_val_rnd = 2,
                      leg_no_data = "No data",
                      leg_frame = FALSE,
+                     leg_horiz = FALSE,
+                     leg_adj = c(0, 0),
+                     leg_size = 1,
+                     leg_box_border = getOption("mapsf.fg"),
+                     leg_box_cex = c(1, 1),
+                     leg_fg = getOption("mapsf.fg"),
+                     leg_bg = getOption("mapsf.bg"),
+                     leg_frame_border = getOption("mapsf.fg"),
                      add = FALSE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
 
   # jenks
   jen <- FALSE
@@ -95,18 +108,17 @@ mf_choro <- function(x, var,
 
   if (add == FALSE) {
     mf_init(x)
-    add <- TRUE
   }
 
   xtype <- get_geom_type(x)
   if (xtype == "LINE") {
-    plot(st_geometry(x), col = mycols, lwd = lwd, bg = bg, add = add)
+    plot(st_geometry(x), col = mycols, lwd = lwd, add = TRUE)
   }
   if (xtype == "POLYGON") {
     plot(
       st_geometry(x),
       col = mycols, border = border, lwd = lwd,
-      bg = bg, add = add
+      add = TRUE
     )
   }
   if (xtype == "POINT") {
@@ -119,16 +131,31 @@ mf_choro <- function(x, var,
     plot(
       st_geometry(x),
       col = mycolspt, bg = mycolsptbg, cex = cex, pch = pch,
-      lwd = lwd, add = add
+      lwd = lwd, add = TRUE
     )
   }
 
-
-  mf_legend_c(
-    pos = leg_pos, val = breaks, title = leg_title,
-    title_cex = leg_title_cex, val_cex = leg_val_cex, val_rnd = leg_val_rnd,
-    col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-    frame = leg_frame, pal = pal, bg = bg, fg = fg
+  leg(
+    type = "choro",
+    pos = leg_pos,
+    val = breaks,
+    title = leg_title,
+    title_cex = leg_title_cex,
+    val_cex = leg_val_cex,
+    val_rnd = leg_val_rnd,
+    col_na = col_na,
+    no_data = no_data,
+    no_data_txt = leg_no_data,
+    horiz = leg_horiz,
+    frame = leg_frame,
+    pal = pal,
+    bg = leg_bg,
+    fg = leg_fg,
+    size = leg_size,
+    box_border = leg_box_border,
+    box_cex = leg_box_cex,
+    frame_border = leg_frame_border,
+    adj = leg_adj
   )
 
   return(invisible(x))

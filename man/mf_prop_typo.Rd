@@ -13,17 +13,25 @@ mf_prop_typo(
   pal = "Dynamic",
   alpha = 1,
   val_order,
-  border,
+  border = getOption("mapsf.fg"),
   lwd = 0.7,
   lwd_max = 15,
   col_na = "white",
-  leg_pos = mf_get_leg_pos(x, 2),
+  leg_pos = mf_get_leg_pos(x, 1),
   leg_title = var,
   leg_title_cex = c(0.8, 0.8),
   leg_val_cex = c(0.6, 0.6),
   leg_val_rnd = c(0),
   leg_no_data = "No data",
   leg_frame = c(FALSE, FALSE),
+  leg_frame_border = getOption("mapsf.fg"),
+  leg_horiz = FALSE,
+  leg_adj = c(0, 0),
+  leg_fg = getOption("mapsf.fg"),
+  leg_bg = getOption("mapsf.bg"),
+  leg_size = 1,
+  leg_box_border = getOption("mapsf.fg"),
+  leg_box_cex = c(1, 1),
   add = TRUE
 )
 }
@@ -65,6 +73,10 @@ mf_prop_typo(
 \item{leg_no_data}{label for missing values}
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
+
+\item{leg_horiz}{display the legend horizontally (for proportional symbols and choropleth types)}
+
+\item{leg_adj}{adjust the postion of the legend in x and y directions}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 }

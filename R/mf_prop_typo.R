@@ -8,7 +8,7 @@
 #' 'add' , 'lwd_max',
 #' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'alpha', 'leg_val_rnd',
 #' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
-#' 'leg_no_data', 'leg_frame'))
+#' 'leg_no_data', 'leg_frame', 'leg_adj', 'leg_horiz'))
 #'
 #' @keywords internal
 #' @export
@@ -40,30 +40,32 @@ mf_prop_typo <- function(x, var,
                          pal = "Dynamic",
                          alpha = 1,
                          val_order,
-                         border,
+                         border = getOption("mapsf.fg"),
                          lwd = .7,
                          lwd_max = 15,
                          col_na = "white",
-                         leg_pos = mf_get_leg_pos(x, 2),
+                         leg_pos = mf_get_leg_pos(x, 1),
                          leg_title = var,
                          leg_title_cex = c(.8, .8),
                          leg_val_cex = c(.6, .6),
                          leg_val_rnd = c(0),
                          leg_no_data = "No data",
                          leg_frame = c(FALSE, FALSE),
+                         leg_frame_border = getOption("mapsf.fg"),
+                         leg_horiz = FALSE,
+                         leg_adj = c(0, 0),
+                         leg_fg = getOption("mapsf.fg"),
+                         leg_bg = getOption("mapsf.bg"),
+                         leg_size = 1,
+                         leg_box_border = getOption("mapsf.fg"),
+                         leg_box_cex = c(1, 1),
                          add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  lend <- par("lend")
-
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
 
   var2 <- var[2]
   var1 <- var[1]
-
 
   xtype <- get_geom_type(x)
   # linestring special case
@@ -101,24 +103,62 @@ mf_prop_typo <- function(x, var,
       no_data <- TRUE
     }
     mycols[is.na(mycols)] <- col_na
-    par(lend = 1)
+    op2 <- par(lend = 1)
     mf_base(xl, lwd = xl$lwd, add = TRUE, col = mycols)
     val <- seq(min(xl[[var1]]), max(xl[[var1]]), length.out = 4)
     leg_pos <- split_leg(leg_pos)
-    mf_legend_pl(
-      pos = leg_pos[[1]], val = val, lwd = max(xl$lwd),
-      col = "grey20",
-      title = leg_title[1], title_cex = leg_title_cex[1],
-      val_cex = leg_val_cex[1], val_rnd = leg_val_rnd,
-      frame = leg_frame[1], bg = bg, fg = fg
-    )
-    mf_legend_t(
-      pos = leg_pos[[2]], val = val_order, title = leg_title[2],
-      title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
-      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-      frame = leg_frame[2], pal = pal, bg = bg, fg = fg
-    )
-    par(lend = lend)
+
+
+
+    if (length(leg_pos) == 1) {
+
+      la1 <- list(
+        type = "prop_line",
+        val = val,
+        title = leg_title[1],
+        lwd = max(xl$lwd),
+        col = "grey20",
+        val_rnd = leg_val_rnd[1]
+      )
+      lg <- do.call(leg_comp, la1)
+      la2 <- list(
+        leg = lg,
+        type = "typo",
+        val = val_order,
+        title = leg_title[2],
+        col_na = col_na,
+        no_data = no_data,
+        no_data_txt = leg_no_data,
+        pal = pal,
+        box_cex = leg_box_cex,
+        box_border = leg_box_border
+      )
+      lg <- do.call(leg_comp, la2)
+      leg_draw(lg,
+               pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
+               frame = leg_frame[1], title_cex = leg_title_cex[1],
+               val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
+               adj = leg_adj, frame_border = leg_frame_border
+      )
+    } else {
+      leg(
+        type = "prop_line",
+        pos = leg_pos[[1]], val = val, lwd = max(xl$lwd),
+        col = "grey20",
+        title = leg_title[1], title_cex = leg_title_cex[1],
+        val_cex = leg_val_cex[1], val_rnd = leg_val_rnd,
+        frame = leg_frame[1], bg = leg_bg, fg = leg_fg
+      )
+      leg(
+        type = "typo",
+        pos = leg_pos[[2]], val = val_order, title = leg_title[2],
+        title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
+        col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
+        frame = leg_frame[2], pal = pal, bg = leg_bg, fg = leg_fg,
+        box_cex = leg_box_cex, box_border = leg_box_border
+      )
+    }
+    par(op2)
     return(invisible(x))
   }
 
@@ -183,22 +223,61 @@ mf_prop_typo <- function(x, var,
   )
 
   leg_pos <- split_leg(leg_pos)
-  # symbols size
-  mf_legend_p(
-    pos = leg_pos[[1]], val = val, title = leg_title[1],
-    symbol = symbol, inches = size_max, col = "grey80",
-    title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
-    val_rnd = leg_val_rnd,
-    frame = leg_frame[1], border = border, lwd = lwd, bg = bg, fg = fg,
-    self_adjust = TRUE
-  )
+  if (length(leg_pos) == 1) {
+    ## TEST Double args
+    la1 <- list(
+      type = "prop",
+      val = val,
+      title = leg_title[1],
+      symbol = symbol,
+      inches = size_max,
+      col = "grey80",
+      val_rnd = leg_val_rnd[1],
+      border = border,
+      lwd = lwd, horiz = leg_horiz,
+      self_adjust = TRUE
+    )
+    lg <- do.call(leg_comp, la1)
+    la2 <- list(
+      leg = lg,
+      type = "typo",
+      val = val_order,
+      title = leg_title[2],
+      col_na = col_na,
+      no_data = no_data,
+      no_data_txt = leg_no_data,
+      pal = pal,
+      box_cex = leg_box_cex,
+      box_border = leg_box_border
+    )
+    lg <- do.call(leg_comp, la2)
+    leg_draw(lg,
+             pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
+             frame = leg_frame[1], title_cex = leg_title_cex[1],
+             val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
+             adj = leg_adj, frame_border = leg_frame_border
+    )
+  } else {
+    # symbols size
+    leg(
+      type = "prop",
+      pos = leg_pos[[1]], val = val, title = leg_title[1],
+      symbol = symbol, inches = size_max, col = "grey80",
+      title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
+      val_rnd = leg_val_rnd, horiz = leg_horiz,
+      frame = leg_frame[1], border = border,
+      lwd = lwd, bg = leg_bg, fg = leg_fg,
+      self_adjust = TRUE, mar = getOption("mapsf.mar")
+    )
 
-  mf_legend_t(
-    pos = leg_pos[[2]], val = val_order, title = leg_title[2],
-    title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
-    col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-    frame = leg_frame[2], pal = pal, bg = bg, fg = fg
-  )
-
+    leg(
+      type = "typo",
+      pos = leg_pos[[2]], val = val_order, title = leg_title[2],
+      title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
+      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
+      frame = leg_frame[2], pal = pal, bg = leg_bg, fg = leg_fg,
+      box_border = leg_box_border, box_cex = leg_box_cex
+    )
+  }
   return(invisible(x))
 }

@@ -57,11 +57,15 @@ mf_legend_t(
 No return value, a legend is displayed.
 }
 \description{
+Deprecated.
+
 This function plots a legend for a typology map.
 }
 \examples{
+\dontrun{
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
 mf_legend_t(val = c("type A", "type B"), pal = c("navy", "tomato"))
+}
 }
 \keyword{internal}

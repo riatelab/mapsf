@@ -29,6 +29,7 @@ Depends:
 Imports: 
     classInt, 
     graphics,
+    maplegend,
     Rcpp,
     sf,
     stats,

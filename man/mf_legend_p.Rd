@@ -66,11 +66,15 @@ intermediate rounded values}
 No return value, a legend is displayed.
 }
 \description{
+Deprecated.
+
 This function plots a legend for proportional symbols.
 }
 \examples{
+\dontrun{
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
 mf_legend_p(val = c(1, 20, 100), col = "red", inches = .3)
+}
 }
 \keyword{internal}

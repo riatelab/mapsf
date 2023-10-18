@@ -78,7 +78,18 @@ my_params <- function(x) {
     no_data = "no_data if TRUE a 'missing values' box is plotted",
     cex = "cex size of the legend; 2 means two times bigger",
     cexs = "cex cex (point size) for symbols",
-    pch = "pch pch (point type) for symbols"
+    pch = "pch pch (point type) for symbols",
+    leg_adj = "leg_adj adjust the postion of the legend in x and y directions",
+    leg_horiz = paste0("leg_horiz display the legend horizontally ",
+                      "(for proportional symbols and choropleth types)"),
+    leg_frame_border = "leg_frame_border border color of the legend frame",
+    leg_bg = "leg_bg color of the legend backgournd",
+    leg_fg = "leg_fg color of the legend foreground",
+    leg_size = "leg_size size of the legend; 2 means two times bigger",
+    leg_border = "leg_border symbol border color(s)",
+    leg_box_border = "leg_box_border border color of legend boxes",
+    leg_box_cex = paste0("leg_box_cex width and height size expansion ",
+                         "of boxes")
   )
 
 

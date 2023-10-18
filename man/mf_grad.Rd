@@ -10,7 +10,7 @@ mf_grad(
   breaks = "quantile",
   nbreaks = 3,
   col = "tomato4",
-  border,
+  border = getOption("mapsf.fg"),
   pch = 21,
   cex,
   lwd,
@@ -20,6 +20,13 @@ mf_grad(
   leg_val_cex = 0.6,
   leg_val_rnd = 2,
   leg_frame = FALSE,
+  leg_adj = c(0, 0),
+  leg_size = 1,
+  leg_border = border,
+  leg_box_cex = c(1, 1),
+  leg_fg = getOption("mapsf.fg"),
+  leg_bg = getOption("mapsf.bg"),
+  leg_frame_border = getOption("mapsf.fg"),
   add = TRUE
 )
 }
@@ -53,6 +60,20 @@ mf_grad(
 \item{leg_val_rnd}{number of decimal places of the values in the legend}
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
+
+\item{leg_adj}{adjust the postion of the legend in x and y directions}
+
+\item{leg_size}{size of the legend; 2 means two times bigger}
+
+\item{leg_border}{symbol border color(s)}
+
+\item{leg_box_cex}{width and height size expansion of boxes}
+
+\item{leg_fg}{color of the legend foreground}
+
+\item{leg_bg}{color of the legend backgournd}
+
+\item{leg_frame_border}{border color of the legend frame}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 }

@@ -61,11 +61,15 @@ the legend.}
 No return value, a legend is displayed.
 }
 \description{
+Deprecated.
+
 This function plots a legend for a choropleth map.
 }
 \examples{
+\dontrun{
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
 mf_legend_c(val = c(1, 2, 3, 4), pal = c("red1", "red3", "red4"))
+}
 }
 \keyword{internal}

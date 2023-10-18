@@ -72,6 +72,9 @@ mf_legend_s(
 No return value, a legend is displayed.
 }
 \description{
+Deprecated.
+
+
 This function can plot a legend for a symbols maps.
 }
 \examples{

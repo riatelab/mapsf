@@ -52,11 +52,15 @@ the legend.}
 No return value, a legend is displayed.
 }
 \description{
+Deprecated.
+
 This function plots a legend for proportional lines.
 }
 \examples{
+\dontrun{
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
 mf_legend_pl(lwd = 20, val = c(5, 10, 50, 100))
+}
 }
 \keyword{internal}

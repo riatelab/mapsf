@@ -10,7 +10,7 @@ mf_typo(
   pal = "Dynamic",
   alpha = 1,
   val_order,
-  border,
+  border = getOption("mapsf.fg"),
   pch = 21,
   cex = 1,
   lwd = 0.7,
@@ -23,6 +23,13 @@ mf_typo(
   leg_val_cex = 0.6,
   leg_no_data = "No data",
   leg_frame = FALSE,
+  leg_frame_border = getOption("mapsf.fg"),
+  leg_adj = c(0, 0),
+  leg_size = 1,
+  leg_box_border = getOption("mapsf.fg"),
+  leg_box_cex = c(1, 1),
+  leg_fg = getOption("mapsf.fg"),
+  leg_bg = getOption("mapsf.bg"),
   add = FALSE
 )
 }
@@ -62,6 +69,20 @@ mf_typo(
 \item{leg_no_data}{label for missing values}
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
+
+\item{leg_frame_border}{border color of the legend frame}
+
+\item{leg_adj}{adjust the postion of the legend in x and y directions}
+
+\item{leg_size}{size of the legend; 2 means two times bigger}
+
+\item{leg_box_border}{border color of legend boxes}
+
+\item{leg_box_cex}{width and height size expansion of boxes}
+
+\item{leg_fg}{color of the legend foreground}
+
+\item{leg_bg}{color of the legend backgournd}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 }

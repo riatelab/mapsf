@@ -31,7 +31,17 @@
 #' 'inches',
 #' 'val_max',
 #' 'symbol',
-#' 'val_order'))
+#' 'val_order',
+#' 'leg_adj',
+#' 'leg_horiz',
+#' 'leg_size',
+#' 'leg_border',
+#' 'leg_box_border',
+#' 'leg_box_cex',
+#' 'leg_fg',
+#' 'leg_bg',
+#' 'leg_frame_border'
+#'  ))
 #' @param ... further parameters from \link{plot} for sfc objects
 #' @param type
 #' * **base**: base maps
@@ -111,6 +121,8 @@ mf_map <- function(x,
                    col_na,
                    cex_na,
                    pch_na,
+                   expandBB,
+                   add,
                    leg_pos,
                    leg_title,
                    leg_title_cex,
@@ -118,8 +130,15 @@ mf_map <- function(x,
                    leg_val_rnd,
                    leg_no_data,
                    leg_frame,
-                   expandBB,
-                   add,
+                   leg_frame_border,
+                   leg_horiz,
+                   leg_adj,
+                   leg_bg,
+                   leg_fg,
+                   leg_size,
+                   leg_border,
+                   leg_box_border,
+                   leg_box_cex,
                    ...) {
   # check args
   if (!type %in% c(
@@ -182,7 +201,7 @@ mf_map <- function(x,
   argx <- argx[!names(argx) %in% c("type", "expandBB")]
 
 
-  if(type != "base") {
+  if (type != "base") {
     argx <- check_args(argx, type)
   }
 

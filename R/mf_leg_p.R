@@ -1,5 +1,8 @@
 #' Plot a legend for a proportional symbols map
-#' @description This function plots a legend for proportional symbols.
+#' @description
+#' Deprecated.
+#'
+#' This function plots a legend for proportional symbols.
 #'
 #' @param symbol type of symbols, 'circle' or 'square'
 #' @param inches size of the biggest symbol (radius for circles, half width
@@ -28,9 +31,11 @@
 #' @return No return value, a legend is displayed.
 #' @import graphics
 #' @examples
+#' \dontrun{
 #' plot.new()
 #' plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
 #' mf_legend_p(val = c(1, 20, 100), col = "red", inches = .3)
+#' }
 mf_legend_p <- function(pos = "left",
                         val,
                         col = "tomato4",
@@ -47,116 +52,21 @@ mf_legend_p <- function(pos = "left",
                         fg,
                         cex = 1,
                         self_adjust = FALSE) {
-  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
-  # stop if the position is not valid
-  if (length(pos) == 1) {
-    if (!pos %in% .gmapsf$positions) {
-      return(invisible())
-    }
-  }
+  .Deprecated(new = "maplegend::leg()",
+              package = "maplegend",
+              msg = paste0("'mf_legend_p()' is deprecated. ",
+                           "Use 'maplegend::leg(type = 'prop', ...)' instead."),
+              old = "mf_legend()")
 
-  # default values
-  insetf <- strwidth("MM", units = "user", cex = 1)
-  inset <- insetf * cex
-  if (missing(bg)) bg <- getOption("mapsf.bg")
-  if (missing(fg)) fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
+  test_cur_plot()
+  args <- as.list(match.call())
+  args <- args[-1]
+  args$type <- "prop"
+  if (missing(bg)) args$bg <- getOption("mapsf.bg")
+  if (missing(fg)) args$fg <- getOption("mapsf.fg")
+  if (missing(border)) args$border <- getOption("mapsf.fg")
+  mf_call_leg(args)
 
-  val <- unique(val)
-  if (length(val) == 1) {
-    self_adjust <- FALSE
-  }
-
-  if (self_adjust == TRUE) {
-    val <- self_adjust(val, inches, val_cex)
-  }
-  val <- sort(val, decreasing = TRUE)
-
-
-
-
-  valleg <- get_val_rnd(val = val, val_rnd = val_rnd)
-  xy_leg <- NULL
-
-  while (TRUE) {
-    if (length(pos) == 2 && is.numeric(pos)) {
-      xy_leg <- pos
-    }
-    xy_title <- get_xy_title(
-      x = xy_leg[1],
-      y = xy_leg[2],
-      title = title,
-      title_cex = title_cex
-    )
-    xy_symbols <- get_xy_s(
-      x = xy_title$x,
-      y = xy_title$y - inset / 2,
-      val = val,
-      inches = inches,
-      symbol = symbol
-    )
-    xy_lines <- get_xy_lines(
-      x = xy_symbols$x[1],
-      y = xy_symbols$y,
-      sizesi = xy_symbols$s,
-      inset = inset / 4
-    )
-    xy_lab <- get_xy_lab_s(
-      x = xy_lines$x1 + inset / 4,
-      y = xy_symbols$y + xy_symbols$s,
-      val = valleg,
-      val_cex = val_cex
-    )
-
-    xy_rect <- get_xy_rect_s(
-      xy_title = xy_title,
-      xy_symbols = xy_symbols,
-      xy_lines = xy_lines,
-      xy_lab = xy_lab,
-      inset = inset
-    )
-
-    if (!is.null(xy_leg)) {
-      break
-    }
-    xy_leg <- get_pos_leg(
-      pos = pos,
-      xy_rect = unlist(xy_rect),
-      inset = inset,
-      xy_title = xy_title,
-      frame = frame
-    )
-  }
-
-  # Display
-  if (frame) {
-    rect(
-      xleft = xy_rect[[1]] - insetf / 4,
-      ybottom = xy_rect[[2]] - insetf / 4,
-      xright = xy_rect[[3]] + insetf / 4,
-      ytop = xy_rect[[4]] + insetf / 4,
-      col = bg, border = fg, lwd = .7, xpd = TRUE
-    )
-  }
-  text(xy_title$x,
-    y = xy_title$y, labels = title, cex = title_cex,
-    adj = c(0, 0), col = fg
-  )
-  dots <- data.frame(xy_symbols$x, xy_symbols$y)
-
-  plot_symbols(
-    symbol = symbol, dots = dots, sizes = xy_symbols$s, mycols = col,
-    border = border, lwd = lwd, inches = inches
-  )
-  segments(
-    x0 = xy_lines$x0, x1 = xy_lines$x1, y0 = xy_lines$y0,
-    y1 = xy_lines$y1, col = border
-  )
-  text(xy_lab$x,
-    y = xy_lab$y, labels = rev(valleg), cex = val_cex,
-    adj = c(0, 0.5), col = fg
-  )
 
   return(invisible(NULL))
 }

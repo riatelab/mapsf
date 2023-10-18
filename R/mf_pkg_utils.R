@@ -3,6 +3,7 @@
 # @import graphics
 # @import stats
 #' @import sf
+#' @importFrom maplegend leg leg_comp leg_draw
 #' @importFrom grDevices colorRampPalette
 #' @importFrom stats aggregate median na.omit quantile runif sd
 
@@ -19,10 +20,6 @@ globalVariables(".gmapsf", package = "mapsf", add = FALSE)
 .gmapsf$positions <- c(
   "bottomleft", "left", "topleft", "top", "bottom",
   "bottomright", "right", "topright",
-  "bottomleft1", "bottomright1", "bottom1",
-  "bottomleft2", "bottomright2", "bottom2",
-  "topright1", "topleft1", "top1",
-  "topright2", "topleft2", "top2",
   "interactive"
 )
 
@@ -194,3 +191,16 @@ test_cur_plot <- function() {
   }
 }
 
+
+interleg <- function(txt = c("legend", "Legend")) {
+  if (interactive()) {
+    message(paste0("Click on the map to choose the ", txt[1], " position."))
+    x <- unlist(locator(1))
+    message(paste0(txt[2], " coordinates:\nc(", x[[1]], ", ", x[[2]], ")"))
+    return(x)
+  } else {
+    stop('You cannot use "interactive" in a non-interactive R session.',
+      call. = FALSE
+    )
+  }
+}

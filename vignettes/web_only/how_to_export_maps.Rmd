@@ -59,7 +59,7 @@ mf_theme("dark")
 mf_export(
   x = mtq,
   filename = "fixed_width_expand.png",
-  width = 500, theme = "dark",
+  width = 500,
   expandBB = c(0, 0, 0, .5),
 )
 mf_map(mtq, add = TRUE)

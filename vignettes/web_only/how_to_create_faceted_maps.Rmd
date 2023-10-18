@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 To plot several maps on the same figure, the user can use the `mfrow` argument of the `par()` function before plotting the maps. 
 For example, use `par(mfrow = c(1, 2))` (i.e. 1 row, 2 columns) to plot two maps side by side). 
 
-```{r fig1, fig.height=4, fig.width=7, results = FALSE, fig.path="img/", eval = FALSE}
+```{r fig1, fig.height=4, fig.width=7, results = FALSE, fig.path="img/", eval = F}
 library(mapsf)
 mtq <- mf_get_mtq()
 # define the figure layout (1 row, 2 columns)

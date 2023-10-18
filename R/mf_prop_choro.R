@@ -7,9 +7,29 @@
 #' 'border',
 #' 'lwd',
 #' 'add' ,
-#' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'alpha', 'breaks', 'nbreaks',
-#' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'leg_val_rnd',
-#' 'leg_no_data', 'leg_frame'))
+#' 'inches',
+#' 'val_max',
+#' 'symbol',
+#' 'col_na',
+#' 'pal',
+#' 'alpha',
+#' 'breaks',
+#' 'nbreaks',
+#' 'leg_pos2',
+#' 'leg_title',
+#' 'leg_title_cex',
+#' 'leg_val_cex',
+#' 'leg_val_rnd',
+#' 'leg_no_data',
+#' 'leg_frame',
+#' 'leg_frame_border',
+#' 'leg_fg',
+#' 'leg_bg',
+#' 'leg_size',
+#' 'leg_box_border',
+#' 'leg_box_cex',
+#' 'leg_adj',
+#' 'leg_horiz'))
 #' @details
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
@@ -49,23 +69,28 @@ mf_prop_choro <- function(x,
                           alpha = 1,
                           breaks = "quantile",
                           nbreaks,
-                          border,
+                          border = getOption("mapsf.fg"),
                           lwd = .7,
                           col_na = "white",
-                          leg_pos = mf_get_leg_pos(x, 2),
+                          leg_pos = mf_get_leg_pos(x, 1),
                           leg_title = var,
                           leg_title_cex = c(.8, .8),
                           leg_val_cex = c(.6, .6),
                           leg_val_rnd = c(0, 2),
                           leg_no_data = "No data",
                           leg_frame = c(FALSE, FALSE),
+                          leg_frame_border = getOption("mapsf.fg"),
+                          leg_horiz = c(FALSE, FALSE),
+                          leg_adj = c(0, 0),
+                          leg_fg = getOption("mapsf.fg"),
+                          leg_bg = getOption("mapsf.bg"),
+                          leg_size = 1,
+                          leg_box_border = getOption("mapsf.fg"),
+                          leg_box_cex = c(1, 1),
                           add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-  bg <- getOption("mapsf.bg")
-  fg <- getOption("mapsf.fg")
-  if (missing(border)) border <- fg
 
   var2 <- var[2]
   var1 <- var[1]
@@ -133,22 +158,69 @@ mf_prop_choro <- function(x,
   )
 
   leg_pos <- split_leg(leg_pos)
-  # symbols size
-  mf_legend_p(
-    pos = leg_pos[[1]], val = val, title = leg_title[1],
-    symbol = symbol, inches = size_max, col = "grey80",
-    title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
-    val_rnd = leg_val_rnd[1],
-    frame = leg_frame[1], border = border, lwd = lwd,
-    bg = bg, fg = fg, self_adjust = TRUE
-  )
-  mf_legend_c(
-    pos = leg_pos[[2]], val = breaks, title = leg_title[2],
-    title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
-    val_rnd = leg_val_rnd[2],
-    col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-    frame = leg_frame[2], pal = pal, bg = bg, fg = fg
-  )
+  if (length(leg_pos) == 1) {
+    ## TEST Double args
+
+    la1 <- list(
+      type = "prop",
+      val = val,
+      title = leg_title[1],
+      symbol = symbol,
+      inches = size_max,
+      col = "grey80",
+      val_rnd = leg_val_rnd[1],
+      border = border,
+      lwd = lwd,
+      horiz = leg_horiz[1],
+      self_adjust = TRUE
+    )
+    lg <- do.call(leg_comp, la1)
+    la2 <- list(
+      leg = lg,
+      type = "choro",
+      val = breaks,
+      title = leg_title[2],
+      val_rnd = leg_val_rnd[2],
+      col_na = col_na,
+      no_data = no_data,
+      no_data_txt = leg_no_data,
+      horiz = leg_horiz[2],
+      pal = pal,
+      box_border = leg_box_border,
+      box_cex = leg_box_cex
+    )
+    lg <- do.call(leg_comp, la2)
+    leg_draw(lg,
+      pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
+      frame = leg_frame[1], title_cex = leg_title_cex[1],
+      val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
+      adj = leg_adj, frame_border = leg_frame_border
+    )
+  } else {
+    leg(
+      type = "prop",
+      pos = leg_pos[[1]], val = val, title = leg_title[1],
+      symbol = symbol, inches = size_max, col = "grey80",
+      title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
+      val_rnd = leg_val_rnd[1],
+      horiz = leg_horiz[1],
+      frame = leg_frame[1], border = border, lwd = lwd,
+      bg = leg_bg, fg = leg_fg, self_adjust = TRUE,
+      mar = getOption("mapsf.mar"), size = leg_size
+    )
+    leg(
+      type = "choro",
+      pos = leg_pos[[2]], val = breaks, title = leg_title[2],
+      title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
+      val_rnd = leg_val_rnd[2], horiz = leg_horiz[2],
+      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
+      frame = leg_frame[2], pal = pal, bg = leg_bg, fg = leg_fg,
+      size = leg_size, box_border = leg_box_border, box_cex = leg_box_cex
+    )
+  }
+
+
+
 
   return(invisible(x))
 }
