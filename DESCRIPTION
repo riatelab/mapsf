@@ -1,13 +1,11 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 0.7.1
+Version: 0.8.0
 Authors@R: c(
     person("Timothée", "Giraud", email = "timothee.giraud@cnrs.fr", 
         role = c("cre","aut"), comment = c(ORCID = "0000-0002-1932-3323")), 
-    person("Diego", "Hernangómez", role = "ctb", 
-        comment=c(ORCID="0000-0001-8457-4658")),
-    person("Hugues", "Pecout", role = "ctb"),
-    person("Ronan", "Ysebaert", role = "ctb"),
+    person("Hugues", "Pecout", role = "ctb", comment = "Logo"),
+    person("Ronan", "Ysebaert", role = "ctb", comment = "Cheat sheet"),
     person("Ian", "Fellows", role = "cph", 
         comment = "No overlap algorithm for labels, from wordcloud package"), 
     person("Jim", "Lemon", role = "cph", 
