@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_get_links.R
 \name{mf_get_links}
 \alias{mf_get_links}
-\title{Get a link layer from a data.frame of links.}
+\title{Get a link layer from a data.frame of links}
 \usage{
 mf_get_links(x, df, x_id, df_id)
 }

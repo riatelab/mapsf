@@ -1,5 +1,5 @@
 #' @name mf_get_links
-#' @title Get a link layer from a data.frame of links.
+#' @title Get a link layer from a data.frame of links
 #' @description Create a link layer from a data.frame of links and an sf object.
 #' @param x an sf object, a simple feature collection.
 #' @param df a data.frame that contains identifiers of starting and ending
