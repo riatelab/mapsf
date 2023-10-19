@@ -1,18 +1,19 @@
 home:
   title: "mapsf: thematic cartography"
   description: >
-    Create maps with simple features. mapsf helps to map sf objects and
-    offers features that improve the graphic presentation of maps
-    (e.g. scale bar, north arrow, title, credits, or legends).
+    Create and integrate thematic maps in your workflow. This package
+    helps to design various cartographic representations such as proportional
+    symbols, choropleth or typology maps. It also offers several functions to
+    display layout elements that improve the graphic presentation of maps
+    (e.g. scale bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on
+    'base' graphics.
 
 template:
+  bootstrap: 5
   opengraph:
     image:
       src: man/figures/logo.png
       alt: "mapsf: thematic cartography"
-    twitter:
-      creator: "@rgeomatic"
-      card: summary_large_image
 
 
 reference:
@@ -47,6 +48,7 @@ reference:
     desc: These functions are useful for some utility tasks.
     contents:
     - mf_export
+    - mf_distr
     - mf_get_links
     - mf_get_pal
     - mf_get_breaks
@@ -55,10 +57,12 @@ reference:
 
 figures:
   dev: grDevices::png
-  dpi: 96
-  dev.args: []
-  fig.ext: png
-  fig.width: 7
-  fig.height: 7
-  fig.retina: 2
   fig.asp: 1
+  fig.width: 6
+  dpi: 96
+
+
+footer:
+  structure:
+    left: developed_by
+    right: package
