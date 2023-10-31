@@ -73,11 +73,10 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Hugues Pecout (Logo) [contributor]
-  \item Ronan Ysebaert (Cheat sheet) [contributor]
+  \item Hugues Pecout (\href{https://orcid.org/0000-0002-0246-0954}{ORCID}) (Logo) [contributor]
+  \item Ronan Ysebaert (\href{https://orcid.org/0000-0002-7344-5911}{ORCID}) (Cheat sheet) [contributor]
   \item Ian Fellows (No overlap algorithm for labels, from wordcloud package) [copyright holder]
   \item Jim Lemon (Arc drawing algorithm for annotations, from plotrix package) [copyright holder]
-  \item Florian Zenoni (Orthographic projection visualisation) [copyright holder]
 }
 
 }

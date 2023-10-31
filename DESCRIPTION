@@ -3,15 +3,16 @@ Title: Thematic Cartography
 Version: 0.8.0
 Authors@R: c(
     person("Timothée", "Giraud", email = "timothee.giraud@cnrs.fr", 
-        role = c("cre","aut"), comment = c(ORCID = "0000-0002-1932-3323")), 
-    person("Hugues", "Pecout", role = "ctb", comment = "Logo"),
-    person("Ronan", "Ysebaert", role = "ctb", comment = "Cheat sheet"),
+        role = c("cre","aut"), 
+        comment = c(ORCID = "0000-0002-1932-3323")), 
+    person("Hugues", "Pecout", role = "ctb", 
+        comment = c(ORCID = "0000-0002-0246-0954", "Logo")),
+    person("Ronan", "Ysebaert", role = "ctb",
+        comment = c(ORCID = "0000-0002-7344-5911", "Cheat sheet")),
     person("Ian", "Fellows", role = "cph", 
         comment = "No overlap algorithm for labels, from wordcloud package"), 
     person("Jim", "Lemon", role = "cph", 
-        comment = "Arc drawing algorithm for annotations, from plotrix package"),
-    person("Florian",  "Zenoni", role = "cph",
-        comment = "Orthographic projection visualisation")
+        comment = "Arc drawing algorithm for annotations, from plotrix package")
     )
 Description: Create and integrate thematic maps in your workflow. This package
     helps to design various cartographic representations such as proportional
@@ -29,6 +30,7 @@ Imports:
     graphics,
     maplegend,
     Rcpp,
+    s2,
     sf,
     stats,
     utils,
