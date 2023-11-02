@@ -33,9 +33,9 @@ mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
   ops$y <- 0
 
   if (!missing(x)) {
-    co <- st_coordinates(st_centroid(
-      st_as_sfc(st_bbox(st_transform(x, 4326)))
-    ))
+    co <- st_coordinates(
+      st_transform(st_centroid(st_as_sfc(st_bbox(x))), "EPSG:4326")
+    )
     lon <- co[1]
     lat <- co[2]
   }
