@@ -12,6 +12,7 @@ mf_prop_typo(
   symbol = "circle",
   pal = "Dynamic",
   alpha = 1,
+  rev = FALSE,
   val_order,
   border = getOption("mapsf.fg"),
   lwd = 0.7,
@@ -49,6 +50,8 @@ mf_prop_typo(
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
 \item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
+
+\item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
 \item{val_order}{values order, a character vector that matches var modalities}
 

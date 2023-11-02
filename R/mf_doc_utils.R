@@ -49,6 +49,11 @@ my_params <- function(x) {
       "pal a set of colors or a palette name",
       " (from \\link{hcl.colors})"
     ),
+    rev = paste0(
+      "rev if \\code{pal} is a \\link{hcl.colors} palette name, ",
+      "whether the ordering of the colors should be reversed (TRUE)",
+      " or not (FALSE)"
+    ),
     alpha = paste0(
       "alpha if \\code{pal} is a \\link{hcl.colors} palette name, ",
       "the alpha-transparency level in the range [0,1]"

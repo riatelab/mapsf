@@ -11,6 +11,7 @@
 #' @eval my_params(c(
 #' "pal",
 #' "alpha",
+#' 'rev',
 #' 'leg_pos',
 #' 'leg_title',
 #' 'leg_title_cex',
@@ -37,6 +38,7 @@ mf_raster <- function(x,
                       pal,
                       expandBB = rep(0, 4),
                       alpha = 1,
+                      rev = FALSE,
                       leg_pos = "right",
                       leg_title = names(x),
                       leg_title_cex = .8,
@@ -91,7 +93,8 @@ mf_raster <- function(x,
     if (missing(pal)) {
       pal <- "custom"
     }
-    pal <- get_the_raster_pal(pal = pal, nbreaks = 255, alpha = alpha)
+    pal <- get_the_raster_pal(pal = pal, nbreaks = 255, alpha = alpha,
+                              rev = !rev)
     ops$col <- pal[-1]
     ops$smooth <- ifelse(is.null(ops$smooth), FALSE, ops$smooth)
     ops$legend <- FALSE
@@ -117,13 +120,13 @@ mf_raster <- function(x,
   }
 }
 
-get_the_raster_pal <- function(pal, nbreaks, alpha = 1) {
+get_the_raster_pal <- function(pal, nbreaks, alpha = 1, rev = TRUE) {
   if (pal == "custom") {
     return(rev(grDevices::terrain.colors(255)))
   }
   if (length(pal) == 1) {
     if (pal %in% hcl.pals()) {
-      cols <- hcl.colors(n = nbreaks, palette = pal, alpha = alpha, rev = TRUE)
+      cols <- hcl.colors(n = nbreaks, palette = pal, alpha = alpha, rev = rev)
     } else {
       stop("This is not a palette name", call. = FALSE)
     }

@@ -1,6 +1,6 @@
 #' @title Plot a legend
 #' @description
-#' This function is deprecated. Use maplegeng::leg() instead.
+#' This function is deprecated. Use maplegend::leg() instead.
 #'
 #' mf_legend is a wrapper for maplegend::leg().
 #'

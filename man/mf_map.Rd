@@ -12,6 +12,7 @@ mf_map(
   nbreaks,
   pal,
   alpha,
+  rev,
   inches,
   val_max,
   symbol,
@@ -73,6 +74,8 @@ a quantitative data classification
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
 \item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
+
+\item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
 \item{inches}{size of the biggest symbol (radius for circles, half width for squares) in inches.}
 

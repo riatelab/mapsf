@@ -9,6 +9,7 @@ mf_choro(
   var,
   pal = "Mint",
   alpha = 1,
+  rev = FALSE,
   breaks = "quantile",
   nbreaks,
   border = getOption("mapsf.fg"),
@@ -44,6 +45,8 @@ mf_choro(
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
 \item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
+
+\item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
 \item{breaks}{either a numeric vector with the actual breaks, or a classification method name (see \link{mf_get_breaks} and Details)}
 

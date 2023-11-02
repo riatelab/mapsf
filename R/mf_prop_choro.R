@@ -13,6 +13,7 @@
 #' 'col_na',
 #' 'pal',
 #' 'alpha',
+#' 'rev',
 #' 'breaks',
 #' 'nbreaks',
 #' 'leg_pos2',
@@ -67,6 +68,7 @@ mf_prop_choro <- function(x,
                           symbol = "circle",
                           pal = "Mint",
                           alpha = 1,
+                          rev = FALSE,
                           breaks = "quantile",
                           nbreaks,
                           border = getOption("mapsf.fg"),
@@ -109,7 +111,7 @@ mf_prop_choro <- function(x,
   )
   nbreaks <- length(breaks) - 1
   # get the cols
-  pal <- get_the_pal(pal = pal, nbreaks = nbreaks, alpha = alpha)
+  pal <- get_the_pal(pal = pal, nbreaks = nbreaks, alpha = alpha, rev = !rev)
   # get the color vector
   mycols <- get_col_vec(x = dots[[var2]], breaks = breaks, pal = pal, jen = jen)
 

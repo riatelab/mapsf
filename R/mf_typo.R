@@ -9,6 +9,7 @@
 #' 'col_na',
 #' 'pal',
 #' 'alpha',
+#' 'rev',
 #' 'leg_pos',
 #' 'leg_title',
 #' 'leg_title_cex',
@@ -47,6 +48,7 @@ mf_typo <- function(x,
                     var,
                     pal = "Dynamic",
                     alpha = 1,
+                    rev = FALSE,
                     val_order,
                     border = getOption("mapsf.fg"),
                     pch = 21,
@@ -80,7 +82,8 @@ mf_typo <- function(x,
   )
 
   # get color list and association
-  pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha)
+  pal <- get_the_pal(pal = pal, nbreaks = length(val_order),
+                     alpha = alpha, rev = !rev)
   # get color vector
   mycols <- get_col_typo(
     x = x[[var]], pal = pal,

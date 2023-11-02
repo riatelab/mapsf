@@ -5,10 +5,25 @@
 #' 'var',
 #' 'border',
 #' 'lwd',
-#' 'add' , 'lwd_max',
-#' 'inches', 'val_max', 'symbol', 'col_na', 'pal', 'alpha', 'leg_val_rnd',
-#' 'leg_pos2', 'leg_title', 'leg_title_cex', 'leg_val_cex', 'val_order',
-#' 'leg_no_data', 'leg_frame', 'leg_adj', 'leg_horiz'))
+#' 'add' ,
+#' 'lwd_max',
+#' 'inches',
+#' 'val_max',
+#' 'symbol',
+#' 'col_na',
+#' 'pal',
+#' 'alpha',
+#' 'rev',
+#' 'leg_val_rnd',
+#' 'leg_pos2',
+#' 'leg_title',
+#' 'leg_title_cex',
+#' 'leg_val_cex',
+#' 'val_order',
+#' 'leg_no_data',
+#' 'leg_frame',
+#' 'leg_adj',
+#' 'leg_horiz'))
 #'
 #' @keywords internal
 #' @export
@@ -39,6 +54,7 @@ mf_prop_typo <- function(x, var,
                          symbol = "circle",
                          pal = "Dynamic",
                          alpha = 1,
+                         rev = FALSE,
                          val_order,
                          border = getOption("mapsf.fg"),
                          lwd = .7,
@@ -91,7 +107,8 @@ mf_prop_typo <- function(x, var,
       val_order = val_order
     )
     # get color list and association
-    pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha)
+    pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha,
+                       rev = !rev)
     # get color vector
     mycols <- get_col_typo(
       x = xl[[var2]], pal = pal,
@@ -171,7 +188,8 @@ mf_prop_typo <- function(x, var,
     val_order = val_order
   )
   # get color list and association
-  pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha)
+  pal <- get_the_pal(pal = pal, nbreaks = length(val_order),
+                     alpha = alpha, rev = !rev)
   # get color vector
   mycols <- get_col_typo(
     x = dots[[var2]], pal = pal,
