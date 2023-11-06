@@ -1,3 +1,26 @@
+# mapsf 0.8.0
+
+## Fix
+- raise an error and display an informative message if no points are plotted 
+when type = "prop*"
+
+## Feat
+- add mf_distr(), a function to display a statistical distribution with 
+histogram, boxplot, stripchart and density curve
+- add a lot of legend related args (leg_frame_border, leg_horiz, leg_adj, 
+leg_bg, leg_fg, leg_size, leg_border, leg_box_border, leg_box_cex)
+- double legends (prop_choro, prop_typo, etc.) are stacked by default
+- add legends for raster
+- add rev arg for function using pal to reverse named palettes
+
+## Refactor
+- use the maplegend pkg for legends (this change may introduce minor breaking 
+changes)
+- use s2 instead of overcomplicated sf code for othographic proj in 
+mf_worldmap()
+
+
+
 
 # mapsf 0.7.1
 

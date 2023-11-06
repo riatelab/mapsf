@@ -8,7 +8,7 @@ message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-only
 title: 'mapsf: Thematic Cartography'
-version: 0.7.1
+version: 0.8.0
 abstract: Create and integrate thematic maps in your workflow. This package helps
   to design various cartographic representations such as proportional symbols, choropleth
   or typology maps. It also offers several functions to display layout elements that
@@ -64,6 +64,18 @@ references:
   institution:
     name: R Foundation for Statistical Computing
 - type: software
+  title: maplegend
+  abstract: 'maplegend: Legends for Maps'
+  notes: Imports
+  url: https://github.com/riatelab/maplegend/
+  repository: https://CRAN.R-project.org/package=maplegend
+  authors:
+  - family-names: Giraud
+    given-names: Timothée
+    email: timothee.giraud@cnrs.fr
+    orcid: https://orcid.org/0000-0002-1932-3323
+  year: '2023'
+- type: software
   title: Rcpp
   abstract: 'Rcpp: Seamless R and C++ Integration'
   notes: Imports
@@ -88,6 +100,25 @@ references:
     given-names: Douglas
   - family-names: Chambers
     given-names: John
+  year: '2023'
+- type: software
+  title: s2
+  abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
+  notes: Imports
+  url: https://r-spatial.github.io/s2/
+  repository: https://CRAN.R-project.org/package=s2
+  authors:
+  - family-names: Dunnington
+    given-names: Dewey
+    email: dewey@fishandwhistle.net
+    orcid: https://orcid.org/0000-0002-9415-4582
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  - family-names: Rubak
+    given-names: Ege
+    email: rubak@math.aau.dk
   year: '2023'
 - type: software
   title: sf

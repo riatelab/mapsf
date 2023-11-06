@@ -7,13 +7,13 @@
   "codeRepository": "https://riatelab.github.io/mapsf/",
   "issueTracker": "https://github.com/riatelab/mapsf/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.1 (2023-06-16)",
+  "runtimePlatform": "R version 4.3.2 (2023-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -32,19 +32,15 @@
   "contributor": [
     {
       "@type": "Person",
-      "givenName": "Diego",
-      "familyName": "Hernangómez",
-      "@id": "https://orcid.org/0000-0001-8457-4658"
-    },
-    {
-      "@type": "Person",
       "givenName": "Hugues",
-      "familyName": "Pecout"
+      "familyName": "Pecout",
+      "@id": "https://orcid.org/0000-0002-0246-0954"
     },
     {
       "@type": "Person",
       "givenName": "Ronan",
-      "familyName": "Ysebaert"
+      "familyName": "Ysebaert",
+      "@id": "https://orcid.org/0000-0002-7344-5911"
     }
   ],
   "copyrightHolder": [
@@ -57,11 +53,6 @@
       "@type": "Person",
       "givenName": "Jim",
       "familyName": "Lemon"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Florian",
-      "familyName": "Zenoni"
     }
   ],
   "maintainer": [
@@ -197,6 +188,18 @@
     },
     "4": {
       "@type": "SoftwareApplication",
+      "identifier": "maplegend",
+      "name": "maplegend",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=maplegend"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
       "identifier": "Rcpp",
       "name": "Rcpp",
       "provider": {
@@ -207,7 +210,19 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=Rcpp"
     },
-    "5": {
+    "6": {
+      "@type": "SoftwareApplication",
+      "identifier": "s2",
+      "name": "s2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=s2"
+    },
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -219,22 +234,22 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "6": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats"
     },
-    "7": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "8": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "grDevices",
       "name": "grDevices"
     },
     "SystemRequirements": null
   },
-  "fileSize": "5256.734KB"
+  "fileSize": "5268.096KB"
 }
