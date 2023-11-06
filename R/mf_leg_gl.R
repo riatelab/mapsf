@@ -41,12 +41,16 @@ mf_legend_gl <- function(pos = "topleft", val,
                          bg,
                          fg,
                          cex = 1) {
-  .Deprecated(new = "maplegend::leg()",
-              package = "maplegend",
-              msg = paste0("'mf_legend_gl()' is deprecated. ",
-                           "Use 'maplegend::leg(type = 'grad_line', ...)' ",
-                           "instead."),
-              old = "mf_legend()")
+  .Deprecated(
+    new = "maplegend::leg()",
+    package = "maplegend",
+    msg = paste0(
+      "'mf_legend_gl()' is deprecated. ",
+      "Use 'maplegend::leg(type = 'grad_line', ...)' ",
+      "instead."
+    ),
+    old = "mf_legend()"
+  )
 
   test_cur_plot()
   args <- as.list(match.call())

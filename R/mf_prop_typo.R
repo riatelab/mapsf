@@ -107,8 +107,10 @@ mf_prop_typo <- function(x, var,
       val_order = val_order
     )
     # get color list and association
-    pal <- get_the_pal(pal = pal, nbreaks = length(val_order), alpha = alpha,
-                       rev = !rev)
+    pal <- get_the_pal(
+      pal = pal, nbreaks = length(val_order), alpha = alpha,
+      rev = !rev
+    )
     # get color vector
     mycols <- get_col_typo(
       x = xl[[var2]], pal = pal,
@@ -128,7 +130,6 @@ mf_prop_typo <- function(x, var,
 
 
     if (length(leg_pos) == 1) {
-
       la1 <- list(
         type = "prop_line",
         val = val,
@@ -152,10 +153,10 @@ mf_prop_typo <- function(x, var,
       )
       lg <- do.call(leg_comp, la2)
       leg_draw(lg,
-               pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
-               frame = leg_frame[1], title_cex = leg_title_cex[1],
-               val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
-               adj = leg_adj, frame_border = leg_frame_border
+        pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
+        frame = leg_frame[1], title_cex = leg_title_cex[1],
+        val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
+        adj = leg_adj, frame_border = leg_frame_border
       )
     } else {
       leg(
@@ -188,8 +189,10 @@ mf_prop_typo <- function(x, var,
     val_order = val_order
   )
   # get color list and association
-  pal <- get_the_pal(pal = pal, nbreaks = length(val_order),
-                     alpha = alpha, rev = !rev)
+  pal <- get_the_pal(
+    pal = pal, nbreaks = length(val_order),
+    alpha = alpha, rev = !rev
+  )
   # get color vector
   mycols <- get_col_typo(
     x = dots[[var2]], pal = pal,
@@ -270,10 +273,10 @@ mf_prop_typo <- function(x, var,
     )
     lg <- do.call(leg_comp, la2)
     leg_draw(lg,
-             pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
-             frame = leg_frame[1], title_cex = leg_title_cex[1],
-             val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
-             adj = leg_adj, frame_border = leg_frame_border
+      pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
+      frame = leg_frame[1], title_cex = leg_title_cex[1],
+      val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
+      adj = leg_adj, frame_border = leg_frame_border
     )
   } else {
     # symbols size

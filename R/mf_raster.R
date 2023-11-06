@@ -1,4 +1,3 @@
-
 #' @title Plot a raster
 #' @description Plot a raster object (SpatRaster from terra).
 #' @name mf_raster
@@ -64,7 +63,7 @@ mf_raster <- function(x,
   # input test
   if (!inherits(x, "SpatRaster")) {
     stop(paste0("x should be a SpatRaster."),
-         call. = FALSE
+      call. = FALSE
     )
   }
 
@@ -93,8 +92,10 @@ mf_raster <- function(x,
     if (missing(pal)) {
       pal <- "custom"
     }
-    pal <- get_the_raster_pal(pal = pal, nbreaks = 255, alpha = alpha,
-                              rev = !rev)
+    pal <- get_the_raster_pal(
+      pal = pal, nbreaks = 255, alpha = alpha,
+      rev = !rev
+    )
     ops$col <- pal[-1]
     ops$smooth <- ifelse(is.null(ops$smooth), FALSE, ops$smooth)
     ops$legend <- FALSE

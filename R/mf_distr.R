@@ -16,7 +16,6 @@
 #' mf_distr(rbeta(1000, .6, 7))
 #' mf_distr(rbeta(1000, 5, .6))
 mf_distr <- function(x, nbins, bw) {
-
   x <- as.numeric(x)
   x <- x[!is.na(x)]
   x <- x[is.finite(x)]
@@ -32,18 +31,16 @@ mf_distr <- function(x, nbins, bw) {
     bw <- ((max(x) - min(x)) / nbins) / 2
   }
 
-  if (nbins > 100){
+  if (nbins > 100) {
     nbins <- 100
   }
-  if (nbins < 3){
+  if (nbins < 3) {
     nbins <- 3
   }
 
   bks <- seq(min(x), max(x), length.out = nbins + 1)
 
-
   # graphic basic parameters
-  nbreaks <- length(bks) - 1
   d <- stats::density(x, bw = bw)
   h <- hist(x, breaks = bks, plot = FALSE)
   b <- boxplot(x, plot = FALSE)
@@ -64,7 +61,7 @@ mf_distr <- function(x, nbins, bw) {
   # curve coords
   dx <- d$x[d$x >= x_lim[1] & d$x <= x_lim[2]]
   dy <- d$y[d$x >= x_lim[1] & d$x <= x_lim[2]]
-  xlim <- c(min(dx), max(dx))
+
   # actual plot
   hist(
     x,
@@ -95,11 +92,15 @@ mf_distr <- function(x, nbins, bw) {
     bg = "grey30",
     col = "grey70"
   )
-  b$stats[,1]
-  box_plot(x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
-           small_offset = small_offset, col = "white", lwd = 2)
-  box_plot(x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
-           small_offset = small_offset, col = "black", lwd = 1.2)
+
+  box_plot(
+    x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
+    small_offset = small_offset, col = "white", lwd = 2
+  )
+  box_plot(
+    x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
+    small_offset = small_offset, col = "black", lwd = 1.2
+  )
 
   return(invisible(list(bw = bw, nbins = round(nbins, 0))))
 }
@@ -108,10 +109,12 @@ box_plot <- function(x, y, large_offset, small_offset, col, lwd) {
   # box
   polygon(
     x = x[c(2, 4, 4, 2)],
-    y = c(y - small_offset / 2,
-          y - small_offset / 2,
-          y + large_offset + small_offset / 2,
-          y + large_offset + small_offset / 2),
+    y = c(
+      y - small_offset / 2,
+      y - small_offset / 2,
+      y + large_offset + small_offset / 2,
+      y + large_offset + small_offset / 2
+    ),
     lwd = lwd,
     border = col
   )
@@ -129,7 +132,7 @@ box_plot <- function(x, y, large_offset, small_offset, col, lwd) {
   # Median
   segments(
     x0 = x[3],
-    y0 = y - small_offset / 2 ,
+    y0 = y - small_offset / 2,
     x1 = x[3],
     y1 = y[1] + large_offset + small_offset / 2,
     lty = 1,

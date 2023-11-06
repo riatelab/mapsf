@@ -175,8 +175,8 @@ mf_symb_choro <- function(x, var,
   }
 
   plot(st_geometry(x),
-       col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,
-       lwd = lwd, add = TRUE
+    col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,
+    lwd = lwd, add = TRUE
   )
 
   leg_pos <- split_leg(leg_pos)
@@ -212,10 +212,10 @@ mf_symb_choro <- function(x, var,
     )
     lg <- do.call(leg_comp, la2)
     leg_draw(lg,
-             pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
-             frame = leg_frame[1], title_cex = leg_title_cex[1],
-             val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
-             adj = leg_adj, frame_border = leg_frame_border
+      pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
+      frame = leg_frame[1], title_cex = leg_title_cex[1],
+      val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
+      adj = leg_adj, frame_border = leg_frame_border
     )
   } else {
     leg(

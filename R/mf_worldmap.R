@@ -41,15 +41,15 @@ mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
   }
   lo <- orthomap(lon, lat)
   mf_map(lo$ocean,
-         col = water_col,
-         border = water_col,
-         bg = getOption("mapsf.bg")
+    col = water_col,
+    border = water_col,
+    bg = getOption("mapsf.bg")
   )
   mf_map(lo$land,
-         add = TRUE,
-         col = land_col,
-         border = border_col,
-         lwd = border_lwd
+    add = TRUE,
+    col = land_col,
+    border = border_col,
+    lwd = border_lwd
   )
 
   do.call(points, ops)
@@ -65,8 +65,9 @@ orthomap <- function(lon, lat) {
   co <- s2_difference(co, s2_union_agg(oc)) # land
 
   # visible half
-  b <- s2_buffer_cells(as_s2_geography(paste0("POINT(", lon, " ", lat,")")),
-                       distance = 9800000)
+  b <- s2_buffer_cells(as_s2_geography(paste0("POINT(", lon, " ", lat, ")")),
+    distance = 9800000
+  )
 
   # proj
   prj <- paste0("+proj=ortho +lat_0=", lat, " +lon_0=", lon)

@@ -52,11 +52,15 @@ mf_legend_p <- function(pos = "left",
                         fg,
                         cex = 1,
                         self_adjust = FALSE) {
-  .Deprecated(new = "maplegend::leg()",
-              package = "maplegend",
-              msg = paste0("'mf_legend_p()' is deprecated. ",
-                           "Use 'maplegend::leg(type = 'prop', ...)' instead."),
-              old = "mf_legend()")
+  .Deprecated(
+    new = "maplegend::leg()",
+    package = "maplegend",
+    msg = paste0(
+      "'mf_legend_p()' is deprecated. ",
+      "Use 'maplegend::leg(type = 'prop', ...)' instead."
+    ),
+    old = "mf_legend()"
+  )
 
   test_cur_plot()
   args <- as.list(match.call())

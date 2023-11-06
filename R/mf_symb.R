@@ -83,8 +83,10 @@ mf_symb <- function(x, var,
     val_order = val_order
   )
   # get color list and association
-  pal <- get_the_pal(pal = pal, nbreaks = length(val_order),
-                     alpha = alpha, rev = !rev)
+  pal <- get_the_pal(
+    pal = pal, nbreaks = length(val_order),
+    alpha = alpha, rev = !rev
+  )
   # get color vector
   mycols <- get_col_typo(
     x = x[[var]], pal = pal,
