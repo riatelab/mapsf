@@ -64,7 +64,7 @@ mtq <- mf_get_mtq()
 # Plot the base map
 mf_map(x = mtq)
 # Plot proportional symbols
-mf_map(x = mtq, var = "POP", type = "prop")
+mf_map(x = mtq, var = "POP", type = "prop", leg_pos = "topright")
 # Plot a map layout
 mf_layout(
   title = "Population in Martinique",
