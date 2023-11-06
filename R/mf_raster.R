@@ -70,9 +70,6 @@ mf_raster <- function(x,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  if (add == FALSE) {
-    mf_init(x, expandBB = expandBB)
-  }
   # maxcell mgmt
   mcell <- terra::ncell(x)
   if (mcell >= 1e6) {
@@ -86,6 +83,9 @@ mf_raster <- function(x,
   ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
   if (terra::nlyr(x) >= 2) {
     ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
+    if (add == FALSE) {
+      mf_init(x, expandBB = expandBB)
+    }
     do.call(terra::plotRGB, ops)
   }
   if (terra::nlyr(x) == 1) {
@@ -101,13 +101,16 @@ mf_raster <- function(x,
     ops$legend <- FALSE
     ops$axes <- FALSE
     ops$box <- FALSE
-    do.call(terra::plot, ops)
     # For the legend
     val <- terra::values(x)
     v <- mf_get_breaks(x = val, nbreaks = 4, breaks = "pretty")
     vmin <- min(val, na.rm = TRUE)
     vmax <- max(val, na.rm = TRUE)
     vv <- c(vmin, v[v > vmin & v < vmax], vmax)
+    if (add == FALSE) {
+      mf_init(x, expandBB = expandBB)
+    }
+    do.call(terra::plot, ops)
     leg(
       type = "cont", box_cex = c(1.5, 2),
       val = vv, horiz = leg_horiz,
@@ -122,10 +125,11 @@ mf_raster <- function(x,
 }
 
 get_the_raster_pal <- function(pal, nbreaks, alpha = 1, rev = TRUE) {
-  if (pal == "custom") {
-    return(rev(grDevices::terrain.colors(255)))
-  }
+
   if (length(pal) == 1) {
+    if (pal == "custom") {
+      return(rev(grDevices::terrain.colors(255)))
+    }
     if (pal %in% hcl.pals()) {
       cols <- hcl.colors(n = nbreaks, palette = pal, alpha = alpha, rev = rev)
     } else {
