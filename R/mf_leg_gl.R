@@ -42,24 +42,18 @@ mf_legend_gl <- function(pos = "topleft", val,
                          fg,
                          cex = 1) {
   .Deprecated(
-    new = "maplegend::leg()",
-    package = "maplegend",
+    new = "mapsf::mf_legend()",
+    package = "mapsf",
     msg = paste0(
       "'mf_legend_gl()' is deprecated. ",
-      "Use 'maplegend::leg(type = 'grad_line', ...)' ",
+      "Use 'mf_legend(type = 'grad_line', ...)' ",
       "instead."
     ),
-    old = "mf_legend()"
+    old = "mf_legend_gl()"
   )
-
-  test_cur_plot()
   args <- as.list(match.call())
   args <- args[-1]
   args$type <- "grad_line"
-  if (missing(bg)) args$bg <- getOption("mapsf.bg")
-  if (missing(fg)) args$fg <- getOption("mapsf.fg")
-  mf_call_leg(args)
-
-
+  do.call(mf_legend, clean_leg_args(args))
   return(invisible(NULL))
 }

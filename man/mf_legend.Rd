@@ -6,96 +6,152 @@
 \usage{
 mf_legend(
   type,
-  pos,
   val,
-  pal,
-  col,
-  inches,
-  lwd,
-  border,
-  symbol,
-  pt_pch,
-  pt_cex,
-  title,
-  title_cex,
-  val_cex,
-  val_rnd,
-  col_na,
-  pt_cex_na,
-  pt_pch_na,
-  no_data,
-  no_data_txt,
-  frame,
+  pos = "left",
+  pal = "Inferno",
+  col = "tomato4",
+  inches = 0.3,
+  symbol = "circle",
+  self_adjust = FALSE,
+  lwd = 0.7,
+  border = "#333333",
+  pch = seq_along(val),
+  cex = rep(1, length(val)),
+  title = "Legend Title",
+  title_cex = 0.8 * size,
+  val_cex = 0.6 * size,
+  val_rnd = 0,
+  col_na = "white",
+  cex_na = 1,
+  pch_na = 4,
+  no_data = FALSE,
+  no_data_txt = "No Data",
+  box_border = "#333333",
+  box_cex = c(1, 1),
+  horiz = FALSE,
+  frame_border,
+  frame = FALSE,
   bg,
   fg,
-  cex,
-  ...
+  size = 1,
+  return_bbox = FALSE,
+  adj = c(0, 0)
 )
 }
 \arguments{
-\item{type}{type of legend; one of "prop", "choro", "typo", "symb",
-"prop_line", "grad_line"}
+\item{type}{type of legend:
+\itemize{
+\item \strong{prop} for proportional symbols,
+\item \strong{choro} for choropleth maps,
+\item \strong{cont} for continuous maps (e.g. raster),
+\item \strong{typo} for typology maps,
+\item \strong{symb} for symbols maps,
+\item \strong{prop_line} for proportional lines maps,
+\item \strong{grad_line} for graduated lines maps.
+}}
 
-\item{pos}{position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of two coordinates in map units (c(x, y))}
+\item{val}{vector of value(s) (for "prop" and "prop_line", at least c(min, max)
+for "cont"),
+vector of categories (for "symb" and "typo"),
+break labels (for "choro" and "grad_line").}
 
-\item{val}{a vector of values}
+\item{pos}{position of the legend. It can be one of 'topleft', 'top',
+'topright', 'right', 'bottomright', 'bottom','bottomleft',
+'left', 'interactive' or a vector of two coordinates
+in map units (c(x, y)).}
 
-\item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
+\item{pal}{a color palette name or a vector of colors}
 
-\item{col}{a color}
+\item{col}{color of the symbols (for "prop") or color of the lines (for
+"prop_line" and "grad_line")}
 
-\item{inches}{size of the biggest symbol (radius for circles, half width for squares) in inches.}
-
-\item{lwd}{line width(s)}
-
-\item{border}{border color}
+\item{inches}{size of the largest symbol (radius for circles, half width
+for squares) in inches}
 
 \item{symbol}{type of symbols, 'circle' or 'square'}
 
-\item{pt_pch}{pch of the symbols (0:25)}
+\item{self_adjust}{if TRUE values are self-adjusted to keep min, max and
+intermediate rounded values}
 
-\item{pt_cex}{cex of the symbols}
+\item{lwd}{width(s) of the symbols borders (for "prop" and "symb"),
+width of the largest line (for "prop_line"), vector of line width
+(for "grad_line")}
 
-\item{title}{legend title}
+\item{border}{symbol border color(s)}
+
+\item{pch}{type(s) of the symbols (0:25)}
+
+\item{cex}{size(s) of the symbols}
+
+\item{title}{title of the legend}
 
 \item{title_cex}{size of the legend title}
 
 \item{val_cex}{size of the values in the legend}
 
-\item{val_rnd}{number of decimal places of the values in the legend}
+\item{val_rnd}{number of decimal places of the values in
+the legend}
 
 \item{col_na}{color for missing values}
 
-\item{pt_cex_na}{cex of the symbols for missing values}
+\item{cex_na}{size of the symbols for missing values}
 
-\item{pt_pch_na}{pch of the symbols for missing values}
+\item{pch_na}{type of the symbols for missing values}
 
-\item{no_data}{if TRUE a 'missing values' box is plotted}
+\item{no_data}{if TRUE a "missing value" box is plotted}
 
 \item{no_data_txt}{label for missing values}
 
-\item{frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
+\item{box_border}{border color of legend boxes}
 
-\item{bg}{background color}
+\item{box_cex}{width and height size expansion of boxes,
+(or offset between circles for "prop" legends with horiz = TRUE)}
 
-\item{fg}{foreground color}
+\item{horiz}{if TRUE plot an horizontal legend}
 
-\item{cex}{size of the legend; 2 means two times bigger}
+\item{frame_border}{border color of the frame}
 
-\item{...}{other arguments passed to maplegend::leg()}
+\item{frame}{if TRUE the legend is plotted within a frame}
+
+\item{bg}{background color of the legend}
+
+\item{fg}{foreground color of the legend}
+
+\item{size}{size of the legend; 2 means two times bigger}
+
+\item{return_bbox}{return only bounding box of the legend.
+No legend is plotted.}
+
+\item{adj}{adjust the postion of the legend in x and y directions.}
 }
 \value{
-No return value, a legend is displayed.
+No value is returned, a legend is displayed
+(except if \code{return_bbox} is used).
 }
 \description{
-This function is deprecated. Use maplegend::leg() instead.
+Plot different types of legend. The "type" argument defines the
+legend type.
+Please note that some arguments are available for all types of legend and
+some others are only relevant for specific legend types (see Details).
+\code{mf_legend()} is a wrapper for \code{maplegend::leg()}.
+}
+\details{
+Some arguments are available for all types of legend: \code{val}, \code{pos}, \code{title},
+\code{title_cex}, \code{val_cex}, \code{frame}, \code{bg}, \code{fg}, \code{size}, \code{adj},
+\code{return_bbox}).
 
-mf_legend is a wrapper for maplegend::leg().
-
-Plot all types of legend.
+Relevant arguments for each specific legend types:
+\itemize{
+\item \code{leg(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)}
+\item \code{leg(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
+\item \code{leg(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
+\item \code{leg(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)}
+\item \code{leg(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)}
+\item \code{leg(type = "prop_line", val, col, lwd, val_rnd)}
+\item \code{leg(type = "grad_line", val, col, lwd, val_rnd)}
+}
 }
 \examples{
-\dontrun{
 mtq <- mf_get_mtq()
 mf_map(mtq)
 mf_legend(type = "prop", pos = "topright", val = c(1, 5, 10), inches = .3)
@@ -109,7 +165,7 @@ mf_legend(
 )
 mf_legend(
   type = "symb", pos = "bottomleft", val = c("A", "B", "C"),
-  pt_pch = 21:23, pt_cex = c(1, 2, 2),
+  pch = 21:23, cex = c(1, 2, 2),
   pal = hcl.colors(3, "Dynamic")
 )
 mf_legend(
@@ -117,5 +173,4 @@ mf_legend(
   lwd = c(0.2, 2, 4, 5, 10)
 )
 mf_legend(type = "prop_line", pos = "bottom", lwd = 20, val = c(5, 50, 100))
-}
 }

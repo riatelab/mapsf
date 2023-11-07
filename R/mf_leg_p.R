@@ -53,24 +53,18 @@ mf_legend_p <- function(pos = "left",
                         cex = 1,
                         self_adjust = FALSE) {
   .Deprecated(
-    new = "maplegend::leg()",
-    package = "maplegend",
+    new = "mapsf::mf_legend()",
+    package = "mapsf",
     msg = paste0(
       "'mf_legend_p()' is deprecated. ",
-      "Use 'maplegend::leg(type = 'prop', ...)' instead."
+      "Use 'mf_legend(type = 'prop', ...)' ",
+      "instead."
     ),
-    old = "mf_legend()"
+    old = "mf_legend_p()"
   )
-
-  test_cur_plot()
   args <- as.list(match.call())
   args <- args[-1]
   args$type <- "prop"
-  if (missing(bg)) args$bg <- getOption("mapsf.bg")
-  if (missing(fg)) args$fg <- getOption("mapsf.fg")
-  if (missing(border)) args$border <- getOption("mapsf.fg")
-  mf_call_leg(args)
-
-
+  do.call(mf_legend, clean_leg_args(args))
   return(invisible(NULL))
 }

@@ -11,6 +11,7 @@ histogram, boxplot, stripchart and density curve
 leg_bg, leg_fg, leg_size, leg_border, leg_box_border, leg_box_cex)
 - double legends (prop_choro, prop_typo, etc.) are stacked by default
 - add legends for raster
+- deprecate all mf_legend_*() functions
 - add rev arg for function using pal to reverse named palettes
 
 ## Refactor
@@ -18,6 +19,7 @@ leg_bg, leg_fg, leg_size, leg_border, leg_box_border, leg_box_cex)
 changes)
 - use s2 instead of overcomplicated sf code for othographic proj in 
 mf_worldmap()
+
 
 
 
