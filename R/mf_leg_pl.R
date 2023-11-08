@@ -43,15 +43,12 @@ mf_legend_pl <- function(pos = "left",
                          bg,
                          fg,
                          cex = 1) {
-  .Deprecated(
-    new = "mapsf::mf_legend()",
-    package = "mapsf",
+ message(
     msg = paste0(
       "'mf_legend_pl()' is deprecated. ",
       "Use 'mf_legend(type = 'prop_line', ...)' ",
       "instead."
-    ),
-    old = "mf_legend_pl()"
+    )
   )
   args <- as.list(match.call())
   args <- args[-1]

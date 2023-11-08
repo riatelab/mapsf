@@ -57,8 +57,12 @@
 #' @param cex_na size of the symbols for missing values
 #' @param pch_na type of the symbols for missing values
 #' @param horiz if TRUE plot an horizontal legend
-#' @param adj adjust the postion of the legend in x and y directions.
+#' @param adj adjust the postion of the legend in x and y directions
 #' @param frame_border border color of the frame
+#' @param pt_pch deprecated
+#' @param pt_cex deprecated
+#' @param pt_cex_na deprecated
+#' @param pt_pch_na deprecated
 #' @return No value is returned, a legend is displayed
 #' (except if `return_bbox` is used).
 #' @importFrom maplegend leg
@@ -129,7 +133,11 @@ mf_legend <- function(type,
                       fg,
                       size = 1,
                       return_bbox = FALSE,
-                      adj = c(0, 0)) {
+                      adj = c(0, 0),
+                      pt_pch,
+                      pt_cex,
+                      pt_cex_na,
+                      pt_pch_na) {
   test_cur_plot()
   args <- as.list(match.call())
   args <- args[-1]
@@ -137,18 +145,34 @@ mf_legend <- function(type,
   if (missing(bg)) args$bg <- getOption("mapsf.bg")
   if (missing(fg)) args$fg <- getOption("mapsf.fg")
   if (missing(frame_border)) args$frame_border <- getOption("mapsf.fg")
+  if (type == "symb") args <- clean_symb_args(args)
   r <- do.call(leg, args)
   return(invisible(r))
 }
 
 
-
-clean_leg_args <- function(args) {
-  names_args <- names(args)
-  names(args)[which(names_args == "cex")] <- "size"
-  names(args)[which(names_args == "pt_pch")] <- "pch"
-  names(args)[which(names_args == "pt_cex")] <- "cex"
-  names(args)[which(names_args == "pt_cex_na")] <- "cex_na"
-  names(args)[which(names_args == "pt_pch_na")] <- "pch_na"
+clean_symb_args <- function(args){
+  if (!is.null(args$pt_pch)){
+    message("pt_pch is deprecated, use pch instead.")
+    args$pch <- args$pt_pch
+    args$pt_pch <- NULL
+  }
+  if (!is.null(args$pt_pch_na)){
+    message("pt_pch_na is deprecated, use pch_na instead.")
+    args$pch <- args$pt_pch_na
+    args$pt_pch_na <- NULL
+  }
+  if (!is.null(args$pt_cex)){
+    message("pt_cex is deprecated, use cex instead.")
+    args$cex <- args$pt_cex
+    args$pt_cex <- NULL
+  }
+  if (!is.null(args$pt_cex_na)){
+    message("pt_cex_na is deprecated, use cex_na instead.")
+    args$cex <- args$pt_cex_na
+    args$pt_cex_na <- NULL
+  }
   args
 }
+
+

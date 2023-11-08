@@ -41,15 +41,12 @@ mf_legend_gl <- function(pos = "topleft", val,
                          bg,
                          fg,
                          cex = 1) {
-  .Deprecated(
-    new = "mapsf::mf_legend()",
-    package = "mapsf",
+  message(
     msg = paste0(
       "'mf_legend_gl()' is deprecated. ",
       "Use 'mf_legend(type = 'grad_line', ...)' ",
       "instead."
-    ),
-    old = "mf_legend_gl()"
+    )
   )
   args <- as.list(match.call())
   args <- args[-1]

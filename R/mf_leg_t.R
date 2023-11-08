@@ -45,15 +45,12 @@ mf_legend_t <- function(pos = "topright",
                         bg,
                         fg,
                         cex = 1) {
-  .Deprecated(
-    new = "mapsf::mf_legend()",
-    package = "mapsf",
+  message(
     msg = paste0(
       "'mf_legend_t()' is deprecated. ",
       "Use 'mf_legend(type = 'typo', ...)' ",
       "instead."
-    ),
-    old = "mf_legend_t()"
+    )
   )
   args <- as.list(match.call())
   args <- args[-1]

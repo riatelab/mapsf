@@ -58,19 +58,23 @@ mf_legend_s <- function(pos = "right",
                         bg,
                         fg,
                         cex = 1) {
-  .Deprecated(
-    new = "mapsf::mf_legend()",
-    package = "mapsf",
+  message(
     msg = paste0(
       "'mf_legend_s()' is deprecated. ",
       "Use 'mf_legend(type = 'symb', ...)' ",
       "instead."
-    ),
-    old = "mf_legend_s()"
+    )
   )
   args <- as.list(match.call())
   args <- args[-1]
   args$type <- "symb"
   do.call(mf_legend, clean_leg_args(args))
   return(invisible(NULL))
+}
+
+
+clean_leg_args <- function(args) {
+  names_args <- names(args)
+  names(args)[which(names_args == "cex")] <- "size"
+  args
 }

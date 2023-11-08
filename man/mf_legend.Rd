@@ -35,7 +35,11 @@ mf_legend(
   fg,
   size = 1,
   return_bbox = FALSE,
-  adj = c(0, 0)
+  adj = c(0, 0),
+  pt_pch,
+  pt_cex,
+  pt_cex_na,
+  pt_pch_na
 )
 }
 \arguments{
@@ -122,7 +126,15 @@ the legend}
 \item{return_bbox}{return only bounding box of the legend.
 No legend is plotted.}
 
-\item{adj}{adjust the postion of the legend in x and y directions.}
+\item{adj}{adjust the postion of the legend in x and y directions}
+
+\item{pt_pch}{deprecated}
+
+\item{pt_cex}{deprecated}
+
+\item{pt_cex_na}{deprecated}
+
+\item{pt_pch_na}{deprecated}
 }
 \value{
 No value is returned, a legend is displayed

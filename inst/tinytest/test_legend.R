@@ -45,18 +45,18 @@ expect_silent(mf_legend(type = "prop_line",
 
 
 ## test deprecation
-expect_warning(mf_legend_c(val = c(1, 2, 3, 4),
+expect_message(mf_legend_c(val = c(1, 2, 3, 4),
                            pal = c("red1", "red3", "red4")))
-expect_warning(mf_legend_t(val = c("type A", "type B"),
+expect_message(mf_legend_t(val = c("type A", "type B"),
                            pal = c("navy", "tomato")))
-expect_warning(mf_legend_gl(lwd = c(0.2, 2, 4, 5, 10),
+expect_message(mf_legend_gl(lwd = c(0.2, 2, 4, 5, 10),
                             val = c(1, 2, 3, 4, 10.2, 15.2)))
-expect_warning(mf_legend_s(val = c("Type C", "Type D"),
+expect_message(mf_legend_s(val = c("Type C", "Type D"),
                            pal = c("cyan", "plum"),
                            pt_pch = c(21, 23), pt_cex = c(1, 2)))
-expect_warning(mf_legend_p(val = c(1, 20, 100),
+expect_message(mf_legend_p(val = c(1, 20, 100),
                            col = "red", inches = .3))
-expect_warning(mf_legend_pl(lwd = 20, val = c(5, 10, 50, 100)))
+expect_message(mf_legend_pl(lwd = 20, val = c(5, 10, 50, 100)))
 
 dev.off()
 expect_equal(mf_get_leg_pos(mtq, 1), "bottomleft")
