@@ -14,6 +14,7 @@ mf_label(
   halo = FALSE,
   bg,
   r = 0.1,
+  q = 1,
   ...
 )
 }
@@ -38,6 +39,10 @@ arguments bg and r can be modified to set the color and width of the halo.}
 
 \item{r}{width of the halo, it can be a single value or a vector of values}
 
+\item{q}{quality of the non overlapping labels placement. Possible values
+are 0 (quick results), 1 (reasonable quality and speed), 2 (better quality),
+3 (insane quality, can take a lot of time).}
+
 \item{...}{further \link{text} arguments.}
 }
 \value{
@@ -51,7 +56,8 @@ mtq <- mf_get_mtq()
 mf_map(mtq)
 mtq$cex <- c(rep(.8, 8), 2, rep(.8, 25))
 mf_label(
-  x = mtq, var = "LIBGEO", col = "grey10", halo = TRUE, cex = mtq$cex,
+  x = mtq, var = "LIBGEO",
+  col = "grey10", halo = TRUE, cex = mtq$cex,
   overlap = FALSE, lines = FALSE
 )
 }

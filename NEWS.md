@@ -13,15 +13,15 @@ leg_bg, leg_fg, leg_size, leg_border, leg_box_border, leg_box_cex)
 - add legends for raster
 - deprecate all mf_legend_*() functions
 - add rev arg for function using pal to reverse named palettes
+- add a q arg in mf_label() to select the quality of the non overlapping
+placement
 
 ## Refactor
 - use the maplegend pkg for legends (this change may introduce minor breaking 
 changes)
 - use s2 instead of overcomplicated sf code for othographic proj in 
 mf_worldmap()
-
-
-
+- use R base instead of C++ in mf_label() non overalapping placement
 
 
 # mapsf 0.7.1

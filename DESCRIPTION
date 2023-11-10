@@ -29,7 +29,6 @@ Imports:
     classInt, 
     graphics,
     maplegend,
-    Rcpp,
     s2,
     sf,
     stats,
@@ -44,7 +43,6 @@ Suggests:
     rmarkdown,
     tinytest,
     covr
-LinkingTo: Rcpp
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr

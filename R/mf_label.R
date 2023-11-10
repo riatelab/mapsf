@@ -12,6 +12,9 @@
 #' arguments bg and r can be modified to set the color and width of the halo.
 #' @param lines if TRUE, then lines are plotted between x,y and the word,
 #' for those words not covering their x,y coordinate
+#' @param q quality of the non overlapping labels placement. Possible values
+#' are 0 (quick results), 1 (reasonable quality and speed), 2 (better quality),
+#' 3 (insane quality, can take a lot of time).
 #' @return No return value, labels are displayed.
 #' @export
 #' @examples
@@ -19,16 +22,21 @@
 #' mf_map(mtq)
 #' mtq$cex <- c(rep(.8, 8), 2, rep(.8, 25))
 #' mf_label(
-#'   x = mtq, var = "LIBGEO", col = "grey10", halo = TRUE, cex = mtq$cex,
+#'   x = mtq, var = "LIBGEO",
+#'   col = "grey10", halo = TRUE, cex = mtq$cex,
 #'   overlap = FALSE, lines = FALSE
 #' )
-mf_label <- function(x, var,
+mf_label <- function(x,
+                     var,
                      col,
-                     cex = 0.7, overlap = TRUE,
+                     cex = 0.7,
+                     overlap = TRUE,
                      lines = TRUE,
                      halo = FALSE,
                      bg,
-                     r = 0.1, ...) {
+                     r = 0.1,
+                     q = 1,
+                     ...) {
   test_cur_plot()
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
@@ -41,10 +49,8 @@ mf_label <- function(x, var,
     bg <- getOption("mapsf.bg")
   }
   words <- x[[var]]
-  cc <- sf::st_coordinates(sf::st_centroid(
-    x = sf::st_geometry(x),
-    of_largest_polygon = max(sf::st_is(sf::st_as_sf(x), "MULTIPOLYGON"))
-  ))
+  cc <- sf::st_coordinates(sf::st_centroid(x = sf::st_geometry(x),
+                                           of_largest_polygon = TRUE))
 
   if (nrow(x) == 1) {
     overlap <- TRUE
@@ -53,8 +59,7 @@ mf_label <- function(x, var,
   if (!overlap) {
     xo <- unlist(cc[, 1])
     yo <- unlist(cc[, 2])
-    lay <- wordlayout(xo, yo, words, cex)
-
+    lay <- wordlayout(xo, yo, words, cex, q = q, ...)
     if (lines) {
       nlab <- length(xo)
       if (length(col) != nlab) {
