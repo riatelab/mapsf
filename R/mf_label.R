@@ -49,8 +49,10 @@ mf_label <- function(x,
     bg <- getOption("mapsf.bg")
   }
   words <- x[[var]]
-  cc <- sf::st_coordinates(sf::st_centroid(x = sf::st_geometry(x),
-                                           of_largest_polygon = TRUE))
+  cc <- sf::st_coordinates(sf::st_centroid(
+    x = sf::st_geometry(x),
+    of_largest_polygon = TRUE
+  ))
 
   if (nrow(x) == 1) {
     overlap <- TRUE

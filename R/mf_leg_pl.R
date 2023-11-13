@@ -43,7 +43,7 @@ mf_legend_pl <- function(pos = "left",
                          bg,
                          fg,
                          cex = 1) {
- message(
+  message(
     msg = paste0(
       "'mf_legend_pl()' is deprecated. ",
       "Use 'mf_legend(type = 'prop_line', ...)' ",

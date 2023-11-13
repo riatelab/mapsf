@@ -151,28 +151,26 @@ mf_legend <- function(type,
 }
 
 
-clean_symb_args <- function(args){
-  if (!is.null(args$pt_pch)){
+clean_symb_args <- function(args) {
+  if (!is.null(args$pt_pch)) {
     message("pt_pch is deprecated, use pch instead.")
     args$pch <- args$pt_pch
     args$pt_pch <- NULL
   }
-  if (!is.null(args$pt_pch_na)){
+  if (!is.null(args$pt_pch_na)) {
     message("pt_pch_na is deprecated, use pch_na instead.")
     args$pch <- args$pt_pch_na
     args$pt_pch_na <- NULL
   }
-  if (!is.null(args$pt_cex)){
+  if (!is.null(args$pt_cex)) {
     message("pt_cex is deprecated, use cex instead.")
     args$cex <- args$pt_cex
     args$pt_cex <- NULL
   }
-  if (!is.null(args$pt_cex_na)){
+  if (!is.null(args$pt_cex_na)) {
     message("pt_cex_na is deprecated, use cex_na instead.")
     args$cex <- args$pt_cex_na
     args$pt_cex_na <- NULL
   }
   args
 }
-
-

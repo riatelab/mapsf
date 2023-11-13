@@ -125,7 +125,6 @@ mf_raster <- function(x,
 }
 
 get_the_raster_pal <- function(pal, nbreaks, alpha = 1, rev = TRUE) {
-
   if (length(pal) == 1) {
     if (pal == "custom") {
       return(rev(grDevices::terrain.colors(255)))
