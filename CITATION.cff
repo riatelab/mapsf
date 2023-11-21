@@ -76,32 +76,6 @@ references:
     orcid: https://orcid.org/0000-0002-1932-3323
   year: '2023'
 - type: software
-  title: Rcpp
-  abstract: 'Rcpp: Seamless R and C++ Integration'
-  notes: Imports
-  url: https://www.rcpp.org
-  repository: https://CRAN.R-project.org/package=Rcpp
-  authors:
-  - family-names: Eddelbuettel
-    given-names: Dirk
-  - family-names: Francois
-    given-names: Romain
-  - family-names: Allaire
-    given-names: JJ
-  - family-names: Ushey
-    given-names: Kevin
-  - family-names: Kou
-    given-names: Qiang
-  - family-names: Russell
-    given-names: Nathan
-  - family-names: Ucar
-    given-names: Inaki
-  - family-names: Bates
-    given-names: Douglas
-  - family-names: Chambers
-    given-names: John
-  year: '2023'
-- type: software
   title: s2
   abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
   notes: Imports
