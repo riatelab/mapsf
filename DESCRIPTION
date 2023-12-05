@@ -1,6 +1,6 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 0.8.0
+Version: 0.9.0
 Authors@R: c(
     person("Timothée", "Giraud", email = "timothee.giraud@cnrs.fr", 
         role = c("cre","aut"), 
