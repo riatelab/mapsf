@@ -61,7 +61,7 @@ mf_label <- function(x,
   if (!overlap) {
     xo <- unlist(cc[, 1])
     yo <- unlist(cc[, 2])
-    lay <- wordlayout(xo, yo, words, cex, q = q, ...)
+    lay <- wordlayout(xo, yo, words, cex, q = q)
     if (lines) {
       nlab <- length(xo)
       if (length(col) != nlab) {

@@ -6,11 +6,10 @@
 #' @param y lat
 #' @param words labels
 #' @param cex cex
-#' @param ... other stuf
 #' @param q quality
 #' @return coords
 #' @noRd
-wordlayout <- function(x, y, words, cex = 1, q, ...) {
+wordlayout <- function(x, y, words, cex = 1, q) {
   d <- data.frame(q = c(0, 1, 2, 3), v = c(1, .2, .1, .01))
   tstep <- rstep <- d[d$q == q, 2]
   tails <- "g|j|p|q|y"
@@ -26,10 +25,10 @@ wordlayout <- function(x, y, words, cex = 1, q, ...) {
     theta <- runif(1, 0, 2 * pi)
     x1 <- xo <- x[i]
     y1 <- yo <- y[i]
-    wid <- strwidth(words[i], cex = cex[i], ...) +
-      0.4 * strwidth("R", cex = cex[i], ...)
-    ht <- strheight(words[i], cex = cex[i], ...) +
-      0.4 * strheight("R", cex = cex[i], ...)
+    wid <- strwidth(words[i], cex = cex[i]) +
+      0.4 * strwidth("R", cex = cex[i])
+    ht <- strheight(words[i], cex = cex[i]) +
+      0.4 * strheight("R", cex = cex[i])
     # mind your ps and qs
     if (grepl(tails, words[i])) {
       ht <- ht + ht * .2
