@@ -139,16 +139,14 @@ mf_legend <- function(type,
                       pt_cex_na,
                       pt_pch_na) {
   test_cur_plot()
-  args <- as.list(match.call())
-  fun_env <- args[1]
-  args <- args[-1]
+  args <- match.call()
   args$mar <- getOption("mapsf.mar")
   if (missing(bg)) args$bg <- getOption("mapsf.bg")
   if (missing(fg)) args$fg <- getOption("mapsf.fg")
   if (missing(frame_border)) args$frame_border <- getOption("mapsf.fg")
   if (type == "symb") args <- clean_symb_args(args)
-  args <- lapply(args, eval, envir = fun_env, enclos = parent.frame())
-  r <- do.call(leg, args)
+  args[[1]] <- quote(maplegend::leg)
+  r <- eval.parent(args)
   return(invisible(r))
 }
 
