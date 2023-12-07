@@ -4,24 +4,42 @@
 \alias{mf_scale}
 \title{Plot a scale bar}
 \usage{
-mf_scale(size, pos = "bottomright", lwd = 1.5, cex = 0.6, col, unit = "km")
+mf_scale(
+  size,
+  pos = "bottomright",
+  lwd = 1.5,
+  cex = 0.6,
+  col,
+  crs_units = "m",
+  scale_units = "km",
+  x,
+  unit
+)
 }
 \arguments{
-\item{size}{size of the scale bar in units (default to km). If size is not
-set, an automatic size is used (1/10 of the map width)}
+\item{size}{size of the scale bar in scale units (\code{scale_units},
+default to km). If size is not
+set, an automatic size is used (1/10 of the map width).}
 
 \item{pos}{position. It can be one of 'bottomright', 'bottomleft',
-'interactive'
-or a vector of two coordinates in map units (c(x, y)).}
+'interactive' or a vector of two coordinates in map units (c(x, y)).}
 
-\item{lwd}{width of the scale bar}
+\item{lwd}{line width of the scale bar}
 
-\item{cex}{cex of the text}
+\item{cex}{size of the scale bar text}
 
-\item{col}{color}
+\item{col}{color of the scale bar (line and text)}
 
-\item{unit}{units used for the scale bar. Can be "mi" for miles,
-"m" for meters, or "km" for kilometers (default)}
+\item{crs_units}{units used in the CRS of the currently plotted layer.
+Possible values are "m" and "ft" (see Details).}
+
+\item{scale_units}{units used for the scale bar. Can be "mi" for miles,
+"ft" for feet, "m" for meters, or "km" for kilometers (default).}
+
+\item{x}{object of class crs, sf or sfc. If set, the CRS of x will be used
+instead of \code{crs_units} to define CRS units.}
+
+\item{unit}{deprecated, use scale_units instead}
 }
 \value{
 No return value, a scale bar is displayed.
@@ -29,11 +47,32 @@ No return value, a scale bar is displayed.
 \description{
 Plot a scale bar.
 }
-\note{
+\details{
+Most CRS use the meter as unit. Some US CRS use feet or US survey
+feet. If unsure of the unit used in the CRS you can use the x argument of the
+function.
+Alternatively, you can use
+\code{sf::st_crs(zz, parameters = TRUE)$units_gdal} to see which units
+are used in the \code{zz} layer.
+
 This scale bar does not work on unprojected (long/lat) maps.
 }
 \examples{
 mtq <- mf_get_mtq()
 mf_map(mtq)
 mf_scale()
+
+library(sf)
+nc <- st_read(system.file("shape/nc.shp", package="sf"))[1,]
+
+nc_foot <- st_transform(nc, 2264) # NC state plane, US foot
+mf_map(nc_foot)
+mf_scale(size = 5, crs_units = "ft", scale_units = "mi")
+mf_map(nc_foot)
+mf_scale(size = 5, x = nc_foot, scale_units = "mi")
+
+nc_meter <- st_transform(nc, 32119)  # NC state plane, m
+mf_map(nc_meter)
+mf_scale(size = 5, crs_units = "m", scale_units = "mi")
+mf_scale(size = 5, crs_units = "m", scale_units = "km", pos = "bottomleft")
 }

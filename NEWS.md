@@ -1,3 +1,12 @@
+# mapsf 0.9.0
+
+## Fix 
+- add the possibility to use a scale bar in (US) maps using feet based CRS (#59)
+- remove wrong ellipsis propagation in mf_label()
+- better environment management in mf_legend() to allow usage inside a 
+function (#58)
+
+
 # mapsf 0.8.0
 
 ## Fix
