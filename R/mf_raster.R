@@ -49,25 +49,33 @@
 #'
 #'   ## continuous
 #'   mf_raster(elev)
-#'   mf_raster(elev, pal = "Burg", expandBB = c(.2,0,0,0),
-#'             leg_pos = "bottom", leg_horiz = TRUE)
+#'   mf_raster(elev,
+#'     pal = "Burg", expandBB = c(.2, 0, 0, 0),
+#'     leg_pos = "bottom", leg_horiz = TRUE
+#'   )
 #'
 #'   ## continuous with colors and breaks
-#'   mf_raster(elev, type = "continuous",
-#'             breaks = c(141,400,547),
-#'             pal = c("darkseagreen1", "black", "red"))
+#'   mf_raster(elev,
+#'     type = "continuous",
+#'     breaks = c(141, 400, 547),
+#'     pal = c("darkseagreen1", "black", "red")
+#'   )
 #'
 #'   ## interval
-#'   mf_raster(elev, type = "interval",
-#'             nbreaks = 5, breaks = "equal", pal = "Teal")
+#'   mf_raster(elev,
+#'     type = "interval",
+#'     nbreaks = 5, breaks = "equal", pal = "Teal"
+#'   )
 #'
 #'   ## classes
 #'   elev2 <- classify(elev, c(140, 400, 450, 549))
 #'   lev_evel <- data.frame(ID = 0:2, elevation = c("Low", "High", "Super High"))
 #'   levels(elev2) <- lev_evel
 #'   mf_raster(elev2)
-#'   mf_raster(elev2, pal = c("salmon4", "olivedrab", "yellow3"),
-#'             val_order = c("Super High", "High", "Low"))
+#'   mf_raster(elev2,
+#'     pal = c("salmon4", "olivedrab", "yellow3"),
+#'     val_order = c("Super High", "High", "Low")
+#'   )
 #' }
 mf_raster <- function(x,
                       type,
@@ -88,7 +96,7 @@ mf_raster <- function(x,
                       leg_horiz = FALSE,
                       leg_adj = c(0, 0),
                       leg_box_border = "#333333",
-                      leg_box_cex = c(1,1),
+                      leg_box_cex = c(1, 1),
                       leg_fg = getOption("mapsf.fg"),
                       leg_bg = getOption("mapsf.bg"),
                       leg_size = 1,
@@ -96,8 +104,10 @@ mf_raster <- function(x,
                       ...) {
   # test for terra
   if (!requireNamespace("terra", quietly = TRUE)) {
-    stop(paste0("'terra' package is needed for this function to work.",
-                "Please install it."), call. = FALSE )
+    stop(paste0(
+      "'terra' package is needed for this function to work.",
+      "Please install it."
+    ), call. = FALSE)
   }
 
   # input test
@@ -116,9 +126,9 @@ mf_raster <- function(x,
   max_cell <- is.null(ops$maxcell) | terra::ncell(x) >= 1e6
   ops$maxcell <- ifelse(max_cell, 1e6, ops$maxcell)
   ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
-  ops$legend <-  ifelse(is.null(ops$legend), FALSE, ops$legend)
-  ops$axes <-  FALSE
-  ops$box <-  FALSE
+  ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
+  ops$axes <- FALSE
+  ops$box <- FALSE
   ops$mar <- NA
 
   # Multiband Raster
@@ -129,12 +139,13 @@ mf_raster <- function(x,
   # One band raster
   if (terra::nlyr(x) == 1) {
     # set the type - default to continuous for numeric raster
-    if (missing(type) ){
+    if (missing(type)) {
       ops$type <- ifelse(is.null(terra::cats(x)[[1]]), "continuous", "classes")
     } else {
       if (!type %in% c("continuous", "interval", "classes")) {
         stop("'type' should be one of 'continuous', 'interval' or 'classes'.",
-             call. = FALSE)
+          call. = FALSE
+        )
       }
       ops$type <- type
     }
@@ -144,15 +155,17 @@ mf_raster <- function(x,
     ops$smooth <- ifelse(is.null(ops$smooth), FALSE, ops$smooth)
 
     if (ops$type == "interval") {
-      mf_raster_interval(ops, ops_leg, pal, breaks, nbreaks, alpha, rev, add,
-                         expandBB)
+      mf_raster_interval(
+        ops, ops_leg, pal, breaks, nbreaks, alpha, rev, add,
+        expandBB
+      )
     }
 
     if (ops$type == "continuous") {
       mf_raster_continuous(ops, ops_leg, breaks, pal, expandBB, add, alpha, rev)
     }
 
-    if (ops$type == "classes"){
+    if (ops$type == "classes") {
       mf_raster_classes(ops, ops_leg, pal, val_order, expandBB, add, alpha, rev)
     }
   }

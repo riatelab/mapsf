@@ -43,7 +43,7 @@
 #' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()
-#' mf_map(mtq, var =  "MED", type = "choro")
+#' mf_map(mtq, var = "MED", type = "choro")
 #'
 #' mtq[6, "MED"] <- NA
 #' mf_map(

@@ -114,7 +114,7 @@ will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
 }
 \examples{
 mtq <- mf_get_mtq()
-mf_map(mtq, var =  "MED", type = "choro")
+mf_map(mtq, var = "MED", type = "choro")
 
 mtq[6, "MED"] <- NA
 mf_map(

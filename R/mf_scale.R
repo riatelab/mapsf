@@ -33,7 +33,7 @@
 #' mf_scale()
 #'
 #' library(sf)
-#' nc <- st_read(system.file("shape/nc.shp", package="sf"))[1,]
+#' nc <- st_read(system.file("shape/nc.shp", package = "sf"))[1, ]
 #'
 #' nc_foot <- st_transform(nc, 2264) # NC state plane, US foot
 #' mf_map(nc_foot)
@@ -41,7 +41,7 @@
 #' mf_map(nc_foot)
 #' mf_scale(size = 5, x = nc_foot, scale_units = "mi")
 #'
-#' nc_meter <- st_transform(nc, 32119)  # NC state plane, m
+#' nc_meter <- st_transform(nc, 32119) # NC state plane, m
 #' mf_map(nc_meter)
 #' mf_scale(size = 5, crs_units = "m", scale_units = "mi")
 #' mf_scale(size = 5, crs_units = "m", scale_units = "km", pos = "bottomleft")
@@ -71,22 +71,46 @@ mf_scale <- function(size,
 
   if (!missing(x)) {
     uu <- sf::st_crs(x)$ud_unit
-    u_m <- structure(1, units = structure(list(numerator = "m",
-                                               denominator = character(0)),
-                                          class = "symbolic_units"),
-                     class = "units")
-    u_f <- structure(1, units = structure(list(numerator = "foot",
-                                               denominator = character(0)),
-                                          class = "symbolic_units"),
-                     class = "units")
-    u_sf <- structure(1, units = structure(list(numerator = "US_survey_foot",
-                                                denominator = character(0)),
-                                           class = "symbolic_units"),
-                      class = "units")
-    u_d <- structure(1, units = structure(list(numerator = "\u00b0",
-                                               denominator = character(0)),
-                                          class = "symbolic_units"),
-                     class = "units")
+    u_m <- structure(1,
+      units = structure(
+        list(
+          numerator = "m",
+          denominator = character(0)
+        ),
+        class = "symbolic_units"
+      ),
+      class = "units"
+    )
+    u_f <- structure(1,
+      units = structure(
+        list(
+          numerator = "foot",
+          denominator = character(0)
+        ),
+        class = "symbolic_units"
+      ),
+      class = "units"
+    )
+    u_sf <- structure(1,
+      units = structure(
+        list(
+          numerator = "US_survey_foot",
+          denominator = character(0)
+        ),
+        class = "symbolic_units"
+      ),
+      class = "units"
+    )
+    u_d <- structure(1,
+      units = structure(
+        list(
+          numerator = "\u00b0",
+          denominator = character(0)
+        ),
+        class = "symbolic_units"
+      ),
+      class = "units"
+    )
 
     if (identical(uu, u_m)) {
       crs_units <- "m"
@@ -104,7 +128,7 @@ mf_scale <- function(size,
     }
   }
 
-  if (!crs_units  %in% c('m', 'ft')) {
+  if (!crs_units %in% c("m", "ft")) {
     stop("crs_units must be 'm' or 'ft'.")
   }
   if (!scale_units %in% c("km", "m", "ft", "mi")) {
@@ -116,18 +140,23 @@ mf_scale <- function(size,
   # default scale
   if (missing(size)) {
     size <- diff(pu[1:2]) / 10
-    size <- unit_conversion(size = size,
-                            unit_in = crs_units,
-                            unit_out = scale_units)
+    size <- unit_conversion(
+      size = size,
+      unit_in = crs_units,
+      unit_out = scale_units
+    )
     size_text <- signif(size, digits = 0)
-    size <- unit_conversion(size = size_text,
-                            unit_in = scale_units,
-                            unit_out = crs_units)
+    size <- unit_conversion(
+      size = size_text,
+      unit_in = scale_units,
+      unit_out = crs_units
+    )
   } else {
     size_text <- as.character(size)
     size <- unit_conversion(size,
-                            unit_in = scale_units,
-                            unit_out = crs_units)
+      unit_in = scale_units,
+      unit_out = crs_units
+    )
   }
 
   # label
@@ -183,8 +212,6 @@ mf_scale <- function(size,
 #' @param unit_out output unit
 #' @noRd
 unit_conversion <- function(size, unit_in, unit_out) {
-
-
   if (unit_out == "m") {
     if (unit_in == "ft") size <- size / 3.28084
     if (unit_in == "km") size <- size * 1000
@@ -194,13 +221,11 @@ unit_conversion <- function(size, unit_in, unit_out) {
     if (unit_in == "m") size <- size / 1000
     if (unit_in == "ft") size <- size / 3280.84
     if (unit_in == "mi") size <- size * 1.60934
-
   }
   if (unit_out == "mi") {
     if (unit_in == "m") size <- size / 1609.34
     if (unit_in == "ft") size <- size / 5280
     if (unit_in == "km") size <- size / 1.60934
-
   }
   if (unit_out == "ft") {
     if (unit_in == "m") size <- size * 3.28084

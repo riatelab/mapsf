@@ -124,7 +124,8 @@ mf_map(mtq, c("STATUS", "MED"), "symb_choro")
 mf_map(mtq)
 mtq$STATUS[30] <- NA
 mtq$MED[5] <- NA
-mf_map(mtq, c("STATUS", "MED"), type = "symb_choro",
+mf_map(mtq, c("STATUS", "MED"),
+  type = "symb_choro",
   pal = "Reds 3", breaks = "quantile", nbreaks = 4,
   pch = 21:23, cex = c(3, 2, 1),
   pch_na = 25, cex_na = 1.5, col_na = "blue",

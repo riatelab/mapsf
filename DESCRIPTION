@@ -1,19 +1,28 @@
 Package: mapsf
 Title: Thematic Cartography
 Version: 0.9.0
-Authors@R: c(
-    person("Timothée", "Giraud", email = "timothee.giraud@cnrs.fr", 
-        role = c("cre","aut"), 
-        comment = c(ORCID = "0000-0002-1932-3323")), 
-    person("Hugues", "Pecout", role = "ctb", 
-        comment = c(ORCID = "0000-0002-0246-0954", "Logo")),
-    person("Ronan", "Ysebaert", role = "ctb",
-        comment = c(ORCID = "0000-0002-7344-5911", "Cheat sheet")),
-    person("Ian", "Fellows", role = "cph", 
-        comment = "No overlap algorithm for labels, from wordcloud package"), 
-    person("Jim", "Lemon", role = "cph", 
-        comment = "Arc drawing algorithm for annotations, from plotrix package")
-    )
+Authors@R: 
+    c(person(given = "Timothée",
+             family = "Giraud",
+             email = "timothee.giraud@cnrs.fr",
+             role = c("cre","aut"),
+             comment = c(ORCID = "0000-0002-1932-3323")),
+      person(given = "Hugues",
+             family = "Pecout",
+             role = "ctb",
+             comment = c(ORCID = "0000-0002-0246-0954", "Logo")),
+      person(given = "Ronan",
+             family = "Ysebaert",
+             role = "ctb",
+             comment = c(ORCID = "0000-0002-7344-5911", "Cheat sheet")),
+      person(given = "Ian",
+             family = "Fellows",
+             role = "cph",
+             comment = "No overlap algorithm for labels, from wordcloud package"),
+      person(given = "Jim",
+             family = "Lemon",
+             role = "cph",
+             comment = "Arc drawing algorithm for annotations, from plotrix package"))
 Description: Create and integrate thematic maps in your workflow. This package
     helps to design various cartographic representations such as proportional
     symbols, choropleth or typology maps. It also offers several functions to

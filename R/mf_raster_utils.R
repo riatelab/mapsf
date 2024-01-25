@@ -12,18 +12,18 @@ get_the_raster_pal <- function(pal, nbreaks, alpha = 1, rev = TRUE) {
 }
 
 
-get_continuous_pal <- function(breaks, pal){
+get_continuous_pal <- function(breaks, pal) {
   # get a palette repartitionthat match classes size
   etendu <- max(breaks) - min(breaks)
   lb <- length(breaks)
-  dd <- data.frame(from = breaks[1:(lb-1)], to = breaks[2:lb])
+  dd <- data.frame(from = breaks[1:(lb - 1)], to = breaks[2:lb])
   dd$diff <- dd$to - dd$from
   dd$ncol <- round(dd$diff * 1000 / etendu)
-  dd$colfrom <- pal[1:(lb-1)]
+  dd$colfrom <- pal[1:(lb - 1)]
   dd$colto <- pal[2:lb]
   l <- list()
-  for(i in 1:(lb-1)){
-    l[[i]] <-  colorRampPalette(c(dd$colfrom[i], dd$colto[i]))(dd$ncol[i])
+  for (i in 1:(lb - 1)) {
+    l[[i]] <- colorRampPalette(c(dd$colfrom[i], dd$colto[i]))(dd$ncol[i])
   }
   p <- do.call(c, l)
   p
@@ -31,7 +31,7 @@ get_continuous_pal <- function(breaks, pal){
 
 
 
-mf_raster_multiband <- function(ops, expandBB, add){
+mf_raster_multiband <- function(ops, expandBB, add) {
   ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
   if (add == FALSE) {
     mf_init(ops$x, expandBB = expandBB)
@@ -40,15 +40,19 @@ mf_raster_multiband <- function(ops, expandBB, add){
 }
 
 mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
-                               rev, add, expandBB){
-  if (missing(pal)){
+                               rev, add, expandBB) {
+  if (missing(pal)) {
     pal <- "Dark Mint"
   }
   # set breaks and palette
-  ops$breaks <- mf_get_breaks(x = terra::values(ops$x), nbreaks = nbreaks,
-                              breaks = breaks)
-  ops$col <- get_the_pal(pal = pal, nbreaks = length(ops$breaks) - 1,
-                         alpha = alpha, rev = !rev)
+  ops$breaks <- mf_get_breaks(
+    x = terra::values(ops$x), nbreaks = nbreaks,
+    breaks = breaks
+  )
+  ops$col <- get_the_pal(
+    pal = pal, nbreaks = length(ops$breaks) - 1,
+    alpha = alpha, rev = !rev
+  )
   # init
   if (add == FALSE) {
     mf_init(ops$x, expandBB = expandBB)
@@ -80,8 +84,8 @@ mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
 
 
 mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
-                                 alpha, rev){
-  if (missing(pal)){
+                                 alpha, rev) {
+  if (missing(pal)) {
     pal <- "Dark Mint"
   }
   val <- terra::values(ops$x, na.rm = TRUE)
@@ -130,11 +134,11 @@ mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
     lim <- (vmax - vmin) / 10
     vv <- c(vmin, v[v > vmin & v < vmax], vmax)
     lvv <- length(vv)
-    if (vv[2] - vv[1] < lim){
+    if (vv[2] - vv[1] < lim) {
       vv <- vv[-2]
     }
     lvv <- length(vv)
-    if ((vv[lvv] - vv[(lvv - 1)]) < lim){
+    if ((vv[lvv] - vv[(lvv - 1)]) < lim) {
       vv <- vv[-(lvv - 1)]
     }
   }
@@ -167,18 +171,18 @@ mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
 
 
 mf_raster_classes <- function(ops, ops_leg, pal, val_order, expandBB,
-                              add, alpha, rev){
+                              add, alpha, rev) {
   modalities <- terra::cats(ops$x)[[1]]
   if (is.null(modalities)) {
     ops$x <- terra::as.factor(ops$x)
     modalities <- terra::cats(ops$x)[[1]]
   }
 
-  if (missing(pal)){
+  if (missing(pal)) {
     pal <- "Dark 2"
   }
-  if(missing(val_order)){
-    val_order <- modalities[,2]
+  if (missing(val_order)) {
+    val_order <- modalities[, 2]
   }
   pal <- get_the_pal(
     pal = pal, nbreaks = length(val_order),
@@ -186,11 +190,13 @@ mf_raster_classes <- function(ops, ops_leg, pal, val_order, expandBB,
   )
   refcol <- data.frame(mod = val_order, col = pal)
 
-  mod <- merge(x = modalities, y = refcol,
-               by.x = names(modalities)[2],
-               by.y = "mod", all.x = TRUE)
+  mod <- merge(
+    x = modalities, y = refcol,
+    by.x = names(modalities)[2],
+    by.y = "mod", all.x = TRUE
+  )
   mod <- mod[, c("ID", "col")]
-  mod <- mod[order(mod$ID), 'col']
+  mod <- mod[order(mod$ID), "col"]
 
   ops$col <- mod
 

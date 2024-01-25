@@ -60,8 +60,8 @@ expect_message(mf_legend_pl(lwd = 20, val = c(5, 10, 50, 100)))
 
 dev.off()
 expect_equal(mf_get_leg_pos(mtq, 1), "bottomleft")
-expect_equal(mf_get_leg_pos(mtq[1,], 2), c("topleft", "top"))
+expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topleft", "top"))
 mf_map(mtq)
-expect_equal(mf_get_leg_pos(mtq[1,], 2), c("topright", "right"))
+expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topright", "right"))
 
 expect_error(mapsf:::interleg())

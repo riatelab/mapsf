@@ -26,4 +26,3 @@ mf_map(mtqy)
 expect_message(mf_scale(x = mtqy))
 st_crs(mtqy) <- NA_crs_
 expect_message(mf_scale(x = mtqy))
-
