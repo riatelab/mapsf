@@ -2,8 +2,8 @@
 % Please edit documentation in R/package.R
 \docType{package}
 \name{mapsf}
-\alias{mapsf}
 \alias{mapsf-package}
+\alias{mapsf}
 \title{Package description}
 \description{
 Create and integrate thematic maps in your workflow. This package

@@ -161,5 +161,5 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
       intervals <- intervals[order(intervals)]
     }
   }
-  return(intervals)
+  return(unique(intervals))
 }

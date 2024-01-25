@@ -6,6 +6,10 @@
 \usage{
 mf_raster(
   x,
+  type,
+  nbreaks,
+  breaks = "equal",
+  val_order,
   pal,
   expandBB = rep(0, 4),
   alpha = 1,
@@ -14,12 +18,13 @@ mf_raster(
   leg_title = names(x),
   leg_title_cex = 0.8,
   leg_val_cex = 0.6,
-  leg_val_rnd = 2,
-  leg_no_data = "No data",
+  leg_val_rnd = 1,
   leg_frame = FALSE,
   leg_frame_border = getOption("mapsf.fg"),
   leg_horiz = FALSE,
   leg_adj = c(0, 0),
+  leg_box_border = "#333333",
+  leg_box_cex = c(1, 1),
   leg_fg = getOption("mapsf.fg"),
   leg_bg = getOption("mapsf.bg"),
   leg_size = 1,
@@ -29,6 +34,19 @@ mf_raster(
 }
 \arguments{
 \item{x}{a SpatRaster}
+
+\item{type}{type of raster map, one of "continuous", "classes", or
+"interval". Default type for a numeric and categorial raster are
+"continuous" and "classes" respectively.}
+
+\item{nbreaks}{number of classes}
+
+\item{breaks}{either a numeric vector with the actual breaks
+(for type = "continuous" and type = "interval"), or a
+classification method name (for type = "interval" only;
+see \link{mf_get_breaks} for classification methods)}
+
+\item{val_order}{values order, a character vector that matches var modalities}
 
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
@@ -49,8 +67,6 @@ direction (bottom, left, top, right)}
 
 \item{leg_val_rnd}{number of decimal places of the values in the legend}
 
-\item{leg_no_data}{label for missing values}
-
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
 
 \item{leg_frame_border}{border color of the legend frame}
@@ -58,6 +74,10 @@ direction (bottom, left, top, right)}
 \item{leg_horiz}{display the legend horizontally}
 
 \item{leg_adj}{adjust the postion of the legend in x and y directions}
+
+\item{leg_box_border}{border color of legend boxes}
+
+\item{leg_box_cex}{width and height size expansion of boxes}
 
 \item{leg_fg}{color of the legend foreground}
 
@@ -70,17 +90,43 @@ not (FALSE)}
 
 \item{...}{bgalpha, smooth, maxcell or other arguments passed to be
 passed to
-\code{\link[terra:plotRGB]{plotRGB}} or  \code{\link[terra:plot]{plot}}}
+\code{\link[terra:plotRGB]{plotRGB}} or \code{\link[terra:plot]{plot}}}
 }
 \value{
-No return value, a map is displayed.
+x is (invisibly) returned.
 }
 \description{
 Plot a raster object (SpatRaster from terra).
 }
 \examples{
 if (require("terra")) {
-  r <- rast(system.file("ex/elev.tif", package = "terra"))
-  mf_raster(r)
+  # multi band
+  logo <- rast(system.file("ex/logo.tif", package = "terra"))
+  mf_raster(logo)
+
+  # one band
+  elev <- rast(system.file("ex/elev.tif", package = "terra"))
+
+  ## continuous
+  mf_raster(elev)
+  mf_raster(elev, pal = "Burg", expandBB = c(.2,0,0,0),
+            leg_pos = "bottom", leg_horiz = TRUE)
+
+  ## continuous with colors and breaks
+  mf_raster(elev, type = "continuous",
+            breaks = c(141,400,547),
+            pal = c("darkseagreen1", "black", "red"))
+
+  ## interval
+  mf_raster(elev, type = "interval",
+            nbreaks = 5, breaks = "equal", pal = "Teal")
+
+  ## classes
+  elev2 <- classify(elev, c(140, 400, 450, 549))
+  lev_evel <- data.frame(ID = 0:2, elevation = c("Low", "High", "Super High"))
+  levels(elev2) <- lev_evel
+  mf_raster(elev2)
+  mf_raster(elev2, pal = c("salmon4", "olivedrab", "yellow3"),
+            val_order = c("Super High", "High", "Low"))
 }
 }
