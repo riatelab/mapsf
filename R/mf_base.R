@@ -18,8 +18,8 @@
 #' @examples
 #' library(sf)
 #' mtq <- mf_get_mtq()
-#' mf_base(mtq)
-#' mf_base(mtq, col = "blue")
+#' mf_map(mtq, type = "base")
+#' mf_map(mtq, type = "base", col = "blue")
 mf_base <- function(x,
                     col = "grey80",
                     border = "grey20",

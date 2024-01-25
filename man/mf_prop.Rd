@@ -83,11 +83,12 @@ Plot proportional symbols.
 \examples{
 mtq <- mf_get_mtq()
 mf_map(mtq)
-mf_prop(mtq, "POP")
+mf_map(mtq, "POP", "prop")
 
 mf_map(mtq)
-mf_prop(
-  x = mtq, var = "POP", inches = .4, symbol = "circle", val_max = 90000,
+mf_map(
+  x = mtq, var = "POP", type = "prop",
+  inches = .4, symbol = "circle", val_max = 90000,
   col = "tomato1", border = "blue", lwd = 1,
   leg_pos = "right", leg_title = "Population",
   leg_title_cex = 1, leg_val_cex = .8, leg_val_rnd = 0,

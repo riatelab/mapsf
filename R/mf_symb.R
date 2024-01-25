@@ -34,12 +34,13 @@
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
-#' mf_symb(mtq, "STATUS")
+#' mf_map(mtq, "STATUS", "symb")
 #'
 #' mtq[6, "STATUS"] <- NA
 #' mf_map(mtq)
-#' mf_symb(
-#'   x = mtq, var = "STATUS", pch = c(21:23), pal = c("red1", "tan1", "khaki1"),
+#' mf_map(
+#'   x = mtq, var = "STATUS", type = "symb",
+#'   pch = c(21:23), pal = c("red1", "tan1", "khaki1"),
 #'   border = "grey20", cex = c(1.5, 1, .9), lwd = .5,
 #'   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
 #'   pch_na = 24, leg_frame = TRUE

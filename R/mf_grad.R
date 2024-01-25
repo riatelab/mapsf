@@ -38,7 +38,7 @@
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
-#' mf_grad(mtq, "POP", pch = 22)
+#' mf_map(mtq, "POP", "grad", pch = 22)
 mf_grad <- function(x,
                     var,
                     breaks = "quantile",

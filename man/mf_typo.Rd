@@ -97,10 +97,11 @@ Plot a typology map.
 }
 \examples{
 mtq <- mf_get_mtq()
-mf_typo(mtq, "STATUS")
+mf_map(mtq, "STATUS", "typo")
 mtq[6, "STATUS"] <- NA
-mf_typo(
-  x = mtq, var = "STATUS", pal = c("red", "blue", "yellow"), lwd = 1.1,
+mf_map(
+  x = mtq, var = "STATUS", type = "typo",
+  pal = c("red", "blue", "yellow"), lwd = 1.1,
   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
   col_na = "green", border = "brown",
   leg_pos = "bottomleft",

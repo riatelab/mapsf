@@ -92,12 +92,13 @@ Plot proportional symbols with colors based on qualitative data.
 \examples{
 mtq <- mf_get_mtq()
 mf_map(mtq)
-mf_prop_typo(mtq, c("POP", "STATUS"))
+mf_map(mtq, c("POP", "STATUS"), "prop_typo")
 
 mtq[6, "STATUS"] <- NA
 mf_map(mtq)
-mf_prop_typo(
-  x = mtq, var = c("POP", "STATUS"), inches = .35, border = "tomato4",
+mf_map(
+  x = mtq, var = c("POP", "STATUS"), type = "prop_typo",
+  inches = .35, border = "tomato4",
   val_max = 90000, symbol = "circle", col_na = "grey", pal = "Dynamic",
   lwd = 2,
   leg_pos = c("bottomright", "bottomleft"),

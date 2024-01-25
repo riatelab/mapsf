@@ -114,11 +114,12 @@ will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
 }
 \examples{
 mtq <- mf_get_mtq()
-mf_choro(mtq, "MED")
+mf_map(mtq, var =  "MED", type = "choro")
 
 mtq[6, "MED"] <- NA
-mf_choro(
-  x = mtq, var = "MED", col_na = "grey", pal = "Cividis",
+mf_map(
+  x = mtq, var = "MED", type = "choro",
+  col_na = "grey", pal = "Cividis",
   breaks = "quantile", nbreaks = 4, border = "white",
   lwd = .5, leg_pos = "topleft",
   leg_title = "Median Income", leg_title_cex = 1.1,

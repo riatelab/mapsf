@@ -44,12 +44,13 @@
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
-#' mf_prop_choro(mtq, c("POP", "MED"))
+#' mf_map(mtq, c("POP", "MED"), "prop_choro")
 #'
 #' mf_map(mtq)
 #' mtq[6, "MED"] <- NA
-#' mf_prop_choro(
-#'   x = mtq, var = c("POP", "MED"), inches = .35, border = "tomato4",
+#' mf_map(
+#'   x = mtq, var = c("POP", "MED"), type = "prop_choro",
+#'   inches = .35, border = "tomato4",
 #'   val_max = 90000, symbol = "circle", col_na = "grey", pal = "Cividis",
 #'   breaks = "equal", nbreaks = 4, lwd = 4,
 #'   leg_pos = c("bottomright", "bottomleft"),

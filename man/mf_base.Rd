@@ -48,7 +48,7 @@ Plot an sf object. This is mostly a wrapper around
 \examples{
 library(sf)
 mtq <- mf_get_mtq()
-mf_base(mtq)
-mf_base(mtq, col = "blue")
+mf_map(mtq, type = "base")
+mf_map(mtq, type = "base", col = "blue")
 }
 \keyword{internal}
