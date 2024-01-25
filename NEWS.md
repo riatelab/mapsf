@@ -2,9 +2,17 @@
 
 ## Fix 
 - add the possibility to use a scale bar in (US) maps using feet based CRS (#59)
+- deprecate unit argument in mf_scale()
 - remove wrong ellipsis propagation in mf_label()
 - better environment management in mf_legend() to allow usage inside a 
 function (#58)
+- fix raster legends (using type arg, see feat.) (#60)
+
+## Feat
+- add "interval", "continuous" and "classes" types with matching legends in 
+mf_raster() (#60)
+- mf_raster() invisibly returns the initial raster
+
 
 
 # mapsf 0.8.0
