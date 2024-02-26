@@ -4,48 +4,13 @@
 \alias{mf_map}
 \title{Plot a map}
 \usage{
-mf_map(
-  x,
-  var,
-  type = "base",
-  breaks,
-  nbreaks,
-  pal,
-  alpha,
-  rev,
-  inches,
-  val_max,
-  symbol,
-  col,
-  lwd_max,
-  val_order,
-  pch,
-  cex,
-  border,
-  lwd,
-  col_na,
-  cex_na,
-  pch_na,
-  expandBB,
-  add,
-  leg_pos,
-  leg_title,
-  leg_title_cex,
-  leg_val_cex,
-  leg_val_rnd,
-  leg_no_data,
-  leg_frame,
-  leg_frame_border,
-  leg_horiz,
-  leg_adj,
-  leg_bg,
-  leg_fg,
-  leg_size,
-  leg_border,
-  leg_box_border,
-  leg_box_cex,
-  ...
-)
+mf_map(x, var, type = "base",
+       breaks, nbreaks, pal, alpha, rev, inches, val_max, symbol, col,
+       lwd_max, val_order, pch, cex, border, lwd, col_na, cex_na, pch_na,
+       expandBB, add,
+       leg_pos, leg_title, leg_title_cex, leg_val_cex, leg_val_rnd,
+       leg_no_data, leg_frame, leg_frame_border, leg_horiz, leg_adj, leg_bg,
+       leg_fg, leg_size, leg_border, leg_box_border, leg_box_cex, ...)
 }
 \arguments{
 \item{x}{object of class \code{sf} or \code{sfc}}
@@ -146,30 +111,157 @@ direction (bottom, left, top, right)}
 x is (invisibly) returned.
 }
 \description{
-This is the main function of the package.
-\code{mf_map()} can be used to plot all types of maps.\cr
-The three main arguments are: \code{x} (sf object), \code{var} (variable to map), and
-\code{type} (map type).\cr
-Relevant arguments and default values for each map types are detailed in
-specific functions, see Details.
+\code{mf_map()} is the main function of the package, it displays map layers on a
+georeferenced plot.
+
+\code{mf_map()} has three main arguments:
+\itemize{
+\item \code{x}, an sf object;
+\item \code{var}, the name(s) of a variable(s) to map;
+\item \code{type}, the map layer type.
+}
+
+Many parameters are available to fine tune symbologies and legends.
+
+Relevant arguments and default values are different for each map type and are
+described in the "Details" section.
 }
 \details{
-Relevant arguments, default values and examples for each map types are
-detailed in specific functions:
-\itemize{
-\item \strong{base}: base maps - \link{mf_base}
-\item \strong{prop}: proportional symbols maps - \link{mf_prop}
-\item \strong{choro}: choropleth maps - \link{mf_choro}
-\item \strong{typo}: typology maps - \link{mf_typo}
-\item \strong{symb}: symbols maps - \link{mf_symb}
-\item \strong{grad}: graduated symbols maps - \link{mf_grad}
-\item \strong{prop_choro}: proportional symbols maps with symbols colors based
-on a quantitative data classification - \link{mf_prop_choro}
-\item \strong{prop_typo}: proportional symbols maps with symbols colors based
-on qualitative data - \link{mf_prop_typo}
-\item \strong{symb_choro}: symbols maps with symbols colors based on
-a quantitative data classification - \link{mf_symb_choro}
+\subsection{Relevant arguments and default values for each map types:}{
+
+\strong{base}: displays sf objects geometries.
+\preformatted{
+mf_map(x, col = "grey80", pch = 20, cex = 1, border = "grey20", lwd = 0.7,
+       expandBB, add = FALSE, ...)
+       }
+
+\strong{prop}: displays symbols with areas proportional to a quantitative
+variable (stocks). \code{inches} is used to set symbols sizes.
+\preformatted{
+mf_map(x, var, type = "prop", inches = 0.3, val_max, symbol = "circle",
+       col = "tomato4", lwd_max = 20, border = getOption("mapsf.fg"),
+       lwd = 0.7, expandBB, add = TRUE,
+       leg_pos = mf_get_leg_pos(x), leg_title = var,
+       leg_title_cex = 0.8, leg_val_cex = 0.6, leg_val_rnd = 0,
+       leg_frame = FALSE, leg_frame_border = getOption("mapsf.fg"),
+       leg_horiz = FALSE, leg_adj = c(0, 0),
+       leg_bg = getOption("mapsf.bg"), leg_fg = getOption("mapsf.fg"),
+       leg_size = 1)
+       }
+
+\strong{choro}: areas are shaded according to the variation of a quantitative
+variable. Choropleth maps are used to represent ratios or indices.
+\code{nbreaks}, and \code{breaks} allow to set the variable classification.
+Colors palettes, defined with \code{pal}, can be created with \code{mf_get_pal()} or
+can use palette names from \code{hcl.pals()}.
+\preformatted{
+mf_map(x, var, type = "choro", breaks = "quantile", nbreaks, pal = "Mint",
+       alpha = 1, rev = FALSE, pch = 21, cex = 1,
+       border = getOption("mapsf.fg"), lwd = 0.7, col_na = "white",
+       cex_na = 1, pch_na = 4, expandBB, add = FALSE,
+       leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
+       leg_val_cex = 0.6, leg_val_rnd = 2, leg_no_data = "No data",
+       leg_frame = FALSE, leg_frame_border = getOption("mapsf.fg"),
+       leg_horiz = FALSE, leg_adj = c(0, 0), leg_bg = getOption("mapsf.bg"),
+       leg_fg = getOption("mapsf.fg"), leg_size = 1,
+       leg_box_border = getOption("mapsf.fg"), leg_box_cex = c(1, 1))
+       }
+
+\strong{typo}: displays a typology map of a qualitative variable.
+\code{val_order} is used to set modalities order in the legend.
+\preformatted{
+mf_map(x, var, type = "typo", pal = "Dynamic", alpha = 1, rev = FALSE,
+       val_order,border = getOption("mapsf.fg"), pch = 21, cex = 1,
+       lwd = 0.7, cex_na = 1, pch_na = 4, col_na = "white",
+       leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
+       leg_val_cex = 0.6, leg_no_data = "No data", leg_frame = FALSE,
+       leg_frame_border = getOption("mapsf.fg"), leg_adj = c(0, 0),
+       leg_size = 1, leg_box_border = getOption("mapsf.fg"),
+       leg_box_cex = c(1, 1), leg_fg = getOption("mapsf.fg"),
+       leg_bg = getOption("mapsf.bg"), add = FALSE)
+       }
+
+\strong{symb}: displays the different modalities of a qualitative variable as
+symbols.
+\preformatted{
+mf_map(x, var, type = "symb", pal = "Dynamic", alpha = 1, rev = FALSE,
+       border = getOption("mapsf.fg"), pch, cex = 1, lwd = 0.7,
+       col_na = "grey", pch_na = 4, cex_na = 1, val_order,
+       leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
+       leg_val_cex = 0.6, leg_val_rnd = 2, leg_no_data = "No data",
+       leg_frame = FALSE, leg_frame_border = getOption("mapsf.fg"),
+       leg_adj = c(0, 0), leg_fg = getOption("mapsf.fg"),
+       leg_bg = getOption("mapsf.bg"), leg_size = 1, add = TRUE)
+       }
+
+\strong{grad}: displays graduated symbols. Sizes classes are set with
+\code{breaks} and \code{nbreaks}. Symbol sizes are set with \code{cex}.
+\preformatted{
+mf_map(x, var, type = "grad", breaks = "quantile", nbreaks = 3, col = "tomato4",
+       border = getOption("mapsf.fg"), pch = 21, cex, lwd,
+       leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
+       leg_val_cex = 0.6, leg_val_rnd = 2, leg_frame = FALSE,
+       leg_adj = c(0, 0), leg_size = 1, leg_border = border,
+       leg_box_cex = c(1, 1), leg_fg = getOption("mapsf.fg"),
+       leg_bg = getOption("mapsf.bg"), leg_frame_border = getOption("mapsf.fg"),
+       add = TRUE)
+       }
+
+\strong{prop_choro}: displays symbols with sizes proportional to values of a
+first variable and colored to reflect the classification of a second
+quantitative variable.
+\preformatted{
+mf_map(x, var, type = "prop_choro", inches = 0.3, val_max, symbol = "circle",
+       pal = "Mint", alpha = 1, rev = FALSE, breaks = "quantile", nbreaks,
+       border = getOption("mapsf.fg"), lwd = 0.7, col_na = "white",
+       leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
+       leg_title_cex = c(0.8, 0.8), leg_val_cex = c(0.6, 0.6),
+       leg_val_rnd = c(0, 2), leg_no_data = "No data",
+       leg_frame = c(FALSE, FALSE), leg_frame_border = getOption("mapsf.fg"),
+       leg_horiz = c(FALSE, FALSE), leg_adj = c(0, 0),
+       leg_fg = getOption("mapsf.fg"), leg_bg = getOption("mapsf.bg"),
+       leg_size = 1, leg_box_border = getOption("mapsf.fg"),
+       leg_box_cex = c(1, 1), add = TRUE)
+       }
+
+\strong{prop_typo}: displays symbols with sizes proportional to values of a
+first variable and colored to reflect the modalities of a second qualitative
+variable.
+\preformatted{
+mf_map(x, var, type = "prop_typo", inches = 0.3, val_max, symbol = "circle",
+       pal = "Dynamic", alpha = 1, rev = FALSE, val_order,
+       border = getOption("mapsf.fg"), lwd = 0.7, lwd_max = 15,
+       col_na = "white",
+       leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
+       leg_title_cex = c(0.8, 0.8), leg_val_cex = c(0.6, 0.6),
+       leg_val_rnd = c(0), leg_no_data = "No data", leg_frame = c(FALSE, FALSE),
+       leg_frame_border = getOption("mapsf.fg"), leg_horiz = FALSE,
+       leg_adj = c(0, 0), leg_fg = getOption("mapsf.fg"),
+       leg_bg = getOption("mapsf.bg"), leg_size = 1,
+       leg_box_border = getOption("mapsf.fg"), leg_box_cex = c(1, 1),
+       add = TRUE)
+       }
+
+\strong{symb_choro}: displays the different modalities of a first qualitative
+variable as symbols colored to reflect the classification of a second
+quantitative variable.
+\preformatted{
+mf_map(x, var, type = "symb_choro", pal = "Mint", alpha = 1, rev = FALSE,
+       breaks = "quantile", nbreaks, border = getOption("mapsf.fg"),
+       pch, cex = 1, lwd = 0.7, pch_na = 4, cex_na = 1, col_na = "white",
+       val_order,
+       leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
+       leg_title_cex = c(0.8, 0.8), leg_val_cex = c(0.6, 0.6),
+       leg_val_rnd = 2, leg_no_data = c("No data", "No data"),
+       leg_frame = c(FALSE, FALSE), leg_frame_border = getOption("mapsf.fg"),
+       leg_horiz = FALSE, leg_adj = c(0, 0), leg_fg = getOption("mapsf.fg"),
+       leg_bg = getOption("mapsf.bg"), leg_size = 1,
+       leg_box_border = getOption("mapsf.fg"), leg_box_cex = c(1, 1),
+       add = TRUE)
+       }
 }
+
+\subsection{Breaks limits}{
 
 Breaks defined by a numeric vector or a classification method are
 left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
@@ -178,20 +270,140 @@ The "jenks" method is an exception and has to be right-closed.
 Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
 will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
 }
+}
 \examples{
+library(mapsf)
 mtq <- mf_get_mtq()
+# basic examples
+# type = "base"
+mf_map(mtq)
+# type = "prop"
 mf_map(mtq)
 mf_map(mtq, var = "POP", type = "prop")
+# type = "choro"
 mf_map(mtq, var = "MED", type = "choro")
-mf_map(mtq, var = "STATUS", type = "typo")
+# type = "typo"
+mf_map(mtq, "STATUS", "typo")
+# type = "symb"
 mf_map(mtq)
-mf_map(mtq, var = "STATUS", type = "symb")
+mf_map(mtq, "STATUS", "symb")
+# type = "grad"
 mf_map(mtq)
 mf_map(mtq, var = "POP", type = "grad")
+# type = "prop_choro"
 mf_map(mtq)
 mf_map(mtq, var = c("POP", "MED"), type = "prop_choro")
+# type = "prop_typo"
 mf_map(mtq)
 mf_map(mtq, var = c("POP", "STATUS"), type = "prop_typo")
+# type = "symb_choro
 mf_map(mtq)
 mf_map(mtq, var = c("STATUS", "MED"), type = "symb_choro")
+
+
+
+
+# detailed examples
+# type = "base"
+mf_map(mtq, type = "base", col = "lightblue", lwd = 1.5, lty = 2)
+
+# type = "prop"
+mf_map(mtq)
+mf_map(
+  x = mtq, var = "POP", type = "prop",
+  inches = .4, symbol = "circle", val_max = 90000,
+  col = "lightblue", border = "grey", lwd = 1,
+  leg_pos = "right", leg_title = "Population",
+  leg_title_cex = 1, leg_val_cex = .8, leg_val_rnd = 0,
+  leg_frame = TRUE, add = TRUE
+)
+
+# type = "choro"
+mtq[6, "MED"] <- NA
+mf_map(
+  x = mtq, var = "MED", type = "choro",
+  col_na = "grey80", pal = "Cividis",
+  breaks = "quantile", nbreaks = 4, border = "white",
+  lwd = .5, leg_pos = "topleft",
+  leg_title = "Median Income", leg_title_cex = 1.1,
+  leg_val_cex = 1, leg_val_rnd = -2, leg_no_data = "No data",
+  leg_frame = TRUE, leg_adj = c(0, -3)
+)
+
+# type = "typo"
+mtq[4, "STATUS"] <- NA
+mf_map(
+  x = mtq, var = "STATUS", type = "typo",
+  pal = c("red", "blue", "yellow"), lwd = 1.1,
+  val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
+  col_na = "green", border = "brown",
+  leg_pos = "bottomleft",
+  leg_title = "Status", leg_title_cex = 1.1,
+  leg_val_cex = 1, leg_no_data = "No data",
+  leg_frame = TRUE, add = FALSE
+)
+
+# type = "symb"
+mf_map(mtq)
+mf_map(
+  x = mtq, var = "STATUS", type = "symb",
+  pch = c(21:23), pal = c("red1", "tan1", "khaki1"),
+  border = "grey20", cex = c(2, 1.5, 1), lwd = .5,
+  val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
+  pch_na = 24, col_na = "blue", leg_frame = TRUE
+)
+
+# type = "grad"
+mf_map(mtq)
+mf_map(mtq, var = "POP", type = "grad", pch = 22,
+       breaks = "quantile", nbreaks = 4, lwd = 2, border = "blue",
+       cex = c(.75,1.5,3,5), col = "lightgreen")
+
+# type = "prop_choro"
+mf_map(mtq)
+mf_map(
+  x = mtq, var = c("POP", "MED"), type = "prop_choro",
+  inches = .35, border = "tomato4",
+  val_max = 90000, symbol = "circle", col_na = "white", pal = "Cividis",
+  breaks = "equal", nbreaks = 4, lwd = 4,
+  leg_pos =  "bottomleft",
+  leg_title = c("Population", "Median Income"),
+  leg_title_cex = c(0.8, 1),
+  leg_val_cex = c(.7, .9),
+  leg_val_rnd = c(0, 0),
+  leg_no_data = "No data",
+  leg_frame = c(TRUE, TRUE),
+  add = TRUE
+)
+
+# type = "prop_typo"
+mf_map(mtq)
+mf_map(
+  x = mtq, var = c("POP", "STATUS"), type = "prop_typo",
+  inches = .35, border = "tomato4",
+  val_max = 90000, symbol = "circle", col_na = "white", pal = "Dynamic",
+  lwd = 2,
+  leg_pos = c("bottomright", "bottomleft"),
+  leg_title = c("Population", "Municipality\nstatus"),
+  leg_title_cex = c(0.9, 0.9),
+  leg_val_cex = c(.7, .7),
+  val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
+  leg_no_data = "No dada",
+  leg_frame = c(TRUE, TRUE),
+  add = TRUE
+)
+
+# type = "symb_choro"
+mf_map(mtq)
+mf_map(
+  mtq, c("STATUS", "MED"), type = "symb_choro",
+  pal = "Reds 3", breaks = "quantile", nbreaks = 4,
+  pch = 21:23, cex = c(3, 2, 1),
+  pch_na = 25, cex_na = 1.5, col_na = "blue",
+  val_order = c(
+    "Prefecture",
+    "Sub-prefecture",
+    "Simple municipality"
+  )
+)
 }
