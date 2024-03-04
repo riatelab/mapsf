@@ -16,8 +16,8 @@ wordlayout <- function(x, y, words, cex = 1, q) {
   n <- length(words)
   sdx <- sd(x, na.rm = TRUE)
   sdy <- sd(y, na.rm = TRUE)
-  if (sdx == 0) sdx
-  if (sdy == 0) sdy
+  if (sdx == 0) sdx <- 1
+  if (sdy == 0) sdy <- 1
   if (length(cex) == 1) cex <- rep(cex, n)
   boxes <- list()
   for (i in seq_along(words)) {
