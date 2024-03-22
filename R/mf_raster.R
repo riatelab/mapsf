@@ -115,10 +115,6 @@ mf_raster <- function(x,
     stop(paste0("x should be a SpatRaster."), call. = FALSE)
   }
 
-  # par
-  op <- par(xpd = TRUE, no.readonly = TRUE)
-  on.exit(par(op))
-
   # catch arguments
   ops <- list(...)
   ops$x <- x
