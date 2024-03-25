@@ -165,7 +165,9 @@ to migrate from `cartography` to `mapsf`.
 
 One can contribute to the package through [pull
 requests](https://github.com/riatelab/mapsf/pulls) and report issues or
-ask questions [here](https://github.com/riatelab/mapsf/issues).  
+ask questions [here](https://github.com/riatelab/mapsf/issues). See the
+[CONTRIBUTING.md](https://github.com/riatelab/mapsf/blob/master/CONTRIBUTING.md)
+file for detailed instructions on how to contribute.  
 This project uses [conventional
 commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/) and
 [semantic versioning](https://semver.org/).

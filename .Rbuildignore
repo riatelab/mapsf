@@ -22,3 +22,5 @@
 ^codecov\.yml$
 ^map.png
 ^note.md
+^LICENSE\.md$
+^CONTRIBUTING\.md$
