@@ -29,7 +29,7 @@ Description: Create and integrate thematic maps in your workflow. This package
     display layout elements that improve the graphic presentation of maps
     (e.g. scale bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on
     'base' graphics.
-License: GPL-3
+License: GPL (>= 3)
 URL: https://riatelab.github.io/mapsf/
 BugReports: https://github.com/riatelab/mapsf/issues/
 Depends: 
