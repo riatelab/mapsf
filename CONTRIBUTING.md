@@ -30,6 +30,10 @@ If you’ve found a bug, please file an issue that illustrates the bug with a mi
 
 ### Code style
 
+*  We use [styler](https://CRAN.R-project.org/package=styler) with current default values for code style.
+
+*  We use [lintr]( https://CRAN.R-project.org/package=lintr) with current default values for static code analysis.
+
 *  We use [roxygen2](https://cran.r-project.org/package=roxygen2) for documentation.
 
 *  We use [tinytest](https://cran.r-project.org/package=tinytest) for unit tests.

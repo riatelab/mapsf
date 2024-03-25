@@ -317,9 +317,11 @@
 #'
 #' # type = "grad"
 #' mf_map(mtq)
-#' mf_map(mtq, var = "POP", type = "grad", pch = 22,
-#'        breaks = "quantile", nbreaks = 4, lwd = 2, border = "blue",
-#'        cex = c(.75,1.5,3,5), col = "lightgreen")
+#' mf_map(
+#'   x = mtq, var = "POP", type = "grad",
+#'   pch = 22, breaks = "quantile", nbreaks = 4, lwd = 2, border = "blue",
+#'   cex = c(.75, 1.5, 3, 5), col = "lightgreen"
+#' )
 #'
 #' # type = "prop_choro"
 #' mf_map(mtq)
@@ -328,7 +330,7 @@
 #'   inches = .35, border = "tomato4",
 #'   val_max = 90000, symbol = "circle", col_na = "white", pal = "Cividis",
 #'   breaks = "equal", nbreaks = 4, lwd = 4,
-#'   leg_pos =  "bottomleft",
+#'   leg_pos = "bottomleft",
 #'   leg_title = c("Population", "Median Income"),
 #'   leg_title_cex = c(0.8, 1),
 #'   leg_val_cex = c(.7, .9),
@@ -358,7 +360,7 @@
 #' # type = "symb_choro"
 #' mf_map(mtq)
 #' mf_map(
-#'   mtq, c("STATUS", "MED"), type = "symb_choro",
+#'   x = mtq, c("STATUS", "MED"), type = "symb_choro",
 #'   pal = "Reds 3", breaks = "quantile", nbreaks = 4,
 #'   pch = 21:23, cex = c(3, 2, 1),
 #'   pch_na = 25, cex_na = 1.5, col_na = "blue",
@@ -447,8 +449,7 @@ mf_map <- function(x,
 
   # add mgmgt, set default add, do not add if no device is launch
   if (missing(add)) {
-    add <- switch(
-      type,
+    add <- switch(type,
       prop = TRUE,
       choro = FALSE,
       typo = FALSE,
@@ -488,4 +489,3 @@ mf_map <- function(x,
 
   return(invisible(x))
 }
-
