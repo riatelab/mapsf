@@ -1,3 +1,16 @@
+# mapsf 0.10.0
+
+## Fix
+- allow to plot non overlapping labels from a layer made of strictly overlapping features with mf_label() (#65)
+- fully display mf_raster() legends after a terra::plot() call (#67)
+- remove "export" and "theme" args from mf_export()
+- remove "theme" from mf_init()
+
+## Feat
+- improved and cleaner documentation for mf_map() (#62)
+
+
+
 # mapsf 0.9.0
 
 ## Fix 
