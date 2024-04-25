@@ -4,15 +4,13 @@
 \alias{mf_init}
 \title{Initialize a map with a specific extent}
 \usage{
-mf_init(x, expandBB = rep(0, 4), theme)
+mf_init(x, expandBB = rep(0, 4))
 }
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
-
-\item{theme}{apply a theme (deprecated)}
 }
 \value{
 No return value, a map is initiated.
