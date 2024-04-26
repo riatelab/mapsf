@@ -7,7 +7,7 @@
   "codeRepository": "https://riatelab.github.io/mapsf/",
   "issueTracker": "https://github.com/riatelab/mapsf/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -239,5 +239,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3252.531KB"
+  "fileSize": "3253.942KB"
 }

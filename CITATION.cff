@@ -8,7 +8,7 @@ message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'mapsf: Thematic Cartography'
-version: 0.10.0
+version: 0.10.1
 abstract: Create and integrate thematic maps in your workflow. This package helps
   to design various cartographic representations such as proportional symbols, choropleth
   or typology maps. It also offers several functions to display layout elements that

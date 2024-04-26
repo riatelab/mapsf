@@ -1,3 +1,10 @@
+# mapsf 0.10.1
+
+## Fix
+- revert previous remove "export" and "theme" args from mf_export() to accommodate dependencies
+- revert previous remove "theme" from mf_init() to accommodate dependencies
+
+
 # mapsf 0.10.0
 
 ## Fix

@@ -11,9 +11,11 @@
 #' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
+#' @param theme apply a theme (deprecated)
 #' @param filename path to the exported file. If the file extention is ".png" a
 #' png graphic device is opened, if the file extension is ".svg" a svg graphic
 #' device is opened.
+#' @param export deprecated
 #' @param width width of the figure (pixels for png, inches for svg)
 #' @param height height of the figure (pixels for png, inches for svg)
 #' @param res resolution (for png)
@@ -34,7 +36,25 @@ mf_export <- function(x,
                       height,
                       res = 96,
                       ...,
-                      expandBB = rep(0, 4)) {
+                      expandBB = rep(0, 4),
+                      theme,
+                      export = "png") {
+  # deprecated args mgmt
+  if (!missing(theme)) {
+    warning(
+      paste0(
+        "'theme' is deprecated.\n",
+        "In the next version of mapsf the current theme ",
+        "will be applied to the export."
+      ),
+      call. = FALSE
+    )
+    mf_theme(theme)
+  }
+  if (!missing(export)) {
+    message('"export" is deprecated.')
+  }
+
   # input test
   if (!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))) {
     stop(
