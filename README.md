@@ -10,7 +10,7 @@
 [![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
 [![Codecov test
 coverage](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg)](https://app.codecov.io/gh/riatelab/mapsf?branch=master)
-[![status](https://tinyverse.netlify.com/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
+[![status](https://tinyverse.netlify.app/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
 [![OpenSSF Best
 Practices](https://www.bestpractices.dev/projects/8704/badge)](https://www.bestpractices.dev/projects/8704)
 [![Project Status: Active – The project has reached a stable, usable
