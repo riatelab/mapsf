@@ -68,15 +68,16 @@ mf_graticule <- function(x,
     lty = lty,
     add = TRUE
   )
+
   if (label == TRUE) {
     invisible(lapply(seq_len(nrow(g)), function(i) {
       if (g$type[i] == "N" &&
         g$x_start[i] - min(g$x_start) < 1000 &&
         "left" %in% pos) {
         text(
-          g[i, "x_start"],
-          g[i, "y_start"],
-          labels = parse(text = g[i, "degree_label"]),
+          g$x_start[i],
+          g$y_start[i],
+          labels = parse(text = g$degree_label[i]),
           srt = g$angle_start[i],
           pos = 2,
           cex = cex,
@@ -88,9 +89,9 @@ mf_graticule <- function(x,
         g$y_start[i] - min(g$y_start) < 1000 &&
         "bottom" %in% pos) {
         text(
-          g[i, "x_start"],
-          g[i, "y_start"],
-          labels = parse(text = g[i, "degree_label"]),
+          g$x_start[i],
+          g$y_start[i],
+          labels = parse(text = g$degree_label[i]),
           srt = g$angle_start[i] - 90,
           pos = 1,
           cex = cex,
@@ -101,9 +102,9 @@ mf_graticule <- function(x,
       if (g$type[i] == "N" &&
         g$x_end[i] - max(g$x_end) > -1000 && "right" %in% pos) {
         text(
-          g[i, "x_end"],
-          g[i, "y_end"],
-          labels = parse(text = g[i, "degree_label"]),
+          g$x_end[i],
+          g$y_end[i],
+          labels = parse(text = g$degree_label[i]),
           srt = g$angle_end[i],
           pos = 4,
           cex = cex,
@@ -114,9 +115,9 @@ mf_graticule <- function(x,
       if (g$type[i] == "E" &&
         g$y_end[i] - max(g$y_end) > -1000 && "top" %in% pos) {
         text(
-          g[i, "x_end"],
-          g[i, "y_end"],
-          labels = parse(text = g[i, "degree_label"]),
+          g$x_end[i],
+          g$y_end[i],
+          labels = parse(text = g$degree_label[i]),
           srt = g$angle_end[i] - 90,
           pos = 3,
           cex = cex,
