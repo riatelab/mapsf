@@ -8,7 +8,8 @@ message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'mapsf: Thematic Cartography'
-version: 0.10.1
+version: 0.11.0
+doi: 10.32614/CRAN.package.mapsf
 abstract: Create and integrate thematic maps in your workflow. This package helps
   to design various cartographic representations such as proportional symbols, choropleth
   or typology maps. It also offers several functions to display layout elements that
@@ -51,6 +52,7 @@ references:
     email: Roger.Bivand@nhh.no
     orcid: https://orcid.org/0000-0003-2392-6140
   year: '2024'
+  doi: 10.32614/CRAN.package.classInt
 - type: software
   title: graphics
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -61,6 +63,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.graphics
 - type: software
   title: maplegend
   abstract: 'maplegend: Legends for Maps'
@@ -73,6 +76,7 @@ references:
     email: timothee.giraud@cnrs.fr
     orcid: https://orcid.org/0000-0002-1932-3323
   year: '2024'
+  doi: 10.32614/CRAN.package.maplegend
 - type: software
   title: s2
   abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
@@ -92,6 +96,7 @@ references:
     given-names: Ege
     email: rubak@math.aau.dk
   year: '2024'
+  doi: 10.32614/CRAN.package.s2
 - type: software
   title: sf
   abstract: 'sf: Simple Features for R'
@@ -104,6 +109,7 @@ references:
     email: edzer.pebesma@uni-muenster.de
     orcid: https://orcid.org/0000-0001-8049-7069
   year: '2024'
+  doi: 10.32614/CRAN.package.sf
 - type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -114,6 +120,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.stats
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -124,6 +131,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.utils
 - type: software
   title: grDevices
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -134,6 +142,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.grDevices
 - type: software
   title: terra
   abstract: 'terra: Spatial Data Analysis'
@@ -146,6 +155,7 @@ references:
     email: r.hijmans@gmail.com
     orcid: https://orcid.org/0000-0001-5872-2872
   year: '2024'
+  doi: 10.32614/CRAN.package.terra
 - type: software
   title: png
   abstract: 'png: Read and write PNG images'
@@ -157,6 +167,7 @@ references:
     given-names: Simon
     email: Simon.Urbanek@r-project.org
   year: '2024'
+  doi: 10.32614/CRAN.package.png
 - type: software
   title: jpeg
   abstract: 'jpeg: Read and write JPEG images'
@@ -168,6 +179,7 @@ references:
     given-names: Simon
     email: Simon.Urbanek@r-project.org
   year: '2024'
+  doi: 10.32614/CRAN.package.jpeg
 - type: software
   title: lwgeom
   abstract: 'lwgeom: Bindings to Selected ''liblwgeom'' Functions for Simple Features'
@@ -180,6 +192,7 @@ references:
     email: edzer.pebesma@uni-muenster.de
     orcid: https://orcid.org/0000-0001-8049-7069
   year: '2024'
+  doi: 10.32614/CRAN.package.lwgeom
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -192,6 +205,7 @@ references:
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2024'
+  doi: 10.32614/CRAN.package.knitr
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -235,6 +249,7 @@ references:
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2024'
+  doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: tinytest
   abstract: 'tinytest: Lightweight and Feature Complete Unit Testing Framework'
@@ -248,6 +263,7 @@ references:
     email: mark.vanderloo@gmail.com
     orcid: https://orcid.org/0000-0002-9807-4686
   year: '2024'
+  doi: 10.32614/CRAN.package.tinytest
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
@@ -259,4 +275,5 @@ references:
     given-names: Jim
     email: james.f.hester@gmail.com
   year: '2024'
+  doi: 10.32614/CRAN.package.covr
 

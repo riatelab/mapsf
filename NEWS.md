@@ -1,3 +1,8 @@
+# mapsf 0.11.0
+
+## Fix
+- better management of label display in mf_graticule(), fix #73
+
 # mapsf 0.10.1
 
 ## Fix
