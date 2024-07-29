@@ -10,7 +10,7 @@ Create and integrate thematic maps in your workflow. This package
 helps to design various cartographic representations such as proportional
 symbols, choropleth or typology maps. It also offers several functions to
 display layout elements that improve the graphic presentation of maps
-(e.g. scale bar, north arrow, title, labels). \code{mapsf} maps \link{sf} objects on
+(e.g. scale bar, north arrow, title, labels). \code{mapsf} maps \code{sf} objects on
 \code{base} graphics.
 
 A "Get Started" \strong{vignette} contains commented scripts on how to create

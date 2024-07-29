@@ -5,7 +5,7 @@
 #' helps to design various cartographic representations such as proportional
 #' symbols, choropleth or typology maps. It also offers several functions to
 #' display layout elements that improve the graphic presentation of maps
-#' (e.g. scale bar, north arrow, title, labels). `mapsf` maps [sf] objects on
+#' (e.g. scale bar, north arrow, title, labels). `mapsf` maps `sf` objects on
 #' `base` graphics.
 #'
 #'
