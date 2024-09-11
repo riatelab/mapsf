@@ -3,8 +3,10 @@
 #' @name mf_arrow
 #' @eval my_params(c('pos'))
 #' @param col arrow color
-#' @param adjust object of class \code{sf} or \code{sfc} used to adjust the
+#' @param adj adjust the postion of the north arrow in x and y directions
+#' @param align object of class \code{sf} or \code{sfc} used to adjust the
 #' arrow to the real north
+#' @param adjust deprecated, see align
 #' @importFrom sf st_crs st_as_sf st_coordinates st_transform
 #' @return No return value, a north arrow is displayed.
 #' @export
@@ -12,76 +14,37 @@
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_arrow(pos = "topright")
-mf_arrow <- function(pos = "topleft", col, adjust) {
+mf_arrow <- function(pos = "topleft", col = getOption("mapsf.fg"),
+                     adj = c(0, 0),
+                     align, adjust) {
   test_cur_plot()
+  if(!missing(adjust)){
+    warning(paste0( "'adjust' is deprecated.\nUse 'adj' instead."),
+            call. = FALSE)
+    align <- adjust
+  }
+
   if (missing(col)) {
     col <- getOption("mapsf.fg")
   }
 
-  azim <- "N"
-  theta <- 0
   map_extent <- par("usr")
-
   xe <- map_extent[1:2]
   ye <- map_extent[3:4]
-  inset <- strwidth("M", units = "user", cex = 1)
+  inset <- xinch(par("csi")) / 2
+  n_arrow <- build_arrow(mean(xe), mean(ye), inset)
+  bb_n_arrow <- st_bbox(n_arrow)
+  h <- bb_n_arrow[4] - bb_n_arrow[2]
+  w <- bb_n_arrow[3] - bb_n_arrow[1]
+  xe <- xe + c(inset, -inset) / 2
+  ye <- ye + c(inset, -inset) / 2
+  pos_a <- get_arrow_pos(pos, xe, ye, w, h) + adj * inset / 2
+  north_arrow <- n_arrow + c(pos_a[1] - bb_n_arrow[1], pos_a[2] - bb_n_arrow[4])
 
-
-
-
-  if (is.numeric(pos) && length(pos) == 2) {
-    xarrow <- pos[1]
-    yarrow <- pos[2]
-  } else {
-    switch(pos,
-      topleft = {
-        xarrow <- xe[1] + inset * .5
-        yarrow <- ye[2] - inset * 1.5
-      },
-      bottomright = {
-        xarrow <- xe[2] - inset * 1.5
-        yarrow <- ye[1] + inset * 1.5
-      },
-      topright = {
-        xarrow <- xe[2] - inset * 1.5
-        yarrow <- ye[2] - inset * 1.5
-      },
-      bottomleft = {
-        xarrow <- xe[1] + inset * .5
-        yarrow <- ye[1] + inset * 1.5
-      },
-      top = {
-        xarrow <- xe[1] + diff(xe) / 2 - inset * .5
-        yarrow <- ye[2] - inset * 1.5
-      },
-      bottom = {
-        xarrow <- xe[1] + diff(xe) / 2 - inset * .5
-        yarrow <- ye[1] + inset * 1.5
-      },
-      left = {
-        xarrow <- xe[1] + inset * .5
-        yarrow <- ye[1] + diff(ye) * 0.5 - inset
-      },
-      right = {
-        xarrow <- xe[2] - inset * 1.5
-        yarrow <- ye[1] + diff(ye) * 0.5 - inset
-      },
-      interactive = {
-        iar <- interleg(txt = c("arrow", "Arrow"))
-        xarrow <- iar[1]
-        yarrow <- iar[2]
-      }
-    )
-  }
-  xx <- c(xarrow, xarrow + inset / 2, xarrow + inset)
-  yy <- c(yarrow, yarrow + inset * 1, yarrow)
-
-  if (!missing(adjust)) {
-    xcrs <- st_crs(adjust)
-    xp <- xarrow + inset / 2
-    yp <- yarrow + inset * 1.5
+  if (!missing(align)) {
+    xcrs <- st_crs(align)
     A <- st_as_sf(
-      x = data.frame(X = xp, Y = yp), coords = c("X", "Y"),
+      x = data.frame(X = pos_a[1], Y = pos_a[2]), coords = c("X", "Y"),
       crs = xcrs, remove = FALSE
     )
     B <- st_as_sf(
@@ -95,35 +58,101 @@ mf_arrow <- function(pos = "topleft", col, adjust) {
     )
     C <- st_transform(Cp, xcrs)
     C[, c("X", "Y")] <- st_coordinates(C)
-    DeltaXB <- B$X - A$X
-    DeltaYB <- B$Y - A$Y
-    DeltaXC <- C$X - A$X
-    DeltaYC <- C$Y - A$Y
-    VX <- c(DeltaXB, DeltaYB)
-    VY <- c(DeltaXC, DeltaYC)
+    deltaXB <- B$X - A$X
+    deltaYB <- B$Y - A$Y
+    deltaXC <- C$X - A$X
+    deltaYC <- C$Y - A$Y
+    VX <- c(deltaXB, deltaYB)
+    VY <- c(deltaXC, deltaYC)
     theta <- acos(sum(VX * VY) / (sqrt(sum(VX * VX)) * sqrt(sum(VY * VY))))
     theta <- sign(C$X - B$X) * theta
-    nc <- rot(A, c(xx[1], yy[1]), theta)
-    xx[1] <- nc[1]
-    yy[1] <- nc[2]
-    nc <- rot(A, c(xx[3], yy[3]), theta)
-    xx[3] <- nc[1]
-    yy[3] <- nc[2]
+    rot <- function(a) matrix(c(cos(a), sin(a), -sin(a), cos(a)), 2, 2)
+    n_arrow <- north_arrow * rot(-theta)
+    bb_n_arrow <- st_bbox(n_arrow)
+    h <- bb_n_arrow[4] - bb_n_arrow[2]
+    w <- bb_n_arrow[3] - bb_n_arrow[1]
+    pos_a <- get_arrow_pos(pos, xe, ye, w, h)
+    north_arrow <- n_arrow + c(pos_a[1] - bb_n_arrow[1], pos_a[2] - bb_n_arrow[4])
   }
 
-
-
-  polygon(xx, yy, col = col, border = col, xpd = TRUE)
-  text(
-    x = xx[1] + (xx[3] - xx[1]) / 2, y = yarrow, labels = azim,
-    adj = c(0.5, 1.3), cex = 0.7, xpd = TRUE,
-    font = 2, col = col, srt = theta * 180 / pi
-  )
+  mf_map(north_arrow, col = col, border = col, add = TRUE)
 }
 
-
-rot <- function(A, B, theta) {
-  x <- cos(theta) * (B[1] - A$X) - sin(theta) * (B[2] - A$Y) + A$X
-  y <- sin(theta) * (B[1] - A$X) + cos(theta) * (B[2] - A$Y) + A$Y
-  return(c(x, y))
+get_arrow_pos <- function(pos, xe, ye, w, h){
+  if (is.numeric(pos) && length(pos) == 2) {
+    xarrow <- pos[1]
+    yarrow <- pos[2]
+  } else {
+    switch(pos,
+           topleft = {
+             xarrow <- xe[1]
+             yarrow <- ye[2]
+           },
+           bottomright = {
+             xarrow <- xe[2] - w
+             yarrow <- ye[1] + h
+           },
+           topright = {
+             xarrow <- xe[2] - w
+             yarrow <- ye[2]
+           },
+           bottomleft = {
+             xarrow <- xe[1]
+             yarrow <- ye[1] + h
+           },
+           top = {
+             xarrow <- xe[1] + diff(xe) / 2 - w * .5
+             yarrow <- ye[2]
+           },
+           bottom = {
+             xarrow <- xe[1] + diff(xe) / 2 - w
+             yarrow <- ye[1] + h
+           },
+           left = {
+             xarrow <- xe[1]
+             yarrow <- ye[1] + diff(ye) / 2 - h * 0.5
+           },
+           right = {
+             xarrow <- xe[2] - w
+             yarrow <- ye[1] + diff(ye) / 2 - h * 0.5
+           },
+           interactive = {
+             iar <- interleg(txt = c("arrow", "Arrow"))
+             xarrow <- iar[1]
+             yarrow <- iar[2]
+           }
+    )
+  }
+  return(c(xarrow, yarrow))
 }
+
+build_arrow <- function(x, y, inset){
+  x_triangle <-  c(x,
+                   x + inset / 2,
+                   x + inset,
+                   x)
+  y_triangle <- c(y - inset,
+                  y,
+                  y - inset,
+                  y - inset)
+  triangle <- st_polygon(list(matrix(data = c(x_triangle, y_triangle),
+                                     nrow = 4, ncol = 2, byrow = FALSE)))
+  x_N <- c(x + inset / 4,
+           x + inset / 4,
+           x + inset / 4 + inset / 2,
+           x + inset / 4 + inset / 2 )
+  y_N <- c(y - inset - inset *.75 - inset / 3,
+           y - inset              - inset / 3,
+           y - inset - inset *.75 - inset / 3 ,
+           y - inset              - inset / 3 )
+  N <- st_multilinestring(list(matrix(data = c(x_N, y_N),
+                                      nrow = 4, ncol = 2,
+                                      byrow = FALSE)))
+  N <- st_buffer(N, inset * 0.05, endCapStyle = "SQUARE",
+                 joinStyle = 'MITRE', mitreLimit = 1)
+
+  n_arrow <- st_multipolygon(list(triangle, N))
+
+  return(n_arrow)
+}
+
