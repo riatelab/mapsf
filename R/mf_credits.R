@@ -24,7 +24,7 @@ mf_credits <- function(txt = "Source(s) & Author(s)",
     col <- getOption("mapsf.fg")
   }
   pd <- par("usr")
-  pdp <- strwidth("M", units = "user", cex = 1) / 2
+  pdp <- xinch(par("csi")) / 4
 
   w <- strwidth(s = txt, units = "user", cex = cex, font = font)
   h <- strheight(s = txt, units = "user", cex = cex, font = font)

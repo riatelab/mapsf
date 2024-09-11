@@ -61,8 +61,7 @@ mf_scale <- function(size,
   }
   # get the current plot dimensions
   pu <- par("usr")
-  inset <- strwidth("M", units = "user", cex = 1) / 2
-
+  inset <- xinch(par("csi")) / 4
 
   if (!missing(unit)) {
     message("'unit' is deprecated, use 'scale_units' instead.")

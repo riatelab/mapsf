@@ -144,7 +144,7 @@ posinset <- function(pos, pusr, wdest, hdest) {
       "."
     ), call. = FALSE)
   }
-  inset <- strwidth("M", units = "user", cex = 1) / 2
+  inset <- xinch(par("csi")) / 4
   pusr <- pusr + c(inset, -inset, inset, -inset)
 
   xy <- switch(pos,

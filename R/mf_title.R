@@ -44,7 +44,7 @@ mf_title <- function(txt = "Map Title", pos, tab,
   # size refs
   pu <- par("usr")
   hbox <- line * 0.2 * xinch(1)
-  inset <- strwidth("M", units = "user", cex = 1) / 2
+  inset <- xinch(par("csi")) / 4
   wtitle <- strwidth(txt, units = "user", cex = cex, font = font)
   htitle <- strheight("M", units = "user", cex = cex, font = font)
 

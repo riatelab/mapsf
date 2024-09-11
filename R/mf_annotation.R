@@ -66,7 +66,7 @@ mf_annotation <- function(x, txt, pos = "topright",
     s <- 1
   }
 
-  inset <- strwidth("M", units = "user", cex = 1) / 2
+  inset <- xinch(par("csi")) / 3
   radius <- 5 * s * inset
 
   res <- annot_pos_params(
@@ -132,7 +132,7 @@ drawarc <- function(x = 1, y = NULL, radius = 1, deg1 = 0, deg2 = 45, col) {
     n <- as.integer(1 + delta_angle / n)
   }
   delta_angle <- delta_angle / n
-  angle_s <- angle1 + seq(0, length = n) * delta_angle
+  angle_s <- angle1 + seq(0, length.out = n) * delta_angle
   angle_e <- c(angle_s[-1], angle2)
   if (n > 1) {
     half_lwd_user <- (lwd / 2) * (xylim[2] - xylim[1]) / devunits[1]
