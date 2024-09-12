@@ -3,6 +3,7 @@
 #' @name mf_arrow
 #' @eval my_params(c('pos'))
 #' @param col arrow color
+#' @param cex arrow size
 #' @param adj adjust the postion of the north arrow in x and y directions
 #' @param align object of class \code{sf} or \code{sfc} used to adjust the
 #' arrow to the real north
@@ -15,11 +16,12 @@
 #' mf_map(mtq)
 #' mf_arrow(pos = "topright")
 mf_arrow <- function(pos = "topleft", col = getOption("mapsf.fg"),
+                     cex = 1,
                      adj = c(0, 0),
                      align, adjust) {
   test_cur_plot()
   if(!missing(adjust)){
-    warning(paste0( "'adjust' is deprecated.\nUse 'adj' instead."),
+    warning(paste0( "'adjust' is deprecated.\nUse 'align' instead."),
             call. = FALSE)
     align <- adjust
   }
@@ -32,7 +34,7 @@ mf_arrow <- function(pos = "topleft", col = getOption("mapsf.fg"),
   xe <- map_extent[1:2]
   ye <- map_extent[3:4]
   inset <- xinch(par("csi")) / 2
-  n_arrow <- build_arrow(mean(xe), mean(ye), inset)
+  n_arrow <- build_arrow(mean(xe), mean(ye), inset * cex)
   bb_n_arrow <- st_bbox(n_arrow)
   h <- bb_n_arrow[4] - bb_n_arrow[2]
   w <- bb_n_arrow[3] - bb_n_arrow[1]
@@ -110,11 +112,11 @@ get_arrow_pos <- function(pos, xe, ye, w, h){
            },
            left = {
              xarrow <- xe[1]
-             yarrow <- ye[1] + diff(ye) / 2 - h * 0.5
+             yarrow <- ye[1] + diff(ye) / 2 + h * 0.5
            },
            right = {
              xarrow <- xe[2] - w
-             yarrow <- ye[1] + diff(ye) / 2 - h * 0.5
+             yarrow <- ye[1] + diff(ye) / 2 + h * 0.5
            },
            interactive = {
              iar <- interleg(txt = c("arrow", "Arrow"))
@@ -130,13 +132,15 @@ build_arrow <- function(x, y, inset){
   x_triangle <-  c(x,
                    x + inset / 2,
                    x + inset,
+                   x + inset / 2,
                    x)
   y_triangle <- c(y - inset,
                   y,
                   y - inset,
+                  y - inset * .9,
                   y - inset)
   triangle <- st_polygon(list(matrix(data = c(x_triangle, y_triangle),
-                                     nrow = 4, ncol = 2, byrow = FALSE)))
+                                     nrow = 5, ncol = 2, byrow = FALSE)))
   x_N <- c(x + inset / 4,
            x + inset / 4,
            x + inset / 4 + inset / 2,
