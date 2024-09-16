@@ -154,13 +154,13 @@ Some arguments are available for all types of legend: \code{val}, \code{pos}, \c
 
 Relevant arguments for each specific legend types:
 \itemize{
-\item \code{leg(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)}
-\item \code{leg(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
-\item \code{leg(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
-\item \code{leg(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)}
-\item \code{leg(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)}
-\item \code{leg(type = "prop_line", val, col, lwd, val_rnd)}
-\item \code{leg(type = "grad_line", val, col, lwd, val_rnd)}
+\item \code{mf_legend(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)}
+\item \code{mf_legend(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
+\item \code{mf_legend(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
+\item \code{mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)}
+\item \code{mf_legend(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)}
+\item \code{mf_legend(type = "prop_line", val, col, lwd, val_rnd)}
+\item \code{mf_legend(type = "grad_line", val, col, lwd, val_rnd)}
 }
 }
 \examples{
