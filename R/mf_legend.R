@@ -24,6 +24,8 @@
 #' 'left', 'interactive' or a vector of two coordinates
 #' in map units (c(x, y)).
 #' @param pal a color palette name or a vector of colors
+#' @param alpha if \code{pal} is a \link{hcl.colors} palette name, the
+#' alpha-transparency level in the range \[0,1\]
 #' @param inches size of the largest symbol (radius for circles, half width
 #' for squares) in inches
 #' @param border symbol border color(s)
@@ -107,6 +109,7 @@ mf_legend <- function(type,
                       val,
                       pos = "left",
                       pal = "Inferno",
+                      alpha = 1,
                       col = "tomato4",
                       inches = .3,
                       symbol = "circle",

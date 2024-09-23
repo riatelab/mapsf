@@ -9,6 +9,7 @@ mf_legend(
   val,
   pos = "left",
   pal = "Inferno",
+  alpha = 1,
   col = "tomato4",
   inches = 0.3,
   symbol = "circle",
@@ -65,6 +66,9 @@ break labels (for "choro" and "grad_line").}
 in map units (c(x, y)).}
 
 \item{pal}{a color palette name or a vector of colors}
+
+\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the
+alpha-transparency level in the range [0,1]}
 
 \item{col}{color of the symbols (for "prop") or color of the lines (for
 "prop_line" and "grad_line")}
