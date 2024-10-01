@@ -3,6 +3,7 @@
 # @import graphics
 # @import stats
 #' @import sf
+#' @import graphics
 #' @importFrom maplegend leg leg_comp leg_draw
 #' @importFrom grDevices colorRampPalette
 #' @importFrom stats aggregate median na.omit quantile runif sd
