@@ -54,6 +54,7 @@ reference:
     - mf_get_breaks
     - mf_get_mtq
     - mf_get_ratio
+    - mf_get_pencil
 
 figures:
   dev: grDevices::png
