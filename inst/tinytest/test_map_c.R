@@ -11,6 +11,8 @@ expect_silent(mf_choro(
 mtq[6, "MED"] <- NA
 expect_silent(mf_choro(x = mtq, var = "MED"))
 
+expect_message(mf_choro(x = mtq, var = "MED", breaks = c(12000, 15000, 35000)))
+expect_message(mf_choro(x = mtq, var = "MED", breaks = c(12000, 15000, 19000)))
 
 expect_silent(mf_choro(sf::st_cast(mtq, "MULTIPOINT"), "MED"))
 expect_silent(mf_choro(sf::st_cast(mtq, "MULTILINESTRING"), "MED"))

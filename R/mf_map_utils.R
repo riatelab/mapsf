@@ -18,13 +18,29 @@ get_the_pal <- function(pal, nbreaks, alpha = 1, rev = TRUE) {
   return(cols)
 }
 
-
 get_col_vec <- function(x, breaks, pal, jen = FALSE) {
   if (jen) {
     itv <- apply(array(apply(outer(x, breaks, ">"), 1, sum)), 1, max, 1)
   } else {
     itv <- findInterval(x, breaks, all.inside = FALSE, rightmost.closed = TRUE)
   }
+
+  lb <- length(breaks)
+  nout <- sum(itv %in% c(0, lb))
+  if (nout > 0) {
+    if (nout == 1) {
+      message(paste0(
+        "1 value is outside the class limits and",
+        " will be classified as 'NA'."
+      ))
+    } else {
+      message(paste0(
+        nout, " values are outside the class limits and will",
+        " be classified as 'NA'."
+      ))
+    }
+  }
+
   itv[itv == 0] <- length(breaks)
   colvec <- pal[itv]
   return(colvec)
