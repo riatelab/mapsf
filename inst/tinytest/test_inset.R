@@ -11,3 +11,4 @@ expect_silent(mf_inset_off())
 expect_silent(mf_inset_on(x = "worldmap", pos = "topleft"))
 mf_worldmap(mtq)
 expect_silent(mf_inset_off())
+

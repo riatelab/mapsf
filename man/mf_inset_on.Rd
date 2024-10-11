@@ -36,9 +36,6 @@ It is not possible to plot an inset within an inset.\cr
 It is possible to plot anything (base plots) within the inset, not only map
 layers.
 }
-\note{
-This function does not work when mfrow is used in par().
-}
 \examples{
 mtq <- mf_get_mtq()
 mf_map(mtq)

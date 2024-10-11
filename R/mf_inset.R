@@ -5,7 +5,7 @@
 #' "bottomright", "right", "topright"
 #' @param cex share of the map width occupied by the inset
 #' @param fig coordinates of the inset region (in NDC, see in ?par())
-#' @note This function does not work when mfrow is used in par().
+#' @md
 #' @export
 #' @details
 #' If x is used (with pos and cex), the width/height ratio of the inset will
@@ -36,6 +36,7 @@
 #' mf_inset_off()
 mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
   test_cur_plot()
+
   if (.gmapsf$inset) {
     stop(
       paste0(
@@ -83,7 +84,7 @@ mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
 
   theme <- mf_theme()
   .gmapsf$oth <- theme
-
+  .gmapsf$mfg <- par("mfg")
 
   if (max(tgx) > 1 || min(tgx) < 0) {
     tgx[tgx > 1] <- 1
@@ -114,7 +115,7 @@ mf_inset_off <- function() {
     xaxs = "i", yaxs = "i", asp = TRUE
   )
   mf_theme(.gmapsf$oth)
-  par(mar = .gmapsf$par$mar)
+  par(mar = .gmapsf$par$mar, mfg = .gmapsf$mfg)
   points(1, 1, col = NA)
 }
 
