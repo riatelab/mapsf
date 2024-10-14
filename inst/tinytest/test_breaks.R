@@ -25,4 +25,9 @@ expect_equal(mf_get_breaks(x = x, breaks = c(1, 10, 20, 100), k = 1),
              c(1, 10, 20, 100))
 expect_equal(mf_get_breaks(x = x, breaks = "fisher"),
              c(11929, 13953, 15685.5, 17372, 18622, 20354.5, 21761))
+expect_equal(mf_get_breaks(x = x, breaks = "ckmeans"),
+             c(11929, 13953, 15685.5, 17372, 18622, 20354.5, 21761))
 expect_error(mf_get_breaks(x = c(0, x), breaks = "geom"))
+expect_equal(mf_get_breaks(x = x,  breaks = "Q6"),
+             c(11929, 13168.65, 14457.25, 15685.5, 17979.75, 20159.35, 21761))
+

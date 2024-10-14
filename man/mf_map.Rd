@@ -261,14 +261,11 @@ mf_map(x, var, type = "symb_choro", pal = "Mint", alpha = 1, rev = FALSE,
        }
 }
 
-\subsection{Breaks limits}{
+\subsection{Class boundaries}{
 
 Breaks defined by a numeric vector or a classification method are
 left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
 will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
-The "jenks" method is an exception and has to be right-closed.
-Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
 }
 }
 \examples{

@@ -45,6 +45,7 @@ Imports:
     grDevices
 Suggests: 
     terra,
+    Ckmeans.1d.dp,
     png, 
     jpeg,
     lwgeom,

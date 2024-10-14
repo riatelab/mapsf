@@ -13,9 +13,8 @@ classification.}
 \item{nbreaks}{a number of classes}
 
 \item{breaks}{a classification method; one of "fixed", "sd", "equal",
-"pretty", "quantile",
-"kmeans", "hclust", "bclust", "fisher", "jenks", "dpih", "q6", "geom",
- "arith", "em" or "msd" (see Details).}
+"pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks",
+"dpih", "q6", "Q6", geom", "arith", "em", "msd" or "ckmeans" (see Details)}
 
 \item{k}{number of standard deviation for "msd" method (see Details)}
 
@@ -29,17 +28,38 @@ A numeric vector of breaks
 }
 \description{
 A function to classify continuous variables.
+
+This function is a wrapper for
+\code{\link[classInt:classIntervals]{classIntervals}}
+with some additional methods.
 }
 \details{
 "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust",
 "bclust", "fisher", "jenks" and "dpih"
 are \code{\link[classInt:classIntervals]{classIntervals}}
 methods. You may need to pass additional arguments for some of them.\cr\cr
-Jenks ("jenks" method) and Fisher ("fisher" method) algorithms are
-based on the same principle and give
-quite similar results but Fisher is much faster. \cr\cr
+
+The "jenks", "fisher" and "ckmeans" methods are based on the same concept of
+\strong{natural breaks} and and produce similar groupings.
+\itemize{
+\item The "jenks" method produces class boundaries falling on data points and is
+slow.
+\item The "fisher" method produces class boundaries located more conveniently
+between data points, and is faster than the "jenks" method.
+\item The "ckmeans" method produces exactly the same class boundaries as the
+"fisher" method, but is much faster. It uses the optimal univariate
+k-means method from the \code{Ckmeans.1d.dp} package.
+If the "ckmeans" method is selected but the \code{Ckmeans.1d.dp} package is not
+installed then the "fisher" method is used.
+}
+
+The relative speeds of these three methods may vary depending on the number
+of data points and the number of classes.\cr\cr
+
 The "q6" method uses the following \code{\link[stats:quantile]{quantile}}
 probabilities: 0, 0.05, 0.275, 0.5, 0.725, 0.95, 1.\cr\cr
+The "Q6" method uses the following \code{\link[stats:quantile]{quantile}}
+probabilities: 0, 0.05, 0.25, 0.5, 0.75, 0.95, 1.\cr\cr
 The "geom" method is based on a geometric progression along
 the variable values, all values must be strictly greater than zero.\cr\cr
 The "arith" method is based on an arithmetic progression along
@@ -52,11 +72,6 @@ The \code{nbreaks} parameter is not relevant, use \code{k} and
 the extent of each class in share of standard deviation.
 If \code{central=TRUE} then
 the mean value is the center of a class else the mean is a break value.
-}
-\note{
-This function is mainly a wrapper
-of \code{\link[classInt:classIntervals]{classIntervals}} +
-"arith", "em", "q6", "geom" and "msd" methods.
 }
 \examples{
 mtq <- mf_get_mtq()
