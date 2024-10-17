@@ -55,6 +55,7 @@ reference:
     - mf_get_mtq
     - mf_get_ratio
     - mf_get_pencil
+    - mf_get_borders
 
 figures:
   dev: grDevices::png

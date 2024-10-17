@@ -1,4 +1,4 @@
-#' @title Pencil Layer
+#' @title Get a pencil layer from polygons
 #' @name mf_get_pencil
 #' @description Create a pencil layer. This function transforms a POLYGON or
 #' MULTIPOLYGON sf object into a MULTILINESTRING one.

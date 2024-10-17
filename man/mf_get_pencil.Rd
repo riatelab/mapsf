@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_get_pencil.R
 \name{mf_get_pencil}
 \alias{mf_get_pencil}
-\title{Pencil Layer}
+\title{Get a pencil layer from polygons}
 \usage{
 mf_get_pencil(x, size = 100, buffer = 0, lefthanded = TRUE, clip = FALSE)
 }
