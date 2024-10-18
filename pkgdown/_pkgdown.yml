@@ -31,7 +31,6 @@ reference:
   - title: "Map Layout"
     desc: These functions are dedicated to the map layout design.
     contents:
-    - mf_init
     - mf_theme
     - mf_shadow
     - mf_background

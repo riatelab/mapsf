@@ -21,7 +21,6 @@
 #'
 #' @section Map layout:
 #' These functions are dedicated to the map layout design.
-#' - [mf_init()] Initialize a map with a specific extent
 #' - [mf_theme()] Set a theme
 #' - [mf_shadow()] Plot a shadow
 #' - [mf_background()] Plot a background image

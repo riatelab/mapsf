@@ -31,7 +31,6 @@ These functions display cartographic layers.
 
 These functions are dedicated to the map layout design.
 \itemize{
-\item \code{\link[=mf_init]{mf_init()}} Initialize a map with a specific extent
 \item \code{\link[=mf_theme]{mf_theme()}} Set a theme
 \item \code{\link[=mf_shadow]{mf_shadow()}} Plot a shadow
 \item \code{\link[=mf_background]{mf_background()}} Plot a background image
