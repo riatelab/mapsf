@@ -1,3 +1,19 @@
+# mapsf 0.12.0
+
+## Fix
+- use 1/4 of line for typical offset space (title, credits, scale bar, north arrow etc.) (#74)
+- change text adj to allow multiple lines titles in mf_title()
+- make mf_inset_*() work on split windows (#77)
+- add a message when values are outside class limits for type="choro"
+
+## Feat
+- add cex and adj args to mf_arrow(), better arrow shape, better real north adjustemnent
+- add mf_get_pencil() function to create a pencil layer from a polygon layer
+- add "Q6" and "ckmeans" classification methods to mf_get_breaks()
+- add mf_get_borders() to extract borders from contiguous polygons
+
+
+
 # mapsf 0.11.0
 
 ## Fix

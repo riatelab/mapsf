@@ -8,7 +8,7 @@ message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'mapsf: Thematic Cartography'
-version: 0.11.0
+version: 0.12.0
 doi: 10.32614/CRAN.package.mapsf
 abstract: Create and integrate thematic maps in your workflow. This package helps
   to design various cartographic representations such as proportional symbols, choropleth
@@ -63,7 +63,6 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
-  doi: 10.32614/CRAN.package.graphics
 - type: software
   title: maplegend
   abstract: 'maplegend: Legends for Maps'
@@ -120,7 +119,6 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
-  doi: 10.32614/CRAN.package.stats
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -131,7 +129,6 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
-  doi: 10.32614/CRAN.package.utils
 - type: software
   title: grDevices
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -142,7 +139,6 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
-  doi: 10.32614/CRAN.package.grDevices
 - type: software
   title: terra
   abstract: 'terra: Spatial Data Analysis'
@@ -156,6 +152,23 @@ references:
     orcid: https://orcid.org/0000-0001-5872-2872
   year: '2024'
   doi: 10.32614/CRAN.package.terra
+- type: software
+  title: Ckmeans.1d.dp
+  abstract: 'Ckmeans.1d.dp: Optimal, Fast, and Reproducible Univariate Clustering'
+  notes: Suggests
+  repository: https://CRAN.R-project.org/package=Ckmeans.1d.dp
+  authors:
+  - family-names: Song
+    given-names: Joe
+    email: joemsong@cs.nmsu.edu
+    orcid: https://orcid.org/0000-0002-6883-6547
+  - family-names: Zhong
+    given-names: Hua
+    orcid: https://orcid.org/0000-0003-1962-2603
+  - family-names: Wang
+    given-names: Haizhou
+  year: '2024'
+  doi: 10.32614/CRAN.package.Ckmeans.1d.dp
 - type: software
   title: png
   abstract: 'png: Read and write PNG images'

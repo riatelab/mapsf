@@ -7,7 +7,7 @@
   "codeRepository": "https://riatelab.github.io/mapsf/",
   "issueTracker": "https://github.com/riatelab/mapsf/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -76,6 +76,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "Ckmeans.1d.dp",
+      "name": "Ckmeans.1d.dp",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=Ckmeans.1d.dp"
     },
     {
       "@type": "SoftwareApplication",
@@ -239,5 +251,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3253.995KB"
+  "fileSize": "3265.325KB"
 }
