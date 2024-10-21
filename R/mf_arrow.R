@@ -75,8 +75,10 @@ mf_arrow <- function(pos = "topleft", col = getOption("mapsf.fg"),
     h <- bb_n_arrow[4] - bb_n_arrow[2]
     w <- bb_n_arrow[3] - bb_n_arrow[1]
     pos_a <- get_arrow_pos(pos, xe, ye, w, h)
-    north_arrow <- n_arrow + c(pos_a[1] - bb_n_arrow[1],
-                               pos_a[2] - bb_n_arrow[4])
+    north_arrow <- n_arrow + c(
+      pos_a[1] - bb_n_arrow[1],
+      pos_a[2] - bb_n_arrow[4]
+    )
   }
 
   mf_map(north_arrow, col = col, border = col, add = TRUE)

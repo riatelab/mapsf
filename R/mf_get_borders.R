@@ -21,7 +21,8 @@ mf_get_borders <- function(x) {
   }
   if (sf::st_is_longlat(x)) {
     stop("This feature does not work on unprojected (long/lat) layers.",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
   oag <- sf::st_agr(x)
   x <- sf::st_set_agr(x, "constant")
