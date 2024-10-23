@@ -15,7 +15,7 @@ mf_legend() is a wrapper for maplegend::leg().'><meta property="og:image" conten
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@ mf_legend() is a wrapper for maplegend::leg().'><meta property="og:image" conten
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Plot a legend</h1>
-      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/0.11.0/R/mf_legend.R" class="external-link"><code>R/mf_legend.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/0.12.0/R/mf_legend.R" class="external-link"><code>R/mf_legend.R</code></a></small>
       <div class="d-none name"><code>mf_legend.Rd</code></div>
     </div>
 
@@ -65,6 +65,7 @@ some others are only relevant for specific legend types (see Details).
 <span>  <span class="va">val</span>,</span>
 <span>  pos <span class="op">=</span> <span class="st">"left"</span>,</span>
 <span>  pal <span class="op">=</span> <span class="st">"Inferno"</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  col <span class="op">=</span> <span class="st">"tomato4"</span>,</span>
 <span>  inches <span class="op">=</span> <span class="fl">0.3</span>,</span>
 <span>  symbol <span class="op">=</span> <span class="st">"circle"</span>,</span>
@@ -130,6 +131,11 @@ in map units (c(x, y)).</p></dd>
 
 <dt id="arg-pal">pal<a class="anchor" aria-label="anchor" href="#arg-pal"></a></dt>
 <dd><p>a color palette name or a vector of colors</p></dd>
+
+
+<dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
+<dd><p>if <code>pal</code> is a <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a> palette name, the
+alpha-transparency level in the range [0,1]</p></dd>
 
 
 <dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
@@ -274,13 +280,13 @@ No legend is plotted.</p></dd>
     <p>Some arguments are available for all types of legend: <code>val</code>, <code>pos</code>, <code>title</code>,
 <code>title_cex</code>, <code>val_cex</code>, <code>frame</code>, <code>bg</code>, <code>fg</code>, <code>size</code>, <code>adj</code>,
 <code>return_bbox</code>).</p>
-<p>Relevant arguments for each specific legend types:</p><ul><li><p><code>leg(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)</code></p></li>
-<li><p><code>leg(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)</code></p></li>
-<li><p><code>leg(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)</code></p></li>
-<li><p><code>leg(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)</code></p></li>
-<li><p><code>leg(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)</code></p></li>
-<li><p><code>leg(type = "prop_line", val, col, lwd, val_rnd)</code></p></li>
-<li><p><code>leg(type = "grad_line", val, col, lwd, val_rnd)</code></p></li>
+<p>Relevant arguments for each specific legend types:</p><ul><li><p><code>mf_legend(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)</code></p></li>
+<li><p><code>mf_legend(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)</code></p></li>
+<li><p><code>mf_legend(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)</code></p></li>
+<li><p><code>mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)</code></p></li>
+<li><p><code>mf_legend(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)</code></p></li>
+<li><p><code>mf_legend(type = "prop_line", val, col, lwd, val_rnd)</code></p></li>
+<li><p><code>mf_legend(type = "grad_line", val, col, lwd, val_rnd)</code></p></li>
 </ul></div>
 
     <div class="section level2">

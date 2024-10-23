@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Plot a north arrow</h1>
-      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/0.11.0/R/mf_arrow.R" class="external-link"><code>R/mf_arrow.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/0.12.0/R/mf_arrow.R" class="external-link"><code>R/mf_arrow.R</code></a></small>
       <div class="d-none name"><code>mf_arrow.Rd</code></div>
     </div>
 
@@ -48,7 +48,14 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_arrow</span><span class="op">(</span>pos <span class="op">=</span> <span class="st">"topleft"</span>, <span class="va">col</span>, <span class="va">adjust</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_arrow</span><span class="op">(</span></span>
+<span>  pos <span class="op">=</span> <span class="st">"topleft"</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"mapsf.fg"</span><span class="op">)</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  adj <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>  <span class="va">align</span>,</span>
+<span>  <span class="va">adjust</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -63,9 +70,21 @@
 <dd><p>arrow color</p></dd>
 
 
-<dt id="arg-adjust">adjust<a class="anchor" aria-label="anchor" href="#arg-adjust"></a></dt>
+<dt id="arg-cex">cex<a class="anchor" aria-label="anchor" href="#arg-cex"></a></dt>
+<dd><p>arrow size</p></dd>
+
+
+<dt id="arg-adj">adj<a class="anchor" aria-label="anchor" href="#arg-adj"></a></dt>
+<dd><p>adjust the postion of the north arrow in x and y directions</p></dd>
+
+
+<dt id="arg-align">align<a class="anchor" aria-label="anchor" href="#arg-align"></a></dt>
 <dd><p>object of class <code>sf</code> or <code>sfc</code> used to adjust the
 arrow to the real north</p></dd>
+
+
+<dt id="arg-adjust">adjust<a class="anchor" aria-label="anchor" href="#arg-adjust"></a></dt>
+<dd><p>deprecated, see align</p></dd>
 
 </dl></div>
     <div class="section level2">

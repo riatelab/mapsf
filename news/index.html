@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +38,26 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/riatelab/mapsf/blob/0.11.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/riatelab/mapsf/blob/0.12.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.12.0" id="mapsf-0120">mapsf 0.12.0<a class="anchor" aria-label="anchor" href="#mapsf-0120"></a></h2><p class="text-muted">CRAN release: 2024-10-22</p>
+<div class="section level3">
+<h3 id="fix-0-12-0">Fix<a class="anchor" aria-label="anchor" href="#fix-0-12-0"></a></h3>
+<ul><li>use 1/4 of line for typical offset space (title, credits, scale bar, north arrow etc.) (<a href="https://github.com/riatelab/mapsf/issues/74" class="external-link">#74</a>)</li>
+<li>change text adj to allow multiple lines titles in mf_title()</li>
+<li>make mf_inset_*() work on split windows (<a href="https://github.com/riatelab/mapsf/issues/77" class="external-link">#77</a>)</li>
+<li>add a message when values are outside class limits for type=“choro”</li>
+</ul></div>
+<div class="section level3">
+<h3 id="feat-0-12-0">Feat<a class="anchor" aria-label="anchor" href="#feat-0-12-0"></a></h3>
+<ul><li>add cex and adj args to mf_arrow(), better arrow shape, better real north adjustemnent</li>
+<li>add mf_get_pencil() function to create a pencil layer from a polygon layer</li>
+<li>add “Q6” and “ckmeans” classification methods to mf_get_breaks()</li>
+<li>add mf_get_borders() to extract borders from contiguous polygons</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.11.0" id="mapsf-0110">mapsf 0.11.0<a class="anchor" aria-label="anchor" href="#mapsf-0110"></a></h2><p class="text-muted">CRAN release: 2024-07-29</p>
 <div class="section level3">
