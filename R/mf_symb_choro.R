@@ -65,7 +65,7 @@
 #' )
 mf_symb_choro <- function(x, var,
                           pal = "Mint",
-                          alpha = 1,
+                          alpha = NULL,
                           rev = FALSE,
                           breaks = "quantile",
                           nbreaks,

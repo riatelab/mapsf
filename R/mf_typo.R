@@ -48,7 +48,7 @@
 mf_typo <- function(x,
                     var,
                     pal = "Dynamic",
-                    alpha = 1,
+                    alpha = NULL,
                     rev = FALSE,
                     val_order,
                     border = getOption("mapsf.fg"),

@@ -7,23 +7,21 @@
 mf_get_pal(n, palette, alpha = NULL, rev = c(FALSE, FALSE), neutral)
 }
 \arguments{
-\item{n}{the number of colors (>= 1) to be in the palette.}
+\item{n}{the number of colors (>= 1) to be in the palette}
 
-\item{palette}{a valid palette name (one of hcl.pals()). The name is matched
-to
-the list of available palettes, ignoring upper vs. lower case, spaces,
-dashes,
-etc. in the matching.}
+\item{palette}{a valid palette name. See \link{hcl.pals} to get available
+palette names. The name is matched
+to the list of available palettes, ignoring upper vs. lower case, spaces,
+dashes, etc. in the matching.}
 
 \item{alpha}{an alpha-transparency level in the range [0,1] (0 means
-transparent and 1 means opaque), see argument alpha in hsv and hcl,
-respectively.}
+transparent and 1 means opaque)}
 
 \item{rev}{logical indicating whether the ordering of the colors should be
-reversed.}
+reversed}
 
 \item{neutral}{a color, if two gradients are used, the 'neutral' color can be
-added between them.}
+added between them}
 }
 \value{
 A vector of colors.
@@ -33,10 +31,6 @@ A vector of colors.
 qualitative color palettes.
 Diverging color palettes can be dissymmetric (different number of colors in
 each of the two gradients).
-}
-\details{
-See \link{hcl.pals} to get available palette names.
-If two gradients are used, the 'neutral' color can be added between them.
 }
 \examples{
 cols <- mf_get_pal(n = 10, pal = "Reds 2")

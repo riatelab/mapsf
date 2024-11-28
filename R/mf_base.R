@@ -5,7 +5,9 @@
 #' @eval my_params(c(
 #' 'col',
 #' 'border',
-#' 'lwd', 'pch',
+#' 'lwd',
+#' 'pch',
+#' 'alpha',
 #' 'add'))
 #' @param cex point size
 #' @param bg background color
@@ -23,6 +25,7 @@
 mf_base <- function(x,
                     col = "grey80",
                     border = "grey20",
+                    alpha = NULL,
                     bg = "white",
                     cex = 1,
                     pch = 20,
@@ -40,16 +43,54 @@ mf_base <- function(x,
   }
 
   xtype <- get_geom_type(x)
-  if (xtype != "POLYGON" && missing(col)) {
-    col <- "grey20"
+
+  if (xtype == "LINE") {
+    if (missing(col)) {
+      col <- "grey20"
+    }
+    if (!is.null(alpha)) {
+      col <- get_hex_pal(col, alpha)
+    }
+    plot(
+      st_geometry(x),
+      col = col, lwd = lwd, lty = lty,
+      add = TRUE, ...
+    )
   }
 
-  plot(st_geometry(x),
-    col = col, border = border,
-    lwd = lwd, add = add, pch = pch,
-    bg = bg, lty = lty, cex = cex,
-    ...
-  )
+  if (xtype == "POLYGON") {
+    if (!is.null(alpha)) {
+      col <- get_hex_pal(col, alpha)
+    }
+    plot(
+      st_geometry(x),
+      col = col, border = border, lwd = lwd, lty = lty,
+      add = TRUE, ...
+    )
+  }
+
+  if (xtype == "POINT") {
+    if (missing(col)) {
+      col <- "grey20"
+    }
+    if (!is.null(alpha)) {
+      col <- get_hex_pal(col, alpha)
+    }
+    if (pch %in% 21:25) {
+      if (missing(border)) {
+        border <- "grey80"
+      }
+      mycolspt <- border
+    } else {
+      mycolspt <- col
+    }
+    mycolsptbg <- col
+    plot(
+      st_geometry(x),
+      col = mycolspt, bg = mycolsptbg, cex = cex, pch = pch,
+      lwd = lwd, add = TRUE, ...
+    )
+  }
 
   return(invisible(x))
 }

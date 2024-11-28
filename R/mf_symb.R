@@ -47,7 +47,7 @@
 #' )
 mf_symb <- function(x, var,
                     pal = "Dynamic",
-                    alpha = 1,
+                    alpha = NULL,
                     rev = FALSE,
                     border = getOption("mapsf.fg"),
                     pch,

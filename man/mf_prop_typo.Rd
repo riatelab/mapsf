@@ -11,7 +11,7 @@ mf_prop_typo(
   val_max,
   symbol = "circle",
   pal = "Dynamic",
-  alpha = 1,
+  alpha = NULL,
   rev = FALSE,
   val_order,
   border = getOption("mapsf.fg"),
@@ -49,7 +49,7 @@ mf_prop_typo(
 
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
-\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
+\item{alpha}{opacity, in the range [0,1]}
 
 \item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 

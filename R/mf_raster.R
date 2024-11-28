@@ -84,7 +84,7 @@ mf_raster <- function(x,
                       val_order,
                       pal,
                       expandBB = rep(0, 4),
-                      alpha = 1,
+                      alpha = NULL,
                       rev = FALSE,
                       leg_pos = "right",
                       leg_title = names(x),
@@ -102,6 +102,9 @@ mf_raster <- function(x,
                       leg_size = 1,
                       add = FALSE,
                       ...) {
+  op <- par(xpd = TRUE, no.readonly = TRUE)
+  on.exit(par(op))
+
   # test for terra
   if (!requireNamespace("terra", quietly = TRUE)) {
     stop(paste0(
@@ -126,6 +129,7 @@ mf_raster <- function(x,
   ops$axes <- FALSE
   ops$box <- FALSE
   ops$mar <- NA
+  ops$alpha <- alpha
 
   # Multiband Raster
   if (terra::nlyr(x) >= 2) {
@@ -152,8 +156,7 @@ mf_raster <- function(x,
 
     if (ops$type == "interval") {
       mf_raster_interval(
-        ops, ops_leg, pal, breaks, nbreaks, alpha, rev, add,
-        expandBB
+        ops, ops_leg, pal, breaks, nbreaks, alpha, rev, add, expandBB
       )
     }
 

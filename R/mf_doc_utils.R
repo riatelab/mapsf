@@ -54,13 +54,10 @@ my_params <- function(x) {
       "whether the ordering of the colors should be reversed (TRUE)",
       " or not (FALSE)"
     ),
-    alpha = paste0(
-      "alpha if \\code{pal} is a \\link{hcl.colors} palette name, ",
-      "the alpha-transparency level in the range [0,1]"
-    ),
+    alpha = "alpha opacity, in the range [0,1]",
     col_na = "col_na color for missing values",
-    cex_na = "cex_na cex (point size) for NA values",
-    pch_na = "pch_na pch (point type) for NA values",
+    cex_na = "cex_na point size for NA values",
+    pch_na = "pch_na point type for NA values",
     val_max = "val_max maximum value used for proportional symbols",
     breaks = paste0(
       "breaks either a numeric vector with the actual breaks, ",

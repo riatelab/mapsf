@@ -9,6 +9,7 @@
 #' 'pch',
 #' 'add' ,
 #' 'col',
+#' 'alpha',
 #' 'leg_pos',
 #' 'leg_title',
 #' 'leg_title_cex',
@@ -44,6 +45,7 @@ mf_grad <- function(x,
                     breaks = "quantile",
                     nbreaks = 3,
                     col = "tomato4",
+                    alpha = NULL,
                     border = getOption("mapsf.fg"),
                     pch = 21,
                     cex,
@@ -66,6 +68,10 @@ mf_grad <- function(x,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
   xout <- x
+
+  if (!is.null(alpha)) {
+    col <- get_hex_pal(col, alpha)
+  }
 
   # data prep
   x <- x[!is.na(x = x[[var]]), ]

@@ -4,6 +4,7 @@
 #' 'x',
 #' 'var',
 #' 'col',
+#' 'alpha',
 #' 'border',
 #' 'lwd',
 #' 'add' ,
@@ -48,6 +49,7 @@ mf_prop <- function(x,
                     lwd_max = 20,
                     symbol = "circle",
                     col = "tomato4",
+                    alpha = NULL,
                     border = getOption("mapsf.fg"),
                     lwd = .7,
                     leg_pos = mf_get_leg_pos(x),
@@ -66,6 +68,10 @@ mf_prop <- function(x,
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  if (!is.null(alpha)) {
+    col <- get_hex_pal(col, alpha)
+  }
 
   xtype <- get_geom_type(x)
   # linestring special case

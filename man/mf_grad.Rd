@@ -10,6 +10,7 @@ mf_grad(
   breaks = "quantile",
   nbreaks = 3,
   col = "tomato4",
+  alpha = NULL,
   border = getOption("mapsf.fg"),
   pch = 21,
   cex,
@@ -40,6 +41,8 @@ mf_grad(
 \item{nbreaks}{number of classes}
 
 \item{col}{color}
+
+\item{alpha}{opacity, in the range [0,1]}
 
 \item{border}{border color}
 

@@ -4,22 +4,17 @@
 #' Diverging color palettes can be dissymmetric (different number of colors in
 #' each of the two gradients).
 #' @name mf_get_pal
-#' @param n the number of colors (>= 1) to be in the palette.
-#' @param palette a valid palette name (one of hcl.pals()). The name is matched
-#' to
-#' the list of available palettes, ignoring upper vs. lower case, spaces,
-#' dashes,
-#' etc. in the matching.
+#' @param n the number of colors (>= 1) to be in the palette
+#' @param palette a valid palette name. See \link{hcl.pals} to get available
+#' palette names. The name is matched
+#' to the list of available palettes, ignoring upper vs. lower case, spaces,
+#' dashes, etc. in the matching.
 #' @param alpha an alpha-transparency level in the range [0,1] (0 means
-#' transparent and 1 means opaque), see argument alpha in hsv and hcl,
-#' respectively.
+#' transparent and 1 means opaque)
 #' @param rev	logical indicating whether the ordering of the colors should be
-#' reversed.
+#' reversed
 #' @param neutral a color, if two gradients are used, the 'neutral' color can be
-#' added between them.
-#' @details See \link{hcl.pals} to get available palette names.
-#' If two gradients are used, the 'neutral' color can be added between them.
-#'
+#' added between them
 #' @return A vector of colors.
 #' @importFrom grDevices hcl.colors
 #' @export

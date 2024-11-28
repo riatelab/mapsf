@@ -38,7 +38,7 @@ a quantitative data classification
 
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
-\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
+\item{alpha}{opacity, in the range [0,1]}
 
 \item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
@@ -64,9 +64,9 @@ a quantitative data classification
 
 \item{col_na}{color for missing values}
 
-\item{cex_na}{cex (point size) for NA values}
+\item{cex_na}{point size for NA values}
 
-\item{pch_na}{pch (point type) for NA values}
+\item{pch_na}{point type for NA values}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
@@ -131,16 +131,16 @@ described in the "Details" section.
 
 \strong{base}: displays sf objects geometries.
 \preformatted{
-mf_map(x, col = "grey80", pch = 20, cex = 1, border = "grey20", lwd = 0.7,
-       expandBB, add = FALSE, ...)
+mf_map(x, col = "grey80", pch = 20, cex = 1, border = "grey20",
+       lwd = 0.7, alpha = NULL, expandBB, add = FALSE, ...)
        }
 
 \strong{prop}: displays symbols with areas proportional to a quantitative
 variable (stocks). \code{inches} is used to set symbols sizes.
 \preformatted{
 mf_map(x, var, type = "prop", inches = 0.3, val_max, symbol = "circle",
-       col = "tomato4", lwd_max = 20, border = getOption("mapsf.fg"),
-       lwd = 0.7, expandBB, add = TRUE,
+       col = "tomato4", alpha = NULL, lwd_max = 20,
+       border = getOption("mapsf.fg"), lwd = 0.7, expandBB, add = TRUE,
        leg_pos = mf_get_leg_pos(x), leg_title = var,
        leg_title_cex = 0.8, leg_val_cex = 0.6, leg_val_rnd = 0,
        leg_frame = FALSE, leg_frame_border = getOption("mapsf.fg"),
@@ -156,7 +156,7 @@ Colors palettes, defined with \code{pal}, can be created with \code{mf_get_pal()
 can use palette names from \code{hcl.pals()}.
 \preformatted{
 mf_map(x, var, type = "choro", breaks = "quantile", nbreaks, pal = "Mint",
-       alpha = 1, rev = FALSE, pch = 21, cex = 1,
+       alpha = NULL, rev = FALSE, pch = 21, cex = 1,
        border = getOption("mapsf.fg"), lwd = 0.7, col_na = "white",
        cex_na = 1, pch_na = 4, expandBB, add = FALSE,
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
@@ -170,7 +170,7 @@ mf_map(x, var, type = "choro", breaks = "quantile", nbreaks, pal = "Mint",
 \strong{typo}: displays a typology map of a qualitative variable.
 \code{val_order} is used to set modalities order in the legend.
 \preformatted{
-mf_map(x, var, type = "typo", pal = "Dynamic", alpha = 1, rev = FALSE,
+mf_map(x, var, type = "typo", pal = "Dynamic", alpha = NULL, rev = FALSE,
        val_order,border = getOption("mapsf.fg"), pch = 21, cex = 1,
        lwd = 0.7, cex_na = 1, pch_na = 4, col_na = "white",
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
@@ -184,7 +184,7 @@ mf_map(x, var, type = "typo", pal = "Dynamic", alpha = 1, rev = FALSE,
 \strong{symb}: displays the different modalities of a qualitative variable as
 symbols.
 \preformatted{
-mf_map(x, var, type = "symb", pal = "Dynamic", alpha = 1, rev = FALSE,
+mf_map(x, var, type = "symb", pal = "Dynamic", alpha = NULL, rev = FALSE,
        border = getOption("mapsf.fg"), pch, cex = 1, lwd = 0.7,
        col_na = "grey", pch_na = 4, cex_na = 1, val_order,
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
@@ -198,7 +198,7 @@ mf_map(x, var, type = "symb", pal = "Dynamic", alpha = 1, rev = FALSE,
 \code{breaks} and \code{nbreaks}. Symbol sizes are set with \code{cex}.
 \preformatted{
 mf_map(x, var, type = "grad", breaks = "quantile", nbreaks = 3, col = "tomato4",
-       border = getOption("mapsf.fg"), pch = 21, cex, lwd,
+       alpha = NULL, border = getOption("mapsf.fg"), pch = 21, cex, lwd,
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
        leg_val_cex = 0.6, leg_val_rnd = 2, leg_frame = FALSE,
        leg_adj = c(0, 0), leg_size = 1, leg_border = border,
@@ -212,7 +212,7 @@ first variable and colored to reflect the classification of a second
 quantitative variable.
 \preformatted{
 mf_map(x, var, type = "prop_choro", inches = 0.3, val_max, symbol = "circle",
-       pal = "Mint", alpha = 1, rev = FALSE, breaks = "quantile", nbreaks,
+       pal = "Mint", alpha = NULL, rev = FALSE, breaks = "quantile", nbreaks,
        border = getOption("mapsf.fg"), lwd = 0.7, col_na = "white",
        leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
        leg_title_cex = c(0.8, 0.8), leg_val_cex = c(0.6, 0.6),
@@ -229,7 +229,7 @@ first variable and colored to reflect the modalities of a second qualitative
 variable.
 \preformatted{
 mf_map(x, var, type = "prop_typo", inches = 0.3, val_max, symbol = "circle",
-       pal = "Dynamic", alpha = 1, rev = FALSE, val_order,
+       pal = "Dynamic", alpha = NULL, rev = FALSE, val_order,
        border = getOption("mapsf.fg"), lwd = 0.7, lwd_max = 15,
        col_na = "white",
        leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
@@ -246,7 +246,7 @@ mf_map(x, var, type = "prop_typo", inches = 0.3, val_max, symbol = "circle",
 variable as symbols colored to reflect the classification of a second
 quantitative variable.
 \preformatted{
-mf_map(x, var, type = "symb_choro", pal = "Mint", alpha = 1, rev = FALSE,
+mf_map(x, var, type = "symb_choro", pal = "Mint", alpha = NULL, rev = FALSE,
        breaks = "quantile", nbreaks, border = getOption("mapsf.fg"),
        pch, cex = 1, lwd = 0.7, pch_na = 4, cex_na = 1, col_na = "white",
        val_order,

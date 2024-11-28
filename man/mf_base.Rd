@@ -8,6 +8,7 @@ mf_base(
   x,
   col = "grey80",
   border = "grey20",
+  alpha = NULL,
   bg = "white",
   cex = 1,
   pch = 20,
@@ -23,6 +24,8 @@ mf_base(
 \item{col}{color}
 
 \item{border}{border color}
+
+\item{alpha}{opacity, in the range [0,1]}
 
 \item{bg}{background color}
 

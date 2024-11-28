@@ -15,3 +15,14 @@ expect_error(mf_map("not an sf object"))
 expect_error(mf_map(st_geometry(mtq), "POP", "prop"))
 expect_message(mf_map(mtq, "POP", "prop", breaks = "q6"))
 expect_message(mf_map(mtq, "POP", "prop", breaks = "q6", nbreaks = 8))
+
+
+# test for alpha
+expect_silent(mf_map(mtq, var = "POP", type = "prop", alpha = .2))
+expect_silent(mf_map(mtq, var = "MED", type = "choro", alpha = .2))
+expect_silent(mf_map(mtq, var = "STATUS", type = "typo", alpha = .2))
+expect_silent(mf_map(mtq, var = "STATUS", type = "symb", alpha = .2))
+expect_silent(mf_map(mtq, var = "POP", type = "grad", alpha = .2))
+expect_silent(mf_map(mtq, var = c("POP", "MED"), type = "prop_choro", alpha = .2))
+expect_silent(mf_map(mtq, var = c("POP", "STATUS"), type = "prop_typo", alpha = .2))
+expect_silent(mf_map(mtq, var = c("STATUS", "MED"), type = "symb_choro", alpha = .2))

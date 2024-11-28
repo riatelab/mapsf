@@ -42,3 +42,23 @@ expect_silent(mf_raster(d, "classes"))
 expect_silent(mf_raster(d, "classes", pal = "Burg",
                         val_order = rev(c("low", "high", "super high"))))
 expect_silent(mf_raster(a, "classes", pal = "Burg"))
+
+
+# alpha
+expect_silent(mf_raster(d, "classes", alpha = .5, pal = 1:3))
+expect_silent(mf_raster(a, alpha = .5, pal = 1:2))
+expect_silent(mf_raster(a, "interval", alpha = .4, nbreaks = 4, pal = 1:4))
+
+expect_silent(mf_raster(d, "classes", alpha = .5, pal = "Viridis"))
+expect_silent(mf_raster(a, alpha = .5, pal = "Viridis"))
+expect_silent(mf_raster(a, "interval", alpha = .4, nbreaks = 4,
+                        pal = "Viridis"))
+
+expect_silent(mf_raster(d, "classes", pal = hcl.colors(3, "Viridis",
+                                                       alpha = .5)))
+expect_silent(mf_raster(a,  pal = hcl.colors(12, "Viridis", alpha = .5)))
+expect_silent(mf_raster(a, "interval",  nbreaks = 12,
+                        pal = hcl.colors(12, "Viridis", alpha = .5)))
+
+
+

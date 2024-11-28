@@ -12,7 +12,7 @@ mf_raster(
   val_order,
   pal,
   expandBB = rep(0, 4),
-  alpha = 1,
+  alpha = NULL,
   rev = FALSE,
   leg_pos = "right",
   leg_title = names(x),
@@ -53,7 +53,7 @@ see \link{mf_get_breaks} for classification methods)}
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
 
-\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the alpha-transparency level in the range [0,1]}
+\item{alpha}{opacity, in the range [0,1]}
 
 \item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 

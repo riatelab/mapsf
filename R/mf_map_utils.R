@@ -5,18 +5,45 @@
 #' @param alpha alpha
 #' @noRd
 #' @importFrom grDevices hcl.pals hcl.colors
-get_the_pal <- function(pal, nbreaks, alpha = 1, rev = TRUE) {
+get_the_pal <- function(pal, nbreaks, alpha, rev = TRUE) {
   if (length(pal) == 1) {
     if (pal %in% hcl.pals()) {
-      cols <- hcl.colors(n = nbreaks, palette = pal, alpha = alpha, rev = rev)
+      cols <- hcl.colors(n = nbreaks, palette = pal, rev = rev)
     } else {
       cols <- rep(pal, nbreaks)
     }
   } else {
     cols <- pal[1:nbreaks]
   }
+  if (!is.null(alpha)) {
+    cols <- get_hex_pal(cols, alpha)
+  }
+
   return(cols)
 }
+
+get_hex_pal <- function(pal, alpha) {
+  pal <- grDevices::col2rgb(pal, alpha = FALSE)
+  ffun <- function(x) {
+    grDevices::rgb(pal[1, x],
+      pal[2, x],
+      pal[3, x],
+      maxColorValue = 255
+    )
+  }
+  paste0(sapply(seq_len(ncol(pal)), ffun), get_alpha(alpha))
+}
+
+get_alpha <- function(alpha) {
+  if (alpha < 0) {
+    alpha <- 0
+  }
+  if (alpha > 1) {
+    alpha <- 1
+  }
+  sprintf("%02X", as.integer(255.999 * alpha))
+}
+
 
 get_col_vec <- function(x, breaks, pal, jen = FALSE) {
   if (jen) {
