@@ -24,7 +24,7 @@ mtq <- mf_get_mtq()
 mtq$POPDENS <- 1e6 * mtq$POP / st_area(mtq)
 # Define the font family
 # !! Select a font already installed on your system !!
-par(family = "Fira Mono")
+par(family = "Fira Code")
 # set a theme
 mf_theme("green")
 # plot population density

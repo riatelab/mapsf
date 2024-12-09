@@ -3,7 +3,11 @@ title: 'mapsf'
 author: "Timothée Giraud"
 date: '`r Sys.Date()`'
 output: 
-  rmarkdown::html_vignette
+  rmarkdown::html_vignette:
+    fig_width: 8
+    toc: true
+    toc_depth: 1
+    number_sections: true
 vignette: >
   %\VignetteIndexEntry{mapsf}
   %\VignetteEngine{knitr::rmarkdown}
@@ -21,90 +25,93 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-The aim of `mapsf` is to obtain thematic maps with the visual quality of those build with a classical mapping or GIS software.
+The aim of `mapsf` is to obtain thematic maps with the visual quality of those build with a classical mapping or GIS software.  
+`mapsf` uses [`sf`](https://CRAN.R-project.org/package=sf) objects to produce `base` graphics.  
+`mapsf` functions can be classified in the following categories:
 
-Users of the package could belong to one of two categories: cartographers willing to use R or R users willing to create maps. Therefore, its functions have to be intuitive to cartographers and ensure compatibility with common R workflows.
+- **Symbology**\
+`mf_map()` is the main function of the package, it displays map layers on a georeferenced plot. Many parameters are available to fine tune the cartographic representations. These parameters are the common ones found in GIS and automatic cartography tools (e.g. classification and color palettes used in choropleth maps, symbols sizes used in proportional symbols maps...).  
 
-`mapsf` uses [`sf`](https://CRAN.R-project.org/package=sf) objects to produce `base` graphics.
+- **Map Layout**\
+Along with the cartographic functions, some other functions are dedicated to layout design (e.g. legends, scale bar, north arrow, title, credits...).  
 
-`mapsf` functions can be classified in the following categories :
-
--   **Symbology**\
-    `mf_map()` displays map layers on a georeferenced plot. It has three main arguments:
-
-    -   `x`, an `sf` object;
-    -   `var`, the name(s) of a variable(s) to map;
-    -   `type`, the map layer type.
-
-    Many parameters are available to fine tune the cartographic representations. These parameters are the common ones found in GIS and automatic cartography tools (e.g. classification and color palettes used in choropleth maps, symbols sizes used in proportional symbols maps...).
-
--   **Map Layout**\
-    Along with the cartographic functions, some other functions are dedicated to layout design (e.g. legends, scale bar, north arrow, title, credits...).
-
--   **Utility Functions**\
+- **Utility Functions**\
     A set of functions is dedicated to the creation of spatial objects (e.g. links creation) or other utility tasks (e.g. color palette management, class intervals extraction, sample dataset import...).
+
+
 
 # Main Features
 
 ## Symbology
 
-The **type** column indicates the value to use for the `type` argument in `mf_map(x, var, type)`. The **data** column displays the relevant data types for each map types. The **cartography** column indicates the corresponding function in `cartography`.
+`mf_map()` has three main arguments:
 
-| map type                     | type           | data             | polygon              | point                 | line                 | cartography               |
-|---------|---------|---------|---------|---------|---------|---------|
-| Base Map                     | `"base"`       | geometry         | ![](fig/poly.svg)    | ![](fig/point.svg)    | ![](fig/line.svg)    | \-                        |
-| Proportional Symbols         | `"prop"`       | stock            | ![](fig/poly_p.svg)  | ![](fig/point_p.svg)  | ![](fig/line_p.svg)  | `propSymbolsLayer()`      |
-| Typology                     | `"typo"`       | category         | ![](fig/poly_t.svg)  | ![](fig/point_t.svg)  | ![](fig/line_t.svg)  | `typoLayer()`             |
-| Choropleth                   | `"choro"`      | ratio            | ![](fig/poly_c.svg)  | ![](fig/point_c.svg)  | ![](fig/line_c.svg)  | `choroLayer()`            |
-| Graduated Symbols            | `"grad"`       | stock            | ![](fig/poly_g.svg)  | ![](fig/point_g.svg)  | ![](fig/line_g.svg)  | \-                        |
-| Symbols                      | `"symb"`       | category         | ![](fig/poly_s.svg)  | ![](fig/point_s.svg)  |                      | \-                        |
-| Proportional Symbols + Typo  | `"prop_typo"`  | stock & category | ![](fig/poly_pt.svg) | ![](fig/point_pt.svg) | ![](fig/line_pt.svg) | `propSymbolsTypoLayer()`  |
-| Proportional Symbols + Choro | `"prop_choro"` | stock & ratio    | ![](fig/poly_pc.svg) | ![](fig/point_pc.svg) |                      | `propSymbolsChoroLayer()` |
-| Symbols + Choro              | `"symb_choro"` | category & ratio | ![](fig/poly_sc.svg) | ![](fig/point_sc.svg) |                      | \-                        |
+* `x` an sf object
+* `var` the name(s) of a variable(s) to map
+* `type` the map layer type
+
+The following map types are available:
+
+|   |   |
+|-------|--------------------------------------------------------------------|
+| ![](fig/mf_base.svg)         | **base**: displays sf objects geometries                                                |
+| ![](fig/mf_prop.svg)         | **prop**: displays symbols with areas proportional to a quantitative variable (stocks)  |
+| ![](fig/mf_choro.svg)        | **choro**: areas are shaded according to the variation of a quantitative variable       |
+| ![](fig/mf_typo.svg)         | **typo**: displays a typology map of a qualitative variable                             |
+| ![](fig/mf_symb.svg)         | **symb**: displays the different modalities of a qualitative variable as symbols        |
+| ![](fig/mf_grad.svg)         | **grad**: displays graduated symbols                                                    |
+| ![](fig/mf_prop_choro.svg)   | **prop_choro**: displays symbols with sizes proportional to values of a first variable and colored to reflect the classification of a second quantitative variable.      |
+| ![](fig/mf_prop_typo.svg)    | **prop_typo**: displays symbols with sizes proportional to values of a first variable and and colored to reflect the modalities of a second qualitative variable         |
+| ![](fig/mf_symb_choro.svg)   | **symb_choro**: displays the different modalities of a first qualitative variable as symbols colored to reflect the classification of a second quantitative variable     |    
+
+
+Additionaly, `mf_raster()` can be used to displays raster objects (single/multi band, continuous, classes, intervals). 
+
+
+
+
 
 ## Map Layout
 
-|                                |
-|:------------------------------:|
-| ![](fig/deco.svg){width="4in"} |
+These functions are dedicated to the map layout design.
 
-| name              | cartography          |
-|-------------------|----------------------|
-| `mf_title()`      | \- / `layoutLayer()` |
-| `mf_arrow()`      | `north()`            |
-| `mf_credits()`    | \- / `layoutLayer()` |
-| `mf_scale()`      | `barscale()`         |
-| `mf_layout()`     | `layoutLayer()`      |
-| `mf_annotation()` | \-                   |
-| `mf_label()`      | `labelLayer()`       |
+
+![](fig/maplayout.png)
+
+|         |     |
+|--------|----------------------|
+| &#9312; `mf_title()`      | Title of the map   |
+| &#9313; `mf_arrow()`      | North arrow        |
+| &#9314; `mf_credits()`    | Author, sources... |
+| &#9315; `mf_scale()`      | Scale bar          |
+| &#9316; `mf_annotation()` | Annotations        |
+| &#9317; `mf_label()`      | Labels             |
+| &#9318; `mf_shadow()`     | Shadow             |
+
 
 ## Themes
 
-`mf_theme()` defines a map theme. It sets the margins of the figure, a background color, a foreground color and some parameters of the title. A set of theme is included in the package and it is possible to create custom ones.
+`mf_theme()` sets a map theme. A theme is a set of graphical parameters that are applied to maps created with `mapsf`. These parameters are the figure margins, background and foreground colors and `mf_title()` options. `mapsf` offers some builtin themes. It’s possible to modify an existing theme or to start a theme from scratch. Themes are persistent across maps produced by mapsf (e.g. they survive a `dev.off()` call).
 
-|                                      |                                         |                                      |
-|:----------------------:|:-----------------------:|:----------------------:|
-| ![](fig/th_default.svg){width="2in"} | ![](fig/th_agolalight.svg){width="2in"} | ![](fig/th_brutal.svg){width="2in"}  |
-|  ![](fig/th_candy.svg){width="192"}  |    ![](fig/th_dark.svg){width="192"}    | ![](fig/th_darkula.svg){width="192"} |
-|  ![](fig/th_green.svg){width="192"}  |  ![](fig/th_iceberg.svg){width="192"}   |   ![](fig/th_ink.svg){width="192"}   |
-|   ![](fig/th_jsk.svg){width="192"}   | ![](fig/th_nevermind.svg){width="192"}  |                                      |
+&#128279; See the online vignette: [How to use themes](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_themes.html) 
 
 ## Export
 
-The `mf_export()` function exports maps in raster (.png) or vector formats (.svg). The size of the exported map will fit the height/width ratio of a spatial object.
+`mf_export()` exports maps in PNG or SVG formats.
+The exported map width/height ratio will match the one of a spatial object.  
+If width is specified, then height is deduced from the width/height ratio of x and some theme parameters (figure margins and title size).  
+If height is specified, then width is deduced from the width/height ratio of xand some theme parameters (figure margins and title size).
+
+&#128279; See the online vignette: [How to export maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_export_maps.html) 
 
 ## Datasets
 
 Several datasets are embedded in the package:
 
 -   A [GeoPackage](https://www.geopackage.org/) of Martinique municipalities can be imported with `mf_get_mtq()` (or via `sf::st_read()`).
-
-    -   Sources: [Base comparateur de territoires](https://www.insee.fr/fr/statistiques/2521169) (upload date: 2018-09-25) & ADMIN EXPRESS-COG (2018 edition).
-
+    -   Sources: [Base comparateur de territoires](https://www.insee.fr/fr/statistiques/2521169) (data, upload date: 2018-09-25) & ADMIN EXPRESS-COG (geometry, 2018 edition).
     -   Citation: Insee and IGN, 2018
-
     -   Fields:
-
         -   **INSEE_COM**: Municipality identifier
         -   **STATUS**: Municipality administrative status
         -   **LIBGEO**: Municipality name
@@ -114,13 +121,9 @@ Several datasets are embedded in the package:
         -   **ACT**: Active population, 2015
 
 -   A csv file of professional mobility flows between Martinique municipalities.
-
     -   Sources: [Flux de mobilité - déplacements domicile-lieu de travail](https://www.insee.fr/fr/statistiques/3566477) (upload date: 2018-08-01)
-
     -   Citation: Insee, 2018
-
     -   Fields:
-
         -   **i**: Municipality of residence identifier
         -   **j**: Municipality of workplace identifier
         -   **fij**: Flows of workers (employed population, 15 y.o. or more, 2015, only flows \> 100)
@@ -181,7 +184,7 @@ mf_map(
   inches = 0.25,
   col = "brown4",
   leg_pos = "topright",
-  leg_adj = c(0, -2),
+  leg_adj = c(0, -3),
   leg_title = "Total population"
 )
 # layout
@@ -220,8 +223,9 @@ mf_map(
   pal = "Greens",
   border = "white",
   lwd = 0.5,
-  leg_pos = "topright",
-  leg_title = "Population Density\n(people per km2)"
+  leg_pos = "bottomleft",
+  leg_adj = c(0, 3), 
+  leg_title = "Population Density\n(inh. / km2)"
 )
 # layout
 mf_layout(
@@ -440,6 +444,7 @@ mf_map(
   lwd = c(1, 4, 8),
   leg_pos = "topright",
   leg_title = "Nb. of\nCommuters",
+  leg_val_rnd = 0,
   col = "red4",
   leg_frame = TRUE
 )
