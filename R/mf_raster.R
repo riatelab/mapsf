@@ -126,8 +126,8 @@ mf_raster <- function(x,
   ops$maxcell <- ifelse(max_cell, 1e6, ops$maxcell)
   ops$bgalpha <- ifelse(is.null(ops$bgalpha), 0, ops$bgalpha)
   ops$legend <- ifelse(is.null(ops$legend), FALSE, ops$legend)
-  ops$axes <- FALSE
-  ops$box <- FALSE
+  ops$axes <- ifelse(is.null(ops$axes), FALSE, ops$axes)
+  ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
   ops$mar <- NA
   ops$alpha <- alpha
 
