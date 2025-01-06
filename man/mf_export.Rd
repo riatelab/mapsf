@@ -11,9 +11,7 @@ mf_export(
   height,
   res = 96,
   ...,
-  expandBB = rep(0, 4),
-  theme,
-  export = "png"
+  expandBB = rep(0, 4)
 )
 }
 \arguments{
@@ -33,10 +31,6 @@ device is opened.}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
-
-\item{theme}{apply a theme (deprecated)}
-
-\item{export}{deprecated}
 }
 \value{
 No return value, a map file is initiated (in PNG or SVG format).

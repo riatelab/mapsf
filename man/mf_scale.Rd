@@ -12,8 +12,7 @@ mf_scale(
   col,
   crs_units = "m",
   scale_units = "km",
-  x,
-  unit
+  x
 )
 }
 \arguments{
@@ -38,8 +37,6 @@ Possible values are "m" and "ft" (see Details).}
 
 \item{x}{object of class crs, sf or sfc. If set, the CRS of x will be used
 instead of \code{crs_units} to define CRS units.}
-
-\item{unit}{deprecated, use scale_units instead}
 }
 \value{
 No return value, a scale bar is displayed.

@@ -15,7 +15,6 @@
 #' "ft" for feet, "m" for meters, or "km" for kilometers (default).
 #' @param x object of class crs, sf or sfc. If set, the CRS of x will be used
 #' instead of \code{crs_units} to define CRS units.
-#' @param unit deprecated, use scale_units instead
 #' @details Most CRS use the meter as unit. Some US CRS use feet or US survey
 #' feet. If unsure of the unit used in the CRS you can use the x argument of the
 #' function.
@@ -52,8 +51,7 @@ mf_scale <- function(size,
                      col,
                      crs_units = "m",
                      scale_units = "km",
-                     x,
-                     unit) {
+                     x) {
   test_cur_plot()
   # default color
   if (missing(col)) {
@@ -62,11 +60,6 @@ mf_scale <- function(size,
   # get the current plot dimensions
   pu <- par("usr")
   inset <- xinch(par("csi")) / 4
-
-  if (!missing(unit)) {
-    message("'unit' is deprecated, use 'scale_units' instead.")
-    scale_units <- unit
-  }
 
   if (!missing(x)) {
     uu <- sf::st_crs(x)$ud_unit

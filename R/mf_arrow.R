@@ -7,7 +7,6 @@
 #' @param adj adjust the postion of the north arrow in x and y directions
 #' @param align object of class \code{sf} or \code{sfc} used to adjust the
 #' arrow to the real north
-#' @param adjust deprecated, see align
 #' @importFrom sf st_crs st_as_sf st_coordinates st_transform
 #' @return No return value, a north arrow is displayed.
 #' @export
@@ -18,14 +17,8 @@
 mf_arrow <- function(pos = "topleft", col = getOption("mapsf.fg"),
                      cex = 1,
                      adj = c(0, 0),
-                     align, adjust) {
+                     align) {
   test_cur_plot()
-  if (!missing(adjust)) {
-    warning(paste0("'adjust' is deprecated.\nUse 'align' instead."),
-      call. = FALSE
-    )
-    align <- adjust
-  }
 
   if (missing(col)) {
     col <- getOption("mapsf.fg")

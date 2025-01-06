@@ -9,8 +9,7 @@ mf_arrow(
   col = getOption("mapsf.fg"),
   cex = 1,
   adj = c(0, 0),
-  align,
-  adjust
+  align
 )
 }
 \arguments{
@@ -24,8 +23,6 @@ mf_arrow(
 
 \item{align}{object of class \code{sf} or \code{sfc} used to adjust the
 arrow to the real north}
-
-\item{adjust}{deprecated, see align}
 }
 \value{
 No return value, a north arrow is displayed.
