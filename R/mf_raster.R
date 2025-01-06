@@ -102,8 +102,6 @@ mf_raster <- function(x,
                       leg_size = 1,
                       add = FALSE,
                       ...) {
-  op <- par(xpd = TRUE, no.readonly = TRUE)
-  on.exit(par(op))
 
   # test for terra
   if (!requireNamespace("terra", quietly = TRUE)) {
