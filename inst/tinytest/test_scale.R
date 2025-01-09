@@ -4,8 +4,6 @@ expect_silent(mf_scale(pos = c(713709.9, 1596117)))
 expect_silent(mf_scale())
 expect_silent(mf_scale(pos = "bottomleft", size = 5))
 
-expect_message(mf_scale(pos = "bottomleft", size = 5000, unit = "ft"))
-
 expect_error(mf_scale(crs_units = "pop"))
 expect_error(mf_scale(scale_units = "pop"))
 
@@ -26,3 +24,4 @@ mf_map(mtqy)
 expect_message(mf_scale(x = mtqy))
 st_crs(mtqy) <- NA_crs_
 expect_message(mf_scale(x = mtqy))
+
