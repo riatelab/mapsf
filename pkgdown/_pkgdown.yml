@@ -8,6 +8,8 @@ home:
     (e.g. scale bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on
     'base' graphics.
 
+url: https://riatelab.github.io/mapsf/
+
 template:
   bootstrap: 5
   opengraph:
