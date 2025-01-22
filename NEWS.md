@@ -1,3 +1,16 @@
+# mapsf 1.0.0
+
+## Feat
+- add alpha (transparency) for all types in mf_map() and in mf_raster() 
+- remove all deprecated functions and arguments: mf_legend_*() functions; 
+adjust in mf_arrow(); theme and export in mf_export(); theme in mf_init(); 
+pt_pch, pt_cex, pt_pch_na, pt_cex_na in mf_legend(); unit from mf_scale(); 
+
+## Docs
+- update the cheat sheet
+- update the main vignette
+
+
 # mapsf 0.12.0
 
 ## Fix
