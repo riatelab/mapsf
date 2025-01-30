@@ -137,7 +137,7 @@ globalVariables(".gmapsf", package = "mapsf", add = FALSE)
   jsk = list(
     bg = "#ffdc11",
     fg = "#0c973c",
-    mar = c(0, 0, 1.5, 0),
+    mar = c(0, 0, 1.5, 0.1),
     tab = FALSE,
     pos = "left",
     inner = FALSE,
