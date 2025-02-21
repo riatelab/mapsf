@@ -15,7 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# mapsf <img src="man/figures/logo.png" align="right" width="120"/>
+<img src="man/figures/logo.png" align="right" width="120"/>
+
+# mapsf 
 
 <!-- badges: start -->
 
@@ -142,7 +144,7 @@ dev.off()
 
 
 - `mapsf`, a New Package for Thematic Mapping - useR 2021! [Video](https://youtu.be/8PMF7cBBH7k?t=2621) & [Slides](https://rcarto.github.io/user2021/) - FOSS4G 2021 [Video](https://www.youtube.com/watch?v=dBNp0bzD454) & [Slides](https://rcarto.github.io/foss4g2021/) (EN)  
-- Créer des cartes reproductibles avec `mapsf` - Les lundis de l'Ined - [Slides](https://rcarto.github.io/ined2021/) (FR)  
+- [Cartographie avec R](https://rcarto.github.io/cartographie_avec_r/) (FR)  
 
 
 
@@ -158,7 +160,6 @@ dev.off()
 There are no plans for new features or enhancements in `cartography`, but basic maintenance and support will continue indefinitely. 
 Existing projects that use `cartography` can safely continue to use `cartography`.
 New projects should use `mapsf` because it is friendlier, lighter and more robust.  
-See [`mapsf` vignette](https://riatelab.github.io/mapsf/articles/mapsf.html#symbology) to migrate from `cartography` to `mapsf`.
 
 
 
