@@ -4,30 +4,56 @@
 \alias{mf_theme}
 \title{Set a theme}
 \usage{
-mf_theme(x, bg, fg, mar, tab, pos, inner, line, cex, font)
+mf_theme(
+  x,
+  mar,
+  title_tab,
+  title_pos,
+  title_inner,
+  title_line,
+  title_cex,
+  title_font,
+  title_banner,
+  foreground,
+  background,
+  highlight,
+  pal_quali,
+  pal_seq,
+  ...
+)
 }
 \arguments{
 \item{x}{name of a map theme. One of "default", "brutal", "ink",
 "dark", "agolalight", "candy", "darkula", "iceberg", "green", "nevermind",
 "jsk", "barcelona".}
 
-\item{bg}{background color}
-
-\item{fg}{foreground color}
-
 \item{mar}{margins}
 
-\item{tab}{if TRUE the title is displayed as a 'tab'}
+\item{title_tab}{if TRUE the title is displayed as a 'tab'}
 
-\item{pos}{title position, one of 'left', 'center', 'right'}
+\item{title_pos}{title position, one of 'left', 'center', 'right'}
 
-\item{inner}{if TRUE the title is displayed inside the plot area.}
+\item{title_inner}{if TRUE the title is displayed inside the plot area.}
 
-\item{line}{number of lines used for the title}
+\item{title_line}{number of lines used for the title}
 
-\item{cex}{cex of the title}
+\item{title_cex}{cex of the title}
 
-\item{font}{font of the title}
+\item{title_font}{font of the title}
+
+\item{title_banner}{if TRUE the title is displayed as a banner}
+
+\item{foreground}{foreground color}
+
+\item{background}{background color}
+
+\item{highlight}{highlight color}
+
+\item{pal_quali}{default qualitative color palette (name or function)}
+
+\item{pal_seq}{default sequential color palettte (name or function)}
+
+\item{...}{other argument, ignored}
 }
 \value{
 The (invisible) list of theme parameters is returned.

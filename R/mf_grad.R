@@ -44,9 +44,9 @@ mf_grad <- function(x,
                     var,
                     breaks = "quantile",
                     nbreaks = 3,
-                    col = "tomato4",
+                    col,
                     alpha = NULL,
-                    border = getOption("mapsf.fg"),
+                    border,
                     pch = 21,
                     cex,
                     lwd,
@@ -60,14 +60,23 @@ mf_grad <- function(x,
                     leg_size = 1,
                     leg_border = border,
                     leg_box_cex = c(1, 1),
-                    leg_fg = getOption("mapsf.fg"),
-                    leg_bg = getOption("mapsf.bg"),
-                    leg_frame_border = getOption("mapsf.fg"),
+                    leg_fg,
+                    leg_bg,
+                    leg_frame_border,
                     add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
   xout <- x
+
+  col <- go(col, "highlight", "tomato4")
+  border <- go(border, "foreground")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
 
   if (!is.null(alpha)) {
     col <- get_hex_pal(col, alpha)
@@ -85,6 +94,7 @@ mf_grad <- function(x,
   nbreaks <- length(breaks) - 1
 
   xtype <- get_geom_type(x)
+
   if (xtype == "LINE") {
     # lwd mgmt
     if (missing(lwd)) {

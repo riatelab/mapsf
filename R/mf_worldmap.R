@@ -42,8 +42,7 @@ mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
   lo <- orthomap(lon, lat)
   mf_map(lo$ocean,
     col = water_col,
-    border = water_col,
-    bg = getOption("mapsf.bg")
+    border = water_col
   )
   mf_map(lo$land,
     add = TRUE,

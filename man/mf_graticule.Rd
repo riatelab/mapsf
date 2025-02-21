@@ -6,7 +6,7 @@
 \usage{
 mf_graticule(
   x,
-  col = col,
+  col,
   lwd = 1,
   lty = 1,
   expandBB = rep(0, 4),

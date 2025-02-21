@@ -4,7 +4,7 @@
 \alias{mf_shadow}
 \title{Plot a shadow}
 \usage{
-mf_shadow(x, col = "grey50", cex = 1, add = FALSE)
+mf_shadow(x, col, cex = 1, add = FALSE)
 }
 \arguments{
 \item{x}{an sf or sfc polygon object}

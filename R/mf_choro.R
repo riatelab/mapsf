@@ -56,12 +56,12 @@
 #'   leg_frame = TRUE
 #' )
 mf_choro <- function(x, var,
-                     pal = "Mint",
+                     pal,
                      alpha = NULL,
                      rev = FALSE,
                      breaks = "quantile",
                      nbreaks,
-                     border = getOption("mapsf.fg"),
+                     border,
                      pch = 21,
                      cex = 1,
                      lwd = .7,
@@ -78,15 +78,24 @@ mf_choro <- function(x, var,
                      leg_horiz = FALSE,
                      leg_adj = c(0, 0),
                      leg_size = 1,
-                     leg_box_border = getOption("mapsf.fg"),
+                     leg_box_border,
                      leg_box_cex = c(1, 1),
-                     leg_fg = getOption("mapsf.fg"),
-                     leg_bg = getOption("mapsf.bg"),
-                     leg_frame_border = getOption("mapsf.fg"),
+                     leg_fg,
+                     leg_bg,
+                     leg_frame_border,
                      add = FALSE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  pal <- go(pal, "pal_seq", "Mint")
+  leg_box_border <- go(leg_box_border, "highlight")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
 
   # jenks
   jen <- FALSE
@@ -114,10 +123,13 @@ mf_choro <- function(x, var,
   }
 
   xtype <- get_geom_type(x)
+
   if (xtype == "LINE") {
     plot(st_geometry(x), col = mycols, lwd = lwd, add = TRUE)
   }
+
   if (xtype == "POLYGON") {
+    border <- go(border, opt = "highlight")
     plot(
       st_geometry(x),
       col = mycols, border = border, lwd = lwd,
@@ -125,6 +137,7 @@ mf_choro <- function(x, var,
     )
   }
   if (xtype == "POINT") {
+    border <- go(border, "foreground")
     if (pch %in% 21:25) {
       mycolspt <- border
     } else {

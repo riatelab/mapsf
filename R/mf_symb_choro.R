@@ -64,12 +64,12 @@
 #'   )
 #' )
 mf_symb_choro <- function(x, var,
-                          pal = "Mint",
+                          pal,
                           alpha = NULL,
                           rev = FALSE,
                           breaks = "quantile",
                           nbreaks,
-                          border = getOption("mapsf.fg"),
+                          border,
                           pch,
                           cex = 1,
                           lwd = .7,
@@ -84,18 +84,29 @@ mf_symb_choro <- function(x, var,
                           leg_val_rnd = 2,
                           leg_no_data = c("No data", "No data"),
                           leg_frame = c(FALSE, FALSE),
-                          leg_frame_border = getOption("mapsf.fg"),
+                          leg_frame_border,
                           leg_horiz = FALSE,
                           leg_adj = c(0, 0),
-                          leg_fg = getOption("mapsf.fg"),
-                          leg_bg = getOption("mapsf.bg"),
+                          leg_fg,
+                          leg_bg,
                           leg_size = 1,
-                          leg_box_border = getOption("mapsf.fg"),
+                          leg_box_border,
                           leg_box_cex = c(1, 1),
                           add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  border <- go(border, "foreground")
+  leg_box_border <- go(leg_box_border, "highlight")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
+  pal <- go(pal, "pal_seq", "Mint")
+
 
   xout <- x
   var2 <- var[2]
@@ -181,6 +192,18 @@ mf_symb_choro <- function(x, var,
   )
 
   leg_pos <- split_leg(leg_pos)
+  border <- getOption("mapsf.highlight")
+  if (is.null(getOption("mapsf.legacy"))) {
+    ccol <- getOption("mapsf.foreground")
+  } else {
+    ccol <- "grey80"
+  }
+  if (all(leg_frame, !leg_horiz, is.null(getOption("mapsf.legacy")))) {
+    border <- getOption("mapsf.highlight")
+    ccol <- getOption("mapsf.background")
+  }
+
+
   if (length(leg_pos) == 1) {
     la1 <- list(
       type = "symb",
@@ -189,7 +212,8 @@ mf_symb_choro <- function(x, var,
       col_na = "grey",
       no_data = no_data[1],
       no_data_txt = leg_no_data[1],
-      pal = rep("grey", length(val_order)),
+      pal = rep(ccol, length(val_order)),
+      border = rep(border, length(val_order)),
       cex = cex,
       pch = pch,
       lwd = lwd,

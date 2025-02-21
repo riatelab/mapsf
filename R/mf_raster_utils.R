@@ -47,9 +47,7 @@ mf_raster_multiband <- function(ops, expandBB, add) {
 
 mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
                                rev, add, expandBB) {
-  if (missing(pal)) {
-    pal <- "Dark Mint"
-  }
+  pal <- go(pal, "pal_seq", "Dark Mint")
   # set breaks and palette
   ops$breaks <- mf_get_breaks(
     x = terra::values(ops$x), nbreaks = nbreaks,
@@ -95,6 +93,7 @@ mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
   if (missing(pal)) {
     pal <- "Dark Mint"
   }
+
   val <- terra::values(ops$x, na.rm = TRUE)
 
   # with breaks
@@ -186,9 +185,8 @@ mf_raster_classes <- function(ops, ops_leg, pal, val_order, expandBB,
     modalities <- terra::cats(ops$x)[[1]]
   }
 
-  if (missing(pal)) {
-    pal <- "Dark 2"
-  }
+  pal <- go(pal, "pal_seq", "Dark 2")
+
   if (missing(val_order)) {
     val_order <- modalities[, 2]
   }

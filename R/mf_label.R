@@ -42,12 +42,10 @@ mf_label <- function(x,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  if (missing(col)) {
-    col <- getOption("mapsf.fg")
-  }
-  if (missing(bg)) {
-    bg <- getOption("mapsf.bg")
-  }
+  col <- go(col, "highlight")
+  bg <- go(bg, "background")
+
+
   words <- x[[var]]
   cc <- sf::st_coordinates(sf::st_centroid(
     x = sf::st_geometry(x),

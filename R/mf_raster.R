@@ -92,17 +92,16 @@ mf_raster <- function(x,
                       leg_val_cex = .6,
                       leg_val_rnd = 1,
                       leg_frame = FALSE,
-                      leg_frame_border = getOption("mapsf.fg"),
+                      leg_frame_border,
                       leg_horiz = FALSE,
                       leg_adj = c(0, 0),
-                      leg_box_border = "#333333",
+                      leg_box_border,
                       leg_box_cex = c(1, 1),
-                      leg_fg = getOption("mapsf.fg"),
-                      leg_bg = getOption("mapsf.bg"),
+                      leg_fg,
+                      leg_bg,
                       leg_size = 1,
                       add = FALSE,
                       ...) {
-
   # test for terra
   if (!requireNamespace("terra", quietly = TRUE)) {
     stop(paste0(
@@ -115,6 +114,19 @@ mf_raster <- function(x,
   if (!inherits(x, "SpatRaster")) {
     stop(paste0("x should be a SpatRaster."), call. = FALSE)
   }
+
+
+  leg_box_border <- go(leg_box_border, "highlight", "#333333")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
+
+
+
+
 
   # catch arguments
   ops <- list(...)

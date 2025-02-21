@@ -6,10 +6,9 @@
 \usage{
 mf_base(
   x,
-  col = "grey80",
-  border = "grey20",
+  col,
+  border,
   alpha = NULL,
-  bg = "white",
   cex = 1,
   pch = 20,
   lwd = 0.7,
@@ -26,8 +25,6 @@ mf_base(
 \item{border}{border color}
 
 \item{alpha}{opacity, in the range [0,1]}
-
-\item{bg}{background color}
 
 \item{cex}{point size}
 

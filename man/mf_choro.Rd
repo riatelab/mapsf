@@ -7,12 +7,12 @@
 mf_choro(
   x,
   var,
-  pal = "Mint",
+  pal,
   alpha = NULL,
   rev = FALSE,
   breaks = "quantile",
   nbreaks,
-  border = getOption("mapsf.fg"),
+  border,
   pch = 21,
   cex = 1,
   lwd = 0.7,
@@ -29,11 +29,11 @@ mf_choro(
   leg_horiz = FALSE,
   leg_adj = c(0, 0),
   leg_size = 1,
-  leg_box_border = getOption("mapsf.fg"),
+  leg_box_border,
   leg_box_cex = c(1, 1),
-  leg_fg = getOption("mapsf.fg"),
-  leg_bg = getOption("mapsf.bg"),
-  leg_frame_border = getOption("mapsf.fg"),
+  leg_fg,
+  leg_bg,
+  leg_frame_border,
   add = FALSE
 )
 }

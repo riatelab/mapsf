@@ -17,8 +17,7 @@
 #' mf_init(target)
 #' mf_map(mtq, add = TRUE)
 mf_init <- function(x, expandBB = rep(0, 4)) {
-
-  bgmap <- getOption("mapsf.bg")
+  bgmap <- getOption("mapsf.background")
 
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {

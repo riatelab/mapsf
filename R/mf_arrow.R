@@ -14,16 +14,13 @@
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_arrow(pos = "topright")
-mf_arrow <- function(pos = "topleft", col = getOption("mapsf.fg"),
+mf_arrow <- function(pos = "topleft",
+                     col,
                      cex = 1,
                      adj = c(0, 0),
                      align) {
   test_cur_plot()
-
-  if (missing(col)) {
-    col <- getOption("mapsf.fg")
-  }
-
+  col <- go(col, "highlight")
   map_extent <- par("usr")
   xe <- map_extent[1:2]
   ye <- map_extent[3:4]

@@ -29,22 +29,25 @@
 #'   txt = "This is less\nimportant",
 #'   cex = .7, font = 3, s = 1.3
 #' )
-mf_annotation <- function(x, txt, pos = "topright",
-                          cex = 0.8, col_arrow,
-                          col_txt, halo = FALSE, bg, s = 1, ...) {
+mf_annotation <- function(x,
+                          txt,
+                          pos = "topright",
+                          cex = 0.8,
+                          col_arrow,
+                          col_txt,
+                          halo = FALSE,
+                          bg,
+                          s = 1,
+                          ...) {
   test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  if (missing(col_arrow)) {
-    col_arrow <- "black"
-  }
-  if (missing(col_txt)) {
-    col_txt <- getOption("mapsf.fg")
-  }
-  if (missing(bg)) {
-    bg <- getOption("mapsf.bg")
-  }
+  col_arrow <- go(col_arrow, "highlight", "black")
+  col_txt <- go(col_txt, "highlight")
+  bg <- go(bg, "background")
+
+
 
   if (inherits(x, "character") && x == "interactive") {
     x <- interleg(txt = c("annotation", "Annotation"))

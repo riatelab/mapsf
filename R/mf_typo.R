@@ -47,11 +47,11 @@
 #' )
 mf_typo <- function(x,
                     var,
-                    pal = "Dynamic",
+                    pal,
                     alpha = NULL,
                     rev = FALSE,
                     val_order,
-                    border = getOption("mapsf.fg"),
+                    border,
                     pch = 21,
                     cex = 1,
                     lwd = .7,
@@ -64,17 +64,27 @@ mf_typo <- function(x,
                     leg_val_cex = .6,
                     leg_no_data = "No data",
                     leg_frame = FALSE,
-                    leg_frame_border = getOption("mapsf.fg"),
+                    leg_frame_border,
                     leg_adj = c(0, 0),
                     leg_size = 1,
-                    leg_box_border = getOption("mapsf.fg"),
+                    leg_box_border,
                     leg_box_cex = c(1, 1),
-                    leg_fg = getOption("mapsf.fg"),
-                    leg_bg = getOption("mapsf.bg"),
+                    leg_fg,
+                    leg_bg,
                     add = FALSE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  pal <- go(pal, "pal_quali", "Dynamic")
+  leg_box_border <- go(leg_box_border, "highlight")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
+
 
   # get modalities
   val_order <- get_modalities(
@@ -128,6 +138,7 @@ mf_typo <- function(x,
     )
   }
   if (xtype == "POLYGON") {
+    border <- go(border, opt = "highlight")
     plot(st_geometry(x),
       col = mycols, border = border,
       lwd = lwd, add = TRUE
@@ -154,6 +165,7 @@ mf_typo <- function(x,
     )
   }
   if (xtype == "POINT") {
+    border <- go(border, "foreground")
     if (pch %in% 21:25) {
       mycolspt <- border
     } else {

@@ -67,12 +67,12 @@ mf_prop_choro <- function(x,
                           inches = 0.3,
                           val_max,
                           symbol = "circle",
-                          pal = "Mint",
+                          pal,
                           alpha = NULL,
                           rev = FALSE,
                           breaks = "quantile",
                           nbreaks,
-                          border = getOption("mapsf.fg"),
+                          border,
                           lwd = .7,
                           col_na = "white",
                           leg_pos = mf_get_leg_pos(x, 1),
@@ -82,18 +82,28 @@ mf_prop_choro <- function(x,
                           leg_val_rnd = c(0, 2),
                           leg_no_data = "No data",
                           leg_frame = c(FALSE, FALSE),
-                          leg_frame_border = getOption("mapsf.fg"),
+                          leg_frame_border,
                           leg_horiz = c(FALSE, FALSE),
                           leg_adj = c(0, 0),
-                          leg_fg = getOption("mapsf.fg"),
-                          leg_bg = getOption("mapsf.bg"),
+                          leg_fg,
+                          leg_bg,
                           leg_size = 1,
-                          leg_box_border = getOption("mapsf.fg"),
+                          leg_box_border,
                           leg_box_cex = c(1, 1),
                           add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  pal <- go(pal, "pal_seq", "Mint")
+  leg_box_border <- go(leg_box_border, "highlight")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
+  border <- go(border, "foreground")
 
   var2 <- var[2]
   var1 <- var[1]
@@ -161,16 +171,26 @@ mf_prop_choro <- function(x,
   )
 
   leg_pos <- split_leg(leg_pos)
+
+  border <- getOption("mapsf.highlight")
+  if (is.null(getOption("mapsf.legacy"))) {
+    ccol <- getOption("mapsf.foreground")
+  } else {
+    ccol <- "grey80"
+  }
+  if (all(leg_frame, !leg_horiz)) {
+    ccol <- getOption("mapsf.background")
+  }
+
   if (length(leg_pos) == 1) {
     ## TEST Double args
-
     la1 <- list(
       type = "prop",
       val = val,
       title = leg_title[1],
       symbol = symbol,
       inches = size_max,
-      col = "grey80",
+      col = ccol,
       val_rnd = leg_val_rnd[1],
       border = border,
       lwd = lwd,
@@ -203,7 +223,7 @@ mf_prop_choro <- function(x,
     leg(
       type = "prop",
       pos = leg_pos[[1]], val = val, title = leg_title[1],
-      symbol = symbol, inches = size_max, col = "grey80",
+      symbol = symbol, inches = size_max, col = ccol,
       title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
       val_rnd = leg_val_rnd[1],
       horiz = leg_horiz[1],
@@ -221,9 +241,6 @@ mf_prop_choro <- function(x,
       size = leg_size, box_border = leg_box_border, box_cex = leg_box_cex
     )
   }
-
-
-
 
   return(invisible(x))
 }

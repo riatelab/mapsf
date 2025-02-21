@@ -19,11 +19,12 @@
 #' mf_layout()
 mf_layout <- function(title = "Map Title",
                       credits = "Authors & Sources",
-                      scale = TRUE, arrow = TRUE, frame = FALSE) {
+                      scale = TRUE, arrow = TRUE,
+                      frame = FALSE) {
   test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-  fg <- getOption("mapsf.fg")
+  fg <- go(opt = "highlight")
 
   if (title != "") {
     mf_title(txt = title)

@@ -4,18 +4,25 @@
 #' foreground colors and some \link{mf_title} options.
 #' Use \code{mf_theme(NULL)} or \code{mf_theme('default')} to reset to default
 #' theme settings.
+#'
 #' @param x name of a map theme. One of "default", "brutal", "ink",
 #' "dark", "agolalight", "candy", "darkula", "iceberg", "green", "nevermind",
 #' "jsk", "barcelona".
-#' @param bg background color
-#' @param fg foreground color
 #' @param mar margins
-#' @param pos title position, one of 'left', 'center', 'right'
-#' @param tab if TRUE the title is displayed as a 'tab'
-#' @param cex cex of the title
-#' @param font font of the title
-#' @param line number of lines used for the title
-#' @param inner if TRUE the title is displayed inside the plot area.
+#' @param title_pos title position, one of 'left', 'center', 'right'
+#' @param title_tab if TRUE the title is displayed as a 'tab'
+#' @param title_cex cex of the title
+#' @param title_font font of the title
+#' @param title_line number of lines used for the title
+#' @param title_inner if TRUE the title is displayed inside the plot area.
+#' @param title_banner if TRUE the title is displayed as a banner
+#' @param foreground foreground color
+#' @param background background color
+#' @param highlight highlight color
+#' @param pal_quali default qualitative color palette (name or function)
+#' @param pal_seq default sequential color palettte (name or function)
+#' @param ... other argument, ignored
+#'
 #' @details
 #' It is also possible to set a custom theme using a list of arguments
 #' (see Examples).
@@ -73,83 +80,117 @@
 #' # or
 #' mf_theme("default")
 mf_theme <- function(x,
-                     bg,
-                     fg,
                      mar,
-                     tab,
-                     pos,
-                     inner,
-                     line,
-                     cex,
-                     font) {
+                     title_tab,
+                     title_pos,
+                     title_inner,
+                     title_line,
+                     title_cex,
+                     title_font,
+                     title_banner,
+                     foreground,
+                     background,
+                     highlight,
+                     pal_quali,
+                     pal_seq, ...) {
   # current theme
   theme <- list(
-    bg = getOption("mapsf.bg"),
-    fg = getOption("mapsf.fg"),
-    mar = getOption("mapsf.mar"),
-    tab = getOption("mapsf.tab"),
-    pos = getOption("mapsf.pos"),
-    inner = getOption("mapsf.inner"),
-    line = getOption("mapsf.line"),
-    cex = getOption("mapsf.cex"),
-    font = getOption("mapsf.font")
+    mar          = getOption("mapsf.mar"),
+    title_tab    = getOption("mapsf.title_tab"),
+    title_pos    = getOption("mapsf.title_pos"),
+    title_inner  = getOption("mapsf.title_inner"),
+    title_line   = getOption("mapsf.title_line"),
+    title_cex    = getOption("mapsf.title_cex"),
+    title_font   = getOption("mapsf.title_font"),
+    title_banner = getOption("mapsf.title_banner"),
+    foreground   = getOption("mapsf.foreground"),
+    background   = getOption("mapsf.background"),
+    highlight    = getOption("mapsf.highlight"),
+    pal_quali    = getOption("mapsf.pal_quali"),
+    pal_seq      = getOption("mapsf.pal_seq"),
+    legacy       = getOption("mapsf.legacy")
   )
 
   # if no arg input => return param list
-  defined <- ls()
-  passed <- names(as.list(match.call())[-1])
-  if (!any(passed %in% defined)) {
+  argx <- as.list(match.call()[-1])
+  if (length(argx) == 0) {
     return(theme)
   }
 
+
   # input a theme name
   if (!missing(x)) {
-    # if is.null(x) => set default theme
+    # if is.null(x) => set base theme
     if (is.null(x)) {
-      x <- "default"
+      x <- "base"
     }
     # if x is a list of args
     if (is.list(x)) {
-      theme <- x
+      argx <- theme <- x
     } else {
-      theme_names <- names(.gmapsf$themes)
-      if (!x %in% theme_names) {
-        stop(
-          paste0(
-            "x should be one of ",
-            paste0(theme_names, collapse = ", ")
-          ),
-          call. = FALSE
-        )
+      if (!x %in% names(.gmapsf$themes)) {
+        stop("x is not a theme name.", call. = FALSE)
       } else {
         theme <- .gmapsf$themes[[x]]
       }
     }
   }
 
+
   # modify theme param
-  if (!missing(bg)) theme$bg <- bg
-  if (!missing(fg)) theme$fg <- fg
+  legacy_argx <- c(
+    argx$bg, argx$fg, argx$tab, argx$pos,
+    argx$inner, argx$line, argx$cex, argx$font
+  )
+  if (!is.null(legacy_argx)) {
+    theme$legacy <- TRUE
+    theme$title_banner <- TRUE
+    theme$pal_quali <- "Dynamic"
+    theme$pal_seq <- "Mint"
+    if (!is.null(argx$bg)) theme$background <- argx$bg
+    if (!is.null(argx$fg)) theme$foreground <- argx$fg
+    if (!is.null(argx$fg)) theme$highlight <- argx$fg
+    if (!is.null(argx$tab)) theme$title_tab <- argx$tab
+    if (!is.null(argx$pos)) theme$title_pos <- argx$pos
+    if (!is.null(argx$inner)) theme$title_inner <- argx$inner
+    if (!is.null(argx$line)) theme$title_line <- argx$line
+    if (!is.null(argx$cex)) theme$title_cex <- argx$cex
+    if (!is.null(argx$font)) theme$title_font <- argx$font
+  } else {
+    if (!missing(title_tab)) theme$title_tab <- title_tab
+    if (!missing(title_pos)) theme$title_pos <- title_pos
+    if (!missing(title_inner)) theme$title_inner <- title_inner
+    if (!missing(title_line)) theme$title_line <- title_line
+    if (!missing(title_cex)) theme$title_cex <- title_cex
+    if (!missing(title_font)) theme$title_font <- title_font
+    if (!missing(title_banner)) theme$title_banner <- title_banner
+    if (!missing(foreground)) theme$foreground <- foreground
+    if (!missing(background)) theme$background <- background
+    if (!missing(highlight)) theme$highlight <- highlight
+    if (!missing(pal_quali)) theme$pal_quali <- pal_quali
+    if (!missing(pal_seq)) theme$pal_seq <- pal_seq
+  }
   if (!missing(mar)) theme$mar <- mar
-  if (!missing(tab)) theme$tab <- tab
-  if (!missing(pos)) theme$pos <- pos
-  if (!missing(inner)) theme$inner <- inner
-  if (!missing(line)) theme$line <- line
-  if (!missing(cex)) theme$cex <- cex
-  if (!missing(font)) theme$font <- font
+
 
   # set theme options
   options(
-    mapsf.bg = theme$bg,
-    mapsf.fg = theme$fg,
-    mapsf.mar = theme$mar,
-    mapsf.tab = theme$tab,
-    mapsf.pos = theme$pos,
-    mapsf.inner = theme$inner,
-    mapsf.line = theme$line,
-    mapsf.cex = theme$cex,
-    mapsf.font = theme$font
+    mapsf.mar          = theme$mar,
+    mapsf.title_tab    = theme$title_tab,
+    mapsf.title_pos    = theme$title_pos,
+    mapsf.title_inner  = theme$title_inner,
+    mapsf.title_line   = theme$title_line,
+    mapsf.title_cex    = theme$title_cex,
+    mapsf.title_font   = theme$title_font,
+    mapsf.title_banner = theme$title_banner,
+    mapsf.foreground   = theme$foreground,
+    mapsf.background   = theme$background,
+    mapsf.highlight    = theme$highlight,
+    mapsf.pal_quali    = theme$pal_quali,
+    mapsf.pal_seq      = theme$pal_seq,
+    mapsf.legacy       = theme$legacy
   )
+
 
   return(invisible(as.list(theme)))
 }

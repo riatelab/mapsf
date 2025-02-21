@@ -53,10 +53,7 @@ mf_scale <- function(size,
                      scale_units = "km",
                      x) {
   test_cur_plot()
-  # default color
-  if (missing(col)) {
-    col <- getOption("mapsf.fg")
-  }
+  col <- go(col, "highlight")
   # get the current plot dimensions
   pu <- par("usr")
   inset <- xinch(par("csi")) / 4

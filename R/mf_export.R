@@ -77,7 +77,7 @@ mf_export <- function(x,
   }
 
   mar <- getOption("mapsf.mar")
-  bgmap <- getOption("mapsf.bg")
+  bgmap <- getOption("mapsf.background")
 
   # transform to bbox
   bb <- st_bbox(x)

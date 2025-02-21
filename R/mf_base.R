@@ -10,7 +10,6 @@
 #' 'alpha',
 #' 'add'))
 #' @param cex point size
-#' @param bg background color
 #' @param lty line or border type
 #' @param ... further parameters from \link{plot} for sfc objects
 #' @importFrom sf st_geometry
@@ -23,10 +22,9 @@
 #' mf_map(mtq, type = "base")
 #' mf_map(mtq, type = "base", col = "blue")
 mf_base <- function(x,
-                    col = "grey80",
-                    border = "grey20",
+                    col,
+                    border,
                     alpha = NULL,
-                    bg = "white",
                     cex = 1,
                     pch = 20,
                     lwd = .7,
@@ -45,9 +43,7 @@ mf_base <- function(x,
   xtype <- get_geom_type(x)
 
   if (xtype == "LINE") {
-    if (missing(col)) {
-      col <- "grey20"
-    }
+    col <- go(col, "highlight", "grey20")
     if (!is.null(alpha)) {
       col <- get_hex_pal(col, alpha)
     }
@@ -59,6 +55,8 @@ mf_base <- function(x,
   }
 
   if (xtype == "POLYGON") {
+    col <- go(col, "foreground", "grey80")
+    border <- go(border, "highlight", "grey20")
     if (!is.null(alpha)) {
       col <- get_hex_pal(col, alpha)
     }
@@ -70,15 +68,13 @@ mf_base <- function(x,
   }
 
   if (xtype == "POINT") {
-    if (missing(col)) {
-      col <- "grey20"
-    }
+    col <- go(col, "highlight", "grey20")
     if (!is.null(alpha)) {
       col <- get_hex_pal(col, alpha)
     }
     if (pch %in% 21:25) {
       if (missing(border)) {
-        border <- "grey80"
+        border <- go(border, "foreground", "grey80")
       }
       mycolspt <- border
     } else {

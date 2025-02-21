@@ -48,9 +48,9 @@ mf_prop <- function(x,
                     val_max,
                     lwd_max = 20,
                     symbol = "circle",
-                    col = "tomato4",
+                    col,
                     alpha = NULL,
-                    border = getOption("mapsf.fg"),
+                    border,
                     lwd = .7,
                     leg_pos = mf_get_leg_pos(x),
                     leg_title = var,
@@ -58,16 +58,27 @@ mf_prop <- function(x,
                     leg_val_cex = .6,
                     leg_val_rnd = 0,
                     leg_frame = FALSE,
-                    leg_frame_border = getOption("mapsf.fg"),
+                    leg_frame_border,
                     leg_horiz = FALSE,
                     leg_adj = c(0, 0),
-                    leg_fg = getOption("mapsf.fg"),
-                    leg_bg = getOption("mapsf.bg"),
+                    leg_fg,
+                    leg_bg,
                     leg_size = 1,
                     add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  col <- go(col, "highlight", "tomato4")
+  border <- go(border, "foreground")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
+
+
 
   if (!is.null(alpha)) {
     col <- get_hex_pal(col, alpha)
@@ -92,11 +103,20 @@ mf_prop <- function(x,
     val <- seq(min(xl[[var]]), max(xl[[var]]), length.out = 4)
     leg(
       type = "prop_line",
-      pos = leg_pos, val = val, lwd = max(xl$lwd), col = col,
-      title = leg_title, title_cex = leg_title_cex,
-      val_cex = leg_val_cex, val_rnd = leg_val_rnd,
-      frame = leg_frame, bg = leg_bg, fg = leg_fg, adj = leg_adj,
-      frame_border = leg_frame_border, size = leg_size
+      pos = leg_pos,
+      val = val,
+      lwd = max(xl$lwd),
+      col = col,
+      title = leg_title,
+      title_cex = leg_title_cex,
+      val_cex = leg_val_cex,
+      val_rnd = leg_val_rnd,
+      frame = leg_frame,
+      bg = leg_bg,
+      fg = leg_fg,
+      adj = leg_adj,
+      frame_border = leg_frame_border,
+      size = leg_size
     )
 
     par(op2)
@@ -150,16 +170,33 @@ mf_prop <- function(x,
     inches = inches
   )
 
+  border <- getOption("mapsf.foreground")
+  if (all(leg_frame, !leg_horiz, is.null(getOption("mapsf.legacy")))) {
+    border <- getOption("mapsf.background")
+  }
+
   # symbols size
   leg(
     type = "prop",
-    pos = leg_pos, val = val, title = leg_title,
-    symbol = symbol, inches = size_max, col = col,
-    title_cex = leg_title_cex, val_cex = leg_val_cex,
-    val_rnd = leg_val_rnd, horiz = leg_horiz,
-    frame = leg_frame, border = border, lwd = lwd, adj = leg_adj,
-    bg = leg_bg, fg = leg_fg, self_adjust = TRUE,
-    mar = getOption("mapsf.mar"), frame_border = leg_frame_border,
+    pos = leg_pos,
+    val = val,
+    title = leg_title,
+    symbol = symbol,
+    inches = size_max,
+    col = col,
+    title_cex = leg_title_cex,
+    val_cex = leg_val_cex,
+    val_rnd = leg_val_rnd,
+    horiz = leg_horiz,
+    frame = leg_frame,
+    border = border,
+    lwd = lwd,
+    adj = leg_adj,
+    bg = leg_bg,
+    fg = leg_fg,
+    self_adjust = TRUE,
+    mar = getOption("mapsf.mar"),
+    frame_border = leg_frame_border,
     size = leg_size
   )
 

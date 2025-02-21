@@ -4,13 +4,7 @@
 \alias{mf_arrow}
 \title{Plot a north arrow}
 \usage{
-mf_arrow(
-  pos = "topleft",
-  col = getOption("mapsf.fg"),
-  cex = 1,
-  adj = c(0, 0),
-  align
-)
+mf_arrow(pos = "topleft", col, cex = 1, adj = c(0, 0), align)
 }
 \arguments{
 \item{pos}{position. It can be one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of two coordinates in map units (c(x, y))}

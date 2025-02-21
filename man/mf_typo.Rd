@@ -7,11 +7,11 @@
 mf_typo(
   x,
   var,
-  pal = "Dynamic",
+  pal,
   alpha = NULL,
   rev = FALSE,
   val_order,
-  border = getOption("mapsf.fg"),
+  border,
   pch = 21,
   cex = 1,
   lwd = 0.7,
@@ -24,13 +24,13 @@ mf_typo(
   leg_val_cex = 0.6,
   leg_no_data = "No data",
   leg_frame = FALSE,
-  leg_frame_border = getOption("mapsf.fg"),
+  leg_frame_border,
   leg_adj = c(0, 0),
   leg_size = 1,
-  leg_box_border = getOption("mapsf.fg"),
+  leg_box_border,
   leg_box_cex = c(1, 1),
-  leg_fg = getOption("mapsf.fg"),
-  leg_bg = getOption("mapsf.bg"),
+  leg_fg,
+  leg_bg,
   add = FALSE
 )
 }

@@ -44,7 +44,7 @@
 #' )
 #' mf_map(mtq, add = TRUE)
 mf_graticule <- function(x,
-                         col = col,
+                         col,
                          lwd = 1,
                          lty = 1,
                          expandBB = rep(0, 4),
@@ -52,12 +52,11 @@ mf_graticule <- function(x,
                          pos = c("top", "left"),
                          cex = .7,
                          add = TRUE) {
-  if (missing(col)) {
-    col <- getOption("mapsf.fg")
-  }
   if (add == FALSE) {
     mf_init(x, expandBB = expandBB)
   }
+
+  col <- go(col, "highlight")
 
   g <- sf::st_graticule(st_as_sfc(st_bbox(x)))
 

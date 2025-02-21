@@ -21,162 +21,234 @@ globalVariables(".gmapsf", package = "mapsf", add = FALSE)
   "interactive"
 )
 
-
+go <- function(x, opt, legacy) {
+  if (missing(x)) {
+    if (is.null(getOption("mapsf.legacy")) || missing(legacy)) {
+      x <- getOption(paste0("mapsf.", opt))
+    } else {
+      x <- legacy
+    }
+  }
+  return(x)
+}
 
 .gmapsf$themes <- list(
+  base = list(
+    mar          = c(0.5, 0.5, 2.25, 0.5),
+    title_tab    = FALSE,
+    title_pos    = "center",
+    title_inner  = FALSE,
+    title_line   = 1.75,
+    title_cex    = 1.25,
+    title_font   = 2,
+    title_banner = TRUE,
+    foreground   = "#B8C4CE",
+    background   = "#F9F6EE",
+    highlight    = "#500f27",
+    pal_quali    = "Dark 3",
+    pal_seq      = colorRampPalette(c("#D4E1EC", "#6A8398", "#103E65"))
+  ),
   default = list(
-    bg = "#f7f7f7",
-    fg = "#333333",
     mar = c(.5, .5, 1.7, .5),
-    tab = TRUE,
-    pos = "left",
-    inner = FALSE,
-    line = 1.2,
-    cex = 1,
-    font = 1
+    title_tab = TRUE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 1.2,
+    title_cex = 1,
+    title_font = 1,
+    title_banner = TRUE,
+    foreground = "#333333",
+    background = "#f7f7f7",
+    highlight = "#333333",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   brutal = list(
-    bg = "#FFFFFF",
-    fg = "#3b4252",
+    background = "#FFFFFF",
+    foreground = "#3b4252",
     mar = c(5.1, 4.1, 4.1, 2.1),
-    tab = TRUE,
-    pos = "left",
-    inner = FALSE,
-    line = 2,
-    cex = 1.5,
-    font = 2
+    title_tab = TRUE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 2,
+    title_cex = 1.5,
+    title_font = 2,
+    highlight = "#3b4252",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   ink = list(
-    bg = "#FFDEAD",
-    fg = "#0000FF",
+    background = "#FFDEAD",
+    foreground = "#0000FF",
     mar = c(0, 0, 1.2, 0),
-    tab = FALSE,
-    pos = "left",
-    inner = FALSE,
-    line = 1.2,
-    cex = .9,
-    font = 2
+    title_tab = FALSE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 1.2,
+    title_cex = .9,
+    title_font = 2,
+    highlight = "#0000FF",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   dark = list(
-    bg = "#2E3947",
-    fg = "#7E848C",
+    background = "#2E3947",
+    foreground = "#7E848C",
     mar = c(0.5, 0.5, 2, 0.5),
-    tab = FALSE,
-    pos = "left",
-    inner = FALSE,
-    line = 1.5,
-    cex = 1,
-    font = 1
+    title_tab = FALSE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 1.5,
+    title_cex = 1,
+    title_font = 1,
+    highlight = "#7E848C",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   agolalight = list(
-    bg = "#EDF4F5",
-    fg = "#82888A",
+    background = "#EDF4F5",
+    foreground = "#82888A",
     mar = c(0, 0, 2, 0),
-    tab = FALSE,
-    pos = "left",
-    inner = FALSE,
-    line = 2,
-    cex = 1.5,
-    font = 3
+    title_tab = FALSE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 2,
+    title_cex = 1.5,
+    title_font = 3,
+    highlight = "#82888A",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   candy = list(
-    bg = "#FDFCFE",
-    fg = "#6B1767",
+    background = "#FDFCFE",
+    foreground = "#6B1767",
     mar = c(0, 0, 2, 0),
-    tab = FALSE,
-    pos = "center",
-    inner = FALSE,
-    line = 2,
-    cex = 1.5,
-    font = 2
+    title_tab = FALSE,
+    title_pos = "center",
+    title_inner = FALSE,
+    title_line = 2,
+    title_cex = 1.5,
+    title_font = 2,
+    highlight = "#6B1767",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   darkula = list(
-    bg = "#232525",
-    fg = "#A9B7C6",
+    background = "#232525",
+    foreground = "#A9B7C6",
     mar = c(0.5, 0.5, 0.5, 0.5),
-    tab = TRUE,
-    pos = "right",
-    inner = TRUE,
-    line = 1.5,
-    cex = 1,
-    font = 4
+    title_tab = TRUE,
+    title_pos = "right",
+    title_inner = TRUE,
+    title_line = 1.5,
+    title_cex = 1,
+    title_font = 4,
+    highlight = "#A9B7C6",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   iceberg = list(
-    bg = "#0B0E0E",
-    fg = "#BDD6DB",
+    background = "#0B0E0E",
+    foreground = "#BDD6DB",
     mar = c(0.5, 0.5, 0.5, 0.5),
-    tab = TRUE,
-    pos = "right",
-    inner = TRUE,
-    line = 1.5,
-    cex = 1,
-    font = 4
+    title_tab = TRUE,
+    title_pos = "right",
+    title_inner = TRUE,
+    title_line = 1.5,
+    title_cex = 1,
+    title_font = 4,
+    highlight = "#BDD6DB",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   green = list(
-    bg = "#1B1D16",
-    fg = "#D7FF68",
+    background = "#1B1D16",
+    foreground = "#D7FF68",
     mar = c(0.5, 0.5, 2, 0.5),
-    tab = FALSE,
-    pos = "center",
-    inner = FALSE,
-    line = 1.5,
-    cex = 1,
-    font = 2
+    title_tab = FALSE,
+    title_pos = "center",
+    title_inner = FALSE,
+    title_line = 1.5,
+    title_cex = 1,
+    title_font = 2,
+    highlight = "#D7FF68",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   nevermind = list(
-    bg = "#4DB8DA",
-    fg = "#121725",
+    background = "#4DB8DA",
+    foreground = "#121725",
     mar = c(2, 2, 3.5, 2),
-    tab = FALSE,
-    pos = "center",
-    inner = FALSE,
-    line = 1.5,
-    cex = 1.4,
-    font = 1
+    title_tab = FALSE,
+    title_pos = "center",
+    title_inner = FALSE,
+    title_line = 1.5,
+    title_cex = 1.4,
+    title_font = 1,
+    highlight = "#121725",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   jsk = list(
-    bg = "#ffdc11",
-    fg = "#0c973c",
+    background = "#ffdc11",
+    foreground = "#0c973c",
     mar = c(0, 0, 1.5, 0),
-    tab = FALSE,
-    pos = "left",
-    inner = FALSE,
-    line = 1.5,
-    cex = 1,
-    font = 2
+    title_tab = FALSE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 1.5,
+    title_cex = 1,
+    title_font = 2,
+    highlight = "#0c973c",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   ),
   barcelona = list(
-    bg = "#160808",
-    fg = "#d73e23",
+    background = "#160808",
+    foreground = "#d73e23",
     mar = c(0, 0, 1.2, 0),
-    tab = TRUE,
-    pos = "left",
-    inner = FALSE,
-    line = 1.2,
-    cex = 1,
-    font = 2
+    title_tab = TRUE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 1.2,
+    title_cex = 1,
+    title_font = 2,
+    highlight = "#d73e23",
+    pal_quali = "Set 2",
+    pal_seq = "Mint",
+    legacy = TRUE
   )
 )
 
 
 .onLoad <- function(libname, pkgname) {
-  load_default_theme()
-}
-
-
-
-load_default_theme <- function() {
-  theme <- .gmapsf$themes$default
+  theme <- .gmapsf$themes$base
   options(
-    mapsf.bg = theme$bg,
-    mapsf.fg = theme$fg,
-    mapsf.mar = theme$mar,
-    mapsf.tab = theme$tab,
-    mapsf.pos = theme$pos,
-    mapsf.inner = theme$inner,
-    mapsf.line = theme$line,
-    mapsf.cex = theme$cex,
-    mapsf.font = theme$font
+    mapsf.mar          = theme$mar,
+    mapsf.title_tab    = theme$title_tab,
+    mapsf.title_pos    = theme$title_pos,
+    mapsf.title_inner  = theme$title_inner,
+    mapsf.title_line   = theme$title_line,
+    mapsf.title_cex    = theme$title_cex,
+    mapsf.title_font   = theme$title_font,
+    mapsf.title_banner = theme$title_banner,
+    mapsf.foreground   = theme$foreground,
+    mapsf.background   = theme$background,
+    mapsf.highlight    = theme$highlight,
+    mapsf.pal_quali    = theme$pal_quali,
+    mapsf.pal_seq      = theme$pal_seq,
+    mapsf.legacy       = theme$legacy
   )
 }
 

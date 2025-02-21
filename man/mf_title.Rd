@@ -4,14 +4,14 @@
 \alias{mf_title}
 \title{Plot a title}
 \usage{
-mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner)
+mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner, banner)
 }
 \arguments{
 \item{txt}{title text}
 
 \item{pos}{position, one of 'left', 'center', 'right'}
 
-\item{tab}{if TRUE the title is displayed as a 'tab'}
+\item{tab}{if TRUE the title is displayed as a tab}
 
 \item{bg}{background of the title}
 
@@ -23,7 +23,9 @@ mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner)
 
 \item{font}{font of the title}
 
-\item{inner}{if TRUE the title is displayed inside the plot area.}
+\item{inner}{if TRUE the title is displayed inside the plot area}
+
+\item{banner}{if TRUE the title is dispalayed as a banner}
 }
 \value{
 No return value, a title is displayed.

@@ -20,9 +20,9 @@ mf_credits <- function(txt = "Source(s) & Author(s)",
                        font = 3,
                        bg = NA) {
   test_cur_plot()
-  if (missing(col)) {
-    col <- getOption("mapsf.fg")
-  }
+
+  col <- go(col, "highlight")
+
   pd <- par("usr")
   pdp <- xinch(par("csi")) / 4
 

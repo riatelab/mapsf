@@ -7,7 +7,9 @@
 #' @importFrom grDevices hcl.pals hcl.colors
 get_the_pal <- function(pal, nbreaks, alpha, rev = TRUE) {
   if (length(pal) == 1) {
-    if (pal %in% hcl.pals()) {
+    if (is.function(pal)) {
+      cols <- pal(nbreaks)
+    } else if (pal %in% hcl.pals()) {
       cols <- hcl.colors(n = nbreaks, palette = pal, rev = rev)
     } else {
       cols <- rep(pal, nbreaks)

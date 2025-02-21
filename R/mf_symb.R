@@ -49,9 +49,9 @@ mf_symb <- function(x, var,
                     pal = "Dynamic",
                     alpha = NULL,
                     rev = FALSE,
-                    border = getOption("mapsf.fg"),
+                    border,
                     pch,
-                    cex = 1,
+                    cex = 1.5,
                     lwd = .7,
                     col_na = "grey",
                     pch_na = 4,
@@ -64,15 +64,26 @@ mf_symb <- function(x, var,
                     leg_val_rnd = 2,
                     leg_no_data = "No data",
                     leg_frame = FALSE,
-                    leg_frame_border = getOption("mapsf.fg"),
+                    leg_frame_border,
                     leg_adj = c(0, 0),
-                    leg_fg = getOption("mapsf.fg"),
-                    leg_bg = getOption("mapsf.bg"),
+                    leg_fg,
+                    leg_bg,
                     leg_size = 1,
                     add = TRUE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  border <- go(border, "foreground")
+  leg_fg <- go(leg_fg, "highlight")
+  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
+  leg_frame_border <- go(
+    leg_frame_border, "foreground",
+    getOption("mapsf.highlight")
+  )
+  pal <- go(pal, "pal_quali", "Dynamic")
+
+
 
   xout <- x
   # Transform to point
@@ -95,7 +106,7 @@ mf_symb <- function(x, var,
   )
 
   if (missing(pch)) {
-    pchs <- c(0:25, 32:127)
+    pchs <- c(21:25, 0:20, 32:127)
     pch <- pchs[seq_along(val_order)]
   }
   if (length(pch) != length(val_order)) {
