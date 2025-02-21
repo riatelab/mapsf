@@ -17,10 +17,14 @@
 ^README\.Rmd$
 ^test
 ^\.github$
-^vignettes/web_only/*
 ^CITATION\.cff$
 ^codecov\.yml$
 ^map.png
 ^note.md
 ^LICENSE\.md$
 ^CONTRIBUTING\.md$
+^altdoc$
+^vignettes/how_to*
+^vignettes/cheat_sheet.Rmd
+^vignettes/fig/wo_*
+^vignettes/fig/mapsf_cheatsheet.*

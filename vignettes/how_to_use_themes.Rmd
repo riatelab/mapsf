@@ -14,7 +14,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.width = 4,
-  fig.height = 4
+  fig.height = 4, 
+  fig.path = "fig/wo_theme_"
 )
 ```
 
@@ -97,5 +98,3 @@ mf_theme(green_theme)
 mf_map(mtq)
 mf_title("Green Theme")
 ```
-
-

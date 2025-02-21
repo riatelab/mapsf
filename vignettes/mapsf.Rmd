@@ -52,17 +52,15 @@ Along with the cartographic functions, some other functions are dedicated to lay
 
 The following map types are available:
 
-|   |   |
-|-------|--------------------------------------------------------------------|
-| ![](fig/mf_base.svg)         | **base**: displays sf objects geometries                                                |
-| ![](fig/mf_prop.svg)         | **prop**: displays symbols with areas proportional to a quantitative variable (stocks)  |
-| ![](fig/mf_choro.svg)        | **choro**: areas are shaded according to the variation of a quantitative variable       |
-| ![](fig/mf_typo.svg)         | **typo**: displays a typology map of a qualitative variable                             |
-| ![](fig/mf_symb.svg)         | **symb**: displays the different modalities of a qualitative variable as symbols        |
-| ![](fig/mf_grad.svg)         | **grad**: displays graduated symbols                                                    |
-| ![](fig/mf_prop_choro.svg)   | **prop_choro**: displays symbols with sizes proportional to values of a first variable and colored to reflect the classification of a second quantitative variable.      |
-| ![](fig/mf_prop_typo.svg)    | **prop_typo**: displays symbols with sizes proportional to values of a first variable and and colored to reflect the modalities of a second qualitative variable         |
-| ![](fig/mf_symb_choro.svg)   | **symb_choro**: displays the different modalities of a first qualitative variable as symbols colored to reflect the classification of a second quantitative variable     |    
+* ![](fig/mf_base.svg) **base**: displays sf objects geometries  
+* ![](fig/mf_prop.svg) **prop**: displays symbols with areas proportional to a quantitative variable (stocks)  
+* ![](fig/mf_choro.svg) **choro**: areas are shaded according to the variation of a quantitative variable   
+* ![](fig/mf_typo.svg) **typo**: displays a typology map of a qualitative variable    
+* ![](fig/mf_symb.svg) **symb**: displays the different modalities of a qualitative variable as symbols  
+* ![](fig/mf_grad.svg) **grad**: displays graduated symbols   
+* ![](fig/mf_prop_choro.svg) **prop_choro**: displays symbols with sizes proportional to values of a first variable and colored to reflect the classification of a second quantitative variable  
+* ![](fig/mf_prop_typo.svg) **prop_typo**: displays symbols with sizes proportional to values of a first variable and and colored to reflect the modalities of a second qualitative variable   
+* ![](fig/mf_symb_choro.svg) **symb_choro**: displays the different modalities of a first qualitative variable as symbols colored to reflect the classification of a second quantitative variable  
 
 
 Additionaly, `mf_raster()` can be used to displays raster objects (single/multi band, continuous, classes, intervals). 
@@ -93,7 +91,7 @@ These functions are dedicated to the map layout design.
 
 `mf_theme()` sets a map theme. A theme is a set of graphical parameters that are applied to maps created with `mapsf`. These parameters are the figure margins, background and foreground colors and `mf_title()` options. `mapsf` offers some builtin themes. It’s possible to modify an existing theme or to start a theme from scratch. Themes are persistent across maps produced by mapsf (e.g. they survive a `dev.off()` call).
 
-&#128279; See the online vignette: [How to use themes](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_themes.html) 
+&#128279; See the online vignette: [How to use themes](https://riatelab.github.io/mapsf/#/vignettes/how_to_use_themes) 
 
 ## Export
 
@@ -102,7 +100,7 @@ The exported map width/height ratio will match the one of a spatial object.
 If width is specified, then height is deduced from the width/height ratio of x and some theme parameters (figure margins and title size).  
 If height is specified, then width is deduced from the width/height ratio of xand some theme parameters (figure margins and title size).
 
-&#128279; See the online vignette: [How to export maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_export_maps.html) 
+&#128279; See the online vignette: [How to export maps](https://riatelab.github.io/mapsf/#/vignettes/how_to_export_maps) 
 
 ## Datasets
 

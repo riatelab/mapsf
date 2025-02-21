@@ -16,7 +16,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.width = 4,
-  fig.height = 4
+  fig.height = 4, 
+  eval = FALSE
 )
 ```
 
@@ -45,7 +46,7 @@ mf_title(txt = "PNG export: width=500px, height=605px (deduced)")
 dev.off()
 ```
 
-![](fixed_width.png)
+![](fig/wo_export_fixed_width.png)
 
 **Note that we have to set `add = TRUE` to the first layer plotted.** Internally, `mf_export()` start a device (PNG or SVG) with a specific dimension (figure size) and extent (`x` extent). 
 
@@ -67,7 +68,7 @@ mf_title(txt = "PNG export: width=500px, height=432px (deduced)")
 dev.off()
 mf_theme(NULL)
 ```
-![](fixed_width_expand.png)
+![](fig/wo_export_fixed_width_expand.png)
 
 **Note that `mf_export()` uses the current theme. If a theme is set between an `mf_export()` call and a `dev.off()` call it will not be correctly applied.**
 
@@ -85,7 +86,7 @@ mf_title(txt = "PNG export: height=600px, width=433px (deduced)")
 mf_scale(1, pos = "bottomleft")
 dev.off()
 ```
-![](fixed_height_centered.png)
+![](fig/wo_export_fixed_height_centered.png)
 
 ## Other Parameters
 `mf_export()` can produce SVG figures (with `export = "svg"`) and use other parameters of `png()` or `svg()` functions (e.g. `res`, `bg` or `family`).
@@ -104,8 +105,4 @@ dev.off()
 mf_theme(NULL)
 ```
 
-![](fixed_width.svg)
-
-
-
-
+![](fig/wo_export_fixed_width.svg)

@@ -11,11 +11,11 @@ vignette: >
 
 
 To use a custom font family, the user can use the `family` argument of the `par()` function before plotting the map.
-For example, use `par(family = "Fira Mono")` to use the **Fira Mono** font.   
+For example, use `par(family = "Fira Code")` to use the **Fira Code** font.   
 Note that the font has to be installed on your system and recognized by R. 
 
 
-```{r font, fig.width = 6, fig.height = 7, cache=FALSE, dpi=110, eval = F, fig.path="img/"}
+```{r a, fig.width = 6, fig.height = 7, cache=FALSE, dpi=110, eval = FALSE, fig.path="fig/wo_font_"}
 library(mapsf)
 library(sf)
 # Import the sample data set
@@ -52,4 +52,4 @@ mf_layout(
 )
 ```
 
-![](img/font-1.png)
+![](fig/wo_font_a-1.png)
