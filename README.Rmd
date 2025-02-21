@@ -15,12 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-<img src="man/figures/logo.png" align="right" width="120"/>
-<br><br><br>
-
-
-
 # mapsf 
+<img src="man/figures/logo.png" align="right" width="120"/>
+
 
 <!-- badges: start -->
 
@@ -32,6 +29,8 @@ knitr::opts_chunk$set(
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8704/badge)](https://www.bestpractices.dev/projects/8704)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
+
+
 
 Create and integrate thematic maps in your R workflow. This package helps to 
 design various cartographic representations such as proportional
