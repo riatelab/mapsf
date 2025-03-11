@@ -15,6 +15,7 @@
     - [mf_graticule()](man/mf_graticule)
   - Map layout
     - [mf_theme()](man/mf_theme)
+    - [mf_theme()](man/mf_frame)
     - [mf_shadow()](man/mf_shadow)
     - [mf_background()](man/mf_background)
     - [mf_legend()](man/mf_legend)
