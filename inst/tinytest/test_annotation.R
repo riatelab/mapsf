@@ -22,3 +22,5 @@ expect_silent(mf_annotation(x = mtq[20, ], pos = "bottomleft",
                             txt = "This", halo = FALSE))
 expect_silent(mf_annotation(x = mtq[20, ], pos = "bottomright",
                             txt = "This", halo = TRUE))
+expect_silent(mf_annotation(x = mtq[20, ], pos = "center",
+                            txt = "This", halo = TRUE))
