@@ -63,6 +63,9 @@ mf_distr <- function(x, nbins, bw) {
   dy <- d$y[d$x >= x_lim[1] & d$x <= x_lim[2]]
 
   # actual plot
+  op <- par(bg = getOption("mapsf.background"), no.readonly = TRUE)
+  on.exit(par(op))
+
   hist(
     x,
     breaks = h$breaks,
@@ -72,34 +75,50 @@ mf_distr <- function(x, nbins, bw) {
     axes = FALSE,
     xlab = "",
     main = "Distribution",
-    col = "grey20",
-    border = "grey80",
+    col.lab = getOption("mapsf.highlight"),
+    col.main = getOption("mapsf.highlight"),
+    col.axis = getOption("mapsf.highlight"),
+    col = getOption("mapsf.foreground"),
+    border = getOption("mapsf.background"),
     lwd = .2
   )
-  lines(x = dx, y = dy, lwd = 2, col = "#cf0000")
-  axis(side = 1, at = x_labels)
+  lines(
+    x = dx,
+    y = dy,
+    lwd = 2,
+    col = go(opt = "highlight", legacy = "#cf0000")
+  )
+  axis(
+    side = 1, at = x_labels,
+    col.axis = getOption("mapsf.highlight"),
+       col = getOption("mapsf.highlight"),
+       col.ticks = getOption("mapsf.highlight")
+    )
   axis(
     side = 2,
     pos = x_lim[1],
     at = y_labels,
-    las = 2
+    las = 2,
+    col.axis = getOption("mapsf.highlight"),
+    col = getOption("mapsf.highlight"),
+    col.ticks = getOption("mapsf.highlight")
   )
   points(
     x = x,
     y = pts_y,
     pch = 21,
     cex = .5,
-    bg = "grey30",
-    col = "grey70"
+    bg = getOption("mapsf.highlight"),
+    col = getOption("mapsf.background")
   )
 
   box_plot(
     x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
-    small_offset = small_offset, col = "white", lwd = 2
+    small_offset = small_offset, col = getOption("mapsf.background"), lwd = 3
   )
   box_plot(
     x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
-    small_offset = small_offset, col = "black", lwd = 1.2
+    small_offset = small_offset, col = getOption("mapsf.foreground"), lwd = 1.5
   )
 
   return(invisible(list(bw = bw, nbins = round(nbins, 0))))
