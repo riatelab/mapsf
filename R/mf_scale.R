@@ -13,6 +13,7 @@
 #' Possible values are "m" and "ft" (see Details).
 #' @param scale_units units used for the scale bar. Can be "mi" for miles,
 #' "ft" for feet, "m" for meters, or "km" for kilometers (default).
+#' @param adj adjust the postion of the north arrow in x and y directions
 #' @param x object of class crs, sf or sfc. If set, the CRS of x will be used
 #' instead of \code{crs_units} to define CRS units.
 #' @details Most CRS use the meter as unit. Some US CRS use feet or US survey
@@ -51,6 +52,7 @@ mf_scale <- function(size,
                      col,
                      crs_units = "m",
                      scale_units = "km",
+                     adj = c(0, 0),
                      x) {
   test_cur_plot()
   col <- go(col, "highlight")
@@ -171,6 +173,9 @@ mf_scale <- function(size,
       }
     }
   }
+
+  xscale <- xscale + adj[1] * inset / 2
+  yscale <- yscale + adj[2] * inset / 2
 
   # plot the scale bar
   segments(
