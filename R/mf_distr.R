@@ -63,15 +63,35 @@ mf_distr <- function(x, nbins, bw) {
   dy <- d$y[d$x >= x_lim[1] & d$x <= x_lim[2]]
 
   # actual plot
-  op <- par(bg = getOption("mapsf.background"), no.readonly = TRUE)
-  on.exit(par(op))
-
+  # empty
+  plot(
+    x = x_lim,
+    y = y_lim,
+    col = NA,
+    axes = F,
+    xlab = "",
+    ylab = ""
+  )
+  # background
+  plt <- par('plt')
+  usr <- par('usr')
+  rect(
+    par("usr")[1] - plt[1] * (usr[2] - usr[1]) / (plt[2] - plt[1]),
+    par("usr")[3] - plt[3] * (usr[4] - usr[3]) / (plt[4] - plt[3]),
+    par("usr")[2] + (1 - plt[2]) * (usr[2] - usr[1]) / (plt[2] - plt[1]),
+    par("usr")[4] + (1 - plt[4]) * (usr[4] - usr[3]) / (plt[4] - plt[3]),
+    col = getOption("mapsf.background"),
+    border = getOption("mapsf.background"),
+    xpd = TRUE
+  )
+  # histogram
   hist(
     x,
     breaks = h$breaks,
     freq = FALSE,
     ylim = y_lim,
     xlim = x_lim,
+    lwd = 1,
     axes = FALSE,
     xlab = "",
     main = "Distribution",
@@ -80,8 +100,17 @@ mf_distr <- function(x, nbins, bw) {
     col.axis = getOption("mapsf.highlight"),
     col = getOption("mapsf.foreground"),
     border = getOption("mapsf.background"),
-    lwd = .2
+    lwd = .2,
+    add = TRUE
   )
+  title(
+    main  = "Distribution",
+    ylab = "Density",
+    line = 2,
+    col.lab = getOption("mapsf.highlight"),
+    col.main = getOption("mapsf.highlight")
+  )
+  # smooth line
   lines(
     x = dx,
     y = dy,
@@ -89,11 +118,13 @@ mf_distr <- function(x, nbins, bw) {
     col = go(opt = "highlight", legacy = "#cf0000")
   )
   axis(
-    side = 1, at = x_labels,
+    side = 1,
+    at = x_labels,
     col.axis = getOption("mapsf.highlight"),
-       col = getOption("mapsf.highlight"),
-       col.ticks = getOption("mapsf.highlight")
-    )
+    col = getOption("mapsf.highlight"),
+    col.ticks = getOption("mapsf.highlight")
+  )
+
   axis(
     side = 2,
     pos = x_lim[1],
@@ -111,17 +142,27 @@ mf_distr <- function(x, nbins, bw) {
     bg = getOption("mapsf.highlight"),
     col = getOption("mapsf.background")
   )
-
+  # box plots
   box_plot(
-    x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
-    small_offset = small_offset, col = getOption("mapsf.background"), lwd = 3
+    x = b$stats[, 1],
+    y = y_lim[1],
+    large_offset = large_offset,
+    small_offset = small_offset,
+    col = getOption("mapsf.background"),
+    lwd = 3
   )
   box_plot(
-    x = b$stats[, 1], y = y_lim[1], large_offset = large_offset,
-    small_offset = small_offset, col = getOption("mapsf.foreground"), lwd = 1.5
+    x = b$stats[, 1],
+    y = y_lim[1],
+    large_offset = large_offset,
+    small_offset = small_offset,
+    col = getOption("mapsf.foreground"),
+    lwd = 1.5
   )
 
-  return(invisible(list(bw = bw, nbins = round(nbins, 0))))
+  return(invisible(list(
+    bw = bw, nbins = round(nbins, 0)
+  )))
 }
 
 box_plot <- function(x, y, large_offset, small_offset, col, lwd) {
