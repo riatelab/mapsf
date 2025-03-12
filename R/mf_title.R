@@ -109,7 +109,13 @@ mf_title <- function(txt = "Map Title", pos, tab,
     cex = cex, col = fg,
     font = font, xpd = TRUE
   )
-
+  f <- getOption("mapsf.frame")
+  if (f %in% c("map", "figure")) {
+    mf_frame(extent = f,
+             col = getOption("mapsf.highlight"),
+             lwd = getOption("mapsf.frame_lwd"),
+             lty = getOption("mapsf.frame_lty"))
+  }
 
   return(invisible(NULL))
 }

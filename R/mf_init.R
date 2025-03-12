@@ -17,6 +17,7 @@
 #' mf_init(target)
 #' mf_map(mtq, add = TRUE)
 mf_init <- function(x, expandBB = rep(0, 4)) {
+
   bgmap <- getOption("mapsf.background")
 
   if (inherits(x, "SpatRaster")) {
@@ -50,10 +51,18 @@ mf_init <- function(x, expandBB = rep(0, 4)) {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
+
   # plot with bg and margins
   plot(y, col = NA, border = NA, expandBB = expandBB)
   pux <- par("usr")
   rect(pux[1], pux[3], pux[2], pux[4], border = NA, col = bgmap)
 
+  f <- getOption("mapsf.frame")
+  if (f %in% c("map", "figure")) {
+    mf_frame(extent = f,
+             col = getOption("mapsf.highlight"),
+             lwd = getOption("mapsf.frame_lwd"),
+             lty = getOption("mapsf.frame_lty"))
+  }
   return(invisible(x))
 }

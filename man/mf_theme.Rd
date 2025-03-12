@@ -7,6 +7,9 @@
 mf_theme(
   x,
   mar,
+  foreground,
+  background,
+  highlight,
   title_tab,
   title_pos,
   title_inner,
@@ -14,9 +17,9 @@ mf_theme(
   title_cex,
   title_font,
   title_banner,
-  foreground,
-  background,
-  highlight,
+  frame,
+  frame_lwd,
+  frame_lty,
   pal_quali,
   pal_seq,
   ...
@@ -28,6 +31,12 @@ mf_theme(
 "jsk", "barcelona".}
 
 \item{mar}{margins}
+
+\item{foreground}{foreground color}
+
+\item{background}{background color}
+
+\item{highlight}{highlight color}
 
 \item{title_tab}{if TRUE the title is displayed as a 'tab'}
 
@@ -43,11 +52,12 @@ mf_theme(
 
 \item{title_banner}{if TRUE the title is displayed as a banner}
 
-\item{foreground}{foreground color}
+\item{frame}{either "none", "map" or "figure"; plot a frame around the map
+or the figure.}
 
-\item{background}{background color}
+\item{frame_lwd}{line width for the frame}
 
-\item{highlight}{highlight color}
+\item{frame_lty}{line type for the frame}
 
 \item{pal_quali}{default qualitative color palette (name or function)}
 

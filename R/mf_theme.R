@@ -22,6 +22,10 @@
 #' @param pal_quali default qualitative color palette (name or function)
 #' @param pal_seq default sequential color palettte (name or function)
 #' @param ... other argument, ignored
+#' @param frame either "none", "map" or "figure"; plot a frame around the map
+#' or the figure.
+#' @param frame_lwd line width for the frame
+#' @param frame_lty line type for the frame
 #'
 #' @details
 #' It is also possible to set a custom theme using a list of arguments
@@ -81,6 +85,9 @@
 #' mf_theme("default")
 mf_theme <- function(x,
                      mar,
+                     foreground,
+                     background,
+                     highlight,
                      title_tab,
                      title_pos,
                      title_inner,
@@ -88,9 +95,9 @@ mf_theme <- function(x,
                      title_cex,
                      title_font,
                      title_banner,
-                     foreground,
-                     background,
-                     highlight,
+                     frame,
+                     frame_lwd,
+                     frame_lty,
                      pal_quali,
                      pal_seq, ...) {
   # current theme
@@ -108,6 +115,9 @@ mf_theme <- function(x,
     highlight    = getOption("mapsf.highlight"),
     pal_quali    = getOption("mapsf.pal_quali"),
     pal_seq      = getOption("mapsf.pal_seq"),
+    frame        = getOption("mapsf.frame"),
+    frame_lty    = getOption("mapsf.frame_lty"),
+    frame_lwd    = getOption("mapsf.frame_lwd"),
     legacy       = getOption("mapsf.legacy")
   )
 
@@ -137,16 +147,16 @@ mf_theme <- function(x,
   }
 
 
-  # modify theme param
-  legacy_argx <- c(
-    argx$bg, argx$fg, argx$tab, argx$pos,
-    argx$inner, argx$line, argx$cex, argx$font
-  )
+  # update theme params
+  # legacy themes & param
+  legacy_argx <- c(argx$bg, argx$fg, argx$tab, argx$pos, argx$inner, argx$line,
+                   argx$cex, argx$font)
   if (!is.null(legacy_argx)) {
     theme$legacy <- TRUE
     theme$title_banner <- TRUE
     theme$pal_quali <- "Dynamic"
     theme$pal_seq <- "Mint"
+    theme$frame <- "none"
     if (!is.null(argx$bg)) theme$background <- argx$bg
     if (!is.null(argx$fg)) theme$foreground <- argx$fg
     if (!is.null(argx$fg)) theme$highlight <- argx$fg
@@ -169,6 +179,9 @@ mf_theme <- function(x,
     if (!missing(highlight)) theme$highlight <- highlight
     if (!missing(pal_quali)) theme$pal_quali <- pal_quali
     if (!missing(pal_seq)) theme$pal_seq <- pal_seq
+    if (!missing(frame)) theme$frame <- frame
+    if (!missing(frame_lwd)) theme$frame_lwd <- frame_lwd
+    if (!missing(frame_lty)) theme$frame_lty <- frame_lty
   }
   if (!missing(mar)) theme$mar <- mar
 
@@ -188,7 +201,10 @@ mf_theme <- function(x,
     mapsf.highlight    = theme$highlight,
     mapsf.pal_quali    = theme$pal_quali,
     mapsf.pal_seq      = theme$pal_seq,
-    mapsf.legacy       = theme$legacy
+    mapsf.legacy       = theme$legacy,
+    mapsf.frame        = theme$frame,
+    mapsf.frame_lwd    = theme$frame_lwd,
+    mapsf.frame_lty    = theme$frame_lty
   )
 
 

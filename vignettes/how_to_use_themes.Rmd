@@ -35,61 +35,15 @@ Themes are persistent across maps produced by `mapsf` (e.g. they survive a `dev.
 
 Here are the builtin themes.   
 
-```{r, echo = FALSE, fig.width=9, fig.height=9}
+```{r, echo = FALSE, fig.width=8, fig.height=8}
 suppressPackageStartupMessages(library(mapsf))
-mf_theme(NULL)
-solarized_light <- mf_theme(
-  x = "base",
-  background = "#fdf6e3",
-  foreground = "#93a1a1",
-  highlight = "grey10",,
-  title_banner =  FALSE,
-  pal_seq = "BurgYl"
-)
-solarized_dark <- mf_theme(
-  x = "base",
-  background = "#073642",
-  foreground = "#93a1a1",
-  highlight = "grey95",,
-  title_banner =  FALSE,
-  pal_seq = colorRampPalette(c(
-    "#073642", "#657b83", "#839496", "#eee8d5"
-  ))
-)
-grey_light <-  mf_theme(
-  x = "base",
-  background = "#eeeeee",
-  foreground = "#dddddd",
-  highlight = "grey10",
-  pal_seq = "Grays"
-)
-hue_mint <- mf_theme(
-  x = "base",
-  background = "white",
-  foreground = "#6ba419",
-  highlight = "#7d698c",
-  pal_seq = "Greens",
-  title_banner =  FALSE
-)
-
-
-dracula <- mf_theme(
-  x = "base",
-  background = "#22212c",
-  foreground = "#7359f8",
-  highlight = "#fefe7f",
-  pal_seq = "Purples 3",
-  title_banner =  FALSE
-)
-
-
 themes <- list(
   'base' = 'base', 
-  'solarized_dark' = solarized_dark,
-  'solarized_light' = solarized_light,
-  'grey_light' =grey_light,
-  'hue_mint' = hue_mint,
-  'dracula' = dracula
+  'sol_dark' = 'sol_dark',
+  'sol_light' = 'sol_light',
+  'grey' = 'grey',
+  'mint' = 'mint',
+  'dracula' = 'dracula'
 )
 opar <-par(mfrow=c(3,4))
 mtq <- mf_get_mtq()
