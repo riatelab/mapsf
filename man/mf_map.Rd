@@ -105,7 +105,7 @@ direction (bottom, left, top, right)}
 
 \item{leg_box_cex}{width and height size expansion of boxes}
 
-\item{...}{further parameters from \link{plot} for sfc objects}
+\item{...}{ignored}
 }
 \value{
 x is (invisibly) returned.

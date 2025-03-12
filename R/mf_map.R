@@ -200,7 +200,7 @@
 #' 'leg_fg',
 #' 'leg_bg',
 #' 'leg_frame_border'))
-#' @param ... further parameters from \link{plot} for sfc objects
+#' @param ... ignored
 #' @param type
 #' * **base**: base maps
 #' * **prop**: proportional symbols maps

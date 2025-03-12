@@ -36,7 +36,7 @@ mf_base(
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 
-\item{...}{further parameters from \link{plot} for sfc objects}
+\item{...}{ignored}
 }
 \value{
 x is (invisibly) returned.

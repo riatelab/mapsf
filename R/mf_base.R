@@ -11,7 +11,7 @@
 #' 'add'))
 #' @param cex point size
 #' @param lty line or border type
-#' @param ... further parameters from \link{plot} for sfc objects
+#' @param ... ignored
 #' @importFrom sf st_geometry
 #' @keywords internal
 #' @return x is (invisibly) returned.
@@ -50,7 +50,7 @@ mf_base <- function(x,
     plot(
       st_geometry(x),
       col = col, lwd = lwd, lty = lty,
-      add = TRUE, ...
+      add = TRUE
     )
   }
 
@@ -63,7 +63,7 @@ mf_base <- function(x,
     plot(
       st_geometry(x),
       col = col, border = border, lwd = lwd, lty = lty,
-      add = TRUE, ...
+      add = TRUE
     )
   }
 
@@ -84,7 +84,7 @@ mf_base <- function(x,
     plot(
       st_geometry(x),
       col = mycolspt, bg = mycolsptbg, cex = cex, pch = pch,
-      lwd = lwd, add = TRUE, ...
+      lwd = lwd, add = TRUE
     )
   }
 
