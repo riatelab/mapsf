@@ -1,6 +1,11 @@
 # mapsf 1.0.0
 
 ## Feat
+- new theming system
+- add a mf_frame() to add a frame around the map or the figure
+- add a "center" position to mf_annotation(), no arrow displayed when used
+- add adj arg to mf_scale()
+- use theme in mf_distr()
 - add alpha (transparency) for all types in mf_map() and in mf_raster() 
 - remove all deprecated functions and arguments: mf_legend_*() functions; 
 adjust in mf_arrow(); theme and export in mf_export(); theme in mf_init(); 
@@ -8,7 +13,7 @@ pt_pch, pt_cex, pt_pch_na, pt_cex_na in mf_legend(); unit from mf_scale();
 
 ## Docs
 - update the cheat sheet
-- update the main vignette
+- update vignettes
 
 
 # mapsf 0.12.0
