@@ -35,7 +35,7 @@ Themes are persistent across maps produced by `mapsf` (e.g. they survive a `dev.
 
 Here are the builtin themes.   
 
-```{r, echo = FALSE, fig.width=8, fig.height=8}
+```{r all, echo = FALSE, fig.width=8, fig.height=8}
 suppressPackageStartupMessages(library(mapsf))
 themes <- list(
   'base' = 'base', 
@@ -62,7 +62,7 @@ for (i in 1:length(themes)) {
 
 It is possible to modify an existing theme. In this example we use the "base" theme and modify some title parameters. 
 
-```{r}
+```{r modified}
 library(mapsf)
 mtq <- mf_get_mtq()
 mf_theme("base", title_banner = FALSE, title_font = 4)
@@ -74,7 +74,7 @@ mf_title('Mofified "default" theme')
 
 It is possible to create a new theme from scratch. 
 
-```{r}
+```{r from_scratch}
 mf_theme(
     mar          = c(0.5, 0.5, 2.25, 0.5)+-.4,
     title_tab    = FALSE,
@@ -98,7 +98,7 @@ mf_title("New theme")
 It is also possible to assign a theme to a variable. 
 
 
-```{r}
+```{r blue_green}
 blue_theme <- mf_theme("base", background = "lightblue")
 green_theme <- mf_theme("base", background = "lightgreen")
 mf_theme(blue_theme)
