@@ -44,7 +44,7 @@
       },
       plugins: [
         function(hook) {
-          var footer = ["<a href='$ALTDOC_PACKAGE_URL'> <code> $ALTDOC_PACKAGE_NAME </code> v. $ALTDOC_PACKAGE_VERSION </a> | Documentation made with <a href='https://altdoc.etiennebacher.com/'> <code> altdoc </code> v. $ALTDOC_VERSION</a>"].join('');
+          var footer = ["<small><a href='$ALTDOC_PACKAGE_URL'> $ALTDOC_PACKAGE_NAME</a>  v.$ALTDOC_PACKAGE_VERSION  | Website made with <a href='https://altdoc.etiennebacher.com/'>  altdoc</a>  v.$ALTDOC_VERSION <small/>"].join('');
 
           hook.afterEach(function(html) {
             return html + footer;
