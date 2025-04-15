@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 **`mf_theme()`** sets a map theme. A theme is a set of graphical parameters that are applied to maps created with `mapsf`.   
 These parameters are:
 
-- figure margins, 
+- figure margins and frames, 
 - background, foreground and highlight colors, 
 - default sequential and qualitative palettes,
 - title options (position, size, banner...).
@@ -76,7 +76,7 @@ It is possible to create a new theme from scratch.
 
 ```{r from_scratch}
 mf_theme(
-    mar          = c(0.5, 0.5, 2.25, 0.5)+-.4,
+    mar          = c(0.1, 0.1, 1.85, 0.1),
     title_tab    = FALSE,
     title_pos    = "left",
     title_inner  = FALSE,
@@ -87,6 +87,8 @@ mf_theme(
     foreground   = "#F1F0E9",
     background   = "white",
     highlight    = "#E9762B",
+    frame        = "map", 
+    frame_lwd    = 4,
     pal_quali    = "Dark 3",
     pal_seq      = colorRampPalette(c("#F1F0E9", "#41644A", "#0D4715"))
   )

@@ -46,8 +46,8 @@ In the following example we create an inset for a specific municipality in the t
 
 ```{r, fig.height=5.71, fig.width=6, results = FALSE}
 library(mapsf)
-# set a theme
-mf_theme("default", mar = c(0, 0, 0, 0))
+# set margins theme
+mf_theme(mar = c(0, 0, 0, 0))
 # data import
 mtq <- mf_get_mtq()
 # Selection of a target municipality to display in the inset
@@ -69,7 +69,7 @@ Here we add a title, a shadow, a scale bar, other Martinique municipalities and 
 
 ```{r, fig.height=5.71, fig.width=6, results = FALSE}
 # set a theme
-mf_theme("dark")
+mf_theme("sol_dark")
 # Selection of a target municipality to display in the inset
 mtq_target <- mtq[c(26), ]
 # Display the base map
@@ -87,10 +87,7 @@ mf_shadow(mtq_target, add = TRUE)
 # display the target municipality
 mf_map(mtq_target, add = TRUE, col = "tomato")
 # display a title
-mf_title("Saint-Anne",
-  pos = "left", tab = TRUE,
-  cex = .9, line = 1, inner = TRUE
-)
+mf_title("Saint-Anne", inner = TRUE, cex = .9, line = 1)
 # display a scale bar
 mf_scale(size = 2)
 # dispaly a frame around the inset
@@ -113,7 +110,7 @@ In the following example we create an inset for a specific municipality in the b
 
 ```{r, fig.height=6, fig.width=5, results = FALSE}
 # set a theme
-mf_theme("default", mar = c(0, 0, 0, 0))
+mf_theme("base", mar = c(0, 0, 0, 0))
 # Display the base map
 mf_map(mtq)
 # open the inset
@@ -150,7 +147,7 @@ bks <- round(bks, digits = -2)
 # define a color palette
 pal <- hcl.colors(n = 5, palette = "Dark Mint", rev = TRUE)
 # set a theme
-mf_theme("candy")
+mf_theme("sol_light")
 fg <- getOption("mapsf.fg")
 # Create the map
 mf_map(
