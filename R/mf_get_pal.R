@@ -55,7 +55,9 @@ mf_get_pal <- function(n, palette, alpha = NULL,
 
   if (length(n) == 2) {
     nmax <- max(n)
-
+    if (length(alpha) == 1) {
+      alpha <- c(alpha, alpha)
+    }
     pal1 <- hcl.colors(
       n = nmax, palette = palette[1],
       alpha = alpha[1], rev = rev[1]
@@ -74,6 +76,9 @@ mf_get_pal <- function(n, palette, alpha = NULL,
     pal2 <- pal2[1:n[2]]
     pal <- c(pal1, pal2)
     if (!missing(neutral)) {
+      if (!is.null(alpha)){
+        neutral <- get_hex_pal(neutral, alpha[1])
+      }
       pal <- c(pal1, neutral, pal2)
     }
   }
