@@ -130,7 +130,7 @@ mf_theme <- function(x,
   # if no arg input => return param list
   argx <- as.list(match.call()[-1])
   if (length(argx) == 0) {
-    return(theme)
+    return(invisible(theme))
   }
 
 
