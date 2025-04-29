@@ -4,7 +4,15 @@
 \alias{mf_get_pal}
 \title{Get color palettes}
 \usage{
-mf_get_pal(n, palette, alpha = NULL, rev = c(FALSE, FALSE), neutral)
+mf_get_pal(
+  n,
+  palette,
+  alpha = NULL,
+  rev = c(FALSE, FALSE),
+  neutral,
+  breaks,
+  mid
+)
 }
 \arguments{
 \item{n}{the number of colors (>= 1) to be in the palette}
@@ -22,6 +30,10 @@ reversed}
 
 \item{neutral}{a color, if two gradients are used, the 'neutral' color can be
 added between them}
+
+\item{breaks}{a vector of class limit}
+
+\item{mid}{a numeric value use to divide the palette in two colors}
 }
 \value{
 A vector of colors.
@@ -33,29 +45,15 @@ Diverging color palettes can be dissymmetric (different number of colors in
 each of the two gradients).
 }
 \examples{
-cols <- mf_get_pal(n = 10, pal = "Reds 2")
-plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
-cols <- mf_get_pal(n = c(3, 7), pal = c("Reds 2", "Greens"))
-plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
-cols <- mf_get_pal(n = c(5, 5), pal = c("Reds 2", "Greens"))
-plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
-cols <- mf_get_pal(n = c(7, 3), pal = c("Reds 2", "Greens"))
-plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
-cols <- mf_get_pal(
-  n = c(5, 5), pal = c("Reds 2", "Greens"),
-  neutral = "grey"
+cls <- mf_get_pal(n = c(3, 7), palette = c("Reds 2", "Greens"))
+plot(1:10, rep(1, 10), bg = cls, pch = 22, cex = 4)
+mtq <- mf_get_mtq()
+bks <- mf_get_breaks(mtq$MED, breaks = "equal", nbreaks = 8)
+pal <- mf_get_pal(
+  breaks = bks, mid = 15000,
+  palette = c("Dark Mint", "Burg"), neutral = "grey90"
 )
-plot(1:11, rep(1, 11), bg = cols, pch = 22, cex = 4)
-opar <- par(bg = "black")
-cols <- mf_get_pal(
-  n = c(7, 3), pal = c("Reds 2", "Greens"),
-  alpha = c(.3, .7)
-)
-plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
-par(opar)
-cols <- mf_get_pal(
-  n = c(5, 5), pal = c("Reds 2", "Greens"),
-  rev = c(TRUE, TRUE)
-)
-plot(1:10, rep(1, 10), bg = cols, pch = 22, cex = 4)
+mf_map(mtq, "MED", "choro", breaks = bks, pal = pal)
+pal <- mf_get_pal(breaks = bks, mid = bks[4], palette = c("Dark Mint", "Burg"))
+mf_map(mtq, "MED", "choro", breaks = bks, pal = pal)
 }
