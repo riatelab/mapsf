@@ -8,3 +8,4 @@ for (i in list("topleft", "top", "topright", "right", "bottomright", "bottom",
   expect_silent(mf_arrow(pos = i, col = "red"))
 }
 expect_silent(mf_arrow(pos = "top", adj = c(-5, 0), cex = 2))
+expect_silent(mf_arrow(pos = "top", adj = c(-5, 0), cex = 2, align = mtq))
