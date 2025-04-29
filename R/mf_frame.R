@@ -27,7 +27,8 @@ mf_frame <- function(extent = "map", col, lwd = 1.5, lty = 1, ...){
     inner <- as.numeric(!getOption("mapsf.title_inner"))
     mar <- getOption("mapsf.mar")
     line <- getOption("mapsf.title_line")
-    mar <- mar + c(0, 0, -line * inner, 0)
+    top <- -line * inner
+    mar <- mar + c(0, 0, ifelse(top < 0, 0, top), 0)
     op <- par(mar = mar, no.readonly = TRUE)
     on.exit(par(op))
     box(which = 'plot', col = col, lwd = lwd, lty = lty, ...)
