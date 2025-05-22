@@ -35,7 +35,7 @@ mf_init <- function(x, expandBB = rep(0, 4)) {
     bb <- terra::ext(x)[c(1, 3, 2, 4)]
     y <- st_as_sfc(st_bbox(bb))
     st_crs(y) <- proj
-    mf_init(y, expandBB = c(rep(-.04, 4)) + expandBB)
+    mf_init(y, expandBB = c(rep(-.0399, 4)) + expandBB)
     return(invisible(x))
   }
 

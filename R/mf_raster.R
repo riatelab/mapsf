@@ -125,7 +125,8 @@ mf_raster <- function(x,
   )
 
 
-
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
+  on.exit(par(op))
 
 
   # catch arguments
@@ -146,6 +147,7 @@ mf_raster <- function(x,
     mf_raster_multiband(ops, expandBB, add)
   }
 
+  ops$clip <- FALSE
   # One band raster
   if (terra::nlyr(x) == 1) {
     # set the type - default to continuous for numeric raster
