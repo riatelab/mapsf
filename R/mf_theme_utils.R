@@ -109,6 +109,42 @@
     pal_seq      = "Purples 3",
     pal_quali    = "Warm"
   ),
+  rzine = list(
+    mar          = c(0, 0, 1.2, 0),
+    title_tab    = FALSE,
+    title_pos    = "center",
+    title_inner  = FALSE,
+    title_line   = 1.2,
+    title_cex    = 1,
+    title_font   = 2,
+    title_banner = FALSE,
+    frame        = "map",
+    frame_lwd    = 1,
+    frame_lty    = "5252",
+    background   = "#b2c3e6",
+    foreground   = "#4d77ba",
+    highlight    = "#FFFEF3",
+    pal_seq      = "Blues 3",
+    pal_quali    = "Warm"
+  ),
+  pistachio = list(
+    mar          = c(0, 0, 1.2, 0),
+    title_tab    = FALSE,
+    title_pos    = "center",
+    title_inner  = FALSE,
+    title_line   = 1.2,
+    title_cex    = 1,
+    title_font   = 2,
+    title_banner = FALSE,
+    frame        = "map",
+    frame_lwd    = 1,
+    frame_lty    = "5252",
+    foreground   = "#D2E2C3",
+    background   = "#EFF3EA",
+    highlight    = "#73607A",
+    pal_seq      = "Purples 3",
+    pal_quali    = "Warm"
+  ),
   # legacy themes
   default = list(
     mar = c(.5, .5, 1.7, .5),
