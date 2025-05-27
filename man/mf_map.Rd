@@ -269,7 +269,6 @@ will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
 }
 }
 \examples{
-library(mapsf)
 mtq <- mf_get_mtq()
 # basic examples
 # type = "base"

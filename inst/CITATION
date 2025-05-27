@@ -2,6 +2,5 @@ bibentry(
   bibtype = "Manual",
   title = "{mapsf}: Thematic Cartography",
   author = person(given = "Timothée", family = "Giraud"),
-  note = paste0("R package v", packageVersion("mapsf")),
   year = format(Sys.time(), "%Y"),
   doi = "10.32614/CRAN.package.mapsf")

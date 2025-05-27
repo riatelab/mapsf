@@ -97,7 +97,7 @@ mf_inset_on <- function(x, pos = "topright", cex = .2, fig) {
     new = TRUE
   )
   theme$mar <- c(0, 0, 0, 0)
-  theme$bg <- NA
+  theme$background <- NA
   mf_theme(theme)
 }
 

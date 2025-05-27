@@ -97,12 +97,252 @@ These functions are dedicated to the map layout design.
 
 `mf_export()` exports maps in PNG or SVG formats.
 The exported map width/height ratio will match the one of a spatial object.  
-If width is specified, then height is deduced from the width/height ratio of x and some theme parameters (figure margins and title size).  
-If height is specified, then width is deduced from the width/height ratio of xand some theme parameters (figure margins and title size).
+If width is specified, then height is deduced from the width/height ratio of x and some theme parameters (figure margins and title size).
+If height is specified, then width is deduced from the width/height ratio of x and some theme parameters (figure margins and title size).
 
 &#128279; See the online vignette: [How to export maps](https://riatelab.github.io/mapsf/#/vignettes/how_to_export_maps) 
 
-## Datasets
+
+# Examples of thematic maps
+
+## Base map
+
+`mf_shadow()` plots the shadow of a polygon layer.
+
+`mf_map(x, type = "base")` displays `sf` objects geometries.
+
+`mf_layout()` add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with `mf_title()`, `mf_credits()`, `mf_arrow()` and `mf_scale()`).
+
+```{r mf_basemap, message=FALSE, warning=FALSE}
+library(mapsf)
+# import the sample data set
+mtq <- mf_get_mtq()
+# plot a shadow
+mf_shadow(mtq)
+# plot municipalities
+mf_map(mtq, type = "base", add = TRUE)
+# layout elements
+credits <- paste0("Sources: IGN, 2018\n","mapsf ",packageVersion("mapsf"))
+mf_title("Martinique")
+mf_credits(credits)
+mf_arrow()
+mf_scale(5)
+```
+
+## Proportional Symbols
+
+`mf_map(x, var, type = "prop")` displays symbols with areas proportional to a quantitative variable (stocks). The `inches` argument is used to customize the symbols sizes.
+
+```{r mf_prop, message=FALSE, warning=FALSE}
+# plot a shadow
+mf_shadow(mtq)
+# plot municipalities
+mf_map(mtq, add = TRUE)
+# plot population
+mf_map(
+  x = mtq,
+  var = "POP",
+  type = "prop",
+  inches = 0.25,
+  col = "brown4",
+  leg_pos = "topright",
+  leg_adj = c(0, -3),
+  leg_title = "Total population"
+)
+# layout elements
+mf_title("Population Distribution in Martinique")
+mf_credits(credits)
+mf_arrow()
+mf_scale(5)
+```
+
+## Choropleth Map
+
+In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.\
+`mf_map(x, var, type = "choro")` displays choropleth maps . Arguments `nbreaks`, and `breaks` allow to customize the variable classification. `mf_get_breaks()` allows to classify data outside of the function itself. Colors palettes, defined with `pal`, can be created with `mf_get_pal()` or you can use palette names from `hcl.pals()`.
+
+```{r mf_map_c}
+# population density (inhab./km2) using sf::st_area()
+mtq$POPDENS <- 1e6 * mtq$POP / sf::st_area(mtq)
+# plot population density
+mf_map(
+  x = mtq,
+  var = "POPDENS",
+  type = "choro",
+  breaks = "geom",
+  nbreaks = 5,
+  pal = "Teal",
+  border = "white",
+  lwd = 0.5,
+  leg_pos = "bottomleft",
+  leg_adj = c(0, 3), 
+  leg_title = "Population Density\n(inh. / km2)"
+)
+# layout elements
+mf_title("Population Distribution in Martinique")
+mf_credits(credits)
+mf_arrow()
+mf_scale(5)
+```
+
+## Typology Map
+
+`mf_map(x, var, type = "typo")` displays a typology map of a qualitative variable. `val_order` is used to set the modalities order in the legend.
+
+`mf_label()` displays labels on the map.
+
+```{r mf_map_t}
+# plot administrative status
+mf_map(
+  x = mtq,
+  var = "STATUS",
+  type = "typo",
+  pal = c("aquamarine4", "yellow3", "wheat"),
+  lwd = .5,
+  val_order = c(
+    "Prefecture",
+    "Sub-prefecture",
+    "Simple municipality"
+  ),
+  leg_pos = "topright",
+  leg_adj = c(0, 1),
+  leg_title = ""
+)
+# labels for a few  municipalities
+mf_label(
+  x = mtq[mtq$STATUS != "Simple municipality", ], var = "LIBGEO",
+  cex = 0.9, halo = TRUE, r = 0.15
+)
+# layout elements
+mf_title("Administrative Status")
+mf_credits(credits)
+mf_arrow()
+mf_scale(5)
+```
+
+## Proportional Symbols using Choropleth Coloration
+
+`mf_map(x, var, type = "prop_choro")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.
+
+`expandBB` argument in `mf_map()` allows to expand the map space. Here, we increase the space available on the right of the map to avoid overlaps between the legends and the map.
+
+```{r mf_map_pc, fig.width=5}
+# Plot the municipalities and expand the map space on the right
+mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
+# Plot symbols with choropleth coloration
+mf_map(
+  x = mtq,
+  var = c("POP", "MED"),
+  type = "prop_choro",
+  border = "grey50",
+  lwd = 1,
+  leg_pos = c("topright"),
+  leg_title = c("Population", "Median Income\n(in euros)"),
+  breaks = "equal",
+  nbreaks = 4,
+  pal = "Greens",
+  leg_val_rnd = c(0, -2),
+  leg_frame = FALSE
+)
+# layout elements
+mf_title("Population & Wealth in Martinique, 2015")
+mf_credits(credits)
+mf_arrow()
+mf_scale(5)
+```
+
+## Proportional Symbols using Typology Coloration
+
+`mf_map(x, var, type = "prop_typo")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.
+
+```{r mf_map_pt, fig.width=5}
+# plot the municipalities and expand the map space on the right
+mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
+# plot symbols with choropleth coloration
+mf_map(
+  x = mtq,
+  var = c("POP", "STATUS"),
+  type = "prop_typo",
+  symbol = "square",
+  border = "white",
+  lwd = .5,
+  leg_pos = "topright",
+  leg_title = c("Population", "Administrative\nStatus"),
+  val_order = c(
+    "Prefecture", "Sub-prefecture",
+    "Simple municipality"
+  )
+)
+# layout elements
+mf_title("Population Distribution in Martinique")
+mf_credits(credits)
+mf_arrow()
+mf_scale(5)
+```
+
+## Label Map
+
+`mf_label()` is dedicated to the display of labels on a map. The `overlap = FALSE` argument displays non overlapping labels.
+
+```{r mf_label}
+# plot municipalities
+mf_map(mtq, col = "#e4e9de", border = "darkseagreen4")
+# plot labels
+mf_label(
+  x = mtq,
+  var = "LIBGEO",
+  cex = 0.7,
+  font = 4,
+  halo = TRUE,
+  r = 0.1,
+  overlap = FALSE,
+  q = 3,
+  lines = FALSE
+)
+# layout elements
+mf_title("Municipalities of Martinique")
+mf_credits(credits)
+mf_arrow(pos = "topright")
+mf_scale(5)
+```
+
+## Links Map
+
+`mf_get_links()` creates a link layer from an `sf` object and a link `data.frame` (long format).
+
+`mf_map(x, var, type = "grad")` displays graduated links.
+
+
+```{r mf_grad}
+# import the csv file embedded in mapsf
+mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
+# Select links from Fort-de-France (97209))
+mob_97209 <- mob[mob$i == 97209, ]
+# create an sf object of links
+mob_links <- mf_get_links(x = mtq, df = mob_97209)
+# Plot the municipalities
+mf_map(mtq)
+# plot graduated links
+mf_map(
+  x = mob_links,
+  var = "fij",
+  type = "grad",
+  breaks = c(100, 500, 1000, 4679.0),
+  lwd = c(1, 4, 8),
+  leg_pos = "topright",
+  leg_title = "Nb. of\nCommuters",
+  leg_val_rnd = 0
+)
+# layout elements
+mf_title("Commuting to Fort-de-France")
+mf_credits(credits)
+mf_arrow()
+mf_scale(5)
+```
+
+
+
+# Datasets
 
 Several datasets are embedded in the package:
 
@@ -126,338 +366,3 @@ Several datasets are embedded in the package:
         -   **j**: Municipality of workplace identifier
         -   **fij**: Flows of workers (employed population, 15 y.o. or more, 2015, only flows \> 100)
         -   **sj**: Administrative status of the workplace municipality
-
-# Examples of thematic maps
-
-## Base map
-
-`mf_theme()` allows to apply a theme to the map.
-
-`mf_shadow()` plots the shadow of a polygon layer.
-
-`mf_map(x, type = "base")` displays `sf` objects geometries.
-
-`mf_layout()` add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with `mf_title()`, `mf_credits()`, `mf_arrow()` and `mf_scale()`).
-
-```{r mf_basemap, message=FALSE, warning=FALSE}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# set a theme
-mf_theme("iceberg")
-# plot a shadow
-mf_shadow(mtq)
-# plot municipalities
-mf_map(mtq, type = "base", add = TRUE)
-# layout
-mf_layout(
-  title = "Martinique",
-  credits = paste0(
-    "Sources: IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  )
-)
-```
-
-## Proportional Symbols
-
-`mf_map(x, var, type = "prop")` displays symbols with areas proportional to a quantitative variable (stocks). The `inches` argument is used to customize the symbols sizes.
-
-```{r mf_prop, message=FALSE, warning=FALSE}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# set a theme
-mf_theme("darkula")
-# plot a shadow
-mf_shadow(mtq)
-# plot municipalities
-mf_map(mtq, add = TRUE)
-# plot population
-mf_map(
-  x = mtq,
-  var = "POP",
-  type = "prop",
-  inches = 0.25,
-  col = "brown4",
-  leg_pos = "topright",
-  leg_adj = c(0, -3),
-  leg_title = "Total population"
-)
-# layout
-mf_layout(
-  title = "Population Distribution in Martinique",
-  credits = paste0(
-    "Sources: Insee and IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  )
-)
-```
-
-## Choropleth Map
-
-In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.\
-`mf_map(x, var, type = "choro")` displays choropleth maps . Arguments `nbreaks`, and `breaks` allow to customize the variable classification. `mf_get_breaks()` allows to classify data outside of the function itself. Colors palettes, defined with `pal`, can be created with `mf_get_pal()` or you can use palette names from `hcl.pals()`.
-
-Use `mf_theme()` to set a theme without plotting anything.
-
-```{r mf_map_c}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# population density (inhab./km2) using sf::st_area()
-mtq$POPDENS <- 1e6 * mtq$POP / sf::st_area(mtq)
-# set a theme
-mf_theme("green")
-# plot population density
-mf_map(
-  x = mtq,
-  var = "POPDENS",
-  type = "choro",
-  breaks = "geom",
-  nbreaks = 5,
-  pal = "Greens",
-  border = "white",
-  lwd = 0.5,
-  leg_pos = "bottomleft",
-  leg_adj = c(0, 3), 
-  leg_title = "Population Density\n(inh. / km2)"
-)
-# layout
-mf_layout(
-  title = "Population Distribution in Martinique",
-  credits = paste0(
-    "Sources: Insee and IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  )
-)
-```
-
-## Typology Map
-
-`mf_map(x, var, type = "typo")` displays a typology map of a qualitative variable. `val_order` is used to set the modalities order in the legend.
-
-`mf_label()` displays labels on the map.
-
-```{r mf_map_t}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# set theme
-mf_theme("dark")
-# plot administrative status
-mf_map(
-  x = mtq,
-  var = "STATUS",
-  type = "typo",
-  pal = c("aquamarine4", "yellow3", "wheat"),
-  lwd = .5,
-  val_order = c(
-    "Prefecture",
-    "Sub-prefecture",
-    "Simple municipality"
-  ),
-  leg_pos = "topright",
-  leg_adj = c(0, 1),
-  leg_title = ""
-)
-# labels for a few  municipalities
-mf_label(
-  x = mtq[mtq$STATUS != "Simple municipality", ], var = "LIBGEO",
-  cex = 0.9, halo = TRUE, r = 0.15
-)
-# layout
-mf_layout(
-  title = "Administrative Status",
-  credits = paste0(
-    "Sources: Insee and IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  )
-)
-```
-
-## Proportional Symbols using Choropleth Coloration
-
-`mf_map(x, var, type = "prop_choro")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.
-
-`expandBB` argument in `mf_map()` allows to expand the map space. Here, we increase the space available on the right of the map to avoid overlaps between the legends and the map.
-
-```{r mf_map_pc, fig.width=5}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# set theme
-mf_theme("candy")
-# Plot the municipalities and expand the map space on the right
-mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
-# Plot symbols with choropleth coloration
-mf_map(
-  x = mtq,
-  var = c("POP", "MED"),
-  type = "prop_choro",
-  border = "grey50",
-  lwd = 1,
-  leg_pos = c("topright"),
-  leg_title = c("Population", "Median Income\n(in euros)"),
-  breaks = "equal",
-  nbreaks = 4,
-  pal = "Greens",
-  leg_val_rnd = c(0, -2),
-  leg_frame = TRUE
-)
-# layout
-mf_layout(
-  title = "Population & Wealth in Martinique, 2015",
-  credits = paste0(
-    "Sources: Insee and IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  ),
-  frame = TRUE
-)
-```
-
-## Proportional Symbols using Typology Coloration
-
-`mf_map(x, var, type = "prop_typo")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.
-
-```{r mf_map_pt, fig.width=5}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# set theme
-mf_theme("ink")
-# plot the municipalities and expand the map space on the right
-mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
-# plot symbols with choropleth coloration
-mf_map(
-  x = mtq,
-  var = c("POP", "STATUS"),
-  type = "prop_typo",
-  symbol = "square",
-  border = "white",
-  lwd = .5,
-  leg_pos = "topright",
-  leg_title = c("Population", "Administrative\nStatus"),
-  val_order = c(
-    "Prefecture", "Sub-prefecture",
-    "Simple municipality"
-  )
-)
-# layout
-mf_layout(
-  title = "Population Distribution in Martinique",
-  credits = paste0(
-    "Sources: Insee and IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  )
-)
-```
-
-## Label Map
-
-`mf_label()` is dedicated to the display of labels on a map. The `overlap = FALSE` argument displays non overlapping labels.
-
-In this example we have built a custom theme with `mf_theme()`.
-
-```{r mf_label}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# set theme
-my_theme <- list(
-  name = "mytheme",
-  bg = "lightblue1",
-  fg = "darkseagreen4",
-  mar = c(0, 0, 0, 0),
-  tab = TRUE,
-  pos = "left",
-  inner = TRUE,
-  line = 1,
-  cex = .9,
-  font = 3
-)
-mf_theme(my_theme)
-# plot municipalities
-mf_map(mtq, col = "#e4e9de", border = "darkseagreen4")
-# plot labels
-mf_label(
-  x = mtq,
-  var = "LIBGEO",
-  col = "black",
-  cex = 0.7,
-  font = 4,
-  halo = TRUE,
-  bg = "white",
-  r = 0.1,
-  overlap = FALSE,
-  lines = FALSE
-)
-# layout
-mf_layout(
-  title = "Municipalities of Martinique",
-  credits = paste0(
-    "Sources: Insee and IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  ),
-  arrow = FALSE
-)
-# north arrow
-mf_arrow(pos = "topright")
-```
-
-## Links Map
-
-`mf_get_links()` creates a link layer from an `sf` object and a link `data.frame` (long format).
-
-`mf_map(x, var, type = "grad")` displays graduated links.
-
-
-```{r mf_grad}
-library(mapsf)
-# import the sample data set
-mtq <- mf_get_mtq()
-# import the csv file embedded in mapsf
-mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
-# Select links from Fort-de-France (97209))
-mob_97209 <- mob[mob$i == 97209, ]
-# create an sf object of links
-mob_links <- mf_get_links(x = mtq, df = mob_97209)
-# set theme
-mf_theme("jsk")
-# Plot the municipalities
-mf_map(mtq)
-# plot graduated links
-mf_map(
-  x = mob_links,
-  var = "fij",
-  type = "grad",
-  breaks = c(100, 500, 1000, 4679.0),
-  lwd = c(1, 4, 8),
-  leg_pos = "topright",
-  leg_title = "Nb. of\nCommuters",
-  leg_val_rnd = 0,
-  col = "red4",
-  leg_frame = TRUE
-)
-# map layout
-mf_layout(
-  title = "Commuting to Fort-de-France",
-  credits = paste0(
-    "Sources: Insee and IGN, 2018\n",
-    "mapsf ",
-    packageVersion("mapsf")
-  ),
-  arrow = FALSE
-)
-```
-
-```{r, echo = FALSE}
-mf_theme("default")
-```

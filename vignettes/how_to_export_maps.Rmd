@@ -8,24 +8,23 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
-
-
+  
+  
+  
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.width = 4,
-  fig.height = 4, 
-  eval = FALSE
+collapse = TRUE,
+comment = "#>",
+fig.width = 4,
+fig.height = 4, 
+eval = TRUE
 )
 ```
-
 
 **`mf_export()`** exports maps in PNG or SVG formats.   
 The exported map width/height ratio will match the one of a spatial object.   
 If `width` is specified, then `height` is deduced from the width/height ratio of `x` and some theme parameters (figure margins and title size).  
-If `height` is specified, then `width` is deduced from the width/height ratio of `x`and some theme parameters (figure margins and title size).  
+If `height` is specified, then `width` is deduced from the width/height ratio of `x` and some theme parameters (figure margins and title size).  
 Additionally, `mf_export()` (and `mf_map()`) can be used to extend the map space on one or several side of the figure, or to center a map on a specific area.
 
 
@@ -38,11 +37,11 @@ library(mapsf)
 mtq <- mf_get_mtq()
 mf_export(
   x = mtq,
-  filename = "fixed_width.png",
+  filename = "fig/wo_export_fixed_width.png",
   width = 500
 )
 mf_map(mtq, add = TRUE)
-mf_title(txt = "PNG export: width=500px, height=605px (deduced)")
+mf_title(txt = "PNG export: width=500px, height=615px (deduced)", cex = 1)
 dev.off()
 ```
 
@@ -56,15 +55,15 @@ dev.off()
 Here we have added some space on the right side of the plot (50% of `x` width). 
 
 ```{r, results="hide"}
-mf_theme("dark")
+mf_theme("dracula")
 mf_export(
   x = mtq,
-  filename = "fixed_width_expand.png",
+  filename = "fig/wo_export_fixed_width_expand.png",
   width = 500,
   expandBB = c(0, 0, 0, .5),
 )
 mf_map(mtq, add = TRUE)
-mf_title(txt = "PNG export: width=500px, height=432px (deduced)")
+mf_title(txt = "PNG export: width=500px, height=433px (deduced)")
 dev.off()
 mf_theme(NULL)
 ```
@@ -78,11 +77,15 @@ In this export, the map is focused on a specific spatial object. `height` is fix
 
 ```{r, results="hide"}
 target <- mtq[5, ]
-mf_export(x = target, filename = "fixed_height_centered.png", height = 600)
+mf_export(
+  x = target,
+  filename = "fig/wo_export_fixed_height_centered.png",
+  height = 600
+)
 mf_map(mtq, add = TRUE)
 mf_shadow(target, add = TRUE)
 mf_map(target, add = TRUE)
-mf_title(txt = "PNG export: height=600px, width=433px (deduced)")
+mf_title(txt = "PNG export: height=600px, width=425px (deduced)", cex = 1)
 mf_scale(1, pos = "bottomleft")
 dev.off()
 ```
@@ -92,17 +95,15 @@ dev.off()
 `mf_export()` can produce SVG figures (with `export = "svg"`) and use other parameters of `png()` or `svg()` functions (e.g. `res`, `bg` or `family`).
 
 ```{r, results="hide"}
-mf_theme("nevermind")
 mf_export(
   x = mtq,
-  filename = "fixed_width.svg",
+  filename = "fig/wo_export_fixed_width.svg",
   width = 5,
   bg = "black"
 )
 mf_map(mtq, add = TRUE)
 mf_title(txt = "SVG export: bg = 'black'")
 dev.off()
-mf_theme(NULL)
 ```
 
 ![](fig/wo_export_fixed_width.svg)

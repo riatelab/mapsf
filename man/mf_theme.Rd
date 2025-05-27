@@ -26,9 +26,8 @@ mf_theme(
 )
 }
 \arguments{
-\item{x}{name of a map theme. One of "default", "brutal", "ink",
-"dark", "agolalight", "candy", "darkula", "iceberg", "green", "nevermind",
-"jsk", "barcelona".}
+\item{x}{name of a map theme. One of "base", "sol_dark", "sol_light",
+"grey", "mint", "dracula".}
 
 \item{mar}{margins}
 
@@ -66,68 +65,75 @@ or the figure.}
 \item{...}{other argument, ignored}
 }
 \value{
-The (invisible) list of theme parameters is returned.
+The current list of theme parameters is (invisibly) returned.
 }
 \description{
-This function set a map theme.
-The parameters set by this function are the figure margins, background and
-foreground colors and some \link{mf_title} options.
-Use \code{mf_theme(NULL)} or \code{mf_theme('default')} to reset to default
-theme settings.
+A theme is a set of graphical parameters that are applied to maps created
+with \code{mapsf}. These parameters are:
+\itemize{
+\item figure margins and frames,
+\item background, foreground and highlight colors,
+\item default sequential and qualitative palettes,
+\item title options (position, size, banner...).
 }
-\details{
-It is also possible to set a custom theme using a list of arguments
-(see Examples).
-\code{mf_theme()} returns the current theme settings.
+
+\code{mapsf} offers some builtin themes. It's possible to modify an existing theme
+or to start a theme from scratch. It is also possible to set a custom theme
+using a list of arguments
+
+Themes are persistent across maps produced by \code{mapsf}
+(e.g. they survive a \code{dev.off()} call).
+
+Use \code{mf_theme(NULL)} or \code{mf_theme('base')} to reset to default theme
+settings.
 }
 \examples{
 mtq <- mf_get_mtq()
 
 # Choosing a theme by name:
-mf_theme("default")
+mf_theme("base")
 mf_map(mtq)
 mf_title()
 
 # Specifying some values directly:
-mf_theme(bg = "darkslategrey", fg = "lightgrey")
+mf_theme(title_banner = TRUE)
 mf_map(mtq)
 mf_title()
 
 # Using a mix of the above:
-mf_theme("brutal", fg = "lightgreen", pos = "center", font = 2, tab = FALSE)
+mf_theme("sol_dark", title_tab = TRUE, title_font = 1)
 mf_map(mtq)
 mf_title()
 
 # Specifying a list with theme values:
-theme <- mf_theme("default")
-theme$mar <- c(1, 1, 3, 1)
-theme$line <- 2
-theme$cex <- 1.5
-mf_theme(theme)
-mf_map(mtq)
-mf_title()
-
-# or
 theme <- list(
-  bg = "green",
-  fg = "red",
-  mar = c(2, 2, 2, 2),
-  tab = TRUE,
-  pos = "center",
-  inner = TRUE,
-  line = 2,
-  cex = 1.5,
-  font = 3
+  mar = c(1, 1, 3, 1),
+  title_tab = FALSE,
+  title_pos = "left",
+  title_inner = FALSE,
+  title_line = 2,
+  title_cex = 1.5,
+  title_font = 2,
+  title_banner = FALSE,
+  frame = "map",
+  frame_lwd = 1,
+  frame_lty = 1,
+  foreground = "#fbfbfb",
+  background = "grey75",
+  highlight = "#0f5027",
+  pal_quali = "Dark 3",
+  pal_seq = "Greens"
 )
 mf_theme(theme)
 mf_map(mtq)
+mf_map(mtq, "MED", "choro")
 mf_title()
 
 # Obtaining a list of parameters for the current theme:
-mf_theme()
+current_theme <- mf_theme()
 
-# Removing the current theme:
+# Use default theme:
 mf_theme(NULL)
 # or
-mf_theme("default")
+mf_theme("base")
 }

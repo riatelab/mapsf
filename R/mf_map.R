@@ -230,7 +230,6 @@
 #'
 #'
 #' @examples
-#' library(mapsf)
 #' mtq <- mf_get_mtq()
 #' # basic examples
 #' # type = "base"

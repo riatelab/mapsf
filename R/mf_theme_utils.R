@@ -1,7 +1,7 @@
 
 .gmapsf$themes <- list(
   base = list(
-    mar          = c(0.5, 0.5, 2.25, 0.5)-0.5,
+    mar          = c(0.5, 0.5, 2.25, 0.5),
     title_tab    = FALSE,
     title_pos    = "center",
     title_inner  = FALSE,
@@ -12,8 +12,8 @@
     frame        = "none",
     frame_lwd    = 1,
     frame_lty    = 1,
-    foreground   = "grey70",
-    background   = "#F9F6EE",
+    foreground   = "grey75",
+    background   = "#fbfbfb",
     highlight    = "#500f27",
     pal_quali    = "Dark 3",
     pal_seq      = "BrwnYl"
@@ -69,7 +69,7 @@
     background   = "#073642",
     foreground   = "#93a1a1",
     highlight    = "grey95",
-    pal_seq      = colorRampPalette(c("#073642", "#657b83",
+    pal_seq      = colorRampPalette(c("#002b36", "#657b83",
                                       "#839496", "#eee8d5")),
     pal_quali    = "Pastel 1"
   ),
