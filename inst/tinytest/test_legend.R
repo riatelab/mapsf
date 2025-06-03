@@ -44,7 +44,7 @@ expect_silent(mf_legend(type = "prop_line",
                         frame = TRUE))
 
 dev.off()
-expect_equal(mf_get_leg_pos(mtq, 1), "bottomleft")
+expect_equal(mf_get_leg_pos(mtq, 1), "topright")
 expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topleft", "top"))
 mf_map(mtq)
 expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topright", "right"))

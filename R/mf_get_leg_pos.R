@@ -26,6 +26,7 @@ mf_get_leg_pos <- function(x, n = 1) {
     )
   }
   g <- sf::st_make_grid(x = sf::st_as_sfc(bb), n = c(3, 3), crs = sf::st_crs(x))
+  g <- g[c(2, 4, 5, 6, 7, 8, 9)]
   y <- sf::st_union(sf::st_convex_hull(sf::st_geometry(x)))
   z <- sf::st_intersects(g, y)
   ind <- which(unlist(lapply(z, length)) == 0)
@@ -42,21 +43,21 @@ mf_get_leg_pos <- function(x, n = 1) {
       pos <- sort(ind, decreasing = TRUE)[1:2]
     } else {
       if (length(ind) == 1) {
-        ii <- rep(NA, 9)
-        names(ii) <- 1:9
+        ii <- rep(NA, 7)
+        names(ii) <- 1:7
         ii[ind] <- 0
         couv <- sf::st_area(sf::st_intersection(g, y))
         ii[is.na(ii)] <- couv
         pos <- as.numeric(names(sort(ii)[1:2]))
       } else {
         couv <- sf::st_area(sf::st_intersection(g, y))
-        names(couv) <- 1:9
+        names(couv) <- 1:7
         pos <- as.numeric(names(sort(couv)[1:2]))
       }
     }
   }
   tpos <- c(
-    "bottomleft", "bottom", "bottomright",
+    "bottom",
     "left", "center", "right",
     "topleft", "top", "topright"
   )
