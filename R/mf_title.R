@@ -10,6 +10,7 @@
 #' @param inner if TRUE the title is displayed inside the plot area
 #' @param banner if TRUE the title is dispalayed as a banner
 #' @export
+#' @importFrom grDevices recordGraphics
 #' @return No return value, a title is displayed.
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -19,10 +20,6 @@ mf_title <- function(txt = "Map Title", pos, tab,
                      bg, fg, cex, line, font,
                      inner, banner) {
   test_cur_plot()
-
-  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
-
   tab <- go(tab, "title_tab")
   pos <- go(pos, "title_pos")
   inner <- go(inner, "title_inner")
@@ -38,8 +35,6 @@ mf_title <- function(txt = "Map Title", pos, tab,
     bg <- go(bg, "foreground")
   }
 
-
-
   # correct line space for multiplot
   mmf <- par("mfrow")
   if (mmf[1] == 2 && mmf[2] == 2) {
@@ -49,6 +44,31 @@ mf_title <- function(txt = "Map Title", pos, tab,
     line <- line * .66
   }
 
+  recordGraphics(
+    {
+      mf_title_display(txt, pos, tab, bg, fg, cex, line, font, inner, banner)
+    },
+    list = list(
+      txt = txt,
+      pos = pos,
+      tab = tab,
+      bg = bg,
+      fg = fg,
+      cex = cex,
+      line = line,
+      font = font,
+      inner = inner,
+      banner = banner
+    ),
+    env = getNamespace("mapsf")
+  )
+}
+
+mf_title_display <- function(txt = "Map Title", pos, tab,
+                             bg, fg, cex, line, font,
+                             inner, banner) {
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
+  on.exit(par(op))
   # size refs
   pu <- par("usr")
   hbox <- line * 0.2 * xinch(1)
@@ -111,10 +131,12 @@ mf_title <- function(txt = "Map Title", pos, tab,
   )
   f <- getOption("mapsf.frame")
   if (f %in% c("map", "figure")) {
-    mf_frame(extent = f,
-             col = getOption("mapsf.highlight"),
-             lwd = getOption("mapsf.frame_lwd"),
-             lty = getOption("mapsf.frame_lty"))
+    mf_frame(
+      extent = f,
+      col = getOption("mapsf.highlight"),
+      lwd = getOption("mapsf.frame_lwd"),
+      lty = getOption("mapsf.frame_lty")
+    )
   }
 
   return(invisible(NULL))

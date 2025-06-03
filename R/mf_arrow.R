@@ -21,6 +21,37 @@ mf_arrow <- function(pos = "topleft",
                      align) {
   test_cur_plot()
   col <- go(col, "highlight")
+  if (!missing(align)) {
+    align <- st_crs(align)
+  } else {
+    align <- NULL
+  }
+
+  if (length(pos) == 1 && pos == "interactive") {
+    mf_arrow_display(pos, col, cex, adj, align)
+  } else {
+    recordGraphics(
+      {
+        mf_arrow_display(pos, col, cex, adj, align)
+      },
+      list = list(
+        pos = pos,
+        col = col,
+        cex = cex,
+        adj = adj,
+        align = align
+      ),
+      env = getNamespace("mapsf")
+    )
+  }
+}
+
+
+mf_arrow_display <- function(pos = "topleft",
+                             col,
+                             cex = 1,
+                             adj = c(0, 0),
+                             align) {
   map_extent <- par("usr")
   xe <- map_extent[1:2]
   ye <- map_extent[3:4]
@@ -34,7 +65,7 @@ mf_arrow <- function(pos = "topleft",
   pos_a <- get_arrow_pos(pos, xe, ye, w, h) + adj * inset / 2
   north_arrow <- n_arrow + c(pos_a[1] - bb_n_arrow[1], pos_a[2] - bb_n_arrow[4])
 
-  if (!missing(align)) {
+  if (inherits(align, "crs")) {
     xcrs <- st_crs(align)
     a <- st_as_sf(
       x = data.frame(X = pos_a[1], Y = pos_a[2]), coords = c("X", "Y"),

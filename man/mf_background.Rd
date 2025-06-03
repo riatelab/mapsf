@@ -9,8 +9,7 @@ mf_background(filename, ...)
 \arguments{
 \item{filename}{filename of the background image, PNG or JPG/JPEG format.}
 
-\item{...}{further parameters for
-\code{\link[graphics:rasterImage]{rasterImage}}}
+\item{...}{ignored}
 }
 \value{
 No return value, a background image is displayed.

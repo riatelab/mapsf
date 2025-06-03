@@ -1,8 +1,7 @@
 #' @title Plot a background image
 #' @description Plot a background image on an existing plot
 #' @param filename filename of the background image, PNG or JPG/JPEG format.
-#' @param ... further parameters for
-#' \code{\link[graphics:rasterImage]{rasterImage}}
+#' @param ... ignored
 #'
 #' @return No return value, a background image is displayed.
 #' @export
@@ -41,13 +40,20 @@ mf_background <- function(filename, ...) {
     }
     img <- jpeg::readJPEG(filename)
   }
-  pusr <- par("usr")
-  graphics::rasterImage(
-    image = img,
-    xleft = pusr[1],
-    ybottom = pusr[3],
-    xright = pusr[2],
-    ytop = pusr[4],
-    ...
+
+
+  recordGraphics(
+    {
+      pusr <- par("usr")
+      graphics::rasterImage(
+        image   = img,
+        xleft   = pusr[1],
+        ybottom = pusr[3],
+        xright  = pusr[2],
+        ytop    = pusr[4]
+      )
+    },
+    list = list(img = img),
+    env = getNamespace("mapsf")
   )
 }

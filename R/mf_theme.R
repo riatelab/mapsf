@@ -68,7 +68,7 @@
 #'   title_cex = 1.5,
 #'   title_font = 2,
 #'   title_banner = FALSE,
-#'   frame = "map",
+#'   frame = "figure",
 #'   frame_lwd = 1,
 #'   frame_lty = 1,
 #'   foreground = "#fbfbfb",
@@ -78,7 +78,6 @@
 #'   pal_seq = "Greens"
 #' )
 #' mf_theme(theme)
-#' mf_map(mtq)
 #' mf_map(mtq, "MED", "choro")
 #' mf_title()
 #'
@@ -155,8 +154,10 @@ mf_theme <- function(x,
 
   # update theme params
   # legacy themes & param
-  legacy_argx <- c(argx$bg, argx$fg, argx$tab, argx$pos, argx$inner, argx$line,
-                   argx$cex, argx$font)
+  legacy_argx <- c(
+    argx$bg, argx$fg, argx$tab, argx$pos, argx$inner, argx$line,
+    argx$cex, argx$font
+  )
   if (!is.null(legacy_argx)) {
     theme$legacy <- TRUE
     theme$title_banner <- TRUE

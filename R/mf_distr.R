@@ -68,22 +68,34 @@ mf_distr <- function(x, nbins, bw) {
     x = x_lim,
     y = y_lim,
     col = NA,
-    axes = F,
+    axes = FALSE,
     xlab = "",
     ylab = ""
   )
   # background
-  plt <- par('plt')
-  usr <- par('usr')
-  rect(
-    par("usr")[1] - plt[1] * (usr[2] - usr[1]) / (plt[2] - plt[1]),
-    par("usr")[3] - plt[3] * (usr[4] - usr[3]) / (plt[4] - plt[3]),
-    par("usr")[2] + (1 - plt[2]) * (usr[2] - usr[1]) / (plt[2] - plt[1]),
-    par("usr")[4] + (1 - plt[4]) * (usr[4] - usr[3]) / (plt[4] - plt[3]),
-    col = getOption("mapsf.background"),
-    border = getOption("mapsf.background"),
-    xpd = TRUE
+  rcol <- getOption("mapsf.background")
+  rborder <- getOption("mapsf.background")
+
+  recordGraphics(
+    {
+      plt <- par("plt")
+      usr <- par("usr")
+      rect(
+        par("usr")[1] - plt[1] * (usr[2] - usr[1]) / (plt[2] - plt[1]),
+        par("usr")[3] - plt[3] * (usr[4] - usr[3]) / (plt[4] - plt[3]),
+        par("usr")[2] + (1 - plt[2]) * (usr[2] - usr[1]) / (plt[2] - plt[1]),
+        par("usr")[4] + (1 - plt[4]) * (usr[4] - usr[3]) / (plt[4] - plt[3]),
+        col = rcol,
+        border = rborder,
+        xpd = TRUE
+      )
+    },
+    list = list(rcol = rcol, rborder = rborder),
+    env = getNamespace("mapsf")
   )
+
+
+
   # histogram
   hist(
     x,
@@ -104,7 +116,7 @@ mf_distr <- function(x, nbins, bw) {
     add = TRUE
   )
   title(
-    main  = "Distribution",
+    main = "Distribution",
     ylab = "Density",
     line = 2,
     col.lab = getOption("mapsf.highlight"),
@@ -138,7 +150,7 @@ mf_distr <- function(x, nbins, bw) {
     x = x,
     y = pts_y,
     pch = 21,
-    cex = .5,
+    cex = .7,
     bg = getOption("mapsf.highlight"),
     col = getOption("mapsf.background")
   )

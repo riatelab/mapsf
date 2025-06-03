@@ -10,6 +10,7 @@
 #' @export
 #' @keywords internal
 #' @importFrom sf st_bbox st_as_sfc st_geometry st_crs<-
+#' @importFrom grDevices recordGraphics
 #' @return No return value, a map is initiated.
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -17,9 +18,6 @@
 #' mf_init(target)
 #' mf_map(mtq, add = TRUE)
 mf_init <- function(x, expandBB = rep(0, 4)) {
-
-  bgmap <- getOption("mapsf.background")
-
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
@@ -51,18 +49,33 @@ mf_init <- function(x, expandBB = rep(0, 4)) {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-
+  bgmap <- getOption("mapsf.background")
   # plot with bg and margins
   plot(y, col = NA, border = NA, expandBB = expandBB)
-  pux <- par("usr")
-  rect(pux[1], pux[3], pux[2], pux[4], border = NA, col = bgmap)
+
+  recordGraphics(
+    {
+      pux <- par("usr")
+      rect(pux[1],
+        pux[3],
+        pux[2],
+        pux[4],
+        border = NA,
+        col = bgmap
+      )
+    },
+    list = list(bgmap = bgmap),
+    env = getNamespace("mapsf")
+  )
 
   f <- getOption("mapsf.frame")
   if (f %in% c("map", "figure")) {
-    mf_frame(extent = f,
-             col = getOption("mapsf.highlight"),
-             lwd = getOption("mapsf.frame_lwd"),
-             lty = getOption("mapsf.frame_lty"))
+    mf_frame(
+      extent = f,
+      col = getOption("mapsf.highlight"),
+      lwd = getOption("mapsf.frame_lwd"),
+      lty = getOption("mapsf.frame_lty")
+    )
   }
   return(invisible(x))
 }

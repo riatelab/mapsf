@@ -69,7 +69,7 @@ mf_annotation <- function(x,
     s <- 1
   }
 
-  if(pos %in% c("topleft", "topright", "bottomright", "bottomleft")) {
+  if (pos %in% c("topleft", "topright", "bottomright", "bottomleft")) {
     inset <- xinch(par("csi")) / 3
     radius <- 5 * s * inset
     res <- annot_pos_params(

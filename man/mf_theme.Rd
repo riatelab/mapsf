@@ -115,7 +115,7 @@ theme <- list(
   title_cex = 1.5,
   title_font = 2,
   title_banner = FALSE,
-  frame = "map",
+  frame = "figure",
   frame_lwd = 1,
   frame_lty = 1,
   foreground = "#fbfbfb",
@@ -125,7 +125,6 @@ theme <- list(
   pal_seq = "Greens"
 )
 mf_theme(theme)
-mf_map(mtq)
 mf_map(mtq, "MED", "choro")
 mf_title()
 

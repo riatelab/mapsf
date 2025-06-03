@@ -23,6 +23,30 @@ mf_credits <- function(txt = "Source(s) & Author(s)",
 
   col <- go(col, "highlight")
 
+
+  recordGraphics(
+    {
+      mf_credits_display(txt, pos, col, cex, font, bg)
+    },
+    list = list(
+      txt = txt,
+      pos = pos,
+      col = col,
+      cex = cex,
+      font = font,
+      bg = bg
+    ),
+    env = getNamespace("mapsf")
+  )
+}
+
+
+mf_credits_display <- function(txt = "Source(s) & Author(s)",
+                               pos = "bottomleft",
+                               col,
+                               cex = .6,
+                               font = 3,
+                               bg = NA) {
   pd <- par("usr")
   pdp <- xinch(par("csi")) / 4
 

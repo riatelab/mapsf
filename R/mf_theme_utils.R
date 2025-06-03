@@ -1,4 +1,3 @@
-
 .gmapsf$themes <- list(
   base = list(
     mar          = c(0.5, 0.5, 2.25, 0.5),
@@ -55,26 +54,28 @@
     pal_quali    = "Pastel 1"
   ),
   sol_dark = list(
-    mar          = c(0.5, 0.5, 2.25, 0.5),
-    title_tab    = FALSE,
-    title_pos    = "left",
-    title_inner  = FALSE,
-    title_line   = 1.75,
-    title_cex    = 1.25,
-    title_font   = 2,
+    mar = c(0.5, 0.5, 2.25, 0.5),
+    title_tab = FALSE,
+    title_pos = "left",
+    title_inner = FALSE,
+    title_line = 1.75,
+    title_cex = 1.25,
+    title_font = 2,
     title_banner = FALSE,
-    frame        = "none",
-    frame_lwd    = 1,
-    frame_lty    = 1,
-    background   = "#073642",
-    foreground   = "#93a1a1",
-    highlight    = "grey95",
-    pal_seq      = colorRampPalette(c("#002b36", "#657b83",
-                                      "#839496", "#eee8d5")),
-    pal_quali    = "Pastel 1"
+    frame = "none",
+    frame_lwd = 1,
+    frame_lty = 1,
+    background = "#073642",
+    foreground = "#93a1a1",
+    highlight = "grey95",
+    pal_seq = colorRampPalette(c(
+      "#002b36", "#657b83",
+      "#839496", "#eee8d5"
+    )),
+    pal_quali = "Pastel 1"
   ),
   mint = list(
-    mar          = c(0.25, 0.25, 2, 0.25)+.5,
+    mar          = c(0.25, 0.25, 2, 0.25) + .5,
     title_tab    = FALSE,
     title_pos    = "center",
     title_inner  = FALSE,
@@ -92,7 +93,7 @@
     pal_quali    = "Pastel 1"
   ),
   dracula = list(
-    mar          = c(0.5, 0.5, 2.25, 0.5)-.5,
+    mar          = c(0.5, 0.5, 2.25, 0.5) - .5,
     title_tab    = FALSE,
     title_pos    = "center",
     title_inner  = FALSE,
@@ -110,7 +111,7 @@
     pal_quali    = "Warm"
   ),
   rzine = list(
-    mar          = c(0, 0, 1.2, 0),
+    mar          = c(0, 0, 1.21, 0),
     title_tab    = FALSE,
     title_pos    = "center",
     title_inner  = FALSE,
@@ -118,7 +119,7 @@
     title_cex    = 1,
     title_font   = 2,
     title_banner = FALSE,
-    frame        = "map",
+    frame        = "figure",
     frame_lwd    = 1,
     frame_lty    = "5252",
     background   = "#b2c3e6",
@@ -128,7 +129,7 @@
     pal_quali    = "Warm"
   ),
   pistachio = list(
-    mar          = c(0, 0, 1.2, 0),
+    mar          = c(0, 0, 1.21, 0),
     title_tab    = FALSE,
     title_pos    = "center",
     title_inner  = FALSE,
@@ -136,7 +137,7 @@
     title_cex    = 1,
     title_font   = 2,
     title_banner = FALSE,
-    frame        = "map",
+    frame        = "figure",
     frame_lwd    = 1,
     frame_lty    = "5252",
     foreground   = "#D2E2C3",

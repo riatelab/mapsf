@@ -76,6 +76,7 @@ Other contributors:
 \itemize{
   \item Hugues Pecout (\href{https://orcid.org/0000-0002-0246-0954}{ORCID}) (Logo) [contributor]
   \item Ronan Ysebaert (\href{https://orcid.org/0000-0002-7344-5911}{ORCID}) (Cheat sheet) [contributor]
+  \item Elina Marveaux (\href{https://orcid.org/0009-0000-8667-3019}{ORCID}) (Themes) [contributor]
   \item Ian Fellows (No overlap algorithm for labels, from wordcloud package) [copyright holder]
   \item Jim Lemon (Arc drawing algorithm for annotations, from plotrix package) [copyright holder]
 }
