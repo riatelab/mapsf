@@ -71,7 +71,7 @@ mf_symb_choro <- function(x, var,
                           nbreaks,
                           border,
                           pch,
-                          cex = 1,
+                          cex = 2,
                           lwd = .7,
                           pch_na = 4,
                           cex_na = 1,
@@ -143,7 +143,7 @@ mf_symb_choro <- function(x, var,
   )
 
   if (missing(pch)) {
-    pchs <- c(0:25, 32:127)
+    pchs <- c(21:25, 0:20, 32:127)
     pch <- pchs[seq_along(val_order)]
   }
 

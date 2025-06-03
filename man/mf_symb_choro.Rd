@@ -14,7 +14,7 @@ mf_symb_choro(
   nbreaks,
   border,
   pch,
-  cex = 1,
+  cex = 2,
   lwd = 0.7,
   pch_na = 4,
   cex_na = 1,

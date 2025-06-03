@@ -12,7 +12,7 @@ mf_symb(
   rev = FALSE,
   border,
   pch,
-  cex = 1.5,
+  cex = 2,
   lwd = 0.7,
   col_na = "grey",
   pch_na = 4,

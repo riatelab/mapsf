@@ -13,7 +13,7 @@ mf_typo(
   val_order,
   border,
   pch = 21,
-  cex = 1,
+  cex = 2,
   lwd = 0.7,
   cex_na = 1,
   pch_na = 4,
