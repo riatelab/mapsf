@@ -15,10 +15,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.width = 7,
-  fig.height = 4, 
+  fig.height = 4,
   fig.path = "fig/wo_facet_",
   eval = TRUE
-  
 )
 ```
 

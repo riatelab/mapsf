@@ -17,11 +17,10 @@ Note that the font has to be installed on your system and recognized by R.
 
 ```{r a, fig.width = 6, fig.height = 7, cache=FALSE, dpi=110, eval = TRUE, fig.path="fig/wo_font_"}
 library(mapsf)
-library(sf)
 # Import the sample data set
 mtq <- mf_get_mtq()
 # population density (inhab./km2) using sf::st_area()
-mtq$POPDENS <- 1e6 * mtq$POP / st_area(mtq)
+mtq$POPDENS <- 1e6 * mtq$POP / sf::st_area(mtq)
 # Define the font family
 # !! Select a font already installed on your system !!
 par(family = "Fira Code")

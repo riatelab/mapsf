@@ -122,7 +122,7 @@ mf_shadow(mtq)
 # plot municipalities
 mf_map(mtq, type = "base", add = TRUE)
 # layout elements
-credits <- paste0("Sources: IGN, 2018\n","mapsf ",packageVersion("mapsf"))
+credits <- paste0("Sources: IGN, 2018\n", "mapsf ", packageVersion("mapsf"))
 mf_title("Martinique")
 mf_credits(credits)
 mf_arrow()
@@ -175,7 +175,7 @@ mf_map(
   border = "white",
   lwd = 0.5,
   leg_pos = "bottomleft",
-  leg_adj = c(0, 3), 
+  leg_adj = c(0, 3),
   leg_title = "Population Density\n(inh. / km2)"
 )
 # layout elements

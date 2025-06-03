@@ -9,12 +9,13 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.width = 4,
-  fig.height = 4, 
+  fig.height = 4,
   fig.path = "fig/wo_theme_"
 )
 ```
@@ -35,27 +36,45 @@ Themes are persistent across maps produced by `mapsf` (e.g. they survive a `dev.
 
 Here are the builtin themes.   
 
-```{r all, echo = FALSE, fig.width=8, fig.height=8}
+```{r all, echo = FALSE, fig.width=3, fig.height=3.25, results='asis'}
 suppressPackageStartupMessages(library(mapsf))
 themes <- list(
-  'base' = 'base', 
-  'sol_dark' = 'sol_dark',
-  'sol_light' = 'sol_light',
-  'grey' = 'grey',
-  'mint' = 'mint',
-  'dracula' = 'dracula'
+  "base" = "base",
+  "sol_dark" = "sol_dark",
+  "sol_light" = "sol_light",
+  "grey" = "grey",
+  "mint" = "mint",
+  "dracula" = "dracula", 
+  "rzine" = "rzine", 
+  "pistachio" = "pistachio"
 )
-opar <-par(mfrow=c(3,4))
 mtq <- mf_get_mtq()
 for (i in 1:length(themes)) {
   mf_theme(themes[[i]])
-  mf_map(mtq)
-  mf_map(mtq, "POP", "prop", inches = .15, leg_pos = 'topright')
-  mf_layout(paste0("Theme: ", names(themes)[[i]]))
-  mf_map(mtq, "MED", "choro", leg_frame = FALSE)
-  mf_title("Sequential Palette")
+  mf_export(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "1.png"))
+  mf_map(mtq, add = T)
+  mf_map(mtq, "POP", "prop", inches = .15, leg_pos = "topright")
+  mf_title(paste0("Theme: ", names(themes)[[i]]))
+  mf_credits()
+  dev.off()
+  mf_export(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "2.png"))
+  mf_theme(themes[[i]])
+  mf_map(mtq, "MED", "choro", leg_pos = NA)
+  mf_arrow(pos = "topright")
+  mf_scale(pos = "bottomleft")
+  mf_title("")
+  dev.off()
+
 }
 ```
+![](fig/wo_theme_base1.png) ![](fig/wo_theme_base2.png)
+![](fig/wo_theme_sol_dark1.png) ![](fig/wo_theme_sol_dark2.png)
+![](fig/wo_theme_sol_light1.png) ![](fig/wo_theme_sol_light2.png)
+![](fig/wo_theme_grey1.png) ![](fig/wo_theme_grey2.png)
+![](fig/wo_theme_mint1.png) ![](fig/wo_theme_mint2.png)
+![](fig/wo_theme_pistachio1.png) ![](fig/wo_theme_pistachio2.png)
+![](fig/wo_theme_dracula1.png) ![](fig/wo_theme_dracula2.png)
+![](fig/wo_theme_rzine1.png) ![](fig/wo_theme_rzine2.png)
 
 
 ## How to modify an existing theme
@@ -76,22 +95,22 @@ It is possible to create a new theme from scratch.
 
 ```{r from_scratch}
 mf_theme(
-    mar          = c(0.1, 0.1, 1.85, 0.1),
-    title_tab    = FALSE,
-    title_pos    = "left",
-    title_inner  = FALSE,
-    title_line   = 1.75,
-    title_cex    = 1.25,
-    title_font   = 4,
-    title_banner = FALSE,
-    foreground   = "#F1F0E9",
-    background   = "white",
-    highlight    = "#E9762B",
-    frame        = "map", 
-    frame_lwd    = 4,
-    pal_quali    = "Dark 3",
-    pal_seq      = colorRampPalette(c("#F1F0E9", "#41644A", "#0D4715"))
-  )
+  mar          = c(0.1, 0.1, 1.85, 0.1),
+  title_tab    = FALSE,
+  title_pos    = "left",
+  title_inner  = FALSE,
+  title_line   = 1.75,
+  title_cex    = 1.25,
+  title_font   = 4,
+  title_banner = FALSE,
+  foreground   = "#F1F0E9",
+  background   = "white",
+  highlight    = "#E9762B",
+  frame        = "map",
+  frame_lwd    = 4,
+  pal_quali    = "Dark 3",
+  pal_seq      = colorRampPalette(c("#F1F0E9", "#41644A", "#0D4715"))
+)
 mf_map(mtq, "MED", "choro")
 mf_title("New theme")
 ```
