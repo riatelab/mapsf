@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# mapsf
-
 <img src="man/figures/logo.png" align="right" width="120"/>
+
+# mapsf
 
 <!-- badges: start -->
 
@@ -28,15 +28,6 @@ enhance the graphical presentation of maps (e.g., scale bar, north
 arrow, title, labels).  
 `mapsf` maps `sf` objects on `base` graphics.
 
-<figure>
-<img src="man/figures/mapsf_cheatsheet.png"
-alt="Cheat Sheet &amp; Web Site" />
-<figcaption aria-hidden="true"><a
-href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf">Cheat
-Sheet</a> &amp; <a href="https://riatelab.github.io/mapsf/">Web
-Site</a></figcaption>
-</figure>
-
 ## Installation
 
 You can install the released version of `mapsf` from
@@ -55,8 +46,7 @@ remotes::install_github("riatelab/mapsf", ref = "dev")
 
 ## Usage
 
-This is a basic example which shows how to create a map with `mapsf`.  
-The main `mapsf` function is `mf_map()`.
+This is a basic example which shows how to create a map with `mapsf`.
 
 ``` r
 library(mapsf)
@@ -75,35 +65,11 @@ mf_layout(
 
 ![](man/figures/example1-1.png)<!-- -->
 
-A more detailed example:
-
-``` r
-# A map with a theme and extra margins
-mf_theme("sol_dark")
-# Plot a choropleth map
-mf_map(
-  x = mtq, var = "MED", type = "choro",
-  breaks = "quantile", nbreaks = 6,
-  leg_title = "Median Income\n(euros)", leg_val_rnd = -2,
-  expandBB = c(0, 0, 0, .3)
-)
-# Start an inset map
-mf_inset_on(x = "worldmap", pos = "right")
-# Plot mtq position on a worldmap
-mf_worldmap(mtq, col = "#0E3F5C")
-# Close the inset
-mf_inset_off()
-# Plot a title
-mf_title("Wealth in Martinique, 2015")
-# Plot credits
-mf_credits("T. Giraud\nSources: INSEE & IGN, 2018")
-# Plot a scale bar
-mf_scale(size = 5)
-# Plot a north arrow
-mf_arrow("topleft")
-```
-
-![](man/figures/example2-1.png)<!-- -->
+You can find more detailed examples on the [“Get Started”]() section of
+the [package website](https://riatelab.github.io/mapsf/) and you can
+also download its [cheat sheet]().  
+[![Cheat
+Sheet](man/figures/mapsf_cheatsheet.png)](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf)
 
 ## Alternatives
 

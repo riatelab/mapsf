@@ -28,12 +28,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="574"
-     inkscape:cy="510"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="630.73925"
+     inkscape:cy="470.93312"
      inkscape:window-width="2560"
-     inkscape:window-height="1403"
-     inkscape:window-x="4480"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"><sodipodi:guide
@@ -4105,7 +4105,7 @@
          y="205"
          id="tspan37247-2"><tspan
    style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:2.82222px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   id="tspan37292-6">mapsf</tspan> - CRAN.R-project.org/package=mapsf - R. Ysebaert &amp; T. Giraud - 2024/12</tspan></text><g
+   id="tspan37292-6">mapsf</tspan> - CRAN.R-project.org/package=mapsf - R. Ysebaert &amp; T. Giraud - 2025/06</tspan></text><g
        id="g39173"
        transform="matrix(0.86956749,0,0,0.86956749,79.748339,6.6811003)"><path
          d="m 221.74197,220.05532 21.72638,0.0387 c 0.30345,0 0.57449,-0.0453 0.57449,0.60975 l -0.0266,7.2011 h -22.82253 v -7.22802 c 0,-0.32278 0.0311,-0.62152 0.54833,-0.62152 z"
