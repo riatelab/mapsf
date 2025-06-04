@@ -27,6 +27,15 @@ mf_get_ratio <- function(x,
                          expandBB = rep(0, 4),
                          theme = mf_theme()) {
   # input test
+  test_ratio_input(x)
+  bb <- x_to_bb(x = x, expandBB = expandBB)
+  mar <- get_mar(theme)
+  bb_to_ratio(bb = bb, mar = mar, width = width, height = height)
+}
+
+
+test_ratio_input <- function(x){
+  # input test
   if (!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))) {
     stop(
       paste0(
@@ -36,6 +45,7 @@ mf_get_ratio <- function(x,
       call. = FALSE
     )
   }
+
   if (inherits(x, c("SpatRaster", "SpatVector"))) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
@@ -46,11 +56,21 @@ mf_get_ratio <- function(x,
         call. = FALSE
       )
     }
-    proj <- terra::crs(x)
-    bb <- terra::ext(x)[c(1, 3, 2, 4)]
-    x <- st_as_sfc(st_bbox(bb))
-    st_crs(x) <- proj
-    expandBB <- c(rep(-.04, 4))
+  }
+}
+
+
+
+x_to_bb <- function(x, expandBB){
+  if (inherits(x, c("SpatRaster", "SpatVector"))) {
+    ras_proj <- terra::crs(x)
+    x <- st_as_sfc(st_bbox(terra::ext(x)[c(1, 3, 2, 4)]))
+    st_crs(x) <- ras_proj
+    expandBB <- expandBB + c(rep(-.04, 4))
+  } else {
+    if (par("xaxs") == "r") {
+      expandBB <- expandBB / (1 + 0.08)
+    }
   }
 
   if (isTRUE(st_is_longlat(st_crs(x)))) {
@@ -59,6 +79,16 @@ mf_get_ratio <- function(x,
     x <- st_transform(x = x, paste0("+proj=eqc +lat_ts=", lat_ts))
   }
 
+  bb <- st_bbox(x)
+  # expandBB mgmt
+  w <- bb[3] - bb[1]
+  h <- bb[4] - bb[2]
+  bb <- bb + (expandBB[c(2, 1, 4, 3)] * c(-w, -h, w, h))
+
+  return(bb)
+}
+
+get_mar <- function(theme){
   if (missing(theme)) {
     mar <- getOption("mapsf.mar")
   } else {
@@ -67,39 +97,41 @@ mf_get_ratio <- function(x,
     mar <- getOption("mapsf.mar")
     mf_theme(old_theme)
   }
+  mar
+}
 
 
-  # transform to bbox
-  bb <- st_bbox(x)
 
-  if (par("xaxs") == "r") {
-    expandBB <- expandBB / (1 + 0.08)
+bb_to_ratio <- function(bb, mar, width, height){
+  if (!missing(width) && !missing(height)) {
+    return(c(width, height))
   }
-  # expandBB mgmt
-  extra <- expandBB[c(2, 1, 4, 3)]
-  w <- bb[3] - bb[1]
-  h <- bb[4] - bb[2]
-  bb <- bb + (extra * c(-w, -h, w, h))
-
-  # get the ratio
   iw <- bb[3] - bb[1]
   ih <- bb[4] - bb[2]
-
   if (missing(width) && missing(height)) {
     width <- 7
   }
-
-  if (missing(height)) {
-    width <- width * 96
-    wh <- iw / ih
-    widthmar <- width - (0.2 * (mar[2] + mar[4]) * res)
-    height <- (widthmar / wh) + (0.2 * (mar[1] + mar[3]) * res)
-  } else {
-    height <- height * 96
-    hw <- ih / iw
-    heightmar <- height - (0.2 * (mar[1] + mar[3]) * res)
-    width <- (heightmar / hw) + (0.2 * (mar[2] + mar[4]) * res)
+  if (!missing(width) && width > 50) {
+    message(paste0(
+      "It is unlikely that you really want to produce a figure",
+      " with more than 50 inches of width.", " The width has been",
+      " set to 7 inches."
+    ))
+    width <- 7
   }
-
-  return(unname(round(c(width, height) / 96, 2)))
+  if (missing(height)) {
+    wh <- iw / ih
+    widthmar <- width - (0.2 * (mar[2] + mar[4]))
+    height <- (widthmar / wh) + (0.2 * (mar[1] + mar[3]))
+  } else {
+    hw <- ih / iw
+    heightmar <- height - (0.2 * (mar[1] + mar[3]))
+    width <- (heightmar / hw) + (0.2 * (mar[2] + mar[4]))
+  }
+  return(unname(round(c(width, height), 3)))
 }
+
+
+
+
+
