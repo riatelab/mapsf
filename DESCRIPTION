@@ -55,6 +55,7 @@ Suggests:
     lwgeom,
     knitr,
     rmarkdown,
+    svglite,
     tinytest,
     covr, 
     altdoc
