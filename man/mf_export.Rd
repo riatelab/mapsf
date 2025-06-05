@@ -52,3 +52,4 @@ mf_export(mtq, filename = filename)
 mf_map(mtq, add = TRUE)
 dev.off()
 }
+\keyword{internal}

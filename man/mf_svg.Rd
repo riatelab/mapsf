@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_svg.R
 \name{mf_svg}
 \alias{mf_svg}
-\title{Export a map in svg format}
+\title{Export a map in SVG format}
 \usage{
 mf_svg(
   x,
@@ -17,7 +17,7 @@ mf_svg(
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
 
-\item{filename}{path to the exported file.}
+\item{filename}{path to the exported file}
 
 \item{width}{width of the figure (inches)}
 
@@ -27,7 +27,7 @@ mf_svg(
 direction (bottom, left, top, right)}
 
 \item{svglite}{if TRUE, the export is done with the \code{svglite} package
-if installed}
+if it is installed (see Details)}
 
 \item{...}{further parameters}
 }
@@ -35,12 +35,27 @@ if installed}
 No return value, an SVG device is initiated.
 }
 \description{
-Export a map with the extent of a spatial object.\cr
-The map is exported in SVG format.\cr
-If only one of \code{width} or \code{height} is set, \code{mf_export} uses
-the width/height ratio of \code{x} bounding box to find a matching ratio for
-the export.\cr
+Export a map with the extent of a spatial object in SVG format.
+
+SVG export is the perfect solution for editing maps with desktop vector
+graphics software. SVG is a vector graphics file format.
+
+If \code{width} is specified, then \code{height} is deduced from the width/height
+ratio of \code{x}. Alternatively, if \code{height} is specified, then \code{width}
+is deduced from the width/height ratio of \code{x}.
+This helps to produce maps without too much wasted space.
+
 Use \code{dev.off} to finish the export (see Examples).
+}
+\details{
+The default driver for building SVG files, \code{grDevices::svg()}, has
+limitations regarding speed, file size, editability, and font support.
+The \code{svglite} package aims to solve these issues but it is not lightweight
+in terms of dependencies, so it is not imported by \code{mapsf}, but rather
+suggested.
+
+However, we strongly recommend its use if the aim is to edit the maps
+after export.
 }
 \examples{
 mtq <- mf_get_mtq()

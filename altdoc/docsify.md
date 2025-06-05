@@ -28,7 +28,8 @@
     - [mf_inset_*()](man/mf_inset_on)
     - [mf_worldmap()](man/mf_worldmap)
   - Utility
-    - [mf_export()](man/mf_export)
+    - [mf_svg()](man/mf_svg)
+    - [mf_png()](man/mf_png)
     - [mf_distr()](man/mf_distr)
     - [mf_get_links()](man/mf_links)
     - [mf_get_pal()](man/mf_get_pal)

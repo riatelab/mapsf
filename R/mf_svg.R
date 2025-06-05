@@ -1,23 +1,38 @@
-#' @title Export a map in svg format
+#' @title Export a map in SVG format
 #' @name mf_svg
-#' @description Export a map with the extent of a spatial object.\cr
-#' The map is exported in SVG format.\cr
-#' If only one of \code{width} or \code{height} is set, \code{mf_export} uses
-#' the width/height ratio of \code{x} bounding box to find a matching ratio for
-#' the export.\cr
+#' @description Export a map with the extent of a spatial object in SVG format.
+#'
+#' SVG export is the perfect solution for editing maps with desktop vector
+#' graphics software. SVG is a vector graphics file format.
+#'
+#' If `width` is specified, then `height` is deduced from the width/height
+#' ratio of `x`. Alternatively, if `height` is specified, then `width`
+#' is deduced from the width/height ratio of `x`.
+#' This helps to produce maps without too much wasted space.
+#'
 #' Use \code{dev.off} to finish the export (see Examples).
 #'
-#'
+#' @md
 #' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @param filename path to the exported file.
+#' @param filename path to the exported file
 #' @param width width of the figure (inches)
 #' @param height height of the figure (inches)
 #' @param svglite if TRUE, the export is done with the \code{svglite} package
-#' if installed
+#' if it is installed (see Details)
 #' @param ... further parameters
 #' @export
+#' @details
+#' The default driver for building SVG files, `grDevices::svg()`, has
+#' limitations regarding speed, file size, editability, and font support.
+#' The `svglite` package aims to solve these issues but it is not lightweight
+#' in terms of dependencies, so it is not imported by `mapsf`, but rather
+#' suggested.
+#'
+#' However, we strongly recommend its use if the aim is to edit the maps
+#' after export.
+#'
 #' @return No return value, an SVG device is initiated.
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -41,8 +56,7 @@ mf_svg <- function(x, filename = "map.svg",
                        fix_text_size = FALSE, ...)
     } else {
       message(
-        paste0("'svglite' is not installed and will not be used to export",
-               "the map.")
+        paste0("'svglite' is not installed.")
       )
       svg(filename, width = ratio[1], height = ratio[2], ...)
     }
