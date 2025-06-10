@@ -31,7 +31,7 @@
     - [mf_svg()](man/mf_svg)
     - [mf_png()](man/mf_png)
     - [mf_distr()](man/mf_distr)
-    - [mf_get_links()](man/mf_links)
+    - [mf_get_links()](man/mf_get_links)
     - [mf_get_pal()](man/mf_get_pal)
     - [mf_get_breaks()](man/mf_get_breaks)
     - [mf_get_mtq()](man/mf_get_mtq)
