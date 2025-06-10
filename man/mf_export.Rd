@@ -36,6 +36,10 @@ direction (bottom, left, top, right)}
 No return value, a map file is initiated (in PNG or SVG format).
 }
 \description{
+It is recommended to use \link{mf_svg} or \link{mf_png} instead of
+\code{mf_export}.
+\cr
+
 Export a map with the extent of a spatial object.\cr
 The map is exported in PNG or SVG format.\cr
 If only one of \code{width} or \code{height} is set, \code{mf_export} uses
@@ -51,5 +55,8 @@ mtq <- mf_get_mtq()
 mf_export(mtq, filename = filename)
 mf_map(mtq, add = TRUE)
 dev.off()
+}
+\seealso{
+\link{mf_svg} for svg export.
 }
 \keyword{internal}

@@ -1,6 +1,13 @@
 #' @title Export a map
 #' @name mf_export
-#' @description Export a map with the extent of a spatial object.\cr
+#' @description
+#'
+#' It is recommended to use \link{mf_svg} or \link{mf_png} instead of
+#' \code{mf_export}.
+#' \cr
+#'
+#'
+#' Export a map with the extent of a spatial object.\cr
 #' The map is exported in PNG or SVG format.\cr
 #' If only one of \code{width} or \code{height} is set, \code{mf_export} uses
 #' the width/height ratio of \code{x} bounding box to find a matching ratio for
@@ -19,10 +26,12 @@
 #' @param res resolution (for png)
 #' @param ... further parameters for png or svg export
 #' @export
+#' @md
 #' @keywords internal
 #' @importFrom grDevices png svg
 #' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs
 #' @return No return value, a map file is initiated (in PNG or SVG format).
+#' @seealso [mf_svg] for svg export.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' (filename <- tempfile(fileext = ".png"))
