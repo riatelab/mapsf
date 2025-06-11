@@ -44,7 +44,7 @@ The first solution is based on `x`, `pos` and `cex` arguments:
 
 In the following example we create an inset for a specific municipality in the topright corner of the map. 
 
-```{r, fig.height=5.71, fig.width=6, results = FALSE}
+```{r target, fig.height=5.71, fig.width=6, results = FALSE}
 library(mapsf)
 # set margins theme
 mf_theme(mar = c(0, 0, 0, 0))
@@ -67,7 +67,7 @@ mf_inset_off()
 Once an inset is opened, map elements can be added to it.  
 Here we add a title, a shadow, a scale bar, other Martinique municipalities and a frame.  
 
-```{r, fig.height=5.71, fig.width=6, results = FALSE}
+```{r target_plus, fig.height=5.71, fig.width=6, results = FALSE}
 # set a theme
 mf_theme("sol_dark")
 # Selection of a target municipality to display in the inset
@@ -108,7 +108,7 @@ The second solution to set the size and position of an inset is to use the `fig`
 
 In the following example we create an inset for a specific municipality in the bottom left corner of the map. 
 
-```{r, fig.height=6, fig.width=5, results = FALSE}
+```{r fig_par, fig.height=6, fig.width=5, results = FALSE}
 # set a theme
 mf_theme("base", mar = c(0, 0, 0, 0))
 # Display the base map
@@ -128,7 +128,7 @@ mf_inset_off()
 
 It is easy to create an inset with a world map (see `mf_worldmap()`) using `x = "worldmap"`. 
 
-```{r, fig.height=6, fig.width=5, results = FALSE}
+```{r worldmap, fig.height=6, fig.width=5, results = FALSE}
 mf_map(mtq)
 mf_inset_on(x = "worldmap")
 mf_worldmap(mtq)
@@ -140,7 +140,7 @@ mf_inset_off()
 ## Non-cartographic Insets
 Insets can be used for regular plots. In the next map we create an inset with an histogram of the median income distribution using the map classification. 
 
-```{r, fig.height=7.58, fig.width=6.25, results = FALSE}
+```{r non_carto, fig.height=7.58, fig.width=6.25, results = FALSE}
 # create classes
 bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = "quantile")
 bks <- round(bks, digits = -2)

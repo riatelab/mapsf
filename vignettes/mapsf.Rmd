@@ -95,10 +95,11 @@ These functions are dedicated to the map layout design.
 
 ## Export
 
-`mf_export()` exports maps in PNG or SVG formats.
-The exported map width/height ratio will match the one of a spatial object.  
-If width is specified, then height is deduced from the width/height ratio of x and some theme parameters (figure margins and title size).
-If height is specified, then width is deduced from the width/height ratio of x and some theme parameters (figure margins and title size).
+`mf_svg()` and `mf_png()` export maps in SVG and PNG formats, respectively.
+The exported map width/height ratio will match the one of a spatial object.   
+**SVG export** is the perfect solution for editing maps with desktop vector graphics software, such as Inkscape. SVG is a [vector graphics](https://en.wikipedia.org/wiki/Vector_graphics) file format.      
+**PNG export** should be used for maps that do not require further modification. PNG is a [raster graphics](https://en.wikipedia.org/wiki/Raster_graphics) file format.   
+
 
 &#128279; See the online vignette: [How to export maps](https://riatelab.github.io/mapsf/#/vignettes/how_to_export_maps) 
 
@@ -107,26 +108,23 @@ If height is specified, then width is deduced from the width/height ratio of x a
 
 ## Base map
 
-`mf_shadow()` plots the shadow of a polygon layer.
+`mf_map(x, type = "base")` displays `sf` objects geometries.  
+`mf_get_mtq()` is used to import a sample dataset as an `sf` object. Use `sf::st_read()` to import your own spatial datasets.   
 
-`mf_map(x, type = "base")` displays `sf` objects geometries.
-
-`mf_layout()` add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with `mf_title()`, `mf_credits()`, `mf_arrow()` and `mf_scale()`).
+Map layout elements are set with `mf_title()`, `mf_credits()`, `mf_arrow()` and `mf_scale()`).
 
 ```{r mf_basemap, message=FALSE, warning=FALSE}
 library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
-# plot a shadow
-mf_shadow(mtq)
 # plot municipalities
-mf_map(mtq, type = "base", add = TRUE)
+mf_map(mtq, type = "base")
 # layout elements
 credits <- paste0("Sources: IGN, 2018\n", "mapsf ", packageVersion("mapsf"))
 mf_title("Martinique")
 mf_credits(credits)
 mf_arrow()
-mf_scale(5)
+mf_scale()
 ```
 
 ## Proportional Symbols
@@ -153,7 +151,7 @@ mf_map(
 mf_title("Population Distribution in Martinique")
 mf_credits(credits)
 mf_arrow()
-mf_scale(5)
+mf_scale()
 ```
 
 ## Choropleth Map
@@ -182,7 +180,7 @@ mf_map(
 mf_title("Population Distribution in Martinique")
 mf_credits(credits)
 mf_arrow()
-mf_scale(5)
+mf_scale()
 ```
 
 ## Typology Map
@@ -217,7 +215,7 @@ mf_label(
 mf_title("Administrative Status")
 mf_credits(credits)
 mf_arrow()
-mf_scale(5)
+mf_scale()
 ```
 
 ## Proportional Symbols using Choropleth Coloration
@@ -248,7 +246,7 @@ mf_map(
 mf_title("Population & Wealth in Martinique, 2015")
 mf_credits(credits)
 mf_arrow()
-mf_scale(5)
+mf_scale()
 ```
 
 ## Proportional Symbols using Typology Coloration
@@ -277,7 +275,7 @@ mf_map(
 mf_title("Population Distribution in Martinique")
 mf_credits(credits)
 mf_arrow()
-mf_scale(5)
+mf_scale()
 ```
 
 ## Label Map
@@ -303,7 +301,7 @@ mf_label(
 mf_title("Municipalities of Martinique")
 mf_credits(credits)
 mf_arrow(pos = "topright")
-mf_scale(5)
+mf_scale()
 ```
 
 ## Links Map
@@ -337,7 +335,7 @@ mf_map(
 mf_title("Commuting to Fort-de-France")
 mf_credits(credits)
 mf_arrow()
-mf_scale(5)
+mf_scale()
 ```
 
 

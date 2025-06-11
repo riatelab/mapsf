@@ -51,14 +51,13 @@ themes <- list(
 mtq <- mf_get_mtq()
 for (i in 1:length(themes)) {
   mf_theme(themes[[i]])
-  mf_export(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "1.png"))
-  mf_map(mtq, add = T)
+  mf_png(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "1.png"))
+  mf_map(mtq)
   mf_map(mtq, "POP", "prop", inches = .15, leg_pos = "topright")
   mf_title(paste0("Theme: ", names(themes)[[i]]))
   mf_credits()
   dev.off()
-  mf_export(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "2.png"))
-  mf_theme(themes[[i]])
+  mf_png(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "2.png"))
   mf_map(mtq, "MED", "choro", leg_pos = NA)
   mf_arrow(pos = "topright")
   mf_scale(pos = "bottomleft")
@@ -84,7 +83,7 @@ It is possible to modify an existing theme. In this example we use the "base" th
 ```{r modified}
 library(mapsf)
 mtq <- mf_get_mtq()
-mf_theme("base", title_banner = FALSE, title_font = 4)
+mf_theme("base", title_banner = TRUE, title_font = 4)
 mf_map(mtq)
 mf_title('Mofified "default" theme')
 ```
@@ -129,3 +128,17 @@ mf_theme(green_theme)
 mf_map(mtq)
 mf_title("Green Theme")
 ```
+
+
+## Legacy themes
+
+Although the map theming system has been radically changed in version 1.0.0 of the package, you can still use the old themes by referencing them by name.
+
+```{r legacy}
+mf_theme("default")
+mf_map(mtq)
+mf_title("Legacy default theme")
+```
+
+
+
