@@ -4,14 +4,7 @@
 \alias{mf_get_ratio}
 \title{Get map width and height values}
 \usage{
-mf_get_ratio(
-  x,
-  width,
-  height,
-  res = 96,
-  expandBB = rep(0, 4),
-  theme = mf_theme()
-)
+mf_get_ratio(x, width, height, expandBB = rep(0, 4), theme = mf_theme())
 }
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
@@ -19,8 +12,6 @@ mf_get_ratio(
 \item{width}{width of the figure (inches), use only one of width or height}
 
 \item{height}{height of the figure (inches), use only one of width or height}
-
-\item{res}{resolution}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}

@@ -13,7 +13,6 @@
 #' @param theme theme used for the map
 #' @param width width of the figure (inches), use only one of width or height
 #' @param height height of the figure (inches), use only one of width or height
-#' @param res resolution
 #' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs
 #' @return Width and height are returned in inches.
 #' @export
@@ -23,7 +22,6 @@
 #' mf_get_ratio(x = mtq, width = 5)
 mf_get_ratio <- function(x,
                          width, height,
-                         res = 96,
                          expandBB = rep(0, 4),
                          theme = mf_theme()) {
   # input test
@@ -34,7 +32,7 @@ mf_get_ratio <- function(x,
 }
 
 
-test_ratio_input <- function(x){
+test_ratio_input <- function(x) {
   # input test
   if (!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))) {
     stop(
@@ -61,7 +59,7 @@ test_ratio_input <- function(x){
 
 
 
-x_to_bb <- function(x, expandBB){
+x_to_bb <- function(x, expandBB) {
   if (inherits(x, c("SpatRaster", "SpatVector"))) {
     ras_proj <- terra::crs(x)
     x <- st_as_sfc(st_bbox(terra::ext(x)[c(1, 3, 2, 4)]))
@@ -88,7 +86,7 @@ x_to_bb <- function(x, expandBB){
   return(bb)
 }
 
-get_mar <- function(theme){
+get_mar <- function(theme) {
   if (missing(theme)) {
     mar <- getOption("mapsf.mar")
   } else {
@@ -102,7 +100,7 @@ get_mar <- function(theme){
 
 
 
-bb_to_ratio <- function(bb, mar, width, height){
+bb_to_ratio <- function(bb, mar, width, height) {
   if (!missing(width) && !missing(height)) {
     return(c(width, height))
   }
@@ -130,8 +128,3 @@ bb_to_ratio <- function(bb, mar, width, height){
   }
   return(unname(round(c(width, height), 3)))
 }
-
-
-
-
-
