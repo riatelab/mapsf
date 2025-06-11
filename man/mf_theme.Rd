@@ -87,6 +87,10 @@ Themes are persistent across maps produced by \code{mapsf}
 Use \code{mf_theme(NULL)} or \code{mf_theme('base')} to reset to default theme
 settings.
 }
+\note{
+Although the map theming system has been radically changed in version 1.0.0
+of the package, you can still use the old themes by referencing them by name.
+}
 \examples{
 mtq <- mf_get_mtq()
 

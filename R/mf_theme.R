@@ -38,6 +38,9 @@
 #' @param frame_lwd line width for the frame
 #' @param frame_lty line type for the frame
 #' @md
+#' @note
+#' Although the map theming system has been radically changed in version 1.0.0
+#' of the package, you can still use the old themes by referencing them by name.
 #' @return The current list of theme parameters is (invisibly) returned.
 #' @export
 #' @examples

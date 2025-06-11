@@ -3,8 +3,7 @@
 #' @name mf_scale
 #' @param col color of the scale bar (line and text)
 #' @param size size of the scale bar in scale units (\code{scale_units},
-#' default to km). If size is not
-#' set, an automatic size is used (1/10 of the map width).
+#' default to km). If size is not set, an automatic size is used.
 #' @param lwd line width of the scale bar
 #' @param cex size of the scale bar text
 #' @param pos position. It can be one of 'bottomright', 'bottomleft',

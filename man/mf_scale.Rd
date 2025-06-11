@@ -18,8 +18,7 @@ mf_scale(
 }
 \arguments{
 \item{size}{size of the scale bar in scale units (\code{scale_units},
-default to km). If size is not
-set, an automatic size is used (1/10 of the map width).}
+default to km). If size is not set, an automatic size is used.}
 
 \item{pos}{position. It can be one of 'bottomright', 'bottomleft',
 'interactive' or a vector of two coordinates in map units (c(x, y)).}

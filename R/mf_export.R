@@ -31,7 +31,6 @@
 #' @importFrom grDevices png svg
 #' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs
 #' @return No return value, a map file is initiated (in PNG or SVG format).
-#' @seealso [mf_svg] for svg export.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' (filename <- tempfile(fileext = ".png"))

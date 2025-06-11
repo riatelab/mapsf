@@ -56,7 +56,4 @@ mf_export(mtq, filename = filename)
 mf_map(mtq, add = TRUE)
 dev.off()
 }
-\seealso{
-\link{mf_svg} for svg export.
-}
 \keyword{internal}

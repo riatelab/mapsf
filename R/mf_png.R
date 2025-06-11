@@ -53,7 +53,6 @@ mf_png <- function(x, filename = "map.png",
     png(filename = filename, width = width, height = height, res = 96,
         type = "cairo-png", ...
     )
-    print("pop")
   } else {
 
     png(filename = filename, width = width, height = height, res = 96, ...)
