@@ -29,14 +29,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.4142136"
-     inkscape:cx="630.73925"
-     inkscape:cy="470.93312"
+     inkscape:cx="709.93519"
+     inkscape:cy="470.9331"
      inkscape:window-width="2560"
      inkscape:window-height="1371"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"><sodipodi:guide
+     inkscape:current-layer="g130367"><sodipodi:guide
        position="0,205"
        orientation="0,1"
        id="guide2844"
@@ -13324,19 +13324,17 @@
            x="242.97723"
            y="165.59093"
            sodipodi:role="line"
-           id="tspan121736">mf_export(mtq, width = 3, </tspan><tspan
+           id="tspan121736">mf_svg(x = mtq, width = 3, </tspan><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="242.97723"
            y="169.1187"
            sodipodi:role="line"
-           id="tspan121724">      filename = &quot;map.svg&quot;)</tspan><tspan
+           id="tspan121724">       filename = &quot;map.svg&quot;)</tspan><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="242.97723"
            y="172.64647"
            sodipodi:role="line"
-           id="tspan121740">mf_map(mtq, <tspan
-   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:2.82222px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   id="tspan121744">add = TRUE</tspan>)</tspan><tspan
+           id="tspan121740">mf_map(mtq)</tspan><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="242.97723"
            y="176.17424"
@@ -13364,27 +13362,29 @@
            y="143.2747"
            id="tspan39326-1-6"><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   id="tspan111730">mf_export()</tspan> exports maps</tspan><tspan
+   id="tspan111730">mf_png()</tspan> and <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Fira Code';-inkscape-font-specification:'Fira Code'"
+   id="tspan1">mf_svg()</tspan> </tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52778px;font-family:Roboto;-inkscape-font-specification:'Roboto, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="242.9359"
            y="147.84149"
-           id="tspan111635-9">in PNG and SVG formats.</tspan><tspan
+           id="tspan111635-9">export maps in PNG and SVG </tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52778px;font-family:Roboto;-inkscape-font-specification:'Roboto, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="242.9359"
            y="152.28523"
-           id="tspan111726">The width/height ratio of the</tspan><tspan
+           id="tspan111726">formats. The width/height ratio </tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52778px;font-family:Roboto;-inkscape-font-specification:'Roboto, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="242.9359"
            y="156.72899"
-           id="tspan111738">exported figure will match </tspan><tspan
+           id="tspan111728">of the map matches the one of </tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52778px;font-family:Roboto;-inkscape-font-specification:'Roboto, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
            x="242.9359"
            y="161.17273"
-           id="tspan111728">the one of a spatial object. </tspan></text><g
+           id="tspan5">a spatial object. </tspan></text><g
          id="g125905"
          transform="translate(-2.3565463)"><g
            id="surface29296"
@@ -13529,7 +13529,7 @@
              style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:2.46944px;font-family:Roboto;-inkscape-font-specification:'Roboto, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
              x="264.62827"
              y="187.07263"
-             id="tspan125853">(inferred) height : 3.5 in.</tspan><tspan
+             id="tspan125853">(inferred) height : 3.83 in.</tspan><tspan
              sodipodi:role="line"
              style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:2.46944px;font-family:Roboto;-inkscape-font-specification:'Roboto, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
              x="264.62827"
