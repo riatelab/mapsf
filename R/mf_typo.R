@@ -165,7 +165,7 @@ mf_typo <- function(x,
     )
   }
   if (xtype == "POINT") {
-    border <- go(border, "foreground")
+    border <- go(border, "background")
     if (pch %in% 21:25) {
       mycolspt <- border
     } else {

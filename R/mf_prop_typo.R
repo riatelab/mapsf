@@ -89,7 +89,7 @@ mf_prop_typo <- function(x, var,
     leg_frame_border, "foreground",
     getOption("mapsf.highlight")
   )
-  border <- go(border, "foreground")
+  border <- go(border, "background")
 
 
   var2 <- var[2]

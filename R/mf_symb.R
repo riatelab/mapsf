@@ -74,7 +74,7 @@ mf_symb <- function(x, var,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  border <- go(border, "foreground")
+  border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
   leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
   leg_frame_border <- go(

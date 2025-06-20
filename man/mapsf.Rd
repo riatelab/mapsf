@@ -49,7 +49,8 @@ These functions are dedicated to the map layout design.
 \section{Utility functions}{
 
 \itemize{
-\item \code{\link[=mf_export]{mf_export()}} Export a map
+\item \code{\link[=mf_svg]{mf_svg()}} Export a map in SVG file format
+\item \code{\link[=mf_png]{mf_png()}} Export a map in SVG file format
 \item \code{\link[=mf_distr]{mf_distr()}} Plot a distribution
 \item \code{\link[=mf_get_links]{mf_get_links()}} Get a link layer from a data.frame of links
 \item \code{\link[=mf_get_pal]{mf_get_pal()}} Get color palettes

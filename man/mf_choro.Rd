@@ -14,7 +14,7 @@ mf_choro(
   nbreaks,
   border,
   pch = 21,
-  cex = 1,
+  cex = 2,
   lwd = 0.7,
   col_na = "white",
   cex_na = 1,

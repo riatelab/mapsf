@@ -151,6 +151,7 @@ mf_distr <- function(x, nbins, bw) {
     y = pts_y,
     pch = 21,
     cex = .7,
+    lwd = .8,
     bg = getOption("mapsf.highlight"),
     col = getOption("mapsf.background")
   )
@@ -161,14 +162,14 @@ mf_distr <- function(x, nbins, bw) {
     large_offset = large_offset,
     small_offset = small_offset,
     col = getOption("mapsf.background"),
-    lwd = 3
+    lwd = 4
   )
   box_plot(
     x = b$stats[, 1],
     y = y_lim[1],
     large_offset = large_offset,
     small_offset = small_offset,
-    col = getOption("mapsf.foreground"),
+    col = getOption("mapsf.highlight"),
     lwd = 1.5
   )
 

@@ -97,7 +97,7 @@ mf_symb_choro <- function(x, var,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  border <- go(border, "foreground")
+  border <- go(border, "background")
   leg_box_border <- go(leg_box_border, "highlight")
   leg_fg <- go(leg_fg, "highlight")
   leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))

@@ -103,7 +103,7 @@ mf_prop_choro <- function(x,
     leg_frame_border, "foreground",
     getOption("mapsf.highlight")
   )
-  border <- go(border, "foreground")
+  border <- go(border, "background")
 
   var2 <- var[2]
   var1 <- var[1]

@@ -27,7 +27,7 @@ mf_theme(
 }
 \arguments{
 \item{x}{name of a map theme. One of "base", "sol_dark", "sol_light",
-"grey", "mint", "dracula".}
+"grey", "mint", "dracula", "pistachio", "rzine".}
 
 \item{mar}{margins}
 

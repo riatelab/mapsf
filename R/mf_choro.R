@@ -63,7 +63,7 @@ mf_choro <- function(x, var,
                      nbreaks,
                      border,
                      pch = 21,
-                     cex = 1,
+                     cex = 2,
                      lwd = .7,
                      col_na = "white",
                      cex_na = 1,
@@ -137,7 +137,7 @@ mf_choro <- function(x, var,
     )
   }
   if (xtype == "POINT") {
-    border <- go(border, "foreground")
+    border <- go(border, "background")
     if (pch %in% 21:25) {
       mycolspt <- border
     } else {

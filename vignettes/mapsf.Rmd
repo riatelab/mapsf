@@ -132,10 +132,8 @@ mf_scale()
 `mf_map(x, var, type = "prop")` displays symbols with areas proportional to a quantitative variable (stocks). The `inches` argument is used to customize the symbols sizes.
 
 ```{r mf_prop, message=FALSE, warning=FALSE}
-# plot a shadow
-mf_shadow(mtq)
 # plot municipalities
-mf_map(mtq, add = TRUE)
+mf_map(mtq)
 # plot population
 mf_map(
   x = mtq,

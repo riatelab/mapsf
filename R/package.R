@@ -35,7 +35,8 @@
 #' - [mf_legend()] Plot a legend
 #'
 #' @section Utility functions:
-#' - [mf_export()] Export a map
+#' - [mf_svg()] Export a map in SVG file format
+#' - [mf_png()] Export a map in SVG file format
 #' - [mf_distr()] Plot a distribution
 #' - [mf_get_links()] Get a link layer from a data.frame of links
 #' - [mf_get_pal()] Get color palettes

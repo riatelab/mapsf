@@ -18,7 +18,7 @@
 #' settings.
 #'
 #' @param x name of a map theme. One of "base", "sol_dark", "sol_light",
-#' "grey", "mint", "dracula".
+#' "grey", "mint", "dracula", "pistachio", "rzine".
 #' @param mar margins
 #' @param title_pos title position, one of 'left', 'center', 'right'
 #' @param title_tab if TRUE the title is displayed as a 'tab'
@@ -162,6 +162,8 @@ mf_theme <- function(x,
     argx$cex, argx$font
   )
   if (!is.null(legacy_argx)) {
+    message(paste0("'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex'",
+                   " and 'font' are deprecated arguments."))
     theme$legacy <- TRUE
     theme$title_banner <- TRUE
     theme$pal_quali <- "Dynamic"

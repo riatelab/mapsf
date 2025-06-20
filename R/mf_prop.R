@@ -70,7 +70,7 @@ mf_prop <- function(x,
   on.exit(par(op))
 
   col <- go(col, "highlight", "tomato4")
-  border <- go(border, "foreground")
+  border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
   leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
   leg_frame_border <- go(
