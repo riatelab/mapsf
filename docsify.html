@@ -28,8 +28,8 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: 'mapsf',
-      repo: 'https://github.com/riatelab/mapsf/',
+      name: '$ALTDOC_PACKAGE_NAME',
+      repo: '$ALTDOC_PACKAGE_URL_GITHUB',
       loadSidebar: true,
       subMaxLevel: 1,
       search: {
@@ -44,7 +44,7 @@
       },
       plugins: [
         function(hook) {
-          var footer = ["<small><a href='https://riatelab.github.io/mapsf/'> mapsf</a>  v.1.0.0  | Website made with <a href='https://altdoc.etiennebacher.com/'>  altdoc</a>  v.0.5.0 <small/>"].join('');
+          var footer = ["<small><a href='$ALTDOC_PACKAGE_URL'> $ALTDOC_PACKAGE_NAME</a>  v.$ALTDOC_PACKAGE_VERSION  | Website made with <a href='https://altdoc.etiennebacher.com/'>  altdoc</a>  v.$ALTDOC_VERSION <small/>"].join('');
 
           hook.afterEach(function(html) {
             return html + footer;
