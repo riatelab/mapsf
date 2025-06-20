@@ -1,7 +1,0 @@
-{
-    "installOptions": {
-        "installFromRepository": false,
-        "libraryPath": "/home/tim/Documents/R/4.5",
-        "installDependencies": true
-    }
-}
