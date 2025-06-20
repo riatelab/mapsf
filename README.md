@@ -65,11 +65,13 @@ mf_layout(
 
 ![](man/figures/example1-1.png)<!-- -->
 
-You can find more detailed examples on the [“Get Started”]() section of
+You can find more detailed examples on the [“Get
+Started”](https://riatelab.github.io/mapsf/#/vignettes/mapsf) section of
 the [package website](https://riatelab.github.io/mapsf/) and you can
-also download its [cheat sheet]().  
+also download its [cheat
+sheet](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf).  
 [![Cheat
-Sheet](man/figures/mapsf_cheatsheet.png)](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf)
+Sheet](man/figures/mapsf_cheatsheet.png)](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf)
 
 ## Alternatives
 
