@@ -1,20 +1,42 @@
 # mapsf 1.0.0
 
+This is the first major version of mapsf. 
+
 ## Feat
-- new theming system
-- add a mf_frame() to add a frame around the map or the figure
+- a new theming system has been introduced, leading to new default values and 
+a new default map style. 'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex' and 
+'font' are now deprecated arguments
+- redraw map elements when resizing device, leading to a better display of maps
+in positron and rstudio graphics devices 
 - add a "center" position to mf_annotation(), no arrow displayed when used
-- add adj arg to mf_scale()
-- use theme in mf_distr()
-- add alpha (transparency) for all types in mf_map() and in mf_raster() 
-- remove all deprecated functions and arguments: mf_legend_*() functions; 
-adjust in mf_arrow(); theme and export in mf_export(); theme in mf_init(); 
-pt_pch, pt_cex, pt_pch_na, pt_cex_na in mf_legend(); unit from mf_scale(); 
+- add "adj" argument to mf_scale() to adjust the scale bar 
+- default values for mf_scale() are "prettier"
+- add alpha (transparency) for all map types in mf_map() and mf_raster() 
+- mf_get_pal() gains the ability to create diverging colors palettes based 
+on a vector of break values
+- add a new "banner" argument in mf_title()
+- add a mf_frame() function to add a frame around the map or the figure
+- add mf_png() and mf_svg() functions to export maps in PNG and SVG
+
+
+## Breaking changes
+- removed deprecated functions: mf_legend_*() functions
+- removed deprecated arguments: adjust in mf_arrow(); theme and export in 
+mf_export(); theme in mf_init(); pt_pch, pt_cex, pt_pch_na, pt_cex_na in 
+mf_legend(); unit in mf_scale()
+- in mf_background(), ellipsis (...) is now ignored, no further parameters 
+from graphics::rasterImage() can be passed
+- in mf_base() (and mf_map(type="base")), the "bg" argument is removed
+- in mf_base() (and mf_map(type="base")), 21:25 points symbols uses "col" and 
+"border" for fill and contour colors instead of "bg" and "col"
+- in mf_base() (and mf_map(type="base")), ellipsis (...) is ignored, no further 
+parameters from sf::plot() can be passed
+- in mf_get_ratio(), the "res" argument has been removed
 
 ## Docs
 - update the cheat sheet
 - update vignettes
-
+- new website (using altdoc)
 
 # mapsf 0.12.0
 
