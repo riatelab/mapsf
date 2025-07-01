@@ -7,13 +7,13 @@
   "codeRepository": "https://riatelab.github.io/mapsf/",
   "issueTracker": "https://github.com/riatelab/mapsf/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.12.0",
+  "version": "1.0.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.1 (2024-06-14)",
+  "runtimePlatform": "R version 4.5.0 (2025-04-11)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -41,6 +41,12 @@
       "givenName": "Ronan",
       "familyName": "Ysebaert",
       "@id": "https://orcid.org/0000-0002-7344-5911"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Elina",
+      "familyName": "Marveaux",
+      "@id": "https://orcid.org/0009-0000-8667-3019"
     }
   ],
   "copyrightHolder": [
@@ -151,6 +157,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "svglite",
+      "name": "svglite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=svglite"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "tinytest",
       "name": "tinytest",
       "provider": {
@@ -172,6 +190,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "altdoc",
+      "name": "altdoc",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=altdoc"
     }
   ],
   "softwareRequirements": {
@@ -251,5 +281,22 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3265.325KB"
+  "fileSize": "2233.13KB",
+  "citation": [
+    {
+      "@type": "SoftwareSourceCode",
+      "datePublished": "2025",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Timothée",
+          "familyName": "Giraud"
+        }
+      ],
+      "name": "{mapsf}: Thematic Cartography",
+      "identifier": "10.32614/CRAN.package.mapsf",
+      "@id": "https://doi.org/10.32614/CRAN.package.mapsf",
+      "sameAs": "https://doi.org/10.32614/CRAN.package.mapsf"
+    }
+  ]
 }
