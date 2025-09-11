@@ -46,6 +46,9 @@ No return value, an annotation is displayed.
 \description{
 Plot an annotation on a map.
 }
+\note{
+Annotations cannot be displayed on unprojected (long/lat) maps.
+}
 \examples{
 mtq <- mf_get_mtq()
 mf_map(mtq)

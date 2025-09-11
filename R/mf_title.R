@@ -71,8 +71,9 @@ mf_title_display <- function(txt = "Map Title", pos, tab,
   on.exit(par(op))
   # size refs
   pu <- par("usr")
-  hbox <- line * 0.2 * xinch(1)
-  inset <- xinch(par("csi")) / 4
+  hbox <- line * 0.2 * yinch(1)
+  inset_x <- xinch(par("csi")) / 4
+
   wtitle <- strwidth(txt, units = "user", cex = cex, font = font)
 
   # compute rect coord
@@ -80,17 +81,17 @@ mf_title_display <- function(txt = "Map Title", pos, tab,
   pb <- pu[c(1, 3, 2, 4)]
   pb <- switch(pos,
     left = {
-      pb[3] <- pu[1] + inset + wtitle + inset
+      pb[3] <- pu[1] + inset_x + wtitle + inset_x
       pb
     },
     right = {
-      pb[1] <- pu[2] - (inset + wtitle + inset)
+      pb[1] <- pu[2] - (inset_x + wtitle + inset_x)
       pb[3] <- pu[2]
       pb
     },
     center = {
-      pb[1] <- pu[1] + (pw / 2) - (wtitle / 2) - inset
-      pb[3] <- pb[1] + wtitle + inset + inset
+      pb[1] <- pu[1] + (pw / 2) - (wtitle / 2) - inset_x
+      pb[3] <- pb[1] + wtitle + inset_x + inset_x
       pb
     }
   )
@@ -103,7 +104,7 @@ mf_title_display <- function(txt = "Map Title", pos, tab,
     pb[4] <- pu[4] + hbox
   }
   # title coord
-  pt <- c(pb[1] + inset, pb[2] + (hbox) / 2)
+  pt <- c(pb[1] + inset_x, pb[2] + (hbox) / 2)
 
   # adjust box
   if (tab == FALSE) {

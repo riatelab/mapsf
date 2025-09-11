@@ -145,8 +145,9 @@ posinset <- function(pos, pusr, wdest, hdest) {
       "."
     ), call. = FALSE)
   }
-  inset <- xinch(par("csi")) / 4
-  pusr <- pusr + c(inset, -inset, inset, -inset)
+  inset_x <- xinch(par("csi")) / 4
+  inset_y <- yinch(par("csi")) / 4
+  pusr <- pusr + c(inset_x, -inset_x, inset_y, -inset_y)
 
   xy <- switch(pos,
     bottomleft = c(

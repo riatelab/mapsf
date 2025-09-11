@@ -12,6 +12,8 @@
 #' @param bg halo color
 #' @param s arrow size (min=1)
 #' @param ... further \link{text} arguments.
+#' @note
+#' Annotations cannot be displayed on unprojected (long/lat) maps.
 #' @export
 #' @return No return value, an annotation is displayed.
 #' @examples
@@ -42,6 +44,12 @@ mf_annotation <- function(x,
   test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+
+  if (diff(par("usr")[1:2]) < 389) {
+    message("Annotations cannot be displayed on unprojected (long/lat) maps.")
+    return(invisible(NULL))
+  }
 
   col_arrow <- go(col_arrow, "highlight", "black")
   col_txt <- go(col_txt, "highlight")

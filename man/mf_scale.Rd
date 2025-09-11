@@ -54,7 +54,8 @@ Alternatively, you can use
 \code{sf::st_crs(zz, parameters = TRUE)$units_gdal} to see which units
 are used in the \code{zz} layer.
 
-This scale bar does not work on unprojected (long/lat) maps.
+The scale bar cannot be displayed on unprojected (long/lat) maps or
+on maps without documented CRS.
 }
 \examples{
 mtq <- mf_get_mtq()

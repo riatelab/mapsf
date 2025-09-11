@@ -47,20 +47,28 @@ mf_credits_display <- function(txt = "Source(s) & Author(s)",
                                cex = .6,
                                font = 3,
                                bg = NA) {
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
+  on.exit(par(op))
+  xyi <- xyinch(1)
+  ratio <- xyi[2] / xyi[1]
+
+
   pd <- par("usr")
-  pdp <- xinch(par("csi")) / 4
+  pdp_x <- xinch(par("csi")) / 4
+  pdp_y <- yinch(par("csi")) / 4
+
 
   w <- strwidth(s = txt, units = "user", cex = cex, font = font)
   h <- strheight(s = txt, units = "user", cex = cex, font = font)
 
   ppos <- switch(pos,
     bottomleft = {
-      xr <- pd[1] + w + 2 * pdp
+      xr <- pd[1] + w + 2 * pdp_x
       xl <- pd[1]
       yb <- pd[3]
-      yt <- pd[3] + h + 2 * pdp
-      pd[1] <- pd[1] + pdp
-      pd[3] <- pd[3] + pdp
+      yt <- pd[3] + h + 2 * pdp_y
+      pd[1] <- pd[1] + pdp_x
+      pd[3] <- pd[3] + pdp_y
       list(
         pd = pd, adj = c(0, 0), srt = 0,
         xr = xr, xl = xl, yb = yb, yt = yt
@@ -68,11 +76,11 @@ mf_credits_display <- function(txt = "Source(s) & Author(s)",
     },
     bottomright = {
       xr <- pd[2]
-      xl <- pd[2] - w - 2 * pdp
+      xl <- pd[2] - w - 2 * pdp_x
       yb <- pd[3]
-      yt <- pd[3] + h + 2 * pdp
-      pd[1] <- pd[2] - pdp
-      pd[3] <- pd[3] + pdp
+      yt <- pd[3] + h + 2 * pdp_y
+      pd[1] <- pd[2] - pdp_x
+      pd[3] <- pd[3] + pdp_y
       list(
         pd = pd, adj = c(1, 0), srt = 0,
         xr = xr, xl = xl, yb = yb, yt = yt
@@ -80,11 +88,11 @@ mf_credits_display <- function(txt = "Source(s) & Author(s)",
     },
     rightbottom = {
       xr <- pd[2]
-      xl <- pd[2] - h - 2 * pdp
+      xl <- pd[2] - h / ratio - 2 * pdp_x
       yb <- pd[3]
-      yt <- pd[3] + w + 2 * pdp
-      pd[1] <- pd[2] - pdp
-      pd[3] <- pd[3] + pdp
+      yt <- pd[3] + w * ratio + 2 * pdp_y
+      pd[1] <- pd[2] - pdp_x
+      pd[3] <- pd[3] + pdp_y
       list(
         pd = pd, adj = c(0, 0), srt = 90,
         xr = xr, xl = xl, yb = yb, yt = yt

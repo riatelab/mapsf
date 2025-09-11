@@ -52,17 +52,20 @@ mf_arrow_display <- function(pos = "topleft",
                              cex = 1,
                              adj = c(0, 0),
                              align) {
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
+  on.exit(par(op))
   map_extent <- par("usr")
   xe <- map_extent[1:2]
   ye <- map_extent[3:4]
-  inset <- xinch(par("csi")) / 2
-  n_arrow <- build_arrow(mean(xe), mean(ye), inset * cex)
+  inset_x <- xinch(par("csi")) / 2
+  inset_y <- yinch(par("csi")) / 2
+  n_arrow <- build_arrow(x = mean(xe), y = mean(ye), inset_x = inset_x * cex, inset_y = inset_y * cex)
   bb_n_arrow <- st_bbox(n_arrow)
   h <- bb_n_arrow[4] - bb_n_arrow[2]
   w <- bb_n_arrow[3] - bb_n_arrow[1]
-  xe <- xe + c(inset, -inset) / 2
-  ye <- ye + c(inset, -inset) / 2
-  pos_a <- get_arrow_pos(pos, xe, ye, w, h) + adj * inset / 2
+  xe <- xe + c(inset_x, -inset_x) / 2
+  ye <- ye + c(inset_y, -inset_y) / 2
+  pos_a <- get_arrow_pos(pos, xe, ye, w, h) + adj * c(inset_x, inset_y) / 2
   north_arrow <- n_arrow + c(pos_a[1] - bb_n_arrow[1], pos_a[2] - bb_n_arrow[4])
 
   if (inherits(align, "crs")) {
@@ -153,43 +156,43 @@ get_arrow_pos <- function(pos, xe, ye, w, h) {
   return(c(xarrow, yarrow))
 }
 
-build_arrow <- function(x, y, inset) {
+build_arrow <- function(x, y, inset_x, inset_y) {
   x_triangle <- c(
     x,
-    x + inset / 2,
-    x + inset,
-    x + inset / 2,
+    x + inset_x / 2,
+    x + inset_x,
+    x + inset_x / 2,
     x
   )
   y_triangle <- c(
-    y - inset,
+    y - inset_y,
     y,
-    y - inset,
-    y - inset * .9,
-    y - inset
+    y - inset_y,
+    y - inset_y * .9,
+    y - inset_y
   )
   triangle <- st_polygon(list(matrix(
     data = c(x_triangle, y_triangle),
     nrow = 5, ncol = 2, byrow = FALSE
   )))
   x_n <- c(
-    x + inset / 4,
-    x + inset / 4,
-    x + inset / 4 + inset / 2,
-    x + inset / 4 + inset / 2
+    x + inset_x / 4,
+    x + inset_x / 4,
+    x + inset_x / 4 + inset_x / 2,
+    x + inset_x / 4 + inset_x / 2
   )
   y_n <- c(
-    y - inset - inset * .75 - inset / 3,
-    y - inset - inset / 3,
-    y - inset - inset * .75 - inset / 3,
-    y - inset - inset / 3
+    y - inset_y - inset_y * .75 - inset_y / 3,
+    y - inset_y - inset_y / 3,
+    y - inset_y - inset_y * .75 - inset_y / 3,
+    y - inset_y - inset_y / 3
   )
   n <- st_multilinestring(list(matrix(
     data = c(x_n, y_n),
     nrow = 4, ncol = 2,
     byrow = FALSE
   )))
-  n <- st_buffer(n, inset * 0.05,
+  n <- st_buffer(n, inset_x * 0.05,
     endCapStyle = "SQUARE",
     joinStyle = "MITRE", mitreLimit = 1
   )
