@@ -141,6 +141,13 @@ mf_raster <- function(x,
   ops$box <- ifelse(is.null(ops$box), FALSE, ops$box)
   ops$mar <- NA
   ops$alpha <- alpha
+  if(isTRUE(add)){
+    ops$xlim <- par("usr")[1:2]
+    ops$ylim <- par("usr")[3:4]
+  } else {
+    ops$xlim <- terra::ext(x)[1:2]
+    ops$ylim <- terra::ext(x)[3:4]
+  }
 
   # Multiband Raster
   if (terra::nlyr(x) >= 2) {
