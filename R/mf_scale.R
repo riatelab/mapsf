@@ -124,16 +124,12 @@ mf_scale <- function(size,
   }
 
   if (missing(size)) {
-    pp <- unit_conversion(
-      size = diff(par("usr")[1:2]) / 10,
-      unit_in = crs_units,
-      unit_out = scale_units
-    )
-    if (pp < 0.1) {
-      message("The scale bar cannot be displayed on unprojected (long/lat) maps.")
-      return(invisible(NULL))
-    }
     size <- NULL
+  }
+
+  if (diff(par("usr")[1:2]) < 360 * 2 || diff(par("usr")[3:4]) < 180 * 2){
+    message("The scale bar cannot be displayed on unprojected (long/lat) maps.")
+    return(invisible(NULL))
   }
 
   if (length(pos) == 1 && pos == "interactive") {
