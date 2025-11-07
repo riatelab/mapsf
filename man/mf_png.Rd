@@ -4,7 +4,15 @@
 \alias{mf_png}
 \title{Export a map in PNG format}
 \usage{
-mf_png(x, filename = "map.png", width, height, expandBB = rep(0, 4), ...)
+mf_png(
+  x,
+  filename = "map.png",
+  width,
+  height,
+  expandBB = rep(0, 4),
+  res = 96,
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
@@ -17,6 +25,8 @@ mf_png(x, filename = "map.png", width, height, expandBB = rep(0, 4), ...)
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
+
+\item{res}{nominal resolution in ppi}
 
 \item{...}{further parameters}
 }

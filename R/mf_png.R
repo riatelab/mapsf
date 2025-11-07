@@ -18,6 +18,7 @@
 #' @param filename path to the exported file
 #' @param width width of the figure (pixels)
 #' @param height height of the figure (pixels)
+#' @param res nominal resolution in ppi
 #' @param ... further parameters
 #' @export
 #' @return No return value, a PNG device is initiated.
@@ -31,6 +32,7 @@
 mf_png <- function(x, filename = "map.png",
                    width, height,
                    expandBB = rep(0, 4),
+                   res = 96,
                    ...) {
   test_ratio_input(x)
   bb <- x_to_bb(x = x, expandBB = expandBB)
@@ -50,12 +52,11 @@ mf_png <- function(x, filename = "map.png",
   }
 
   if (isTRUE(capabilities("cairo"))) {
-    png(filename = filename, width = width, height = height, res = 96,
+    png(filename = filename, width = width, height = height, res = res,
         type = "cairo-png", ...
     )
   } else {
-
-    png(filename = filename, width = width, height = height, res = 96, ...)
+    png(filename = filename, width = width, height = height, res = res, ...)
   }
 
 }
