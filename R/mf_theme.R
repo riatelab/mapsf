@@ -32,7 +32,8 @@
 #' @param highlight highlight color
 #' @param pal_quali default qualitative color palette (name or function)
 #' @param pal_seq default sequential color palettte (name or function)
-#' @param ... other argument, ignored
+#' @param ... deprecated arguments ('bg', 'fg', 'tab', 'pos', 'inner',
+#' 'line', 'cex' and 'font'). See the Note section.
 #' @param frame either "none", "map" or "figure"; plot a frame around the map
 #' or the figure.
 #' @param frame_lwd line width for the frame
@@ -41,6 +42,16 @@
 #' @note
 #' Although the map theming system has been radically changed in version 1.0.0
 #' of the package, you can still use the old themes by referencing them by name.
+#' If you need to use the *pre* v1.0.0 default theme, set `x` to "default".
+#'
+#' If an old theme is set, only deprecated arguments are used and others are
+#' ignored.
+#'
+#' If current and deprecated arguments are mixed, only deprecated arguments are
+#' used and others are ignored.
+#'
+#' All references and usages of the old theming system will be removed in the
+#' next major version.
 #' @return The current list of theme parameters is (invisibly) returned.
 #' @export
 #' @examples
@@ -163,7 +174,8 @@ mf_theme <- function(x,
   )
   if (!is.null(legacy_argx)) {
     message(paste0("'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex'",
-                   " and 'font' are deprecated arguments."))
+                   " and 'font' are deprecated.\n",
+                   "See the Note section in the help page."))
     theme$legacy <- TRUE
     theme$title_banner <- TRUE
     theme$pal_quali <- "Dynamic"

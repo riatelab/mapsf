@@ -26,6 +26,11 @@ expect_silent(mf_svg(mtq, height = 7,
                      filename = paste0(tempfile(), ".svg")))
 dev.off()
 
+expect_silent(mf_svg(mtq, height = 7,
+                     filename = paste0(tempfile(), ".svg"),
+                     svglite = FALSE)
+dev.off()
+
 r <- terra::rast(system.file("ex/elev.tif", package = "terra"))
 expect_silent(mf_png(r))
 mf_raster(r)
