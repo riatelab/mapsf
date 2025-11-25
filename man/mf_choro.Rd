@@ -24,6 +24,8 @@ mf_choro(
   leg_title_cex = 0.8,
   leg_val_cex = 0.6,
   leg_val_rnd = 2,
+  leg_val_dec = ".",
+  leg_val_big = "",
   leg_no_data = "No data",
   leg_frame = FALSE,
   leg_horiz = FALSE,
@@ -75,6 +77,10 @@ mf_choro(
 \item{leg_val_cex}{size of the values in the legend}
 
 \item{leg_val_rnd}{number of decimal places of the values in the legend}
+
+\item{leg_val_dec}{decimal separator}
+
+\item{leg_val_big}{thousands separator}
 
 \item{leg_no_data}{label for missing values}
 

@@ -15,6 +15,8 @@
 #' 'alpha',
 #' 'rev',
 #' 'leg_val_rnd',
+#' 'leg_val_dec',
+#' 'leg_val_big',
 #' 'leg_pos2',
 #' 'leg_title',
 #' 'leg_title_cex',
@@ -65,7 +67,9 @@ mf_prop_typo <- function(x, var,
                          leg_title = var,
                          leg_title_cex = c(.8, .8),
                          leg_val_cex = c(.6, .6),
-                         leg_val_rnd = c(0),
+                         leg_val_rnd = 0,
+                         leg_val_dec = ".",
+                         leg_val_big = "",
                          leg_no_data = "No data",
                          leg_frame = c(FALSE, FALSE),
                          leg_frame_border,
@@ -148,7 +152,9 @@ mf_prop_typo <- function(x, var,
         title = leg_title[1],
         lwd = max(xl$lwd),
         col = ccol,
-        val_rnd = leg_val_rnd[1]
+        val_rnd = leg_val_rnd[1],
+        val_dec = leg_val_dec,
+        val_big = leg_val_big
       )
       lg <- do.call(leg_comp, la1)
       la2 <- list(
@@ -177,6 +183,8 @@ mf_prop_typo <- function(x, var,
         col = ccol,
         title = leg_title[1], title_cex = leg_title_cex[1],
         val_cex = leg_val_cex[1], val_rnd = leg_val_rnd,
+        val_dec = leg_val_dec,
+        val_big = leg_val_big,
         frame = leg_frame[1], bg = leg_bg, fg = leg_fg
       )
       leg(
@@ -275,6 +283,8 @@ mf_prop_typo <- function(x, var,
       inches = size_max,
       col = ccol,
       val_rnd = leg_val_rnd[1],
+      val_dec = leg_val_dec,
+      val_big = leg_val_big,
       border = border,
       lwd = lwd, horiz = leg_horiz,
       self_adjust = TRUE
@@ -306,7 +316,8 @@ mf_prop_typo <- function(x, var,
       pos = leg_pos[[1]], val = val, title = leg_title[1],
       symbol = symbol, inches = size_max, col = ccol,
       title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
-      val_rnd = leg_val_rnd, horiz = leg_horiz,
+      val_rnd = leg_val_rnd, val_dec = leg_val_dec,
+      val_big = leg_val_big, horiz = leg_horiz,
       frame = leg_frame[1], border = border,
       lwd = lwd, bg = leg_bg, fg = leg_fg,
       self_adjust = TRUE, mar = getOption("mapsf.mar")

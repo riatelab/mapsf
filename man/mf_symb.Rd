@@ -22,7 +22,6 @@ mf_symb(
   leg_title = var,
   leg_title_cex = 0.8,
   leg_val_cex = 0.6,
-  leg_val_rnd = 2,
   leg_no_data = "No data",
   leg_frame = FALSE,
   leg_frame_border,
@@ -67,8 +66,6 @@ mf_symb(
 \item{leg_title_cex}{size of the legend title}
 
 \item{leg_val_cex}{size of the values in the legend}
-
-\item{leg_val_rnd}{number of decimal places of the values in the legend}
 
 \item{leg_no_data}{label for missing values}
 

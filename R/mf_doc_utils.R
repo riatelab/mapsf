@@ -36,6 +36,8 @@ my_params <- function(x) {
     leg_title = "leg_title legend title",
     leg_title_cex = "leg_title_cex size of the legend title",
     leg_val_cex = "leg_val_cex size of the values in the legend",
+    leg_val_dec = "leg_val_dec decimal separator",
+    leg_val_big = "leg_val_big thousands separator",
     leg_val_rnd =
       "leg_val_rnd number of decimal places of the values in the legend",
     val_order =

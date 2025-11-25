@@ -19,6 +19,8 @@ mf_raster(
   leg_title_cex = 0.8,
   leg_val_cex = 0.6,
   leg_val_rnd = 1,
+  leg_val_dec = ".",
+  leg_val_big = "",
   leg_frame = FALSE,
   leg_frame_border,
   leg_horiz = FALSE,
@@ -66,6 +68,10 @@ direction (bottom, left, top, right)}
 \item{leg_val_cex}{size of the values in the legend}
 
 \item{leg_val_rnd}{number of decimal places of the values in the legend}
+
+\item{leg_val_dec}{decimal separator}
+
+\item{leg_val_big}{thousands separator}
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
 
