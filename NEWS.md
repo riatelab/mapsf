@@ -1,3 +1,17 @@
+# mapsf 1.1.0
+
+## Fix 
+- better adaptation to lon/lat plots
+- use a different heuristic to guess if the current plot is lon/lat 
+in mf_scale()
+# - use correct plot limits in mf_raster()
+
+## Feat
+- add 'res' argument to mf_png() to set nominal resolution
+- add 'leg_val_dec' & 'leg_val_big' to set decimal and big mark values in 
+relevent functions (those already using 'leg_val_rnd')
+
+
 # mapsf 1.0.0
 
 This is the first major version of mapsf. 

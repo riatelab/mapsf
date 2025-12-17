@@ -28,3 +28,4 @@
 ^vignettes/cheat_sheet.Rmd
 ^vignettes/fig/wo_*
 ^vignettes/fig/mapsf_cheatsheet.*
+^_quarto$

@@ -1,11 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-<img src="man/figures/logo.png" align="right" width="120"/>
-
-# mapsf
-
-<!-- badges: start -->
+# mapsf <img src="man/figures/logo.png" align="right" width="120"/>
 
 [![CRAN](https://www.r-pkg.org/badges/version-ago/mapsf)](https://cran.r-project.org/package=mapsf)
 [![R-CMD-check](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml)
@@ -13,20 +7,14 @@
 [![Codecov test
 coverage](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg)](https://app.codecov.io/gh/riatelab/mapsf?branch=master)
 [![status](https://tinyverse.netlify.app/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
-[![OpenSSF Best
-Practices](https://www.bestpractices.dev/projects/8704/badge)](https://www.bestpractices.dev/projects/8704)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-<!-- badges: end -->
 
-**Create thematic maps and integrate them into your R workflow.**  
+**Create thematic maps and integrate them into your R workflow.**
+
 This package helps you design different cartographic representations
-such as proportional symbols, choropleths, or typology maps.  
-It also provides several functions for displaying layout elements that
-enhance the graphical presentation of maps (e.g., scale bar, north
-arrow, title, labels).  
-`mapsf` maps `sf` objects on `base` graphics.
+such as proportional symbols, choropleths, or typology maps. It also
+provides several functions for displaying layout elements that enhance
+the graphical presentation of maps (e.g., scale bar, north arrow, title,
+labels). `mapsf` maps `sf` objects on `base` graphics.
 
 ## Installation
 
@@ -37,11 +25,12 @@ You can install the released version of `mapsf` from
 install.packages("mapsf")
 ```
 
-Alternatively, you can install the development version of `mapsf` from
-GitHub (**dev** branch) with:
+Alternatively, you can install the development version of `mapsf` (the
+**dev** branch) from [r-universe](https://riatelab.r-universe.dev/mapsf)
+with:
 
 ``` r
-remotes::install_github("riatelab/mapsf", ref = "dev")
+install.packages("mapsf", repos = "https://riatelab.r-universe.dev")
 ```
 
 ## Usage
