@@ -8,7 +8,7 @@ message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'mapsf: Thematic Cartography'
-version: 1.0.0
+version: 1.1.0
 doi: 10.32614/CRAN.package.mapsf
 identifiers:
 - type: doi
@@ -31,7 +31,7 @@ preferred-citation:
     given-names: Timothée
     email: timothee.giraud@cnrs.fr
     orcid: https://orcid.org/0000-0002-1932-3323
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.mapsf
 repository: https://CRAN.R-project.org/package=mapsf
 repository-code: https://github.com/riatelab/mapsf/issues/
@@ -51,7 +51,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
   version: '>= 3.6.0'
 - type: software
   title: classInt
@@ -64,7 +64,7 @@ references:
     given-names: Roger
     email: Roger.Bivand@nhh.no
     orcid: https://orcid.org/0000-0003-2392-6140
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.classInt
 - type: software
   title: graphics
@@ -75,7 +75,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
 - type: software
   title: maplegend
   abstract: 'maplegend: Legends for Maps'
@@ -87,8 +87,8 @@ references:
     given-names: Timothée
     email: timothee.giraud@cnrs.fr
     orcid: https://orcid.org/0000-0002-1932-3323
-  year: '2025'
   doi: 10.32614/CRAN.package.maplegend
+  year: '2026'
 - type: software
   title: s2
   abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
@@ -107,7 +107,7 @@ references:
   - family-names: Rubak
     given-names: Ege
     email: rubak@math.aau.dk
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.s2
 - type: software
   title: sf
@@ -120,7 +120,7 @@ references:
     given-names: Edzer
     email: edzer.pebesma@uni-muenster.de
     orcid: https://orcid.org/0000-0001-8049-7069
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.sf
 - type: software
   title: stats
@@ -131,7 +131,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -141,7 +141,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
 - type: software
   title: grDevices
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -151,7 +151,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
 - type: software
   title: terra
   abstract: 'terra: Spatial Data Analysis'
@@ -163,7 +163,7 @@ references:
     given-names: Robert J.
     email: r.hijmans@gmail.com
     orcid: https://orcid.org/0000-0001-5872-2872
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.terra
 - type: software
   title: Ckmeans.1d.dp
@@ -180,7 +180,7 @@ references:
     orcid: https://orcid.org/0000-0003-1962-2603
   - family-names: Wang
     given-names: Haizhou
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.Ckmeans.1d.dp
 - type: software
   title: png
@@ -192,7 +192,7 @@ references:
   - family-names: Urbanek
     given-names: Simon
     email: Simon.Urbanek@r-project.org
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.png
 - type: software
   title: jpeg
@@ -205,7 +205,7 @@ references:
     given-names: Simon
     email: Simon.Urbanek@r-project.org
     orcid: https://orcid.org/0000-0003-2297-1732
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.jpeg
 - type: software
   title: lwgeom
@@ -218,7 +218,7 @@ references:
     given-names: Edzer
     email: edzer.pebesma@uni-muenster.de
     orcid: https://orcid.org/0000-0001-8049-7069
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.lwgeom
 - type: software
   title: knitr
@@ -231,7 +231,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.knitr
 - type: software
   title: rmarkdown
@@ -275,7 +275,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: svglite
@@ -303,7 +303,7 @@ references:
   - family-names: Lise
     given-names: Vaudor
     email: lise.vaudor@ens-lyon.fr
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.svglite
 - type: software
   title: tinytest
@@ -317,7 +317,7 @@ references:
     name-particle: van der
     email: mark.vanderloo@gmail.com
     orcid: https://orcid.org/0000-0002-9807-4686
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.tinytest
 - type: software
   title: covr
@@ -329,23 +329,6 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.covr
-- type: software
-  title: altdoc
-  abstract: 'altdoc: Package Documentation Websites with ''Quarto'', ''Docsify'',
-    ''Docute'', or ''MkDocs'''
-  notes: Suggests
-  url: https://altdoc.etiennebacher.com
-  repository: https://CRAN.R-project.org/package=altdoc
-  authors:
-  - family-names: Bacher
-    given-names: Etienne
-    email: etienne.bacher@protonmail.com
-  - family-names: Arel-Bundock
-    given-names: Vincent
-    email: vincent.arel-bundock@umontreal.ca
-    orcid: https://orcid.org/0000-0003-2042-7063
-  year: '2025'
-  doi: 10.32614/CRAN.package.altdoc
 

@@ -7,13 +7,13 @@
   "codeRepository": "https://riatelab.github.io/mapsf/",
   "issueTracker": "https://github.com/riatelab/mapsf/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.0 (2025-04-11)",
+  "runtimePlatform": "R version 4.5.2 (2025-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -190,18 +190,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "altdoc",
-      "name": "altdoc",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=altdoc"
     }
   ],
   "softwareRequirements": {
@@ -281,11 +269,11 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2233.13KB",
+  "fileSize": "2465.252KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
-      "datePublished": "2025",
+      "datePublished": "2026",
       "author": [
         {
           "@type": "Person",

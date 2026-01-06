@@ -1,6 +1,6 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 1.0.0.9000
+Version: 1.1.0
 Authors@R: 
     c(person(given = "Timothée",
              family = "Giraud",
@@ -57,8 +57,7 @@ Suggests:
     rmarkdown,
     svglite,
     tinytest,
-    covr, 
-    altdoc
+    covr
 Encoding: UTF-8
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr
