@@ -91,7 +91,7 @@ These functions are dedicated to the map layout design.
 
 `mf_theme()` sets a map theme. A theme is a set of graphical parameters that are applied to maps created with `mapsf`. These parameters are the figure margins, background and foreground colors and `mf_title()` options. `mapsf` offers some builtin themes. It’s possible to modify an existing theme or to start a theme from scratch. Themes are persistent across maps produced by mapsf (e.g. they survive a `dev.off()` call).
 
-&#128279; See the online vignette: [How to use themes](https://riatelab.github.io/mapsf/#/vignettes/how_to_use_themes) 
+&#128279; See the online vignette: [How to use themes](https://riatelab.github.io/mapsf/articles/how_to_use_themes) 
 
 ## Export
 
@@ -101,7 +101,7 @@ The exported map width/height ratio will match the one of a spatial object.
 **PNG export** should be used for maps that do not require further modification. PNG is a [raster graphics](https://en.wikipedia.org/wiki/Raster_graphics) file format.   
 
 
-&#128279; See the online vignette: [How to export maps](https://riatelab.github.io/mapsf/#/vignettes/how_to_export_maps) 
+&#128279; See the online vignette: [How to export maps](https://riatelab.github.io/mapsf/articles/how_to_export_maps) 
 
 
 # Examples of thematic maps
@@ -171,7 +171,7 @@ mf_map(
   border = "white",
   lwd = 0.5,
   leg_pos = "bottomleft",
-  leg_adj = c(0, 3),
+  leg_adj = c(0, 6),
   leg_title = "Population Density\n(inh. / km2)"
 )
 # layout elements

@@ -55,7 +55,7 @@ mf_layout(
 ![](man/figures/example1-1.png)<!-- -->
 
 You can find more detailed examples on the [“Get
-Started”](https://riatelab.github.io/mapsf/#/vignettes/mapsf) section of
+Started”](https://riatelab.github.io/mapsf/articles/mapsf) section of
 the [package website](https://riatelab.github.io/mapsf/) and you can
 also download its [cheat
 sheet](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf).  
