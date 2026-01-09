@@ -1,4 +1,15 @@
+pandoc: 3.6.3
+pkgdown: 2.2.0
+pkgdown_sha: ~
+articles:
+  cheat_sheet: cheat_sheet.html
+  how_to_create_faceted_maps: how_to_create_faceted_maps.html
+  how_to_create_inset_maps: how_to_create_inset_maps.html
+  how_to_export_maps: how_to_export_maps.html
+  how_to_use_a_custom_font_family: how_to_use_a_custom_font_family.html
+  how_to_use_themes: how_to_use_themes.html
+  mapsf: mapsf.html
+last_built: 2026-01-09T13:34Z
 urls:
-  reference: https:/riatelab.github.io/mapsf/man
-  article: https:/riatelab.github.io/mapsf/vignettes
-
+  reference: https://riatelab.github.io/mapsf/reference
+  article: https://riatelab.github.io/mapsf/articles

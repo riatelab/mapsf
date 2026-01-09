@@ -1,0 +1,177 @@
+# mapsf
+
+[![CRAN](https://www.r-pkg.org/badges/version-ago/mapsf)](https://cran.r-project.org/package=mapsf)
+[![R-CMD-check](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml)
+[![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
+[![Codecov test
+coverage](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg)](https://app.codecov.io/gh/riatelab/mapsf?branch=master)
+[![status](https://tinyverse.netlify.app/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
+
+**Create thematic maps and integrate them into your R workflow.**
+
+This package helps you design different cartographic representations
+such as proportional symbols, choropleths, or typology maps. It also
+provides several functions for displaying layout elements that enhance
+the graphical presentation of maps (e.g., scale bar, north arrow, title,
+labels). `mapsf` maps `sf` objects on `base` graphics.
+
+## Installation
+
+You can install the released version of `mapsf` from
+[CRAN](https://cran.r-project.org/package=mapsf) with:
+
+``` r
+install.packages("mapsf")
+```
+
+Alternatively, you can install the development version of `mapsf` (the
+**dev** branch) from [r-universe](https://riatelab.r-universe.dev/mapsf)
+with:
+
+``` r
+install.packages("mapsf", repos = "https://riatelab.r-universe.dev")
+```
+
+## Usage
+
+This is a basic example which shows how to create a map with `mapsf`.
+
+``` r
+library(mapsf)
+# Import the sample dataset
+mtq <- mf_get_mtq()
+# Plot the base map
+mf_map(x = mtq)
+# Plot proportional symbols
+mf_map(x = mtq, var = "POP", type = "prop", leg_pos = "topright")
+# Plot a map layout
+mf_layout(
+  title = "Population in Martinique",
+  credits = "T. Giraud; Sources: INSEE & IGN, 2018"
+)
+```
+
+![](reference/figures/example1-1.png)
+
+You can find more detailed examples on the [“Get
+Started”](https://riatelab.github.io/mapsf/articles/mapsf) section of
+the [package website](https://riatelab.github.io/mapsf/) and you can
+also download its [cheat
+sheet](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf).  
+[![Cheat
+Sheet](reference/figures/mapsf_cheatsheet.png)](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf)
+
+## Alternatives
+
+- [tmap](https://github.com/r-tmap/tmap)  
+- [ggplot2](https://github.com/tidyverse/ggplot2) +
+  [ggspatial](https://github.com/paleolimbot/ggspatial)
+
+## Community Guidelines
+
+One can contribute to the package through [pull
+requests](https://github.com/riatelab/mapsf/pulls) and report issues or
+ask questions [here](https://github.com/riatelab/mapsf/issues). See the
+[CONTRIBUTING.md](https://github.com/riatelab/mapsf/blob/master/CONTRIBUTING.md)
+file for detailed instructions on how to contribute.  
+This project uses [conventional
+commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/) and
+[semantic versioning](https://semver.org/).
+
+# Package index
+
+## Package
+
+Package description
+
+- [`mapsf-package`](https://riatelab.github.io/mapsf/reference/mapsf.md)
+  [`mapsf`](https://riatelab.github.io/mapsf/reference/mapsf.md) :
+  Package description
+
+## Symbology
+
+These functions display cartographic layers.
+
+- [`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) :
+  Plot a map
+- [`mf_raster()`](https://riatelab.github.io/mapsf/reference/mf_raster.md)
+  : Plot a raster
+
+## Map Layout
+
+These functions are dedicated to the map layout design.
+
+- [`mf_annotation()`](https://riatelab.github.io/mapsf/reference/mf_annotation.md)
+  : Plot an annotation
+- [`mf_arrow()`](https://riatelab.github.io/mapsf/reference/mf_arrow.md)
+  : Plot a north arrow
+- [`mf_background()`](https://riatelab.github.io/mapsf/reference/mf_background.md)
+  : Plot a background image
+- [`mf_credits()`](https://riatelab.github.io/mapsf/reference/mf_credits.md)
+  : Plot credits
+- [`mf_frame()`](https://riatelab.github.io/mapsf/reference/mf_frame.md)
+  : Plot a frame
+- [`mf_graticule()`](https://riatelab.github.io/mapsf/reference/mf_graticule.md)
+  : Plot graticules
+- [`mf_inset_on()`](https://riatelab.github.io/mapsf/reference/mf_inset_on.md)
+  [`mf_inset_off()`](https://riatelab.github.io/mapsf/reference/mf_inset_on.md)
+  : Plot an inset
+- [`mf_label()`](https://riatelab.github.io/mapsf/reference/mf_label.md)
+  : Plot labels
+- [`mf_layout()`](https://riatelab.github.io/mapsf/reference/mf_layout.md)
+  : Plot a map layout
+- [`mf_legend()`](https://riatelab.github.io/mapsf/reference/mf_legend.md)
+  : Plot a legend
+- [`mf_scale()`](https://riatelab.github.io/mapsf/reference/mf_scale.md)
+  : Plot a scale bar
+- [`mf_shadow()`](https://riatelab.github.io/mapsf/reference/mf_shadow.md)
+  : Plot a shadow
+- [`mf_theme()`](https://riatelab.github.io/mapsf/reference/mf_theme.md)
+  : Set a theme
+- [`mf_title()`](https://riatelab.github.io/mapsf/reference/mf_title.md)
+  : Plot a title
+- [`mf_worldmap()`](https://riatelab.github.io/mapsf/reference/mf_worldmap.md)
+  : Plot a point on a world map
+
+## Utility Functions
+
+These functions are useful for some utility tasks.
+
+- [`mf_distr()`](https://riatelab.github.io/mapsf/reference/mf_distr.md)
+  : Plot a distribution
+- [`mf_png()`](https://riatelab.github.io/mapsf/reference/mf_png.md) :
+  Export a map in PNG format
+- [`mf_svg()`](https://riatelab.github.io/mapsf/reference/mf_svg.md) :
+  Export a map in SVG format
+- [`mf_get_borders()`](https://riatelab.github.io/mapsf/reference/mf_get_borders.md)
+  : Get a border layer from polygons
+- [`mf_get_breaks()`](https://riatelab.github.io/mapsf/reference/mf_get_breaks.md)
+  : Get class intervals
+- [`mf_get_links()`](https://riatelab.github.io/mapsf/reference/mf_get_links.md)
+  : Get a link layer from a data.frame of links
+- [`mf_get_mtq()`](https://riatelab.github.io/mapsf/reference/mf_get_mtq.md)
+  : Get the 'mtq' dataset
+- [`mf_get_pal()`](https://riatelab.github.io/mapsf/reference/mf_get_pal.md)
+  : Get color palettes
+- [`mf_get_pencil()`](https://riatelab.github.io/mapsf/reference/mf_get_pencil.md)
+  : Get a pencil layer from polygons
+- [`mf_get_ratio()`](https://riatelab.github.io/mapsf/reference/mf_get_ratio.md)
+  : Get map width and height values
+
+# Articles
+
+### All vignettes
+
+- [Cheat
+  Sheet](https://riatelab.github.io/mapsf/articles/cheat_sheet.md):
+- [How to Create Faceted
+  Maps](https://riatelab.github.io/mapsf/articles/how_to_create_faceted_maps.md):
+- [How to Create Inset
+  Maps](https://riatelab.github.io/mapsf/articles/how_to_create_inset_maps.md):
+- [How to Export
+  Maps](https://riatelab.github.io/mapsf/articles/how_to_export_maps.md):
+- [How to Use a Custom Font
+  Family](https://riatelab.github.io/mapsf/articles/how_to_use_a_custom_font_family.md):
+- [How to Use
+  Themes](https://riatelab.github.io/mapsf/articles/how_to_use_themes.md):
+- [mapsf](https://riatelab.github.io/mapsf/articles/mapsf.md):

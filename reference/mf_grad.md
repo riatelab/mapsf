@@ -1,0 +1,170 @@
+# Plot graduated symbols
+
+Plot graduated symbols based on quantitative data.
+
+## Usage
+
+``` r
+mf_grad(
+  x,
+  var,
+  breaks = "quantile",
+  nbreaks = 3,
+  col,
+  alpha = NULL,
+  border,
+  pch = 21,
+  cex,
+  lwd,
+  leg_pos = mf_get_leg_pos(x),
+  leg_title = var,
+  leg_title_cex = 0.8,
+  leg_val_cex = 0.6,
+  leg_val_rnd = 2,
+  leg_val_dec = ".",
+  leg_val_big = "",
+  leg_frame = FALSE,
+  leg_adj = c(0, 0),
+  leg_size = 1,
+  leg_border = border,
+  leg_box_cex = c(1, 1),
+  leg_fg,
+  leg_bg,
+  leg_frame_border,
+  add = TRUE
+)
+```
+
+## Arguments
+
+- x:
+
+  object of class `sf`
+
+- var:
+
+  name(s) of the variable(s) to plot
+
+- breaks:
+
+  either a numeric vector with the actual breaks, or a classification
+  method name (see
+  [mf_get_breaks](https://riatelab.github.io/mapsf/reference/mf_get_breaks.md)
+  and Details)
+
+- nbreaks:
+
+  number of classes
+
+- col:
+
+  color
+
+- alpha:
+
+  opacity, in the range \[0,1\]
+
+- border:
+
+  border color
+
+- pch:
+
+  pch (point type) for symbols
+
+- cex:
+
+  cex (point size) for symbols
+
+- lwd:
+
+  border width
+
+- leg_pos:
+
+  position of the legend, one of 'topleft', 'top','topright', 'right',
+  'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
+  coordinates in map units (c(x, y)). If leg_pos = NA then the legend is
+  not plotted. If leg_pos = 'interactive' click onthe map to choose the
+  legend position.
+
+- leg_title:
+
+  legend title
+
+- leg_title_cex:
+
+  size of the legend title
+
+- leg_val_cex:
+
+  size of the values in the legend
+
+- leg_val_rnd:
+
+  number of decimal places of the values in the legend
+
+- leg_val_dec:
+
+  decimal separator
+
+- leg_val_big:
+
+  thousands separator
+
+- leg_frame:
+
+  whether to add a frame to the legend (TRUE) or not (FALSE)
+
+- leg_adj:
+
+  adjust the postion of the legend in x and y directions
+
+- leg_size:
+
+  size of the legend; 2 means two times bigger
+
+- leg_border:
+
+  symbol border color(s)
+
+- leg_box_cex:
+
+  width and height size expansion of boxes
+
+- leg_fg:
+
+  color of the legend foreground
+
+- leg_bg:
+
+  color of the legend backgournd
+
+- leg_frame_border:
+
+  border color of the legend frame
+
+- add:
+
+  whether to add the layer to an existing plot (TRUE) or not (FALSE)
+
+## Value
+
+x is (invisibly) returned.
+
+## Details
+
+Breaks defined by a numeric vector or a classification method are
+left-closed: breaks defined by `c(2, 5, 10, 15, 20)` will be mapped as
+\[2 - 5\[, \[5 - 10\[, \[10 - 15\[, \[15 - 20\]. The "jenks" method is
+an exception and has to be right-closed. Jenks breaks computed as
+`c(2, 5, 10, 15, 20)` will be mapped as \[2 - 5\], \]5 - 10\], \]10 -
+15\], \]15 - 20\].
+
+## Examples
+
+``` r
+mtq <- mf_get_mtq()
+mf_map(mtq)
+mf_map(mtq, "POP", "grad", pch = 22)
+```
