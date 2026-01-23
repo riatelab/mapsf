@@ -102,7 +102,7 @@ direction (bottom, left, top, right)}
 
 \item{leg_adj}{adjust the postion of the legend in x and y directions}
 
-\item{leg_bg}{color of the legend backgournd}
+\item{leg_bg}{color of the legend background}
 
 \item{leg_fg}{color of the legend foreground}
 

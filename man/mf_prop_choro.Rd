@@ -94,7 +94,7 @@ mf_prop_choro(
 
 \item{leg_fg}{color of the legend foreground}
 
-\item{leg_bg}{color of the legend backgournd}
+\item{leg_bg}{color of the legend background}
 
 \item{leg_size}{size of the legend; 2 means two times bigger}
 

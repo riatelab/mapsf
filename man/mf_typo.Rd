@@ -88,7 +88,7 @@ mf_typo(
 
 \item{leg_fg}{color of the legend foreground}
 
-\item{leg_bg}{color of the legend backgournd}
+\item{leg_bg}{color of the legend background}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 }

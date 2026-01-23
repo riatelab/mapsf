@@ -89,7 +89,7 @@ my_params <- function(x) {
       "(for proportional symbols and choropleth types)"
     ),
     leg_frame_border = "leg_frame_border border color of the legend frame",
-    leg_bg = "leg_bg color of the legend backgournd",
+    leg_bg = "leg_bg color of the legend background",
     leg_fg = "leg_fg color of the legend foreground",
     leg_size = "leg_size size of the legend; 2 means two times bigger",
     leg_border = "leg_border symbol border color(s)",
