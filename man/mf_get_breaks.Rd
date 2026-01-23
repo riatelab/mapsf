@@ -14,7 +14,7 @@ classification.}
 
 \item{breaks}{a classification method; one of "fixed", "sd", "equal",
 "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks",
-"dpih", "q6", "Q6", geom", "arith", "em", "msd" or "ckmeans" (see Details)}
+"dpih", "q6", "Q6", "geom", "arith", "em", "msd" or "ckmeans" (see Details)}
 
 \item{k}{number of standard deviation for "msd" method (see Details)}
 

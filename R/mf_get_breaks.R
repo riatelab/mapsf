@@ -11,7 +11,7 @@
 #' @param nbreaks a number of classes
 #' @param breaks a classification method; one of "fixed", "sd", "equal",
 #' "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks",
-#' "dpih", "q6", "Q6", geom", "arith", "em", "msd" or "ckmeans" (see Details)
+#' "dpih", "q6", "Q6", "geom", "arith", "em", "msd" or "ckmeans" (see Details)
 #' @param k number of standard deviation for "msd" method (see Details)
 #' @param central creation of a central class for "msd" method (see Details)
 #' @param ... further arguments
