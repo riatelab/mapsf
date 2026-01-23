@@ -11,9 +11,10 @@ mf_raster(
   breaks = "equal",
   val_order,
   pal,
-  expandBB = rep(0, 4),
   alpha = NULL,
   rev = FALSE,
+  expandBB = rep(0, 4),
+  bg,
   leg_pos = "right",
   leg_title = names(x),
   leg_title_cex = 0.8,
@@ -52,12 +53,14 @@ see \link{mf_get_breaks} for classification methods)}
 
 \item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
 
-\item{expandBB}{fractional values to expand the bounding box with, in each
-direction (bottom, left, top, right)}
-
 \item{alpha}{opacity, in the range [0,1]}
 
 \item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
+
+\item{expandBB}{fractional values to expand the bounding box with, in each
+direction (bottom, left, top, right)}
+
+\item{bg}{background color}
 
 \item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.}
 

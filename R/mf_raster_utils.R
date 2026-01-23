@@ -37,16 +37,16 @@ get_continuous_pal <- function(breaks, pal, alpha) {
 
 
 
-mf_raster_multiband <- function(ops, expandBB, add) {
+mf_raster_multiband <- function(ops, expandBB, bg, add) {
   ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB)
+    mf_init(ops$x, expandBB = expandBB, bgc = bg)
   }
   do.call(terra::plotRGB, ops)
 }
 
 mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
-                               rev, add, expandBB) {
+                               rev, add, expandBB, bg) {
   pal <- go(pal, "pal_seq", "Dark Mint")
   # set breaks and palette
   ops$breaks <- mf_get_breaks(
@@ -59,7 +59,7 @@ mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
   )
   # init
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB)
+    mf_init(ops$x, expandBB = expandBB, bgc = bg)
   }
   ops$alpha <- NULL
   # plot
@@ -91,7 +91,7 @@ mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
 
 
 mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
-                                 alpha, rev) {
+                                 alpha, rev, bg) {
   if (missing(pal)) {
     pal <- "Dark Mint"
   }
@@ -152,7 +152,7 @@ mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
   }
 
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB)
+    mf_init(ops$x, expandBB = expandBB, bgc = bg)
   }
 
   ops$alpha <- NULL
@@ -182,7 +182,7 @@ mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
 
 
 mf_raster_classes <- function(ops, ops_leg, pal, val_order, expandBB,
-                              add, alpha, rev) {
+                              add, alpha, rev, bg) {
   modalities <- terra::cats(ops$x)[[1]]
   if (is.null(modalities)) {
     ops$x <- terra::as.factor(ops$x)
@@ -211,7 +211,7 @@ mf_raster_classes <- function(ops, ops_leg, pal, val_order, expandBB,
   ops$col <- mod
 
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB)
+    mf_init(ops$x, expandBB = expandBB, bgc = bg)
   }
   ops$alpha <- NULL
   do.call(terra::plot, ops)

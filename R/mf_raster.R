@@ -20,6 +20,7 @@
 #' "pal",
 #' "alpha",
 #' 'rev',
+#' 'bg',
 #' 'leg_pos',
 #' 'leg_title',
 #' 'leg_title_cex',
@@ -85,9 +86,10 @@ mf_raster <- function(x,
                       breaks = "equal",
                       val_order,
                       pal,
-                      expandBB = rep(0, 4),
                       alpha = NULL,
                       rev = FALSE,
+                      expandBB = rep(0, 4),
+                      bg,
                       leg_pos = "right",
                       leg_title = names(x),
                       leg_title_cex = .8,
@@ -120,6 +122,7 @@ mf_raster <- function(x,
   }
 
 
+  bg <- ifelse(missing(bg), getOption("mapsf.background"), bg)
   leg_box_border <- go(leg_box_border, "highlight", "#333333")
   leg_fg <- go(leg_fg, "highlight")
   leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
@@ -155,7 +158,7 @@ mf_raster <- function(x,
 
   # Multiband Raster
   if (terra::nlyr(x) >= 2) {
-    mf_raster_multiband(ops, expandBB, add)
+    mf_raster_multiband(ops, expandBB, bg, add)
   }
 
   ops$clip <- FALSE
@@ -179,16 +182,20 @@ mf_raster <- function(x,
 
     if (ops$type == "interval") {
       mf_raster_interval(
-        ops, ops_leg, pal, breaks, nbreaks, alpha, rev, add, expandBB
+        ops, ops_leg, pal, breaks, nbreaks, alpha, rev, add, expandBB, bg
       )
     }
 
     if (ops$type == "continuous") {
-      mf_raster_continuous(ops, ops_leg, breaks, pal, expandBB, add, alpha, rev)
+      mf_raster_continuous(
+        ops, ops_leg, breaks, pal, expandBB, add, alpha, rev, bg
+      )
     }
 
     if (ops$type == "classes") {
-      mf_raster_classes(ops, ops_leg, pal, val_order, expandBB, add, alpha, rev)
+      mf_raster_classes(
+        ops, ops_leg, pal, val_order, expandBB, add, alpha, rev, bg
+      )
     }
   }
 
