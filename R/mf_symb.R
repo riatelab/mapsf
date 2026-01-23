@@ -56,6 +56,9 @@ mf_symb <- function(x, var,
                     pch_na = 4,
                     cex_na = 1,
                     val_order,
+                    extent = x,
+                    bg,
+                    expandBB = rep(.04, 4),
                     leg_pos = mf_get_leg_pos(x),
                     leg_title = var,
                     leg_title_cex = .8,
@@ -72,6 +75,7 @@ mf_symb <- function(x, var,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
+  bgc <- go(bg, "background")
   border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
   leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
@@ -80,7 +84,6 @@ mf_symb <- function(x, var,
     getOption("mapsf.highlight")
   )
   pal <- go(pal, "pal_quali", "Dynamic")
-
 
 
   xout <- x
@@ -155,7 +158,7 @@ mf_symb <- function(x, var,
   mycolsptbg <- mycols
 
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   plot(st_geometry(x),

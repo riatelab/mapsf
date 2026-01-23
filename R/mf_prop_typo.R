@@ -63,6 +63,9 @@ mf_prop_typo <- function(x, var,
                          lwd = .7,
                          lwd_max = 15,
                          col_na = "white",
+                         extent = x,
+                         bg,
+                         expandBB = rep(.04, 4),
                          leg_pos = mf_get_leg_pos(x, 1),
                          leg_title = var,
                          leg_title_cex = c(.8, .8),
@@ -85,6 +88,7 @@ mf_prop_typo <- function(x, var,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
+  bgc <- go(bg, "background")
   pal <- go(pal, "pal_quali", "Dynamic")
   leg_box_border <- go(leg_box_border, "highlight")
   leg_fg <- go(leg_fg, "highlight")
@@ -110,7 +114,7 @@ mf_prop_typo <- function(x, var,
     }
     xl$lwd <- xl[[var1]] * lwd_max / maxval
     if (add == FALSE) {
-      mf_init(x)
+      mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
     }
     xl <- xl[xl[[var1]] != 0, ]
     # turn to positive values
@@ -253,7 +257,7 @@ mf_prop_typo <- function(x, var,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   # Plot the symbols

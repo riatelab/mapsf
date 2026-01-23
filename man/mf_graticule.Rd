@@ -13,6 +13,8 @@ mf_graticule(
   label = TRUE,
   pos = c("top", "left"),
   cex = 0.7,
+  extent = x,
+  bg,
   add = TRUE
 )
 }
@@ -33,6 +35,10 @@ direction (bottom, left, top, right)}
 \item{pos}{labels positions ("bottom", "left", "top" and / or "right")}
 
 \item{cex}{labels size}
+
+\item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
+
+\item{bg}{background color}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE)}

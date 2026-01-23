@@ -58,6 +58,9 @@ mf_typo <- function(x,
                     cex_na = 1,
                     pch_na = 4,
                     col_na = "white",
+                    extent = x,
+                    bg,
+                    expandBB = rep(.04, 4),
                     leg_pos = mf_get_leg_pos(x),
                     leg_title = var,
                     leg_title_cex = .8,
@@ -76,6 +79,7 @@ mf_typo <- function(x,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
+  bgc <- go(bg, "background")
   pal <- go(pal, "pal_quali", "Dynamic")
   leg_box_border <- go(leg_box_border, "highlight")
   leg_fg <- go(leg_fg, "highlight")
@@ -110,7 +114,7 @@ mf_typo <- function(x,
   mycols[is.na(mycols)] <- col_na
 
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   xtype <- get_geom_type(x)

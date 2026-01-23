@@ -70,6 +70,9 @@ mf_choro <- function(x, var,
                      col_na = "white",
                      cex_na = 1,
                      pch_na = 4,
+                     extent = x,
+                     bg,
+                     expandBB = rep(.04, 4),
                      leg_pos = mf_get_leg_pos(x),
                      leg_title = var,
                      leg_title_cex = .8,
@@ -92,6 +95,7 @@ mf_choro <- function(x, var,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
+  bgc <- go(bg, "background")
   pal <- go(pal, "pal_seq", "Mint")
   leg_box_border <- go(leg_box_border, "highlight")
   leg_fg <- go(leg_fg, "highlight")
@@ -123,7 +127,7 @@ mf_choro <- function(x, var,
 
 
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   xtype <- get_geom_type(x)

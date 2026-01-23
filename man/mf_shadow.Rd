@@ -4,7 +4,15 @@
 \alias{mf_shadow}
 \title{Plot a shadow}
 \usage{
-mf_shadow(x, col, cex = 1, add = FALSE)
+mf_shadow(
+  x,
+  col,
+  cex = 1,
+  add = FALSE,
+  extent = x,
+  bg,
+  expandBB = rep(0.04, 4)
+)
 }
 \arguments{
 \item{x}{an sf or sfc polygon object}
@@ -14,6 +22,13 @@ mf_shadow(x, col, cex = 1, add = FALSE)
 \item{cex}{shadow extent}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
+
+\item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
+
+\item{bg}{background color}
+
+\item{expandBB}{fractional values to expand the bounding box with, in each
+direction (bottom, left, top, right)}
 }
 \value{
 x is (invisibly) returned.

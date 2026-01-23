@@ -12,6 +12,7 @@
 #' @param label whether to add labels (TRUE) or not (FALSE)
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE)
+#' @eval my_params(c("extent", "bg"))
 #' @md
 #' @section Use of graticules:
 #' From \code{\link[sf:st_graticule]{st_graticule}}:
@@ -51,9 +52,13 @@ mf_graticule <- function(x,
                          label = TRUE,
                          pos = c("top", "left"),
                          cex = .7,
+                         extent = x,
+                         bg,
                          add = TRUE) {
+  bgc <- go(bg, "background")
+
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   col <- go(col, "highlight")

@@ -7,7 +7,7 @@
 mf_map(x, var, type = "base",
        breaks, nbreaks, pal, alpha, rev, inches, val_max, symbol, col,
        lwd_max, val_order, pch, cex, border, lwd, col_na, cex_na, pch_na,
-       expandBB, add,
+       expandBB, extent, bg, add,
        leg_pos, leg_title, leg_title_cex, leg_val_cex, leg_val_rnd,
        leg_val_dec, leg_val_big, leg_no_data, leg_frame, leg_frame_border,
        leg_horiz, leg_adj, leg_bg, leg_fg, leg_size, leg_border,
@@ -71,6 +71,10 @@ a quantitative data classification
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
+
+\item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
+
+\item{bg}{background color}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 
@@ -137,7 +141,8 @@ described in the "Details" section.
 \strong{base}: displays sf objects geometries.
 \preformatted{
 mf_map(x, col = "grey80", pch = 20, cex = 1, border = "grey20",
-       lwd = 0.7, alpha = NULL, expandBB, add = FALSE, ...)
+       lwd = 0.7, alpha = NULL, expandBB, extent,
+       bg = getOption("mapsf.background"), add = FALSE, ...)
        }
 
 \strong{prop}: displays symbols with areas proportional to a quantitative
@@ -145,8 +150,8 @@ variable (stocks). \code{inches} is used to set symbols sizes.
 \preformatted{
 mf_map(x, var, type = "prop", inches = 0.3, val_max, symbol = "circle",
        col = "tomato4", alpha = NULL, lwd_max = 20,
-       border = getOption("mapsf.foreground"), lwd = 0.7, expandBB,
-       add = TRUE,
+       border = getOption("mapsf.foreground"), lwd = 0.7, expandBB, extent,
+       bg = getOption("mapsf.background"), add = TRUE,
        leg_pos = mf_get_leg_pos(x), leg_title = var,
        leg_title_cex = 0.8, leg_val_cex = 0.6, leg_val_rnd = 0,
        leg_val_dec = ".", leg_val_big = "",
@@ -165,7 +170,8 @@ can use palette names from \code{hcl.pals()}.
 mf_map(x, var, type = "choro", breaks = "quantile", nbreaks, pal = "Mint",
        alpha = NULL, rev = FALSE, pch = 21, cex = 1,
        border = getOption("mapsf.foreground"), lwd = 0.7, col_na = "white",
-       cex_na = 1, pch_na = 4, expandBB, add = FALSE,
+       cex_na = 1, pch_na = 4, expandBB, extent,
+       bg = getOption("mapsf.background"), add = FALSE,
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
        leg_val_cex = 0.6, leg_val_rnd = 2, leg_val_dec = ".",
        leg_val_big = "", leg_no_data = "No data", leg_frame = FALSE,
@@ -180,13 +186,14 @@ mf_map(x, var, type = "choro", breaks = "quantile", nbreaks, pal = "Mint",
 \preformatted{
 mf_map(x, var, type = "typo", pal = "Dynamic", alpha = NULL, rev = FALSE,
        val_order,border = getOption("mapsf.foreground"), pch = 21, cex = 2,
-       lwd = 0.7, cex_na = 1, pch_na = 4, col_na = "white",
+       lwd = 0.7, cex_na = 1, pch_na = 4, col_na = "white",  expandBB,
+       extent, bg = getOption("mapsf.background"), add = FALSE,
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
        leg_val_cex = 0.6, leg_no_data = "No data", leg_frame = FALSE,
        leg_frame_border = getOption("mapsf.foreground"), leg_adj = c(0, 0),
        leg_size = 1, leg_box_border = getOption("mapsf.foreground"),
        leg_box_cex = c(1, 1), leg_fg = getOption("mapsf.foreground"),
-       leg_bg = getOption("mapsf.background"), add = FALSE)
+       leg_bg = getOption("mapsf.background"))
        }
 
 \strong{symb}: displays the different modalities of a qualitative variable as
@@ -195,11 +202,12 @@ symbols.
 mf_map(x, var, type = "symb", pal = "Dynamic", alpha = NULL, rev = FALSE,
        border = getOption("mapsf.foreground"), pch, cex = 2, lwd = 0.7,
        col_na = "grey", pch_na = 4, cex_na = 1, val_order,
+       expandBB, extent, bg = getOption("mapsf.background"), add = TRUE,
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
        leg_val_cex = 0.6, leg_no_data = "No data",
        leg_frame = FALSE, leg_frame_border = getOption("mapsf.foreground"),
        leg_adj = c(0, 0), leg_fg = getOption("mapsf.foreground"),
-       leg_bg = getOption("mapsf.background"), leg_size = 1, add = TRUE)
+       leg_bg = getOption("mapsf.background"), leg_size = 1)
        }
 
 \strong{grad}: displays graduated symbols. Sizes classes are set with
@@ -207,14 +215,15 @@ mf_map(x, var, type = "symb", pal = "Dynamic", alpha = NULL, rev = FALSE,
 \preformatted{
 mf_map(x, var, type = "grad", breaks = "quantile", nbreaks = 3,
        col = "tomato4", alpha = NULL, border = getOption("mapsf.foreground"),
-       pch = 21, cex, lwd,
+       pch = 21, cex, lwd, expandBB, extent,
+       bg = getOption("mapsf.background"), add = TRUE,
        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
        leg_val_cex = 0.6, leg_val_rnd = 2, leg_val_dec = ".",
        leg_val_big = "", leg_frame = FALSE,
        leg_adj = c(0, 0), leg_size = 1, leg_border = border,
        leg_box_cex = c(1, 1), leg_fg = getOption("mapsf.foreground"),
        leg_bg = getOption("mapsf.background"),
-       leg_frame_border = getOption("mapsf.foreground"), add = TRUE)
+       leg_frame_border = getOption("mapsf.foreground"))
        }
 
 \strong{prop_choro}: displays symbols with sizes proportional to values of a
@@ -225,6 +234,7 @@ mf_map(x, var, type = "prop_choro", inches = 0.3, val_max, symbol = "circle",
        pal = "Mint", alpha = NULL, rev = FALSE, breaks = "quantile", nbreaks,
        border = getOption("mapsf.foreground"), lwd = 0.7, col_na = "white",
        leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
+       expandBB, extent, bg = getOption("mapsf.background"), add = TRUE,
        leg_title_cex = c(0.8, 0.8), leg_val_cex = c(0.6, 0.6),
        leg_val_rnd = c(0, 2), leg_val_dec = ".", leg_val_big = "",
        leg_no_data = "No data", leg_frame = c(FALSE, FALSE),
@@ -233,7 +243,7 @@ mf_map(x, var, type = "prop_choro", inches = 0.3, val_max, symbol = "circle",
        leg_fg = getOption("mapsf.foreground"),
        leg_bg = getOption("mapsf.background"), leg_size = 1,
        leg_box_border = getOption("mapsf.foreground"),
-       leg_box_cex = c(1, 1), add = TRUE)
+       leg_box_cex = c(1, 1))
        }
 
 \strong{prop_typo}: displays symbols with sizes proportional to values of a
@@ -243,7 +253,8 @@ variable.
 mf_map(x, var, type = "prop_typo", inches = 0.3, val_max, symbol = "circle",
        pal = "Dynamic", alpha = NULL, rev = FALSE, val_order,
        border = getOption("mapsf.foreground"), lwd = 0.7, lwd_max = 15,
-       col_na = "white",
+       col_na = "white", expandBB, extent,
+       bg = getOption("mapsf.background"), add = TRUE,
        leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
        leg_title_cex = c(0.8, 0.8), leg_val_cex = c(0.6, 0.6),
        leg_val_rnd = c(0), leg_val_dec = ".", leg_val_big = "",
@@ -251,8 +262,7 @@ mf_map(x, var, type = "prop_typo", inches = 0.3, val_max, symbol = "circle",
        leg_frame_border = getOption("mapsf.foreground"), leg_horiz = FALSE,
        leg_adj = c(0, 0), leg_fg = getOption("mapsf.foreground"),
        leg_bg = getOption("mapsf.background"), leg_size = 1,
-       leg_box_border = getOption("mapsf.foreground"), leg_box_cex = c(1, 1),
-       add = TRUE)
+       leg_box_border = getOption("mapsf.foreground"), leg_box_cex = c(1, 1))
        }
 
 \strong{symb_choro}: displays the different modalities of a first qualitative
@@ -262,7 +272,8 @@ quantitative variable.
 mf_map(x, var, type = "symb_choro", pal = "Mint", alpha = NULL, rev = FALSE,
        breaks = "quantile", nbreaks, border = getOption("mapsf.foreground"),
        pch, cex = 2, lwd = 0.7, pch_na = 4, cex_na = 1, col_na = "white",
-       val_order,
+       val_order, expandBB, extent, bg = getOption("mapsf.background"),
+       add = TRUE,
        leg_pos = mf_get_leg_pos(x, 1), leg_title = var,
        leg_title_cex = c(0.8, 0.8), leg_val_cex = c(0.6, 0.6),
        leg_val_rnd = 2, leg_val_dec = ".", leg_val_big = "",
@@ -270,8 +281,7 @@ mf_map(x, var, type = "symb_choro", pal = "Mint", alpha = NULL, rev = FALSE,
        leg_frame = c(FALSE, FALSE), leg_frame_border = getOption("mapsf.foreground"),
        leg_horiz = FALSE, leg_adj = c(0, 0), leg_fg = getOption("mapsf.foreground"),
        leg_bg = getOption("mapsf.background"), leg_size = 1,
-       leg_box_border = getOption("mapsf.foreground"), leg_box_cex = c(1, 1),
-       add = TRUE)
+       leg_box_border = getOption("mapsf.foreground"), leg_box_cex = c(1, 1)
        }
 }
 

@@ -54,6 +54,9 @@ mf_prop <- function(x,
                     alpha = NULL,
                     border,
                     lwd = .7,
+                    extent = x,
+                    bg,
+                    expandBB = rep(.04, 4),
                     leg_pos = mf_get_leg_pos(x),
                     leg_title = var,
                     leg_title_cex = .8,
@@ -73,6 +76,7 @@ mf_prop <- function(x,
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
+  bgc <- go(bg, "background")
   col <- go(col, "highlight", "tomato4")
   border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
@@ -81,7 +85,6 @@ mf_prop <- function(x,
     leg_frame_border, "foreground",
     getOption("mapsf.highlight")
   )
-
 
 
   if (!is.null(alpha)) {
@@ -99,7 +102,7 @@ mf_prop <- function(x,
     }
     xl$lwd <- xl[[var]] * lwd_max / maxval
     if (add == FALSE) {
-      mf_init(x)
+      mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
     }
     op2 <- par(lend = 1)
     mf_base(xl, lwd = xl$lwd, add = TRUE, col = col)
@@ -166,7 +169,7 @@ mf_prop <- function(x,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   # Plot the symbols

@@ -4,21 +4,23 @@
 \alias{mf_init}
 \title{Initialize a map with a specific extent}
 \usage{
-mf_init(x, expandBB = rep(0, 4))
+mf_init(x, expandBB = rep(0, 4), extent = x, bgc)
 }
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
+
+\item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
 }
 \value{
 No return value, a map is initiated.
 }
 \description{
 Plot an invisible layer with the extent of a spatial object.\cr
-Always use \code{add = TRUE} in \code{mf_map} calls following an
-\code{mf_init} call.
+Always use \code{add = TRUE} in \code{mf_map()} calls following an
+\code{mf_init()} call.
 This function is similar to \code{mf_map(x, col = NA, border = NA)}.
 }
 \examples{

@@ -4,7 +4,13 @@
 #' @param x an sf or sfc polygon object
 #' @param col shadow color
 #' @param cex shadow extent
-#' @eval my_params("add")
+#' @param expandBB fractional values to expand the bounding box with, in each
+#' direction (bottom, left, top, right)
+#' @eval my_params(c(
+#' "add",
+#' "extent",
+#' "bg")
+#' )
 #' @export
 #' @importFrom sf st_geometry
 #' @return x is (invisibly) returned.
@@ -12,11 +18,14 @@
 #' mtq <- mf_get_mtq()
 #' mf_shadow(mtq)
 #' mf_map(mtq, add = TRUE)
-mf_shadow <- function(x, col, cex = 1, add = FALSE) {
+mf_shadow <- function(x, col, cex = 1, add = FALSE, extent = x, bg,
+                      expandBB = rep(.04, 4)) {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+  bgc <- go(bg, "background")
+
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
   col <- go(col, "highlight", "grey50")
   xyi <- xyinch(1)

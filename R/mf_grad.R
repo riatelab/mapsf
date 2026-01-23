@@ -52,6 +52,9 @@ mf_grad <- function(x,
                     pch = 21,
                     cex,
                     lwd,
+                    extent = x,
+                    bg,
+                    expandBB = rep(.04, 4),
                     leg_pos = mf_get_leg_pos(x),
                     leg_title = var,
                     leg_title_cex = .8,
@@ -73,6 +76,7 @@ mf_grad <- function(x,
   on.exit(par(op))
   xout <- x
 
+  bgc <- go(bg, "background")
   col <- go(col, "highlight", "tomato4")
   border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
@@ -115,7 +119,7 @@ mf_grad <- function(x,
     )
 
     if (add == FALSE) {
-      mf_init(x)
+      mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
     }
     # map
     plot(sf::st_geometry(x), col = col, lwd = mylwd, add = TRUE)
@@ -168,7 +172,7 @@ mf_grad <- function(x,
 
 
   if (add == FALSE) {
-    mf_init(x)
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
   # display
   plot(st_geometry(x),

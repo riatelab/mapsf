@@ -30,14 +30,18 @@ mf_base <- function(x,
                     lwd = .7,
                     lty = 1,
                     add = FALSE,
+                    extent = x,
+                    bg,
+                    expandBB = rep(.04, 4),
                     ...) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
+  bgc <- go(bg, "background")
+
   if (add == FALSE) {
-    mf_init(x)
-    add <- TRUE
+    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   xtype <- get_geom_type(x)
