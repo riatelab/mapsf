@@ -173,9 +173,11 @@ mf_theme <- function(x,
     argx$cex, argx$font
   )
   if (!is.null(legacy_argx)) {
-    message(paste0("'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex'",
-                   " and 'font' are deprecated.\n",
-                   "See the Note section in the help page."))
+    message(paste0(
+      "'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex'",
+      " and 'font' are deprecated.\n",
+      "See the Note section in the help page."
+    ))
     theme$legacy <- TRUE
     theme$title_banner <- TRUE
     theme$pal_quali <- "Dynamic"

@@ -120,12 +120,6 @@ mf_inset_off <- function() {
 }
 
 
-
-
-
-
-
-
 #' xy of legend
 #'
 #' @param pos pos

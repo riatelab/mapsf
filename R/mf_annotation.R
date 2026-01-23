@@ -56,7 +56,6 @@ mf_annotation <- function(x,
   bg <- go(bg, "background")
 
 
-
   if (inherits(x, "character") && x == "interactive") {
     x <- interleg(txt = c("annotation", "Annotation"))
   }
@@ -252,7 +251,6 @@ annot_pos_params <- function(pos, xy, radius, inset) {
     y_txt <- xy[2] - radius - inset
     adj <- c(0, .5)
   }
-
 
 
   return(list(

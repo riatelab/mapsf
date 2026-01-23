@@ -127,7 +127,7 @@ mf_scale <- function(size,
     size <- NULL
   }
 
-  if (diff(par("usr")[1:2]) < 360 * 2 || diff(par("usr")[3:4]) < 180 * 2){
+  if (diff(par("usr")[1:2]) < 360 * 2 || diff(par("usr")[3:4]) < 180 * 2) {
     message("The scale bar cannot be displayed on unprojected (long/lat) maps.")
     return(invisible(NULL))
   }
@@ -266,8 +266,6 @@ unit_conversion <- function(size, unit_in, unit_out) {
 
   return(size)
 }
-
-
 
 
 pretty_scale <- function(size, scale_units) {

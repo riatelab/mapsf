@@ -9,8 +9,6 @@
 #' @importFrom stats aggregate median na.omit quantile runif sd
 
 
-
-
 #' @importFrom utils globalVariables
 .gmapsf <- new.env(parent = emptyenv())
 globalVariables(".gmapsf", package = "mapsf", add = FALSE)

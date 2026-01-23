@@ -44,7 +44,7 @@ mf_png <- function(x, filename = "map.png",
   }
 
   if (missing(height)) {
-    height <- round(ratio[2] *  width / ratio[1], 0)
+    height <- round(ratio[2] * width / ratio[1], 0)
   }
 
   if (missing(width)) {
@@ -52,11 +52,11 @@ mf_png <- function(x, filename = "map.png",
   }
 
   if (isTRUE(capabilities("cairo"))) {
-    png(filename = filename, width = width, height = height, res = res,
-        type = "cairo-png", ...
+    png(
+      filename = filename, width = width, height = height, res = res,
+      type = "cairo-png", ...
     )
   } else {
     png(filename = filename, width = width, height = height, res = res, ...)
   }
-
 }

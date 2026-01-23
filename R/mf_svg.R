@@ -50,10 +50,12 @@ mf_svg <- function(x, filename = "map.svg",
   bb <- x_to_bb(x = x, expandBB = expandBB)
   mar <- get_mar()
   ratio <- bb_to_ratio(bb = bb, mar = mar, width = width, height = height)
-  if (isTRUE(svglite)){
+  if (isTRUE(svglite)) {
     if (requireNamespace("svglite", quietly = TRUE)) {
-      svglite::svglite(filename, width = ratio[1], height = ratio[2],
-                       fix_text_size = FALSE, ...)
+      svglite::svglite(filename,
+        width = ratio[1], height = ratio[2],
+        fix_text_size = FALSE, ...
+      )
     } else {
       message(
         paste0("'svglite' is not installed.")
@@ -63,5 +65,4 @@ mf_svg <- function(x, filename = "map.svg",
   } else {
     svg(filename, width = ratio[1], height = ratio[2], ...)
   }
-
 }

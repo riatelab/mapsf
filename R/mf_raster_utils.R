@@ -36,7 +36,6 @@ get_continuous_pal <- function(breaks, pal, alpha) {
 }
 
 
-
 mf_raster_multiband <- function(ops, expandBB, bg, add) {
   ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
   if (add == FALSE) {
@@ -87,7 +86,6 @@ mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
     size = ops_leg$leg_size
   )
 }
-
 
 
 mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,

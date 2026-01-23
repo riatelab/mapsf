@@ -76,7 +76,6 @@ get_col_vec <- function(x, breaks, pal, jen = FALSE) {
 }
 
 
-
 #' @name create_dots
 #' @title create_dots
 #' @description Create clean, sorted sf object with centroid coordinates from
@@ -149,9 +148,6 @@ create_dots <- function(x = x, var = var) {
 }
 
 
-
-
-
 #' @name get_size
 #' @title get_size
 #' @description get a vector of radii
@@ -174,9 +170,6 @@ get_size <- function(var, inches, val_max, symbol) {
   )
   return(size)
 }
-
-
-
 
 
 # Plot symbols
@@ -215,7 +208,6 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
     }
   )
 }
-
 
 
 check_order <- function(val_order, mod) {
@@ -285,7 +277,6 @@ split_leg <- function(x) {
   }
   return(list(l1 = lp1, l2 = lp2))
 }
-
 
 
 get_geom_type <- function(x) {

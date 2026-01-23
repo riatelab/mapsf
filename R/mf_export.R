@@ -164,10 +164,6 @@ mf_export <- function(x,
 }
 
 
-
-
-
-
 get_ratio <- function(x, width, height, mar, res, format) {
   if (isTRUE(sf::st_is_longlat(x))) {
     x <- st_as_sfc(x)

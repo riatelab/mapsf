@@ -95,7 +95,6 @@ mf_distr <- function(x, nbins, bw) {
   )
 
 
-
   # histogram
   hist(
     x,

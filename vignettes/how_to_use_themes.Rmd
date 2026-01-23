@@ -44,26 +44,25 @@ themes <- list(
   "sol_light" = "sol_light",
   "grey" = "grey",
   "mint" = "mint",
-  "dracula" = "dracula", 
-  "rzine" = "rzine", 
+  "dracula" = "dracula",
+  "rzine" = "rzine",
   "pistachio" = "pistachio"
 )
 mtq <- mf_get_mtq()
 for (i in 1:length(themes)) {
   mf_theme(themes[[i]])
-  mf_png(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "1.png"))
+  mf_png(mtq, width = 3 * 96, filename = paste0("fig/wo_theme_", names(themes)[[i]], "1.png"))
   mf_map(mtq)
   mf_map(mtq, "POP", "prop", inches = .15, leg_pos = "topright")
   mf_title(paste0("Theme: ", names(themes)[[i]]))
   mf_credits()
   dev.off()
-  mf_png(mtq, width=3*96, filename = paste0( "fig/wo_theme_", names(themes)[[i]], "2.png"))
+  mf_png(mtq, width = 3 * 96, filename = paste0("fig/wo_theme_", names(themes)[[i]], "2.png"))
   mf_map(mtq, "MED", "choro", leg_pos = NA)
   mf_arrow(pos = "topright")
   mf_scale(pos = "bottomleft")
   mf_title("")
   dev.off()
-
 }
 ```
 ![](fig/wo_theme_base1.png) ![](fig/wo_theme_base2.png)

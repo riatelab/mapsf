@@ -98,9 +98,11 @@ my_params <- function(x) {
       "leg_box_cex width and height size expansion ",
       "of boxes"
     ),
-    extent = paste0("extent object with an st_bbox method to define ",
-                    "plot extent; defaults to x. extent and x must use the ",
-                    "same CRS.")
+    extent = paste0(
+      "extent object with an st_bbox method to define ",
+      "plot extent; defaults to x. extent and x must use the ",
+      "same CRS."
+    )
   )
 
 

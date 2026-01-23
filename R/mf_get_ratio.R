@@ -58,7 +58,6 @@ test_ratio_input <- function(x) {
 }
 
 
-
 x_to_bb <- function(x, expandBB) {
   if (inherits(x, c("SpatRaster", "SpatVector"))) {
     ras_proj <- terra::crs(x)
@@ -97,7 +96,6 @@ get_mar <- function(theme) {
   }
   mar
 }
-
 
 
 bb_to_ratio <- function(bb, mar, width, height) {

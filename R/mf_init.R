@@ -34,8 +34,10 @@ mf_init <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
     bb <- terra::ext(x)[c(1, 3, 2, 4)]
     y <- st_as_sfc(st_bbox(bb))
     st_crs(y) <- proj
-    mf_init(y, expandBB = c(rep(-.0399, 4)) + expandBB,
-            extent = extent, bgc = bgc)
+    mf_init(y,
+      expandBB = c(rep(-.0399, 4)) + expandBB,
+      extent = extent, bgc = bgc
+    )
     return(invisible(x))
   }
 
@@ -50,14 +52,18 @@ mf_init <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
-  if (missing(bgc)){
+  if (missing(bgc)) {
     bgc <- getOption("mapsf.background")
   }
 
-  if (st_crs(x) != st_crs(extent)){
-    warning(paste0("'x' and 'extent' must use the same CRS.",
-                   " 'extent' is ignored."),
-            call. = FALSE)
+  if (st_crs(x) != st_crs(extent)) {
+    warning(
+      paste0(
+        "'x' and 'extent' must use the same CRS.",
+        " 'extent' is ignored."
+      ),
+      call. = FALSE
+    )
     extent <- y
   }
   # plot with bg and margins
