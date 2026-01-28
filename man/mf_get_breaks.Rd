@@ -12,9 +12,9 @@ classification.}
 
 \item{nbreaks}{a number of classes}
 
-\item{breaks}{a classification method; one of "fixed", "sd", "equal",
-"pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks",
-"dpih", "q6", "Q6", "geom", "arith", "em", "msd" or "ckmeans" (see Details)}
+\item{breaks}{a classification method; the main methods are "quantile",
+"equal", "msd", "ckmeans" (natural breaks), "Q6" and "geom".
+See Details for the full list.}
 
 \item{k}{number of standard deviation for "msd" method (see Details)}
 
@@ -34,13 +34,19 @@ This function is a wrapper for
 with some additional methods.
 }
 \details{
-"fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust",
-"bclust", "fisher", "jenks" and "dpih"
+\subsection{\code{classInt} methods}{
+
+"fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust",
+"fisher", "jenks", "dpih", "headtails", "maximum", and "box"
 are \code{\link[classInt:classIntervals]{classIntervals}}
-methods. You may need to pass additional arguments for some of them.\cr\cr
+methods. You may need to pass additional arguments for some of them.
+}
+
+\subsection{Natural breaks method}{
 
 The "jenks", "fisher" and "ckmeans" methods are based on the same concept of
-\strong{natural breaks} and and produce similar groupings.
+\strong{natural breaks} and and produce similar groupings. The use of "ckmeans" is
+recommanded.
 \itemize{
 \item The "jenks" method produces class boundaries falling on data points and is
 slow.
@@ -54,8 +60,18 @@ installed then the "fisher" method is used.
 }
 
 The relative speeds of these three methods may vary depending on the number
-of data points and the number of classes.\cr\cr
+of data points and the number of classes.
+}
 
+\subsection{Other methods}{
+
+The "msd" method is based on the \strong{mean} and the \strong{standard deviation}
+of a numeric vector.
+The \code{nbreaks} parameter is not relevant, use \code{k} and
+\code{central} instead. \code{k} indicates
+the extent of each class in share of standard deviation.
+If \code{central=TRUE} then
+the mean value is the center of a class else the mean is a break value.\cr\cr
 The "q6" method uses the following \code{\link[stats:quantile]{quantile}}
 probabilities: 0, 0.05, 0.275, 0.5, 0.725, 0.95, 1.\cr\cr
 The "Q6" method uses the following \code{\link[stats:quantile]{quantile}}
@@ -64,14 +80,8 @@ The "geom" method is based on a geometric progression along
 the variable values, all values must be strictly greater than zero.\cr\cr
 The "arith" method is based on an arithmetic progression along
 the variable values.\cr\cr
-The "em" method is based on nested averages computation.\cr\cr
-The "msd" method is based on the mean and the standard deviation
-of a numeric vector.
-The \code{nbreaks} parameter is not relevant, use \code{k} and
-\code{central} instead. \code{k} indicates
-the extent of each class in share of standard deviation.
-If \code{central=TRUE} then
-the mean value is the center of a class else the mean is a break value.
+The "em" method is based on nested averages computation.
+}
 }
 \examples{
 mtq <- mf_get_mtq()
