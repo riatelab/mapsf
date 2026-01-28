@@ -26,10 +26,10 @@ mf_theme(
 )
 }
 \arguments{
-\item{x}{name of a map theme. One of "base", "sol_dark", "sol_light",
-"grey", "mint", "dracula", "pistachio", "rzine".}
+\item{x}{name of a map theme. One of 'base', 'grey', 'sol_light', 'sol_dark', 'mint', 'dracula', 'rzine', 'pistachio'.}
 
-\item{mar}{margins}
+\item{mar}{a numeral vector of the form c(bottom, left, top, right)
+which gives the margin size specified in number of lines}
 
 \item{foreground}{foreground color}
 
@@ -41,7 +41,8 @@ mf_theme(
 
 \item{title_pos}{title position, one of 'left', 'center', 'right'}
 
-\item{title_inner}{if TRUE the title is displayed inside the plot area.}
+\item{title_inner}{if TRUE the title is displayed inside the plot area;
+if FALSE the title is displayed in the top margin}
 
 \item{title_line}{number of lines used for the title}
 

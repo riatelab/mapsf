@@ -23,9 +23,10 @@ mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner, banner)
 
 \item{font}{font of the title}
 
-\item{inner}{if TRUE the title is displayed inside the plot area}
+\item{inner}{if TRUE the title is displayed inside the plot area;
+if FALSE the title is displayed in the top margin}
 
-\item{banner}{if TRUE the title is dispalayed as a banner}
+\item{banner}{if TRUE the title is displayed as a banner}
 }
 \value{
 No return value, a title is displayed.

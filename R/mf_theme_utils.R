@@ -11,7 +11,7 @@
     frame        = "none",
     frame_lwd    = 1,
     frame_lty    = 1,
-    foreground   = "grey75",
+    foreground   = "#BFBFBF",
     background   = "#fbfbfb",
     highlight    = "#500f27",
     pal_quali    = "Dark 3",
@@ -29,9 +29,9 @@
     frame        = "none",
     frame_lwd    = 1,
     frame_lty    = 1,
-    background   = "grey95",
-    foreground   = "grey70",
-    highlight    = "grey10",
+    background   = "#F2F2F2",
+    foreground   = "#B3B3B3",
+    highlight    = "#1A1A1A",
     pal_seq      = "Grays",
     pal_quali    = "Pastel 1"
   ),
@@ -49,7 +49,7 @@
     frame_lty    = 1,
     background   = "#fdf6e3",
     foreground   = "#93a1a1",
-    highlight    = "grey10",
+    highlight    = "#1A1A1A",
     pal_seq      = "BurgYl",
     pal_quali    = "Pastel 1"
   ),
@@ -67,7 +67,7 @@
     frame_lty = 1,
     background = "#073642",
     foreground = "#93a1a1",
-    highlight = "grey95",
+    highlight = "#F2F2F2",
     pal_seq = colorRampPalette(c(
       "#002b36", "#657b83",
       "#839496", "#eee8d5"
@@ -86,7 +86,7 @@
     frame        = "map",
     frame_lwd    = 1,
     frame_lty    = "5252",
-    background   = "grey98",
+    background   = "#FAFAFA",
     foreground   = "#C0EBA6",
     highlight    = "#7d698c",
     pal_seq      = "Emrld",

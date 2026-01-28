@@ -7,8 +7,9 @@
 #' @param cex cex of the title
 #' @param font font of the title
 #' @param line number of lines used for the title
-#' @param inner if TRUE the title is displayed inside the plot area
-#' @param banner if TRUE the title is dispalayed as a banner
+#' @param inner if TRUE the title is displayed inside the plot area;
+#' if FALSE the title is displayed in the top margin
+#' @param banner if TRUE the title is displayed as a banner
 #' @export
 #' @importFrom grDevices recordGraphics
 #' @return No return value, a title is displayed.

@@ -17,15 +17,17 @@
 #' Use `mf_theme(NULL)` or `mf_theme('base')` to reset to default theme
 #' settings.
 #'
-#' @param x name of a map theme. One of "base", "sol_dark", "sol_light",
-#' "grey", "mint", "dracula", "pistachio", "rzine".
-#' @param mar margins
+#' @eval paste0("@param x name of a map theme. One of '",
+#' paste0(get_themes_names(), collapse= "', '" ),"'.")
+#' @param mar a numeral vector of the form c(bottom, left, top, right)
+#' which gives the margin size specified in number of lines
 #' @param title_pos title position, one of 'left', 'center', 'right'
 #' @param title_tab if TRUE the title is displayed as a 'tab'
 #' @param title_cex cex of the title
 #' @param title_font font of the title
 #' @param title_line number of lines used for the title
-#' @param title_inner if TRUE the title is displayed inside the plot area.
+#' @param title_inner if TRUE the title is displayed inside the plot area;
+#' if FALSE the title is displayed in the top margin
 #' @param title_banner if TRUE the title is displayed as a banner
 #' @param foreground foreground color
 #' @param background background color
