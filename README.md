@@ -30,7 +30,7 @@ Alternatively, you can install the development version of `mapsf` (the
 with:
 
 ``` r
-install.packages("mapsf", repos = "https://riatelab.r-universe.dev")
+install.packages("mapsf", repos = c("https://riatelab.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 ## Usage
