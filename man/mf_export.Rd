@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_export.R
 \name{mf_export}
 \alias{mf_export}
-\title{Export a map}
+\title{Deprecated - Export a map}
 \usage{
 mf_export(
   x,
@@ -36,9 +36,8 @@ direction (bottom, left, top, right)}
 No return value, a map file is initiated (in PNG or SVG format).
 }
 \description{
-It is recommended to use \link{mf_svg} or \link{mf_png} instead of
-\code{mf_export}.
-\cr
+This function is deprecated. Please use \code{\link{mf_png}} or
+\code{\link{mf_svg}} instead.
 
 Export a map with the extent of a spatial object.\cr
 The map is exported in PNG or SVG format.\cr

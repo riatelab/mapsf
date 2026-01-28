@@ -1,11 +1,8 @@
-#' @title Export a map
+#' @title Deprecated - Export a map
 #' @name mf_export
 #' @description
-#'
-#' It is recommended to use \link{mf_svg} or \link{mf_png} instead of
-#' \code{mf_export}.
-#' \cr
-#'
+#' This function is deprecated. Please use \code{\link{mf_png}} or
+#' \code{\link{mf_svg}} instead.
 #'
 #' Export a map with the extent of a spatial object.\cr
 #' The map is exported in PNG or SVG format.\cr
@@ -44,6 +41,14 @@ mf_export <- function(x,
                       res = 96,
                       ...,
                       expandBB = rep(0, 4)) {
+  warning(
+    paste0(
+      "mf_export() is deprecated. ",
+      "Use mf_png() or mf_svg() instead."
+    ),
+    call. = FALSE
+  )
+
   # input test
   if (!inherits(x, c("bbox", "SpatVector", "SpatRaster", "sf", "sfc", "sfg"))) {
     stop(
