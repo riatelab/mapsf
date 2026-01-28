@@ -1,6 +1,10 @@
-#' @title Initialize a map with a specific extent
+#' @title Deprecated - Initialize a map with a specific extent
 #' @name mf_init
-#' @description Plot an invisible layer with the extent of a spatial object.\cr
+#' @description
+#' This function is deprecated.
+#' Please use \code{mf_map(x, col = NA, border = NA)} instead.
+#'
+#' Plot an invisible layer with the extent of a spatial object.\cr
 #' Always use \code{add = TRUE} in \code{mf_map()} calls following an
 #' \code{mf_init()} call.
 #' This function is similar to \code{mf_map(x, col = NA, border = NA)}.
@@ -19,6 +23,8 @@
 #' mf_init(target)
 #' mf_map(mtq, add = TRUE)
 mf_init <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
+  deprecate_direct_calls_to("mf_init")
+
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(

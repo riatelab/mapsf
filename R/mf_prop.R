@@ -1,5 +1,10 @@
-#' @title Plot proportional symbols
-#' @description Plot proportional symbols.
+#' @title Deprecated - Plot proportional symbols
+#' @description
+#' This function is deprecated. Please use `mf_map()` with `type = "prop"`
+#' instead.
+#'
+#' Plot proportional symbols.
+#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -72,6 +77,7 @@ mf_prop <- function(x,
                     leg_bg,
                     leg_size = 1,
                     add = TRUE) {
+  deprecate_direct_calls_to("mf_prop")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -105,7 +111,7 @@ mf_prop <- function(x,
       mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
     }
     op2 <- par(lend = 1)
-    mf_base(xl, lwd = xl$lwd, add = TRUE, col = col)
+    mf_map(xl, lwd = xl$lwd, add = TRUE, col = col)
 
     val <- seq(min(xl[[var]]), max(xl[[var]]), length.out = 4)
     leg(

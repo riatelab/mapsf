@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_base.R
 \name{mf_base}
 \alias{mf_base}
-\title{Plot an sf object}
+\title{Deprecated - Plot an sf object}
 \usage{
 mf_base(
   x,
@@ -45,6 +45,9 @@ mf_base(
 x is (invisibly) returned.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "base"}
+instead.
+
 Plot an sf object. This is mostly a wrapper around
 \code{plot(st_geometry(x), ...)}.
 }

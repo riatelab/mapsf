@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_prop.R
 \name{mf_prop}
 \alias{mf_prop}
-\title{Plot proportional symbols}
+\title{Deprecated - Plot proportional symbols}
 \usage{
 mf_prop(
   x,
@@ -90,6 +90,9 @@ mf_prop(
 x is (invisibly) returned.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "prop"}
+instead.
+
 Plot proportional symbols.
 }
 \examples{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_symb.R
 \name{mf_symb}
 \alias{mf_symb}
-\title{Plot symbols}
+\title{Deprecated - Plot symbols}
 \usage{
 mf_symb(
   x,
@@ -90,6 +90,9 @@ mf_symb(
 x is (invisibly) returned.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "symb"}
+instead.
+
 Plot symbols based on qualitative data.
 }
 \examples{

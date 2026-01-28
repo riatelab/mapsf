@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_init.R
 \name{mf_init}
 \alias{mf_init}
-\title{Initialize a map with a specific extent}
+\title{Deprecated - Initialize a map with a specific extent}
 \usage{
 mf_init(x, expandBB = rep(0, 4), extent = x, bgc)
 }
@@ -18,6 +18,9 @@ direction (bottom, left, top, right)}
 No return value, a map is initiated.
 }
 \description{
+This function is deprecated.
+Please use \code{mf_map(x, col = NA, border = NA)} instead.
+
 Plot an invisible layer with the extent of a spatial object.\cr
 Always use \code{add = TRUE} in \code{mf_map()} calls following an
 \code{mf_init()} call.

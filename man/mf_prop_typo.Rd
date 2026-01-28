@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_prop_typo.R
 \name{mf_prop_typo}
 \alias{mf_prop_typo}
-\title{Plot proportional symbols using typology coloration}
+\title{Deprecated - Plot proportional symbols using typology coloration}
 \usage{
 mf_prop_typo(
   x,
@@ -96,6 +96,9 @@ mf_prop_typo(
 x is (invisibly) returned.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "prop_typo"}
+instead.
+
 Plot proportional symbols with colors based on qualitative data.
 }
 \examples{

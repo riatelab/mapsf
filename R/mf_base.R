@@ -1,6 +1,11 @@
-#' @title Plot an sf object
-#' @description Plot an sf object. This is mostly a wrapper around
+#' @title Deprecated - Plot an sf object
+#' @description
+#' This function is deprecated. Please use `mf_map()` with `type = "base"`
+#' instead.
+#'
+#' Plot an sf object. This is mostly a wrapper around
 #' \code{plot(st_geometry(x), ...)}.
+#' @md
 #' @param x	object of class \code{sf}, \code{sfc} or \code{sfg}
 #' @eval my_params(c(
 #' 'col',
@@ -34,6 +39,7 @@ mf_base <- function(x,
                     bg,
                     expandBB = rep(.04, 4),
                     ...) {
+  deprecate_direct_calls_to("mf_base")
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

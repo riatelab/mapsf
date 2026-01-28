@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_prop_choro.R
 \name{mf_prop_choro}
 \alias{mf_prop_choro}
-\title{Plot proportional symbols using choropleth coloration}
+\title{Deprecated - Plot proportional symbols using choropleth coloration}
 \usage{
 mf_prop_choro(
   x,
@@ -108,6 +108,9 @@ mf_prop_choro(
 x is (invisibly) returned.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "prop_choro"}
+instead.
+
 Plot proportional symbols with colors based on a quantitative
 data classification.
 }

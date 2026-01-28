@@ -321,8 +321,6 @@ mf_map(mtq)
 mf_map(mtq, var = c("STATUS", "MED"), type = "symb_choro")
 
 
-
-
 # detailed examples
 # type = "base"
 mf_map(mtq, type = "base", col = "lightblue", lwd = 1.5, lty = 2)

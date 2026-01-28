@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_symb_choro.R
 \name{mf_symb_choro}
 \alias{mf_symb_choro}
-\title{Plot symbols using choropleth coloration}
+\title{Deprecated - Plot symbols using choropleth coloration}
 \usage{
 mf_symb_choro(
   x,
@@ -114,6 +114,9 @@ mf_symb_choro(
 x is (invisibly) returned.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "symb_choro"}
+instead.
+
 Plot symbols with colors based on a quantitative
 data classification.
 }

@@ -1,5 +1,10 @@
-#' @title Plot a choropleth map
-#' @description Plot choropleth map.
+#' @title Deprecated - Plot a choropleth map
+#' @description
+#' This function is deprecated. Please use `mf_map()` with `type = "choro"`
+#' instead.
+#'
+#' Plot a choropleth map
+#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -36,10 +41,10 @@
 #' @details
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
+#' will be mapped as \[2 - 5\[, \[5 - 10\[, \[10 - 15\[, \[15 - 20\].
 #' The "jenks" method is an exception and has to be right-closed.
 #' Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
+#' will be mapped as \[2 - 5\], \]5 - 10\], \]10 - 15\], \]15 - 20\].
 #' @keywords internal
 #' @export
 #' @return x is (invisibly) returned.
@@ -91,6 +96,7 @@ mf_choro <- function(x, var,
                      leg_bg,
                      leg_frame_border,
                      add = FALSE) {
+  deprecate_direct_calls_to("mf_choro")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

@@ -25,6 +25,7 @@ reference:
     desc: Package description
     contents:
     - mapsf
+    - mapsf-deprecated
   - title: "Symbology"
     desc: These functions display cartographic layers.
     contents:

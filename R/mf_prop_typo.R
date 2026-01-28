@@ -1,5 +1,11 @@
-#' @title Plot proportional symbols using typology coloration
-#' @description Plot proportional symbols with colors based on qualitative data.
+#' @title Deprecated - Plot proportional symbols using typology coloration
+#' @description
+#' This function is deprecated. Please use `mf_map()` with `type = "prop_typo"`
+#' instead.
+#'
+#'
+#' Plot proportional symbols with colors based on qualitative data.
+#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -84,6 +90,7 @@ mf_prop_typo <- function(x, var,
                          leg_box_border,
                          leg_box_cex = c(1, 1),
                          add = TRUE) {
+  deprecate_direct_calls_to("mf_prop_typo")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -143,7 +150,7 @@ mf_prop_typo <- function(x, var,
     }
     mycols[is.na(mycols)] <- col_na
     op2 <- par(lend = 1)
-    mf_base(xl, lwd = xl$lwd, add = TRUE, col = mycols)
+    mf_map(xl, lwd = xl$lwd, add = TRUE, col = mycols)
     val <- seq(min(xl[[var1]]), max(xl[[var1]]), length.out = 4)
     leg_pos <- split_leg(leg_pos)
 

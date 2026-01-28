@@ -1,5 +1,11 @@
-#' @title Plot a typology map
-#' @description Plot a typology map.
+#' @title Deprecated - Plot a typology map
+#' @description
+#' This function is deprecated. Please use `mf_map()` with `type = "typo"`
+#' instead.
+#'
+#'
+#' Plot a typology map.
+#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -75,6 +81,7 @@ mf_typo <- function(x,
                     leg_fg,
                     leg_bg,
                     add = FALSE) {
+  deprecate_direct_calls_to("mf_typo")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

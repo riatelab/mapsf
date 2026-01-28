@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_typo.R
 \name{mf_typo}
 \alias{mf_typo}
-\title{Plot a typology map}
+\title{Deprecated - Plot a typology map}
 \usage{
 mf_typo(
   x,
@@ -96,6 +96,9 @@ mf_typo(
 No return value, a map is displayed.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "typo"}
+instead.
+
 Plot a typology map.
 }
 \examples{

@@ -1,5 +1,10 @@
-#' @title Plot symbols
-#' @description Plot symbols based on qualitative data.
+#' @title Deprecated - Plot symbols
+#' @description
+#' This function is deprecated. Please use `mf_map()` with `type = "symb"`
+#' instead.
+#'
+#' Plot symbols based on qualitative data.
+#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -71,6 +76,7 @@ mf_symb <- function(x, var,
                     leg_bg,
                     leg_size = 1,
                     add = TRUE) {
+  deprecate_direct_calls_to("mf_symb")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

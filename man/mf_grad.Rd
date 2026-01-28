@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_grad.R
 \name{mf_grad}
 \alias{mf_grad}
-\title{Plot graduated symbols}
+\title{Deprecated - Plot graduated symbols}
 \usage{
 mf_grad(
   x,
@@ -93,6 +93,9 @@ mf_grad(
 x is (invisibly) returned.
 }
 \description{
+This function is deprecated. Please use \code{mf_map()} with \code{type = "grad"}
+instead.
+
 Plot graduated symbols based on quantitative data.
 }
 \details{

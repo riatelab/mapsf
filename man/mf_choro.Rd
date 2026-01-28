@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_choro.R
 \name{mf_choro}
 \alias{mf_choro}
-\title{Plot a choropleth map}
+\title{Deprecated - Plot a choropleth map}
 \usage{
 mf_choro(
   x,
@@ -111,7 +111,10 @@ mf_choro(
 x is (invisibly) returned.
 }
 \description{
-Plot choropleth map.
+This function is deprecated. Please use \code{mf_map()} with \code{type = "choro"}
+instead.
+
+Plot a choropleth map
 }
 \details{
 Breaks defined by a numeric vector or a classification method are

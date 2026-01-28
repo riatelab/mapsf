@@ -1,6 +1,11 @@
-#' @title Plot symbols using choropleth coloration
-#' @description Plot symbols with colors based on a quantitative
+#' @title Deprecated - Plot symbols using choropleth coloration
+#' @description
+#' This function is deprecated. Please use `mf_map()` with `type = "symb_choro"`
+#' instead.
+#'
+#' Plot symbols with colors based on a quantitative
 #' data classification.
+#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -38,10 +43,10 @@
 #' @details
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
+#' will be mapped as \[2 - 5\[, \[5 - 10\[, \[10 - 15\[, \[15 - 20\].
 #' The "jenks" method is an exception and has to be right-closed.
 #' Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as [2 - 5], ]5 - 10], ]10 - 15], ]15 - 20].
+#' will be mapped as \[2 - 5\], \]5 - 10\], \]10 - 15\], \]15 - 20\].
 #' @importFrom graphics box
 #' @keywords internal
 #' @export
@@ -100,6 +105,7 @@ mf_symb_choro <- function(x, var,
                           leg_box_border,
                           leg_box_cex = c(1, 1),
                           add = TRUE) {
+  deprecate_direct_calls_to("mf_symb_choro")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
