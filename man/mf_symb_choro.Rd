@@ -48,11 +48,11 @@ mf_symb_choro(
 
 \item{var}{name(s) of the variable(s) to plot}
 
-\item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
+\item{pal}{a set of colors (hex codes) or a palette name (valid palette names can be obtained with \code{\link{hcl.pals}}).}
 
 \item{alpha}{opacity, in the range [0,1]}
 
-\item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
+\item{rev}{if \code{pal} is a valid palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
 \item{breaks}{either a numeric vector with the actual breaks, or a classification method name (see \link{mf_get_breaks} and Details)}
 
@@ -74,7 +74,7 @@ mf_symb_choro(
 
 \item{val_order}{values order, a character vector that matches var modalities}
 
-\item{leg_pos}{position of the legend, two of 'topleft', 'top','topright', 'right','bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). leg_pos argument can be c('position', 'position'), c('position', x2, y2), c(x1,y1, 'position') or c(x1, y1, x2, y2). Use NA to avoid plotting the legend, use 'interactive' to choose thelegend position interactively.}
+\item{leg_pos}{position of the legend, two of 'topleft', 'top','topright', 'right','bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). leg_pos argument can be c('position', 'position'), c('position', x2, y2), c(x1,y1, 'position') or c(x1, y1, x2, y2). Use \code{NA} to avoid plotting the legend, use 'interactive' to choose the legend position by clicking on the map.}
 
 \item{leg_title}{legend title}
 

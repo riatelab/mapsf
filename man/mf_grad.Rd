@@ -45,7 +45,7 @@ mf_grad(
 
 \item{nbreaks}{number of classes}
 
-\item{col}{color}
+\item{col}{a color, hex code or color name given by \code{\link{colors}}}
 
 \item{alpha}{opacity, in the range [0,1]}
 
@@ -57,7 +57,7 @@ mf_grad(
 
 \item{lwd}{border width}
 
-\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.}
+\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). Use \code{NA} to avoid plotting the legend, use 'interactive' to choose the legend position by clicking on the map.}
 
 \item{leg_title}{legend title}
 

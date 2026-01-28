@@ -25,7 +25,7 @@ mf_shadow(
 
 \item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
 
-\item{bg}{background color}
+\item{bg}{background color of the map (hex code or color name givenby \code{\link{colors}}), ignored if \code{add = TRUE}}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}

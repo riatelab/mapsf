@@ -38,7 +38,7 @@ direction (bottom, left, top, right)}
 
 \item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
 
-\item{bg}{background color}
+\item{bg}{background color of the map (hex code or color name givenby \code{\link{colors}}), ignored if \code{add = TRUE}}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE)}

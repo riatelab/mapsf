@@ -23,7 +23,7 @@ mf_base(
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{sfg}}
 
-\item{col}{color}
+\item{col}{a color, hex code or color name given by \code{\link{colors}}}
 
 \item{border}{border color}
 

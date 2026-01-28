@@ -18,7 +18,7 @@ mf_credits(
 
 \item{pos}{position, one of 'bottomleft', 'bottomright' or 'rightbottom'}
 
-\item{col}{color}
+\item{col}{a color, hex code or color name given by \code{\link{colors}}}
 
 \item{cex}{cex of the credits}
 

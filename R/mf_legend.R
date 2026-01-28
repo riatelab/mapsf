@@ -23,8 +23,9 @@
 #' 'topright', 'right', 'bottomright', 'bottom','bottomleft',
 #' 'left', 'interactive' or a vector of two coordinates
 #' in map units (c(x, y)).
-#' @param pal a color palette name or a vector of colors
-#' @param alpha if \code{pal} is a \link{hcl.colors} palette name, the
+#' @param pal a set of colors (hex codes) or a palette name (valid palette
+#' names can be obtained with \\code{\\link{hcl.pals}}).
+#' @param alpha if \code{pal} is a valid \link{hcl.pals} palette name, the
 #' alpha-transparency level in the range \[0,1\]
 #' @param inches size of the largest symbol (radius for circles, half width
 #' for squares) in inches

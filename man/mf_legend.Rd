@@ -61,9 +61,10 @@ break labels (for "choro" and "grad_line").}
 'left', 'interactive' or a vector of two coordinates
 in map units (c(x, y)).}
 
-\item{pal}{a color palette name or a vector of colors}
+\item{pal}{a set of colors (hex codes) or a palette name (valid palette
+names can be obtained with \\code{\\link{hcl.pals}}).}
 
-\item{alpha}{if \code{pal} is a \link{hcl.colors} palette name, the
+\item{alpha}{if \code{pal} is a valid \link{hcl.pals} palette name, the
 alpha-transparency level in the range [0,1]}
 
 \item{col}{color of the symbols (for "prop") or color of the lines (for

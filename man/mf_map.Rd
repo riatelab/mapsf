@@ -37,11 +37,11 @@ a quantitative data classification
 
 \item{nbreaks}{number of classes}
 
-\item{pal}{a set of colors or a palette name (from \link{hcl.colors})}
+\item{pal}{a set of colors (hex codes) or a palette name (valid palette names can be obtained with \code{\link{hcl.pals}}).}
 
 \item{alpha}{opacity, in the range [0,1]}
 
-\item{rev}{if \code{pal} is a \link{hcl.colors} palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
+\item{rev}{if \code{pal} is a valid palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
 \item{inches}{size of the biggest symbol (radius for circles, half width for squares) in inches.}
 
@@ -49,7 +49,7 @@ a quantitative data classification
 
 \item{symbol}{type of symbols, 'circle' or 'square'}
 
-\item{col}{color}
+\item{col}{a color, hex code or color name given by \code{\link{colors}}}
 
 \item{lwd_max}{line width of the largest line}
 
@@ -74,11 +74,11 @@ direction (bottom, left, top, right)}
 
 \item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
 
-\item{bg}{background color}
+\item{bg}{background color of the map (hex code or color name givenby \code{\link{colors}}), ignored if \code{add = TRUE}}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 
-\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.}
+\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). Use \code{NA} to avoid plotting the legend, use 'interactive' to choose the legend position by clicking on the map.}
 
 \item{leg_title}{legend title}
 

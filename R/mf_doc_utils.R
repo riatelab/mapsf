@@ -4,7 +4,8 @@ my_params <- function(x) {
     x = "x object of class \\code{sf}",
     var = "var name(s) of the variable(s) to plot",
     vars = "var names of the variables to plot",
-    bg = "bg background color",
+    bg = paste0("bg background color of the map (hex code or color name given",
+                "by \\code{\\link{colors}}), ignored if \\code{add = TRUE}"),
     fg = "fg foreground color",
     border = "border border color",
     lwd = "lwd border width",
@@ -14,14 +15,15 @@ my_params <- function(x) {
     ),
     lwd_max = "lwd_max line width of the largest line",
     symbol = "symbol type of symbols, 'circle' or 'square'",
-    col = "col color",
+    col = "col a color, hex code or color name given by \\code{\\link{colors}}",
     leg_pos = paste0(
       "leg_pos position of the legend, one of 'topleft', 'top',",
       "'topright', 'right', 'bottomright', 'bottom', ",
       "'bottomleft', 'left' or a vector of two coordinates ",
-      "in map units (c(x, y)). If leg_pos = NA then the ",
-      "legend is not plotted. If leg_pos = 'interactive' click on",
-      "the map to choose the legend position."
+      "in map units (c(x, y)). ",
+      "Use \\code{NA} to avoid plotting the legend, use 'interactive' ",
+      "to choose the ",
+      "legend position by clicking on the map."
     ),
     leg_pos2 = paste0(
       "leg_pos position of the legend, two of 'topleft', 'top','topright', ",
@@ -30,8 +32,9 @@ my_params <- function(x) {
       "coordinates in map units (c(x, y)). leg_pos argument can be ",
       "c('position', 'position'), c('position', x2, y2), ",
       "c(x1,y1, 'position') or c(x1, y1, x2, y2). ",
-      "Use NA to avoid plotting the legend, use 'interactive' to choose the",
-      "legend position interactively."
+      "Use \\code{NA} to avoid plotting the legend, use 'interactive' ",
+      "to choose the ",
+      "legend position by clicking on the map."
     ),
     leg_title = "leg_title legend title",
     leg_title_cex = "leg_title_cex size of the legend title",
@@ -48,11 +51,11 @@ my_params <- function(x) {
     add =
       "add whether to add the layer to an existing plot (TRUE) or not (FALSE)",
     pal = paste0(
-      "pal a set of colors or a palette name",
-      " (from \\link{hcl.colors})"
+      "pal a set of colors (hex codes) or a palette name (",
+      "valid palette names can be obtained with \\code{\\link{hcl.pals}})."
     ),
     rev = paste0(
-      "rev if \\code{pal} is a \\link{hcl.colors} palette name, ",
+      "rev if \\code{pal} is a valid palette name, ",
       "whether the ordering of the colors should be reversed (TRUE)",
       " or not (FALSE)"
     ),
