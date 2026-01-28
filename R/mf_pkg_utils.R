@@ -75,3 +75,23 @@ shadowtext <- function(x, y = NULL, labels, col = "white", bg = "black",
   }
   text(x, y, labels, col = col, ...)
 }
+
+
+get_breaks_methods_names <- function() {
+  return(
+    c(
+      "quantile", "equal", "msd", "ckmeans", "Q6", "geom", "fixed", "sd",
+      "pretty", "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih",
+      "headtails", "maximum", "box", "q6", "arith", "em"
+    )
+  )
+}
+
+
+get_themes_names <- function() {
+  n <- names(mapsf:::.gmapsf$themes)
+  return(n[!n %in% c(
+    "default", "brutal", "ink", "dark", "agolalight", "candy",
+    "darkula", "iceberg", "green", "nevermind", "jsk", "barcelona"
+  )])
+}
