@@ -21,7 +21,7 @@
 #'        expandBB, extent, bg, add,
 #'        leg_pos, leg_title, leg_title_cex, leg_val_cex, leg_val_rnd,
 #'        leg_val_dec, leg_val_big, leg_no_data, leg_frame, leg_frame_border,
-#'        leg_horiz, leg_adj, leg_bg, leg_fg, leg_size, leg_border,
+#'        leg_horiz, leg_adj, leg_bg, leg_fg, leg_size,
 #'        leg_box_border, leg_box_cex, ...)
 #'
 #'
@@ -110,7 +110,7 @@
 #'        leg_pos = mf_get_leg_pos(x), leg_title = var, leg_title_cex = 0.8,
 #'        leg_val_cex = 0.6, leg_val_rnd = 2, leg_val_dec = ".",
 #'        leg_val_big = "", leg_frame = FALSE,
-#'        leg_adj = c(0, 0), leg_size = 1, leg_border = border,
+#'        leg_adj = c(0, 0), leg_size = 1,
 #'        leg_box_cex = c(1, 1), leg_fg = getOption("mapsf.foreground"),
 #'        leg_bg = getOption("mapsf.background"),
 #'        leg_frame_border = getOption("mapsf.foreground"))
@@ -214,7 +214,6 @@
 #' 'leg_adj',
 #' 'leg_horiz',
 #' 'leg_size',
-#' 'leg_border',
 #' 'leg_box_border',
 #' 'leg_box_cex',
 #' 'leg_fg',
@@ -423,7 +422,6 @@ mf_map <- function(x,
                    leg_bg,
                    leg_fg,
                    leg_size,
-                   leg_border,
                    leg_box_border,
                    leg_box_cex,
                    ...) {
