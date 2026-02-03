@@ -3,18 +3,56 @@
 \name{mf_get_mtq}
 \alias{mf_get_mtq}
 \title{Get the 'mtq' dataset}
+\source{
+\subsection{For polygons (municipalities shapes) and points (municipalities centroids)}{
+
+\href{https://www.insee.fr/fr/statistiques/2521169}{Base comparateur de territoires}
+(data, upload date: 2018-09-25) & ADMIN EXPRESS-COG (geometry, 2018 edition).
+
+Citation: Insee and IGN, 2018
+}
+
+\subsection{For lines (professional mobility flows from Fort-de-France to other municipalities)}{
+
+\href{https://www.insee.fr/fr/statistiques/3566477}{Flux de mobilité - déplacements domicile-lieu de travail} (upload date: 2018-08-01)
+
+Citation: Insee, 2018
+}
+}
 \usage{
-mf_get_mtq()
+mf_get_mtq(x = "polygons")
+}
+\arguments{
+\item{x}{one of "polygons", "points", "lines"}
 }
 \value{
-an sf object of Martinique municipalities
+an sf object
 }
 \description{
 Import the mtq dataset (Martinique municipalities).
 }
 \details{
-This a wrapper around
-\code{st_read(system.file("gpkg/mtq.gpkg", package = "mapsf"),quiet = TRUE)}.
+This a wrapper around \code{st_read(system.file("gpkg/mtq.gpkg", package = "mapsf"), layer = x, quiet = TRUE)}.
+\subsection{For polygons (municipalities shapes) and points (municipalities centroids)}{
+\itemize{
+\item \strong{INSEE_COM}: Municipality identifier
+\item \strong{STATUS}: Municipality administrative status
+\item \strong{LIBGEO}: Municipality name
+\item \strong{POP}: Total population, 2015
+\item \strong{MED}: Median disposable income adjusted per equivalent household member, in euros, 2015
+\item \strong{CHOM}: Unemployed population, 2015
+\item \strong{ACT}: Active population, 2015
+}
+}
+
+\subsection{For lines (professional mobility flows from Fort-de-France to other municipalities)}{
+\itemize{
+\item \strong{i}: Municipality of residence identifier
+\item \strong{j}: Municipality of workplace identifier
+\item \strong{fij}: Flows of workers (employed population, 15 y.o. or more, 2015, only flows \> 100)
+\item \strong{sj}: Administrative status of the workplace municipality
+}
+}
 }
 \examples{
 mtq <- mf_get_mtq()
