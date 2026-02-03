@@ -36,8 +36,6 @@
 #' 'leg_frame_border'))
 #' @param cex cex cex of the symbols if x is a POINT layer
 #' @param pch pch type of pch if x is a POINT layer
-#' @param pch_na pch for NA values if x is a POINT layer
-#' @param cex_na cex for NA values if x is a POINT layer
 #' @details
 #' Breaks defined by a numeric vector or a classification method are
 #' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
@@ -73,8 +71,6 @@ mf_choro <- function(x, var,
                      cex = 2,
                      lwd = .7,
                      col_na = "white",
-                     cex_na = 1,
-                     pch_na = 4,
                      extent = x,
                      bg,
                      expandBB = rep(.04, 4),

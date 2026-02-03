@@ -32,8 +32,6 @@
 #' 'leg_adj'))
 #' @param cex cex cex of the symbols if x is a POINT layer
 #' @param pch pch type of pch if x is a POINT layer
-#' @param pch_na pch for NA values if x is a POINT layer
-#' @param cex_na cex for NA values if x is a POINT layer
 #' @keywords internal
 #' @export
 #' @return No return value, a map is displayed.
@@ -61,8 +59,6 @@ mf_typo <- function(x,
                     pch = 21,
                     cex = 2,
                     lwd = .7,
-                    cex_na = 1,
-                    pch_na = 4,
                     col_na = "white",
                     extent = x,
                     bg,
@@ -95,7 +91,7 @@ mf_typo <- function(x,
     leg_frame_border, "foreground",
     getOption("mapsf.highlight")
   )
-
+  lwd <- lwd[[1]]
 
   # get modalities
   val_order <- get_modalities(
@@ -195,8 +191,8 @@ mf_typo <- function(x,
       val_cex = leg_val_cex, col_na = col_na, no_data = no_data,
       no_data_txt = leg_no_data,
       frame = leg_frame, border = border, pal = pal, lwd = lwd,
-      cex = rep(cex, n), pch = rep(pch, n), cex_na = cex_na,
-      pch_na = pch_na, bg = leg_bg, fg = leg_fg, adj = leg_adj,
+      cex = rep(cex, n), pch = rep(pch, n), cex_na = cex,
+      pch_na = pch, bg = leg_bg, fg = leg_fg, adj = leg_adj,
       size = leg_size, frame_border = leg_frame_border
     )
   }
