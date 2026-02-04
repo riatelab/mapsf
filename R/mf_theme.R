@@ -17,6 +17,8 @@
 #' Use `mf_theme(NULL)` or `mf_theme('base')` to reset to default theme
 #' settings.
 #'
+#'
+#'
 #' @eval paste0("@param x name of a map theme. One of '",
 #' paste0(get_themes_names(), collapse= "', '" ),"'.")
 #' @param mar a numeral vector of the form c(bottom, left, top, right)
@@ -54,7 +56,8 @@
 #'
 #' All references and usages of the old theming system will be removed in the
 #' next major version.
-#' @return The current list of theme parameters is (invisibly) returned.
+#' @return `mf_theme` (invisibly) returns the list of current theme parameters.
+#' @family theme related function
 #' @export
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -238,3 +241,23 @@ mf_theme <- function(x,
 
   return(invisible(as.list(theme)))
 }
+
+#' @title Get parameters of the current theme
+#' @description
+#'
+#' `mf_get_theme_value` is useful to access the value of a specific argument of
+#' the current theme.
+#' @param arg name of an argument of [mf_theme]
+#' @return `mf_get_theme_value` returns the value of a specific argument of
+#' the current theme.
+#' @md
+#' @export
+#' @family theme related function
+#' @examples
+#'
+#' # To obtain the value of one of the current theme argument:
+#' mf_get_theme_value("foreground")
+mf_get_theme_value <- function(arg){
+  getOption(paste0("mapsf.", arg))
+}
+

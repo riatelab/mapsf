@@ -67,7 +67,7 @@ or the figure.}
 'line', 'cex' and 'font'). See the Note section.}
 }
 \value{
-The current list of theme parameters is (invisibly) returned.
+\code{mf_theme} (invisibly) returns the list of current theme parameters.
 }
 \description{
 A theme is a set of graphical parameters that are applied to maps created
@@ -152,3 +152,8 @@ mf_theme(NULL)
 # or
 mf_theme("base")
 }
+\seealso{
+Other theme related function: 
+\code{\link{mf_get_theme_value}()}
+}
+\concept{theme related function}
