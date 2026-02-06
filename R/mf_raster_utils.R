@@ -90,10 +90,7 @@ mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
 
 mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
                                  alpha, rev, bg) {
-  if (missing(pal)) {
-    pal <- "Dark Mint"
-  }
-
+  pal <- go(pal, "pal_seq", "Dark Mint")
   val <- terra::values(ops$x, na.rm = TRUE)
 
   # with breaks
@@ -187,7 +184,7 @@ mf_raster_classes <- function(ops, ops_leg, pal, val_order, expandBB,
     modalities <- terra::cats(ops$x)[[1]]
   }
 
-  pal <- go(pal, "pal_seq", "Dark 2")
+  pal <- go(pal, "pal_quali", "Dark 2")
 
   if (missing(val_order)) {
     val_order <- modalities[, 2]
