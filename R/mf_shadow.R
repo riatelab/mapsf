@@ -6,11 +6,11 @@
 #' @param cex shadow extent
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @eval my_params(c(
-#' "add",
-#' "extent",
-#' "bg")
-#' )
+#' @param extent object with an `st_bbox` method to define plot extent;
+#' defaults to `x`. `extent` and `x` must use the same CRS.
+#' @param bg background color of the map, hex code or color name given by
+#' [colors], ignored if `add = TRUE`
+#' @param add whether to add the layer to an existing plot (TRUE) or not (FALSE)
 #' @export
 #' @importFrom sf st_geometry
 #' @return x is (invisibly) returned.

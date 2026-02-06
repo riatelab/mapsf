@@ -50,7 +50,7 @@ mf_prop(
 
 \item{col}{a color, hex code or color name given by \code{\link{colors}}}
 
-\item{alpha}{opacity, in the range [0,1]}
+\item{alpha}{opacity, in the range 0,1}
 
 \item{border}{border color}
 

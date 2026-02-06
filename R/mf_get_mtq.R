@@ -32,10 +32,10 @@
 #' @return an sf object
 #' @export
 #' @importFrom sf st_read
-#' @md
 #' @examples
 #' mtq <- mf_get_mtq()
 mf_get_mtq <- function(x = "polygons") {
   st_read(system.file("gpkg/mtq.gpkg", package = "mapsf"),
-          layer = x, quiet = TRUE)
+    layer = x, quiet = TRUE
+  )
 }

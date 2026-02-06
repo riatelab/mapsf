@@ -5,7 +5,6 @@
 #'
 #' Plot proportional symbols with colors based on a quantitative
 #' data classification.
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -104,6 +103,13 @@ mf_prop_choro <- function(x,
                           leg_box_cex = c(1, 1),
                           add = TRUE) {
   deprecate_direct_calls_to("mf_prop_choro")
+  xtype <- get_geom_type(x)
+  # linestring special case
+  if (xtype == "LINE") {
+    message("This map type is not available for lines.")
+    return(invisible(NULL))
+  }
+
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -238,6 +244,11 @@ mf_prop_choro <- function(x,
       adj = leg_adj, frame_border = leg_frame_border
     )
   } else {
+    message(paste0(
+      "The use of separated legends for this map type is deprecated.\n",
+      "Please, use only one value for leg_pos",
+      " or use mf_legend() to display two legends."
+    ))
     leg(
       type = "prop",
       pos = leg_pos[[1]], val = val, title = leg_title[1],

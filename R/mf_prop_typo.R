@@ -5,7 +5,6 @@
 #'
 #'
 #' Plot proportional symbols with colors based on qualitative data.
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -188,6 +187,11 @@ mf_prop_typo <- function(x, var,
         adj = leg_adj, frame_border = leg_frame_border
       )
     } else {
+      message(paste0(
+        "The use of separated legends for this map type is deprecated.\n",
+        "Please, use only one value for leg_pos",
+        " or use mf_legend() to display two legends."
+      ))
       leg(
         type = "prop_line",
         pos = leg_pos[[1]], val = val, lwd = max(xl$lwd),

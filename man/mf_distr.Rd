@@ -18,11 +18,17 @@ The number of bins of the histogram and the bandwidth of the density
 curve are (invisibly) returned in a list.
 }
 \description{
-This function displays a histogram, a box plot, a strip chart
-and a density curve on the same plot.
+This function displays the statistical distribution of a variable with
+a histogram, a box plot, a strip chart and a density curve on the same plot.
+
+This graphic can be useful to choose an appropriate classification method for
+choropleth maps.
 }
 \examples{
 (mf_distr(rnorm(1000)))
 mf_distr(rbeta(1000, .6, 7))
 mf_distr(rbeta(1000, 5, .6))
+}
+\seealso{
+\link{mf_map-choro}
 }

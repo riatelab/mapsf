@@ -1,7 +1,8 @@
 #' @title Plot labels
 #' @description Put labels on a map.
 #' @name mf_label
-#' @eval my_params(c('x', 'var'))
+#' @param x	object of class `sf`
+#' @param var name of the variable to map
 #' @param col labels color, it can be a single color or a vector of colors
 #' @param cex labels cex, it can be a single size or a vector of sizes
 #' @param ... further \link{text} arguments.

@@ -39,10 +39,6 @@ No return value, a world map is displayed.
 \description{
 Plot a point on a world map.
 }
-\note{
-The main part of the code is stolen from @fzenoni
-(\url{https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1}).
-}
 \examples{
 mtq <- mf_get_mtq()
 mf_worldmap(mtq)

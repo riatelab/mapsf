@@ -5,7 +5,6 @@
 #' "bottomright", "right", "topright"
 #' @param cex share of the map width occupied by the inset
 #' @param fig coordinates of the inset region (in NDC, see in ?par())
-#' @md
 #' @export
 #' @details
 #' If x is used (with pos and cex), the width/height ratio of the inset will

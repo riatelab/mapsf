@@ -4,7 +4,6 @@
 #' instead.
 #'
 #' Plot proportional symbols.
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',

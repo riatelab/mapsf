@@ -82,6 +82,13 @@ The "arith" method is based on an arithmetic progression along
 the variable values.\cr\cr
 The "em" method is based on nested averages computation.
 }
+
+\subsection{Class boundaries}{
+
+Breaks defined by a numeric vector or a classification method are
+left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
+will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].
+}
 }
 \examples{
 mtq <- mf_get_mtq()

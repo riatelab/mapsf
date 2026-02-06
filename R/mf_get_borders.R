@@ -8,7 +8,6 @@
 #' all boundaries correctly. It is possible to use `st_snap()` or other
 #' functions to try and correct these errors.
 #' @return An sf object (MULTILINESTRING) of borders is returned.
-#' @md
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mtq_b <- mf_get_borders(mtq)

@@ -4,7 +4,6 @@
 #' instead.
 #'
 #' Plot symbols based on qualitative data.
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',

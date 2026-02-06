@@ -15,7 +15,7 @@ mf_frame(extent = "map", col, lwd = 1.5, lty = 1, ...)
 
 \item{lty}{line type}
 
-\item{...}{other arguments from \code{\link[graphics:box]{box}}}
+\item{...}{other arguments from \code{\link[graphics:box]{graphics::box()}}}
 }
 \value{
 No return value, a frame is displayed.

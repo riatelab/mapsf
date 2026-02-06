@@ -46,7 +46,6 @@
 #' - [mf_get_pencil()] Get a pencil layer from polygons
 #' - [mf_get_borders()] Get a border layer from polygons
 #
-#' @md
 #'
 #' @docType package
 "_PACKAGE"

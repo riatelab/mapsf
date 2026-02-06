@@ -28,7 +28,6 @@ mf_grad(
   leg_frame = FALSE,
   leg_adj = c(0, 0),
   leg_size = 1,
-  leg_border = border,
   leg_box_cex = c(1, 1),
   leg_fg,
   leg_bg,
@@ -47,7 +46,7 @@ mf_grad(
 
 \item{col}{a color, hex code or color name given by \code{\link{colors}}}
 
-\item{alpha}{opacity, in the range [0,1]}
+\item{alpha}{opacity, in the range 0,1}
 
 \item{border}{border color}
 
@@ -76,8 +75,6 @@ mf_grad(
 \item{leg_adj}{adjust the postion of the legend in x and y directions}
 
 \item{leg_size}{size of the legend; 2 means two times bigger}
-
-\item{leg_border}{symbol border color(s)}
 
 \item{leg_box_cex}{width and height size expansion of boxes}
 

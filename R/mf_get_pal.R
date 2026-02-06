@@ -1,16 +1,16 @@
 #' @title Get color palettes
-#' @description \code{mf_get_pal} builds sequential, diverging and
+#' @description `mf_get_pal` builds sequential, diverging and
 #' qualitative color palettes.
 #' Diverging color palettes can be dissymmetric (different number of colors in
 #' each of the two gradients).
 #' @name mf_get_pal
 #' @param n the number of colors (>= 1) to be in the palette
-#' @param palette a valid palette name. See \link{hcl.pals} to get available
+#' @param palette a valid palette name. See [hcl.pals] to get available
 #' palette names. The name is matched
 #' to the list of available palettes, ignoring upper vs. lower case, spaces,
 #' dashes, etc. in the matching.
-#' @param alpha an alpha-transparency level in the range [0,1] (0 means
-#' transparent and 1 means opaque)
+#' @param alpha opacity, in the range \[0,1\] (0 means
+#' transparent and 1 means opaque). Default is set to 1.
 #' @param rev	logical indicating whether the ordering of the colors should be
 #' reversed
 #' @param breaks a vector of class limit

@@ -4,8 +4,10 @@ my_params <- function(x) {
     x = "x object of class \\code{sf}",
     var = "var name(s) of the variable(s) to plot",
     vars = "var names of the variables to plot",
-    bg = paste0("bg background color of the map (hex code or color name given",
-                "by \\code{\\link{colors}}), ignored if \\code{add = TRUE}"),
+    bg = paste0(
+      "bg background color of the map (hex code or color name given",
+      "by \\code{\\link{colors}}), ignored if \\code{add = TRUE}"
+    ),
     fg = "fg foreground color",
     border = "border border color",
     lwd = "lwd border width",
@@ -59,7 +61,7 @@ my_params <- function(x) {
       "whether the ordering of the colors should be reversed (TRUE)",
       " or not (FALSE)"
     ),
-    alpha = "alpha opacity, in the range [0,1]",
+    alpha = "alpha opacity, in the range 0,1",
     col_na = "col_na color for missing values",
     cex_na = "cex_na point size for NA values",
     pch_na = "pch_na point type for NA values",

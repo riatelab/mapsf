@@ -88,18 +88,24 @@ Themes are persistent across maps produced by \code{mapsf}
 
 Use \code{mf_theme(NULL)} or \code{mf_theme('base')} to reset to default theme
 settings.
+
+\link{mf_get_theme_value} is useful to access the value of a specific argument of
+the current theme.
 }
 \note{
+The following themes are deprecated: "default", "brutal",
+"ink", "dark", "agolalight", "candy", "darkula", "iceberg", "green",
+"nevermind", "jsk" and "barcelona".\cr
+The following arguments are deprecated: "bg", "fg", "tab",
+"pos", "inner", "line", "cex" and "font".\cr
+
 Although the map theming system has been radically changed in version 1.0.0
 of the package, you can still use the old themes by referencing them by name.
-If you need to use the \emph{pre} v1.0.0 default theme, set \code{x} to "default".
-
+If you need to use the \emph{pre} v1.0.0 default theme, set \code{x} to "default".\cr
 If an old theme is set, only deprecated arguments are used and others are
-ignored.
-
+ignored.\cr
 If current and deprecated arguments are mixed, only deprecated arguments are
-used and others are ignored.
-
+used and others are ignored.\cr
 All references and usages of the old theming system will be removed in the
 next major version.
 }
@@ -153,7 +159,5 @@ mf_theme(NULL)
 mf_theme("base")
 }
 \seealso{
-Other theme related function: 
-\code{\link{mf_get_theme_value}()}
+\code{\link[=mf_get_theme_value]{mf_get_theme_value()}}
 }
-\concept{theme related function}

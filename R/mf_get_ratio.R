@@ -7,7 +7,7 @@
 #' of x, figure margins and title size.\cr
 #' If height is specified, then width is
 #' deduced from the width / height ratio of x, figure margins and title size.
-#' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
+#' @param x object of class `sf`, `sfc` or `SpatRaster`
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
 #' @param theme theme used for the map

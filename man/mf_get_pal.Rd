@@ -22,8 +22,8 @@ palette names. The name is matched
 to the list of available palettes, ignoring upper vs. lower case, spaces,
 dashes, etc. in the matching.}
 
-\item{alpha}{an alpha-transparency level in the range [0,1] (0 means
-transparent and 1 means opaque)}
+\item{alpha}{opacity, in the range [0,1] (0 means
+transparent and 1 means opaque). Default is set to 1.}
 
 \item{rev}{logical indicating whether the ordering of the colors should be
 reversed}

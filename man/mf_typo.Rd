@@ -15,8 +15,6 @@ mf_typo(
   pch = 21,
   cex = 2,
   lwd = 0.7,
-  cex_na = 1,
-  pch_na = 4,
   col_na = "white",
   extent = x,
   bg,
@@ -44,7 +42,7 @@ mf_typo(
 
 \item{pal}{a set of colors (hex codes) or a palette name (valid palette names can be obtained with \code{\link{hcl.pals}}).}
 
-\item{alpha}{opacity, in the range [0,1]}
+\item{alpha}{opacity, in the range 0,1}
 
 \item{rev}{if \code{pal} is a valid palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
@@ -57,10 +55,6 @@ mf_typo(
 \item{cex}{cex cex of the symbols if x is a POINT layer}
 
 \item{lwd}{border width}
-
-\item{cex_na}{cex for NA values if x is a POINT layer}
-
-\item{pch_na}{pch for NA values if x is a POINT layer}
 
 \item{col_na}{color for missing values}
 

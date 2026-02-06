@@ -1,11 +1,13 @@
 #' @title Plot a north arrow
 #' @description Plot a north arrow.
 #' @name mf_arrow
-#' @eval my_params(c('pos'))
+#' @param pos position. It can be one of 'topleft', 'top','topright', 'right',
+#' 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of
+#' two coordinates in map units (c(x, y))
 #' @param col arrow color
 #' @param cex arrow size
 #' @param adj adjust the postion of the north arrow in x and y directions
-#' @param align object of class \code{sf} or \code{sfc} used to adjust the
+#' @param align object of class `sf` or `sfc` used to adjust the
 #' arrow to the real north
 #' @importFrom sf st_crs st_as_sf st_coordinates st_transform
 #' @return No return value, a north arrow is displayed.

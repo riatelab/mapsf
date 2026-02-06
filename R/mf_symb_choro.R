@@ -5,7 +5,6 @@
 #'
 #' Plot symbols with colors based on a quantitative
 #' data classification.
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',

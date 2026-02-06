@@ -1,7 +1,7 @@
 #' @title Plot graticules
 #' @description Display graticules and labels on a map.
 #'
-#' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
+#' @param x object of class `sf`, `sfc` or `SpatRaster`
 #' @param pos labels positions ("bottom", "left", "top" and / or "right")
 #' @param cex labels size
 #' @param col graticules and label color
@@ -12,10 +12,12 @@
 #' @param label whether to add labels (TRUE) or not (FALSE)
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE)
-#' @eval my_params(c("extent", "bg"))
-#' @md
+#' @param extent object with an `st_bbox` method to define plot extent;
+#' defaults to `x`. `extent` and `x` must use the same CRS.
+#' @param bg background color of the map, hex code or color name given by
+#' [colors], ignored if `add = TRUE`
 #' @section Use of graticules:
-#' From \code{\link[sf:st_graticule]{st_graticule}}:
+#' From [sf::st_graticule()]:
 #' "In cartographic visualization, the use of graticules is not advised, unless
 #' the graphical output will be used for measurement or navigation, or the
 #' direction of North is important for the interpretation of the content, or

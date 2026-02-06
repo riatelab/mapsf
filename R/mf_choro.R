@@ -4,7 +4,6 @@
 #' instead.
 #'
 #' Plot a choropleth map
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',

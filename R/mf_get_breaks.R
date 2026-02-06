@@ -60,12 +60,16 @@
 #' The "arith" method is based on an arithmetic progression along
 #' the variable values.\cr\cr
 #' The "em" method is based on nested averages computation.
-
+#'
+#' ## Class boundaries
+#' Breaks defined by a numeric vector or a classification method are
+#' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
+#' will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, \[15 - 20].
+#'
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_get_breaks(x = mtq$MED, nbreaks = 6, breaks = "quantile")
 #' @return A numeric vector of breaks
-#' @md
 #' @export
 mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   if (is.numeric(breaks)) {

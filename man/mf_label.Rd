@@ -21,7 +21,7 @@ mf_label(
 \arguments{
 \item{x}{object of class \code{sf}}
 
-\item{var}{name(s) of the variable(s) to plot}
+\item{var}{name of the variable to map}
 
 \item{col}{labels color, it can be a single color or a vector of colors}
 

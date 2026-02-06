@@ -5,7 +5,6 @@
 #' Please note that some arguments are available for all types of legend and
 #' some others are only relevant for specific legend types (see Details).
 #' `mf_legend()` is a wrapper for `maplegend::leg()`.
-#' @md
 #' @param type type of legend:
 #' * **prop** for proportional symbols,
 #' * **choro** for choropleth maps,
@@ -24,8 +23,8 @@
 #' 'left', 'interactive' or a vector of two coordinates
 #' in map units (c(x, y)).
 #' @param pal a set of colors (hex codes) or a palette name (valid palette
-#' names can be obtained with \\code{\\link{hcl.pals}}).
-#' @param alpha if \code{pal} is a valid \link{hcl.pals} palette name, the
+#' names can be obtained with [hcl.pals].
+#' @param alpha if `pal` is a valid palette name, the
 #' alpha-transparency level in the range \[0,1\]
 #' @param inches size of the largest symbol (radius for circles, half width
 #' for squares) in inches

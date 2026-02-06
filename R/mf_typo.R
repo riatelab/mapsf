@@ -5,7 +5,6 @@
 #'
 #'
 #' Plot a typology map.
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',

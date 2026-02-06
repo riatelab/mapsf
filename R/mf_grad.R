@@ -4,7 +4,6 @@
 #' instead.
 #'
 #' Plot graduated symbols based on quantitative data.
-#' @md
 #' @eval my_params(c(
 #' 'x',
 #' 'var',
@@ -114,10 +113,9 @@ mf_grad <- function(x,
       lwd <- seq(1, 4, length.out = nbreaks)
     }
     if (length(lwd) != nbreaks) {
-      stop(paste0(
-        "the length of lwd does not match the number of ",
-        "breaks."
-      ), call. = FALSE)
+      stop("The length of lwd does not match the number of breaks.",
+        call. = FALSE
+      )
     }
     mylwd <- get_col_vec(
       x = x[[var]], breaks = breaks, pal = lwd, jen = jen
@@ -161,10 +159,9 @@ mf_grad <- function(x,
     cex <- seq(1, 4, length.out = nbreaks)
   }
   if (length(cex) != nbreaks) {
-    stop(paste0(
-      "the length of cex does not match the number of ",
-      "breaks."
-    ), call. = FALSE)
+    stop("The length of cex does not match the number of breaks.",
+      call. = FALSE
+    )
   }
   mycex <- get_col_vec(
     x = x[[var]], breaks = breaks, pal = cex, jen = jen

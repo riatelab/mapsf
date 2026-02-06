@@ -18,7 +18,8 @@ mf_credits(
 
 \item{pos}{position, one of 'bottomleft', 'bottomright' or 'rightbottom'}
 
-\item{col}{a color, hex code or color name given by \code{\link{colors}}}
+\item{col}{color of the text, hex code or color name given by \link{colors}.
+The default color is the highlight color (see \link{mf_get_theme_value}).}
 
 \item{cex}{cex of the credits}
 

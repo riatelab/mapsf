@@ -17,8 +17,6 @@ mf_choro(
   cex = 2,
   lwd = 0.7,
   col_na = "white",
-  cex_na = 1,
-  pch_na = 4,
   extent = x,
   bg,
   expandBB = rep(0.04, 4),
@@ -49,7 +47,7 @@ mf_choro(
 
 \item{pal}{a set of colors (hex codes) or a palette name (valid palette names can be obtained with \code{\link{hcl.pals}}).}
 
-\item{alpha}{opacity, in the range [0,1]}
+\item{alpha}{opacity, in the range 0,1}
 
 \item{rev}{if \code{pal} is a valid palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
 
@@ -66,10 +64,6 @@ mf_choro(
 \item{lwd}{border width}
 
 \item{col_na}{color for missing values}
-
-\item{cex_na}{cex for NA values if x is a POINT layer}
-
-\item{pch_na}{pch for NA values if x is a POINT layer}
 
 \item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). Use \code{NA} to avoid plotting the legend, use 'interactive' to choose the legend position by clicking on the map.}
 

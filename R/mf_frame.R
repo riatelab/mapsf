@@ -4,7 +4,7 @@
 #' @param col line color
 #' @param lwd line width
 #' @param lty line type
-#' @param ... other arguments from \code{\link[graphics:box]{box}}
+#' @param ... other arguments from [graphics::box()]
 #'
 #' @return No return value, a frame is displayed.
 #' @export

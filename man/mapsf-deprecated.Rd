@@ -4,22 +4,61 @@
 \alias{mapsf-deprecated}
 \title{Deprecated functions in mapsf}
 \description{
-These functions still work but will be removed (defunct) in the next
+These functions and features still work but will be removed in the next
 major version of the package.
-}
-\details{
-Instead of using the following functions, one can use \code{mf_map()} with the
-corresponding type:
+\subsection{\code{mf_map} sub-functions}{
+
+Instead of using the following deprecated functions, one can use \link{mf_map}
+with the corresponding type:
 \itemize{
-\item \verb{mf_base() => mf_map(x, type  = "base")}
-\item \verb{mf_choro() => mf_map(x, var, type = "choro")}
-\item \verb{mf_prop() => mf_map(x, var, type = "prop")}
-\item \verb{mf_typo() => mf_map(x, var, type = "typo")}
-\item \verb{mf_symb() => mf_map(x, var, type = "symb")}
-\item \verb{mf_grad() => mf_map(x, var, type = "grad")}
-\item \verb{mf_prop_typo() => mf_map(x, var, type = "prop_typo")}
-\item \verb{mf_prop_choro() => mf_map(x, var, type = "prop_choro")}
-\item \verb{mf_symb_choro() => mf_map(x, var, type = "symb_choro")}
-\item \verb{mf_init() => mf_map(x, type = "base", col = NA, border = NA)}
+\item \code{mf_base()} => \link{mf_map-base}
+\item \code{mf_choro()} => \link{mf_map-choro}
+\item \code{mf_prop()} => \link{mf_map-prop}
+\item \code{mf_typo()} => \link{mf_map-typo}
+\item \code{mf_symb()} => \link{mf_map-symb}
+\item \code{mf_grad()} => \link{mf_map-grad}
+\item \code{mf_prop_typo()} => \link{mf_map-prop_typo}
+\item \code{mf_prop_choro()} => \link{mf_map-prop_choro}
+\item \code{mf_symb_choro()} => \link{mf_map-symb_choro}
+}
+}
+
+\subsection{\code{mf_init}}{
+
+\code{mf_init} is deprecated. It is possible to use \code{mf_map} instead
+(\code{mf_map(x, type = "base", col = NA, border = NA)}.
+
+It is also possible to use the \code{extent} argument of \link{mf_map}.
+}
+
+\subsection{\code{mf_export}}{
+
+\code{mf_export} is deprecated, use \link{mf_png} or \link{mf_svg} instead.
+}
+
+\subsection{Double legends}{
+
+The use of separated legends for map types \strong{prop_choro}, \strong{prop_typo} and
+\strong{symb_choro} is deprecated. Use \code{leg_pos = NA} and \link{mf_legend} if
+separated legends are needed.
+}
+
+\subsection{Theming system}{
+
+In \link{mf_theme}, the following themes are deprecated: "default", "brutal",
+"ink", "dark", "agolalight", "candy", "darkula", "iceberg", "green",
+"nevermind", "jsk" and "barcelona".\cr
+The following arguments are also deprecated: "bg", "fg", "tab",
+"pos", "inner", "line", "cex" and "font".\cr
+
+Although the map theming system has been radically changed in version 1.0.0
+of the package, you can still use the old themes by referencing them by name.
+If you need to use the \emph{pre} v1.0.0 default theme, set \code{x} to "default".\cr
+If an old theme is set, only deprecated arguments are used and others are
+ignored.\cr
+If current and deprecated arguments are mixed, only deprecated arguments are
+used and others are ignored.\cr
+All references and usages of the old theming system will be removed in the
+next major version.
 }
 }

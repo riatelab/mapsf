@@ -36,9 +36,11 @@ direction (bottom, left, top, right)}
 
 \item{cex}{labels size}
 
-\item{extent}{object with an st_bbox method to define plot extent; defaults to x. extent and x must use the same CRS.}
+\item{extent}{object with an \code{st_bbox} method to define plot extent;
+defaults to \code{x}. \code{extent} and \code{x} must use the same CRS.}
 
-\item{bg}{background color of the map (hex code or color name givenby \code{\link{colors}}), ignored if \code{add = TRUE}}
+\item{bg}{background color of the map, hex code or color name given by
+\link{colors}, ignored if \code{add = TRUE}}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE)}
@@ -51,7 +53,7 @@ Display graticules and labels on a map.
 }
 \section{Use of graticules}{
 
-From \code{\link[sf:st_graticule]{st_graticule}}:
+From \code{\link[sf:st_graticule]{sf::st_graticule()}}:
 "In cartographic visualization, the use of graticules is not advised, unless
 the graphical output will be used for measurement or navigation, or the
 direction of North is important for the interpretation of the content, or

@@ -17,8 +17,8 @@
 #' Use `mf_theme(NULL)` or `mf_theme('base')` to reset to default theme
 #' settings.
 #'
-#'
-#'
+#' [mf_get_theme_value] is useful to access the value of a specific argument of
+#' the current theme.
 #' @eval paste0("@param x name of a map theme. One of '",
 #' paste0(get_themes_names(), collapse= "', '" ),"'.")
 #' @param mar a numeral vector of the form c(bottom, left, top, right)
@@ -42,22 +42,24 @@
 #' or the figure.
 #' @param frame_lwd line width for the frame
 #' @param frame_lty line type for the frame
-#' @md
 #' @note
+#' The following themes are deprecated: "default", "brutal",
+#' "ink", "dark", "agolalight", "candy", "darkula", "iceberg", "green",
+#' "nevermind", "jsk" and "barcelona".\cr
+#' The following arguments are deprecated: "bg", "fg", "tab",
+#' "pos", "inner", "line", "cex" and "font".\cr
+#'
 #' Although the map theming system has been radically changed in version 1.0.0
 #' of the package, you can still use the old themes by referencing them by name.
-#' If you need to use the *pre* v1.0.0 default theme, set `x` to "default".
-#'
+#' If you need to use the *pre* v1.0.0 default theme, set `x` to "default".\cr
 #' If an old theme is set, only deprecated arguments are used and others are
-#' ignored.
-#'
+#' ignored.\cr
 #' If current and deprecated arguments are mixed, only deprecated arguments are
-#' used and others are ignored.
-#'
+#' used and others are ignored.\cr
 #' All references and usages of the old theming system will be removed in the
 #' next major version.
 #' @return `mf_theme` (invisibly) returns the list of current theme parameters.
-#' @family theme related function
+#' @seealso [mf_get_theme_value()]
 #' @export
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -242,22 +244,22 @@ mf_theme <- function(x,
   return(invisible(as.list(theme)))
 }
 
+
 #' @title Get parameters of the current theme
 #' @description
-#'
 #' `mf_get_theme_value` is useful to access the value of a specific argument of
 #' the current theme.
 #' @param arg name of an argument of [mf_theme]
 #' @return `mf_get_theme_value` returns the value of a specific argument of
 #' the current theme.
-#' @md
 #' @export
-#' @family theme related function
+#' @seealso [mf_theme()]
 #' @examples
 #'
 #' # To obtain the value of one of the current theme argument:
 #' mf_get_theme_value("foreground")
-mf_get_theme_value <- function(arg){
+#' mf_get_theme_value("mar")
+#' mf_get_theme_value("pal_seq")
+mf_get_theme_value <- function(arg) {
   getOption(paste0("mapsf.", arg))
 }
-

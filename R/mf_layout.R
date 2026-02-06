@@ -2,8 +2,8 @@
 #' @description Plot a map layout (title, credits, scalebar,
 #' north arrow, frame).
 #'
-#' This function uses \code{\link{mf_title}}, \code{\link{mf_credits}},
-#' \code{\link{mf_scale}} and \code{\link{mf_arrow}} with default values.
+#' This function uses [mf_title], [mf_credits],
+#' [mf_scale] and [mf_arrow] with default values.
 #'
 #' @name mf_layout
 #' @param title title of the map

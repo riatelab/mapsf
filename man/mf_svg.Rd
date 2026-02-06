@@ -45,7 +45,7 @@ ratio of \code{x}. Alternatively, if \code{height} is specified, then \code{widt
 is deduced from the width/height ratio of \code{x}.
 This helps to produce maps without too much wasted space.
 
-Use \code{dev.off} to finish the export (see Examples).
+Use `dev.off() to finish the export (see Examples).
 }
 \details{
 The default driver for building SVG files, \code{grDevices::svg()}, has

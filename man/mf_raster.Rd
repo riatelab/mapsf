@@ -36,41 +36,51 @@ mf_raster(
 )
 }
 \arguments{
-\item{x}{a SpatRaster}
+\item{x}{a \code{SpatRaster}}
 
 \item{type}{type of raster map, one of "continuous", "classes", or
 "interval". Default type for a numeric and categorial raster are
 "continuous" and "classes" respectively.}
 
-\item{nbreaks}{number of classes}
+\item{nbreaks}{number of classes (for type = "interval" only)}
 
 \item{breaks}{either a numeric vector with the actual breaks
 (for type = "continuous" and type = "interval"), or a
-classification method name (for type = "interval" only;
-see \link{mf_get_breaks} for classification methods)}
+classification method name (for type = "interval" only; see \link{mf_get_breaks}
+for details).}
 
-\item{val_order}{values order, a character vector that matches var modalities}
+\item{val_order}{modalities order in the legend, a character vector that
+matches \code{var} modalities. Default to alphabetic order of modalities (for
+type = "classes" only).}
 
-\item{pal}{a set of colors (hex codes) or a palette name (valid palette names can be obtained with \code{\link{hcl.pals}}).}
+\item{pal}{a set of colors (hex codes) or a palette name. Palette names can
+be obtained with \link{hcl.pals}. The default palette is the pal_quali palette for
+type = "classes" and pal_seq otherwiser (see \link{mf_get_theme_value}).}
 
-\item{alpha}{opacity, in the range [0,1]}
+\item{alpha}{pal` opacity, in the range [0,1] (0 means
+transparent and 1 means opaque). Default is set to 1.}
 
-\item{rev}{if \code{pal} is a valid palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)}
+\item{rev}{if \code{pal} is a palette name, whether the ordering of the colors
+should be reversed (TRUE) or not (FALSE)}
 
 \item{expandBB}{fractional values to expand the bounding box with, in each
 direction (bottom, left, top, right)}
 
-\item{bg}{background color of the map (hex code or color name givenby \code{\link{colors}}), ignored if \code{add = TRUE}}
+\item{bg}{background color of the map, hex code or color name given by
+\link{colors}, ignored if \code{add = TRUE}}
 
-\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). Use \code{NA} to avoid plotting the legend, use 'interactive' to choose the legend position by clicking on the map.}
+\item{leg_pos}{position of the legend, one of 'topleft', 'top','topright',
+'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
+coordinates in map units (c(x, y)). Use \code{NA} to avoid plotting the legend,
+use 'interactive' to choose the legend position by clicking on the map.}
 
 \item{leg_title}{legend title}
 
-\item{leg_title_cex}{size of the legend title}
+\item{leg_title_cex}{size of the title}
 
-\item{leg_val_cex}{size of the values in the legend}
+\item{leg_val_cex}{size of the values}
 
-\item{leg_val_rnd}{number of decimal places of the values in the legend}
+\item{leg_val_rnd}{number of decimal places of the values}
 
 \item{leg_val_dec}{decimal separator}
 
@@ -80,11 +90,13 @@ direction (bottom, left, top, right)}
 
 \item{leg_frame_border}{border color of the legend frame}
 
-\item{leg_horiz}{display the legend horizontally}
+\item{leg_horiz}{display the legend horizontally (for proportional symbols
+and choropleth types)}
 
 \item{leg_adj}{adjust the postion of the legend in x and y directions}
 
-\item{leg_box_border}{border color of legend boxes}
+\item{leg_box_border}{border color of legend boxes (for types related to
+choropleth and typologie)}
 
 \item{leg_box_cex}{width and height size expansion of boxes}
 
@@ -92,20 +104,20 @@ direction (bottom, left, top, right)}
 
 \item{leg_bg}{color of the legend background}
 
-\item{leg_size}{size of the legend; 2 means two times bigger}
+\item{leg_size}{size of the legend. Combine this argument with
+\code{leg_title_cex} and \code{leg_val_cex}.}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE)}
 
 \item{...}{bgalpha, smooth, maxcell or other arguments passed to be
-passed to
-\code{\link[terra:plotRGB]{plotRGB}} or \code{\link[terra:plot]{plot}}}
+passed to \link[terra:plotRGB]{terra::plotRGB} or \link[terra:plot]{terra::plot}}
 }
 \value{
 x is (invisibly) returned.
 }
 \description{
-Plot a raster object (SpatRaster from terra).
+Plot a raster object (\code{SpatRaster} from \code{terra}).
 }
 \examples{
 if (require("terra")) {

@@ -23,7 +23,6 @@
 #' @param res resolution (for png)
 #' @param ... further parameters for png or svg export
 #' @export
-#' @md
 #' @keywords internal
 #' @importFrom grDevices png svg
 #' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs

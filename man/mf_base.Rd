@@ -27,7 +27,7 @@ mf_base(
 
 \item{border}{border color}
 
-\item{alpha}{opacity, in the range [0,1]}
+\item{alpha}{opacity, in the range 0,1}
 
 \item{cex}{point size}
 

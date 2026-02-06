@@ -1,7 +1,10 @@
 #' @title Plot a distribution
 #' @description
-#' This function displays a histogram, a box plot, a strip chart
-#' and a density curve on the same plot.
+#' This function displays the statistical distribution of a variable with
+#' a histogram, a box plot, a strip chart and a density curve on the same plot.
+#'
+#' This graphic can be useful to choose an appropriate classification method for
+#' choropleth maps.
 #'
 #' @param x a numeric variable
 #' @param nbins number of bins in the histogram
@@ -10,7 +13,7 @@
 #' @return The number of bins of the histogram and the bandwidth of the density
 #' curve are (invisibly) returned in a list.
 #' @export
-#'
+#' @seealso [mf_map-choro]
 #' @examples
 #' (mf_distr(rnorm(1000)))
 #' mf_distr(rbeta(1000, .6, 7))

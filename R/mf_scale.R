@@ -2,7 +2,7 @@
 #' @description Plot a scale bar.
 #' @name mf_scale
 #' @param col color of the scale bar (line and text)
-#' @param size size of the scale bar in scale units (\code{scale_units},
+#' @param size size of the scale bar in scale units (`scale_units`,
 #' default to km). If size is not set, an automatic size is used.
 #' @param lwd line width of the scale bar
 #' @param cex size of the scale bar text
@@ -14,13 +14,13 @@
 #' "ft" for feet, "m" for meters, or "km" for kilometers (default).
 #' @param adj adjust the postion of the scale bar in x and y directions
 #' @param x object of class crs, sf or sfc. If set, the CRS of x will be used
-#' instead of \code{crs_units} to define CRS units.
+#' instead of `crs_units` to define CRS units.
 #' @details Most CRS use the meter as unit. Some US CRS use feet or US survey
 #' feet. If unsure of the unit used in the CRS you can use the x argument of the
 #' function.
 #' Alternatively, you can use
-#' \code{sf::st_crs(zz, parameters = TRUE)$units_gdal} to see which units
-#' are used in the \code{zz} layer.
+#' `sf::st_crs(zz, parameters = TRUE)$units_gdal` to see which units
+#' are used in the `zz` layer.
 #'
 #' The scale bar cannot be displayed on unprojected (long/lat) maps or
 #' on maps without documented CRS.
