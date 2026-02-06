@@ -106,6 +106,13 @@ mf_symb_choro <- function(x, var,
                           leg_box_cex = c(1, 1),
                           add = TRUE) {
   deprecate_direct_calls_to("mf_symb_choro")
+  xtype <- get_geom_type(x)
+  # linestring special case
+  if (xtype == "LINE") {
+    message("This map type is not available for lines.")
+    return(invisible(NULL))
+  }
+
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -129,7 +136,6 @@ mf_symb_choro <- function(x, var,
   # Transform to point
   st_geometry(x) <- st_centroid(st_geometry(x), of_largest_polygon = TRUE)
 
-  ################### COLORS ##########################
   # jenks
   jen <- FALSE
   if (any(breaks %in% "jenks")) {
@@ -148,8 +154,7 @@ mf_symb_choro <- function(x, var,
     no_data[2] <- TRUE
   }
   mycols[is.na(mycols)] <- col_na
-  ###################################################################
-  ################## SYMBOLS  ######################################
+
   # get modalities
   val_order <- get_modalities(
     x = x[[var1]],
@@ -160,12 +165,18 @@ mf_symb_choro <- function(x, var,
     pchs <- c(21:25, 0:20, 32:127)
     pch <- pchs[seq_along(val_order)]
   }
-
+  if (length(pch) != length(val_order)) {
+    message(paste0(
+      "The length of pch does not match the number of ",
+      "modalities. The first pch is used for all modalities."
+    ))
+    pch <- rep(pch[1], length(val_order))
+  }
   if (length(cex) != length(val_order)) {
     if (length(cex) != 1) {
       message(paste0(
-        "the length of cex does not match the number of",
-        "modalities. The first cex is used for all modalities"
+        "The length of cex does not match the number of ",
+        "modalities. The first cex is used for all modalities."
       ))
     }
     cex <- rep(cex[1], length(val_order))
@@ -176,12 +187,12 @@ mf_symb_choro <- function(x, var,
     x = x[[var1]], pch = pch,
     val_order = val_order
   )
-  # TO BE DONE pch_NA ##################################
+
   mycex <- get_sym_typo(
     x = x[[var1]], pch = cex,
     val_order = val_order
   )
-  # TO BE DONE symbol cex ##############################
+
   if (max(is.na(mysym)) == 1) {
     no_data[1] <- TRUE
   }
@@ -205,28 +216,26 @@ mf_symb_choro <- function(x, var,
   )
 
   leg_pos <- split_leg(leg_pos)
-  border <- getOption("mapsf.highlight")
   if (is.null(getOption("mapsf.legacy"))) {
     ccol <- getOption("mapsf.foreground")
   } else {
     ccol <- "grey80"
   }
   if (all(leg_frame, !leg_horiz, is.null(getOption("mapsf.legacy")))) {
-    border <- getOption("mapsf.highlight")
-    ccol <- getOption("mapsf.background")
+    ccol <- getOption("mapsf.highlight")
   }
-
+  border <- rep(border, sum(pch %in% 21:25))
 
   if (length(leg_pos) == 1) {
     la1 <- list(
       type = "symb",
       val = val_order,
       title = leg_title[1],
-      col_na = "grey",
+      col_na = ccol,
       no_data = no_data[1],
       no_data_txt = leg_no_data[1],
       pal = rep(ccol, length(val_order)),
-      border = rep(border, length(val_order)),
+      border = border,
       cex = cex,
       pch = pch,
       lwd = lwd,
@@ -258,6 +267,12 @@ mf_symb_choro <- function(x, var,
       adj = leg_adj, frame_border = leg_frame_border
     )
   } else {
+    message(paste0(
+      "The use of separated legends for this map type is deprecated.\n",
+      "Please, use only one value for leg_pos",
+      " or use mf_legend() to display two legends."
+    ))
+
     leg(
       type = "symb",
       pos = leg_pos[[1]],

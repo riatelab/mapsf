@@ -50,7 +50,7 @@
 #'   pch_na = 24, leg_frame = TRUE
 #' )
 mf_symb <- function(x, var,
-                    pal = "Dynamic",
+                    pal,
                     alpha = NULL,
                     rev = FALSE,
                     border,
@@ -77,6 +77,13 @@ mf_symb <- function(x, var,
                     leg_size = 1,
                     add = TRUE) {
   deprecate_direct_calls_to("mf_symb")
+  xtype <- get_geom_type(x)
+  # linestring special case
+  if (xtype == "LINE") {
+    message("This map type is not available for lines.")
+    return(invisible(NULL))
+  }
+
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -118,8 +125,8 @@ mf_symb <- function(x, var,
   }
   if (length(pch) != length(val_order)) {
     message(paste0(
-      "the length of pch does not match the number of ",
-      "modalities. The first pch is used for all modalities"
+      "The length of pch does not match the number of ",
+      "modalities. The first pch is used for all modalities."
     ))
     pch <- rep(pch[1], length(val_order))
   }
@@ -127,8 +134,8 @@ mf_symb <- function(x, var,
   if (length(cex) != length(val_order)) {
     if (length(cex) != 1) {
       message(paste0(
-        "the length of cex does not match the number of ",
-        "modalities. The first cex is used for all modalities"
+        "The length of cex does not match the number of ",
+        "modalities. The first cex is used for all modalities."
       ))
     }
     cex <- rep(cex[1], length(val_order))
@@ -162,6 +169,7 @@ mf_symb <- function(x, var,
   mycolspt <- mycols
   mycolspt[mysym %in% 21:25] <- border
   mycolsptbg <- mycols
+  border <- rep(border, sum(pch %in% 21:25))
 
   if (add == FALSE) {
     mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
