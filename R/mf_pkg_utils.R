@@ -89,7 +89,7 @@ get_breaks_methods_names <- function() {
 
 
 get_themes_names <- function() {
-  n <- names(mapsf:::.gmapsf$themes)
+  n <- names(.gmapsf$themes)
   return(n[!n %in% c(
     "default", "brutal", "ink", "dark", "agolalight", "candy",
     "darkula", "iceberg", "green", "nevermind", "jsk", "barcelona"
