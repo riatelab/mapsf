@@ -337,3 +337,20 @@ check_args <- function(argx, type) {
   }
   argx
 }
+
+
+get_val_rnd <- function(val, val_rnd, val_dec = getOption("OutDec"), val_big = "") {
+  if (is.numeric(val)) {
+    val <- round(val, val_rnd)
+    if (val_rnd <= 0) {
+      val_rnd <- 0
+    }
+    val <- format(
+      x = val, scientific = FALSE, nsmall = val_rnd,
+      decimal.mark = val_dec, big.mark = val_big,
+      trim = TRUE
+    )
+  }
+  return(val)
+}
+

@@ -182,8 +182,9 @@ mf_grad <- function(x,
     lwd = lwd, add = TRUE
   )
   # legend
-  lb <- length(breaks)
-  lab <- paste0(breaks[1:(lb - 1)], rep(" - ", lb - 1), breaks[2:lb])
+  bks <- get_val_rnd(breaks, leg_val_rnd, leg_val_dec, leg_val_big)
+  lb <- length(bks)
+  lab <- paste0(bks[1:(lb - 1)], rep(" - ", lb - 1), bks[2:lb])
   leg(
     type = "symb",
     pos = leg_pos,
