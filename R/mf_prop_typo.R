@@ -104,7 +104,7 @@ mf_prop_typo <- function(x, var,
     getOption("mapsf.highlight")
   )
   border <- go(border, "background")
-
+  border <- border[[1]]
 
   var2 <- var[2]
   var1 <- var[1]

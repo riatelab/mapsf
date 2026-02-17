@@ -90,7 +90,7 @@ mf_prop <- function(x,
     leg_frame_border, "foreground",
     getOption("mapsf.highlight")
   )
-
+  border <- border[[1]]
 
   if (!is.null(alpha)) {
     col <- get_hex_pal(col, alpha)
