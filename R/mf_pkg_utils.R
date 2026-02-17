@@ -95,3 +95,119 @@ get_themes_names <- function() {
     "darkula", "iceberg", "green", "nevermind", "jsk", "barcelona"
   )])
 }
+
+
+readimage <- function(filename){
+  ex <- strsplit(basename(filename), split = "\\.")[[1]]
+  ex <- tolower(ex[length(ex)])
+  if (ex == "png") {
+    if (!requireNamespace("png", quietly = TRUE)) {
+      stop(
+        "'png' is package needed for this function to work. Please install it.",
+        call. = FALSE
+      )
+    }
+    img <- png::readPNG(filename)
+  }
+  if (ex %in% c("jpg", "jpeg")) {
+    if (!requireNamespace("jpeg", quietly = TRUE)) {
+      stop(
+        paste0(
+          "'jpeg' is package needed for this function to work. ",
+          "Please install it."
+        ),
+        call. = FALSE
+      )
+    }
+    img <- jpeg::readJPEG(filename)
+  }
+  return(img)
+}
+
+
+#' xy of legend
+#'
+#' @param pos pos
+#' @param pu pu
+#' @param wdest dl
+#' @param hdest dl
+#'
+#' @noRd
+posinset <- function(pos, pusr, wdest, hdest, adj = c(0,0)) {
+  if (is.numeric(pos) && length(pos) == 2) {
+    xy <- c(pos[1],
+            pos[1] + wdest,
+            pos[2] - hdest,
+            pos[2])
+    return(xy)
+  }
+
+  posposs <- c(
+    "bottomleft", "left", "topleft", "top", "bottom",
+    "bottomright", "right", "topright"
+  )
+  if (!pos %in% posposs) {
+    stop(paste0(
+      "pos should be one of ", paste0(posposs, collapse = ", "),
+      "."
+    ), call. = FALSE)
+  }
+
+  x_spacing <- xinch(par("csi")) / 4
+  y_spacing <- yinch(par("csi")) / 4
+  pusr <- pusr + c(x_spacing, -x_spacing, y_spacing, -y_spacing)
+
+  xy <- switch(pos,
+               bottomleft = c(
+                 pusr[1],
+                 pusr[1] + wdest,
+                 pusr[3],
+                 pusr[3] + hdest
+               ),
+               topleft = c(
+                 pusr[1],
+                 pusr[1] + wdest,
+                 pusr[4] - hdest,
+                 pusr[4]
+               ),
+               left = c(
+                 pusr[1],
+                 pusr[1] + wdest,
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+               ),
+               top = c(
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+                 pusr[4] - hdest,
+                 pusr[4]
+               ),
+               bottom = c(
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+                 pusr[3],
+                 pusr[3] + hdest
+               ),
+               bottomright = c(
+                 pusr[2] - wdest,
+                 pusr[2],
+                 pusr[3],
+                 pusr[3] + hdest
+               ),
+               right = c(
+                 pusr[2] - wdest,
+                 pusr[2],
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+               ),
+               topright = c(
+                 pusr[2] - wdest,
+                 pusr[2],
+                 pusr[4] - hdest,
+                 pusr[4]
+               )
+  )
+  xy <- xy + c(adj[1], adj[1], adj[2], adj[2]) *
+    c(x_spacing, x_spacing, y_spacing, y_spacing)
+  return(xy)
+}

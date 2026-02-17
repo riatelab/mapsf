@@ -17,31 +17,7 @@
 #' )
 mf_background <- function(filename, ...) {
   test_cur_plot()
-  ex <- strsplit(basename(filename), split = "\\.")[[1]]
-  ex <- tolower(ex[length(ex)])
-  if (ex == "png") {
-    if (!requireNamespace("png", quietly = TRUE)) {
-      stop(
-        "'png' is package needed for this function to work. Please install it.",
-        call. = FALSE
-      )
-    }
-    img <- png::readPNG(filename)
-  }
-  if (ex %in% c("jpg", "jpeg")) {
-    if (!requireNamespace("jpeg", quietly = TRUE)) {
-      stop(
-        paste0(
-          "'jpeg' is package needed for this function to work. ",
-          "Please install it."
-        ),
-        call. = FALSE
-      )
-    }
-    img <- jpeg::readJPEG(filename)
-  }
-
-
+  img <- readimage(filename)
   recordGraphics(
     {
       pusr <- par("usr")
