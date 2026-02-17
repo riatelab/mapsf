@@ -91,6 +91,8 @@ mf_typo <- function(x,
     getOption("mapsf.highlight")
   )
   lwd <- lwd[[1]]
+  cex <- cex[[1]]
+  pch <- pch[[1]]
 
   # get modalities
   val_order <- get_modalities(
