@@ -79,7 +79,8 @@
 #' @param leg_title legend title
 #' @param leg_title_cex size of the title
 #' @param leg_val_cex size of the values
-#' @param leg_val_rnd number of decimal places of the values
+#' @param leg_val_rnd number of decimal places of the values displayed in the
+#' legend
 #' @param leg_val_dec	decimal separator
 #' @param leg_val_big	thousands separator
 #' @param leg_no_data label for missing values

@@ -98,7 +98,8 @@ use 'interactive' to choose the legend position by clicking on the map.}
 
 \item{leg_val_cex}{size of the values}
 
-\item{leg_val_rnd}{number of decimal places of the values}
+\item{leg_val_rnd}{number of decimal places of the values displayed in the
+legend}
 
 \item{leg_val_dec}{decimal separator}
 

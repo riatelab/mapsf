@@ -26,7 +26,6 @@
 #' little relevant information. Use of coastlines, administrative boundaries
 #' or place names permits most viewers of the output to orient themselves
 #' better than a graticule."
-
 #' @return An (invisible) layer of graticules is returned (LINESTRING).
 #' @export
 #' @examples
