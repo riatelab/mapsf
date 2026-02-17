@@ -12,6 +12,7 @@ mf_legend(
   alpha = 1,
   col = "tomato4",
   inches = 0.3,
+  val_max = NULL,
   symbol = "circle",
   self_adjust = FALSE,
   lwd = 0.7,
@@ -72,6 +73,8 @@ alpha-transparency level in the range [0,1]}
 
 \item{inches}{size of the largest symbol (radius for circles, half width
 for squares) in inches}
+
+\item{val_max}{maximum value corresponding to the largest symbol}
 
 \item{symbol}{type of symbols, 'circle' or 'square'}
 
@@ -147,7 +150,7 @@ Some arguments are available for all types of legend: \code{val}, \code{pos}, \c
 
 Relevant arguments for each specific legend types:
 \itemize{
-\item \code{mf_legend(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)}
+\item \code{mf_legend(type = "prop", val, inches, val_max, symbol, col, lwd, border, val_rnd, self_adjust, horiz)}
 \item \code{mf_legend(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
 \item \code{mf_legend(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
 \item \code{mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)}

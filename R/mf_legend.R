@@ -28,6 +28,7 @@
 #' alpha-transparency level in the range \[0,1\]
 #' @param inches size of the largest symbol (radius for circles, half width
 #' for squares) in inches
+#' @param val_max maximum value corresponding to the largest symbol
 #' @param border symbol border color(s)
 #' @param symbol type of symbols, 'circle' or 'square'
 #' @param self_adjust if TRUE values are self-adjusted to keep min, max and
@@ -72,7 +73,7 @@
 #'
 #'
 #' Relevant arguments for each specific legend types:
-#' * `mf_legend(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)`
+#' * `mf_legend(type = "prop", val, inches, val_max, symbol, col, lwd, border, val_rnd, self_adjust, horiz)`
 #' * `mf_legend(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)`
 #' * `mf_legend(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)`
 #' * `mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)`
@@ -108,6 +109,7 @@ mf_legend <- function(type,
                       alpha = 1,
                       col = "tomato4",
                       inches = .3,
+                      val_max = NULL,
                       symbol = "circle",
                       self_adjust = FALSE,
                       lwd = 0.7,
