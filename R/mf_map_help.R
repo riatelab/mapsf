@@ -268,7 +268,6 @@ NULL
 #'   cex = 3, pal = "Dark 3", border = "grey",
 #'   leg_pos = "bottomleft"
 #' )
-#' hcl.pals()
 #' # lines
 #' mf_map(mtq, extent = flows)
 #' mf_map(
