@@ -305,17 +305,23 @@ mf_prop_typo <- function(x, var,
       self_adjust = TRUE
     )
     lg <- do.call(leg_comp, la1)
+    pch <- ifelse(symbol == "circle", 21, 22)
+    cex <- 2
     la2 <- list(
       leg = lg,
-      type = "typo",
+      type = "symb",
       val = val_order,
       title = leg_title[2],
       col_na = col_na,
       no_data = no_data,
       no_data_txt = leg_no_data,
       pal = pal,
-      box_cex = leg_box_cex,
-      box_border = leg_box_border
+      lwd = lwd,
+      border = border,
+      cex = cex, pch = pch,
+      cex_na = cex,
+      pch_na = pch,
+      box_cex = c(.75, .75)
     )
     lg <- do.call(leg_comp, la2)
     leg_draw(lg,
