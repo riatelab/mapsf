@@ -22,7 +22,7 @@ mf_grad(
   leg_title = var,
   leg_title_cex = 0.8,
   leg_val_cex = 0.6,
-  leg_val_rnd = 2,
+  leg_val_rnd = 0,
   leg_val_dec = ".",
   leg_val_big = "",
   leg_frame = FALSE,
