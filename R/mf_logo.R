@@ -29,7 +29,7 @@ mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0)) {
   on.exit(par(op))
 
   if (length(pos) == 1 && pos == "interactive") {
-    pos <- mapsf:::interleg(txt = c("logo", "Logo"))
+    pos <- interleg(txt = c("logo", "Logo"))
   }
 
   recordGraphics(
