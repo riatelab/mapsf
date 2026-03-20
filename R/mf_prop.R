@@ -184,11 +184,6 @@ mf_prop <- function(x,
     inches = inches
   )
 
-  border <- getOption("mapsf.foreground")
-  if (all(leg_frame, !leg_horiz, is.null(getOption("mapsf.legacy")))) {
-    border <- getOption("mapsf.background")
-  }
-
   # symbols size
   leg(
     type = "prop",

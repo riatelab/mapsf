@@ -278,14 +278,13 @@ mf_prop_typo <- function(x, var,
     inches = inches
   )
 
-  border <- getOption("mapsf.highlight")
   if (is.null(getOption("mapsf.legacy"))) {
     ccol <- getOption("mapsf.foreground")
   } else {
     ccol <- "grey80"
   }
   if (all(leg_frame, !leg_horiz)) {
-    ccol <- getOption("mapsf.background")
+    ccol <- getOption("mapsf.foreground")
   }
 
   if (length(leg_pos) == 1) {
