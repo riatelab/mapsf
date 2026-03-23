@@ -17,7 +17,7 @@ legend position by clicking on the map.}
 \item{cex}{amount by which the logo width should be magnified
 or reduced relative to the default}
 
-\item{adj}{adjust the postion of the logo in x and y directions}
+\item{adj}{adjust the position of the logo in x and y directions}
 }
 \value{
 No return value, a background image is displayed.

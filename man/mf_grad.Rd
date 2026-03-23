@@ -72,7 +72,7 @@ mf_grad(
 
 \item{leg_frame}{whether to add a frame to the legend (TRUE) or not (FALSE)}
 
-\item{leg_adj}{adjust the postion of the legend in x and y directions}
+\item{leg_adj}{adjust the position of the legend in x and y directions}
 
 \item{leg_size}{size of the legend; 2 means two times bigger}
 

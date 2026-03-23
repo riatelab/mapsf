@@ -10,7 +10,7 @@
 #' legend position by clicking on the map.
 #' @param cex amount by which the logo width should be magnified
 #' or reduced relative to the default
-#' @param adj adjust the postion of the logo in x and y directions
+#' @param adj adjust the position of the logo in x and y directions
 #'
 #' @return No return value, a background image is displayed.
 #' @export

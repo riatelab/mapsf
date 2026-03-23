@@ -88,13 +88,13 @@
 #' @param leg_frame_border border color of the legend frame
 #' @param leg_horiz	display the legend horizontally (for proportional symbols
 #' and choropleth types)
-#' @param leg_adj	adjust the postion of the legend in x and y directions
+#' @param leg_adj	adjust the position of the legend in x and y directions
 #' @param leg_bg color of the legend background
 #' @param leg_fg	color of the legend foreground
 #' @param leg_size size of the legend. Combine this argument with
 #' `leg_title_cex` and `leg_val_cex`.
 #' @param leg_box_border border color of legend boxes (for types related to
-#' choropleth and typologie)
+#' choropleth and typology)
 #' @param leg_box_cex	width and height size expansion of boxes
 #' @param ... ignored
 #'

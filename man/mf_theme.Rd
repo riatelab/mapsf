@@ -61,7 +61,7 @@ or the figure.}
 
 \item{pal_quali}{default qualitative color palette (name or function)}
 
-\item{pal_seq}{default sequential color palettte (name or function)}
+\item{pal_seq}{default sequential color palette (name or function)}
 
 \item{...}{deprecated arguments ('bg', 'fg', 'tab', 'pos', 'inner',
 'line', 'cex' and 'font'). See the Note section.}

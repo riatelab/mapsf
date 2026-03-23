@@ -6,7 +6,7 @@
 #' two coordinates in map units (c(x, y))
 #' @param col arrow color
 #' @param cex arrow size
-#' @param adj adjust the postion of the north arrow in x and y directions
+#' @param adj adjust the position of the north arrow in x and y directions
 #' @param align object of class `sf` or `sfc` used to adjust the
 #' arrow to the real north
 #' @importFrom sf st_crs st_as_sf st_coordinates st_transform

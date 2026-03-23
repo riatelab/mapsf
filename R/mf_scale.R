@@ -12,7 +12,7 @@
 #' Possible values are "m" and "ft" (see Details).
 #' @param scale_units units used for the scale bar. Can be "mi" for miles,
 #' "ft" for feet, "m" for meters, or "km" for kilometers (default).
-#' @param adj adjust the postion of the scale bar in x and y directions
+#' @param adj adjust the position of the scale bar in x and y directions
 #' @param x object of class crs, sf or sfc. If set, the CRS of x will be used
 #' instead of `crs_units` to define CRS units.
 #' @details Most CRS use the meter as unit. Some US CRS use feet or US survey

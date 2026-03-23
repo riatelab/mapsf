@@ -28,7 +28,7 @@
 #' ## Natural breaks method
 #' The "jenks", "fisher" and "ckmeans" methods are based on the same concept of
 #' **natural breaks** and and produce similar groupings. The use of "ckmeans" is
-#' recommanded.
+#' recommended.
 #'
 #' * The "jenks" method produces class boundaries falling on data points and is
 #' slow.

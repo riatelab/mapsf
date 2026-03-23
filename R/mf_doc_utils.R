@@ -88,7 +88,7 @@ my_params <- function(x) {
     cex = "cex size of the legend; 2 means two times bigger",
     cexs = "cex cex (point size) for symbols",
     pch = "pch pch (point type) for symbols",
-    leg_adj = "leg_adj adjust the postion of the legend in x and y directions",
+    leg_adj = "leg_adj adjust the position of the legend in x and y directions",
     leg_horiz = paste0(
       "leg_horiz display the legend horizontally ",
       "(for proportional symbols and choropleth types)"

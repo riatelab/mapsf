@@ -76,7 +76,7 @@ mf_symb(
 
 \item{leg_frame_border}{border color of the legend frame}
 
-\item{leg_adj}{adjust the postion of the legend in x and y directions}
+\item{leg_adj}{adjust the position of the legend in x and y directions}
 
 \item{leg_fg}{color of the legend foreground}
 

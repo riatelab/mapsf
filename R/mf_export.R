@@ -15,7 +15,7 @@
 #' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
-#' @param filename path to the exported file. If the file extention is ".png" a
+#' @param filename path to the exported file. If the file extension is ".png" a
 #' png graphic device is opened, if the file extension is ".svg" a svg graphic
 #' device is opened.
 #' @param width width of the figure (pixels for png, inches for svg)

@@ -20,7 +20,7 @@
 #' type = "classes" only).
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_quali palette for
-#' type = "classes" and pal_seq otherwiser (see [mf_get_theme_value]).
+#' type = "classes" and pal_seq otherwise (see [mf_get_theme_value]).
 #' @param alpha pal` opacity, in the range \[0,1\] (0 means
 #' transparent and 1 means opaque). Default is set to 1.
 #' @param rev if `pal` is a palette name, whether the ordering of the colors
@@ -43,13 +43,13 @@
 #' @param leg_frame_border border color of the legend frame
 #' @param leg_horiz	display the legend horizontally (for proportional symbols
 #' and choropleth types)
-#' @param leg_adj	adjust the postion of the legend in x and y directions
+#' @param leg_adj	adjust the position of the legend in x and y directions
 #' @param leg_bg color of the legend background
 #' @param leg_fg	color of the legend foreground
 #' @param leg_size size of the legend. Combine this argument with
 #' `leg_title_cex` and `leg_val_cex`.
 #' @param leg_box_border border color of legend boxes (for types related to
-#' choropleth and typologie)
+#' choropleth and typology)
 #' @param leg_box_cex	width and height size expansion of boxes
 #' @param ... bgalpha, smooth, maxcell or other arguments passed to be
 #' passed to [terra::plotRGB] or [terra::plot]

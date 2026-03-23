@@ -55,7 +55,7 @@ type = "classes" only).}
 
 \item{pal}{a set of colors (hex codes) or a palette name. Palette names can
 be obtained with \link{hcl.pals}. The default palette is the pal_quali palette for
-type = "classes" and pal_seq otherwiser (see \link{mf_get_theme_value}).}
+type = "classes" and pal_seq otherwise (see \link{mf_get_theme_value}).}
 
 \item{alpha}{pal` opacity, in the range [0,1] (0 means
 transparent and 1 means opaque). Default is set to 1.}
@@ -94,10 +94,10 @@ legend}
 \item{leg_horiz}{display the legend horizontally (for proportional symbols
 and choropleth types)}
 
-\item{leg_adj}{adjust the postion of the legend in x and y directions}
+\item{leg_adj}{adjust the position of the legend in x and y directions}
 
 \item{leg_box_border}{border color of legend boxes (for types related to
-choropleth and typologie)}
+choropleth and typology)}
 
 \item{leg_box_cex}{width and height size expansion of boxes}
 

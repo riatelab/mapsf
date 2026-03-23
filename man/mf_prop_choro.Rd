@@ -90,7 +90,7 @@ mf_prop_choro(
 
 \item{leg_horiz}{display the legend horizontally (for proportional symbols and choropleth types)}
 
-\item{leg_adj}{adjust the postion of the legend in x and y directions}
+\item{leg_adj}{adjust the position of the legend in x and y directions}
 
 \item{leg_fg}{color of the legend foreground}
 

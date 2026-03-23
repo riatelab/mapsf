@@ -46,7 +46,7 @@ methods. You may need to pass additional arguments for some of them.
 
 The "jenks", "fisher" and "ckmeans" methods are based on the same concept of
 \strong{natural breaks} and and produce similar groupings. The use of "ckmeans" is
-recommanded.
+recommended.
 \itemize{
 \item The "jenks" method produces class boundaries falling on data points and is
 slow.

@@ -114,7 +114,7 @@ legend}
 \item{leg_horiz}{display the legend horizontally (for proportional symbols
 and choropleth types)}
 
-\item{leg_adj}{adjust the postion of the legend in x and y directions}
+\item{leg_adj}{adjust the position of the legend in x and y directions}
 
 \item{leg_bg}{color of the legend background}
 
@@ -124,7 +124,7 @@ and choropleth types)}
 \code{leg_title_cex} and \code{leg_val_cex}.}
 
 \item{leg_box_border}{border color of legend boxes (for types related to
-choropleth and typologie)}
+choropleth and typology)}
 
 \item{leg_box_cex}{width and height size expansion of boxes}
 

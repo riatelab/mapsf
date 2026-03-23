@@ -88,7 +88,7 @@ mf_prop_typo(
 
 \item{leg_horiz}{display the legend horizontally (for proportional symbols and choropleth types)}
 
-\item{leg_adj}{adjust the postion of the legend in x and y directions}
+\item{leg_adj}{adjust the position of the legend in x and y directions}
 
 \item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
 }

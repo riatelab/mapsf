@@ -35,7 +35,7 @@
 #' @param background background color
 #' @param highlight highlight color
 #' @param pal_quali default qualitative color palette (name or function)
-#' @param pal_seq default sequential color palettte (name or function)
+#' @param pal_seq default sequential color palette (name or function)
 #' @param ... deprecated arguments ('bg', 'fg', 'tab', 'pos', 'inner',
 #' 'line', 'cex' and 'font'). See the Note section.
 #' @param frame either "none", "map" or "figure"; plot a frame around the map
