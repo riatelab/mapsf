@@ -13,7 +13,7 @@
 #' @return The number of bins of the histogram and the bandwidth of the density
 #' curve are (invisibly) returned in a list.
 #' @export
-#' @seealso [mf_map-choro]
+#' @seealso [mf_map_choro]
 #' @examples
 #' (mf_distr(rnorm(1000)))
 #' mf_distr(rbeta(1000, .6, 7))

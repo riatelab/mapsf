@@ -30,5 +30,5 @@ mf_distr(rbeta(1000, .6, 7))
 mf_distr(rbeta(1000, 5, .6))
 }
 \seealso{
-\link{mf_map-choro}
+\link{mf_map_choro}
 }

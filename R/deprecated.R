@@ -8,15 +8,15 @@
 #'
 #' Instead of using the following deprecated functions, one can use [mf_map]
 #' with the corresponding type:
-#' - `mf_base()` => [mf_map-base]
-#' - `mf_choro()` => [mf_map-choro]
-#' - `mf_prop()` => [mf_map-prop]
-#' - `mf_typo()` => [mf_map-typo]
-#' - `mf_symb()` => [mf_map-symb]
-#' - `mf_grad()` => [mf_map-grad]
-#' - `mf_prop_typo()` => [mf_map-prop_typo]
-#' - `mf_prop_choro()` => [mf_map-prop_choro]
-#' - `mf_symb_choro()` => [mf_map-symb_choro]
+#' - `mf_base()` => [mf_map_base]
+#' - `mf_choro()` => [mf_map_choro]
+#' - `mf_prop()` => [mf_map_prop]
+#' - `mf_typo()` => [mf_map_typo]
+#' - `mf_symb()` => [mf_map_symb]
+#' - `mf_grad()` => [mf_map_grad]
+#' - `mf_prop_typo()` => [mf_map_prop_typo]
+#' - `mf_prop_choro()` => [mf_map_prop_choro]
+#' - `mf_symb_choro()` => [mf_map_symb_choro]
 #'
 #'
 #' ## `mf_init`

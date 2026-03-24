@@ -11,15 +11,15 @@ major version of the package.
 Instead of using the following deprecated functions, one can use \link{mf_map}
 with the corresponding type:
 \itemize{
-\item \code{mf_base()} => \link{mf_map-base}
-\item \code{mf_choro()} => \link{mf_map-choro}
-\item \code{mf_prop()} => \link{mf_map-prop}
-\item \code{mf_typo()} => \link{mf_map-typo}
-\item \code{mf_symb()} => \link{mf_map-symb}
-\item \code{mf_grad()} => \link{mf_map-grad}
-\item \code{mf_prop_typo()} => \link{mf_map-prop_typo}
-\item \code{mf_prop_choro()} => \link{mf_map-prop_choro}
-\item \code{mf_symb_choro()} => \link{mf_map-symb_choro}
+\item \code{mf_base()} => \link{mf_map_base}
+\item \code{mf_choro()} => \link{mf_map_choro}
+\item \code{mf_prop()} => \link{mf_map_prop}
+\item \code{mf_typo()} => \link{mf_map_typo}
+\item \code{mf_symb()} => \link{mf_map_symb}
+\item \code{mf_grad()} => \link{mf_map_grad}
+\item \code{mf_prop_typo()} => \link{mf_map_prop_typo}
+\item \code{mf_prop_choro()} => \link{mf_map_prop_choro}
+\item \code{mf_symb_choro()} => \link{mf_map_symb_choro}
 }
 }
 

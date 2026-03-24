@@ -1,5 +1,5 @@
 # base ----
-#' @name mf_map-base
+#' @name mf_map_base
 #' @title Plot a base map
 #' @description
 #' `mf_map()` can be used to display geographic layers (`sf` objects), using
@@ -46,7 +46,7 @@
 NULL
 
 # prop ----
-#' @name mf_map-prop
+#' @name mf_map_prop
 #' @title Plot proportional symbols
 #' @description
 #' With the **prop** map type, `mf_map()` displays symbols (squares or circles)
@@ -103,7 +103,7 @@ NULL
 NULL
 
 # choro ----
-#' @name mf_map-choro
+#' @name mf_map_choro
 #' @title Plot a choropleth map
 #' @description
 #' With the **choro** map type, `mf_map()` displays a choropleth map.
@@ -193,7 +193,7 @@ NULL
 NULL
 
 # typo ----
-#' @name mf_map-typo
+#' @name mf_map_typo
 #' @title Plot a typology map
 #' @description
 #' With the **typo** map type, `mf_map()` displays a typology map.
@@ -279,7 +279,7 @@ NULL
 NULL
 
 # grad ----
-#' @name mf_map-grad
+#' @name mf_map_grad
 #' @title Plot graduated symbols
 #' @description
 #' With the **grad** map type, `mf_map()` displays graduated symbols on a map.
@@ -343,7 +343,7 @@ NULL
 NULL
 
 # symb ----
-#' @name mf_map-symb
+#' @name mf_map_symb
 #' @title Plot symbols
 #' @description
 #' `mf_map()` can use symbols to display qualitative data, using **symb**
@@ -398,7 +398,7 @@ NULL
 
 
 # prop_choro ----
-#' @name mf_map-prop_choro
+#' @name mf_map_prop_choro
 #' @title Plot proportional symbols with choropleth coloration
 #' @description
 #' `mf_map()` with **prop_choro** type creates symbols that are proportional
@@ -457,7 +457,7 @@ NULL
 #' choropleth legend.
 #'
 #'
-#' @seealso [mf_map()], [mf_map-prop], [mf_map-choro], [mf_distr()],
+#' @seealso [mf_map()], [mf_map_prop], [mf_map_choro], [mf_distr()],
 #' [mf_get_breaks()], [mf_get_pal()]
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -482,7 +482,7 @@ NULL
 NULL
 
 # symb-choro ----
-#' @name mf_map-symb_choro
+#' @name mf_map_symb_choro
 #' @title Plot symbols with choropleth coloration
 #' @description
 #' `mf_map()` with **symb_choro** type creates symbols that reflect modalities
@@ -540,7 +540,7 @@ NULL
 #' 'leg_no_data'. The first value refers to the symbols legend, the second
 #' one to the choropleth legend.
 #' @return x is (invisibly) returned.
-#' @seealso [mf_map()], [mf_map-symb], [mf_map-choro], [mf_distr()],
+#' @seealso [mf_map()], [mf_map_symb], [mf_map_choro], [mf_distr()],
 #' [mf_get_breaks()], [mf_get_pal()]
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -560,7 +560,7 @@ NULL
 
 
 # prop_typo ----
-#' @name mf_map-prop_typo
+#' @name mf_map_prop_typo
 #' @title Plot proportional symbols with typology coloration
 #' @description
 #' `mf_map()` with **prop_typo** type creates symbols that are proportional
@@ -598,7 +598,7 @@ NULL
 #' @param val_max maximum value corresponding to the largest symbol or line
 #' @param symbol type of proportional symbols, either "circle" or "square"
 #' @param border border color for proportional symbols, a hex code or
-#' color name given by [colors]. The default color the background color (see
+#' color name given by [colors]. The default color is the background color (see
 #' [mf_get_theme_value]).
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_quali palette
@@ -618,7 +618,7 @@ NULL
 #' the second one to the choropleth legend.
 #'
 #' @return x is (invisibly) returned.
-#' @seealso [mf_map()], [mf_map-prop], [mf_map-typo], [mf_get_pal()]
+#' @seealso [mf_map()], [mf_map_prop], [mf_map_typo], [mf_get_pal()]
 #' @examples
 #' mtq <- mf_get_mtq()
 #' flows <- mf_get_mtq("lines")
