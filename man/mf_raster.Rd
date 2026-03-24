@@ -55,7 +55,7 @@ type = "classes" only).}
 
 \item{pal}{a set of colors (hex codes) or a palette name. Palette names can
 be obtained with \link{hcl.pals}. The default palette is the pal_quali palette for
-type = "classes" and pal_seq otherwise (see \link{mf_get_theme_value}).}
+type = "classes" and pal_seq otherwise (see \link{mf_theme}).}
 
 \item{alpha}{pal` opacity, in the range [0,1] (0 means
 transparent and 1 means opaque). Default is set to 1.}

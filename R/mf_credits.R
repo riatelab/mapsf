@@ -2,7 +2,7 @@
 #' @description Plot credits (sources, author, year...).
 #' @name mf_credits
 #' @param col color of the text, hex code or color name given by [colors].
-#' The default color is the highlight color (see [mf_get_theme_value]).
+#' The default color is the highlight color (see [mf_theme]).
 #' @param pos position, one of 'bottomleft', 'bottomright' or 'rightbottom'
 #' @param txt text of the credits, use '\\n' to add line breaks
 #' @param cex cex of the credits

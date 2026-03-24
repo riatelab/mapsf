@@ -19,11 +19,11 @@ See \link{mf_get_breaks} for details.}
 
 \item{col}{color of the graduated symbols or lines, a hex code or
 a color name given by \link{colors}.
-The default color is the highlight color (see \link{mf_get_theme_value}).}
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{border}{border color for symbols, a hex code or
 color name given by \link{colors}. The default color is the background color (see
-\link{mf_get_theme_value}).}
+\link{mf_theme}).}
 
 \item{lwd}{border width for graduated symbols, a vector of line widths for
 graduated lines}

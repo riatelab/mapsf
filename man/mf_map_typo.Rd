@@ -12,7 +12,7 @@
 
 \item{pal}{a set of colors (hex codes) or a palette name. Palette names can
 be obtained with \link{hcl.pals}. The default palette is the pal_quali palette
-(see \link{mf_get_theme_value}).}
+(see \link{mf_theme}).}
 
 \item{rev}{if \code{pal} is a palette name, whether the ordering of the colors
 should be reversed (TRUE) or not (FALSE)}
@@ -23,7 +23,7 @@ matches \code{var} modalities. Default to alphabetic order of modalities.}
 \item{border}{border color for polygons and symbols, a hex code or
 color name given by \link{colors}. The default color for polygons is the
 highlight color, the default color for points is the background color (see
-\link{mf_get_theme_value}).}
+\link{mf_theme}).}
 
 \item{lwd}{border width for polygons and points symbols, lines width}
 

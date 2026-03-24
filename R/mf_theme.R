@@ -14,11 +14,15 @@
 #' Themes are persistent across maps produced by `mapsf`
 #' (e.g. they survive a `dev.off()` call).
 #'
+#' Current theme parameters are set
+#' in `mapsf` options and nammed according to the following convention:
+#' "mapsf.mf_theme_arg_name".
+#' Use `getOption()` to return the value of a specific argument of
+#' the current theme (see examples).
+#'
 #' Use `mf_theme(NULL)` or `mf_theme('base')` to reset to default theme
 #' settings.
 #'
-#' [mf_get_theme_value] is useful to access the value of a specific argument of
-#' the current theme.
 #' @eval paste0("@param x name of a map theme. One of '",
 #' paste0(get_themes_names(), collapse= "', '" ),"'.")
 #' @param mar a numeral vector of the form c(bottom, left, top, right)
@@ -59,7 +63,6 @@
 #' All references and usages of the old theming system will be removed in the
 #' next major version.
 #' @return `mf_theme` (invisibly) returns the list of current theme parameters.
-#' @seealso [mf_get_theme_value()]
 #' @export
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -104,6 +107,11 @@
 #'
 #' # Obtaining a list of parameters for the current theme:
 #' current_theme <- mf_theme()
+#'
+#' # Obtaining individual parameters for the current theme:
+#' getOption('mapsf.highlight')
+#' getOption('mapsf.pal_seq')
+#'
 #'
 #' # Use default theme:
 #' mf_theme(NULL)
@@ -244,22 +252,3 @@ mf_theme <- function(x,
   return(invisible(as.list(theme)))
 }
 
-
-#' @title Get parameters of the current theme
-#' @description
-#' `mf_get_theme_value` is useful to access the value of a specific argument of
-#' the current theme.
-#' @param arg name of an argument of [mf_theme]
-#' @return `mf_get_theme_value` returns the value of a specific argument of
-#' the current theme.
-#' @export
-#' @seealso [mf_theme()]
-#' @examples
-#'
-#' # To obtain the value of one of the current theme argument:
-#' mf_get_theme_value("foreground")
-#' mf_get_theme_value("mar")
-#' mf_get_theme_value("pal_seq")
-mf_get_theme_value <- function(arg) {
-  getOption(paste0("mapsf.", arg))
-}

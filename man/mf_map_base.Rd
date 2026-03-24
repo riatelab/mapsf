@@ -8,12 +8,12 @@
 
 \item{col}{a color, hex code or color name given by \link{colors}.
 The default color for polygons is the foreground color, the default color for
-points and lines the highlight color (see \link{mf_get_theme_value}).}
+points and lines the highlight color (see \link{mf_theme}).}
 
 \item{border}{border color for polygons and points symbols, hex code or
 color name given by \link{colors}. The default color for polygon is the
 highlight color, the default color for points is the foreground color (see
-\link{mf_get_theme_value}).}
+\link{mf_theme}).}
 
 \item{lwd}{border width for polygons and points symbols, lines width}
 

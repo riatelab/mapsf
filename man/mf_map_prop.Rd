@@ -21,11 +21,11 @@ half width for squares)}
 
 \item{col}{color of the proportional symbols or lines, a hex code or
 a color name given by \link{colors}.
-The default color is the highlight color (see \link{mf_get_theme_value}).}
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{border}{border color for proportional symbols, a hex code or
 color name given by \link{colors}. The default color the background color (see
-\link{mf_get_theme_value}).}
+\link{mf_theme}).}
 
 \item{lwd}{border width of proportional symbols}
 

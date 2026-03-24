@@ -21,14 +21,14 @@ The length of \code{cex} should match the number of modalities.}
 
 \item{border}{border color for symbols, a hex code or color name given
 by \link{colors}. The default color is the background color (see
-\link{mf_get_theme_value}).}
+\link{mf_theme}).}
 
 \item{val_order}{modalities order in the legend, a character vector that
 matches \code{var} modalities. Default to alphabetic order of modalities.}
 
 \item{pal}{a set of colors (hex codes) or a palette name. Palette names can
 be obtained with \link{hcl.pals}. The default palette is the pal_seq palette
-(see \link{mf_get_theme_value}).}
+(see \link{mf_theme}).}
 
 \item{rev}{if \code{pal} is a palette name, whether the ordering of the colors
 should be reversed (TRUE) or not (FALSE)}

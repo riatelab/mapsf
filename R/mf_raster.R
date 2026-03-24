@@ -20,7 +20,7 @@
 #' type = "classes" only).
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_quali palette for
-#' type = "classes" and pal_seq otherwise (see [mf_get_theme_value]).
+#' type = "classes" and pal_seq otherwise (see [mf_theme]).
 #' @param alpha pal` opacity, in the range \[0,1\] (0 means
 #' transparent and 1 means opaque). Default is set to 1.
 #' @param rev if `pal` is a palette name, whether the ordering of the colors

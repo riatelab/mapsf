@@ -86,11 +86,14 @@ using a list of arguments
 Themes are persistent across maps produced by \code{mapsf}
 (e.g. they survive a \code{dev.off()} call).
 
+Current theme parameters are set
+in \code{mapsf} options and nammed according to the following convention:
+"mapsf.mf_theme_arg_name".
+Use \code{getOption()} to return the value of a specific argument of
+the current theme (see examples).
+
 Use \code{mf_theme(NULL)} or \code{mf_theme('base')} to reset to default theme
 settings.
-
-\link{mf_get_theme_value} is useful to access the value of a specific argument of
-the current theme.
 }
 \note{
 The following themes are deprecated: "default", "brutal",
@@ -153,11 +156,13 @@ mf_title()
 # Obtaining a list of parameters for the current theme:
 current_theme <- mf_theme()
 
+# Obtaining individual parameters for the current theme:
+getOption('mapsf.highlight')
+getOption('mapsf.pal_seq')
+
+
 # Use default theme:
 mf_theme(NULL)
 # or
 mf_theme("base")
-}
-\seealso{
-\code{\link[=mf_get_theme_value]{mf_get_theme_value()}}
 }

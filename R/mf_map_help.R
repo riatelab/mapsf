@@ -24,11 +24,11 @@
 #' @param x	object of class `sf`, `sfc` or `sfg`
 #' @param col a color, hex code or color name given by [colors].
 #' The default color for polygons is the foreground color, the default color for
-#' points and lines the highlight color (see [mf_get_theme_value]).
+#' points and lines the highlight color (see [mf_theme]).
 #' @param border border color for polygons and points symbols, hex code or
 #' color name given by [colors]. The default color for polygon is the
 #' highlight color, the default color for points is the foreground color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param lwd border width for polygons and points symbols, lines width
 #' @param lty type of line for polygons borders and lines
 #' @param pch type of symbol to use for points, see [pch]
@@ -78,10 +78,10 @@ NULL
 #' @param symbol type of proportional symbols, either "circle" or "square"
 #' @param col color of the proportional symbols or lines, a hex code or
 #' a color name given by [colors].
-#' The default color is the highlight color (see [mf_get_theme_value]).
+#' The default color is the highlight color (see [mf_theme]).
 #' @param border border color for proportional symbols, a hex code or
 #' color name given by [colors]. The default color the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param lwd border width of proportional symbols
 #' @param alpha,expandBB,extent,bg,add arguments described in [mf_map]
 #' @param leg_* legend arguments described in [mf_map]
@@ -143,13 +143,13 @@ NULL
 #' @param nbreaks number of classes
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_seq palette
-#' (see [mf_get_theme_value]).
+#' (see [mf_theme]).
 #' @param rev if `pal` is a palette name, whether the ordering of the colors
 #' should be reversed (TRUE) or not (FALSE)
 #' @param border border color for polygons and symbols, a hex code or
 #' color name given by [colors]. The default color for polygons is the
 #' highlight color, the default color for points is the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param lwd border width for polygons and points symbols, lines width
 #' @param pch type of symbol to use for points, see [pch] (points only)
 #' @param cex symbols size, 2 means 2 times bigger (points only)
@@ -228,7 +228,7 @@ NULL
 #' @param type "choro"
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_quali palette
-#' (see [mf_get_theme_value]).
+#' (see [mf_theme]).
 #' @param rev if `pal` is a palette name, whether the ordering of the colors
 #' should be reversed (TRUE) or not (FALSE)
 #' @param val_order modalities order in the legend, a character vector that
@@ -236,7 +236,7 @@ NULL
 #' @param border border color for polygons and symbols, a hex code or
 #' color name given by [colors]. The default color for polygons is the
 #' highlight color, the default color for points is the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param lwd border width for polygons and points symbols, lines width
 #' @param pch type of symbol to use for points, see [pch] (points only)
 #' @param cex symbols size, 2 means 2 times bigger (points only)
@@ -312,10 +312,10 @@ NULL
 #' @param nbreaks number of classes
 #' @param col color of the graduated symbols or lines, a hex code or
 #' a color name given by [colors].
-#' The default color is the highlight color (see [mf_get_theme_value]).
+#' The default color is the highlight color (see [mf_theme]).
 #' @param border border color for symbols, a hex code or
 #' color name given by [colors]. The default color is the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param lwd border width for graduated symbols, a vector of line widths for
 #' graduated lines
 #' @param pch type of symbol to use for points, see [pch] (points only)
@@ -371,12 +371,12 @@ NULL
 #' @param lwd border width of symbols
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_quali palette
-#' (see [mf_get_theme_value]).
+#' (see [mf_theme]).
 #' @param rev if `pal` is a palette name, whether the ordering of the colors
 #' should be reversed (TRUE) or not (FALSE)
 #' @param border border color for symbols, a hex code or color name given
 #' by [colors]. The default color is the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param val_order modalities order in the legend, a character vector that
 #' matches `var` modalities. Default to alphabetic order of modalities.
 #' @param pch_na type of symbol for missing values, see [pch]
@@ -437,12 +437,12 @@ NULL
 #' @param nbreaks number of classes
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_seq palette
-#' (see [mf_get_theme_value]).
+#' (see [mf_theme]).
 #' @param rev if `pal` is a palette name, whether the ordering of the colors
 #' should be reversed (TRUE) or not (FALSE)
 #' @param border border color of proportional symbols, a hex code or
 #' color name given by [colors]. The default color is the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param lwd border width of proportional symbols
 #' @param col_na color for missing values, a hex code or
 #' a color name given by [colors]
@@ -515,12 +515,12 @@ NULL
 #' @param lwd border width of symbols
 #' @param border border color for symbols, a hex code or color name given
 #' by [colors]. The default color is the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param val_order modalities order in the legend, a character vector that
 #' matches `var` modalities. Default to alphabetic order of modalities.
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_seq palette
-#' (see [mf_get_theme_value]).
+#' (see [mf_theme]).
 #' @param rev if `pal` is a palette name, whether the ordering of the colors
 #' should be reversed (TRUE) or not (FALSE)
 #' @param breaks	either a numeric vector with the actual breaks, or a
@@ -599,10 +599,10 @@ NULL
 #' @param symbol type of proportional symbols, either "circle" or "square"
 #' @param border border color for proportional symbols, a hex code or
 #' color name given by [colors]. The default color is the background color (see
-#' [mf_get_theme_value]).
+#' [mf_theme]).
 #' @param pal a set of colors (hex codes) or a palette name. Palette names can
 #' be obtained with [hcl.pals]. The default palette is the pal_quali palette
-#' (see [mf_get_theme_value]).
+#' (see [mf_theme]).
 #' @param rev if `pal` is a palette name, whether the ordering of the colors
 #' should be reversed (TRUE) or not (FALSE)
 #' @param val_order modalities order in the legend, a character vector that
