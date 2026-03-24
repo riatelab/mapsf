@@ -206,9 +206,12 @@ mf_choro <- function(x, var,
       lwd = lwd, add = TRUE
     )
     leg(
-      type = "choro",
+      type = "choro_symb",
       pos = leg_pos,
       val = breaks,
+      pch = pch,
+      cex = cex,
+      lwd = lwd,
       title = leg_title,
       title_cex = leg_title_cex,
       val_cex = leg_val_cex,
@@ -224,7 +227,6 @@ mf_choro <- function(x, var,
       bg = leg_bg,
       fg = leg_fg,
       size = leg_size,
-      box_border = leg_box_border,
       box_cex = leg_box_cex,
       frame_border = leg_frame_border,
       adj = leg_adj
