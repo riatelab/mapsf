@@ -226,6 +226,9 @@ mf_symb_choro <- function(x, var,
   border <- rep(border, sum(pch %in% 21:25))
 
   if (length(leg_pos) == 1) {
+    leg_title <- test2args(leg_title)
+    leg_no_data <- test2args(leg_no_data)
+
     la1 <- list(
       type = "symb",
       val = val_order,

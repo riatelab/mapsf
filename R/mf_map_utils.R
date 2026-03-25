@@ -4,6 +4,14 @@ deprecate_direct_calls_to <- function(m) {
   }
 }
 
+test2args <- function(x){
+  if (length(x) != 2){
+    stop(paste0("Argument '", deparse(substitute(x)),
+                "' needs 2 values."),
+         call. = FALSE)
+  }
+  return(x)
+}
 
 #' Title
 #'

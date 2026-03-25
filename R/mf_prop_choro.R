@@ -204,7 +204,10 @@ mf_prop_choro <- function(x,
   }
 
   if (length(leg_pos) == 1) {
-    ## TEST Double args
+    leg_title <- test2args(leg_title)
+    leg_val_rnd <- test2args(leg_val_rnd)
+    leg_horiz <- test2args(leg_horiz)
+
     la1 <- list(
       type = "prop",
       val = val,

@@ -289,7 +289,7 @@ mf_prop_typo <- function(x, var,
   }
 
   if (length(leg_pos) == 1) {
-    ## TEST Double args
+    leg_title <- test2args(leg_title)
     la1 <- list(
       type = "prop",
       val = val,
