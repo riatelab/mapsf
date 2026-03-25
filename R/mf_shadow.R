@@ -2,7 +2,8 @@
 #' @name mf_shadow
 #' @description Plot the shadow of a polygon layer.
 #' @param x an sf or sfc polygon object
-#' @param col shadow color
+#' @param col shadow color. The default color is the highlight color
+#' (see [mf_theme]).
 #' @param cex shadow extent
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)
@@ -20,6 +21,9 @@
 #' mf_map(mtq, add = TRUE)
 mf_shadow <- function(x, col, cex = 1, add = FALSE, extent = x, bg,
                       expandBB = rep(.04, 4)) {
+  if (get_geom_type(x) != "POLYGON"){
+    stop("x must be an sf or sfc POLYGON object.", call. = FALSE)
+  }
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
   bgc <- go(bg, "background")
