@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 expect_error(test_cur_plot())
 mf_map(mtq)
 expect_silent(mf_legend(type = "prop", pos = "topright",
@@ -46,7 +45,8 @@ expect_silent(mf_legend(type = "prop_line",
 dev.off()
 expect_equal(mf_get_leg_pos(mtq, 1), "topright")
 expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topleft", "top"))
+expect_error(mapsf:::interleg())
 mf_map(mtq)
 expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topright", "right"))
 
-expect_error(mapsf:::interleg())
+

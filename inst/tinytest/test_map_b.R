@@ -1,5 +1,4 @@
-mtq <- mf_get_mtq()
-st_geometry(mtq) <- st_centroid(st_geometry(mtq))
-expect_silent(mf_map(mtq, type = "base"))
-expect_silent(mf_map(st_geometry(mtq)[[1]], type = "base"))
-expect_silent(mf_map(st_geometry(mtq), type = "base"))
+expect_silent(mf_map(mtq_p, type = "base"))
+expect_silent(mf_map(st_geometry(mtq_p)[[1]], type = "base"))
+expect_silent(mf_map(st_geometry(mtq_p), type = "base"))
+

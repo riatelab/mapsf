@@ -1,16 +1,16 @@
-mtq <- mf_get_mtq()
-expect_silent(mf_prop_typo(mtq, c("POP", "STATUS"), add = FALSE))
+expect_silent(mf_map(mtq, c("POP", "STATUS"), type = "prop_typo", add = FALSE))
 
 mf_map(mtq)
-expect_silent(mf_prop_typo(mtq, c("POP", "STATUS")))
+expect_silent(mf_map(mtq, c("POP", "STATUS"), type = "prop_typo"))
 
 mtq[6, "STATUS"] <- NA
 expect_silent(
-  mf_prop_typo(
-    x = mtq, var = c("POP", "STATUS"), inches = .35, border = "tomato4",
+  mf_map(
+    x = mtq, var = c("POP", "STATUS"), type = "prop_typo",
+    inches = .35, border = "tomato4",
     val_max = 90000, symbol = "square", col_na = "grey", pal = "Dynamic",
     lwd = 2,
-    leg_pos = c("bottomright", "bottomleft"),
+    leg_pos = c("bottomright"),
     leg_title = c("Population", "Municipality\nstatus"),
     leg_title_cex = c(0.9, 0.9),
     leg_val_cex = c(.7, .7),
@@ -21,11 +21,14 @@ expect_silent(
 )
 
 
-mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
-mob_97209 <- mob[mob$i == 97209, ]
-mob_links <- mf_get_links(x = mtq, df = mob_97209)
 mf_map(mtq)
-expect_silent(mf_map(mob_links, c("fij", "sj"), "prop_typo", add = TRUE))
-mob_links[2, "sj"] <- NA
-expect_silent(mf_map(mob_links, c("fij", "sj"), "prop_typo",
+expect_silent(mf_map(mtq_l, c("fij", "sj"), "prop_typo", add = TRUE))
+mtq_l[2, "sj"] <- NA
+expect_silent(mf_map(mtq_l, c("fij", "sj"), "prop_typo",
                      val_max = 5000, add = FALSE, col_na = "red"))
+
+
+expect_message(mf_map(mtq, c("POP", "STATUS"), type = "prop_typo",
+                      leg_pos = c("top", "bottom")))
+expect_message(mf_map(mtq_l, c("fij", "sj"), type = "prop_typo",
+                      leg_pos = c("top", "bottom")))

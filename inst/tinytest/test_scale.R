@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 mf_map(mtq)
 expect_silent(mf_scale(pos = c(713709.9, 1596117)))
 expect_silent(mf_scale())

@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 x <- mtq$MED
 
 expect_equal(mf_get_breaks(x = x, nbreaks = 6, breaks = "geom"),

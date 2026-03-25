@@ -19,7 +19,6 @@ expect_message(mf_theme(bg = "darkslategrey", fg = "cornsilk3",
                        tab = FALSE, pos = "center", inner = FALSE,
                        line = 2, cex = 2, font = 4)
 )
-mtq <- mf_get_mtq()
 expect_silent(mf_map(mtq, "POP", "prop", leg_frame = TRUE, add = FALSE))
 mf_map(mtq)
 expect_silent(mf_theme(NULL))

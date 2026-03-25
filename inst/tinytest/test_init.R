@@ -1,5 +1,4 @@
 # init
-mtq <- mf_get_mtq()
 expect_silent(mf_init(mtq))
 expect_silent(mf_init(mtq, expandBB = c(0, 0, 0, .4)))
 expect_silent(mf_init(mtq, bgc = "red"))

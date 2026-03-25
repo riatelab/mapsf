@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 expect_silent(mf_get_ratio(mtq, height = 6))
 expect_silent(mf_get_ratio(mtq, width = 7))
 expect_silent(mf_get_ratio(mtq))

@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 mf_map(mtq)
 expect_silent(mf_annotation(x = c(711167.8, 1614764),
               txt = "Look!\nImportant feature\nhere!",

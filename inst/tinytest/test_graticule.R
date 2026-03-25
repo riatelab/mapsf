@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 mf_map(mtq, expandBB = rep(.2, 4))
 expect_silent(
   mf_graticule(

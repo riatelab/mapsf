@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 mf_map(mtq)
 expect_silent(mf_inset_on(x = mtq))
 mf_map(mtq)

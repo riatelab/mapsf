@@ -1,5 +1,4 @@
 # init
-mtq <- mf_get_mtq()
 mf_map(mtq)
 
 ## mf_credits

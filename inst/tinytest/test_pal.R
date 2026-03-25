@@ -20,3 +20,4 @@ expect_equal(mf_get_pal(breaks = 1:10, mid = 1.5, palette = c("Mint", "Viridis")
              c("#CCCCCCFF", mf_get_pal(8, "Viridis", alpha = 1)))
 expect_equal(mf_get_pal(breaks = 1:10, mid = 9.5, palette = c("Mint", "Viridis")),
              c(mf_get_pal(8, "Mint", alpha = 1), "#CCCCCCFF"))
+

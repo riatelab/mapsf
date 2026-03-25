@@ -1,6 +1,5 @@
-mtq <- mf_get_mtq()
-expect_silent(mf_choro(
-  x = mtq, var = "MED", col_na = "grey", pal = "Cividis",
+expect_silent(mf_map(
+  x = mtq, var = "MED", type = "choro", col_na = "grey", pal = "Cividis",
   breaks = "quantile", nbreaks = 4, border = "white",
   lwd = .5, leg_pos = "bottomleft",
   leg_title = "Median Income", leg_title_cex = 1.1,
@@ -9,10 +8,11 @@ expect_silent(mf_choro(
 ))
 
 mtq[6, "MED"] <- NA
-expect_silent(mf_choro(x = mtq, var = "MED"))
+expect_silent(mf_map(x = mtq, var = "MED", type = "choro"))
 
-expect_message(mf_choro(x = mtq, var = "MED", breaks = c(12000, 15000, 35000)))
-expect_message(mf_choro(x = mtq, var = "MED", breaks = c(12000, 15000, 19000)))
+expect_message(mf_map(x = mtq, var = "MED", type = "choro", breaks = c(12000, 15000, 35000)))
+expect_message(mf_map(x = mtq, var = "MED", type = "choro", breaks = c(12000, 15000, 19000)))
 
-expect_silent(mf_choro(sf::st_cast(mtq, "MULTIPOINT"), "MED"))
-expect_silent(mf_choro(sf::st_cast(mtq, "MULTILINESTRING"), "MED"))
+expect_silent(mf_map(mtq_p, "MED", "choro"))
+expect_silent(mf_map(mtq_l, "fij", "choro"))
+expect_silent(mf_map(mtq_p, "MED", "choro", pch = 4))

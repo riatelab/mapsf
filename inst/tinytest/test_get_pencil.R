@@ -1,4 +1,3 @@
-mtq <- mf_get_mtq()
 a <- mf_get_pencil(mtq, buffer = 100)
 b <- mf_get_pencil(mtq, buffer = -100, lefthanded = FALSE, clip = FALSE)
 expect_true(methods::is(st_geometry(a), "sfc_MULTILINESTRING"))
