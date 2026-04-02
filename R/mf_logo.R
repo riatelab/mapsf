@@ -11,8 +11,9 @@
 #' @param cex amount by which the logo width should be magnified
 #' or reduced relative to the default
 #' @param adj adjust the position of the logo in x and y directions
-#'
-#' @return No return value, a background image is displayed.
+#' @param resize if FALSE, the logo is displayed at its original size in pixels
+#' and `cex` is not used.
+#' @return No return value, a logo is displayed.
 #' @export
 #'
 #' @examples
@@ -22,11 +23,13 @@
 #' logo <- system.file("img", "Rlogo.png", package = "png")
 #' mf_logo(logo, pos = "bottomleft", adj = c(0, 4))
 #' mf_credits()
-mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0)) {
+mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0),
+                    resize = TRUE) {
   test_cur_plot()
-  logo <- readimage(filename)
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  logo <- readimage(filename)
 
   if (length(pos) == 1 && pos == "interactive") {
     pos <- interleg(txt = c("logo", "Logo"))
@@ -36,9 +39,15 @@ mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0)) {
     {
       pu <- par("usr")
       pp <- dim(logo)[2:1]
-      pp <- pp * (xinch(1) / pp[1]) * cex
+      if (resize == FALSE){
+        dev_px <- dev.size("px")
+        dev_in <- dev.size("in")
+        pp <- c(xinch(pp[1] * dev_in[1] / dev_px[1]),
+                yinch(pp[2] * dev_in[2] / dev_px[2]))
+      } else {
+        pp <- pp * (xinch(1) / pp[1]) * cex
+      }
       xy <- posinset(pos, pu, pp[1], pp[2], adj = adj)
-
       rasterImage(
         image   = logo,
         xleft   = xy[1],
@@ -47,7 +56,7 @@ mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0)) {
         ytop    = xy[4]
       )
     },
-    list = list(pos = pos, logo = logo, cex = cex, adj = adj),
+    list = list(pos = pos, logo = logo, cex = cex, adj = adj, resize = resize),
     env = getNamespace("mapsf")
   )
 }

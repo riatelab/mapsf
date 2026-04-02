@@ -9,7 +9,10 @@ expect_silent(mf_logo(system.file("help/figures/logo.png",
                                   package = "mapsf"),
                       pos = c(690000, 1625355.65627547),
                       cex = 2.5))
-
+expect_silent(mf_logo(system.file("help/figures/logo.png",
+                                  package = "mapsf"),
+                      pos = c(690000, 1625355.65627547),
+                      resize = FALSE))
 expect_error(mf_logo(system.file("help/figures/logo.png",
                                   package = "mapsf"),
                       pos = "toplaft"))

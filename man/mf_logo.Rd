@@ -4,7 +4,7 @@
 \alias{mf_logo}
 \title{Plot a logo on a map}
 \usage{
-mf_logo(filename, pos = "bottomright", cex = 1, adj = c(0, 0))
+mf_logo(filename, pos = "bottomright", cex = 1, adj = c(0, 0), resize = TRUE)
 }
 \arguments{
 \item{filename}{filename of the logo image, PNG or JPG/JPEG format.}
@@ -18,9 +18,12 @@ legend position by clicking on the map.}
 or reduced relative to the default}
 
 \item{adj}{adjust the position of the logo in x and y directions}
+
+\item{resize}{if FALSE, the logo is displayed at its original size in pixels
+and \code{cex} is not used.}
 }
 \value{
-No return value, a background image is displayed.
+No return value, a logo is displayed.
 }
 \description{
 The logo can be a PNG or JPG/JPEG file.
