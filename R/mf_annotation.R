@@ -1,5 +1,9 @@
-#' @title Plot an annotation
-#' @description Plot an annotation on a map.
+#' @title Deprecated - Plot an annotation
+#' @description
+#' This function is deprecated. Please use [mf_text] instead.
+#' instead.
+#'
+#' Plot an annotation on a map.
 #' @param x an sf object with 1 row, a couple of coordinates (c(x, y)) or
 #' "interactive"
 #' @param txt the text to display
@@ -41,10 +45,13 @@ mf_annotation <- function(x,
                           bg,
                           s = 1,
                           ...) {
+  warning("mf_annotation() is deprecated. Use mf_text() instead.",
+    call. = FALSE
+  )
+
   test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
-
 
   if (diff(par("usr")[1:2]) < 389) {
     message("Annotations cannot be displayed on unprojected (long/lat) maps.")

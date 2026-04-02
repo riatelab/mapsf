@@ -2,7 +2,7 @@
 % Please edit documentation in R/mf_annotation.R
 \name{mf_annotation}
 \alias{mf_annotation}
-\title{Plot an annotation}
+\title{Deprecated - Plot an annotation}
 \usage{
 mf_annotation(
   x,
@@ -44,6 +44,9 @@ mf_annotation(
 No return value, an annotation is displayed.
 }
 \description{
+This function is deprecated. Please use \link{mf_text} instead.
+instead.
+
 Plot an annotation on a map.
 }
 \note{

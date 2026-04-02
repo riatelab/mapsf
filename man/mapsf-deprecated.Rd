@@ -36,6 +36,11 @@ It is also possible to use the \code{extent} argument of \link{mf_map}.
 \code{mf_export} is deprecated, use \link{mf_png} or \link{mf_svg} instead.
 }
 
+\subsection{\code{mf_annotation}}{
+
+\code{mf_annotation} is deprecated, use \link{mf_text} instead.
+}
+
 \subsection{Double legends}{
 
 The use of separated legends for map types \strong{prop_choro}, \strong{prop_typo} and
