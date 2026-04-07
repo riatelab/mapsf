@@ -46,6 +46,7 @@ mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0),
                 yinch(pp[2] * dev_in[2] / dev_px[2]))
       } else {
         pp <- pp * (xinch(1) / pp[1]) * cex
+        pp[2] <- pp[2] * yinch(1) / xinch(1)
       }
       xy <- posinset(pos, pu, pp[1], pp[2], adj = adj)
       rasterImage(
