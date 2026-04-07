@@ -40,8 +40,8 @@ mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0),
       pu <- par("usr")
       pp <- dim(logo)[2:1]
       if (resize == FALSE){
-        dev_px <- dev.size("px")
-        dev_in <- dev.size("in")
+        dev_px <- grDevices::dev.size("px")
+        dev_in <- grDevices::dev.size("in")
         pp <- c(xinch(pp[1] * dev_in[1] / dev_px[1]),
                 yinch(pp[2] * dev_in[2] / dev_px[2]))
       } else {
