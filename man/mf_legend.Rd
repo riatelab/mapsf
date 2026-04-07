@@ -23,6 +23,8 @@ mf_legend(
   title_cex = 0.8 * size,
   val_cex = 0.6 * size,
   val_rnd = 0,
+  val_dec = ".",
+  val_big = "",
   col_na = "white",
   cex_na = 1,
   pch_na = 4,
@@ -49,13 +51,20 @@ mf_legend(
 \item \strong{typo} for typology maps,
 \item \strong{symb} for symbols maps,
 \item \strong{prop_line} for proportional lines maps,
-\item \strong{grad_line} for graduated lines maps.
+\item \strong{grad_line} for graduated lines maps,
+\item \strong{histo} for histograms,
+\item \strong{choro_point} for choropleth points maps,
+\item \strong{choro_line} for choropleth lines maps,
+\item \strong{choro_symb} for choropleth on symbols maps
+\item \strong{typo_line} for typology lines maps.
 }}
 
 \item{val}{vector of value(s) (for "prop" and "prop_line", at least c(min, max)
 for "cont"),
-vector of categories (for "symb" and "typo"),
-break labels (for "choro" and "grad_line").}
+vector of categories (for "symb", "typo", "typo_line"),
+break labels (for "choro", "choro_point", "choro_line", "choro_symb",
+and "grad_line"),
+histogram parameters (for "histo").}
 
 \item{pos}{position of the legend. It can be one of 'topleft', 'top',
 'topright', 'right', 'bottomright', 'bottom','bottomleft',
@@ -81,9 +90,10 @@ for squares) in inches}
 \item{self_adjust}{if TRUE values are self-adjusted to keep min, max and
 intermediate rounded values}
 
-\item{lwd}{width(s) of the symbols borders (for "prop" and "symb"),
-width of the largest line (for "prop_line"), vector of line width
-(for "grad_line")}
+\item{lwd}{width(s) of the symbols borders (for "prop", "symb",
+"choro_point", "choro_symb"),
+width of the largest line (for "prop_line"), line width (for "choro_line"
+and "typo_line"), vector of line widths (for "grad_line")}
 
 \item{border}{symbol border color(s)}
 
@@ -100,6 +110,10 @@ width of the largest line (for "prop_line"), vector of line width
 \item{val_rnd}{number of decimal places of the values in
 the legend}
 
+\item{val_dec}{decimal separator}
+
+\item{val_big}{thousands separator}
+
 \item{col_na}{color for missing values}
 
 \item{cex_na}{size of the symbols for missing values}
@@ -112,8 +126,8 @@ the legend}
 
 \item{box_border}{border color of legend boxes}
 
-\item{box_cex}{width and height size expansion of boxes,
-(or offset between circles for "prop" legends with horiz = TRUE)}
+\item{box_cex}{width and height size expansion of boxes, histogram
+circles, squares or lines}
 
 \item{horiz}{if TRUE plot an horizontal legend}
 
@@ -145,18 +159,23 @@ some others are only relevant for specific legend types (see Details).
 }
 \details{
 Some arguments are available for all types of legend: \code{val}, \code{pos}, \code{title},
-\code{title_cex}, \code{val_cex}, \code{frame}, \code{bg}, \code{fg}, \code{size}, \code{adj},
+\code{title_cex}, \code{val_cex}, \code{frame}, \code{bg}, \code{fg}, \code{size}, \code{adj}, \code{alpha},
 \code{return_bbox}).
 
 Relevant arguments for each specific legend types:
 \itemize{
-\item \code{mf_legend(type = "prop", val, inches, val_max, symbol, col, lwd, border, val_rnd, self_adjust, horiz)}
-\item \code{mf_legend(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
-\item \code{mf_legend(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)}
-\item \code{mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)}
+\item \code{mf_legend(type = "prop", val, inches, val_max, symbol, col, lwd, border, val_rnd, val_big, val_dec, self_adjust, horiz)}
+\item \code{mf_legend(type = "choro", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex, horiz)}
+\item \code{mf_legend(type = "cont", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex, horiz)}
+\item \code{mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border, box_cex)}
 \item \code{mf_legend(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)}
-\item \code{mf_legend(type = "prop_line", val, col, lwd, val_rnd)}
-\item \code{mf_legend(type = "grad_line", val, col, lwd, val_rnd)}
+\item \code{mf_legend(type = "prop_line", val, col, lwd, val_rnd, val_big, val_dec)}
+\item \code{mf_legend(type = "grad_line", val, col, lwd, val_rnd, val_big, val_dec)}
+\item \code{mf_legend(type = "histo", val, pal, box_border, val_rnd, val_big, val_dec)}
+\item \code{mf_legend(type = "choro_point", val, pal, symbol, border, cex, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, horiz)}
+\item \code{mf_legend(type = "choro_line", val, pal, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)}
+\item \code{mf_legend(type = "choro_symb", val, pal, pch, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)}
+\item \code{mf_legend(type = "typo_line", val, pal, lwd, col_na, no_data, no_data_txt, box_cex)}
 }
 }
 \examples{
