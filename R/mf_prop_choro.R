@@ -59,13 +59,13 @@
 #'   inches = .35, border = "tomato4",
 #'   val_max = 90000, symbol = "circle", col_na = "grey", pal = "Cividis",
 #'   breaks = "equal", nbreaks = 4, lwd = 4,
-#'   leg_pos = c("bottomright", "bottomleft"),
+#'   leg_pos = "bottomright",
 #'   leg_title = c("Population", "Median Income"),
-#'   leg_title_cex = c(0.8, 1),
-#'   leg_val_cex = c(.7, .9),
+#'   leg_title_cex = 1,
+#'   leg_val_cex = .9,
 #'   leg_val_rnd = c(0, 0),
 #'   leg_no_data = "No data",
-#'   leg_frame = c(TRUE, TRUE),
+#'   leg_frame = TRUE,
 #'   add = TRUE
 #' )
 mf_prop_choro <- function(x,

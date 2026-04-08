@@ -47,13 +47,13 @@
 #'   inches = .35, border = "tomato4",
 #'   val_max = 90000, symbol = "circle", col_na = "grey", pal = "Dynamic",
 #'   lwd = 2,
-#'   leg_pos = c("bottomright", "bottomleft"),
+#'   leg_pos = "bottomright",
 #'   leg_title = c("Population", "Municipality\nstatus"),
-#'   leg_title_cex = c(0.9, 0.9),
-#'   leg_val_cex = c(.7, .7),
+#'   leg_title_cex = 0.9,
+#'   leg_val_cex = .7,
 #'   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
 #'   leg_no_data = "No dada",
-#'   leg_frame = c(TRUE, TRUE),
+#'   leg_frame = TRUE,
 #'   add = TRUE
 #' )
 mf_prop_typo <- function(x, var,
