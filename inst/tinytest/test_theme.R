@@ -1,6 +1,8 @@
 
 ## mf_theme
 expect_silent(mf_theme())
+expect_message(mf_theme("iceberg"))
+expect_silent(mf_theme("sol_light"))
 expect_error(mf_theme("NoT a thEmE"))
 expect_message(mf_theme(x = list(
   name = "custom",

@@ -176,6 +176,16 @@ mf_theme <- function(x,
         stop("x is not a theme name.", call. = FALSE)
       } else {
         theme <- .gmapsf$themes[[x]]
+        if (isTRUE(theme$legacy)){
+          message(
+            paste0(
+              "The following themes are deprecated:\n",
+              "'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', 'darkula',\n",
+              "'iceberg', 'green', 'nevermind', 'jsk', and 'barcelona'.\n",
+              "See the Note section in the help page (?mf_theme).")
+          )
+
+        }
       }
     }
   }
@@ -189,9 +199,10 @@ mf_theme <- function(x,
   )
   if (!is.null(legacy_argx)) {
     message(paste0(
+      "The following arguments are deprecated:\n",
       "'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex'",
-      " and 'font' are deprecated.\n",
-      "See the Note section in the help page."
+      " and 'font'.\n",
+      "See the Note section in the help page (?mf_theme)."
     ))
     theme$legacy <- TRUE
     theme$title_banner <- TRUE
