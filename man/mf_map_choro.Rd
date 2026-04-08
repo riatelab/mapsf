@@ -93,11 +93,14 @@ mf_map(
   leg_box_cex = c(0.5, 3), leg_box_border = NA, leg_frame = FALSE
 )
 # points
+mf_map(mtq)
 mf_map(
   x = pts, var = "MED", type = "choro",
-  cex = 5, pal = "Burg", border = "black",
-  leg_horiz = TRUE, leg_val_big = " ",
-  leg_val_rnd = -2, leg_pos = "bottomleft"
+  pch = 21, cex = 3, lwd = 1.2,
+  pal = "Teal", border = "white",
+  leg_horiz = FALSE, leg_val_big = " ",
+  leg_val_rnd = -2, leg_pos = "topright",
+  leg_frame = TRUE,  add = TRUE
 )
 # lines
 mf_map(mtq, extent = flows)
