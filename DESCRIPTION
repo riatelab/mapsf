@@ -41,7 +41,7 @@ Depends:
 Imports: 
     classInt, 
     graphics,
-    maplegend (>= 0.6.0),
+    maplegend (>= 0.6.1),
     s2,
     sf,
     stats,
