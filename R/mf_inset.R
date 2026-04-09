@@ -117,4 +117,3 @@ mf_inset_off <- function() {
   par(mar = .gmapsf$par$mar, mfg = .gmapsf$mfg)
   points(1, 1, col = NA)
 }
-

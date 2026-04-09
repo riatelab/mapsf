@@ -82,11 +82,12 @@ the second one to the choropleth legend.
 \examples{
 mtq <- mf_get_mtq()
 flows <- mf_get_mtq("lines")
-mf_map(mtq, extent = flows, expandBB = c(0,.5,0,0))
+mf_map(mtq, extent = flows, expandBB = c(0, .5, 0, 0))
 mf_map(flows, c("fij", "sj"), "prop_typo",
-       val_order = c("Sub-prefecture", "Simple municipality"),
-       pal = c( "steelblue", "lightblue"), lwd_max = 30,
-       leg_pos = "topleft", leg_title = c("commuters", "destination"))
+  val_order = c("Sub-prefecture", "Simple municipality"),
+  pal = c("steelblue", "lightblue"), lwd_max = 30,
+  leg_pos = "topleft", leg_title = c("commuters", "destination")
+)
 mf_map(
   x = mtq, var = c("POP", "STATUS"), type = "prop_typo",
   inches = .2, border = "tomato4", lwd = 1,

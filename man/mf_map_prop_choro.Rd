@@ -68,8 +68,6 @@ For polygons and points:
        pal, rev = FALSE, breaks = "quantile", nbreaks,
        border, lwd = 0.7, col_na = "white",
        alpha, expandBB, extent, bg, add = TRUE, leg_*)
-
-
 }\if{html}{\out{</div>}}
 }
 }

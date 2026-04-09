@@ -109,8 +109,8 @@
 #' current_theme <- mf_theme()
 #'
 #' # Obtaining individual parameters for the current theme:
-#' getOption('mapsf.highlight')
-#' getOption('mapsf.pal_seq')
+#' getOption("mapsf.highlight")
+#' getOption("mapsf.pal_seq")
 #'
 #'
 #' # Use default theme:
@@ -176,15 +176,15 @@ mf_theme <- function(x,
         stop("x is not a theme name.", call. = FALSE)
       } else {
         theme <- .gmapsf$themes[[x]]
-        if (isTRUE(theme$legacy)){
+        if (isTRUE(theme$legacy)) {
           message(
             paste0(
               "The following themes are deprecated:\n",
               "'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', 'darkula',\n",
               "'iceberg', 'green', 'nevermind', 'jsk', and 'barcelona'.\n",
-              "See the Note section in the help page (?mf_theme).")
+              "See the Note section in the help page (?mf_theme)."
+            )
           )
-
         }
       }
     }
@@ -262,4 +262,3 @@ mf_theme <- function(x,
 
   return(invisible(as.list(theme)))
 }
-

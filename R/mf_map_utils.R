@@ -4,11 +4,15 @@ deprecate_direct_calls_to <- function(m) {
   }
 }
 
-test2args <- function(x){
-  if (length(x) != 2){
-    stop(paste0("Argument '", deparse(substitute(x)),
-                "' needs 2 values."),
-         call. = FALSE)
+test2args <- function(x) {
+  if (length(x) != 2) {
+    stop(
+      paste0(
+        "Argument '", deparse(substitute(x)),
+        "' needs 2 values."
+      ),
+      call. = FALSE
+    )
   }
   return(x)
 }
@@ -361,4 +365,3 @@ get_val_rnd <- function(val, val_rnd, val_dec = getOption("OutDec"), val_big = "
   }
   return(val)
 }
-

@@ -157,8 +157,8 @@ mf_title()
 current_theme <- mf_theme()
 
 # Obtaining individual parameters for the current theme:
-getOption('mapsf.highlight')
-getOption('mapsf.pal_seq')
+getOption("mapsf.highlight")
+getOption("mapsf.pal_seq")
 
 
 # Use default theme:

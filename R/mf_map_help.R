@@ -182,7 +182,7 @@ NULL
 #'   pal = "Teal", border = "white",
 #'   leg_horiz = FALSE, leg_val_big = " ",
 #'   leg_val_rnd = -2, leg_pos = "topright",
-#'   leg_frame = TRUE,  add = TRUE
+#'   leg_frame = TRUE, add = TRUE
 #' )
 #' # lines
 #' mf_map(mtq, extent = flows)
@@ -422,8 +422,7 @@ NULL
 #'        pal, rev = FALSE, breaks = "quantile", nbreaks,
 #'        border, lwd = 0.7, col_na = "white",
 #'        alpha, expandBB, extent, bg, add = TRUE, leg_*)
-#'
-#'
+#' ```
 #'
 #' @param x	object of class `sf` (polygons or points)
 #' @param var names of the variables to map. The first value refers to the
@@ -625,11 +624,12 @@ NULL
 #' @examples
 #' mtq <- mf_get_mtq()
 #' flows <- mf_get_mtq("lines")
-#' mf_map(mtq, extent = flows, expandBB = c(0,.5,0,0))
+#' mf_map(mtq, extent = flows, expandBB = c(0, .5, 0, 0))
 #' mf_map(flows, c("fij", "sj"), "prop_typo",
-#'        val_order = c("Sub-prefecture", "Simple municipality"),
-#'        pal = c( "steelblue", "lightblue"), lwd_max = 30,
-#'        leg_pos = "topleft", leg_title = c("commuters", "destination"))
+#'   val_order = c("Sub-prefecture", "Simple municipality"),
+#'   pal = c("steelblue", "lightblue"), lwd_max = 30,
+#'   leg_pos = "topleft", leg_title = c("commuters", "destination")
+#' )
 #' mf_map(
 #'   x = mtq, var = c("POP", "STATUS"), type = "prop_typo",
 #'   inches = .2, border = "tomato4", lwd = 1,
@@ -641,6 +641,3 @@ NULL
 #'   add = TRUE
 #' )
 NULL
-
-
-

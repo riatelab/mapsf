@@ -100,7 +100,7 @@ mf_map(
   pal = "Teal", border = "white",
   leg_horiz = FALSE, leg_val_big = " ",
   leg_val_rnd = -2, leg_pos = "topright",
-  leg_frame = TRUE,  add = TRUE
+  leg_frame = TRUE, add = TRUE
 )
 # lines
 mf_map(mtq, extent = flows)
