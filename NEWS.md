@@ -1,3 +1,43 @@
+# mapsf 1.2.0
+
+## Fix
+- add minimal version for maplegend in DESCRIPTION (#89)
+- remove unused leg_border arg in mf_map()
+- remove unused args pch_na and cex_na from "typo" and "choro" map types
+- use theme palette for types classes and continuous in mf_raster()
+- implement leg_val_rnd, leg_val_dec and leg_val_big for grad type
+- allow only one value for proportional symbols border color
+- allow only one pch and cex in "typo" for points.
+- better default for "grad" decimal precision in legend
+- test double arguments for "prop_choro", "prop_typo", "symb_choro" types
+- test for polygons in mf_shadow(), document default color
+- better legends for "prop_typo" maps, for "choro" maps on lines and on points, 
+- update mf_legend(), add val_dec et val_big (#92)
+
+## Feat
+- add "bg" and "extent" to mf_map(), mf_shadow() and mf_graticule() to modify
+background color and use an extent to define the plot extent (#90)
+- add "bg" in mf_raster() to modify background color
+- add points and lines layers in the sample dataset, modify mf_get_mtq() to 
+load these layers, update documentation accordingly
+- add mf_logo() to add images (PNG or JPEG) on the map
+- add mf_text() to display texts on maps
+- add a max_val arg to mf_legend() to use a maximum value to set the symbol size
+
+## Docs
+- general improvement of the documentation
+- help pages for each map types have been added
+
+## Deprecation
+- mapsf-deprecated help page has been added.
+- direct calls to mf_base(), mf_choro(), mf_grad(), mf_init(), mf_prop*(), 
+mf_symb*(), mf_typo()
+- mf_export()
+- mf_annotation()
+- double legends for "prop_choro", "prop_typo", "symb_choro" types
+- old arguments and themes of mf_themes()
+
+
 # mapsf 1.1.0
 
 ## Fix 
@@ -7,9 +47,9 @@ in mf_scale()
 - use correct plot limits in mf_raster()
 
 ## Feat
-- add 'res' argument to mf_png() to set nominal resolution
-- add 'leg_val_dec' & 'leg_val_big' to set decimal and big mark values in 
-relevent functions (those already using 'leg_val_rnd')
+- add "res" argument to mf_png() to set nominal resolution
+- add "leg_val_dec" & "leg_val_big" to set decimal and big mark values in 
+relevent functions (those already using "leg_val_rnd")
 
 ## Docs
 - new website (using pkgdown)
@@ -20,8 +60,8 @@ This is the first major version of mapsf.
 
 ## Feat
 - a new theming system has been introduced, leading to new default values and 
-a new default map style. 'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex' and 
-'font' are now deprecated arguments
+a new default map style. "bg", "fg", "tab", "pos", "inner", "line", "cex" and 
+"font" are now deprecated arguments
 - redraw map elements when resizing device, leading to a better display of maps
 in positron and rstudio graphics devices 
 - add a "center" position to mf_annotation(), no arrow displayed when used
@@ -141,7 +181,7 @@ mf_worldmap()
 # mapsf 0.7.1
 
 ## Fix
-- fix bug in color assignment in 'choro', 'prop_choro' and 'symb_choro' maps 
+- fix bug in color assignment in "choro", "prop_choro" and "symb_choro" maps 
 when supplying "incomplete" breaks (#56) 
 
 # mapsf 0.7.0
@@ -164,7 +204,7 @@ height/width ratio anymore.
 - add arg checking depending on type in mf_map()
 - add an error message for functions that need a pre-existing plot
 - add mf_graticule() to add graticule lines and labels
-- set internally the 'add' arg for each map types in mf_map()
+- set internally the "add" arg for each map types in mf_map()
 
 
 
@@ -251,7 +291,7 @@ height/width ratio anymore.
 * adjust the largest symbol size in mf_map(..., "prop*")
 * remove frame around insets
 * remove LazyData from DESCRIPTION
-* use sf 'on the fly' projection for unprojected sf objects
+* use sf "on the fly" projection for unprojected sf objects
 * better display of titles and maps (tiny extra space around maps)
 * add explicit default value for "add" arg in mapping functions
 * allow to plot (coherent) GEOMETRYCOLLECTIONS
