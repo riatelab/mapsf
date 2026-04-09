@@ -31,6 +31,18 @@ reference:
     contents:
     - mf_map
     - mf_raster
+  - title: "mf_map"
+    desc: Each map type is described in the following help pages
+    contents:
+    - mf_map_base
+    - mf_map_prop
+    - mf_map_choro
+    - mf_map_typo
+    - mf_map_symb
+    - mf_map_grad
+    - mf_map_prop_choro
+    - mf_map_prop_typo
+    - mf_map_symb_choro
   - title: "Map Layout"
     desc: These functions are dedicated to the map layout design.
     contents:
@@ -44,8 +56,10 @@ reference:
     - mf_label
     - mf_layout
     - mf_legend
+    - mf_logo
     - mf_scale
     - mf_shadow
+    - mf_text
     - mf_theme
     - mf_title
     - mf_worldmap
@@ -73,3 +87,4 @@ footer:
   structure:
     left: developed_by
     right: package
+
