@@ -10,7 +10,7 @@
 #' or "interactive" for interactive placement.
 #' @param txt text to display
 #' @param cex text size
-#' @param col_text text color
+#' @param col_txt text color
 #' @param pos position of the text relative to `x` (one of 'center',
 #' 'topleft', 'top', 'topright', 'right', 'bottomright', 'bottom',
 #' 'bottomleft', 'left').
@@ -136,7 +136,7 @@ mf_text <- function(
   x,
   txt = "Text",
   cex = .8,
-  col_text,
+  col_txt,
   pos = "center",
   offset = 0,
   align = "center",
@@ -165,7 +165,7 @@ mf_text <- function(
     x <- interleg(txt = c("text", "Text"))
   }
 
-  col_text <- go(col_line, "highlight")
+  col_txt <- go(col_txt, "highlight")
   col_halo <- go(col_halo, "background")
   col_box <- go(col_box, "background")
   col_box_border <- go(col_box_border, "highlight")
@@ -173,7 +173,7 @@ mf_text <- function(
 
   grDevices::recordGraphics(
     expr = mf_text_display(
-      x = x, txt = txt, cex = cex, col_text = col_text,
+      x = x, txt = txt, cex = cex, col_txt = col_txt,
       pos = pos, offset = offset, align = align,
       font = font, family = family,
       halo = halo, col_halo = col_halo,
@@ -187,7 +187,7 @@ mf_text <- function(
       adj = adj
     ),
     list = list(
-      x = x, txt = txt, cex = cex, col_text = col_text,
+      x = x, txt = txt, cex = cex, col_txt = col_txt,
       pos = pos, offset = offset, align = align, font = font,
       family = family,
       halo = halo, col_halo = col_halo, cex_halo = cex_halo,
@@ -209,7 +209,7 @@ mf_text_display <- function(
   x,
   txt = "Text",
   cex = .8,
-  col_text,
+  col_txt,
   pos = "center",
   offset = .5,
   align = "center",
@@ -470,7 +470,7 @@ mf_text_display <- function(
   )
 
   display_text(
-    x = xy_text[1], y = xy_text[2], txt = txt, col_text = col_text,
+    x = xy_text[1], y = xy_text[2], txt = txt, col_txt = col_txt,
     cex = cex, font = font, family = family, adj = c(adj_x, adj_y),
     offset_x = offset_x, offset_y = offset_y,
     box = box, box_bbox = box_bbox, col_box = col_box,

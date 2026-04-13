@@ -1,4 +1,4 @@
-display_text <- function(x, y, txt, cex, font, family, adj, col_text,
+display_text <- function(x, y, txt, cex, font, family, adj, col_txt,
                          offset_x, offset_y,
                          box, box_bbox, col_box, col_box_border, lwd_box,
                          halo, cex_halo, col_halo) {
@@ -39,7 +39,7 @@ display_text <- function(x, y, txt, cex, font, family, adj, col_text,
     font = font,
     family = family,
     adj = adj,
-    col = col_text
+    col = col_txt
   )
 }
 

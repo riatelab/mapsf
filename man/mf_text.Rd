@@ -8,7 +8,7 @@ mf_text(
   x,
   txt = "Text",
   cex = 0.8,
-  col_text,
+  col_txt,
   pos = "center",
   offset = 0,
   align = "center",
@@ -41,7 +41,7 @@ or "interactive" for interactive placement.}
 
 \item{cex}{text size}
 
-\item{col_text}{text color}
+\item{col_txt}{text color}
 
 \item{pos}{position of the text relative to \code{x} (one of 'center',
 'topleft', 'top', 'topright', 'right', 'bottomright', 'bottom',
