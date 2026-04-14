@@ -225,7 +225,8 @@ mf_prop_choro <- function(x,
     lg <- do.call(leg_comp, la1)
     la2 <- list(
       leg = lg,
-      type = "choro",
+      type = "choro_point",
+      symbol = symbol,
       val = breaks,
       title = leg_title[2],
       val_rnd = leg_val_rnd[2],
@@ -236,8 +237,7 @@ mf_prop_choro <- function(x,
       no_data_txt = leg_no_data,
       horiz = leg_horiz[2],
       pal = pal,
-      box_border = leg_box_border,
-      box_cex = leg_box_cex
+      border = border
     )
     lg <- do.call(leg_comp, la2)
     leg_draw(lg,

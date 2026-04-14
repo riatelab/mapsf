@@ -11,7 +11,8 @@
 - better default for "grad" decimal precision in legend
 - test double arguments for "prop_choro", "prop_typo", "symb_choro" types
 - test for polygons in mf_shadow(), document default color
-- better legends for "prop_typo" maps, for "choro" maps on lines and on points, 
+- better legends for "prop_typo" and "prop_choro" maps
+- better legends for "choro" maps on lines and on points
 - update mf_legend(), add val_dec et val_big (#92)
 
 ## Feat
