@@ -51,8 +51,8 @@
 #' @param leg_box_border border color of legend boxes (for types related to
 #' choropleth and typology)
 #' @param leg_box_cex	width and height size expansion of boxes
-#' @param ... bgalpha, smooth, maxcell or other arguments passed to be
-#' passed to [terra::plotRGB] or [terra::plot]
+#' @param ... bgalpha, smooth, maxcell or other arguments passed to
+#' `terra::plotRGB` or `terra::plot`
 #' @export
 #' @return x is (invisibly) returned.
 #' @examples

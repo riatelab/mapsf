@@ -111,8 +111,8 @@ choropleth and typology)}
 \item{add}{whether to add the layer to an existing plot (TRUE) or
 not (FALSE)}
 
-\item{...}{bgalpha, smooth, maxcell or other arguments passed to be
-passed to \link[terra:plotRGB]{terra::plotRGB} or \link[terra:plot]{terra::plot}}
+\item{...}{bgalpha, smooth, maxcell or other arguments passed to
+\code{terra::plotRGB} or \code{terra::plot}}
 }
 \value{
 x is (invisibly) returned.
