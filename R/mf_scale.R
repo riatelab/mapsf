@@ -58,7 +58,7 @@ mf_scale <- function(size,
   col <- go(col, "highlight")
 
   if (!missing(x)) {
-    uu <- sf::st_crs(x)$ud_unit
+    uu <- st_crs(x)$ud_unit
     u_m <- structure(1,
       units = structure(
         list(

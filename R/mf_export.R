@@ -24,8 +24,6 @@
 #' @param ... further parameters for png or svg export
 #' @export
 #' @keywords internal
-#' @importFrom grDevices png svg
-#' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs
 #' @return No return value, a map file is initiated (in PNG or SVG format).
 #' @examples
 #' mtq <- mf_get_mtq()
@@ -169,9 +167,9 @@ mf_export <- function(x,
 
 
 get_ratio <- function(x, width, height, mar, res, format) {
-  if (isTRUE(sf::st_is_longlat(x))) {
+  if (isTRUE(st_is_longlat(x))) {
     x <- st_as_sfc(x)
-    lat_ts <- mean(sf::st_bbox(x)[c(2, 4)]) # latitude of true scale
+    lat_ts <- mean(st_bbox(x)[c(2, 4)]) # latitude of true scale
     x <- st_transform(x = x, paste0("+proj=eqc +lat_ts=", lat_ts))
     x <- st_bbox(x)
   }

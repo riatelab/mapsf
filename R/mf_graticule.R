@@ -64,7 +64,7 @@ mf_graticule <- function(x,
 
   col <- go(col, "highlight")
 
-  g <- sf::st_graticule(st_as_sfc(st_bbox(x)))
+  g <- st_graticule(st_as_sfc(st_bbox(x)))
 
   mf_map(
     g,

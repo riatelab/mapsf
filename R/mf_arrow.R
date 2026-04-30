@@ -9,7 +9,6 @@
 #' @param adj adjust the position of the north arrow in x and y directions
 #' @param align object of class `sf` or `sfc` used to adjust the
 #' arrow to the real north
-#' @importFrom sf st_crs st_as_sf st_coordinates st_transform
 #' @return No return value, a north arrow is displayed.
 #' @export
 #' @examples
@@ -157,6 +156,7 @@ get_arrow_pos <- function(pos, xe, ye, w, h) {
   }
   return(c(xarrow, yarrow))
 }
+
 
 build_arrow <- function(x, y, inset_x, inset_y) {
   x_triangle <- c(

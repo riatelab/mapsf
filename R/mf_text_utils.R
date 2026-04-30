@@ -285,9 +285,9 @@ build_trio <- function(x0, y0, x1, y1, pos, clockwise = FALSE) {
 
 get_xy_for_txt <- function(x, adj, pos, offset) {
   if (inherits(x, c("sf", "sfc"))) {
-    x <- sf::st_coordinates(
-      sf::st_centroid(
-        sf::st_geometry(x[1, ]),
+    x <- st_coordinates(
+      st_centroid(
+        st_geometry(x[1, ]),
         of_largest_polygon = TRUE
       )
     )

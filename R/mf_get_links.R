@@ -32,8 +32,8 @@ mf_get_links <- function(x, df, x_id, df_id) {
   # extract x centroids
   x2 <- data.frame(
     id = x[[x_id]],
-    sf::st_coordinates(sf::st_centroid(
-      x = sf::st_geometry(x),
+    st_coordinates(st_centroid(
+      x = st_geometry(x),
       of_largest_polygon = TRUE
     )),
     stringsAsFactors = FALSE
@@ -61,8 +61,8 @@ mf_get_links <- function(x, df, x_id, df_id) {
     "LINESTRING(", link$X.y, " ", link$Y.y, ", ",
     link$X.x, " ", link$Y.x, ")"
   )
-  link <- sf::st_sf(link[, seq_len(ncol(df))],
-    geometry = sf::st_as_sfc(stringo, crs = sf::st_crs(x))
+  link <- st_sf(link[, seq_len(ncol(df))],
+    geometry = st_as_sfc(stringo, crs = st_crs(x))
   )
   return(link)
 }

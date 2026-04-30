@@ -11,7 +11,6 @@
 #' if FALSE the title is displayed in the top margin
 #' @param banner if TRUE the title is displayed as a banner
 #' @export
-#' @importFrom grDevices recordGraphics
 #' @return No return value, a title is displayed.
 #' @examples
 #' mtq <- mf_get_mtq()

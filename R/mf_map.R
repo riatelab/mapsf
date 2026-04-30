@@ -223,7 +223,7 @@ mf_map <- function(x,
   }
 
 
-  if (is.null(grDevices::dev.list())) {
+  if (is.null(dev.list())) {
     add <- FALSE
   }
 

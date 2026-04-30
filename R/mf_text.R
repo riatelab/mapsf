@@ -171,7 +171,7 @@ mf_text <- function(
   col_box_border <- go(col_box_border, "highlight")
   col_line <- go(col_line, "highlight")
 
-  grDevices::recordGraphics(
+  recordGraphics(
     expr = mf_text_display(
       x = x, txt = txt, cex = cex, col_txt = col_txt,
       pos = pos, offset = offset, align = align,

@@ -54,7 +54,6 @@ mf_worldmap <- function(x, lon, lat, water_col = "lightblue",
 }
 
 
-#' @import s2
 orthomap <- function(lon, lat) {
   g <- as_s2_geography(TRUE)
   co <- s2_data_countries()

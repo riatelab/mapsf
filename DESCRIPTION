@@ -52,7 +52,6 @@ Suggests:
     Ckmeans.1d.dp,
     png, 
     jpeg,
-    lwgeom,
     knitr,
     rmarkdown,
     svglite,

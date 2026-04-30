@@ -68,9 +68,9 @@ mf_annotation <- function(x,
   }
 
   if (inherits(x, c("sf", "sfc"))) {
-    xy <- sf::st_coordinates(
-      sf::st_centroid(
-        sf::st_geometry(x[1, ]),
+    xy <- st_coordinates(
+      st_centroid(
+        st_geometry(x[1, ]),
         of_largest_polygon = TRUE
       )
     )
@@ -141,8 +141,8 @@ drawarc <- function(x = 1, y = NULL, radius = 1, deg1 = 0, deg2 = 45, col) {
   lwd <- 1.2
   xylim <- par("usr")
   ymult <- 1
-  devunits <- grDevices::dev.size("px")
-  xy <- grDevices::xy.coords(x, y)
+  devunits <- dev.size("px")
+  xy <- xy.coords(x, y)
   x <- xy$x
   y <- xy$y
   a1 <- pmin(angle1, angle2)

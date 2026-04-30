@@ -18,7 +18,6 @@
 #' @param neutral a color, if two gradients are used, the 'neutral' color can be
 #' added between them
 #' @return A vector of colors.
-#' @importFrom grDevices hcl.colors
 #' @export
 #' @examples
 #' cls <- mf_get_pal(n = c(3, 7), palette = c("Reds 2", "Greens"))

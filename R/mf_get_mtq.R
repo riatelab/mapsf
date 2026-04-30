@@ -31,7 +31,6 @@
 #'
 #' @return an sf object
 #' @export
-#' @importFrom sf st_read
 #' @examples
 #' mtq <- mf_get_mtq()
 mf_get_mtq <- function(x = "polygons") {

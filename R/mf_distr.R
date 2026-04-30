@@ -24,7 +24,7 @@ mf_distr <- function(x, nbins, bw) {
   x <- x[is.finite(x)]
 
   if (missing(bw) && missing(nbins)) {
-    bw <- stats::bw.SJ(x)
+    bw <- bw.SJ(x)
     nbins <- round((max(x) - min(x)) / (2 * bw), 0)
   }
   if (!missing(bw) && missing(nbins)) {
@@ -44,7 +44,7 @@ mf_distr <- function(x, nbins, bw) {
   bks <- seq(min(x), max(x), length.out = nbins + 1)
 
   # graphic basic parameters
-  d <- stats::density(x, bw = bw)
+  d <- density(x, bw = bw)
   h <- hist(x, breaks = bks, plot = FALSE)
   b <- boxplot(x, plot = FALSE)
 

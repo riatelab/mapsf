@@ -19,13 +19,13 @@
 #' @export
 mf_get_pencil <- function(x, size = 100, buffer = 0, lefthanded = TRUE,
                           clip = FALSE) {
-  a <- median(sf::st_area(sf::st_set_crs(x, NA)))
+  a <- median(st_area(st_set_crs(x, NA)))
   size <- size * size
-  . <- lapply(sf::st_geometry(x), makelines,
+  . <- lapply(st_geometry(x), makelines,
     size = size, buffer = buffer,
     lefthanded = lefthanded, a = a, clip = clip
   )
-  . <- sf::st_sfc(do.call(rbind, .))
+  . <- st_sfc(do.call(rbind, .))
   if (length(.) < nrow(x)) {
     stop(
       paste0(
@@ -35,34 +35,34 @@ mf_get_pencil <- function(x, size = 100, buffer = 0, lefthanded = TRUE,
       call. = FALSE
     )
   }
-  . <- sf::st_sf(geometry = ., x[, , drop = TRUE], sf_column_name = "geometry")
-  . <- sf::st_set_crs(., sf::st_crs(x))
-  . <- sf::st_cast(., "MULTILINESTRING")
+  . <- st_sf(geometry = ., x[, , drop = TRUE], sf_column_name = "geometry")
+  . <- st_set_crs(., st_crs(x))
+  . <- st_cast(., "MULTILINESTRING")
   return(.)
 }
 
 makelines <- function(x, size, buffer, lefthanded, a, clip) {
-  size <- round(sqrt(as.numeric(sf::st_area(x) * size / a)), 0)
+  size <- round(sqrt(as.numeric(st_area(x) * size / a)), 0)
   if (size <= 10) {
     size <- 10
   }
-  xbuf <- sf::st_buffer(sf::st_sfc(x), buffer)
+  xbuf <- st_buffer(st_sfc(x), buffer)
 
-  pt <- sf::st_sample(xbuf, size = size, exact = FALSE)
+  pt <- st_sample(xbuf, size = size, exact = FALSE)
 
   if (lefthanded) {
-    pt <- sf::st_sf(pt, x = sf::st_coordinates(pt)[, 2] +
-      sf::st_coordinates(pt)[, 1])
+    pt <- st_sf(pt, x = st_coordinates(pt)[, 2] +
+      st_coordinates(pt)[, 1])
   } else {
-    pt <- sf::st_sf(pt, x = sf::st_coordinates(pt)[, 2] -
-      sf::st_coordinates(pt)[, 1])
+    pt <- st_sf(pt, x = st_coordinates(pt)[, 2] -
+      st_coordinates(pt)[, 1])
   }
-  pt <- sf::st_combine(pt[order(pt$x), ])
+  pt <- st_combine(pt[order(pt$x), ])
 
   if (isTRUE(clip)) {
-    pt <- sf::st_intersection(sf::st_cast(pt, "LINESTRING"), x)
+    pt <- st_intersection(st_cast(pt, "LINESTRING"), x)
   } else {
-    pt <- sf::st_intersection(sf::st_cast(pt, "LINESTRING"), xbuf)
+    pt <- st_intersection(st_cast(pt, "LINESTRING"), xbuf)
   }
   return(pt)
 }

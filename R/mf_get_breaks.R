@@ -107,7 +107,7 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   }
 
   if (!breaks %in% custom_methods) {
-    intervals <- classInt::classIntervals(
+    intervals <- classIntervals(
       var = x,
       n = nbreaks,
       style = breaks, ...

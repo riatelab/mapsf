@@ -18,14 +18,14 @@ mf_get_borders <- function(x) {
   if (get_geom_type(x) != "POLYGON") {
     stop(paste0('"x" should be a POLYGON sf object'), call. = FALSE)
   }
-  if (sf::st_is_longlat(x)) {
+  if (st_is_longlat(x)) {
     stop("This feature does not work on unprojected (long/lat) layers.",
       call. = FALSE
     )
   }
-  oag <- sf::st_agr(x)
-  x <- sf::st_set_agr(x, "constant")
-  border <- sf::st_collection_extract(sf::st_intersection(x, x), "LINESTRING")
-  border <- sf::st_set_agr(border, c(oag, oag))
+  oag <- st_agr(x)
+  x <- st_set_agr(x, "constant")
+  border <- st_collection_extract(st_intersection(x, x), "LINESTRING")
+  border <- st_set_agr(border, c(oag, oag))
   return(border)
 }

@@ -13,7 +13,6 @@
 #' @param theme theme used for the map
 #' @param width width of the figure (inches), use only one of width or height
 #' @param height height of the figure (inches), use only one of width or height
-#' @importFrom sf st_bbox st_as_sfc st_geometry st_is_longlat st_crs
 #' @return Width and height are returned in inches.
 #' @export
 #'
@@ -72,7 +71,7 @@ x_to_bb <- function(x, expandBB) {
 
   if (isTRUE(st_is_longlat(st_crs(x)))) {
     x <- st_as_sfc(st_bbox(x))
-    lat_ts <- mean(sf::st_bbox(x)[c(2, 4)]) # latitude of true scale
+    lat_ts <- mean(st_bbox(x)[c(2, 4)]) # latitude of true scale
     x <- st_transform(x = x, paste0("+proj=eqc +lat_ts=", lat_ts))
   }
 

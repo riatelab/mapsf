@@ -48,8 +48,8 @@ mf_label <- function(x,
 
 
   words <- x[[var]]
-  cc <- sf::st_coordinates(sf::st_centroid(
-    x = sf::st_geometry(x),
+  cc <- st_coordinates(st_centroid(
+    x = st_geometry(x),
     of_largest_polygon = TRUE
   ))
 

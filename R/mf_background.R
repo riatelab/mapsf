@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-#' if (require("jpeg")){
+#' if (require("jpeg")) {
 #'   mtq <- mf_get_mtq()
 #'   mf_map(mtq, col = NA, border = NA)
 #'   mf_background(system.file("img/background.jpg", package = "mapsf"))
@@ -23,7 +23,7 @@ mf_background <- function(filename, ...) {
   recordGraphics(
     {
       pusr <- par("usr")
-      graphics::rasterImage(
+      rasterImage(
         image   = img,
         xleft   = pusr[1],
         ybottom = pusr[3],

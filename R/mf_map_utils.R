@@ -23,7 +23,6 @@ test2args <- function(x) {
 #' @param nbreaks nbreaks
 #' @param alpha alpha
 #' @noRd
-#' @importFrom grDevices hcl.pals hcl.colors
 get_the_pal <- function(pal, nbreaks, alpha, rev = TRUE) {
   if (length(pal) == 1) {
     if (is.function(pal)) {
@@ -44,9 +43,9 @@ get_the_pal <- function(pal, nbreaks, alpha, rev = TRUE) {
 }
 
 get_hex_pal <- function(pal, alpha) {
-  pal <- grDevices::col2rgb(pal, alpha = FALSE)
+  pal <- col2rgb(pal, alpha = FALSE)
   ffun <- function(x) {
-    grDevices::rgb(pal[1, x],
+    rgb(pal[1, x],
       pal[2, x],
       pal[3, x],
       maxColorValue = 255
@@ -194,7 +193,7 @@ get_size <- function(var, inches, val_max, symbol) {
 # Plot symbols
 plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
   if (inherits(dots, c("sf", "sfc"))) {
-    xy <- sf::st_set_geometry(dots[, 1:2], NULL)
+    xy <- st_set_geometry(dots[, 1:2], NULL)
   } else {
     xy <- dots
   }
@@ -296,7 +295,6 @@ split_leg <- function(x) {
   }
   return(list(l1 = lp1, l2 = lp2))
 }
-
 
 get_geom_type <- function(x) {
   a <- list(

@@ -13,7 +13,6 @@
 #' [colors], ignored if `add = TRUE`
 #' @param add whether to add the layer to an existing plot (TRUE) or not (FALSE)
 #' @export
-#' @importFrom sf st_geometry
 #' @return x is (invisibly) returned.
 #' @examples
 #' mtq <- mf_get_mtq()

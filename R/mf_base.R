@@ -16,7 +16,6 @@
 #' @param cex point size
 #' @param lty line or border type
 #' @param ... ignored
-#' @importFrom sf st_geometry
 #' @keywords internal
 #' @return x is (invisibly) returned.
 #' @export

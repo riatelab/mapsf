@@ -30,7 +30,6 @@
 #' 'leg_fg',
 #' 'leg_size',
 #' 'leg_adj'))
-#' @importFrom graphics box
 #' @keywords internal
 #' @export
 #' @return x is (invisibly) returned.
