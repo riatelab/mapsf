@@ -28,8 +28,9 @@
 #' @examples
 #' mtq <- mf_get_mtq()
 #' (filename <- tempfile(fileext = ".png"))
-#' mf_export(mtq, filename = filename)
-#' mf_map(mtq, add = TRUE)
+#' mf_png(mtq, filename = filename)
+#' mf_map(mtq)
+#' mf_title()
 #' dev.off()
 mf_export <- function(x,
                       filename = "map.png",

@@ -29,7 +29,9 @@ This function is similar to \code{mf_map(x, col = NA, border = NA)}.
 \examples{
 mtq <- mf_get_mtq()
 target <- mtq[30, ]
-mf_init(target)
+mf_map(target, type = "base", col = NA, border = NA)
 mf_map(mtq, add = TRUE)
+# or
+mf_map(mtq, extent = target)
 }
 \keyword{internal}

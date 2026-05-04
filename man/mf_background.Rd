@@ -18,7 +18,7 @@ No return value, a background image is displayed.
 Plot a background image on an existing plot
 }
 \examples{
-if (require("jpeg")){
+if (require("jpeg")) {
   mtq <- mf_get_mtq()
   mf_map(mtq, col = NA, border = NA)
   mf_background(system.file("img/background.jpg", package = "mapsf"))
