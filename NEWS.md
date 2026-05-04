@@ -22,8 +22,8 @@ load these layers, update documentation accordingly
 - add mf_logo() to add images (PNG or JPEG) on the map
 - add mf_text() to display texts on maps
 - add a max_val arg to mf_legend() to use a maximum value to set the symbol size
-- better legends for "prop_typo" and "prop_choro" maps
-- better legends for "choro" maps on lines and on points
+- use better legends for "prop_typo" and "prop_choro" maps
+- use better legends for "choro" maps on lines and on points
 - add the possibility to display break values along the statistical 
 distribution in mf_distr()
 - add "main", "ylab" and "yaxt" to mf_distr() for changing title, y labels 

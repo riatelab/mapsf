@@ -9,12 +9,10 @@
 #' * `type`, the map type.
 #'
 #' Relevant arguments and default values are different for each map type and are
-#' described in the following help pages:
-#'
-#' [base][mf_map_base], [prop][mf_map_prop],
-#' [choro][mf_map_choro], [typo][mf_map_typo], [symb][mf_map_symb],
-#' [grad][mf_map_grad], [prop_choro][mf_map_prop_choro],
-#' [prop_typo][mf_map_prop_typo], [symb_choro][mf_map_symb_choro].
+#' described in dedicated help pages (see [base][mf_map_base],
+#' [choro][mf_map_choro], [typo][mf_map_typo],[prop][mf_map_prop],
+#' [prop_choro][mf_map_prop_choro], [prop_typo][mf_map_prop_typo],
+#' [symb][mf_map_symb], [grad][mf_map_grad], [symb_choro][mf_map_symb_choro]).
 #' @family map types
 #' @usage
 #' mf_map(x, var, type = "base",
@@ -28,15 +26,17 @@
 #' @param x object of class `sf`
 #' @param var name(s) of the variable(s) to map
 #' @param type
-#' * **base**: base maps
-#' * **prop**: proportional symbols maps
-#' * **choro**: choropleth maps
-#' * **typo**: typology maps
-#' * **symb**: symbols maps
-#' * **grad**: graduated symbols maps
-#' * **prop_choro**: proportional symbols with choropleth coloration
-#' * **prop_typo**: proportional symbols with typology coloration
-#' * **symb_choro**: symbols with choropleth coloration
+#' * **[base][mf_map_base]**: base maps
+#' * **[choro][mf_map_choro]**: choropleth maps
+#' * **[typo][mf_map_typo]**: typology maps
+#' * **[prop][mf_map_prop]**: proportional symbols maps
+#' * **[prop_choro][mf_map_prop_choro]**: proportional symbols with choropleth
+#' coloration
+#' * **[prop_typo][mf_map_prop_typo]**: proportional symbols with typology
+#' coloration
+#' * **[symb][mf_map_symb]**: symbols maps
+#' * **[grad][mf_map_grad]**: graduated symbols maps
+#' * **[symb_choro][mf_map_symb_choro]**: symbols with choropleth coloration
 #' @param breaks	either a numeric vector with the actual breaks, or a
 #' classification method name. The main methods are 'quantile',
 #' 'equal', 'msd', 'ckmeans' (natural breaks), 'Q6' and 'geom'.

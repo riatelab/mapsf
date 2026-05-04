@@ -19,15 +19,17 @@ mf_map(x, var, type = "base",
 \item{var}{name(s) of the variable(s) to map}
 
 \item{type}{\itemize{
-\item \strong{base}: base maps
-\item \strong{prop}: proportional symbols maps
-\item \strong{choro}: choropleth maps
-\item \strong{typo}: typology maps
-\item \strong{symb}: symbols maps
-\item \strong{grad}: graduated symbols maps
-\item \strong{prop_choro}: proportional symbols with choropleth coloration
-\item \strong{prop_typo}: proportional symbols with typology coloration
-\item \strong{symb_choro}: symbols with choropleth coloration
+\item \strong{\link[=mf_map_base]{base}}: base maps
+\item \strong{\link[=mf_map_choro]{choro}}: choropleth maps
+\item \strong{\link[=mf_map_typo]{typo}}: typology maps
+\item \strong{\link[=mf_map_prop]{prop}}: proportional symbols maps
+\item \strong{\link[=mf_map_prop_choro]{prop_choro}}: proportional symbols with choropleth
+coloration
+\item \strong{\link[=mf_map_prop_typo]{prop_typo}}: proportional symbols with typology
+coloration
+\item \strong{\link[=mf_map_symb]{symb}}: symbols maps
+\item \strong{\link[=mf_map_grad]{grad}}: graduated symbols maps
+\item \strong{\link[=mf_map_symb_choro]{symb_choro}}: symbols with choropleth coloration
 }}
 
 \item{breaks}{either a numeric vector with the actual breaks, or a
@@ -145,12 +147,10 @@ georeferenced plot.
 }
 
 Relevant arguments and default values are different for each map type and are
-described in the following help pages:
-
-\link[=mf_map_base]{base}, \link[=mf_map_prop]{prop},
-\link[=mf_map_choro]{choro}, \link[=mf_map_typo]{typo}, \link[=mf_map_symb]{symb},
-\link[=mf_map_grad]{grad}, \link[=mf_map_prop_choro]{prop_choro},
-\link[=mf_map_prop_typo]{prop_typo}, \link[=mf_map_symb_choro]{symb_choro}.
+described in dedicated help pages (see \link[=mf_map_base]{base},
+\link[=mf_map_choro]{choro}, \link[=mf_map_typo]{typo},\link[=mf_map_prop]{prop},
+\link[=mf_map_prop_choro]{prop_choro}, \link[=mf_map_prop_typo]{prop_typo},
+\link[=mf_map_symb]{symb}, \link[=mf_map_grad]{grad}, \link[=mf_map_symb_choro]{symb_choro}).
 }
 \examples{
 mtq <- mf_get_mtq()
