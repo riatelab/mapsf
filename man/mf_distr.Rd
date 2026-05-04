@@ -4,7 +4,18 @@
 \alias{mf_distr}
 \title{Plot a distribution}
 \usage{
-mf_distr(x, nbins, bw)
+mf_distr(
+  x,
+  nbins,
+  bw,
+  breaks,
+  pal,
+  alpha = 1,
+  rev = FALSE,
+  main = "Distribution",
+  yaxt = TRUE,
+  ylab = "Density"
+)
 }
 \arguments{
 \item{x}{a numeric variable}
@@ -12,6 +23,26 @@ mf_distr(x, nbins, bw)
 \item{nbins}{number of bins in the histogram}
 
 \item{bw}{bandwidth of the density curve}
+
+\item{breaks}{a vector of class boundaries. If \code{breaks} is used, the boxplot
+is not displayed.}
+
+\item{pal}{a color, a set of colors (hex codes) or a palette name.
+Palette names can be obtained with \link{hcl.pals}. The default color is either
+the highlight color if \code{breaks} is not used, or the background color
+otherwise (see \link{mf_theme}).}
+
+\item{alpha}{opacity, in the range [0,1] (0 means
+transparent and 1 means opaque). Default is set to 1.}
+
+\item{rev}{logical indicating whether the ordering of the colors should be
+reversed}
+
+\item{main}{plot title}
+
+\item{yaxt}{if FALSE the y axis is not displayed}
+
+\item{ylab}{y axis label}
 }
 \value{
 The number of bins of the histogram and the bandwidth of the density
@@ -23,11 +54,20 @@ a histogram, a box plot, a strip chart and a density curve on the same plot.
 
 This graphic can be useful to choose an appropriate classification method for
 choropleth maps.
+
+User-defined class boundaries can also be displayed on the plot.
 }
 \examples{
 (mf_distr(rnorm(1000)))
 mf_distr(rbeta(1000, .6, 7))
 mf_distr(rbeta(1000, 5, .6))
+a <- rbeta(1000, .6, 7)
+bks <- mf_get_breaks(a, nbreaks = 5, breaks = "quantile")
+mf_distr(a, breaks = bks)
+mf_distr(a,
+  breaks = bks, pal = "Teal", yaxt = FALSE,
+  main = 'Classification method : "quantile"'
+)
 }
 \seealso{
 \link{mf_map_choro}

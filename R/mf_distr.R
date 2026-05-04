@@ -6,10 +6,24 @@
 #' This graphic can be useful to choose an appropriate classification method for
 #' choropleth maps.
 #'
+#' User-defined class boundaries can also be displayed on the plot.
+#'
 #' @param x a numeric variable
 #' @param nbins number of bins in the histogram
 #' @param bw bandwidth of the density curve
-#'
+#' @param breaks a vector of class boundaries. If `breaks` is used, the boxplot
+#' is not displayed.
+#' @param pal a color, a set of colors (hex codes) or a palette name.
+#' Palette names can be obtained with [hcl.pals]. The default color is either
+#' the highlight color if `breaks` is not used, or the background color
+#' otherwise (see [mf_theme]).
+#' @param rev logical indicating whether the ordering of the colors should be
+#' reversed
+#' @param alpha opacity, in the range \[0,1\] (0 means
+#' transparent and 1 means opaque). Default is set to 1.
+#' @param main plot title
+#' @param yaxt if FALSE the y axis is not displayed
+#' @param ylab y axis label
 #' @return The number of bins of the histogram and the bandwidth of the density
 #' curve are (invisibly) returned in a list.
 #' @export
@@ -18,7 +32,15 @@
 #' (mf_distr(rnorm(1000)))
 #' mf_distr(rbeta(1000, .6, 7))
 #' mf_distr(rbeta(1000, 5, .6))
-mf_distr <- function(x, nbins, bw) {
+#' a <- rbeta(1000, .6, 7)
+#' bks <- mf_get_breaks(a, nbreaks = 5, breaks = "quantile")
+#' mf_distr(a, breaks = bks)
+#' mf_distr(a,
+#'   breaks = bks, pal = "Teal", yaxt = FALSE,
+#'   main = 'Classification method : "quantile"'
+#' )
+mf_distr <- function(x, nbins, bw, breaks, pal, alpha = 1, rev = FALSE,
+                     main = "Distribution", yaxt = TRUE, ylab = "Density") {
   x <- as.numeric(x)
   x <- x[!is.na(x)]
   x <- x[is.finite(x)]
@@ -41,11 +63,11 @@ mf_distr <- function(x, nbins, bw) {
     nbins <- 3
   }
 
-  bks <- seq(min(x), max(x), length.out = nbins + 1)
+  hbks <- seq(min(x), max(x), length.out = nbins + 1)
 
   # graphic basic parameters
   d <- density(x, bw = bw)
-  h <- hist(x, breaks = bks, plot = FALSE)
+  h <- hist(x, breaks = hbks, plot = FALSE)
   b <- boxplot(x, plot = FALSE)
 
   # graphic dimensions and labels
@@ -97,7 +119,6 @@ mf_distr <- function(x, nbins, bw) {
     env = getNamespace("mapsf")
   )
 
-
   # histogram
   hist(
     x,
@@ -118,8 +139,8 @@ mf_distr <- function(x, nbins, bw) {
     add = TRUE
   )
   title(
-    main = "Distribution",
-    ylab = "Density",
+    main = main,
+    ylab = ifelse(yaxt, ylab, ""),
     line = 2,
     col.lab = getOption("mapsf.highlight"),
     col.main = getOption("mapsf.highlight")
@@ -139,45 +160,71 @@ mf_distr <- function(x, nbins, bw) {
     col.ticks = getOption("mapsf.highlight")
   )
 
-  axis(
-    side = 2,
-    pos = x_lim[1],
-    at = y_labels,
-    las = 2,
-    col.axis = getOption("mapsf.highlight"),
-    col = getOption("mapsf.highlight"),
-    col.ticks = getOption("mapsf.highlight")
-  )
-  points(
-    x = x,
-    y = pts_y,
-    pch = 21,
-    cex = .7,
-    lwd = .8,
-    bg = getOption("mapsf.highlight"),
-    col = getOption("mapsf.background")
-  )
-  # box plots
-  box_plot(
-    x = b$stats[, 1],
-    y = y_lim[1],
-    large_offset = large_offset,
-    small_offset = small_offset,
-    col = getOption("mapsf.background"),
-    lwd = 4
-  )
-  box_plot(
-    x = b$stats[, 1],
-    y = y_lim[1],
-    large_offset = large_offset,
-    small_offset = small_offset,
-    col = getOption("mapsf.highlight"),
-    lwd = 1.5
-  )
+  if (isTRUE(yaxt)) {
+    axis(
+      side = 2,
+      pos = x_lim[1],
+      at = y_labels,
+      las = 2,
+      col.axis = getOption("mapsf.highlight"),
+      col = getOption("mapsf.highlight"),
+      col.ticks = getOption("mapsf.highlight")
+    )
+  }
 
-  return(invisible(list(
-    bw = bw, nbins = round(nbins, 0)
-  )))
+  if (!missing(breaks)) {
+    if (missing(pal)) {
+      pal <- getOption("mapsf.foreground")
+    }
+    pal <- get_the_pal(pal = pal, nbreaks = length(breaks) - 1, alpha = alpha, rev = !rev)
+    mycols <- get_col_vec(x = x, breaks = breaks, pal = pal, jen = FALSE)
+    points(
+      x = x,
+      y = pts_y,
+      pch = 21,
+      cex = .7,
+      lwd = .8,
+      bg = mycols,
+      col = getOption("mapsf.background")
+    )
+    segments(
+      x0 = breaks,
+      y0 = rep(y_lim[1] - small_offset / 2, length(breaks)),
+      x1 = breaks,
+      y1 = rep(y_lim[1] + large_offset + small_offset / 2, length(breaks)),
+      col = getOption("mapsf.highlight"),
+      lwd = 2
+    )
+  } else {
+    points(
+      x = x,
+      y = pts_y,
+      pch = 21,
+      cex = .7,
+      lwd = .8,
+      bg = getOption("mapsf.highlight"),
+      col = getOption("mapsf.background")
+    )
+
+    box_plot(
+      x = b$stats[, 1],
+      y = y_lim[1],
+      large_offset = large_offset,
+      small_offset = small_offset,
+      col = getOption("mapsf.background"),
+      lwd = 4
+    )
+    box_plot(
+      x = b$stats[, 1],
+      y = y_lim[1],
+      large_offset = large_offset,
+      small_offset = small_offset,
+      col = getOption("mapsf.highlight"),
+      lwd = 1.5
+    )
+  }
+
+  return(invisible(list(bw = bw, nbins = round(nbins, 0))))
 }
 
 box_plot <- function(x, y, large_offset, small_offset, col, lwd) {
