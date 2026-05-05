@@ -34,7 +34,7 @@
 #' )
 #' mf_text(
 #'   x = mtq[28, ],
-#'   txt = "pos = 'topright'\nline = 3\nbox= TRUE\nclockwise = FALSE",
+#'   txt = "pos = 'topright'\nline = 3\nclockwise = FALSE",
 #'   pos = "topright",
 #'   offset = 10,
 #'   clockwise = FALSE,

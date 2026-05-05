@@ -10,9 +10,9 @@
 #'
 #' Relevant arguments and default values are different for each map type and are
 #' described in dedicated help pages (see [base][mf_map_base],
-#' [choro][mf_map_choro], [typo][mf_map_typo],[prop][mf_map_prop],
+#' [choro][mf_map_choro], [typo][mf_map_typo], [prop][mf_map_prop],
 #' [prop_choro][mf_map_prop_choro], [prop_typo][mf_map_prop_typo],
-#' [symb][mf_map_symb], [grad][mf_map_grad], [symb_choro][mf_map_symb_choro]).
+#' [symb][mf_map_symb], [grad][mf_map_grad] or [symb_choro][mf_map_symb_choro]).
 #' @family map types
 #' @usage
 #' mf_map(x, var, type = "base",

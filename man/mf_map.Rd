@@ -148,9 +148,9 @@ georeferenced plot.
 
 Relevant arguments and default values are different for each map type and are
 described in dedicated help pages (see \link[=mf_map_base]{base},
-\link[=mf_map_choro]{choro}, \link[=mf_map_typo]{typo},\link[=mf_map_prop]{prop},
+\link[=mf_map_choro]{choro}, \link[=mf_map_typo]{typo}, \link[=mf_map_prop]{prop},
 \link[=mf_map_prop_choro]{prop_choro}, \link[=mf_map_prop_typo]{prop_typo},
-\link[=mf_map_symb]{symb}, \link[=mf_map_grad]{grad}, \link[=mf_map_symb_choro]{symb_choro}).
+\link[=mf_map_symb]{symb}, \link[=mf_map_grad]{grad} or \link[=mf_map_symb_choro]{symb_choro}).
 }
 \examples{
 mtq <- mf_get_mtq()

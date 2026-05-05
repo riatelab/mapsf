@@ -168,7 +168,7 @@ mf_text(
 )
 mf_text(
   x = mtq[28, ],
-  txt = "pos = 'topright'\nline = 3\nbox= TRUE\nclockwise = FALSE",
+  txt = "pos = 'topright'\nline = 3\nclockwise = FALSE",
   pos = "topright",
   offset = 10,
   clockwise = FALSE,
@@ -178,7 +178,7 @@ mf_text(
 )
 mf_text(
   x = mtq[28, ],
-  txt = "pos = 'right'\nline = 3\nclockwise = TRUE",
+  txt = "pos = 'right'\nline = 3\nbox = TRUE\nclockwise = TRUE",
   pos = "right",
   offset = 10,
   clockwise = TRUE,
