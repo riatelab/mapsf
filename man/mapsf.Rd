@@ -80,6 +80,7 @@ Other contributors:
   \item Elina Marveaux (\href{https://orcid.org/0009-0000-8667-3019}{ORCID}) (Themes) [contributor]
   \item Ian Fellows (No overlap algorithm for labels, from wordcloud package) [copyright holder]
   \item Jim Lemon (Arc drawing algorithm for annotations, from plotrix package) [copyright holder]
+  \item Danielle Navarro (\href{https://orcid.org/0000-0001-7648-6578}{ORCID}) (Bézier curve algorithm for text annotations) [copyright holder]
 }
 
 }

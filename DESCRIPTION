@@ -1,6 +1,6 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 1.1.0.9000
+Version: 1.2.0
 Authors@R: 
     c(person(given = "Timothée",
              family = "Giraud",
@@ -26,7 +26,11 @@ Authors@R:
       person(given = "Jim",
              family = "Lemon",
              role = "cph",
-             comment = "Arc drawing algorithm for annotations, from plotrix package"))
+             comment = "Arc drawing algorithm for annotations, from plotrix package"), 
+      person(given = "Danielle",
+             family = "Navarro",
+             role = "cph",
+             comment = c(ORCID = "0000-0001-7648-6578", "Bézier curve algorithm for text annotations")))
 Description: Create and integrate thematic maps in your workflow. This package
     helps to design various cartographic representations such as proportional
     symbols, choropleth or typology maps. It also offers several functions to
@@ -41,7 +45,7 @@ Depends:
 Imports: 
     classInt, 
     graphics,
-    maplegend (>= 0.6.1),
+    maplegend (>= 0.6.3),
     s2,
     sf,
     stats,
