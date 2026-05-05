@@ -21,6 +21,7 @@ You can install the released version of `mapsf` from
 [CRAN](https://cran.r-project.org/package=mapsf) with:
 
 ``` r
+
 install.packages("mapsf")
 ```
 
@@ -29,7 +30,8 @@ Alternatively, you can install the development version of `mapsf` (the
 with:
 
 ``` r
-install.packages("mapsf", repos = "https://riatelab.r-universe.dev")
+
+install.packages("mapsf", repos = c("https://riatelab.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 ## Usage
@@ -37,6 +39,7 @@ install.packages("mapsf", repos = "https://riatelab.r-universe.dev")
 This is a basic example which shows how to create a map with `mapsf`.
 
 ``` r
+
 library(mapsf)
 # Import the sample dataset
 mtq <- mf_get_mtq()

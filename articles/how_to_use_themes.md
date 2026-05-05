@@ -27,6 +27,7 @@ It is possible to modify an existing theme. In this example we use the
 “base” theme and modify some title parameters.
 
 ``` r
+
 library(mapsf)
 mtq <- mf_get_mtq()
 mf_theme("base", title_banner = TRUE, title_font = 4)
@@ -41,6 +42,7 @@ mf_title('Mofified "default" theme')
 It is possible to create a new theme from scratch.
 
 ``` r
+
 mf_theme(
   mar          = c(0.1, 0.1, 1.85, 0.1),
   title_tab    = FALSE,
@@ -67,6 +69,7 @@ mf_title("New theme")
 It is also possible to assign a theme to a variable.
 
 ``` r
+
 blue_theme <- mf_theme("base", background = "lightblue")
 green_theme <- mf_theme("base", background = "lightgreen")
 mf_theme(blue_theme)
@@ -77,6 +80,7 @@ mf_title("Blue Theme")
 ![](fig/wo_theme_blue_green-1.png)
 
 ``` r
+
 mf_theme(green_theme)
 mf_map(mtq)
 mf_title("Green Theme")
@@ -91,7 +95,12 @@ Although the map theming system has been radically changed in version
 them by name.
 
 ``` r
+
 mf_theme("default")
+#> The following themes are deprecated:
+#> 'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', 'darkula',
+#> 'iceberg', 'green', 'nevermind', 'jsk', and 'barcelona'.
+#> See the Note section in the help page (?mf_theme).
 mf_map(mtq)
 mf_title("Legacy default theme")
 ```

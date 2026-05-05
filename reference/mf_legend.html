@@ -15,7 +15,7 @@ mf_legend() is a wrapper for maplegend::leg().'><meta property="og:image" conten
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,6 +68,7 @@ some others are only relevant for specific legend types (see Details).
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  col <span class="op">=</span> <span class="st">"tomato4"</span>,</span>
 <span>  inches <span class="op">=</span> <span class="fl">0.3</span>,</span>
+<span>  val_max <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  symbol <span class="op">=</span> <span class="st">"circle"</span>,</span>
 <span>  self_adjust <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  lwd <span class="op">=</span> <span class="fl">0.7</span>,</span>
@@ -78,6 +79,8 @@ some others are only relevant for specific legend types (see Details).
 <span>  title_cex <span class="op">=</span> <span class="fl">0.8</span> <span class="op">*</span> <span class="va">size</span>,</span>
 <span>  val_cex <span class="op">=</span> <span class="fl">0.6</span> <span class="op">*</span> <span class="va">size</span>,</span>
 <span>  val_rnd <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  val_dec <span class="op">=</span> <span class="st">"."</span>,</span>
+<span>  val_big <span class="op">=</span> <span class="st">""</span>,</span>
 <span>  col_na <span class="op">=</span> <span class="st">"white"</span>,</span>
 <span>  cex_na <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  pch_na <span class="op">=</span> <span class="fl">4</span>,</span>
@@ -107,15 +110,22 @@ some others are only relevant for specific legend types (see Details).
 <li><p><strong>typo</strong> for typology maps,</p></li>
 <li><p><strong>symb</strong> for symbols maps,</p></li>
 <li><p><strong>prop_line</strong> for proportional lines maps,</p></li>
-<li><p><strong>grad_line</strong> for graduated lines maps.</p></li>
+<li><p><strong>grad_line</strong> for graduated lines maps,</p></li>
+<li><p><strong>histo</strong> for histograms,</p></li>
+<li><p><strong>choro_point</strong> for choropleth points maps,</p></li>
+<li><p><strong>choro_line</strong> for choropleth lines maps,</p></li>
+<li><p><strong>choro_symb</strong> for choropleth on symbols maps</p></li>
+<li><p><strong>typo_line</strong> for typology lines maps.</p></li>
 </ul></dd>
 
 
 <dt id="arg-val">val<a class="anchor" aria-label="anchor" href="#arg-val"></a></dt>
 <dd><p>vector of value(s) (for "prop" and "prop_line", at least c(min, max)
 for "cont"),
-vector of categories (for "symb" and "typo"),
-break labels (for "choro" and "grad_line").</p></dd>
+vector of categories (for "symb", "typo", "typo_line"),
+break labels (for "choro", "choro_point", "choro_line", "choro_symb",
+and "grad_line"),
+histogram parameters (for "histo").</p></dd>
 
 
 <dt id="arg-pos">pos<a class="anchor" aria-label="anchor" href="#arg-pos"></a></dt>
@@ -126,11 +136,12 @@ in map units (c(x, y)).</p></dd>
 
 
 <dt id="arg-pal">pal<a class="anchor" aria-label="anchor" href="#arg-pal"></a></dt>
-<dd><p>a color palette name or a vector of colors</p></dd>
+<dd><p>a set of colors (hex codes) or a palette name (valid palette
+names can be obtained with <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals</a>.</p></dd>
 
 
 <dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
-<dd><p>if <code>pal</code> is a <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a> palette name, the
+<dd><p>if <code>pal</code> is a valid palette name, the
 alpha-transparency level in the range [0,1]</p></dd>
 
 
@@ -144,6 +155,10 @@ alpha-transparency level in the range [0,1]</p></dd>
 for squares) in inches</p></dd>
 
 
+<dt id="arg-val-max">val_max<a class="anchor" aria-label="anchor" href="#arg-val-max"></a></dt>
+<dd><p>maximum value corresponding to the largest symbol</p></dd>
+
+
 <dt id="arg-symbol">symbol<a class="anchor" aria-label="anchor" href="#arg-symbol"></a></dt>
 <dd><p>type of symbols, 'circle' or 'square'</p></dd>
 
@@ -154,9 +169,10 @@ intermediate rounded values</p></dd>
 
 
 <dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
-<dd><p>width(s) of the symbols borders (for "prop" and "symb"),
-width of the largest line (for "prop_line"), vector of line width
-(for "grad_line")</p></dd>
+<dd><p>width(s) of the symbols borders (for "prop", "symb",
+"choro_point", "choro_symb"),
+width of the largest line (for "prop_line"), line width (for "choro_line"
+and "typo_line"), vector of line widths (for "grad_line")</p></dd>
 
 
 <dt id="arg-border">border<a class="anchor" aria-label="anchor" href="#arg-border"></a></dt>
@@ -188,6 +204,14 @@ width of the largest line (for "prop_line"), vector of line width
 the legend</p></dd>
 
 
+<dt id="arg-val-dec">val_dec<a class="anchor" aria-label="anchor" href="#arg-val-dec"></a></dt>
+<dd><p>decimal separator</p></dd>
+
+
+<dt id="arg-val-big">val_big<a class="anchor" aria-label="anchor" href="#arg-val-big"></a></dt>
+<dd><p>thousands separator</p></dd>
+
+
 <dt id="arg-col-na">col_na<a class="anchor" aria-label="anchor" href="#arg-col-na"></a></dt>
 <dd><p>color for missing values</p></dd>
 
@@ -213,8 +237,8 @@ the legend</p></dd>
 
 
 <dt id="arg-box-cex">box_cex<a class="anchor" aria-label="anchor" href="#arg-box-cex"></a></dt>
-<dd><p>width and height size expansion of boxes,
-(or offset between circles for "prop" legends with horiz = TRUE)</p></dd>
+<dd><p>width and height size expansion of boxes, histogram
+circles, squares or lines</p></dd>
 
 
 <dt id="arg-horiz">horiz<a class="anchor" aria-label="anchor" href="#arg-horiz"></a></dt>
@@ -247,7 +271,7 @@ No legend is plotted.</p></dd>
 
 
 <dt id="arg-adj">adj<a class="anchor" aria-label="anchor" href="#arg-adj"></a></dt>
-<dd><p>adjust the postion of the legend in x and y directions</p></dd>
+<dd><p>adjust the position of the legend in x and y directions</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -258,15 +282,20 @@ No legend is plotted.</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Some arguments are available for all types of legend: <code>val</code>, <code>pos</code>, <code>title</code>,
-<code>title_cex</code>, <code>val_cex</code>, <code>frame</code>, <code>bg</code>, <code>fg</code>, <code>size</code>, <code>adj</code>,
+<code>title_cex</code>, <code>val_cex</code>, <code>frame</code>, <code>bg</code>, <code>fg</code>, <code>size</code>, <code>adj</code>, <code>alpha</code>,
 <code>return_bbox</code>).</p>
-<p>Relevant arguments for each specific legend types:</p><ul><li><p><code>mf_legend(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)</code></p></li>
-<li><p><code>mf_legend(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)</code></p></li>
-<li><p><code>mf_legend(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)</code></p></li>
-<li><p><code>mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)</code></p></li>
+<p>Relevant arguments for each specific legend types:</p><ul><li><p><code>mf_legend(type = "prop", val, inches, val_max, symbol, col, lwd, border, val_rnd, val_big, val_dec, self_adjust, horiz)</code></p></li>
+<li><p><code>mf_legend(type = "choro", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex, horiz)</code></p></li>
+<li><p><code>mf_legend(type = "cont", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex, horiz)</code></p></li>
+<li><p><code>mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border, box_cex)</code></p></li>
 <li><p><code>mf_legend(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)</code></p></li>
-<li><p><code>mf_legend(type = "prop_line", val, col, lwd, val_rnd)</code></p></li>
-<li><p><code>mf_legend(type = "grad_line", val, col, lwd, val_rnd)</code></p></li>
+<li><p><code>mf_legend(type = "prop_line", val, col, lwd, val_rnd, val_big, val_dec)</code></p></li>
+<li><p><code>mf_legend(type = "grad_line", val, col, lwd, val_rnd, val_big, val_dec)</code></p></li>
+<li><p><code>mf_legend(type = "histo", val, pal, box_border, val_rnd, val_big, val_dec)</code></p></li>
+<li><p><code>mf_legend(type = "choro_point", val, pal, symbol, border, cex, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, horiz)</code></p></li>
+<li><p><code>mf_legend(type = "choro_line", val, pal, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)</code></p></li>
+<li><p><code>mf_legend(type = "choro_symb", val, pal, pch, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)</code></p></li>
+<li><p><code>mf_legend(type = "typo_line", val, pal, lwd, col_na, no_data, no_data_txt, box_cex)</code></p></li>
 </ul></div>
 
     <div class="section level2">

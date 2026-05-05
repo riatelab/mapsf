@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
     </div>
 
     <div class="ref-description section level2">
-    <p>Plot a raster object (SpatRaster from terra).</p>
+    <p>Plot a raster object (<code>SpatRaster</code> from <code>terra</code>).</p>
     </div>
 
     <div class="section level2">
@@ -55,9 +55,10 @@
 <span>  breaks <span class="op">=</span> <span class="st">"equal"</span>,</span>
 <span>  <span class="va">val_order</span>,</span>
 <span>  <span class="va">pal</span>,</span>
-<span>  expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  rev <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>,</span>
+<span>  <span class="va">bg</span>,</span>
 <span>  leg_pos <span class="op">=</span> <span class="st">"right"</span>,</span>
 <span>  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span>
 <span>  leg_title_cex <span class="op">=</span> <span class="fl">0.8</span>,</span>
@@ -84,7 +85,7 @@
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>a SpatRaster</p></dd>
+<dd><p>a <code>SpatRaster</code></p></dd>
 
 
 <dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
@@ -94,22 +95,36 @@
 
 
 <dt id="arg-nbreaks">nbreaks<a class="anchor" aria-label="anchor" href="#arg-nbreaks"></a></dt>
-<dd><p>number of classes</p></dd>
+<dd><p>number of classes (for type = "interval" only)</p></dd>
 
 
 <dt id="arg-breaks">breaks<a class="anchor" aria-label="anchor" href="#arg-breaks"></a></dt>
 <dd><p>either a numeric vector with the actual breaks
 (for type = "continuous" and type = "interval"), or a
-classification method name (for type = "interval" only;
-see <a href="mf_get_breaks.html">mf_get_breaks</a> for classification methods)</p></dd>
+classification method name (for type = "interval" only; see <a href="mf_get_breaks.html">mf_get_breaks</a>
+for details).</p></dd>
 
 
 <dt id="arg-val-order">val_order<a class="anchor" aria-label="anchor" href="#arg-val-order"></a></dt>
-<dd><p>values order, a character vector that matches var modalities</p></dd>
+<dd><p>modalities order in the legend, a character vector that
+matches <code>var</code> modalities. Default to alphabetic order of modalities (for
+type = "classes" only).</p></dd>
 
 
 <dt id="arg-pal">pal<a class="anchor" aria-label="anchor" href="#arg-pal"></a></dt>
-<dd><p>a set of colors or a palette name (from <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a>)</p></dd>
+<dd><p>a set of colors (hex codes) or a palette name. Palette names can
+be obtained with <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals</a>. The default palette is the pal_quali palette for
+type = "classes" and pal_seq otherwise (see <a href="mf_theme.html">mf_theme</a>).</p></dd>
+
+
+<dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
+<dd><p>pal` opacity, in the range [0,1] (0 means
+transparent and 1 means opaque). Default is set to 1.</p></dd>
+
+
+<dt id="arg-rev">rev<a class="anchor" aria-label="anchor" href="#arg-rev"></a></dt>
+<dd><p>if <code>pal</code> is a palette name, whether the ordering of the colors
+should be reversed (TRUE) or not (FALSE)</p></dd>
 
 
 <dt id="arg-expandbb">expandBB<a class="anchor" aria-label="anchor" href="#arg-expandbb"></a></dt>
@@ -117,16 +132,16 @@ see <a href="mf_get_breaks.html">mf_get_breaks</a> for classification methods)</
 direction (bottom, left, top, right)</p></dd>
 
 
-<dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
-<dd><p>opacity, in the range [0,1]</p></dd>
-
-
-<dt id="arg-rev">rev<a class="anchor" aria-label="anchor" href="#arg-rev"></a></dt>
-<dd><p>if <code>pal</code> is a <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a> palette name, whether the ordering of the colors should be reversed (TRUE) or not (FALSE)</p></dd>
+<dt id="arg-bg">bg<a class="anchor" aria-label="anchor" href="#arg-bg"></a></dt>
+<dd><p>background color of the map, hex code or color name given by
+<a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a>, ignored if <code>add = TRUE</code></p></dd>
 
 
 <dt id="arg-leg-pos">leg_pos<a class="anchor" aria-label="anchor" href="#arg-leg-pos"></a></dt>
-<dd><p>position of the legend, one of 'topleft', 'top','topright', 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two coordinates in map units (c(x, y)). If leg_pos = NA then the legend is not plotted. If leg_pos = 'interactive' click onthe map to choose the legend position.</p></dd>
+<dd><p>position of the legend, one of 'topleft', 'top','topright',
+'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
+coordinates in map units (c(x, y)). Use <code>NA</code> to avoid plotting the legend,
+use 'interactive' to choose the legend position by clicking on the map.</p></dd>
 
 
 <dt id="arg-leg-title">leg_title<a class="anchor" aria-label="anchor" href="#arg-leg-title"></a></dt>
@@ -134,15 +149,16 @@ direction (bottom, left, top, right)</p></dd>
 
 
 <dt id="arg-leg-title-cex">leg_title_cex<a class="anchor" aria-label="anchor" href="#arg-leg-title-cex"></a></dt>
-<dd><p>size of the legend title</p></dd>
+<dd><p>size of the title</p></dd>
 
 
 <dt id="arg-leg-val-cex">leg_val_cex<a class="anchor" aria-label="anchor" href="#arg-leg-val-cex"></a></dt>
-<dd><p>size of the values in the legend</p></dd>
+<dd><p>size of the values</p></dd>
 
 
 <dt id="arg-leg-val-rnd">leg_val_rnd<a class="anchor" aria-label="anchor" href="#arg-leg-val-rnd"></a></dt>
-<dd><p>number of decimal places of the values in the legend</p></dd>
+<dd><p>number of decimal places of the values displayed in the
+legend</p></dd>
 
 
 <dt id="arg-leg-val-dec">leg_val_dec<a class="anchor" aria-label="anchor" href="#arg-leg-val-dec"></a></dt>
@@ -162,15 +178,17 @@ direction (bottom, left, top, right)</p></dd>
 
 
 <dt id="arg-leg-horiz">leg_horiz<a class="anchor" aria-label="anchor" href="#arg-leg-horiz"></a></dt>
-<dd><p>display the legend horizontally</p></dd>
+<dd><p>display the legend horizontally (for proportional symbols
+and choropleth types)</p></dd>
 
 
 <dt id="arg-leg-adj">leg_adj<a class="anchor" aria-label="anchor" href="#arg-leg-adj"></a></dt>
-<dd><p>adjust the postion of the legend in x and y directions</p></dd>
+<dd><p>adjust the position of the legend in x and y directions</p></dd>
 
 
 <dt id="arg-leg-box-border">leg_box_border<a class="anchor" aria-label="anchor" href="#arg-leg-box-border"></a></dt>
-<dd><p>border color of legend boxes</p></dd>
+<dd><p>border color of legend boxes (for types related to
+choropleth and typology)</p></dd>
 
 
 <dt id="arg-leg-box-cex">leg_box_cex<a class="anchor" aria-label="anchor" href="#arg-leg-box-cex"></a></dt>
@@ -182,11 +200,12 @@ direction (bottom, left, top, right)</p></dd>
 
 
 <dt id="arg-leg-bg">leg_bg<a class="anchor" aria-label="anchor" href="#arg-leg-bg"></a></dt>
-<dd><p>color of the legend backgournd</p></dd>
+<dd><p>color of the legend background</p></dd>
 
 
 <dt id="arg-leg-size">leg_size<a class="anchor" aria-label="anchor" href="#arg-leg-size"></a></dt>
-<dd><p>size of the legend; 2 means two times bigger</p></dd>
+<dd><p>size of the legend. Combine this argument with
+<code>leg_title_cex</code> and <code>leg_val_cex</code>.</p></dd>
 
 
 <dt id="arg-add">add<a class="anchor" aria-label="anchor" href="#arg-add"></a></dt>
@@ -195,9 +214,8 @@ not (FALSE)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>bgalpha, smooth, maxcell or other arguments passed to be
-passed to
-<code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">plotRGB</a></code> or <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></code></p></dd>
+<dd><p>bgalpha, smooth, maxcell or other arguments passed to
+<code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB</a></code> or <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot</a></code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -246,7 +264,7 @@ passed to
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: terra</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.8.86</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.9.11</span>
 <span class="r-plt img"><img src="mf_raster-1.png" alt="" width="576" height="576"></span>
 <span class="r-plt img"><img src="mf_raster-2.png" alt="" width="576" height="576"></span>
 <span class="r-plt img"><img src="mf_raster-3.png" alt="" width="576" height="576"></span>

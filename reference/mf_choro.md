@@ -1,6 +1,10 @@
-# Plot a choropleth map
+# Deprecated - Plot a choropleth map
 
-Plot choropleth map.
+This function is deprecated. Please use
+[`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) with
+`type = "choro"` instead.
+
+Plot a choropleth map
 
 ## Usage
 
@@ -18,8 +22,9 @@ mf_choro(
   cex = 2,
   lwd = 0.7,
   col_na = "white",
-  cex_na = 1,
-  pch_na = 4,
+  extent = x,
+  bg,
+  expandBB = rep(0.04, 4),
   leg_pos = mf_get_leg_pos(x),
   leg_title = var,
   leg_title_cex = 0.8,
@@ -53,18 +58,18 @@ mf_choro(
 
 - pal:
 
-  a set of colors or a palette name (from
-  [hcl.colors](https://rdrr.io/r/grDevices/palettes.html))
+  a set of colors (hex codes) or a palette name (valid palette names can
+  be obtained with
+  [`hcl.pals`](https://rdrr.io/r/grDevices/palettes.html)).
 
 - alpha:
 
-  opacity, in the range \[0,1\]
+  opacity, in the range 0,1
 
 - rev:
 
-  if `pal` is a [hcl.colors](https://rdrr.io/r/grDevices/palettes.html)
-  palette name, whether the ordering of the colors should be reversed
-  (TRUE) or not (FALSE)
+  if `pal` is a valid palette name, whether the ordering of the colors
+  should be reversed (TRUE) or not (FALSE)
 
 - breaks:
 
@@ -97,21 +102,13 @@ mf_choro(
 
   color for missing values
 
-- cex_na:
-
-  cex for NA values if x is a POINT layer
-
-- pch_na:
-
-  pch for NA values if x is a POINT layer
-
 - leg_pos:
 
   position of the legend, one of 'topleft', 'top','topright', 'right',
   'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
-  coordinates in map units (c(x, y)). If leg_pos = NA then the legend is
-  not plotted. If leg_pos = 'interactive' click onthe map to choose the
-  legend position.
+  coordinates in map units (c(x, y)). Use `NA` to avoid plotting the
+  legend, use 'interactive' to choose the legend position by clicking on
+  the map.
 
 - leg_title:
 
@@ -152,7 +149,7 @@ mf_choro(
 
 - leg_adj:
 
-  adjust the postion of the legend in x and y directions
+  adjust the position of the legend in x and y directions
 
 - leg_size:
 
@@ -172,7 +169,7 @@ mf_choro(
 
 - leg_bg:
 
-  color of the legend backgournd
+  color of the legend background
 
 - leg_frame_border:
 

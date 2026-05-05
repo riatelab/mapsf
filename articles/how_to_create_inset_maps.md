@@ -30,6 +30,7 @@ In the following example we create an inset for a specific municipality
 in the topright corner of the map.
 
 ``` r
+
 library(mapsf)
 # set margins theme
 mf_theme(mar = c(0, 0, 0, 0))
@@ -56,6 +57,7 @@ Here we add a title, a shadow, a scale bar, other Martinique
 municipalities and a frame.
 
 ``` r
+
 # set a theme
 mf_theme("sol_dark")
 # Selection of a target municipality to display in the inset
@@ -104,6 +106,7 @@ In the following example we create an inset for a specific municipality
 in the bottom left corner of the map.
 
 ``` r
+
 # set a theme
 mf_theme("base", mar = c(0, 0, 0, 0))
 # Display the base map
@@ -127,6 +130,7 @@ It is easy to create an inset with a world map (see
 using `x = "worldmap"`.
 
 ``` r
+
 mf_map(mtq)
 mf_inset_on(x = "worldmap")
 mf_worldmap(mtq)
@@ -142,6 +146,7 @@ with an histogram of the median income distribution using the map
 classification.
 
 ``` r
+
 # create classes
 bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = "quantile")
 bks <- round(bks, digits = -2)

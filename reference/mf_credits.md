@@ -27,7 +27,10 @@ mf_credits(
 
 - col:
 
-  color
+  color of the text, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - cex:
 

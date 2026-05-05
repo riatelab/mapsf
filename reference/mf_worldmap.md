@@ -56,11 +56,6 @@ mf_worldmap(
 
 No return value, a world map is displayed.
 
-## Note
-
-The main part of the code is stolen from @fzenoni
-(<https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1>).
-
 ## Examples
 
 ``` r

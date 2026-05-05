@@ -6,6 +6,7 @@ before plotting the maps. For example, use `par(mfrow = c(1, 2))`
 (i.e. 1 row, 2 columns) to plot two maps side by side).
 
 ``` r
+
 library(mapsf)
 mtq <- mf_get_mtq()
 # define the figure layout (1 row, 2 columns)
@@ -26,6 +27,7 @@ mf_scale()
 When relevant the user can use a `for` loop.
 
 ``` r
+
 # define the figure layout (6 rows and 6 columns)
 par(mfrow = c(6, 6))
 for (i in seq_len(nrow(mtq))) {

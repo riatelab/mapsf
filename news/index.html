@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,51 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.1.0" id="mapsf-110">mapsf 1.1.0<a class="anchor" aria-label="anchor" href="#mapsf-110"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.2.0" id="mapsf-120">mapsf 1.2.0<a class="anchor" aria-label="anchor" href="#mapsf-120"></a></h2>
+<div class="section level3">
+<h3 id="fix-1-2-0">Fix<a class="anchor" aria-label="anchor" href="#fix-1-2-0"></a></h3>
+<ul><li>add minimal version for maplegend in DESCRIPTION (<a href="https://github.com/riatelab/mapsf/issues/89" class="external-link">#89</a>)</li>
+<li>remove unused leg_border arg in mf_map()</li>
+<li>remove unused args pch_na and cex_na from “typo” and “choro” map types</li>
+<li>use theme palette for types classes and continuous in mf_raster()</li>
+<li>implement leg_val_rnd, leg_val_dec and leg_val_big for grad type</li>
+<li>allow only one value for proportional symbols border color</li>
+<li>allow only one pch and cex in “typo” for points.</li>
+<li>better default for “grad” decimal precision in legend</li>
+<li>test double arguments for “prop_choro”, “prop_typo”, “symb_choro” types</li>
+<li>test for polygons in mf_shadow(), document default color</li>
+<li>update mf_legend(), add val_dec et val_big (<a href="https://github.com/riatelab/mapsf/issues/92" class="external-link">#92</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="feat-1-2-0">Feat<a class="anchor" aria-label="anchor" href="#feat-1-2-0"></a></h3>
+<ul><li>add “bg” and “extent” to mf_map(), mf_shadow() and mf_graticule() to modify background color and use an extent to define the plot extent (<a href="https://github.com/riatelab/mapsf/issues/90" class="external-link">#90</a>)</li>
+<li>add “bg” in mf_raster() to modify background color</li>
+<li>add points and lines layers in the sample dataset, modify mf_get_mtq() to load these layers, update documentation accordingly</li>
+<li>add mf_logo() to add images (PNG or JPEG) on the map</li>
+<li>add mf_text() to display texts on maps</li>
+<li>add a max_val arg to mf_legend() to use a maximum value to set the symbol size</li>
+<li>use better legends for “prop_typo” and “prop_choro” maps</li>
+<li>use better legends for “choro” maps on lines and on points</li>
+<li>add the possibility to display break values along the statistical distribution in mf_distr()</li>
+<li>add “main”, “ylab” and “yaxt” to mf_distr() for changing title, y labels and y axis</li>
+</ul></div>
+<div class="section level3">
+<h3 id="docs-1-2-0">Docs<a class="anchor" aria-label="anchor" href="#docs-1-2-0"></a></h3>
+<ul><li>general improvement of the documentation</li>
+<li>help pages for each map types have been added</li>
+</ul></div>
+<div class="section level3">
+<h3 id="deprecation-1-2-0">Deprecation<a class="anchor" aria-label="anchor" href="#deprecation-1-2-0"></a></h3>
+<ul><li>mapsf-deprecated help page has been added.</li>
+<li>direct calls to mf_base(), mf_choro(), mf_grad(), mf_init(), mf_prop<em>(), mf_symb</em>(), mf_typo()</li>
+<li>mf_export()</li>
+<li>mf_annotation()</li>
+<li>double legends for “prop_choro”, “prop_typo”, “symb_choro” types</li>
+<li>old arguments and themes of mf_themes()</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.0" id="mapsf-110">mapsf 1.1.0<a class="anchor" aria-label="anchor" href="#mapsf-110"></a></h2><p class="text-muted">CRAN release: 2026-01-10</p>
 <div class="section level3">
 <h3 id="fix-1-1-0">Fix<a class="anchor" aria-label="anchor" href="#fix-1-1-0"></a></h3>
 <ul><li>better adaptation to lon/lat plots</li>
@@ -51,8 +95,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="feat-1-1-0">Feat<a class="anchor" aria-label="anchor" href="#feat-1-1-0"></a></h3>
-<ul><li>add ‘res’ argument to mf_png() to set nominal resolution</li>
-<li>add ‘leg_val_dec’ &amp; ‘leg_val_big’ to set decimal and big mark values in relevent functions (those already using ‘leg_val_rnd’)</li>
+<ul><li>add “res” argument to mf_png() to set nominal resolution</li>
+<li>add “leg_val_dec” &amp; “leg_val_big” to set decimal and big mark values in relevent functions (those already using “leg_val_rnd”)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="docs-1-1-0">Docs<a class="anchor" aria-label="anchor" href="#docs-1-1-0"></a></h3>
@@ -64,7 +108,7 @@
 <p>This is the first major version of mapsf.</p>
 <div class="section level3">
 <h3 id="feat-1-0-0">Feat<a class="anchor" aria-label="anchor" href="#feat-1-0-0"></a></h3>
-<ul><li>a new theming system has been introduced, leading to new default values and a new default map style. ‘bg’, ‘fg’, ‘tab’, ‘pos’, ‘inner’, ‘line’, ‘cex’ and ‘font’ are now deprecated arguments</li>
+<ul><li>a new theming system has been introduced, leading to new default values and a new default map style. “bg”, “fg”, “tab”, “pos”, “inner”, “line”, “cex” and “font” are now deprecated arguments</li>
 <li>redraw map elements when resizing device, leading to a better display of maps in positron and rstudio graphics devices</li>
 <li>add a “center” position to mf_annotation(), no arrow displayed when used</li>
 <li>add “adj” argument to mf_scale() to adjust the scale bar</li>
@@ -181,7 +225,7 @@
 <h2 class="pkg-version" data-toc-text="0.7.1" id="mapsf-071">mapsf 0.7.1<a class="anchor" aria-label="anchor" href="#mapsf-071"></a></h2><p class="text-muted">CRAN release: 2023-09-05</p>
 <div class="section level3">
 <h3 id="fix-0-7-1">Fix<a class="anchor" aria-label="anchor" href="#fix-0-7-1"></a></h3>
-<ul><li>fix bug in color assignment in ‘choro’, ‘prop_choro’ and ‘symb_choro’ maps when supplying “incomplete” breaks (<a href="https://github.com/riatelab/mapsf/issues/56" class="external-link">#56</a>)</li>
+<ul><li>fix bug in color assignment in “choro”, “prop_choro” and “symb_choro” maps when supplying “incomplete” breaks (<a href="https://github.com/riatelab/mapsf/issues/56" class="external-link">#56</a>)</li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -203,7 +247,7 @@
 <li>add arg checking depending on type in mf_map()</li>
 <li>add an error message for functions that need a pre-existing plot</li>
 <li>add mf_graticule() to add graticule lines and labels</li>
-<li>set internally the ‘add’ arg for each map types in mf_map()</li>
+<li>set internally the “add” arg for each map types in mf_map()</li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -294,7 +338,7 @@
 <li>adjust the largest symbol size in mf_map(…, “prop*“)</li>
 <li>remove frame around insets</li>
 <li>remove LazyData from DESCRIPTION</li>
-<li>use sf ‘on the fly’ projection for unprojected sf objects</li>
+<li>use sf “on the fly” projection for unprojected sf objects</li>
 <li>better display of titles and maps (tiny extra space around maps)</li>
 <li>add explicit default value for “add” arg in mapping functions</li>
 <li>allow to plot (coherent) GEOMETRYCOLLECTIONS</li>

@@ -14,6 +14,8 @@ mf_graticule(
   label = TRUE,
   pos = c("top", "left"),
   cex = 0.7,
+  extent = x,
+  bg,
   add = TRUE
 )
 ```
@@ -53,6 +55,17 @@ mf_graticule(
 
   labels size
 
+- extent:
+
+  object with an `st_bbox` method to define plot extent; defaults to
+  `x`. `extent` and `x` must use the same CRS.
+
+- bg:
+
+  background color of the map, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html), ignored if
+  `add = TRUE`
+
 - add:
 
   whether to add the layer to an existing plot (TRUE) or not (FALSE)
@@ -64,7 +77,7 @@ An (invisible) layer of graticules is returned (LINESTRING).
 ## Use of graticules
 
 From
-[`st_graticule`](https://r-spatial.github.io/sf/reference/st_graticule.html):
+[`sf::st_graticule()`](https://r-spatial.github.io/sf/reference/st_graticule.html):
 "In cartographic visualization, the use of graticules is not advised,
 unless the graphical output will be used for measurement or navigation,
 or the direction of North is important for the interpretation of the

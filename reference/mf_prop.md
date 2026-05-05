@@ -1,4 +1,8 @@
-# Plot proportional symbols
+# Deprecated - Plot proportional symbols
+
+This function is deprecated. Please use
+[`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) with
+`type = "prop"` instead.
 
 Plot proportional symbols.
 
@@ -16,6 +20,9 @@ mf_prop(
   alpha = NULL,
   border,
   lwd = 0.7,
+  extent = x,
+  bg,
+  expandBB = rep(0.04, 4),
   leg_pos = mf_get_leg_pos(x),
   leg_title = var,
   leg_title_cex = 0.8,
@@ -63,11 +70,12 @@ mf_prop(
 
 - col:
 
-  color
+  a color, hex code or color name given by
+  [`colors`](https://rdrr.io/r/grDevices/colors.html)
 
 - alpha:
 
-  opacity, in the range \[0,1\]
+  opacity, in the range 0,1
 
 - border:
 
@@ -81,9 +89,9 @@ mf_prop(
 
   position of the legend, one of 'topleft', 'top','topright', 'right',
   'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
-  coordinates in map units (c(x, y)). If leg_pos = NA then the legend is
-  not plotted. If leg_pos = 'interactive' click onthe map to choose the
-  legend position.
+  coordinates in map units (c(x, y)). Use `NA` to avoid plotting the
+  legend, use 'interactive' to choose the legend position by clicking on
+  the map.
 
 - leg_title:
 
@@ -124,7 +132,7 @@ mf_prop(
 
 - leg_adj:
 
-  adjust the postion of the legend in x and y directions
+  adjust the position of the legend in x and y directions
 
 - leg_fg:
 
@@ -132,7 +140,7 @@ mf_prop(
 
 - leg_bg:
 
-  color of the legend backgournd
+  color of the legend background
 
 - leg_size:
 

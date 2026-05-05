@@ -1,6 +1,61 @@
 # Changelog
 
+## mapsf 1.2.0
+
+### Fix
+
+- add minimal version for maplegend in DESCRIPTION
+  ([\#89](https://github.com/riatelab/mapsf/issues/89))
+- remove unused leg_border arg in mf_map()
+- remove unused args pch_na and cex_na from “typo” and “choro” map types
+- use theme palette for types classes and continuous in mf_raster()
+- implement leg_val_rnd, leg_val_dec and leg_val_big for grad type
+- allow only one value for proportional symbols border color
+- allow only one pch and cex in “typo” for points.
+- better default for “grad” decimal precision in legend
+- test double arguments for “prop_choro”, “prop_typo”, “symb_choro”
+  types
+- test for polygons in mf_shadow(), document default color
+- update mf_legend(), add val_dec et val_big
+  ([\#92](https://github.com/riatelab/mapsf/issues/92))
+
+### Feat
+
+- add “bg” and “extent” to mf_map(), mf_shadow() and mf_graticule() to
+  modify background color and use an extent to define the plot extent
+  ([\#90](https://github.com/riatelab/mapsf/issues/90))
+- add “bg” in mf_raster() to modify background color
+- add points and lines layers in the sample dataset, modify mf_get_mtq()
+  to load these layers, update documentation accordingly
+- add mf_logo() to add images (PNG or JPEG) on the map
+- add mf_text() to display texts on maps
+- add a max_val arg to mf_legend() to use a maximum value to set the
+  symbol size
+- use better legends for “prop_typo” and “prop_choro” maps
+- use better legends for “choro” maps on lines and on points
+- add the possibility to display break values along the statistical
+  distribution in mf_distr()
+- add “main”, “ylab” and “yaxt” to mf_distr() for changing title, y
+  labels and y axis
+
+### Docs
+
+- general improvement of the documentation
+- help pages for each map types have been added
+
+### Deprecation
+
+- mapsf-deprecated help page has been added.
+- direct calls to mf_base(), mf_choro(), mf_grad(), mf_init(),
+  mf_prop*(), mf_symb*(), mf_typo()
+- mf_export()
+- mf_annotation()
+- double legends for “prop_choro”, “prop_typo”, “symb_choro” types
+- old arguments and themes of mf_themes()
+
 ## mapsf 1.1.0
+
+CRAN release: 2026-01-10
 
 ### Fix
 
@@ -11,9 +66,9 @@
 
 ### Feat
 
-- add ‘res’ argument to mf_png() to set nominal resolution
-- add ‘leg_val_dec’ & ‘leg_val_big’ to set decimal and big mark values
-  in relevent functions (those already using ‘leg_val_rnd’)
+- add “res” argument to mf_png() to set nominal resolution
+- add “leg_val_dec” & “leg_val_big” to set decimal and big mark values
+  in relevent functions (those already using “leg_val_rnd”)
 
 ### Docs
 
@@ -28,8 +83,8 @@ This is the first major version of mapsf.
 ### Feat
 
 - a new theming system has been introduced, leading to new default
-  values and a new default map style. ‘bg’, ‘fg’, ‘tab’, ‘pos’, ‘inner’,
-  ‘line’, ‘cex’ and ‘font’ are now deprecated arguments
+  values and a new default map style. “bg”, “fg”, “tab”, “pos”, “inner”,
+  “line”, “cex” and “font” are now deprecated arguments
 - redraw map elements when resizing device, leading to a better display
   of maps in positron and rstudio graphics devices
 - add a “center” position to mf_annotation(), no arrow displayed when
@@ -183,7 +238,7 @@ CRAN release: 2023-09-05
 
 ### Fix
 
-- fix bug in color assignment in ‘choro’, ‘prop_choro’ and ‘symb_choro’
+- fix bug in color assignment in “choro”, “prop_choro” and “symb_choro”
   maps when supplying “incomplete” breaks
   ([\#56](https://github.com/riatelab/mapsf/issues/56))
 
@@ -213,7 +268,7 @@ CRAN release: 2023-07-06
 - add arg checking depending on type in mf_map()
 - add an error message for functions that need a pre-existing plot
 - add mf_graticule() to add graticule lines and labels
-- set internally the ‘add’ arg for each map types in mf_map()
+- set internally the “add” arg for each map types in mf_map()
 
 ## mapsf 0.6.1
 
@@ -322,7 +377,7 @@ CRAN release: 2021-04-29
 - adjust the largest symbol size in mf_map(…, “prop\*“)
 - remove frame around insets
 - remove LazyData from DESCRIPTION
-- use sf ‘on the fly’ projection for unprojected sf objects
+- use sf “on the fly” projection for unprojected sf objects
 - better display of titles and maps (tiny extra space around maps)
 - add explicit default value for “add” arg in mapping functions
 - allow to plot (coherent) GEOMETRYCOLLECTIONS

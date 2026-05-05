@@ -3,11 +3,11 @@
 Plot a map layout (title, credits, scalebar, north arrow, frame).
 
 This function uses
-[`mf_title`](https://riatelab.github.io/mapsf/reference/mf_title.md),
-[`mf_credits`](https://riatelab.github.io/mapsf/reference/mf_credits.md),
-[`mf_scale`](https://riatelab.github.io/mapsf/reference/mf_scale.md) and
-[`mf_arrow`](https://riatelab.github.io/mapsf/reference/mf_arrow.md)
-with default values.
+[mf_title](https://riatelab.github.io/mapsf/reference/mf_title.md),
+[mf_credits](https://riatelab.github.io/mapsf/reference/mf_credits.md),
+[mf_scale](https://riatelab.github.io/mapsf/reference/mf_scale.md) and
+[mf_arrow](https://riatelab.github.io/mapsf/reference/mf_arrow.md) with
+default values.
 
 ## Usage
 

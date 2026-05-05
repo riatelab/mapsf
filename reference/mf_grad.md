@@ -1,4 +1,8 @@
-# Plot graduated symbols
+# Deprecated - Plot graduated symbols
+
+This function is deprecated. Please use
+[`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) with
+`type = "grad"` instead.
 
 Plot graduated symbols based on quantitative data.
 
@@ -16,17 +20,19 @@ mf_grad(
   pch = 21,
   cex,
   lwd,
+  extent = x,
+  bg,
+  expandBB = rep(0.04, 4),
   leg_pos = mf_get_leg_pos(x),
   leg_title = var,
   leg_title_cex = 0.8,
   leg_val_cex = 0.6,
-  leg_val_rnd = 2,
+  leg_val_rnd = 0,
   leg_val_dec = ".",
   leg_val_big = "",
   leg_frame = FALSE,
   leg_adj = c(0, 0),
   leg_size = 1,
-  leg_border = border,
   leg_box_cex = c(1, 1),
   leg_fg,
   leg_bg,
@@ -58,11 +64,12 @@ mf_grad(
 
 - col:
 
-  color
+  a color, hex code or color name given by
+  [`colors`](https://rdrr.io/r/grDevices/colors.html)
 
 - alpha:
 
-  opacity, in the range \[0,1\]
+  opacity, in the range 0,1
 
 - border:
 
@@ -84,9 +91,9 @@ mf_grad(
 
   position of the legend, one of 'topleft', 'top','topright', 'right',
   'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
-  coordinates in map units (c(x, y)). If leg_pos = NA then the legend is
-  not plotted. If leg_pos = 'interactive' click onthe map to choose the
-  legend position.
+  coordinates in map units (c(x, y)). Use `NA` to avoid plotting the
+  legend, use 'interactive' to choose the legend position by clicking on
+  the map.
 
 - leg_title:
 
@@ -118,15 +125,11 @@ mf_grad(
 
 - leg_adj:
 
-  adjust the postion of the legend in x and y directions
+  adjust the position of the legend in x and y directions
 
 - leg_size:
 
   size of the legend; 2 means two times bigger
-
-- leg_border:
-
-  symbol border color(s)
 
 - leg_box_cex:
 
@@ -138,7 +141,7 @@ mf_grad(
 
 - leg_bg:
 
-  color of the legend backgournd
+  color of the legend background
 
 - leg_frame_border:
 

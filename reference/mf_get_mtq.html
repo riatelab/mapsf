@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,17 +48,65 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_get_mtq</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mf_get_mtq</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"polygons"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
+    <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
+
+<div class="section">
+<h3 id="for-polygons-municipalities-shapes-and-points-municipalities-centroids-">For polygons (municipalities shapes) and points (municipalities centroids)<a class="anchor" aria-label="anchor" href="#for-polygons-municipalities-shapes-and-points-municipalities-centroids-"></a></h3>
+
+
+<p><a href="https://www.insee.fr/fr/statistiques/2521169" class="external-link">Base comparateur de territoires</a>
+(data, upload date: 2018-09-25) &amp; ADMIN EXPRESS-COG (geometry, 2018 edition).</p>
+<p>Citation: Insee and IGN, 2018</p>
+</div>
+
+<div class="section">
+<h3 id="for-lines-professional-mobility-flows-from-fort-de-france-to-other-municipalities-">For lines (professional mobility flows from Fort-de-France to other municipalities)<a class="anchor" aria-label="anchor" href="#for-lines-professional-mobility-flows-from-fort-de-france-to-other-municipalities-"></a></h3>
+
+
+<p><a href="https://www.insee.fr/fr/statistiques/3566477" class="external-link">Flux de mobilité - déplacements domicile-lieu de travail</a> (upload date: 2018-08-01)</p>
+<p>Citation: Insee, 2018</p>
+</div>
+
+    </div>
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+
+
+<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
+<dd><p>one of "polygons", "points", "lines"</p></dd>
+
+</dl></div>
+    <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>an sf object of Martinique municipalities</p>
+    <p>an sf object</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>This a wrapper around
-<code>st_read(system.file("gpkg/mtq.gpkg", package = "mapsf"),quiet = TRUE)</code>.</p>
+    <p>This a wrapper around <code>st_read(system.file("gpkg/mtq.gpkg", package = "mapsf"), layer = x, quiet = TRUE)</code>.</p><div class="section">
+<h3 id="for-polygons-municipalities-shapes-and-points-municipalities-centroids--1">For polygons (municipalities shapes) and points (municipalities centroids)<a class="anchor" aria-label="anchor" href="#for-polygons-municipalities-shapes-and-points-municipalities-centroids--1"></a></h3>
+
+<ul><li><p><strong>INSEE_COM</strong>: Municipality identifier</p></li>
+<li><p><strong>STATUS</strong>: Municipality administrative status</p></li>
+<li><p><strong>LIBGEO</strong>: Municipality name</p></li>
+<li><p><strong>POP</strong>: Total population, 2015</p></li>
+<li><p><strong>MED</strong>: Median disposable income adjusted per equivalent household member, in euros, 2015</p></li>
+<li><p><strong>CHOM</strong>: Unemployed population, 2015</p></li>
+<li><p><strong>ACT</strong>: Active population, 2015</p></li>
+</ul></div>
+
+<div class="section">
+<h3 id="for-lines-professional-mobility-flows-from-fort-de-france-to-other-municipalities--1">For lines (professional mobility flows from Fort-de-France to other municipalities)<a class="anchor" aria-label="anchor" href="#for-lines-professional-mobility-flows-from-fort-de-france-to-other-municipalities--1"></a></h3>
+
+<ul><li><p><strong>i</strong>: Municipality of residence identifier</p></li>
+<li><p><strong>j</strong>: Municipality of workplace identifier</p></li>
+<li><p><strong>fij</strong>: Flows of workers (employed population, 15 y.o. or more, 2015, only flows \&gt; 100)</p></li>
+<li><p><strong>sj</strong>: Administrative status of the workplace municipality</p></li>
+</ul></div>
+
     </div>
 
     <div class="section level2">

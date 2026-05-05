@@ -28,7 +28,7 @@ mf_label(
 
 - var:
 
-  name(s) of the variable(s) to plot
+  name of the variable to map
 
 - col:
 

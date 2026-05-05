@@ -17,6 +17,7 @@ mf_legend(
   alpha = 1,
   col = "tomato4",
   inches = 0.3,
+  val_max = NULL,
   symbol = "circle",
   self_adjust = FALSE,
   lwd = 0.7,
@@ -27,6 +28,8 @@ mf_legend(
   title_cex = 0.8 * size,
   val_cex = 0.6 * size,
   val_rnd = 0,
+  val_dec = ".",
+  val_big = "",
   col_na = "white",
   cex_na = 1,
   pch_na = 4,
@@ -63,13 +66,24 @@ mf_legend(
 
   - **prop_line** for proportional lines maps,
 
-  - **grad_line** for graduated lines maps.
+  - **grad_line** for graduated lines maps,
+
+  - **histo** for histograms,
+
+  - **choro_point** for choropleth points maps,
+
+  - **choro_line** for choropleth lines maps,
+
+  - **choro_symb** for choropleth on symbols maps
+
+  - **typo_line** for typology lines maps.
 
 - val:
 
   vector of value(s) (for "prop" and "prop_line", at least c(min, max)
-  for "cont"), vector of categories (for "symb" and "typo"), break
-  labels (for "choro" and "grad_line").
+  for "cont"), vector of categories (for "symb", "typo", "typo_line"),
+  break labels (for "choro", "choro_point", "choro_line", "choro_symb",
+  and "grad_line"), histogram parameters (for "histo").
 
 - pos:
 
@@ -79,12 +93,14 @@ mf_legend(
 
 - pal:
 
-  a color palette name or a vector of colors
+  a set of colors (hex codes) or a palette name (valid palette names can
+  be obtained with
+  [hcl.pals](https://rdrr.io/r/grDevices/palettes.html).
 
 - alpha:
 
-  if `pal` is a [hcl.colors](https://rdrr.io/r/grDevices/palettes.html)
-  palette name, the alpha-transparency level in the range \[0,1\]
+  if `pal` is a valid palette name, the alpha-transparency level in the
+  range \[0,1\]
 
 - col:
 
@@ -95,6 +111,10 @@ mf_legend(
 
   size of the largest symbol (radius for circles, half width for
   squares) in inches
+
+- val_max:
+
+  maximum value corresponding to the largest symbol
 
 - symbol:
 
@@ -107,8 +127,10 @@ mf_legend(
 
 - lwd:
 
-  width(s) of the symbols borders (for "prop" and "symb"), width of the
-  largest line (for "prop_line"), vector of line width (for "grad_line")
+  width(s) of the symbols borders (for "prop", "symb", "choro_point",
+  "choro_symb"), width of the largest line (for "prop_line"), line width
+  (for "choro_line" and "typo_line"), vector of line widths (for
+  "grad_line")
 
 - border:
 
@@ -138,6 +160,14 @@ mf_legend(
 
   number of decimal places of the values in the legend
 
+- val_dec:
+
+  decimal separator
+
+- val_big:
+
+  thousands separator
+
 - col_na:
 
   color for missing values
@@ -164,8 +194,8 @@ mf_legend(
 
 - box_cex:
 
-  width and height size expansion of boxes, (or offset between circles
-  for "prop" legends with horiz = TRUE)
+  width and height size expansion of boxes, histogram circles, squares
+  or lines
 
 - horiz:
 
@@ -197,7 +227,7 @@ mf_legend(
 
 - adj:
 
-  adjust the postion of the legend in x and y directions
+  adjust the position of the legend in x and y directions
 
 ## Value
 
@@ -208,23 +238,33 @@ used).
 
 Some arguments are available for all types of legend: `val`, `pos`,
 `title`, `title_cex`, `val_cex`, `frame`, `bg`, `fg`, `size`, `adj`,
-`return_bbox`).
+`alpha`, `return_bbox`).
 
 Relevant arguments for each specific legend types:
 
-- `mf_legend(type = "prop", val, inches, symbol, col, lwd, border, val_rnd, self_adjust, horiz)`
+- `mf_legend(type = "prop", val, inches, val_max, symbol, col, lwd, border, val_rnd, val_big, val_dec, self_adjust, horiz)`
 
-- `mf_legend(type = "choro", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)`
+- `mf_legend(type = "choro", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex, horiz)`
 
-- `mf_legend(type = "cont", val, pal, val_rnd, col_na, no_data, no_data_txt, box_border, horiz)`
+- `mf_legend(type = "cont", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex, horiz)`
 
-- `mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border)`
+- `mf_legend(type = "typo", val, pal, col_na, no_data, no_data_txt, box_border, box_cex)`
 
 - `mf_legend(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)`
 
-- `mf_legend(type = "prop_line", val, col, lwd, val_rnd)`
+- `mf_legend(type = "prop_line", val, col, lwd, val_rnd, val_big, val_dec)`
 
-- `mf_legend(type = "grad_line", val, col, lwd, val_rnd)`
+- `mf_legend(type = "grad_line", val, col, lwd, val_rnd, val_big, val_dec)`
+
+- `mf_legend(type = "histo", val, pal, box_border, val_rnd, val_big, val_dec)`
+
+- `mf_legend(type = "choro_point", val, pal, symbol, border, cex, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, horiz)`
+
+- `mf_legend(type = "choro_line", val, pal, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)`
+
+- `mf_legend(type = "choro_symb", val, pal, pch, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)`
+
+- `mf_legend(type = "typo_line", val, pal, lwd, col_na, no_data, no_data_txt, box_cex)`
 
 ## Examples
 

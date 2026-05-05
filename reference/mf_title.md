@@ -44,11 +44,12 @@ mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner, banner)
 
 - inner:
 
-  if TRUE the title is displayed inside the plot area
+  if TRUE the title is displayed inside the plot area; if FALSE the
+  title is displayed in the top margin
 
 - banner:
 
-  if TRUE the title is dispalayed as a banner
+  if TRUE the title is displayed as a banner
 
 ## Value
 

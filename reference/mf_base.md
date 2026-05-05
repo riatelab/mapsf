@@ -1,4 +1,8 @@
-# Plot an sf object
+# Deprecated - Plot an sf object
+
+This function is deprecated. Please use
+[`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) with
+`type = "base"` instead.
 
 Plot an sf object. This is mostly a wrapper around
 `plot(st_geometry(x), ...)`.
@@ -16,6 +20,9 @@ mf_base(
   lwd = 0.7,
   lty = 1,
   add = FALSE,
+  extent = x,
+  bg,
+  expandBB = rep(0.04, 4),
   ...
 )
 ```
@@ -28,7 +35,8 @@ mf_base(
 
 - col:
 
-  color
+  a color, hex code or color name given by
+  [`colors`](https://rdrr.io/r/grDevices/colors.html)
 
 - border:
 
@@ -36,7 +44,7 @@ mf_base(
 
 - alpha:
 
-  opacity, in the range \[0,1\]
+  opacity, in the range 0,1
 
 - cex:
 

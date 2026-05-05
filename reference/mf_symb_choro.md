@@ -1,4 +1,8 @@
-# Plot symbols using choropleth coloration
+# Deprecated - Plot symbols using choropleth coloration
+
+This function is deprecated. Please use
+[`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) with
+`type = "symb_choro"` instead.
 
 Plot symbols with colors based on a quantitative data classification.
 
@@ -21,6 +25,9 @@ mf_symb_choro(
   cex_na = 1,
   col_na = "white",
   val_order,
+  extent = x,
+  bg,
+  expandBB = rep(0.04, 4),
   leg_pos = mf_get_leg_pos(x, 1),
   leg_title = var,
   leg_title_cex = c(0.8, 0.8),
@@ -54,18 +61,18 @@ mf_symb_choro(
 
 - pal:
 
-  a set of colors or a palette name (from
-  [hcl.colors](https://rdrr.io/r/grDevices/palettes.html))
+  a set of colors (hex codes) or a palette name (valid palette names can
+  be obtained with
+  [`hcl.pals`](https://rdrr.io/r/grDevices/palettes.html)).
 
 - alpha:
 
-  opacity, in the range \[0,1\]
+  opacity, in the range 0,1
 
 - rev:
 
-  if `pal` is a [hcl.colors](https://rdrr.io/r/grDevices/palettes.html)
-  palette name, whether the ordering of the colors should be reversed
-  (TRUE) or not (FALSE)
+  if `pal` is a valid palette name, whether the ordering of the colors
+  should be reversed (TRUE) or not (FALSE)
 
 - breaks:
 
@@ -116,8 +123,8 @@ mf_symb_choro(
   'right','bottomright', 'bottom', 'bottomleft', 'left' or a vector of
   two coordinates in map units (c(x, y)). leg_pos argument can be
   c('position', 'position'), c('position', x2, y2), c(x1,y1, 'position')
-  or c(x1, y1, x2, y2). Use NA to avoid plotting the legend, use
-  'interactive' to choose thelegend position interactively.
+  or c(x1, y1, x2, y2). Use `NA` to avoid plotting the legend, use
+  'interactive' to choose the legend position by clicking on the map.
 
 - leg_title:
 
@@ -162,7 +169,7 @@ mf_symb_choro(
 
 - leg_adj:
 
-  adjust the postion of the legend in x and y directions
+  adjust the position of the legend in x and y directions
 
 - leg_fg:
 
@@ -170,7 +177,7 @@ mf_symb_choro(
 
 - leg_bg:
 
-  color of the legend backgournd
+  color of the legend background
 
 - leg_size:
 

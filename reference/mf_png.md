@@ -10,7 +10,8 @@ ratio of `x`. Alternatively, if `height` is specified, then `width` is
 deduced from the width/height ratio of `x`. This helps to produce maps
 without too much wasted space.
 
-Use `dev.off` to finish the export (see Examples).
+Use [`dev.off()`](https://rdrr.io/r/grDevices/dev.html) to finish the
+export (see Examples).
 
 ## Usage
 
@@ -66,11 +67,11 @@ No return value, a PNG device is initiated.
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".png"))
-#> [1] "/tmp/RtmpViEc0z/file423075ed0aa7b.png"
+#> [1] "/tmp/Rtmpy7mVeK/file7c1353851e49.png"
 mf_png(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_417357845 
-#>                    2 
+#> agg_record_7c135360aae65 
+#>                        2 
 ```

@@ -26,7 +26,7 @@ mf_arrow(pos = "topleft", col, cex = 1, adj = c(0, 0), align)
 
 - adj:
 
-  adjust the postion of the north arrow in x and y directions
+  adjust the position of the north arrow in x and y directions
 
 - align:
 

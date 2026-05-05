@@ -54,7 +54,7 @@ mf_scale(
 
 - adj:
 
-  adjust the postion of the scale bar in x and y directions
+  adjust the position of the scale bar in x and y directions
 
 - x:
 
@@ -86,7 +86,7 @@ mf_scale()
 
 library(sf)
 nc <- st_read(system.file("shape/nc.shp", package = "sf"))[1, ]
-#> Reading layer `nc' from data source `/home/tim/Documents/R/4.5/sf/shape/nc.shp' using driver `ESRI Shapefile'
+#> Reading layer `nc' from data source `/home/tim/Documents/R/4.6/sf/shape/nc.shp' using driver `ESRI Shapefile'
 #> Simple feature collection with 100 features and 14 fields
 #> Geometry type: MULTIPOLYGON
 #> Dimension:     XY

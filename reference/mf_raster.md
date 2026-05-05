@@ -1,6 +1,6 @@
 # Plot a raster
 
-Plot a raster object (SpatRaster from terra).
+Plot a raster object (`SpatRaster` from `terra`).
 
 ## Usage
 
@@ -12,9 +12,10 @@ mf_raster(
   breaks = "equal",
   val_order,
   pal,
-  expandBB = rep(0, 4),
   alpha = NULL,
   rev = FALSE,
+  expandBB = rep(0, 4),
+  bg,
   leg_pos = "right",
   leg_title = names(x),
   leg_title_cex = 0.8,
@@ -40,7 +41,7 @@ mf_raster(
 
 - x:
 
-  a SpatRaster
+  a `SpatRaster`
 
 - type:
 
@@ -50,7 +51,7 @@ mf_raster(
 
 - nbreaks:
 
-  number of classes
+  number of classes (for type = "interval" only)
 
 - breaks:
 
@@ -58,39 +59,50 @@ mf_raster(
   "continuous" and type = "interval"), or a classification method name
   (for type = "interval" only; see
   [mf_get_breaks](https://riatelab.github.io/mapsf/reference/mf_get_breaks.md)
-  for classification methods)
+  for details).
 
 - val_order:
 
-  values order, a character vector that matches var modalities
+  modalities order in the legend, a character vector that matches `var`
+  modalities. Default to alphabetic order of modalities (for type =
+  "classes" only).
 
 - pal:
 
-  a set of colors or a palette name (from
-  [hcl.colors](https://rdrr.io/r/grDevices/palettes.html))
+  a set of colors (hex codes) or a palette name. Palette names can be
+  obtained with [hcl.pals](https://rdrr.io/r/grDevices/palettes.html).
+  The default palette is the pal_quali palette for type = "classes" and
+  pal_seq otherwise (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
+
+- alpha:
+
+  pal\` opacity, in the range \[0,1\] (0 means transparent and 1 means
+  opaque). Default is set to 1.
+
+- rev:
+
+  if `pal` is a palette name, whether the ordering of the colors should
+  be reversed (TRUE) or not (FALSE)
 
 - expandBB:
 
   fractional values to expand the bounding box with, in each direction
   (bottom, left, top, right)
 
-- alpha:
+- bg:
 
-  opacity, in the range \[0,1\]
-
-- rev:
-
-  if `pal` is a [hcl.colors](https://rdrr.io/r/grDevices/palettes.html)
-  palette name, whether the ordering of the colors should be reversed
-  (TRUE) or not (FALSE)
+  background color of the map, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html), ignored if
+  `add = TRUE`
 
 - leg_pos:
 
   position of the legend, one of 'topleft', 'top','topright', 'right',
   'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
-  coordinates in map units (c(x, y)). If leg_pos = NA then the legend is
-  not plotted. If leg_pos = 'interactive' click onthe map to choose the
-  legend position.
+  coordinates in map units (c(x, y)). Use `NA` to avoid plotting the
+  legend, use 'interactive' to choose the legend position by clicking on
+  the map.
 
 - leg_title:
 
@@ -98,15 +110,15 @@ mf_raster(
 
 - leg_title_cex:
 
-  size of the legend title
+  size of the title
 
 - leg_val_cex:
 
-  size of the values in the legend
+  size of the values
 
 - leg_val_rnd:
 
-  number of decimal places of the values in the legend
+  number of decimal places of the values displayed in the legend
 
 - leg_val_dec:
 
@@ -126,15 +138,17 @@ mf_raster(
 
 - leg_horiz:
 
-  display the legend horizontally
+  display the legend horizontally (for proportional symbols and
+  choropleth types)
 
 - leg_adj:
 
-  adjust the postion of the legend in x and y directions
+  adjust the position of the legend in x and y directions
 
 - leg_box_border:
 
-  border color of legend boxes
+  border color of legend boxes (for types related to choropleth and
+  typology)
 
 - leg_box_cex:
 
@@ -146,11 +160,12 @@ mf_raster(
 
 - leg_bg:
 
-  color of the legend backgournd
+  color of the legend background
 
 - leg_size:
 
-  size of the legend; 2 means two times bigger
+  size of the legend. Combine this argument with `leg_title_cex` and
+  `leg_val_cex`.
 
 - add:
 
@@ -158,9 +173,10 @@ mf_raster(
 
 - ...:
 
-  bgalpha, smooth, maxcell or other arguments passed to be passed to
-  [`plotRGB`](https://rspatial.github.io/terra/reference/plotRGB.html)
-  or [`plot`](https://rspatial.github.io/terra/reference/plot.html)
+  bgalpha, smooth, maxcell or other arguments passed to
+  [`terra::plotRGB`](https://rspatial.github.io/terra/reference/plotRGB.html)
+  or
+  [`terra::plot`](https://rspatial.github.io/terra/reference/plot.html)
 
 ## Value
 
@@ -208,7 +224,7 @@ if (require("terra")) {
   )
 }
 #> Loading required package: terra
-#> terra 1.8.86
+#> terra 1.9.11
 
 
 

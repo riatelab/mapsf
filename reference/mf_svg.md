@@ -10,7 +10,7 @@ ratio of `x`. Alternatively, if `height` is specified, then `width` is
 deduced from the width/height ratio of `x`. This helps to produce maps
 without too much wasted space.
 
-Use `dev.off` to finish the export (see Examples).
+Use \`dev.off() to finish the export (see Examples).
 
 ## Usage
 
@@ -79,11 +79,11 @@ after export.
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".svg"))
-#> [1] "/tmp/RtmpViEc0z/file423072420db81.svg"
+#> [1] "/tmp/Rtmpy7mVeK/file7c1353de1349a.svg"
 mf_svg(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_1297938945 
-#>                     2 
+#> agg_record_7c1354c2b61a7 
+#>                        2 
 ```

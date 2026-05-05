@@ -18,6 +18,11 @@ custom theme using a list of arguments
 Themes are persistent across maps produced by `mapsf` (e.g. they survive
 a [`dev.off()`](https://rdrr.io/r/grDevices/dev.html) call).
 
+Current theme parameters are set in `mapsf` options and nammed according
+to the following convention: "mapsf.mf_theme_arg_name". Use
+[`getOption()`](https://rdrr.io/r/base/options.html) to return the value
+of a specific argument of the current theme (see examples).
+
 Use `mf_theme(NULL)` or `mf_theme('base')` to reset to default theme
 settings.
 
@@ -50,12 +55,13 @@ mf_theme(
 
 - x:
 
-  name of a map theme. One of "base", "sol_dark", "sol_light", "grey",
-  "mint", "dracula", "pistachio", "rzine".
+  name of a map theme. One of 'base', 'grey', 'sol_light', 'sol_dark',
+  'mint', 'dracula', 'rzine', 'pistachio'.
 
 - mar:
 
-  margins
+  a numeral vector of the form c(bottom, left, top, right) which gives
+  the margin size specified in number of lines
 
 - foreground:
 
@@ -79,7 +85,8 @@ mf_theme(
 
 - title_inner:
 
-  if TRUE the title is displayed inside the plot area.
+  if TRUE the title is displayed inside the plot area; if FALSE the
+  title is displayed in the top margin
 
 - title_line:
 
@@ -116,7 +123,7 @@ mf_theme(
 
 - pal_seq:
 
-  default sequential color palettte (name or function)
+  default sequential color palette (name or function)
 
 - ...:
 
@@ -125,21 +132,24 @@ mf_theme(
 
 ## Value
 
-The current list of theme parameters is (invisibly) returned.
+`mf_theme` (invisibly) returns the list of current theme parameters.
 
 ## Note
+
+The following themes are deprecated: "default", "brutal", "ink", "dark",
+"agolalight", "candy", "darkula", "iceberg", "green", "nevermind", "jsk"
+and "barcelona".  
+The following arguments are deprecated: "bg", "fg", "tab", "pos",
+"inner", "line", "cex" and "font".  
 
 Although the map theming system has been radically changed in version
 1.0.0 of the package, you can still use the old themes by referencing
 them by name. If you need to use the *pre* v1.0.0 default theme, set `x`
-to "default".
-
+to "default".  
 If an old theme is set, only deprecated arguments are used and others
-are ignored.
-
+are ignored.  
 If current and deprecated arguments are mixed, only deprecated arguments
-are used and others are ignored.
-
+are used and others are ignored.  
 All references and usages of the old theming system will be removed in
 the next major version.
 
@@ -192,6 +202,13 @@ mf_title()
 
 # Obtaining a list of parameters for the current theme:
 current_theme <- mf_theme()
+
+# Obtaining individual parameters for the current theme:
+getOption("mapsf.highlight")
+#> [1] "#0f5027"
+getOption("mapsf.pal_seq")
+#> [1] "Greens"
+
 
 # Use default theme:
 mf_theme(NULL)

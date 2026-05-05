@@ -130,6 +130,7 @@ and
 [`mf_scale()`](https://riatelab.github.io/mapsf/reference/mf_scale.md)).
 
 ``` r
+
 library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
@@ -152,6 +153,7 @@ to a quantitative variable (stocks). The `inches` argument is used to
 customize the symbols sizes.
 
 ``` r
+
 # plot municipalities
 mf_map(mtq)
 # plot population
@@ -188,6 +190,7 @@ or you can use palette names from
 [`hcl.pals()`](https://rdrr.io/r/grDevices/palettes.html).
 
 ``` r
+
 # population density (inhab./km2) using sf::st_area()
 mtq$POPDENS <- 1e6 * mtq$POP / sf::st_area(mtq)
 # plot population density
@@ -222,6 +225,7 @@ variable. `val_order` is used to set the modalities order in the legend.
 displays labels on the map.
 
 ``` r
+
 # plot administrative status
 mf_map(
   x = mtq,
@@ -264,6 +268,7 @@ allows to expand the map space. Here, we increase the space available on
 the right of the map to avoid overlaps between the legends and the map.
 
 ``` r
+
 # Plot the municipalities and expand the map space on the right
 mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
 # Plot symbols with choropleth coloration
@@ -297,6 +302,7 @@ proportional to values of a first variable and colored to reflect the
 modalities of a second qualitative variable.
 
 ``` r
+
 # plot the municipalities and expand the map space on the right
 mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
 # plot symbols with choropleth coloration
@@ -330,6 +336,7 @@ is dedicated to the display of labels on a map. The `overlap = FALSE`
 argument displays non overlapping labels.
 
 ``` r
+
 # plot municipalities
 mf_map(mtq, col = "#e4e9de", border = "darkseagreen4")
 # plot labels
@@ -362,6 +369,7 @@ format).
 `mf_map(x, var, type = "grad")` displays graduated links.
 
 ``` r
+
 # import the csv file embedded in mapsf
 mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
 # Select links from Fort-de-France (97209))

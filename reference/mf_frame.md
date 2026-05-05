@@ -28,7 +28,8 @@ mf_frame(extent = "map", col, lwd = 1.5, lty = 1, ...)
 
 - ...:
 
-  other arguments from [`box`](https://rdrr.io/r/graphics/box.html)
+  other arguments from
+  [`graphics::box()`](https://rdrr.io/r/graphics/box.html)
 
 ## Value
 

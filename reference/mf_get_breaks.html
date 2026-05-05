@@ -13,7 +13,7 @@ with some additional methods."><meta property="og:image" content="https://riatel
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,9 +74,9 @@ classification.</p></dd>
 
 
 <dt id="arg-breaks">breaks<a class="anchor" aria-label="anchor" href="#arg-breaks"></a></dt>
-<dd><p>a classification method; one of "fixed", "sd", "equal",
-"pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks",
-"dpih", "q6", "Q6", geom", "arith", "em", "msd" or "ckmeans" (see Details)</p></dd>
+<dd><p>a classification method; the main methods are "quantile",
+"equal", "msd", "ckmeans" (natural breaks), "Q6" and "geom".
+See Details for the full list.</p></dd>
 
 
 <dt id="arg-k">k<a class="anchor" aria-label="anchor" href="#arg-k"></a></dt>
@@ -98,12 +98,24 @@ of <code><a href="https://r-spatial.github.io/classInt/reference/classIntervals.
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>"fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust",
-"bclust", "fisher", "jenks" and "dpih"
+
+<div class="section">
+<h3 id="classint-methods"><code>classInt</code> methods<a class="anchor" aria-label="anchor" href="#classint-methods"></a></h3>
+
+
+<p>"fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust",
+"fisher", "jenks", "dpih", "headtails", "maximum", and "box"
 are <code><a href="https://r-spatial.github.io/classInt/reference/classIntervals.html" class="external-link">classIntervals</a></code>
-methods. You may need to pass additional arguments for some of them.<br><br></p>
+methods. You may need to pass additional arguments for some of them.</p>
+</div>
+
+<div class="section">
+<h3 id="natural-breaks-method">Natural breaks method<a class="anchor" aria-label="anchor" href="#natural-breaks-method"></a></h3>
+
+
 <p>The "jenks", "fisher" and "ckmeans" methods are based on the same concept of
-<strong>natural breaks</strong> and and produce similar groupings.</p><ul><li><p>The "jenks" method produces class boundaries falling on data points and is
+<strong>natural breaks</strong> and and produce similar groupings. The use of "ckmeans" is
+recommended.</p><ul><li><p>The "jenks" method produces class boundaries falling on data points and is
 slow.</p></li>
 <li><p>The "fisher" method produces class boundaries located more conveniently
 between data points, and is faster than the "jenks" method.</p></li>
@@ -113,8 +125,21 @@ k-means method from the <code>Ckmeans.1d.dp</code> package.
 If the "ckmeans" method is selected but the <code>Ckmeans.1d.dp</code> package is not
 installed then the "fisher" method is used.</p></li>
 </ul><p>The relative speeds of these three methods may vary depending on the number
-of data points and the number of classes.<br><br></p>
-<p>The "q6" method uses the following <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></code>
+of data points and the number of classes.</p>
+</div>
+
+<div class="section">
+<h3 id="other-methods">Other methods<a class="anchor" aria-label="anchor" href="#other-methods"></a></h3>
+
+
+<p>The "msd" method is based on the <strong>mean</strong> and the <strong>standard deviation</strong>
+of a numeric vector.
+The <code>nbreaks</code> parameter is not relevant, use <code>k</code> and
+<code>central</code> instead. <code>k</code> indicates
+the extent of each class in share of standard deviation.
+If <code>central=TRUE</code> then
+the mean value is the center of a class else the mean is a break value.<br><br>
+The "q6" method uses the following <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></code>
 probabilities: 0, 0.05, 0.275, 0.5, 0.725, 0.95, 1.<br><br>
 The "Q6" method uses the following <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></code>
 probabilities: 0, 0.05, 0.25, 0.5, 0.75, 0.95, 1.<br><br>
@@ -122,14 +147,18 @@ The "geom" method is based on a geometric progression along
 the variable values, all values must be strictly greater than zero.<br><br>
 The "arith" method is based on an arithmetic progression along
 the variable values.<br><br>
-The "em" method is based on nested averages computation.<br><br>
-The "msd" method is based on the mean and the standard deviation
-of a numeric vector.
-The <code>nbreaks</code> parameter is not relevant, use <code>k</code> and
-<code>central</code> instead. <code>k</code> indicates
-the extent of each class in share of standard deviation.
-If <code>central=TRUE</code> then
-the mean value is the center of a class else the mean is a break value.</p>
+The "em" method is based on nested averages computation.</p>
+</div>
+
+<div class="section">
+<h3 id="class-boundaries">Class boundaries<a class="anchor" aria-label="anchor" href="#class-boundaries"></a></h3>
+
+
+<p>Breaks defined by a numeric vector or a classification method are
+left-closed: breaks defined by <code>c(2, 5, 10, 15, 20)</code>
+will be mapped as [2 - 5[, [5 - 10[, [10 - 15[, [15 - 20].</p>
+</div>
+
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

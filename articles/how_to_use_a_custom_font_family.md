@@ -8,6 +8,7 @@ Note that the font has to be installed on your system and recognized by
 R.
 
 ``` r
+
 library(mapsf)
 # Import the sample data set
 mtq <- mf_get_mtq()

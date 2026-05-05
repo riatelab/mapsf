@@ -130,3 +130,6 @@ Other contributors:
 
 - Jim Lemon (Arc drawing algorithm for annotations, from plotrix
   package) \[copyright holder\]
+
+- Danielle Navarro ([ORCID](https://orcid.org/0000-0001-7648-6578))
+  (Bézier curve algorithm for text annotations) \[copyright holder\]

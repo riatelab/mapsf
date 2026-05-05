@@ -33,8 +33,8 @@ mf_get_pal(
 
 - alpha:
 
-  an alpha-transparency level in the range \[0,1\] (0 means transparent
-  and 1 means opaque)
+  opacity, in the range \[0,1\] (0 means transparent and 1 means
+  opaque). Default is set to 1.
 
 - rev:
 

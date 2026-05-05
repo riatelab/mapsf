@@ -24,6 +24,7 @@ The SVG format is perfect for producing maps that need further editing
 or resizing.
 
 ``` r
+
 library(mapsf)
 mtq <- mf_get_mtq()
 mf_svg(
@@ -52,6 +53,7 @@ after export.
 In this example we only set the `width` of the exported figure.
 
 ``` r
+
 mf_png(
   x = mtq,
   filename = "fig/wo_export_fixed_width.png",
@@ -69,6 +71,7 @@ to the right of the plot (50% of `x` width) in order to get some extra
 space for the legend.
 
 ``` r
+
 mf_theme("dracula")
 mf_png(
   x = mtq,
