@@ -1,30 +1,26 @@
-#
-# import stuffs
-# @import graphics
-# @import stats
-# @import sf
-# @import graphics
+# import functions
 #' @importFrom s2 as_s2_geography s2_data_countries s2_difference s2_union_agg
-#' s2_buffer_cells as_s2_geography s2_intersection
+#' @importFrom s2 s2_buffer_cells as_s2_geography s2_intersection
 #' @importFrom maplegend leg leg_comp leg_draw
 #' @importFrom grDevices colorRampPalette dev.list png svg hcl.colors
-#' recordGraphics hcl.pals dev.size xy.coords col2rgb rgb
+#' @importFrom grDevices recordGraphics hcl.pals dev.size xy.coords col2rgb rgb
 #' @importFrom stats aggregate median na.omit quantile runif sd bw.SJ density
 #' @importFrom sf st_polygon st_multilinestring st_multipolygon st_buffer
-#' st_coordinates st_buffer st_geometry st_crs st_bbox st_as_sf st_transform
-#' st_is_longlat st_as_sfc st_centroid st_crs<- st_geometry<- st_is_empty
-#' st_collection_extract st_cast st_read st_geometry_type st_agr
-#' st_set_agr st_convex_hull st_make_grid st_union st_intersects
-#' st_set_geometry st_sf st_area st_combine st_graticule st_intersection
-#' st_sample st_set_crs st_sfc
+#' @importFrom sf st_coordinates st_buffer st_geometry st_crs st_bbox st_as_sf
+#' @importFrom sf  st_transform st_is_empty st_intersection
+#' @importFrom sf st_is_longlat st_as_sfc st_centroid st_crs<- st_geometry<-
+#' @importFrom sf st_collection_extract st_cast st_read st_geometry_type st_agr
+#' @importFrom sf st_set_agr st_convex_hull st_make_grid st_union st_intersects
+#' @importFrom sf st_set_geometry st_sf st_area st_combine st_graticule
+#' @importFrom sf st_sample st_set_crs st_sfc
 #' @importFrom graphics arrows axis boxplot grconvertX box rasterImage
-#' grconvertY hist lines locator par plot.new plot.window points polygon
-#' rasterImage rect segments strheight strwidth symbols text
-#' title xinch xyinch yinch
+#' @importFrom graphics grconvertY hist lines locator par plot.new plot.window
+#' @importFrom graphics rasterImage rect segments strheight strwidth symbols
+#' @importFrom graphics title xinch xyinch yinch points polygon text
 #' @importFrom classInt classIntervals
-
-
 #' @importFrom utils globalVariables
+#' @importFrom maplegend leg
+#'
 .gmapsf <- new.env(parent = emptyenv())
 globalVariables(".gmapsf", package = "mapsf", add = FALSE)
 .gmapsf$inset <- FALSE

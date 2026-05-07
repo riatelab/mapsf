@@ -74,7 +74,6 @@
 #' @param frame_border border color of the frame
 #' @return No value is returned, a legend is displayed
 #' (except if `return_bbox` is used).
-#' @importFrom maplegend leg
 #' @export
 #' @details
 #' Some arguments are available for all types of legend: `val`, `pos`, `title`,

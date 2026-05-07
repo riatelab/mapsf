@@ -73,6 +73,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Timothée Giraud \email{timothee.giraud@cnrs.fr} (\href{https://orcid.org/0000-0002-1932-3323}{ORCID})
 
+Authors:
+\itemize{
+  \item Timothée Giraud \email{timothee.giraud@cnrs.fr} (\href{https://orcid.org/0000-0002-1932-3323}{ORCID})
+}
+
 Other contributors:
 \itemize{
   \item Hugues Pecout (\href{https://orcid.org/0000-0002-0246-0954}{ORCID}) (Logo) [contributor]
