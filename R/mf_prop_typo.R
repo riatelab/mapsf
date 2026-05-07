@@ -278,6 +278,8 @@ mf_prop_typo <- function(x, var,
     inches = inches
   )
 
+  leg_pos <- split_leg(leg_pos)
+
   if (is.null(getOption("mapsf.legacy"))) {
     ccol <- getOption("mapsf.foreground")
   } else {
