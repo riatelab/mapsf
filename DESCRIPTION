@@ -1,6 +1,6 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 1.2.0
+Version: 1.2.0.9000
 Authors@R: 
     c(person(given = "Timothée",
              family = "Giraud",
@@ -62,7 +62,7 @@ Suggests:
     tinytest,
     covr
 Encoding: UTF-8
-RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 Language: en-US
 Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0
