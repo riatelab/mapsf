@@ -3,10 +3,14 @@
 #' @param x object of class `sf` or `sfc`
 #' @param lon longitude
 #' @param lat latitude
-#' @param water_col color of the water
-#' @param land_col color of the land
-#' @param border_col color of the borders
-#' @param border_lwd width of the borders
+#' @param water_col color of the water, hex code or color name given by
+#' [colors]
+#' @param land_col color of the land, hex code or color name given by
+#' [colors]
+#' @param border_col color of the borders, hex code or color name given by
+#' [colors]
+#' @param border_lwd width of the borders, hex code or color name given by
+#' [colors]
 #' @param ... further parameters related to the plotted point aspect
 #' (cex, pch, col...)
 #' @return No return value, a world map is displayed.

@@ -4,7 +4,9 @@
 #' @param x object of class `sf`, `sfc` or `SpatRaster`
 #' @param pos labels positions ("bottom", "left", "top" and / or "right")
 #' @param cex labels size
-#' @param col graticules and label color
+#' @param col graticules and labels color, hex code or color name given by
+#' [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param lwd graticules line width
 #' @param lty graticules line type
 #' @param expandBB fractional values to expand the bounding box with, in each

@@ -5,9 +5,9 @@
 #' The default color is the highlight color (see [mf_theme]).
 #' @param pos position, one of 'bottomleft', 'bottomright' or 'rightbottom'
 #' @param txt text of the credits, use '\\n' to add line breaks
-#' @param cex cex of the credits
-#' @param font font of the credits
-#' @param bg background color
+#' @param cex size of the text
+#' @param font font of the text
+#' @param bg background color, hex code or color name given by [colors]
 #' @export
 #' @return No return value, credits are displayed.
 #' @examples

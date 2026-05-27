@@ -28,13 +28,16 @@ mf_annotation(
 
 \item{cex}{size of the text}
 
-\item{col_arrow}{arrow color}
+\item{col_arrow}{arrow color, hex code or color name given by \link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
-\item{col_txt}{text color}
+\item{col_txt}{text color, hex code or color name given by \link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{halo}{add a halo around the text}
 
-\item{bg}{halo color}
+\item{bg}{halo color, hex code or color name given by \link{colors}.
+The default color is the background color (see \link{mf_theme}).}
 
 \item{s}{arrow size (min=1)}
 

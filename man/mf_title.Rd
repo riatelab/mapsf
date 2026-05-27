@@ -13,13 +13,15 @@ mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner, banner)
 
 \item{tab}{if TRUE the title is displayed as a tab}
 
-\item{bg}{background of the title}
+\item{bg}{background color of the title, hex code or color name given by
+\link{colors}}
 
-\item{fg}{foreground of the title}
+\item{fg}{foreground color of the title, hex code or color name given by
+\link{colors}}
 
-\item{cex}{cex of the title}
+\item{cex}{size of the title}
 
-\item{line}{number of lines used for the title}
+\item{line}{number of margin lines used for the title}
 
 \item{font}{font of the title}
 
@@ -32,7 +34,8 @@ if FALSE the title is displayed in the top margin}
 No return value, a title is displayed.
 }
 \description{
-Plot a title
+Default values for \code{mf_title()} arguments are set with the map theme
+(see \link{mf_theme}).
 }
 \examples{
 mtq <- mf_get_mtq()

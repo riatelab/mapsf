@@ -21,11 +21,11 @@ mf_credits(
 \item{col}{color of the text, hex code or color name given by \link{colors}.
 The default color is the highlight color (see \link{mf_theme}).}
 
-\item{cex}{cex of the credits}
+\item{cex}{size of the text}
 
-\item{font}{font of the credits}
+\item{font}{font of the text}
 
-\item{bg}{background color}
+\item{bg}{background color, hex code or color name given by \link{colors}}
 }
 \value{
 No return value, credits are displayed.

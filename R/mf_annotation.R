@@ -10,10 +10,13 @@
 #' @param pos position of the text, one of "topleft", "topright", "bottomright",
 #' "bottomleft" or "center"
 #' @param cex size of the text
-#' @param col_arrow arrow color
-#' @param col_txt text color
+#' @param col_arrow arrow color, hex code or color name given by [colors].
+#' The default color is the highlight color (see [mf_theme]).
+#' @param col_txt text color, hex code or color name given by [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param halo add a halo around the text
-#' @param bg halo color
+#' @param bg halo color, hex code or color name given by [colors].
+#' The default color is the background color (see [mf_theme]).
 #' @param s arrow size (min=1)
 #' @param ... further \link{text} arguments.
 #' @note

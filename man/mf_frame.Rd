@@ -9,7 +9,8 @@ mf_frame(extent = "map", col, lwd = 1.5, lty = 1, ...)
 \arguments{
 \item{extent}{type of frame, either 'map' or 'figure'}
 
-\item{col}{line color}
+\item{col}{line color, hex code or color name given by \link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{lwd}{line width}
 

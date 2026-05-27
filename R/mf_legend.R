@@ -50,15 +50,17 @@
 #' @param frame if TRUE the legend is plotted within a frame
 #' @param no_data if TRUE a "missing value" box is plotted
 #' @param no_data_txt label for missing values
-#' @param bg background color of the legend
-#' @param fg foreground color of the legend
+#' @param bg background color of the legend,
+#' hex code or color name given by [colors].
+#' @param fg foreground color of the legend,
+#' hex code or color name given by [colors].
 #' @param box_border border color of legend boxes
 #' @param box_cex width and height size expansion of boxes, histogram
 #' circles, squares or lines
 #' @param return_bbox return only bounding box of the legend.
 #' No legend is plotted.
 #' @param col color of the symbols (for "prop") or color of the lines (for
-#' "prop_line" and "grad_line")
+#' "prop_line" and "grad_line"), hex code or color name given by [colors].
 #' @param lwd width(s) of the symbols borders (for "prop", "symb",
 #' "choro_point", "choro_symb"),
 #' width of the largest line (for "prop_line"), line width (for "choro_line"

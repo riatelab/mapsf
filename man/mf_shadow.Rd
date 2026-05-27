@@ -17,8 +17,9 @@ mf_shadow(
 \arguments{
 \item{x}{an sf or sfc polygon object}
 
-\item{col}{shadow color. The default color is the highlight color
-(see \link{mf_theme}).}
+\item{col}{shadow color, hex code or color name given by
+\link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{cex}{shadow extent}
 

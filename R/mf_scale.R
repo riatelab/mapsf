@@ -1,7 +1,9 @@
 #' @title Plot a scale bar
 #' @description Plot a scale bar.
 #' @name mf_scale
-#' @param col color of the scale bar (line and text)
+#' @param col color of the scale bar (line and text), hex code or color name
+#' given by [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param size size of the scale bar in scale units (`scale_units`,
 #' default to km). If size is not set, an automatic size is used.
 #' @param lwd line width of the scale bar
@@ -10,8 +12,8 @@
 #' 'interactive' or a vector of two coordinates in map units (c(x, y)).
 #' @param crs_units units used in the CRS of the currently plotted layer.
 #' Possible values are "m" and "ft" (see Details).
-#' @param scale_units units used for the scale bar. Can be "mi" for miles,
-#' "ft" for feet, "m" for meters, or "km" for kilometers (default).
+#' @param scale_units units displayed in the scale bar. It can be "mi" for
+#' miles, "ft" for feet, "m" for meters, or "km" for kilometers (default).
 #' @param adj adjust the position of the scale bar in x and y directions
 #' @param x object of class crs, sf or sfc. If set, the CRS of x will be used
 #' instead of `crs_units` to define CRS units.

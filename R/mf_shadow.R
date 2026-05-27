@@ -2,8 +2,9 @@
 #' @name mf_shadow
 #' @description Plot the shadow of a polygon layer.
 #' @param x an sf or sfc polygon object
-#' @param col shadow color. The default color is the highlight color
-#' (see [mf_theme]).
+#' @param col shadow color, hex code or color name given by
+#' [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param cex shadow extent
 #' @param expandBB fractional values to expand the bounding box with, in each
 #' direction (bottom, left, top, right)

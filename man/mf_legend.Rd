@@ -78,7 +78,7 @@ names can be obtained with \link{hcl.pals}.}
 alpha-transparency level in the range [0,1]}
 
 \item{col}{color of the symbols (for "prop") or color of the lines (for
-"prop_line" and "grad_line")}
+"prop_line" and "grad_line"), hex code or color name given by \link{colors}.}
 
 \item{inches}{size of the largest symbol (radius for circles, half width
 for squares) in inches}
@@ -135,9 +135,11 @@ circles, squares or lines}
 
 \item{frame}{if TRUE the legend is plotted within a frame}
 
-\item{bg}{background color of the legend}
+\item{bg}{background color of the legend,
+hex code or color name given by \link{colors}.}
 
-\item{fg}{foreground color of the legend}
+\item{fg}{foreground color of the legend,
+hex code or color name given by \link{colors}.}
 
 \item{size}{size of the legend; 2 means two times bigger}
 

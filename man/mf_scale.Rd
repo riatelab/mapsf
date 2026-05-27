@@ -27,13 +27,15 @@ default to km). If size is not set, an automatic size is used.}
 
 \item{cex}{size of the scale bar text}
 
-\item{col}{color of the scale bar (line and text)}
+\item{col}{color of the scale bar (line and text), hex code or color name
+given by \link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{crs_units}{units used in the CRS of the currently plotted layer.
 Possible values are "m" and "ft" (see Details).}
 
-\item{scale_units}{units used for the scale bar. Can be "mi" for miles,
-"ft" for feet, "m" for meters, or "km" for kilometers (default).}
+\item{scale_units}{units displayed in the scale bar. It can be "mi" for
+miles, "ft" for feet, "m" for meters, or "km" for kilometers (default).}
 
 \item{adj}{adjust the position of the scale bar in x and y directions}
 

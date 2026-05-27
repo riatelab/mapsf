@@ -24,22 +24,25 @@
 #' settings.
 #'
 #' @eval paste0("@param x name of a map theme. One of '",
-#' paste0(get_themes_names(), collapse= "', '" ),"'.")
+#' paste0(get_themes_names(), collapse= "', '" ),
+#' "'. The default theme is 'base'.")
 #' @param mar a numeral vector of the form c(bottom, left, top, right)
 #' which gives the margin size specified in number of lines
 #' @param title_pos title position, one of 'left', 'center', 'right'
 #' @param title_tab if TRUE the title is displayed as a 'tab'
-#' @param title_cex cex of the title
+#' @param title_cex size of the title
 #' @param title_font font of the title
-#' @param title_line number of lines used for the title
+#' @param title_line number of margin lines used for the title
 #' @param title_inner if TRUE the title is displayed inside the plot area;
 #' if FALSE the title is displayed in the top margin
 #' @param title_banner if TRUE the title is displayed as a banner
-#' @param foreground foreground color
-#' @param background background color
-#' @param highlight highlight color
-#' @param pal_quali default qualitative color palette (name or function)
-#' @param pal_seq default sequential color palette (name or function)
+#' @param foreground foreground color, hex code or color name given by [colors].
+#' @param background background color, hex code or color name given by [colors].
+#' @param highlight highlight color, hex code or color name given by [colors].
+#' @param pal_quali default qualitative color palette (name or function).
+#' Palette names can be obtained with [hcl.pals].
+#' @param pal_seq default sequential color palette (name or function).
+#' Palette names can be obtained with [hcl.pals].
 #' @param ... deprecated arguments ('bg', 'fg', 'tab', 'pos', 'inner',
 #' 'line', 'cex' and 'font'). See the Note section.
 #' @param frame either "none", "map" or "figure"; plot a frame around the map

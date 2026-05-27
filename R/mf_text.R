@@ -10,7 +10,8 @@
 #' or "interactive" for interactive placement.
 #' @param txt text to display
 #' @param cex text size
-#' @param col_txt text color
+#' @param col_txt text color, hex code or color name given by [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param pos position of the text relative to `x` (one of 'center',
 #' 'topleft', 'top', 'topright', 'right', 'bottomright', 'bottom',
 #' 'bottomleft', 'left').
@@ -20,18 +21,23 @@
 #' @param font text font
 #' @param family text family
 #' @param halo add a halo around the text
-#' @param col_halo halo color
+#' @param col_halo halo color, hex code or color name given by [colors].
+#' The default color is the background color (see [mf_theme]).
 #' @param cex_halo halo width
 #' @param box add a box around the text
-#' @param col_box box color
-#' @param col_box_border box border color
+#' @param col_box box color, hex code or color name given by [colors].
+#' The default color is the background color (see [mf_theme]).
+#' @param col_box_border box border color, hex code or color name given by
+#' [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param lwd_box line width of the box border
 #' @param line type of the line drawn between the text and `x`.
 #' 0 for no line, 1 for a straight line, 2 for a line with an angle,
 #' 3 for a curved line. Ignored if `x` is a position.
 #' @param clockwise direction of the curve for types 2 and 3
 #' @param lwd line width
-#' @param col_line line color
+#' @param col_line line color, hex code or color name given by [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param arrow add an arrow to the line
 #' @param cex_arrow arrow size
 #' @param adj adjust the text position in x and y directions

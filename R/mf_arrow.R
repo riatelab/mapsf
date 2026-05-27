@@ -4,7 +4,8 @@
 #' @param pos position. It can be one of 'topleft', 'top','topright', 'right',
 #' 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of
 #' two coordinates in map units (c(x, y))
-#' @param col arrow color
+#' @param col arrow color, hex code or color name given by [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param cex arrow size
 #' @param adj adjust the position of the north arrow in x and y directions
 #' @param align object of class `sf` or `sfc` used to adjust the

@@ -22,13 +22,17 @@ mf_worldmap(
 
 \item{lat}{latitude}
 
-\item{water_col}{color of the water}
+\item{water_col}{color of the water, hex code or color name given by
+\link{colors}}
 
-\item{land_col}{color of the land}
+\item{land_col}{color of the land, hex code or color name given by
+\link{colors}}
 
-\item{border_col}{color of the borders}
+\item{border_col}{color of the borders, hex code or color name given by
+\link{colors}}
 
-\item{border_lwd}{width of the borders}
+\item{border_lwd}{width of the borders, hex code or color name given by
+\link{colors}}
 
 \item{...}{further parameters related to the plotted point aspect
 (cex, pch, col...)}

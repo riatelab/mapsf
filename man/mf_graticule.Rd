@@ -21,7 +21,9 @@ mf_graticule(
 \arguments{
 \item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
 
-\item{col}{graticules and label color}
+\item{col}{graticules and labels color, hex code or color name given by
+\link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{lwd}{graticules line width}
 

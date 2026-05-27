@@ -11,7 +11,8 @@ mf_arrow(pos = "topleft", col, cex = 1, adj = c(0, 0), align)
 'bottomright', 'bottom','bottomleft', 'left', 'interactive' or a vector of
 two coordinates in map units (c(x, y))}
 
-\item{col}{arrow color}
+\item{col}{arrow color, hex code or color name given by \link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{cex}{arrow size}
 

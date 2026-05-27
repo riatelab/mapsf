@@ -1,7 +1,8 @@
 #' @title Plot a frame
 #' @description Plot a frame around an existing map.
 #' @param extent type of frame, either 'map' or 'figure'
-#' @param col line color
+#' @param col line color, hex code or color name given by [colors].
+#' The default color is the highlight color (see [mf_theme]).
 #' @param lwd line width
 #' @param lty line type
 #' @param ... other arguments from [graphics::box()]

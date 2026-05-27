@@ -41,7 +41,8 @@ or "interactive" for interactive placement.}
 
 \item{cex}{text size}
 
-\item{col_txt}{text color}
+\item{col_txt}{text color, hex code or color name given by \link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{pos}{position of the text relative to \code{x} (one of 'center',
 'topleft', 'top', 'topright', 'right', 'bottomright', 'bottom',
@@ -58,15 +59,19 @@ Ignored if \code{x} is a position.}
 
 \item{halo}{add a halo around the text}
 
-\item{col_halo}{halo color}
+\item{col_halo}{halo color, hex code or color name given by \link{colors}.
+The default color is the background color (see \link{mf_theme}).}
 
 \item{cex_halo}{halo width}
 
 \item{box}{add a box around the text}
 
-\item{col_box}{box color}
+\item{col_box}{box color, hex code or color name given by \link{colors}.
+The default color is the background color (see \link{mf_theme}).}
 
-\item{col_box_border}{box border color}
+\item{col_box_border}{box border color, hex code or color name given by
+\link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{lwd_box}{line width of the box border}
 
@@ -78,7 +83,8 @@ Ignored if \code{x} is a position.}
 
 \item{lwd}{line width}
 
-\item{col_line}{line color}
+\item{col_line}{line color, hex code or color name given by \link{colors}.
+The default color is the highlight color (see \link{mf_theme}).}
 
 \item{arrow}{add an arrow to the line}
 
