@@ -81,6 +81,7 @@ mf_distr <- function(x, nbins, bw, breaks, pal, alpha = 1, rev = FALSE,
   x_lim <- c(min(x_labels), max(x_labels))
 
   # points coords
+  set.seed(46)
   pts_y <- runif(d$n, min = y_lim[1], max = y_lim[1] + large_offset)
 
   # curve coords
