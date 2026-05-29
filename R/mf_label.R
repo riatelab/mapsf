@@ -16,6 +16,14 @@
 #' @param q quality of the non overlapping labels placement. Possible values
 #' are 0 (quick results), 1 (reasonable quality and speed), 2 (better quality),
 #' 3 (insane quality, can take a lot of time).
+#' @param expandBB expension of the map area in each direction (bottom, left,
+#' top, right). The expension is expressed as a share of `x` width
+#' (for left and right values) or a share of `x` height (for bottom and top
+#' values).
+#' @param extent `sf` object used to define the map extent; defaults to `x`.
+#' `extent` and `x` must use the same CRS.
+#' @param add whether to add the labels to an existing plot (TRUE)
+#' or not (FALSE)
 #' @return No return value, labels are displayed.
 #' @export
 #' @examples
@@ -37,11 +45,17 @@ mf_label <- function(x,
                      bg,
                      r = 0.1,
                      q = 1,
+                     add = TRUE,
+                     extent = x,
+                     expandBB = rep(.04, 4),
                      ...) {
-  test_cur_plot()
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
+
+  if (add == FALSE) {
+    mf_init(x, expandBB = expandBB, extent = extent)
+  }
 
   col <- go(col, "highlight")
   bg <- go(bg, "background")

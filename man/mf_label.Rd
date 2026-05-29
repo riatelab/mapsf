@@ -15,6 +15,9 @@ mf_label(
   bg,
   r = 0.1,
   q = 1,
+  add = TRUE,
+  extent = x,
+  expandBB = rep(0.04, 4),
   ...
 )
 }
@@ -42,6 +45,17 @@ arguments bg and r can be modified to set the color and width of the halo.}
 \item{q}{quality of the non overlapping labels placement. Possible values
 are 0 (quick results), 1 (reasonable quality and speed), 2 (better quality),
 3 (insane quality, can take a lot of time).}
+
+\item{add}{whether to add the labels to an existing plot (TRUE)
+or not (FALSE)}
+
+\item{extent}{\code{sf} object used to define the map extent; defaults to \code{x}.
+\code{extent} and \code{x} must use the same CRS.}
+
+\item{expandBB}{expension of the map area in each direction (bottom, left,
+top, right). The expension is expressed as a share of \code{x} width
+(for left and right values) or a share of \code{x} height (for bottom and top
+values).}
 
 \item{...}{further \link{text} arguments.}
 }
