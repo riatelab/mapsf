@@ -1,3 +1,13 @@
+# mapsf 1.2.1
+
+## Fix
+- allow custom legend position for "prop_typo" type (#93)
+- use a seed to fix the vertical position of points in mf_distr() 
+
+## Feat
+-  add "add", "extent" and "expandBB" args to mf_label()
+
+
 # mapsf 1.2.0
 
 ## Fix
