@@ -5,8 +5,10 @@
 #' @param type type of raster map, one of "continuous", "classes", or
 #' "interval". Default type for a numeric and categorial raster are
 #' "continuous" and "classes" respectively.
-#' @param expandBB fractional values to expand the bounding box with, in each
-#' direction (bottom, left, top, right)
+#' @param expandBB expension of the map area in each direction (bottom, left,
+#' top, right). The expension is expressed as a share of `x` width
+#' (for left and right values) or a share of `x` height (for bottom and top
+#' values).
 #' @param add whether to add the layer to an existing plot (TRUE) or
 #' not (FALSE)
 #' @param leg_horiz display the legend horizontally

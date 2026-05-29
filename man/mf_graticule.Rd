@@ -29,8 +29,10 @@ The default color is the highlight color (see \link{mf_theme}).}
 
 \item{lty}{graticules line type}
 
-\item{expandBB}{fractional values to expand the bounding box with, in each
-direction (bottom, left, top, right)}
+\item{expandBB}{expension of the map area in each direction (bottom, left,
+top, right). The expension is expressed as a share of \code{x} width
+(for left and right values) or a share of \code{x} height (for bottom and top
+values).}
 
 \item{label}{whether to add labels (TRUE) or not (FALSE)}
 
@@ -38,8 +40,8 @@ direction (bottom, left, top, right)}
 
 \item{cex}{labels size}
 
-\item{extent}{object with an \code{st_bbox} method to define plot extent;
-defaults to \code{x}. \code{extent} and \code{x} must use the same CRS.}
+\item{extent}{\code{sf} object used to define the map extent; defaults to \code{x}.
+\code{extent} and \code{x} must use the same CRS.}
 
 \item{bg}{background color of the map, hex code or color name given by
 \link{colors}, ignored if \code{add = TRUE}}

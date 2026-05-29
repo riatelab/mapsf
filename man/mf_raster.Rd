@@ -63,8 +63,10 @@ transparent and 1 means opaque). Default is set to 1.}
 \item{rev}{if \code{pal} is a palette name, whether the ordering of the colors
 should be reversed (TRUE) or not (FALSE)}
 
-\item{expandBB}{fractional values to expand the bounding box with, in each
-direction (bottom, left, top, right)}
+\item{expandBB}{expension of the map area in each direction (bottom, left,
+top, right). The expension is expressed as a share of \code{x} width
+(for left and right values) or a share of \code{x} height (for bottom and top
+values).}
 
 \item{bg}{background color of the map, hex code or color name given by
 \link{colors}, ignored if \code{add = TRUE}}

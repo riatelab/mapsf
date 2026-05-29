@@ -23,8 +23,10 @@ mf_svg(
 
 \item{height}{height of the figure (inches)}
 
-\item{expandBB}{fractional values to expand the bounding box with, in each
-direction (bottom, left, top, right)}
+\item{expandBB}{expension of the map area in each direction (bottom, left,
+top, right). The expension is expressed as a share of \code{x} width
+(for left and right values) or a share of \code{x} height (for bottom and top
+values).}
 
 \item{svglite}{if TRUE, the export is done with the \code{svglite} package
 if it is installed (see Details)}

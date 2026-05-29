@@ -12,8 +12,10 @@
 #'
 #' Use `dev.off()` to finish the export (see Examples).
 #' @param x object of class `sf`, `sfc` or `SpatRaster`
-#' @param expandBB fractional values to expand the bounding box with, in each
-#' direction (bottom, left, top, right)
+#' @param expandBB expension of the map area in each direction (bottom, left,
+#' top, right). The expension is expressed as a share of `x` width
+#' (for left and right values) or a share of `x` height (for bottom and top
+#' values).
 #' @param filename path to the exported file
 #' @param width width of the figure (pixels)
 #' @param height height of the figure (pixels)
