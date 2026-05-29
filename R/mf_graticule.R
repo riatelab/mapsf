@@ -9,8 +9,8 @@
 #' The default color is the highlight color (see [mf_theme]).
 #' @param lwd graticules line width
 #' @param lty graticules line type
-#' @param expandBB expension of the map area in each direction (bottom, left,
-#' top, right). The expension is expressed as a share of `x` width
+#' @param expandBB expansion of the map area in each direction (bottom, left,
+#' top, right). The expansion is expressed as a share of `x` width
 #' (for left and right values) or a share of `x` height (for bottom and top
 #' values).
 #' @param extent `sf` object used to define the map extent; defaults to `x`.

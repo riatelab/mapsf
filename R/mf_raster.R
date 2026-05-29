@@ -5,8 +5,8 @@
 #' @param type type of raster map, one of "continuous", "classes", or
 #' "interval". Default type for a numeric and categorial raster are
 #' "continuous" and "classes" respectively.
-#' @param expandBB expension of the map area in each direction (bottom, left,
-#' top, right). The expension is expressed as a share of `x` width
+#' @param expandBB expansion of the map area in each direction (bottom, left,
+#' top, right). The expansion is expressed as a share of `x` width
 #' (for left and right values) or a share of `x` height (for bottom and top
 #' values).
 #' @param add whether to add the layer to an existing plot (TRUE) or

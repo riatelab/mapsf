@@ -16,8 +16,8 @@
 #' @param q quality of the non overlapping labels placement. Possible values
 #' are 0 (quick results), 1 (reasonable quality and speed), 2 (better quality),
 #' 3 (insane quality, can take a lot of time).
-#' @param expandBB expension of the map area in each direction (bottom, left,
-#' top, right). The expension is expressed as a share of `x` width
+#' @param expandBB expansion of the map area in each direction (bottom, left,
+#' top, right). The expansion is expressed as a share of `x` width
 #' (for left and right values) or a share of `x` height (for bottom and top
 #' values).
 #' @param extent `sf` object used to define the map extent; defaults to `x`.

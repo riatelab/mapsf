@@ -29,8 +29,8 @@ The default color is the highlight color (see \link{mf_theme}).}
 
 \item{lty}{graticules line type}
 
-\item{expandBB}{expension of the map area in each direction (bottom, left,
-top, right). The expension is expressed as a share of \code{x} width
+\item{expandBB}{expansion of the map area in each direction (bottom, left,
+top, right). The expansion is expressed as a share of \code{x} width
 (for left and right values) or a share of \code{x} height (for bottom and top
 values).}
 

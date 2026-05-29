@@ -13,8 +13,8 @@ mf_get_ratio(x, width, height, expandBB = rep(0, 4), theme = mf_theme())
 
 \item{height}{height of the figure (inches), use only one of width or height}
 
-\item{expandBB}{expension of the map area in each direction (bottom, left,
-top, right). The expension is expressed as a share of \code{x} width
+\item{expandBB}{expansion of the map area in each direction (bottom, left,
+top, right). The expansion is expressed as a share of \code{x} width
 (for left and right values) or a share of \code{x} height (for bottom and top
 values).}
 
