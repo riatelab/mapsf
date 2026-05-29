@@ -1,6 +1,8 @@
 # Plot a title
 
-Plot a title
+Default values for `mf_title()` arguments are set with the map theme
+(see
+[mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 ## Usage
 
@@ -24,19 +26,21 @@ mf_title(txt = "Map Title", pos, tab, bg, fg, cex, line, font, inner, banner)
 
 - bg:
 
-  background of the title
+  background color of the title, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html)
 
 - fg:
 
-  foreground of the title
+  foreground color of the title, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html)
 
 - cex:
 
-  cex of the title
+  size of the title
 
 - line:
 
-  number of lines used for the title
+  number of margin lines used for the title
 
 - font:
 

@@ -114,6 +114,11 @@ Useful links:
 **Maintainer**: Timothée Giraud <timothee.giraud@cnrs.fr>
 ([ORCID](https://orcid.org/0000-0002-1932-3323))
 
+Authors:
+
+- Timothée Giraud <timothee.giraud@cnrs.fr>
+  ([ORCID](https://orcid.org/0000-0002-1932-3323))
+
 Other contributors:
 
 - Hugues Pecout ([ORCID](https://orcid.org/0000-0002-0246-0954)) (Logo)

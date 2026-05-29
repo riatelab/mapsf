@@ -64,11 +64,19 @@ sheet](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/map
 [![Cheat
 Sheet](reference/figures/mapsf_cheatsheet.png)](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf)
 
+## mapsf.gui ![](reference/figures/mapsf_gui_logo.png)
+
+The [`mapsf.gui` package](https://codeberg.org/riatelab/mapsf.gui)
+provides a Shiny interface for creating thematic maps using `mapsf`.
+Users of the application can **build thematic maps interactively and
+automatically generate the corresponding R code** to reproduce the map
+identically.
+
 ## Alternatives
 
-- [tmap](https://github.com/r-tmap/tmap)  
-- [ggplot2](https://github.com/tidyverse/ggplot2) +
-  [ggspatial](https://github.com/paleolimbot/ggspatial)
+- [`tmap`](https://github.com/r-tmap/tmap)  
+- [`ggplot2`](https://github.com/tidyverse/ggplot2) +
+  [`ggspatial`](https://github.com/paleolimbot/ggspatial)
 
 ## Community Guidelines
 

@@ -34,15 +34,16 @@ mf_credits(
 
 - cex:
 
-  cex of the credits
+  size of the text
 
 - font:
 
-  font of the credits
+  font of the text
 
 - bg:
 
-  background color
+  background color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html)
 
 ## Value
 

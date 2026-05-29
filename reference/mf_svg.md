@@ -46,8 +46,10 @@ mf_svg(
 
 - expandBB:
 
-  fractional values to expand the bounding box with, in each direction
-  (bottom, left, top, right)
+  expension of the map area in each direction (bottom, left, top,
+  right). The expension is expressed as a share of `x` width (for left
+  and right values) or a share of `x` height (for bottom and top
+  values).
 
 - svglite:
 
@@ -79,11 +81,11 @@ after export.
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".svg"))
-#> [1] "/tmp/Rtmpy7mVeK/file7c1353de1349a.svg"
+#> [1] "/tmp/RtmpI8cWov/file17df676900873.svg"
 mf_svg(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_7c1354c2b61a7 
-#>                        2 
+#> agg_record_17df66494466 
+#>                       2 
 ```

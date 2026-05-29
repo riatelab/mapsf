@@ -105,7 +105,8 @@ mf_legend(
 - col:
 
   color of the symbols (for "prop") or color of the lines (for
-  "prop_line" and "grad_line")
+  "prop_line" and "grad_line"), hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html).
 
 - inches:
 
@@ -211,11 +212,13 @@ mf_legend(
 
 - bg:
 
-  background color of the legend
+  background color of the legend, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html).
 
 - fg:
 
-  foreground color of the legend
+  foreground color of the legend, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html).
 
 - size:
 

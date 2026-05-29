@@ -47,8 +47,10 @@ mf_png(
 
 - expandBB:
 
-  fractional values to expand the bounding box with, in each direction
-  (bottom, left, top, right)
+  expension of the map area in each direction (bottom, left, top,
+  right). The expension is expressed as a share of `x` width (for left
+  and right values) or a share of `x` height (for bottom and top
+  values).
 
 - res:
 
@@ -67,11 +69,11 @@ No return value, a PNG device is initiated.
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".png"))
-#> [1] "/tmp/Rtmpy7mVeK/file7c1353851e49.png"
+#> [1] "/tmp/RtmpI8cWov/file17df627534462.png"
 mf_png(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_7c135360aae65 
+#> agg_record_17df64b3ef4a7 
 #>                        2 
 ```

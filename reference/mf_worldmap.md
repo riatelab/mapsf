@@ -33,19 +33,23 @@ mf_worldmap(
 
 - water_col:
 
-  color of the water
+  color of the water, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html)
 
 - land_col:
 
-  color of the land
+  color of the land, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html)
 
 - border_col:
 
-  color of the borders
+  color of the borders, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html)
 
 - border_lwd:
 
-  width of the borders
+  width of the borders, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html)
 
 - ...:
 

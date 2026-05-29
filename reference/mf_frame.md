@@ -16,7 +16,10 @@ mf_frame(extent = "map", col, lwd = 1.5, lty = 1, ...)
 
 - col:
 
-  line color
+  line color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - lwd:
 

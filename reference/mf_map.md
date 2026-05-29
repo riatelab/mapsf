@@ -163,13 +163,15 @@ mf_map(x, var, type = "base",
 
 - expandBB:
 
-  fractional values to expand the bounding box with, in each direction
-  (bottom, left, top, right)
+  expension of the map area in each direction (bottom, left, top,
+  right). The expension is expressed as a share of `x` width (for left
+  and right values) or a share of `x` height (for bottom and top
+  values).
 
 - extent:
 
-  object with an `st_bbox` method to define plot extent; defaults to
-  `x`. `extent` and `x` must use the same CRS.
+  `sf` object used to define the map extent; defaults to `x`. `extent`
+  and `x` must use the same CRS.
 
 - bg:
 

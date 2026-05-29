@@ -24,7 +24,9 @@ mf_shadow(
 
 - col:
 
-  shadow color. The default color is the highlight color (see
+  shadow color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
   [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - cex:
@@ -37,8 +39,8 @@ mf_shadow(
 
 - extent:
 
-  object with an `st_bbox` method to define plot extent; defaults to
-  `x`. `extent` and `x` must use the same CRS.
+  `sf` object used to define the map extent; defaults to `x`. `extent`
+  and `x` must use the same CRS.
 
 - bg:
 
@@ -48,8 +50,10 @@ mf_shadow(
 
 - expandBB:
 
-  fractional values to expand the bounding box with, in each direction
-  (bottom, left, top, right)
+  expension of the map area in each direction (bottom, left, top,
+  right). The expension is expressed as a share of `x` width (for left
+  and right values) or a share of `x` height (for bottom and top
+  values).
 
 ## Value
 

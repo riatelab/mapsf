@@ -1,6 +1,20 @@
 # Changelog
 
+## mapsf 1.2.1
+
+### Fix
+
+- allow custom legend position for “prop_typo” type
+  ([\#93](https://github.com/riatelab/mapsf/issues/93))
+- use a seed to fix the vertical position of points in mf_distr()
+
+### Feat
+
+- add “add”, “extent” and “expandBB” args to mf_label()
+
 ## mapsf 1.2.0
+
+CRAN release: 2026-05-05
 
 ### Fix
 

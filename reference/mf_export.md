@@ -70,11 +70,11 @@ No return value, a map file is initiated (in PNG or SVG format).
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".png"))
-#> [1] "/tmp/Rtmpy7mVeK/file7c1351b400eba.png"
+#> [1] "/tmp/RtmpI8cWov/file17df623666734.png"
 mf_png(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_7c135443cb7de 
+#> agg_record_17df660488568 
 #>                        2 
 ```

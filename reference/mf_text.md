@@ -51,7 +51,10 @@ mf_text(
 
 - col_txt:
 
-  text color
+  text color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - pos:
 
@@ -81,7 +84,10 @@ mf_text(
 
 - col_halo:
 
-  halo color
+  halo color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the background color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - cex_halo:
 
@@ -93,11 +99,17 @@ mf_text(
 
 - col_box:
 
-  box color
+  box color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the background color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - col_box_border:
 
-  box border color
+  box border color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - lwd_box:
 
@@ -119,7 +131,10 @@ mf_text(
 
 - col_line:
 
-  line color
+  line color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - arrow:
 

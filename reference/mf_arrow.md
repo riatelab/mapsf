@@ -18,7 +18,10 @@ mf_arrow(pos = "topleft", col, cex = 1, adj = c(0, 0), align)
 
 - col:
 
-  arrow color
+  arrow color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - cex:
 

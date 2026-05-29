@@ -56,7 +56,7 @@ mf_theme(
 - x:
 
   name of a map theme. One of 'base', 'grey', 'sol_light', 'sol_dark',
-  'mint', 'dracula', 'rzine', 'pistachio'.
+  'mint', 'dracula', 'rzine', 'pistachio'. The default theme is 'base'.
 
 - mar:
 
@@ -65,15 +65,18 @@ mf_theme(
 
 - foreground:
 
-  foreground color
+  foreground color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html).
 
 - background:
 
-  background color
+  background color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html).
 
 - highlight:
 
-  highlight color
+  highlight color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html).
 
 - title_tab:
 
@@ -90,11 +93,11 @@ mf_theme(
 
 - title_line:
 
-  number of lines used for the title
+  number of margin lines used for the title
 
 - title_cex:
 
-  cex of the title
+  size of the title
 
 - title_font:
 
@@ -119,11 +122,15 @@ mf_theme(
 
 - pal_quali:
 
-  default qualitative color palette (name or function)
+  default qualitative color palette (name or function). Palette names
+  can be obtained with
+  [hcl.pals](https://rdrr.io/r/grDevices/palettes.html).
 
 - pal_seq:
 
-  default sequential color palette (name or function)
+  default sequential color palette (name or function). Palette names can
+  be obtained with
+  [hcl.pals](https://rdrr.io/r/grDevices/palettes.html).
 
 - ...:
 

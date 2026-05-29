@@ -40,7 +40,10 @@ mf_scale(
 
 - col:
 
-  color of the scale bar (line and text)
+  color of the scale bar (line and text), hex code or color name given
+  by [colors](https://rdrr.io/r/grDevices/colors.html). The default
+  color is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - crs_units:
 
@@ -49,8 +52,8 @@ mf_scale(
 
 - scale_units:
 
-  units used for the scale bar. Can be "mi" for miles, "ft" for feet,
-  "m" for meters, or "km" for kilometers (default).
+  units displayed in the scale bar. It can be "mi" for miles, "ft" for
+  feet, "m" for meters, or "km" for kilometers (default).
 
 - adj:
 

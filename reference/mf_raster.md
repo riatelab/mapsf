@@ -87,8 +87,10 @@ mf_raster(
 
 - expandBB:
 
-  fractional values to expand the bounding box with, in each direction
-  (bottom, left, top, right)
+  expension of the map area in each direction (bottom, left, top,
+  right). The expension is expressed as a share of `x` width (for left
+  and right values) or a share of `x` height (for bottom and top
+  values).
 
 - bg:
 
@@ -224,7 +226,7 @@ if (require("terra")) {
   )
 }
 #> Loading required package: terra
-#> terra 1.9.11
+#> terra 1.9.27
 
 
 

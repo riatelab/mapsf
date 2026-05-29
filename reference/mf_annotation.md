@@ -45,11 +45,17 @@ mf_annotation(
 
 - col_arrow:
 
-  arrow color
+  arrow color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - col_txt:
 
-  text color
+  text color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the highlight color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - halo:
 
@@ -57,7 +63,10 @@ mf_annotation(
 
 - bg:
 
-  halo color
+  halo color, hex code or color name given by
+  [colors](https://rdrr.io/r/grDevices/colors.html). The default color
+  is the background color (see
+  [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)).
 
 - s:
 
