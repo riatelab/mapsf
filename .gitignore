@@ -27,3 +27,6 @@ note.md
 altdoc/freeze.rds
 _quarto/*
 !_quarto/_freeze/
+
+vignettes/fig/wo_*
+vignettes/fig/mapsf_cheatsheet.*
