@@ -175,7 +175,7 @@ mf_prop_choro <- function(x,
     mycols <- c(NA, mycols)
     borders <- c(NA, rep(border, nrow(dots)))
     dots <- rbind(dots[1, ], dots)
-    dots[1, var] <- val_max
+    dots[1, var1] <- val_max
     sizes <- c(inches, sizes)
   }
 
