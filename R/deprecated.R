@@ -31,10 +31,6 @@
 #'
 #' `mf_export` is deprecated, use [mf_png] or [mf_svg] instead.
 #'
-#' ## `mf_annotation`
-#'
-#' `mf_annotation` is deprecated, use [mf_text] instead.
-#'
 #' ## Double legends
 #'
 #' The use of separated legends for map types **prop_choro**, **prop_typo** and

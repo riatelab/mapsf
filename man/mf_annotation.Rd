@@ -17,43 +17,12 @@ mf_annotation(
   ...
 )
 }
-\arguments{
-\item{x}{an sf object with 1 row, a couple of coordinates (c(x, y)) or
-"interactive"}
-
-\item{txt}{the text to display}
-
-\item{pos}{position of the text, one of "topleft", "topright", "bottomright",
-"bottomleft" or "center"}
-
-\item{cex}{size of the text}
-
-\item{col_arrow}{arrow color, hex code or color name given by \link{colors}.
-The default color is the highlight color (see \link{mf_theme}).}
-
-\item{col_txt}{text color, hex code or color name given by \link{colors}.
-The default color is the highlight color (see \link{mf_theme}).}
-
-\item{halo}{add a halo around the text}
-
-\item{bg}{halo color, hex code or color name given by \link{colors}.
-The default color is the background color (see \link{mf_theme}).}
-
-\item{s}{arrow size (min=1)}
-
-\item{...}{further \link{text} arguments.}
-}
 \value{
 No return value, an annotation is displayed.
 }
 \description{
-This function is deprecated. Please use \link{mf_text} instead.
+This function is defunct. Please use \link{mf_text} instead.
 instead.
-
-Plot an annotation on a map.
-}
-\note{
-Annotations cannot be displayed on unprojected (long/lat) maps.
 }
 \examples{
 mtq <- mf_get_mtq()
@@ -78,3 +47,4 @@ mf_text(
   align = "left"
 )
 }
+\keyword{internal}

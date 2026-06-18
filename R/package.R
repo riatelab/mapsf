@@ -24,7 +24,7 @@
 #' - [mf_theme()] Set a theme
 #' - [mf_shadow()] Plot a shadow
 #' - [mf_background()] Plot a background image
-#' - [mf_annotation()] Plot an annotation
+#' - [mf_text()] Plot a text
 #' - [mf_arrow()] Plot a north arrow
 #' - [mf_credits()] Plot credits
 #' - [mf_layout()] Plot a map layout

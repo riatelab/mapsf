@@ -34,7 +34,7 @@ These functions are dedicated to the map layout design.
 \item \code{\link[=mf_theme]{mf_theme()}} Set a theme
 \item \code{\link[=mf_shadow]{mf_shadow()}} Plot a shadow
 \item \code{\link[=mf_background]{mf_background()}} Plot a background image
-\item \code{\link[=mf_annotation]{mf_annotation()}} Plot an annotation
+\item \code{\link[=mf_text]{mf_text()}} Plot a text
 \item \code{\link[=mf_arrow]{mf_arrow()}} Plot a north arrow
 \item \code{\link[=mf_credits]{mf_credits()}} Plot credits
 \item \code{\link[=mf_layout]{mf_layout()}} Plot a map layout

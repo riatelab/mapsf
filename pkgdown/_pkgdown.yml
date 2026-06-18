@@ -34,7 +34,6 @@ reference:
   - title: "Map Layout"
     desc: These functions are dedicated to the map layout design.
     contents:
-    - mf_annotation
     - mf_arrow
     - mf_background
     - mf_credits
