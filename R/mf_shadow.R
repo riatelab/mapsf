@@ -22,7 +22,7 @@
 #' mf_shadow(mtq)
 #' mf_map(mtq, add = TRUE)
 mf_shadow <- function(x, col, cex = 1, add = FALSE, extent = x, bg,
-                      expandBB = rep(.04, 4)) {
+                      expandBB = rep(0, 4)) {
   if (get_geom_type(x) != "POLYGON") {
     stop("x must be an sf or sfc POLYGON object.", call. = FALSE)
   }

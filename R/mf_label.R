@@ -47,7 +47,7 @@ mf_label <- function(x,
                      q = 1,
                      add = TRUE,
                      extent = x,
-                     expandBB = rep(.04, 4),
+                     expandBB = rep(0, 4),
                      ...) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)

@@ -16,7 +16,7 @@ mf_base(
   add = FALSE,
   extent = x,
   bg,
-  expandBB = rep(0.04, 4),
+  expandBB = rep(0, 4),
   ...
 )
 }

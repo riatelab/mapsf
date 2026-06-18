@@ -17,7 +17,7 @@ mf_prop(
   lwd = 0.7,
   extent = x,
   bg,
-  expandBB = rep(0.04, 4),
+  expandBB = rep(0, 4),
   leg_pos = mf_get_leg_pos(x),
   leg_title = var,
   leg_title_cex = 0.8,

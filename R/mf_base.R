@@ -35,7 +35,7 @@ mf_base <- function(x,
                     add = FALSE,
                     extent = x,
                     bg,
-                    expandBB = rep(.04, 4),
+                    expandBB = rep(0, 4),
                     ...) {
   deprecate_direct_calls_to("mf_base")
   # margins mgmt

@@ -22,7 +22,7 @@ mf_symb_choro(
   val_order,
   extent = x,
   bg,
-  expandBB = rep(0.04, 4),
+  expandBB = rep(0, 4),
   leg_pos = mf_get_leg_pos(x, 1),
   leg_title = var,
   leg_title_cex = c(0.8, 0.8),
