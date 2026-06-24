@@ -1,10 +1,9 @@
-#' @title Deprecated - Plot an annotation
+#' @title Defunct - Plot an annotation
 #' @description
 #' This function is defunct. Please use [mf_text] instead.
-#' instead.
 #' @export
 #' @keywords internal
-#' @return No return value, an annotation is displayed.
+#' @return No return value.
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
@@ -27,16 +26,6 @@
 #'   halo = TRUE,
 #'   align = "left"
 #' )
-mf_annotation <- function(x,
-                          txt,
-                          pos = "topright",
-                          cex = 0.8,
-                          col_arrow,
-                          col_txt,
-                          halo = FALSE,
-                          bg,
-                          s = 1,
-                          ...) {
-  .Defunct("mf_text",
-           msg = "'mf_annotation' is defunct.\nUse 'mf_text' instead.")
+mf_annotation <- function(...) {
+  .Defunct(msg = "'mf_annotation()' is defunct.\nUse 'mf_text()' instead.")
 }

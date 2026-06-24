@@ -26,11 +26,6 @@
 #'
 #' It is also possible to use the `extent` argument of [mf_map].
 #'
-#'
-#' ## `mf_export`
-#'
-#' `mf_export` is deprecated, use [mf_png] or [mf_svg] instead.
-#'
 #' ## Double legends
 #'
 #' The use of separated legends for map types **prop_choro**, **prop_typo** and

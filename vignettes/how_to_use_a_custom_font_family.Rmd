@@ -43,7 +43,10 @@ mf_map(
 # layout
 mf_layout(
   title = "Population Distribution in Martinique",
-  credits = paste0("Sources: Insee and IGN, 2018\nmapsf ", packageVersion("mapsf"))
+  credits = paste0(
+    "Sources: Insee and IGN, 2018\nmapsf ",
+    packageVersion("mapsf")
+  )
 )
 ```
 

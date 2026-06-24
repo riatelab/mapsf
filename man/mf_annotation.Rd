@@ -2,27 +2,15 @@
 % Please edit documentation in R/mf_annotation.R
 \name{mf_annotation}
 \alias{mf_annotation}
-\title{Deprecated - Plot an annotation}
+\title{Defunct - Plot an annotation}
 \usage{
-mf_annotation(
-  x,
-  txt,
-  pos = "topright",
-  cex = 0.8,
-  col_arrow,
-  col_txt,
-  halo = FALSE,
-  bg,
-  s = 1,
-  ...
-)
+mf_annotation(...)
 }
 \value{
-No return value, an annotation is displayed.
+No return value.
 }
 \description{
 This function is defunct. Please use \link{mf_text} instead.
-instead.
 }
 \examples{
 mtq <- mf_get_mtq()

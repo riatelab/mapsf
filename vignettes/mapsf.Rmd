@@ -238,7 +238,12 @@ mf_map(
   nbreaks = 4,
   pal = "Greens",
   leg_val_rnd = c(0, -2),
+<<<<<<< HEAD
   leg_frame = FALSE
+=======
+  leg_frame = FALSE,
+  add = TRUE
+>>>>>>> 7055e9e (fix: remove deprecated mf_export() function)
 )
 # layout elements
 mf_title("Population & Wealth in Martinique, 2015")
@@ -267,7 +272,12 @@ mf_map(
   val_order = c(
     "Prefecture", "Sub-prefecture",
     "Simple municipality"
+<<<<<<< HEAD
   )
+=======
+  ),
+  add = TRUE
+>>>>>>> 7055e9e (fix: remove deprecated mf_export() function)
 )
 # layout elements
 mf_title("Population Distribution in Martinique")
@@ -327,7 +337,12 @@ mf_map(
   lwd = c(1, 4, 8),
   leg_pos = "topright",
   leg_title = "Nb. of\nCommuters",
+<<<<<<< HEAD
   leg_val_rnd = 0
+=======
+  leg_val_rnd = 0,
+  add = TRUE
+>>>>>>> 7055e9e (fix: remove deprecated mf_export() function)
 )
 # layout elements
 mf_title("Commuting to Fort-de-France")

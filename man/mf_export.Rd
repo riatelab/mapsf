@@ -2,51 +2,15 @@
 % Please edit documentation in R/mf_export.R
 \name{mf_export}
 \alias{mf_export}
-\title{Deprecated - Export a map}
+\title{Defunct - Export a map}
 \usage{
-mf_export(
-  x,
-  filename = "map.png",
-  width,
-  height,
-  res = 96,
-  ...,
-  expandBB = rep(0, 4)
-)
-}
-\arguments{
-\item{x}{object of class \code{sf}, \code{sfc} or \code{SpatRaster}}
-
-\item{filename}{path to the exported file. If the file extension is ".png" a
-png graphic device is opened, if the file extension is ".svg" a svg graphic
-device is opened.}
-
-\item{width}{width of the figure (pixels for png, inches for svg)}
-
-\item{height}{height of the figure (pixels for png, inches for svg)}
-
-\item{res}{resolution (for png)}
-
-\item{...}{further parameters for png or svg export}
-
-\item{expandBB}{fractional values to expand the bounding box with, in each
-direction (bottom, left, top, right)}
+mf_export(...)
 }
 \value{
-No return value, a map file is initiated (in PNG or SVG format).
+No return value.
 }
 \description{
-This function is deprecated. Please use \code{\link{mf_png}} or
-\code{\link{mf_svg}} instead.
-
-Export a map with the extent of a spatial object.\cr
-The map is exported in PNG or SVG format.\cr
-If only one of \code{width} or \code{height} is set, \code{mf_export} uses
-the width/height ratio of \code{x} bounding box to find a matching ratio for
-the export.\cr
-Always use \code{add = TRUE} in \code{mf_map} calls following an
-\code{mf_export} call.\cr
-Use \code{dev.off} to finish the export (see Examples).
+This function is defunct. Please use \link{mf_png} or \link{mf_svg} instead.
 }
 \examples{
 mtq <- mf_get_mtq()
