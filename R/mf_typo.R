@@ -118,7 +118,7 @@ mf_typo <- function(x,
   mycols[is.na(mycols)] <- col_na
 
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   xtype <- get_geom_type(x)

@@ -8,5 +8,6 @@ These functions and features were in the package once but have be removed.
 \itemize{
 \item \code{mf_annotation}: defunct in 2.0.0, use \link{mf_text} instead.
 \item \code{mf_export}: defunct in 2.0.0, use \link{mf_png} or \link{mf_svg} instead.
+\item \code{mf_init}: defunct in 2.0.0, use \link{mf_map} instead.
 }
 }

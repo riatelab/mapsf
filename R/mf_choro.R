@@ -128,7 +128,7 @@ mf_choro <- function(x, var,
 
 
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   xtype <- get_geom_type(x)

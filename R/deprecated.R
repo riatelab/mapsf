@@ -19,13 +19,6 @@
 #' - `mf_symb_choro()` => **symb_choro**
 #'
 #'
-#' ## `mf_init`
-#'
-#' `mf_init` is deprecated. It is possible to use `mf_map` instead
-#' (`mf_map(x, type = "base", col = NA, border = NA)`.
-#'
-#' It is also possible to use the `extent` argument of [mf_map].
-#'
 #' ## Double legends
 #'
 #' The use of separated legends for map types **prop_choro**, **prop_typo** and

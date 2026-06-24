@@ -106,7 +106,7 @@ mf_prop <- function(x,
     }
     xl$lwd <- xl[[var]] * lwd_max / maxval
     if (add == FALSE) {
-      mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+      mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
     }
     op2 <- par(lend = 1)
     mf_map(xl, lwd = xl$lwd, add = TRUE, col = col)
@@ -173,7 +173,7 @@ mf_prop <- function(x,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   # Plot the symbols

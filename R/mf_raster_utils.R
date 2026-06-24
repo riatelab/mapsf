@@ -39,7 +39,7 @@ get_continuous_pal <- function(breaks, pal, alpha) {
 mf_raster_multiband <- function(ops, expandBB, bg, add) {
   ops$smooth <- ifelse(is.null(ops$smooth), TRUE, ops$smooth)
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB, bgc = bg)
+    mf_ini(ops$x, expandBB = expandBB, bgc = bg)
   }
   do.call(terra::plotRGB, ops)
 }
@@ -58,7 +58,7 @@ mf_raster_interval <- function(ops, ops_leg, pal, breaks, nbreaks, alpha,
   )
   # init
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB, bgc = bg)
+    mf_ini(ops$x, expandBB = expandBB, bgc = bg)
   }
   ops$alpha <- NULL
   # plot
@@ -147,7 +147,7 @@ mf_raster_continuous <- function(ops, ops_leg, breaks, pal, expandBB, add,
   }
 
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB, bgc = bg)
+    mf_ini(ops$x, expandBB = expandBB, bgc = bg)
   }
 
   ops$alpha <- NULL
@@ -206,7 +206,7 @@ mf_raster_classes <- function(ops, ops_leg, pal, val_order, expandBB,
   ops$col <- mod
 
   if (add == FALSE) {
-    mf_init(ops$x, expandBB = expandBB, bgc = bg)
+    mf_ini(ops$x, expandBB = expandBB, bgc = bg)
   }
   ops$alpha <- NULL
   do.call(terra::plot, ops)

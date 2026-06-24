@@ -205,7 +205,7 @@ mf_symb_choro <- function(x, var,
   mycolsptbg <- mycols
 
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   plot(st_geometry(x),

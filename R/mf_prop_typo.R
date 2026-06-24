@@ -120,7 +120,7 @@ mf_prop_typo <- function(x, var,
     }
     xl$lwd <- xl[[var1]] * lwd_max / maxval
     if (add == FALSE) {
-      mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+      mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
     }
     xl <- xl[xl[[var1]] != 0, ]
     # turn to positive values
@@ -273,7 +273,7 @@ mf_prop_typo <- function(x, var,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   # Plot the symbols

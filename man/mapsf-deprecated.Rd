@@ -23,14 +23,6 @@ with the corresponding type:
 }
 }
 
-\subsection{\code{mf_init}}{
-
-\code{mf_init} is deprecated. It is possible to use \code{mf_map} instead
-(\code{mf_map(x, type = "base", col = NA, border = NA)}.
-
-It is also possible to use the \code{extent} argument of \link{mf_map}.
-}
-
 \subsection{Double legends}{
 
 The use of separated legends for map types \strong{prop_choro}, \strong{prop_typo} and

@@ -63,7 +63,7 @@ mf_graticule <- function(x,
   bgc <- go(bg, "background")
 
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   col <- go(col, "highlight")

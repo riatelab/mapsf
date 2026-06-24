@@ -1,17 +1,10 @@
-#' @title Deprecated - Initialize a map with a specific extent
+#' @title Defunct - Initialize a map with a specific extent
 #' @name mf_init
 #' @description
-#' This function is deprecated.
-#' Please use \code{mf_map(x, col = NA, border = NA)} instead.
-#'
-#' Plot an invisible layer with the extent of a spatial object.\cr
-#' Always use \code{add = TRUE} in \code{mf_map()} calls following an
-#' \code{mf_init()} call.
-#' This function is similar to \code{mf_map(x, col = NA, border = NA)}.
-#' @param x object of class \code{sf}, \code{sfc} or \code{SpatRaster}
-#' @param expandBB fractional values to expand the bounding box with, in each
-#' direction (bottom, left, top, right)
-#' @eval my_params(c("extent", "bgc"))
+#' This function is defunct.
+#' It is possible to use `mf_map` instead
+#' (`mf_map(x, type = "base", col = NA, border = NA)`.
+#' It is also possible to use the `extent` argument of [mf_map].
 #' @export
 #' @keywords internal
 #' @return No return value, a map is initiated.
@@ -22,9 +15,14 @@
 #' mf_map(mtq, add = TRUE)
 #' # or
 #' mf_map(mtq, extent = target)
-mf_init <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
-  deprecate_direct_calls_to("mf_init")
+mf_init <- function(...){
+  .Defunct(
+    msg = "'mf_init()' is defunct.\nUse 'mf_map()' instead."
+  )
+}
 
+
+mf_ini <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(
@@ -40,7 +38,7 @@ mf_init <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
     bb <- terra::ext(x)[c(1, 3, 2, 4)]
     y <- st_as_sfc(st_bbox(bb))
     st_crs(y) <- proj
-    mf_init(y,
+    mf_ini(y,
       expandBB = c(rep(-.0399, 4)) + expandBB,
       extent = extent, bgc = bgc
     )

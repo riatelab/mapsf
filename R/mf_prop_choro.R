@@ -181,7 +181,7 @@ mf_prop_choro <- function(x,
 
   # empty plot if needed
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   # Plot the symbols

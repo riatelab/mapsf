@@ -54,7 +54,7 @@ mf_label <- function(x,
   on.exit(par(op))
 
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent)
+    mf_ini(x, expandBB = expandBB, extent = extent)
   }
 
   col <- go(col, "highlight")

@@ -121,7 +121,7 @@ mf_grad <- function(x,
     )
 
     if (add == FALSE) {
-      mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+      mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
     }
     # map
     plot(st_geometry(x), col = col, lwd = mylwd, add = TRUE)
@@ -173,7 +173,7 @@ mf_grad <- function(x,
 
 
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
   # display
   plot(st_geometry(x),

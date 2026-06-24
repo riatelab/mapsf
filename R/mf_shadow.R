@@ -31,7 +31,7 @@ mf_shadow <- function(x, col, cex = 1, add = FALSE, extent = x, bg,
   bgc <- go(bg, "background")
 
   if (add == FALSE) {
-    mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
   col <- go(col, "highlight", "grey50")
   xyi <- xyinch(1)
