@@ -73,13 +73,13 @@ mf_prop_typo <- function(x, var,
                          expandBB = rep(0, 4),
                          leg_pos = mf_get_leg_pos(x, 1),
                          leg_title = var,
-                         leg_title_cex = c(.8, .8),
-                         leg_val_cex = c(.6, .6),
+                         leg_title_cex = .8,
+                         leg_val_cex = .6,
                          leg_val_rnd = 0,
                          leg_val_dec = ".",
                          leg_val_big = "",
                          leg_no_data = "No data",
-                         leg_frame = c(FALSE, FALSE),
+                         leg_frame = FALSE,
                          leg_frame_border,
                          leg_horiz = FALSE,
                          leg_adj = c(0, 0),
@@ -149,74 +149,43 @@ mf_prop_typo <- function(x, var,
     }
     mycols[is.na(mycols)] <- col_na
     op2 <- par(lend = 1)
+    on.exit(par(op2))
     mf_map(xl, lwd = xl$lwd, add = TRUE, col = mycols)
     val <- seq(min(xl[[var1]]), max(xl[[var1]]), length.out = 4)
-    leg_pos <- split_leg(leg_pos)
+    leg_pos <- defunct_leg(leg_pos)
 
     ccol <- getOption("mapsf.highlight")
 
-    if (length(leg_pos) == 1) {
-      la1 <- list(
-        type = "prop_line",
-        val = val,
-        title = leg_title[1],
-        lwd = max(xl$lwd),
-        col = ccol,
-        val_rnd = leg_val_rnd[1],
-        val_dec = leg_val_dec,
-        val_big = leg_val_big
-      )
-      lg <- do.call(leg_comp, la1)
-      la2 <- list(
-        leg = lg,
-        type = "typo",
-        val = val_order,
-        title = leg_title[2],
-        col_na = col_na,
-        no_data = no_data,
-        no_data_txt = leg_no_data,
-        pal = pal,
-        box_cex = leg_box_cex * c(1, .5),
-        box_border = pal
-      )
-      lg <- do.call(leg_comp, la2)
-      leg_draw(lg,
-        pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
-        frame = leg_frame[1], title_cex = leg_title_cex[1],
-        val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
-        adj = leg_adj, frame_border = leg_frame_border
-      )
-    } else {
-      warning(
-        paste0(
-          "The use of separated legends for this map type is deprecated.\n",
-          "It will be removed from mapsf with the next major version of the ",
-          "package (scheduled in January 2027).\n",
-          "Please, use a single value for leg_pos",
-          " or use mf_legend() to display two legends."
-        ),
-        call. = FALSE
-      )
-      leg(
-        type = "prop_line",
-        pos = leg_pos[[1]], val = val, lwd = max(xl$lwd),
-        col = ccol,
-        title = leg_title[1], title_cex = leg_title_cex[1],
-        val_cex = leg_val_cex[1], val_rnd = leg_val_rnd,
-        val_dec = leg_val_dec,
-        val_big = leg_val_big,
-        frame = leg_frame[1], bg = leg_bg, fg = leg_fg
-      )
-      leg(
-        type = "typo",
-        pos = leg_pos[[2]], val = val_order, title = leg_title[2],
-        title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
-        col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-        frame = leg_frame[2], pal = pal, bg = leg_bg, fg = leg_fg,
-        box_cex = leg_box_cex * c(1, .5), box_border = pal
-      )
-    }
-    par(op2)
+    la1 <- list(
+      type = "prop_line",
+      val = val,
+      title = leg_title[1],
+      lwd = max(xl$lwd),
+      col = ccol,
+      val_rnd = leg_val_rnd[1],
+      val_dec = leg_val_dec,
+      val_big = leg_val_big
+    )
+    lg <- do.call(leg_comp, la1)
+    la2 <- list(
+      leg = lg,
+      type = "typo",
+      val = val_order,
+      title = leg_title[2],
+      col_na = col_na,
+      no_data = no_data,
+      no_data_txt = leg_no_data,
+      pal = pal,
+      box_cex = leg_box_cex * c(1, .5),
+      box_border = pal
+    )
+    lg <- do.call(leg_comp, la2)
+    leg_draw(lg,
+             pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
+             frame = leg_frame, title_cex = leg_title_cex,
+             val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
+             adj = leg_adj, frame_border = leg_frame_border
+    )
     return(invisible(x))
   }
 
@@ -283,7 +252,7 @@ mf_prop_typo <- function(x, var,
     inches = inches
   )
 
-  leg_pos <- split_leg(leg_pos)
+  leg_pos <- defunct_leg(leg_pos)
 
   if (is.null(getOption("mapsf.legacy"))) {
     ccol <- getOption("mapsf.foreground")
@@ -294,78 +263,47 @@ mf_prop_typo <- function(x, var,
     ccol <- getOption("mapsf.foreground")
   }
 
-  if (length(leg_pos) == 1) {
-    leg_title <- test2args(leg_title)
-    la1 <- list(
-      type = "prop",
-      val = val,
-      title = leg_title[1],
-      symbol = symbol,
-      inches = size_max,
-      col = ccol,
-      val_rnd = leg_val_rnd[1],
-      val_dec = leg_val_dec,
-      val_big = leg_val_big,
-      border = border,
-      lwd = lwd, horiz = leg_horiz,
-      self_adjust = TRUE
-    )
-    lg <- do.call(leg_comp, la1)
-    pch <- ifelse(symbol == "circle", 21, 22)
-    cex <- 2
-    la2 <- list(
-      leg = lg,
-      type = "symb",
-      val = val_order,
-      title = leg_title[2],
-      col_na = col_na,
-      no_data = no_data,
-      no_data_txt = leg_no_data,
-      pal = pal,
-      lwd = lwd,
-      border = border,
-      cex = cex, pch = pch,
-      cex_na = cex,
-      pch_na = pch,
-      box_cex = c(.75, .75)
-    )
-    lg <- do.call(leg_comp, la2)
-    leg_draw(lg,
-      pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
-      frame = leg_frame[1], title_cex = leg_title_cex[1],
-      val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
-      adj = leg_adj, frame_border = leg_frame_border
-    )
-  } else {
-    warning(
-      paste0(
-        "The use of separated legends for this map type is deprecated.\n",
-        "It will be removed from mapsf with the next major version of the ",
-        "package (scheduled in January 2027).\n",
-        "Please, use a single value for leg_pos",
-        " or use mf_legend() to display two legends."
-      ),
-      call. = FALSE
-    )
-    leg(
-      type = "prop",
-      pos = leg_pos[[1]], val = val, title = leg_title[1],
-      symbol = symbol, inches = size_max, col = ccol,
-      title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
-      val_rnd = leg_val_rnd, val_dec = leg_val_dec,
-      val_big = leg_val_big, horiz = leg_horiz,
-      frame = leg_frame[1], border = border,
-      lwd = lwd, bg = leg_bg, fg = leg_fg,
-      self_adjust = TRUE, mar = getOption("mapsf.mar")
-    )
-    leg(
-      type = "typo",
-      pos = leg_pos[[2]], val = val_order, title = leg_title[2],
-      title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
-      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-      frame = leg_frame[2], pal = pal, bg = leg_bg, fg = leg_fg,
-      box_border = leg_box_border, box_cex = leg_box_cex
-    )
-  }
+  leg_title <- test2args(leg_title)
+  la1 <- list(
+    type = "prop",
+    val = val,
+    title = leg_title[1],
+    symbol = symbol,
+    inches = size_max,
+    col = ccol,
+    val_rnd = leg_val_rnd[1],
+    val_dec = leg_val_dec,
+    val_big = leg_val_big,
+    border = border,
+    lwd = lwd, horiz = leg_horiz,
+    self_adjust = TRUE
+  )
+  lg <- do.call(leg_comp, la1)
+  pch <- ifelse(symbol == "circle", 21, 22)
+  cex <- 2
+  la2 <- list(
+    leg = lg,
+    type = "symb",
+    val = val_order,
+    title = leg_title[2],
+    col_na = col_na,
+    no_data = no_data,
+    no_data_txt = leg_no_data,
+    pal = pal,
+    lwd = lwd,
+    border = border,
+    cex = cex, pch = pch,
+    cex_na = cex,
+    pch_na = pch,
+    box_cex = c(.75, .75)
+  )
+  lg <- do.call(leg_comp, la2)
+  leg_draw(lg,
+           pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
+           frame = leg_frame, title_cex = leg_title_cex,
+           val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
+           adj = leg_adj, frame_border = leg_frame_border
+  )
+
   return(invisible(x))
 }

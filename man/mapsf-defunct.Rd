@@ -9,5 +9,8 @@ These functions and features were in the package once but have be removed.
 \item \code{mf_annotation}: defunct in 2.0.0, use \link{mf_text} instead.
 \item \code{mf_export}: defunct in 2.0.0, use \link{mf_png} or \link{mf_svg} instead.
 \item \code{mf_init}: defunct in 2.0.0, use \link{mf_map} instead.
+\item separated legends in \code{mf_map()} with types "prop_choro", "prop_typo" and
+"symb_choro": defunct in 2.0.0, use \code{leg_pos = NA} and calls to \link{mf_legend}
+instead.
 }
 }

@@ -86,13 +86,13 @@ mf_prop_choro <- function(x,
                           expandBB = rep(0, 4),
                           leg_pos = mf_get_leg_pos(x, 1),
                           leg_title = var,
-                          leg_title_cex = c(.8, .8),
-                          leg_val_cex = c(.6, .6),
+                          leg_title_cex = .8,
+                          leg_val_cex = .6,
                           leg_val_rnd = c(0, 2),
                           leg_val_dec = ".",
                           leg_val_big = "",
                           leg_no_data = "No data",
-                          leg_frame = c(FALSE, FALSE),
+                          leg_frame = FALSE,
                           leg_frame_border,
                           leg_horiz = c(FALSE, FALSE),
                           leg_adj = c(0, 0),
@@ -191,7 +191,7 @@ mf_prop_choro <- function(x,
     inches = inches
   )
 
-  leg_pos <- split_leg(leg_pos)
+  leg_pos <- defunct_leg(leg_pos)
 
   if (is.null(getOption("mapsf.legacy"))) {
     ccol <- getOption("mapsf.foreground")
@@ -202,84 +202,48 @@ mf_prop_choro <- function(x,
     ccol <- getOption("mapsf.foreground")
   }
 
-  if (length(leg_pos) == 1) {
-    leg_title <- test2args(leg_title)
-    leg_val_rnd <- test2args(leg_val_rnd)
-    leg_horiz <- test2args(leg_horiz)
+  leg_title <- test2args(leg_title)
+  leg_val_rnd <- test2args(leg_val_rnd)
+  leg_horiz <- test2args(leg_horiz)
 
-    la1 <- list(
-      type = "prop",
-      val = val,
-      title = leg_title[1],
-      symbol = symbol,
-      inches = size_max,
-      col = ccol,
-      val_rnd = leg_val_rnd[1],
-      val_dec = leg_val_dec,
-      val_big = leg_val_big,
-      border = border,
-      lwd = lwd,
-      horiz = leg_horiz[1],
-      self_adjust = TRUE
-    )
-    lg <- do.call(leg_comp, la1)
-    la2 <- list(
-      leg = lg,
-      type = "choro_point",
-      symbol = symbol,
-      val = breaks,
-      title = leg_title[2],
-      val_rnd = leg_val_rnd[2],
-      val_dec = leg_val_dec,
-      val_big = leg_val_big,
-      col_na = col_na,
-      no_data = no_data,
-      no_data_txt = leg_no_data,
-      horiz = leg_horiz[2],
-      pal = pal,
-      border = border
-    )
-    lg <- do.call(leg_comp, la2)
-    leg_draw(lg,
-      pos = leg_pos[[1]], bg = leg_bg, fg = leg_fg, size = leg_size,
-      frame = leg_frame[1], title_cex = leg_title_cex[1],
-      val_cex = leg_val_cex[1], mar = getOption("mapsf.mar"),
-      adj = leg_adj, frame_border = leg_frame_border
-    )
-  } else {
-    warning(
-      paste0(
-        "The use of separated legends for this map type is deprecated.\n",
-        "It will be removed from mapsf with the next major version of the ",
-        "package (scheduled in January 2027).\n",
-        "Please, use a single value for leg_pos",
-        " or use mf_legend() to display two legends."
-      ),
-      call. = FALSE
-    )
-    leg(
-      type = "prop",
-      pos = leg_pos[[1]], val = val, title = leg_title[1],
-      symbol = symbol, inches = size_max, col = ccol,
-      title_cex = leg_title_cex[1], val_cex = leg_val_cex[1],
-      val_rnd = leg_val_rnd[1], val_dec = leg_val_dec,
-      val_big = leg_val_big,
-      horiz = leg_horiz[1],
-      frame = leg_frame[1], border = border, lwd = lwd,
-      bg = leg_bg, fg = leg_fg, self_adjust = TRUE,
-      mar = getOption("mapsf.mar"), size = leg_size
-    )
-    leg(
-      type = "choro",
-      pos = leg_pos[[2]], val = breaks, title = leg_title[2],
-      title_cex = leg_title_cex[2], val_cex = leg_val_cex[2],
-      val_rnd = leg_val_rnd[2], val_dec = leg_val_dec,
-      val_big = leg_val_big, horiz = leg_horiz[2],
-      col_na = col_na, no_data = no_data, no_data_txt = leg_no_data,
-      frame = leg_frame[2], pal = pal, bg = leg_bg, fg = leg_fg,
-      size = leg_size, box_border = leg_box_border, box_cex = leg_box_cex
-    )
-  }
-
+  la1 <- list(
+    type = "prop",
+    val = val,
+    title = leg_title[1],
+    symbol = symbol,
+    inches = size_max,
+    col = ccol,
+    val_rnd = leg_val_rnd[1],
+    val_dec = leg_val_dec,
+    val_big = leg_val_big,
+    border = border,
+    lwd = lwd,
+    horiz = leg_horiz[1],
+    self_adjust = TRUE
+  )
+  lg <- do.call(leg_comp, la1)
+  la2 <- list(
+    leg = lg,
+    type = "choro_point",
+    symbol = symbol,
+    val = breaks,
+    title = leg_title[2],
+    val_rnd = leg_val_rnd[2],
+    val_dec = leg_val_dec,
+    val_big = leg_val_big,
+    col_na = col_na,
+    no_data = no_data,
+    no_data_txt = leg_no_data,
+    horiz = leg_horiz[2],
+    pal = pal,
+    border = border
+  )
+  lg <- do.call(leg_comp, la2)
+  leg_draw(lg,
+           pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
+           frame = leg_frame, title_cex = leg_title_cex,
+           val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
+           adj = leg_adj, frame_border = leg_frame_border
+  )
   return(invisible(x))
 }

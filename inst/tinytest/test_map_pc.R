@@ -1,17 +1,17 @@
 expect_silent(mf_map(mtq, c("POP", "MED"), type = "prop_choro", add = FALSE))
 mf_map(mtq)
 expect_silent(mf_map(mtq, c("POP", "MED"), type = "prop_choro"))
-expect_warning(mf_map(mtq, c("POP", "MED"), type = "prop_choro",
-                      leg_pos = c(673434.5, 1642503.7,
-                                  682727.1, 1598170.3)
+expect_error(mf_map(mtq, c("POP", "MED"), type = "prop_choro",
+                            leg_pos = c(673434.5, 1642503.7,
+                                        682727.1, 1598170.3)
 ))
-expect_warning(mf_map(mtq, c("POP", "MED"), type = "prop_choro",
-                      leg_pos = c("topright",  682727.1, 1598170.3)
+expect_error(mf_map(mtq, c("POP", "MED"), type = "prop_choro",
+                            leg_pos = c("topright",  682727.1, 1598170.3)
 ))
 
 
-expect_warning(mf_map(mtq, c("POP", "MED"), type = "prop_choro",
-                      leg_pos = c(673434.5, 1642503.7, "top")
+expect_error(mf_map(mtq, c("POP", "MED"), type = "prop_choro",
+                            leg_pos = c(673434.5, 1642503.7, "top")
 ))
 
 mf_map(mtq)
@@ -24,8 +24,8 @@ expect_silent(
     breaks = "equal", nbreaks = 4, lwd = 4,
     leg_pos = c("bottomright"),
     leg_title = c("Population", "Median Income"),
-    leg_title_cex = c(0.8),
-    leg_val_cex = c(.7),
+    leg_title_cex = 0.8,
+    leg_val_cex = .7,
     leg_val_rnd = c(0, 0),
     leg_no_data = "No data",
     leg_frame = TRUE,

@@ -19,11 +19,6 @@
 #' - `mf_symb_choro()` => **symb_choro**
 #'
 #'
-#' ## Double legends
-#'
-#' The use of separated legends for map types **prop_choro**, **prop_typo** and
-#' **symb_choro** is deprecated. Use `leg_pos = NA` and [mf_legend] if
-#' separated legends are needed.
 #'
 #' ## Theming system
 #'

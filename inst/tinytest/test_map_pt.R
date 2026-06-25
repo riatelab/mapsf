@@ -12,11 +12,11 @@ expect_silent(
     lwd = 2,
     leg_pos = c("bottomright"),
     leg_title = c("Population", "Municipality\nstatus"),
-    leg_title_cex = c(0.9, 0.9),
-    leg_val_cex = c(.7, .7),
+    leg_title_cex = 0.9,
+    leg_val_cex = .7,
     val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
     leg_no_data = "No dada",
-    leg_frame = c(TRUE, TRUE),
+    leg_frame = TRUE,
     add = TRUE)
 )
 
@@ -28,7 +28,7 @@ expect_silent(mf_map(mtq_l, c("fij", "sj"), "prop_typo",
                      val_max = 5000, add = FALSE, col_na = "red"))
 
 
-expect_warning(mf_map(mtq, c("POP", "STATUS"), type = "prop_typo",
+expect_error(mf_map(mtq, c("POP", "STATUS"), type = "prop_typo",
                       leg_pos = c("top", "bottom")))
-expect_warning(mf_map(mtq_l, c("fij", "sj"), type = "prop_typo",
+expect_error(mf_map(mtq_l, c("fij", "sj"), type = "prop_typo",
                       leg_pos = c("top", "bottom")))

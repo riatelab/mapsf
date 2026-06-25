@@ -51,9 +51,9 @@ get_hex_pal <- function(pal, alpha) {
   pal <- col2rgb(pal, alpha = FALSE)
   ffun <- function(x) {
     rgb(pal[1, x],
-      pal[2, x],
-      pal[3, x],
-      maxColorValue = 255
+        pal[2, x],
+        pal[3, x],
+        maxColorValue = 255
     )
   }
   paste0(sapply(seq_len(ncol(pal)), ffun), get_alpha(alpha))
@@ -182,14 +182,14 @@ create_dots <- function(x = x, var = var) {
 #' @noRd
 get_size <- function(var, inches, val_max, symbol) {
   switch(symbol,
-    circle = {
-      smax <- inches * inches * pi
-      size <- sqrt((var * smax / val_max) / pi)
-    },
-    square = {
-      smax <- inches * inches
-      size <- sqrt(var * smax / val_max)
-    }
+         circle = {
+           smax <- inches * inches * pi
+           size <- sqrt((var * smax / val_max) / pi)
+         },
+         square = {
+           smax <- inches * inches
+           size <- sqrt(var * smax / val_max)
+         }
   )
   return(size)
 }
@@ -203,32 +203,32 @@ plot_symbols <- function(symbol, dots, sizes, mycols, border, lwd, inches) {
     xy <- dots
   }
   switch(symbol,
-    circle = {
-      symbols(
-        x = xy[, 1],
-        y = xy[, 2],
-        circles = sizes,
-        bg = mycols,
-        fg = border,
-        lwd = lwd,
-        add = TRUE,
-        inches = inches,
-        asp = 1
-      )
-    },
-    square = {
-      symbols(
-        x = xy[, 1],
-        y = xy[, 2],
-        squares = sizes,
-        bg = mycols,
-        fg = border,
-        lwd = lwd,
-        add = TRUE,
-        inches = inches * 2,
-        asp = 1
-      )
-    }
+         circle = {
+           symbols(
+             x = xy[, 1],
+             y = xy[, 2],
+             circles = sizes,
+             bg = mycols,
+             fg = border,
+             lwd = lwd,
+             add = TRUE,
+             inches = inches,
+             asp = 1
+           )
+         },
+         square = {
+           symbols(
+             x = xy[, 1],
+             y = xy[, 2],
+             squares = sizes,
+             bg = mycols,
+             fg = border,
+             lwd = lwd,
+             add = TRUE,
+             inches = inches * 2,
+             asp = 1
+           )
+         }
   )
 }
 
@@ -271,34 +271,27 @@ get_sym_typo <- function(x, pch, val_order) {
 }
 
 
+
+
 # split multiple legend position
-split_leg <- function(x) {
+defunct_leg <- function(x) {
   llp <- length(x)
   if (llp == 1) {
-    return(list(l1 = x))
+    return(x)
   }
   if (llp == 2) {
-    lp1 <- x[1]
-    lp2 <- x[2]
-    if (is.numeric(c(lp1, lp2))) {
-      return(list(l1 = c(lp1, lp2)))
+    if (is.numeric(x)) {
+      return(x)
     }
   }
-  if (llp == 3) {
-    tt <- tryCatch(as.numeric(x[1]), warning = function(w) w)
-    if (inherits(tt, "warning")) {
-      lp1 <- x[1]
-      lp2 <- as.numeric(x[2:3])
-    } else {
-      lp1 <- as.numeric(x[1:2])
-      lp2 <- x[3]
-    }
-  }
-  if (llp == 4) {
-    lp1 <- x[1:2]
-    lp2 <- x[3:4]
-  }
-  return(list(l1 = lp1, l2 = lp2))
+
+  stop(paste0(
+    "The use of separated legends for this map type is defunct.\n",
+    "Please, use only one value for leg_pos",
+    " or use mf_legend() to display two legends."
+  ), call. = FALSE
+  )
+
 }
 
 get_geom_type <- function(x) {
@@ -327,7 +320,7 @@ get_geom_type <- function(x) {
   type <- as.character(unique(type))
   if (length(type) > 1) {
     stop("GEOMETRYCOLLECTION objects should have consistent type",
-      call. = FALSE
+         call. = FALSE
     )
   }
   return(type)

@@ -23,13 +23,6 @@ with the corresponding type:
 }
 }
 
-\subsection{Double legends}{
-
-The use of separated legends for map types \strong{prop_choro}, \strong{prop_typo} and
-\strong{symb_choro} is deprecated. Use \code{leg_pos = NA} and \link{mf_legend} if
-separated legends are needed.
-}
-
 \subsection{Theming system}{
 
 In \link{mf_theme}, the following themes are deprecated: "default", "brutal",
