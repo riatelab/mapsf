@@ -1,4 +1,8 @@
-expect_error(test_cur_plot())
+graphics.off()
+expect_error(mapsf:::test_cur_plot())
+expect_equal(mf_get_leg_pos(mtq, 1), "topright")
+expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topleft", "top"))
+expect_error(mapsf:::interleg())
 mf_map(mtq)
 expect_silent(mf_legend(type = "prop", pos = "topright",
                         val = c(1, 5, 10), inches = .3))
@@ -41,11 +45,6 @@ expect_silent(mf_legend(type = "prop_line",
                         lwd = 20,
                         val = c(5, 50, 100),
                         frame = TRUE))
-
-dev.off()
-expect_equal(mf_get_leg_pos(mtq, 1), "topright")
-expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topleft", "top"))
-expect_error(mapsf:::interleg())
 mf_map(mtq)
 expect_equal(mf_get_leg_pos(mtq[1, ], 2), c("topright", "right"))
 
