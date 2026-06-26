@@ -1,27 +1,3 @@
-#' @title Defunct - Initialize a map with a specific extent
-#' @name mf_init
-#' @description
-#' This function is defunct.
-#' It is possible to use `mf_map` instead
-#' (`mf_map(x, type = "base", col = NA, border = NA)`.
-#' It is also possible to use the `extent` argument of [mf_map].
-#' @export
-#' @keywords internal
-#' @return No return value, a map is initiated.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' target <- mtq[30, ]
-#' mf_map(target, type = "base", col = NA, border = NA)
-#' mf_map(mtq, add = TRUE)
-#' # or
-#' mf_map(mtq, extent = target)
-mf_init <- function(...){
-  .Defunct(
-    msg = "'mf_init()' is defunct.\nUse 'mf_map()' instead."
-  )
-}
-
-
 mf_ini <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {

@@ -1,74 +1,4 @@
-#' @title Deprecated - Plot symbols using choropleth coloration
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "symb_choro"`
-#' instead.
-#'
-#' Plot symbols with colors based on a quantitative
-#' data classification.
-#' @eval my_params(c(
-#' 'x',
-#' 'var',
-#' 'border',
-#' 'lwd',
-#' 'add' ,
-#' 'col_na',
-#' 'pal',
-#' 'cexs',
-#' 'pch',
-#' 'pch_na',
-#' 'cex_na',
-#' 'val_order',
-#' 'alpha',
-#' 'rev',
-#' 'breaks',
-#' 'nbreaks',
-#' 'leg_pos2',
-#' 'leg_title',
-#' 'leg_title_cex',
-#' 'leg_val_cex',
-#' 'leg_val_rnd',
-#' 'leg_val_dec',
-#' 'leg_val_big',
-#' 'leg_no_data',
-#' 'leg_frame',
-#' 'leg_horiz',
-#' 'leg_frame_border',
-#' 'leg_fg',
-#' 'leg_bg',
-#' 'leg_size',
-#' 'leg_box_border',
-#' 'leg_box_cex',
-#' 'leg_adj'))
-#' @details
-#' Breaks defined by a numeric vector or a classification method are
-#' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as \[2 - 5\[, \[5 - 10\[, \[10 - 15\[, \[15 - 20\].
-#' The "jenks" method is an exception and has to be right-closed.
-#' Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as \[2 - 5\], \]5 - 10\], \]10 - 15\], \]15 - 20\].
-#' @keywords internal
-#' @export
-#' @return x is (invisibly) returned.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq)
-#' mf_map(mtq, c("STATUS", "MED"), "symb_choro")
-#'
-#' mf_map(mtq)
-#' mtq$STATUS[30] <- NA
-#' mtq$MED[5] <- NA
-#' mf_map(mtq, c("STATUS", "MED"),
-#'   type = "symb_choro",
-#'   pal = "Reds 3", breaks = "quantile", nbreaks = 4,
-#'   pch = 21:23, cex = c(3, 2, 1),
-#'   pch_na = 25, cex_na = 1.5, col_na = "blue",
-#'   val_order = c(
-#'     "Prefecture",
-#'     "Sub-prefecture",
-#'     "Simple municipality"
-#'   )
-#' )
-mf_symb_choro <- function(x, var,
+symb_choro <- function(x, var,
                           pal,
                           alpha = NULL,
                           rev = FALSE,
@@ -103,7 +33,6 @@ mf_symb_choro <- function(x, var,
                           leg_box_border,
                           leg_box_cex = c(1, 1),
                           add = TRUE) {
-  deprecate_direct_calls_to("mf_symb_choro")
   xtype <- get_geom_type(x)
   # linestring special case
   if (xtype == "LINE") {

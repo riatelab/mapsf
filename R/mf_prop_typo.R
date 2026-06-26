@@ -1,62 +1,4 @@
-#' @title Deprecated - Plot proportional symbols using typology coloration
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "prop_typo"`
-#' instead.
-#'
-#'
-#' Plot proportional symbols with colors based on qualitative data.
-#' @eval my_params(c(
-#' 'x',
-#' 'var',
-#' 'border',
-#' 'lwd',
-#' 'add' ,
-#' 'lwd_max',
-#' 'inches',
-#' 'val_max',
-#' 'symbol',
-#' 'col_na',
-#' 'pal',
-#' 'alpha',
-#' 'rev',
-#' 'leg_val_rnd',
-#' 'leg_val_dec',
-#' 'leg_val_big',
-#' 'leg_pos2',
-#' 'leg_title',
-#' 'leg_title_cex',
-#' 'leg_val_cex',
-#' 'val_order',
-#' 'leg_no_data',
-#' 'leg_frame',
-#' 'leg_adj',
-#' 'leg_horiz'))
-#'
-#' @keywords internal
-#' @export
-#' @return x is (invisibly) returned.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq)
-#' mf_map(mtq, c("POP", "STATUS"), "prop_typo")
-#'
-#' mtq[6, "STATUS"] <- NA
-#' mf_map(mtq)
-#' mf_map(
-#'   x = mtq, var = c("POP", "STATUS"), type = "prop_typo",
-#'   inches = .35, border = "tomato4",
-#'   val_max = 90000, symbol = "circle", col_na = "grey", pal = "Dynamic",
-#'   lwd = 2,
-#'   leg_pos = "bottomright",
-#'   leg_title = c("Population", "Municipality\nstatus"),
-#'   leg_title_cex = 0.9,
-#'   leg_val_cex = .7,
-#'   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
-#'   leg_no_data = "No dada",
-#'   leg_frame = TRUE,
-#'   add = TRUE
-#' )
-mf_prop_typo <- function(x, var,
+prop_typo <- function(x, var,
                          inches = 0.3,
                          val_max,
                          symbol = "circle",
@@ -89,7 +31,6 @@ mf_prop_typo <- function(x, var,
                          leg_box_border,
                          leg_box_cex = c(1, 1),
                          add = TRUE) {
-  deprecate_direct_calls_to("mf_prop_typo")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

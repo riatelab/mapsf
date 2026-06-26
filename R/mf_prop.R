@@ -1,53 +1,4 @@
-#' @title Deprecated - Plot proportional symbols
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "prop"`
-#' instead.
-#'
-#' Plot proportional symbols.
-#' @eval my_params(c(
-#' 'x',
-#' 'var',
-#' 'col',
-#' 'alpha',
-#' 'border',
-#' 'lwd',
-#' 'add' ,
-#' 'inches',
-#' 'val_max',
-#' 'lwd_max',
-#' 'symbol',
-#' 'leg_pos',
-#' 'leg_title',
-#' 'leg_title_cex',
-#' 'leg_val_cex',
-#' 'leg_val_rnd',
-#' 'leg_val_dec',
-#' 'leg_val_big',
-#' 'leg_frame',
-#' 'leg_horiz',
-#' 'leg_frame_border',
-#' 'leg_bg',
-#' 'leg_fg',
-#' 'leg_size',
-#' 'leg_adj'))
-#' @keywords internal
-#' @export
-#' @return x is (invisibly) returned.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq)
-#' mf_map(mtq, "POP", "prop")
-#'
-#' mf_map(mtq)
-#' mf_map(
-#'   x = mtq, var = "POP", type = "prop",
-#'   inches = .4, symbol = "circle", val_max = 90000,
-#'   col = "tomato1", border = "blue", lwd = 1,
-#'   leg_pos = "right", leg_title = "Population",
-#'   leg_title_cex = 1, leg_val_cex = .8, leg_val_rnd = 0,
-#'   leg_frame = TRUE, add = TRUE
-#' )
-mf_prop <- function(x,
+prop <- function(x,
                     var,
                     inches = 0.3,
                     val_max,
@@ -75,7 +26,6 @@ mf_prop <- function(x,
                     leg_bg,
                     leg_size = 1,
                     add = TRUE) {
-  deprecate_direct_calls_to("mf_prop")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

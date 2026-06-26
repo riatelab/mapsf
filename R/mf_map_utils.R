@@ -1,14 +1,3 @@
-deprecate_direct_calls_to <- function(m) {
-  if (any(grepl(m, sys.call(1)))) {
-    warning(
-      paste0(m, "() is deprecated.\n",
-             "It will be removed from mapsf with the next ",
-      "major version of the package (scheduled in January 2027).",
-      "\nUse mf_map() instead."),
-      call. = FALSE)
-  }
-}
-
 test2args <- function(x) {
   if (length(x) != 2) {
     stop(
@@ -329,7 +318,7 @@ get_geom_type <- function(x) {
 
 # arg checking depending on type
 check_args <- function(argx, type) {
-  n_rel <- !names(argx) %in% names(formals(get(paste0("mf_", type))))
+  n_rel <- !names(argx) %in% names(formals(get(type)))
   s_n_rel <- sum(n_rel)
   if (s_n_rel >= 1) {
     mes <- "The following arguments are not relevant when using type = '"

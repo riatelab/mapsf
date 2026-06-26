@@ -1,43 +1,16 @@
-#' @title Deprecated - Plot an sf object
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "base"`
-#' instead.
-#'
-#' Plot an sf object. This is mostly a wrapper around
-#' \code{plot(st_geometry(x), ...)}.
-#' @param x	object of class \code{sf}, \code{sfc} or \code{sfg}
-#' @eval my_params(c(
-#' 'col',
-#' 'border',
-#' 'lwd',
-#' 'pch',
-#' 'alpha',
-#' 'add'))
-#' @param cex point size
-#' @param lty line or border type
-#' @param ... ignored
-#' @keywords internal
-#' @return x is (invisibly) returned.
-#' @export
-#' @examples
-#' library(sf)
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq, type = "base")
-#' mf_map(mtq, type = "base", col = "blue")
-mf_base <- function(x,
-                    col,
-                    border,
-                    alpha = NULL,
-                    cex = 1,
-                    pch = 20,
-                    lwd = .7,
-                    lty = 1,
-                    add = FALSE,
-                    extent = x,
-                    bg,
-                    expandBB = rep(0, 4),
-                    ...) {
-  deprecate_direct_calls_to("mf_base")
+base <- function(x,
+                 col,
+                 border,
+                 alpha = NULL,
+                 cex = 1,
+                 pch = 20,
+                 lwd = .7,
+                 lty = 1,
+                 add = FALSE,
+                 extent = x,
+                 bg,
+                 expandBB = rep(0, 4),
+                 ...) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

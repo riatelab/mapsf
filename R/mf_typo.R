@@ -1,54 +1,4 @@
-#' @title Deprecated - Plot a typology map
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "typo"`
-#' instead.
-#'
-#'
-#' Plot a typology map.
-#' @eval my_params(c(
-#' 'x',
-#' 'var',
-#' 'border',
-#' 'lwd',
-#' 'add' ,
-#' 'col_na',
-#' 'pal',
-#' 'alpha',
-#' 'rev',
-#' 'leg_pos',
-#' 'leg_title',
-#' 'leg_title_cex',
-#' 'leg_val_cex',
-#' 'val_order',
-#' 'leg_no_data',
-#' 'leg_frame',
-#' 'leg_frame_border',
-#' 'leg_size',
-#' 'leg_box_border',
-#' 'leg_box_cex',
-#' 'leg_fg',
-#' 'leg_bg',
-#' 'leg_adj'))
-#' @param cex cex cex of the symbols if x is a POINT layer
-#' @param pch pch type of pch if x is a POINT layer
-#' @keywords internal
-#' @export
-#' @return No return value, a map is displayed.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq, "STATUS", "typo")
-#' mtq[6, "STATUS"] <- NA
-#' mf_map(
-#'   x = mtq, var = "STATUS", type = "typo",
-#'   pal = c("red", "blue", "yellow"), lwd = 1.1,
-#'   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
-#'   col_na = "green", border = "brown",
-#'   leg_pos = "bottomleft",
-#'   leg_title = "Status", leg_title_cex = 1.1,
-#'   leg_val_cex = 1, leg_no_data = "No data",
-#'   leg_frame = TRUE, add = FALSE
-#' )
-mf_typo <- function(x,
+typo <- function(x,
                     var,
                     pal,
                     alpha = NULL,
@@ -76,7 +26,6 @@ mf_typo <- function(x,
                     leg_fg,
                     leg_bg,
                     add = FALSE) {
-  deprecate_direct_calls_to("mf_typo")
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

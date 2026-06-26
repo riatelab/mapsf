@@ -9,6 +9,24 @@ These functions and features were in the package once but have be removed.
 \item \code{mf_annotation}: defunct in 2.0.0, use \link{mf_text} instead.
 \item \code{mf_export}: defunct in 2.0.0, use \link{mf_png} or \link{mf_svg} instead.
 \item \code{mf_init}: defunct in 2.0.0, use \link{mf_map} instead.
+\item \code{mf_base}: defunct in 2.0.0, use \link{mf_map} with \code{type = "base"} instead,
+see \link{mf_map_base}.
+\item \code{mf_choro}: defunct in 2.0.0, use \link{mf_map} with \code{type = "choro"} instead,
+see \link{mf_map_choro}.
+\item \code{mf_prop}: defunct in 2.0.0, use \link{mf_map} with \code{type = "prop"} instead,
+see \link{mf_map_prop}.
+\item \code{mf_typo}: defunct in 2.0.0, use \link{mf_map} with \code{type = "typo"} instead,
+see \link{mf_map_typo}.
+\item \code{mf_symb}: defunct in 2.0.0, use \link{mf_map} with \code{type = "symb"} instead,
+see \link{mf_map_symb}.
+\item \code{mf_grad}: defunct in 2.0.0, use \link{mf_map} with \code{type = "grad"} instead,
+see \link{mf_map_grad}.
+\item \code{mf_prop_typo}: defunct in 2.0.0, use \link{mf_map} with \code{type = "prop_typo"}
+instead, see \link{mf_map_prop_typo}.
+\item \code{mf_prop_choro}: defunct in 2.0.0, use \link{mf_map} with \code{type = "prop_choro"}
+instead, see \link{mf_map_prop_choro}.
+\item \code{mf_symb_choro}: defunct in 2.0.0, use \link{mf_map} with \code{type = "symb_choro"}
+instead, see \link{mf_map_symb_choro}.
 \item separated legends in \code{mf_map()} with types "prop_choro", "prop_typo" and
 "symb_choro": defunct in 2.0.0, use \code{leg_pos = NA} and calls to \link{mf_legend}
 instead.

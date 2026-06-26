@@ -1,53 +1,4 @@
-#' @title Deprecated - Plot symbols
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "symb"`
-#' instead.
-#'
-#' Plot symbols based on qualitative data.
-#' @eval my_params(c(
-#' 'x',
-#' 'var',
-#' 'border',
-#' 'lwd',
-#' 'add',
-#' 'pch',
-#' 'cexs',
-#' 'val_order',
-#' 'col_na',
-#' 'cex_na',
-#' 'pch_na',
-#' 'pal',
-#' 'alpha',
-#' 'rev',
-#' 'leg_pos',
-#' 'leg_title',
-#' 'leg_title_cex',
-#' 'leg_val_cex',
-#' 'leg_no_data',
-#' 'leg_frame_border',
-#' 'leg_fg',
-#' 'leg_bg',
-#' 'leg_size',
-#' 'leg_frame',
-#' 'leg_adj'))
-#' @keywords internal
-#' @export
-#' @return x is (invisibly) returned.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq)
-#' mf_map(mtq, "STATUS", "symb")
-#'
-#' mtq[6, "STATUS"] <- NA
-#' mf_map(mtq)
-#' mf_map(
-#'   x = mtq, var = "STATUS", type = "symb",
-#'   pch = c(21:23), pal = c("red1", "tan1", "khaki1"),
-#'   border = "grey20", cex = c(1.5, 1, .9), lwd = .5,
-#'   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
-#'   pch_na = 24, leg_frame = TRUE
-#' )
-mf_symb <- function(x, var,
+symb <- function(x, var,
                     pal,
                     alpha = NULL,
                     rev = FALSE,
@@ -74,7 +25,6 @@ mf_symb <- function(x, var,
                     leg_bg,
                     leg_size = 1,
                     add = TRUE) {
-  deprecate_direct_calls_to("mf_symb")
   xtype <- get_geom_type(x)
   # linestring special case
   if (xtype == "LINE") {

@@ -1,50 +1,4 @@
-#' @title Deprecated - Plot graduated symbols
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "grad"`
-#' instead.
-#'
-#' Plot graduated symbols based on quantitative data.
-#' @eval my_params(c(
-#' 'x',
-#' 'var',
-#' 'border',
-#' 'lwd',
-#' 'cexs',
-#' 'pch',
-#' 'add' ,
-#' 'col',
-#' 'alpha',
-#' 'leg_pos',
-#' 'leg_title',
-#' 'leg_title_cex',
-#' 'leg_val_cex',
-#' 'leg_val_rnd',
-#' 'leg_val_dec',
-#' 'leg_val_big',
-#' 'leg_frame',
-#' 'breaks',
-#' 'nbreaks',
-#' 'leg_adj',
-#' 'leg_size',
-#' 'leg_box_cex',
-#' 'leg_fg',
-#' 'leg_bg',
-#' 'leg_frame_border'))
-#' @details
-#' Breaks defined by a numeric vector or a classification method are
-#' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as \[2 - 5\[, \[5 - 10\[, \[10 - 15\[, \[15 - 20\].
-#' The "jenks" method is an exception and has to be right-closed.
-#' Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as \[2 - 5\], \]5 - 10\], \]10 - 15\], \]15 - 20\].
-#' @keywords internal
-#' @export
-#' @return x is (invisibly) returned.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq)
-#' mf_map(mtq, "POP", "grad", pch = 22)
-mf_grad <- function(x,
+grad <- function(x,
                     var,
                     breaks = "quantile",
                     nbreaks = 3,
@@ -72,8 +26,6 @@ mf_grad <- function(x,
                     leg_bg,
                     leg_frame_border,
                     add = TRUE) {
-  deprecate_direct_calls_to("mf_grad")
-
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

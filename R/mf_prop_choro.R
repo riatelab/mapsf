@@ -1,74 +1,4 @@
-#' @title Deprecated - Plot proportional symbols using choropleth coloration
-#' @description
-#' This function is deprecated. Please use `mf_map()` with `type = "prop_choro"`
-#' instead.
-#'
-#' Plot proportional symbols with colors based on a quantitative
-#' data classification.
-#' @eval my_params(c(
-#' 'x',
-#' 'var',
-#' 'border',
-#' 'lwd',
-#' 'add' ,
-#' 'inches',
-#' 'val_max',
-#' 'symbol',
-#' 'col_na',
-#' 'pal',
-#' 'alpha',
-#' 'rev',
-#' 'breaks',
-#' 'nbreaks',
-#' 'leg_pos2',
-#' 'leg_title',
-#' 'leg_title_cex',
-#' 'leg_val_cex',
-#' 'leg_val_rnd',
-#' 'leg_val_dec',
-#' 'leg_val_big',
-#' 'leg_no_data',
-#' 'leg_frame',
-#' 'leg_frame_border',
-#' 'leg_fg',
-#' 'leg_bg',
-#' 'leg_size',
-#' 'leg_box_border',
-#' 'leg_box_cex',
-#' 'leg_adj',
-#' 'leg_horiz'))
-#' @details
-#' Breaks defined by a numeric vector or a classification method are
-#' left-closed: breaks defined by \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as \[2 - 5\[, \[5 - 10\[, \[10 - 15\[, \[15 - 20\].
-#' The "jenks" method is an exception and has to be right-closed.
-#' Jenks breaks computed as \code{c(2, 5, 10, 15, 20)}
-#' will be mapped as \[2 - 5\], \]5 - 10\], \]10 - 15\], \]15 - 20\].
-#' @keywords internal
-#' @export
-#' @return x is (invisibly) returned.
-#' @examples
-#' mtq <- mf_get_mtq()
-#' mf_map(mtq)
-#' mf_map(mtq, c("POP", "MED"), "prop_choro")
-#'
-#' mf_map(mtq)
-#' mtq[6, "MED"] <- NA
-#' mf_map(
-#'   x = mtq, var = c("POP", "MED"), type = "prop_choro",
-#'   inches = .35, border = "tomato4",
-#'   val_max = 90000, symbol = "circle", col_na = "grey", pal = "Cividis",
-#'   breaks = "equal", nbreaks = 4, lwd = 4,
-#'   leg_pos = "bottomright",
-#'   leg_title = c("Population", "Median Income"),
-#'   leg_title_cex = 1,
-#'   leg_val_cex = .9,
-#'   leg_val_rnd = c(0, 0),
-#'   leg_no_data = "No data",
-#'   leg_frame = TRUE,
-#'   add = TRUE
-#' )
-mf_prop_choro <- function(x,
+prop_choro <- function(x,
                           var,
                           inches = 0.3,
                           val_max,
@@ -102,7 +32,6 @@ mf_prop_choro <- function(x,
                           leg_box_border,
                           leg_box_cex = c(1, 1),
                           add = TRUE) {
-  deprecate_direct_calls_to("mf_prop_choro")
   xtype <- get_geom_type(x)
   # linestring special case
   if (xtype == "LINE") {
