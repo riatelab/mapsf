@@ -25,7 +25,7 @@ prop <- function(x,
                     leg_fg,
                     leg_bg,
                     leg_size = 1,
-                    add = TRUE) {
+                    add = FALSE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
