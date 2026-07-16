@@ -8,7 +8,7 @@
 
 \item{col}{a color, hex code or color name given by \link{colors}.
 The default color for polygons is the foreground color, the default color for
-points and lines the highlight color (see \link{mf_theme}).}
+points and lines is the highlight color (see \link{mf_theme}).}
 
 \item{border}{border color for polygons and points symbols, hex code or
 color name given by \link{colors}. The default color for polygon is the
@@ -35,13 +35,13 @@ the default map type \strong{base}.
 
 For polygons:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, col, border, lwd = 0.7, lty = 1,
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, col, border, lwd = .7, lty = 1,
        alpha, expandBB, extent, bg, add = FALSE)
 }\if{html}{\out{</div>}}
 
 For points:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, col, border, pch = 20, cex = 1, lwd = 0.7,
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, col, border, pch = 20, cex = 1, lwd = .7,
        alpha, expandBB, extent, bg, add = FALSE)
 }\if{html}{\out{</div>}}
 

@@ -8,12 +8,12 @@
 #' ## Usage
 #' For polygons:
 #' ```r
-#' mf_map(x, col, border, lwd = 0.7, lty = 1,
+#' mf_map(x, col, border, lwd = .7, lty = 1,
 #'        alpha, expandBB, extent, bg, add = FALSE)
 #' ```
 #' For points:
 #' ```r
-#' mf_map(x, col, border, pch = 20, cex = 1, lwd = 0.7,
+#' mf_map(x, col, border, pch = 20, cex = 1, lwd = .7,
 #'        alpha, expandBB, extent, bg, add = FALSE)
 #' ```
 #' For lines:
@@ -24,7 +24,7 @@
 #' @param x	object of class `sf`, `sfc` or `sfg`
 #' @param col a color, hex code or color name given by [colors].
 #' The default color for polygons is the foreground color, the default color for
-#' points and lines the highlight color (see [mf_theme]).
+#' points and lines is the highlight color (see [mf_theme]).
 #' @param border border color for polygons and points symbols, hex code or
 #' color name given by [colors]. The default color for polygon is the
 #' highlight color, the default color for points is the foreground color (see
