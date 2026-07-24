@@ -69,6 +69,3 @@ mf_distr(a,
   main = 'Classification method : "quantile"'
 )
 }
-\seealso{
-\link{mf_map_choro}
-}
