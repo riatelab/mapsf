@@ -146,7 +146,7 @@ mf_typo <- function(x,
     )
   }
   if (xtype == "POLYGON") {
-    border <- go(border, opt = "highlight")
+    border <- go(border, opt = "highlight")[[1]]
     plot(st_geometry(x),
       col = mycols, border = border,
       lwd = lwd, add = TRUE
@@ -173,7 +173,7 @@ mf_typo <- function(x,
     )
   }
   if (xtype == "POINT") {
-    border <- go(border, "background")
+    border <- go(border, "background")[[1]]
     if (pch %in% 21:25) {
       mycolspt <- border
     } else {
@@ -191,7 +191,7 @@ mf_typo <- function(x,
       title_cex = leg_title_cex,
       val_cex = leg_val_cex, col_na = col_na, no_data = no_data,
       no_data_txt = leg_no_data,
-      frame = leg_frame, border = border, pal = pal, lwd = lwd,
+      frame = leg_frame, border = rep(border, n), pal = pal, lwd = lwd,
       cex = rep(cex, n), pch = rep(pch, n), cex_na = cex,
       pch_na = pch, bg = leg_bg, fg = leg_fg, adj = leg_adj,
       size = leg_size, frame_border = leg_frame_border
