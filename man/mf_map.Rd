@@ -132,8 +132,8 @@ and \emph{choro} map types (see Details)}
 \item{leg_box_border}{border color of legend boxes (for types related to
 choropleth and typology)}
 
-\item{leg_box_cex}{width and height size expansion of boxes (for types related to
-choropleth and typology)}
+\item{leg_box_cex}{width and height size expansion of boxes (for types
+related to choropleth and typology)}
 
 \item{...}{ignored}
 }
@@ -180,7 +180,8 @@ given by \link{colors}: c("#7F000D", "#A9565A", "#CA9496", "#E2CBCB", "#F1F1F1")
 or c("red", "yellow", "green", "black")
 }
 \item{pch}{
-For \emph{base}, \emph{choro}, \emph{typo} and \emph{grad} map types, a single value is needed.\cr
+For \emph{base}, \emph{choro}, \emph{typo} and \emph{grad} map types,
+a single value is needed.\cr
 For \emph{symb} and \emph{symb_choro} map types, a vector of point symbols with a
 length that matches the number of modalities is needed.\cr
 See \link{pch} for the available symbols.

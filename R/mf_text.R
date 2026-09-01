@@ -245,8 +245,14 @@ mf_text_display <- function(
   # internal var
   offset_x <- xinch(par("csi")) / 2
   offset_y <- yinch(par("csi")) / 2
-  wtext <- strwidth(txt, units = "user", cex = cex, font = font, family = family)
-  htext <- strheight(txt, units = "user", cex = cex, font = font, family = family)
+  wtext <- strwidth(txt,
+    units = "user", cex = cex, font = font,
+    family = family
+  )
+  htext <- strheight(txt,
+    units = "user", cex = cex, font = font,
+    family = family
+  )
   pos <- get_position_from_name(pos)
   xy <- xy_pos(
     x = x, y = y,

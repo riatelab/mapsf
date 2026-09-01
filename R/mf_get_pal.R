@@ -29,7 +29,10 @@
 #'   palette = c("Dark Mint", "Burg"), neutral = "grey90"
 #' )
 #' mf_map(mtq, "MED", "choro", breaks = bks, pal = pal)
-#' pal <- mf_get_pal(breaks = bks, mid = bks[4], palette = c("Dark Mint", "Burg"))
+#' pal <- mf_get_pal(
+#'   breaks = bks, mid = bks[4],
+#'   palette = c("Dark Mint", "Burg")
+#' )
 #' mf_map(mtq, "MED", "choro", breaks = bks, pal = pal)
 mf_get_pal <- function(n, palette, alpha = NULL,
                        rev = c(FALSE, FALSE), neutral,

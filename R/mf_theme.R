@@ -183,7 +183,8 @@ mf_theme <- function(x,
           message(
             paste0(
               "The following themes are deprecated:\n",
-              "'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', 'darkula',\n",
+              "'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', ",
+              "'darkula',\n",
               "'iceberg', 'green', 'nevermind', 'jsk', and 'barcelona'.\n",
               "See the Note section in the help page (?mf_theme)."
             )

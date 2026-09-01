@@ -94,8 +94,8 @@
 #' `leg_title_cex` and `leg_val_cex`.
 #' @param leg_box_border border color of legend boxes (for types related to
 #' choropleth and typology)
-#' @param leg_box_cex	width and height size expansion of boxes (for types related to
-#' choropleth and typology)
+#' @param leg_box_cex	width and height size expansion of boxes (for types
+#' related to choropleth and typology)
 #' @param ... ignored
 #'
 #' @details
@@ -128,7 +128,8 @@
 #' or c("red", "yellow", "green", "black")
 #' }
 #' \item{pch}{
-#' For *base*, *choro*, *typo* and *grad* map types, a single value is needed.\cr
+#' For *base*, *choro*, *typo* and *grad* map types,
+#' a single value is needed.\cr
 #' For *symb* and *symb_choro* map types, a vector of point symbols with a
 #' length that matches the number of modalities is needed.\cr
 #' See [pch] for the available symbols.

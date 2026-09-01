@@ -61,7 +61,10 @@ mf_arrow_display <- function(pos = "topleft",
   ye <- map_extent[3:4]
   inset_x <- xinch(par("csi")) / 2
   inset_y <- yinch(par("csi")) / 2
-  n_arrow <- build_arrow(x = mean(xe), y = mean(ye), inset_x = inset_x * cex, inset_y = inset_y * cex)
+  n_arrow <- build_arrow(
+    x = mean(xe), y = mean(ye), inset_x = inset_x * cex,
+    inset_y = inset_y * cex
+  )
   bb_n_arrow <- st_bbox(n_arrow)
   h <- bb_n_arrow[4] - bb_n_arrow[2]
   w <- bb_n_arrow[3] - bb_n_arrow[1]

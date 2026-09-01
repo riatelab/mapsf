@@ -178,7 +178,10 @@ mf_distr <- function(x, nbins, bw, breaks, pal, alpha = 1, rev = FALSE,
     if (missing(pal)) {
       pal <- getOption("mapsf.foreground")
     }
-    pal <- get_the_pal(pal = pal, nbreaks = length(breaks) - 1, alpha = alpha, rev = !rev)
+    pal <- get_the_pal(
+      pal = pal, nbreaks = length(breaks) - 1, alpha = alpha,
+      rev = !rev
+    )
     mycols <- get_col_vec(x = x, breaks = breaks, pal = pal, jen = FALSE)
     points(
       x = x,

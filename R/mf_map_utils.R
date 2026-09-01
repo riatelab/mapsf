@@ -349,7 +349,8 @@ check_args <- function(argx, type) {
 }
 
 
-get_val_rnd <- function(val, val_rnd, val_dec = getOption("OutDec"), val_big = "") {
+get_val_rnd <- function(val, val_rnd, val_dec = getOption("OutDec"),
+                        val_big = "") {
   if (is.numeric(val)) {
     val <- round(val, val_rnd)
     if (val_rnd <= 0) {
