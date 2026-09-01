@@ -106,7 +106,7 @@
 #' also accepted.
 #' }
 #' \item{var}{
-#' A vector of two names is required for the following map types:\cr
+#' A vector of two names is required for the following map types.\cr
 #' For *prop_choro* map type, the first name refers to the
 #' proportional symbols, the second one to the choropleth coloration.\cr
 #' For *prop_typo* map type, the first name refers to the

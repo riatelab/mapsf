@@ -158,7 +158,7 @@ an \code{sf} object, for \emph{base}  map type \code{sfc} and \code{sfg} objects
 also accepted.
 }
 \item{var}{
-A vector of two names is required for the following map types:\cr
+A vector of two names is required for the following map types.\cr
 For \emph{prop_choro} map type, the first name refers to the
 proportional symbols, the second one to the choropleth coloration.\cr
 For \emph{prop_typo} map type, the first name refers to the
