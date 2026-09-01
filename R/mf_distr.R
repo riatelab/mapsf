@@ -24,6 +24,7 @@
 #' @param main plot title
 #' @param yaxt if FALSE the y axis is not displayed
 #' @param ylab y axis label
+#' @param seed seed used to position the points on the strip chart
 #' @return The number of bins of the histogram and the bandwidth of the density
 #' curve are (invisibly) returned in a list.
 #' @export
@@ -39,7 +40,8 @@
 #'   main = 'Classification method : "quantile"'
 #' )
 mf_distr <- function(x, nbins, bw, breaks, pal, alpha = 1, rev = FALSE,
-                     main = "Distribution", yaxt = TRUE, ylab = "Density") {
+                     main = "Distribution", yaxt = TRUE, ylab = "Density",
+                     seed = 46) {
   x <- as.numeric(x)
   x <- x[!is.na(x)]
   x <- x[is.finite(x)]
@@ -80,7 +82,7 @@ mf_distr <- function(x, nbins, bw, breaks, pal, alpha = 1, rev = FALSE,
   x_lim <- c(min(x_labels), max(x_labels))
 
   # points coords
-  set.seed(46)
+  set.seed(seed)
   pts_y <- runif(d$n, min = y_lim[1], max = y_lim[1] + large_offset)
 
   # curve coords

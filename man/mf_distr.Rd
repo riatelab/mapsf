@@ -14,7 +14,8 @@ mf_distr(
   rev = FALSE,
   main = "Distribution",
   yaxt = TRUE,
-  ylab = "Density"
+  ylab = "Density",
+  seed = 46
 )
 }
 \arguments{
@@ -43,6 +44,8 @@ reversed}
 \item{yaxt}{if FALSE the y axis is not displayed}
 
 \item{ylab}{y axis label}
+
+\item{seed}{seed used to position the points on the strip chart}
 }
 \value{
 The number of bins of the histogram and the bandwidth of the density
