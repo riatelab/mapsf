@@ -1,6 +1,6 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 1.2.1.9000
+Version: 1.2.2
 Authors@R: 
     c(person(given = "Timothée",
              family = "Giraud",
@@ -23,10 +23,6 @@ Authors@R:
              family = "Fellows",
              role = "cph",
              comment = "No overlap algorithm for labels, from wordcloud package"),
-      person(given = "Jim",
-             family = "Lemon",
-             role = "cph",
-             comment = "Arc drawing algorithm for annotations, from plotrix package"), 
       person(given = "Danielle",
              family = "Navarro",
              role = "cph",

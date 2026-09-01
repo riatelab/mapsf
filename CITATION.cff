@@ -1,14 +1,14 @@
-# --------------------------------------------
-# CITATION file created with {cffr} R package
+# ------------------------------------------------
+# CITATION.cff file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# --------------------------------------------
+# ------------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "mapsf" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'mapsf: Thematic Cartography'
-version: 1.2.1
+version: 1.2.2
 doi: 10.32614/CRAN.package.mapsf
 identifiers:
 - type: doi
@@ -183,8 +183,14 @@ references:
     given-names: Andrew
     orcid: https://orcid.org/0000-0002-4565-533X
   - family-names: Barbosa
-    given-names: Márcia
+    given-names: A. Márcia
     orcid: https://orcid.org/0000-0001-8972-7713
+  - family-names: Cordano
+    given-names: Emanuele
+    orcid: https://orcid.org/0000-0002-3508-5898
+  - family-names: Dyba
+    given-names: Krzysztof
+    orcid: https://orcid.org/0000-0002-8614-3816
   year: '2026'
   doi: 10.32614/CRAN.package.terra
 - type: software
@@ -195,7 +201,7 @@ references:
   authors:
   - family-names: Song
     given-names: Joe
-    email: joemsong@cs.nmsu.edu
+    email: joemsong@nmsu.edu
     orcid: https://orcid.org/0000-0002-6883-6547
   - family-names: Zhong
     given-names: Hua

@@ -7,13 +7,13 @@
   "codeRepository": "https://riatelab.github.io/mapsf/",
   "issueTracker": "https://github.com/riatelab/mapsf/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.6.0 (2026-04-24)",
+  "runtimePlatform": "R version 4.6.1 (2026-06-24)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -54,11 +54,6 @@
       "@type": "Person",
       "givenName": "Ian",
       "familyName": "Fellows"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Jim",
-      "familyName": "Lemon"
     },
     {
       "@type": "Person",
@@ -264,7 +259,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2759.585KB",
+  "fileSize": "2737.741KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

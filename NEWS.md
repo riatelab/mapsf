@@ -1,3 +1,19 @@
+# mapsf 1.2.2
+
+## Fix
+- allow to use 2 times the same variable with type = "prop_choro" and 
+val_max > max(var) (#94)
+- allow the consecutive display of different rasters (#95)
+- correct symbols borders in legend for "typo", symb" and "symb_choro" map 
+types, use only one value for border color
+- remove hardcoded seed for strip chart point positionning in mf_distr(), 
+use an argument instead
+
+## Docs
+- help pages for each map types have been removed (fix CRAN note) and mf_map()
+doc has been enriched 
+
+
 # mapsf 1.2.1
 
 ## Fix
