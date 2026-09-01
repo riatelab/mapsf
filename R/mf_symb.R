@@ -167,7 +167,7 @@ mf_symb <- function(x, var,
   mycolspt <- mycols
   mycolspt[mysym %in% 21:25] <- border
   mycolsptbg <- mycols
-  border <- rep(border, sum(pch %in% 21:25))
+  border <- rep(border, length(cex))
 
   if (add == FALSE) {
     mf_init(x, expandBB = expandBB, extent = extent, bgc = bgc)

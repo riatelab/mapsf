@@ -222,7 +222,7 @@ mf_symb_choro <- function(x, var,
   if (all(leg_frame, !leg_horiz, is.null(getOption("mapsf.legacy")))) {
     ccol <- getOption("mapsf.highlight")
   }
-  border <- rep(border, sum(pch %in% 21:25))
+  border <- rep(border, length(cex))
 
   if (length(leg_pos) == 1) {
     leg_title <- test2args(leg_title)
