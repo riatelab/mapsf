@@ -82,7 +82,7 @@ These functions are dedicated to the map layout design.
 | &#9313; `mf_arrow()`      | North arrow        |
 | &#9314; `mf_credits()`    | Author, sources... |
 | &#9315; `mf_scale()`      | Scale bar          |
-| &#9316; `mf_annotation()` | Annotations        |
+| &#9316; `mf_text()`       | Annotations        |
 | &#9317; `mf_label()`      | Labels             |
 | &#9318; `mf_shadow()`     | Shadow             |
 
@@ -335,30 +335,3 @@ mf_credits(credits)
 mf_arrow()
 mf_scale()
 ```
-
-
-
-# Datasets
-
-Several datasets are embedded in the package:
-
--   A [GeoPackage](https://www.geopackage.org/) of Martinique municipalities can be imported with `mf_get_mtq()` (or via `sf::st_read()`).
-    -   Sources: [Base comparateur de territoires](https://www.insee.fr/fr/statistiques/2521169) (data, upload date: 2018-09-25) & ADMIN EXPRESS-COG (geometry, 2018 edition).
-    -   Citation: Insee and IGN, 2018
-    -   Fields:
-        -   **INSEE_COM**: Municipality identifier
-        -   **STATUS**: Municipality administrative status
-        -   **LIBGEO**: Municipality name
-        -   **POP**: Total population, 2015
-        -   **MED**: Median disposable income adjusted per equivalent household member, in euros, 2015
-        -   **CHOM**: Unemployed population, 2015
-        -   **ACT**: Active population, 2015
-
--   A csv file of professional mobility flows between Martinique municipalities.
-    -   Sources: [Flux de mobilité - déplacements domicile-lieu de travail](https://www.insee.fr/fr/statistiques/3566477) (upload date: 2018-08-01)
-    -   Citation: Insee, 2018
-    -   Fields:
-        -   **i**: Municipality of residence identifier
-        -   **j**: Municipality of workplace identifier
-        -   **fij**: Flows of workers (employed population, 15 y.o. or more, 2015, only flows \> 100)
-        -   **sj**: Administrative status of the workplace municipality
