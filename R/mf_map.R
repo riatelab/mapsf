@@ -425,26 +425,26 @@
 #' mf_map(mtq)
 #' # type = "prop"
 #' mf_map(mtq)
-#' mf_map(mtq, var = "POP", type = "prop")
+#' mf_map(mtq, var = "POP", type = "prop", add = TRUE)
 #' # type = "choro"
 #' mf_map(mtq, var = "MED", type = "choro")
 #' # type = "typo"
 #' mf_map(mtq, "STATUS", "typo")
 #' # type = "symb"
 #' mf_map(mtq)
-#' mf_map(mtq, "STATUS", "symb")
+#' mf_map(mtq, "STATUS", "symb", add = TRUE)
 #' # type = "grad"
 #' mf_map(mtq)
-#' mf_map(mtq, var = "POP", type = "grad")
+#' mf_map(mtq, var = "POP", type = "grad", add = TRUE)
 #' # type = "prop_choro"
 #' mf_map(mtq)
-#' mf_map(mtq, var = c("POP", "MED"), type = "prop_choro")
+#' mf_map(mtq, var = c("POP", "MED"), type = "prop_choro", add = TRUE)
 #' # type = "prop_typo"
 #' mf_map(mtq)
-#' mf_map(mtq, var = c("POP", "STATUS"), type = "prop_typo")
+#' mf_map(mtq, var = c("POP", "STATUS"), type = "prop_typo", add = TRUE)
 #' # type = "symb_choro
 #' mf_map(mtq)
-#' mf_map(mtq, var = c("STATUS", "MED"), type = "symb_choro")
+#' mf_map(mtq, var = c("STATUS", "MED"), type = "symb_choro", add = TRUE)
 #'
 #'
 #' # Base map type
@@ -545,9 +545,10 @@
 #' # Proportional symbols with typology coloration map type
 #' mf_map(mtq, extent = flows, expandBB = c(0, .5, 0, 0))
 #' mf_map(flows, c("fij", "sj"), "prop_typo",
-#'   val_order = c("Sub-prefecture", "Simple municipality"),
-#'   pal = c("steelblue", "lightblue"), lwd_max = 30,
-#'   leg_pos = "topleft", leg_title = c("commuters", "destination")
+#'        val_order = c("Sub-prefecture", "Simple municipality"),
+#'        pal = c("steelblue", "lightblue"), lwd_max = 30,
+#'        leg_pos = "topleft", leg_title = c("commuters", "destination"),
+#'        add = TRUE
 #' )
 #' mf_map(
 #'   x = mtq, var = c("POP", "STATUS"), type = "prop_typo",
@@ -563,36 +564,38 @@
 #' # Symbols map type
 #' mf_map(mtq)
 #' mf_map(mtq, "STATUS", "symb",
-#'   pal = "Berlin", border = "white", lwd = 1,
-#'   cex = c(4, 3, 2), pch = c(21:23), col_na = "red",
-#'   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
-#'   leg_title = ""
+#'        pal = "Berlin", border = "white", lwd = 1,
+#'        cex = c(4, 3, 2), pch = c(21:23), col_na = "red",
+#'        val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
+#'        leg_title = "", add = TRUE
 #' )
 #'
 #' # Graduated symbols map type
 #' mf_map(mtq, bg = "cornsilk2")
 #' mf_map(flows, "fij", "grad",
-#'   breaks = "geom", nbreaks = 3,
-#'   lwd = c(1, 3, 7),
-#'   leg_title = "N. commuters",
-#'   leg_pos = "bottomleft", leg_val_rnd = 0
+#'        breaks = "geom", nbreaks = 3,
+#'        lwd = c(1, 3, 7),
+#'        leg_title = "N. commuters",
+#'        leg_pos = "bottomleft", leg_val_rnd = 0,
+#'        add = TRUE
 #' )
 #' mf_map(mtq, "POP", "grad",
-#'   breaks = c(686, 5000, 25000, 82502),
-#'   cex = c(1, 2, 4), pch = 22, col = "steelblue",
-#'   leg_title = "Population", leg_pos = "topright",
-#'   leg_frame = TRUE
+#'        breaks = c(686, 5000, 25000, 82502),
+#'        cex = c(1, 2, 4), pch = 22, col = "steelblue",
+#'        leg_title = "Population", leg_pos = "topright",
+#'        leg_frame = TRUE, add = TRUE
 #' )
 #'
 #' # Symbols with choropleth coloration map type
 #' mf_map(mtq)
 #' mtq$STATUS[4] <- NA
 #' mf_map(mtq, c("STATUS", "MED"),
-#'   type = "symb_choro", lwd = 1,
-#'   pal = "Reds 3", breaks = "quantile", nbreaks = 4,
-#'   cex = c(2, 1, 1), pch = c(20, 21, 23), pch_na = 22,
-#'   leg_pos = "topright", border = "white", col_na = "blue",
-#'   val_order = c("Prefecture", "Sub-prefecture", "Simple municipality")
+#'        type = "symb_choro", lwd = 1,
+#'        pal = "Reds 3", breaks = "quantile", nbreaks = 4,
+#'        cex = c(2, 1, 1), pch = c(20, 21, 23), pch_na = 22,
+#'        leg_pos = "topright", border = "white", col_na = "blue",
+#'        val_order = c("Prefecture", "Sub-prefecture", "Simple municipality"),
+#'        add = TRUE
 #' )
 mf_map <- function(x,
                    var,
