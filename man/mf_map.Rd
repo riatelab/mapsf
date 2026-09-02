@@ -95,8 +95,11 @@ values).}
 
 \item{leg_pos}{position of the legend, one of 'topleft', 'top','topright',
 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
-coordinates in map units (c(x, y)). Use \code{NA} to avoid plotting the legend,
-use 'interactive' to choose the legend position by clicking on the map.}
+coordinates in map units (c(x, y)).
+Use \code{NA} to avoid plotting the legend.
+Use 'interactive' to choose the legend position by clicking on the map.
+Use 'auto' to automatically select an optimal position that minimizes the
+overlap between \code{x} and the legend.}
 
 \item{leg_title}{legend title (see Details)}
 

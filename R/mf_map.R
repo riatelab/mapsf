@@ -73,8 +73,11 @@
 #' [colors].
 #' @param leg_pos position of the legend, one of 'topleft', 'top','topright',
 #' 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
-#' coordinates in map units (c(x, y)). Use `NA` to avoid plotting the legend,
-#' use 'interactive' to choose the legend position by clicking on the map.
+#' coordinates in map units (c(x, y)).
+#' Use `NA` to avoid plotting the legend.
+#' Use 'interactive' to choose the legend position by clicking on the map.
+#' Use 'auto' to automatically select an optimal position that minimizes the
+#' overlap between `x` and the legend.
 #' @param leg_title legend title (see Details)
 #' @param leg_title_cex size of the title
 #' @param leg_val_cex size of the values
@@ -616,7 +619,7 @@ mf_map <- function(x,
                    extent,
                    bg,
                    add,
-                   leg_pos,
+                   leg_pos ="auto",
                    leg_title,
                    leg_title_cex,
                    leg_val_cex,
@@ -691,9 +694,13 @@ mf_map <- function(x,
 
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% c("type")]
+
   argx$add <- add
 
   if (type != "base") {
+    if (leg_pos == "auto"){
+      argx$leg_pos <- get_leg_pos(x)
+    }
     argx <- check_args(argx, type)
   }
 
