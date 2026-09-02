@@ -1,44 +1,42 @@
 prop <- function(x,
-                    var,
-                    inches = 0.3,
-                    val_max,
-                    lwd_max = 20,
-                    symbol = "circle",
-                    col,
-                    alpha = NULL,
-                    border,
-                    lwd = .7,
-                    extent = x,
-                    bg,
-                    expandBB = rep(0, 4),
-                    leg_pos = mf_get_leg_pos(x),
-                    leg_title = var,
-                    leg_title_cex = .8,
-                    leg_val_cex = .6,
-                    leg_val_rnd = 0,
-                    leg_val_dec = ".",
-                    leg_val_big = "",
-                    leg_frame = FALSE,
-                    leg_frame_border,
-                    leg_horiz = FALSE,
-                    leg_adj = c(0, 0),
-                    leg_fg,
-                    leg_bg,
-                    leg_size = 1,
-                    add = FALSE) {
+                 var,
+                 inches = 0.3,
+                 val_max,
+                 lwd_max = 20,
+                 symbol = "circle",
+                 col,
+                 alpha = NULL,
+                 border,
+                 lwd = .7,
+                 extent = x,
+                 bg,
+                 expandBB = rep(0, 4),
+                 leg_pos = mf_get_leg_pos(x),
+                 leg_title = var,
+                 leg_title_cex = .8,
+                 leg_val_cex = .6,
+                 leg_val_rnd = 0,
+                 leg_val_dec = ".",
+                 leg_val_big = "",
+                 leg_frame = FALSE,
+                 leg_frame_border,
+                 leg_horiz = FALSE,
+                 leg_adj = c(0, 0),
+                 leg_fg,
+                 leg_bg,
+                 leg_size = 1,
+                 add = FALSE) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
 
   bgc <- go(bg, "background")
-  col <- go(col, "highlight", "tomato4")
+  col <- go(col, "highlight")
   border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
-  leg_frame_border <- go(
-    leg_frame_border, "foreground",
-    getOption("mapsf.highlight")
-  )
+  leg_bg <- go(leg_bg, "foreground")
+  leg_frame_border <- go(leg_frame_border, "foreground")
+
   border <- border[[1]]
 
   if (!is.null(alpha)) {

@@ -36,14 +36,11 @@ prop_typo <- function(x, var,
   on.exit(par(op))
 
   bgc <- go(bg, "background")
-  pal <- go(pal, "pal_quali", "Dynamic")
+  pal <- go(pal, "pal_quali")
   leg_box_border <- go(leg_box_border, "highlight")
   leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
-  leg_frame_border <- go(
-    leg_frame_border, "foreground",
-    getOption("mapsf.highlight")
-  )
+  leg_bg <- go(leg_bg, "foreground")
+  leg_frame_border <- go(leg_frame_border, "foreground")
   border <- go(border, "background")
   border <- border[[1]]
 

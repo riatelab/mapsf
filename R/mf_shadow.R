@@ -33,7 +33,7 @@ mf_shadow <- function(x, col, cex = 1, add = FALSE, extent = x, bg,
   if (add == FALSE) {
     mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
-  col <- go(col, "highlight", "grey50")
+  col <- go(col, "highlight")
   xyi <- xyinch(1)
   ratio <- xyi[2] / xyi[1]
   d_x <- cex * strwidth("M", units = "user", cex = 1) / 3

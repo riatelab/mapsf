@@ -1,42 +1,8 @@
-#' @title Deprecated functions in mapsf
-#'
-#' @description
-#' These functions and features still work but will be removed in the next
-#' major version of the package, which is scheduled in January 2027.
-#'
-#' ## `mf_map` sub-functions
-#'
-#' Instead of using the following deprecated functions, one can use [mf_map]
-#' with the corresponding type:
-#' - `mf_base()` => **base**
-#' - `mf_choro()` => **choro**
-#' - `mf_prop()` => **prop**
-#' - `mf_typo()` => **typo**
-#' - `mf_symb()` => **symb**
-#' - `mf_grad()` => **grad**
-#' - `mf_prop_typo()` => **prop_typo**
-#' - `mf_prop_choro()` => **prop_choro**
-#' - `mf_symb_choro()` => **symb_choro**
-#'
-#'
-#'
-#' ## Theming system
-#'
-#' In [mf_theme], the following themes are deprecated: "default", "brutal",
-#' "ink", "dark", "agolalight", "candy", "darkula", "iceberg", "green",
-#' "nevermind", "jsk" and "barcelona".\cr
-#' The following arguments are also deprecated: "bg", "fg", "tab",
-#' "pos", "inner", "line", "cex" and "font".\cr
-#'
-#' Although the map theming system has been radically changed in version 1.0.0
-#' of the package, you can still use the old themes by referencing them by name.
-#' If you need to use the *pre* v1.0.0 default theme, set `x` to "default".\cr
-#' If an old theme is set, only deprecated arguments are used and others are
-#' ignored.\cr
-#' If current and deprecated arguments are mixed, only deprecated arguments are
-#' used and others are ignored.\cr
-#' All references and usages of the old theming system will be removed in the
-#' next major version.
-#'
-#' @name mapsf-deprecated
-NULL
+#' #' @title Deprecated functions in mapsf
+#' #'
+#' #' @description
+#' #' These functions and features still work but will be removed in the next
+#' #' major version of the package.
+#' #'
+#' #' @name mapsf-deprecated
+#' NULL

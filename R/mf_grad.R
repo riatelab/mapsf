@@ -32,14 +32,11 @@ grad <- function(x,
   xout <- x
 
   bgc <- go(bg, "background")
-  col <- go(col, "highlight", "tomato4")
+  col <- go(col, "highlight")
   border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
-  leg_frame_border <- go(
-    leg_frame_border, "foreground",
-    getOption("mapsf.highlight")
-  )
+  leg_bg <- go(leg_bg, "foreground")
+  leg_frame_border <- go(leg_frame_border, "foreground")
 
   if (!is.null(alpha)) {
     col <- get_hex_pal(col, alpha)

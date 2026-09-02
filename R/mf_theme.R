@@ -43,28 +43,10 @@
 #' Palette names can be obtained with [hcl.pals].
 #' @param pal_seq default sequential color palette (name or function).
 #' Palette names can be obtained with [hcl.pals].
-#' @param ... deprecated arguments ('bg', 'fg', 'tab', 'pos', 'inner',
-#' 'line', 'cex' and 'font'). See the Note section.
 #' @param frame either "none", "map" or "figure"; plot a frame around the map
 #' or the figure.
 #' @param frame_lwd line width for the frame
 #' @param frame_lty line type for the frame
-#' @note
-#' The following themes are deprecated: "default", "brutal",
-#' "ink", "dark", "agolalight", "candy", "darkula", "iceberg", "green",
-#' "nevermind", "jsk" and "barcelona".\cr
-#' The following arguments are deprecated: "bg", "fg", "tab",
-#' "pos", "inner", "line", "cex" and "font".\cr
-#'
-#' Although the map theming system has been radically changed in version 1.0.0
-#' of the package, you can still use the old themes by referencing them by name.
-#' If you need to use the *pre* v1.0.0 default theme, set `x` to "default".\cr
-#' If an old theme is set, only deprecated arguments are used and others are
-#' ignored.\cr
-#' If current and deprecated arguments are mixed, only deprecated arguments are
-#' used and others are ignored.\cr
-#' All references and usages of the old theming system will be removed in the
-#' next major version.
 #' @return `mf_theme` (invisibly) returns the list of current theme parameters.
 #' @export
 #' @examples
@@ -136,7 +118,7 @@ mf_theme <- function(x,
                      frame_lwd,
                      frame_lty,
                      pal_quali,
-                     pal_seq, ...) {
+                     pal_seq) {
   # current theme
   theme <- list(
     mar          = getOption("mapsf.mar"),
@@ -154,8 +136,7 @@ mf_theme <- function(x,
     pal_seq      = getOption("mapsf.pal_seq"),
     frame        = getOption("mapsf.frame"),
     frame_lty    = getOption("mapsf.frame_lty"),
-    frame_lwd    = getOption("mapsf.frame_lwd"),
-    legacy       = getOption("mapsf.legacy")
+    frame_lwd    = getOption("mapsf.frame_lwd")
   )
 
   # if no arg input => return param list
@@ -173,73 +154,41 @@ mf_theme <- function(x,
     }
     # if x is a list of args
     if (is.list(x)) {
-      argx <- theme <- x
+      argx <- c("mar", "foreground", "background", "highlight",
+                "title_tab",  "title_pos", "title_inner",
+                "title_line", "title_cex", "title_font",
+                "title_banner", "frame", "frame_lwd",
+                "frame_lty", "pal_quali", "pal_seq")
+      if (all(names(x) %in% argx)) {
+        theme <- x[names(x) %in% argx]
+      }
+
     } else {
       if (!x %in% names(.gmapsf$themes)) {
         stop("x is not a theme name.", call. = FALSE)
       } else {
         theme <- .gmapsf$themes[[x]]
-        if (isTRUE(theme$legacy)) {
-          warning(
-            paste0(
-              "The following map themes will be removed with the next major ",
-              "version of the package (scheduled in January 2027):\n",
-              "'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', ",
-              "'darkula', 'iceberg', 'green', 'nevermind', 'jsk' ",
-              "and 'barcelona'."
-            ),
-            call. = FALSE
-          )
-        }
       }
     }
   }
 
 
   # update theme params
-  # legacy themes & param
-  legacy_argx <- c(
-    argx$bg, argx$fg, argx$tab, argx$pos, argx$inner, argx$line,
-    argx$cex, argx$font
-  )
-  if (!is.null(legacy_argx)) {
-    warning(paste0(
-      "The following arguments will be removed from mf_theme() with the next ",
-      "major version of the package (scheduled in January 2027):\n",
-      "'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex'",
-      " and 'font'."
-    ), call. = FALSE)
-    theme$legacy <- TRUE
-    theme$title_banner <- TRUE
-    theme$pal_quali <- "Dynamic"
-    theme$pal_seq <- "Mint"
-    theme$frame <- "none"
-    if (!is.null(argx$bg)) theme$background <- argx$bg
-    if (!is.null(argx$fg)) theme$foreground <- argx$fg
-    if (!is.null(argx$fg)) theme$highlight <- argx$fg
-    if (!is.null(argx$tab)) theme$title_tab <- argx$tab
-    if (!is.null(argx$pos)) theme$title_pos <- argx$pos
-    if (!is.null(argx$inner)) theme$title_inner <- argx$inner
-    if (!is.null(argx$line)) theme$title_line <- argx$line
-    if (!is.null(argx$cex)) theme$title_cex <- argx$cex
-    if (!is.null(argx$font)) theme$title_font <- argx$font
-  } else {
-    if (!missing(title_tab)) theme$title_tab <- title_tab
-    if (!missing(title_pos)) theme$title_pos <- title_pos
-    if (!missing(title_inner)) theme$title_inner <- title_inner
-    if (!missing(title_line)) theme$title_line <- title_line
-    if (!missing(title_cex)) theme$title_cex <- title_cex
-    if (!missing(title_font)) theme$title_font <- title_font
-    if (!missing(title_banner)) theme$title_banner <- title_banner
-    if (!missing(foreground)) theme$foreground <- foreground
-    if (!missing(background)) theme$background <- background
-    if (!missing(highlight)) theme$highlight <- highlight
-    if (!missing(pal_quali)) theme$pal_quali <- pal_quali
-    if (!missing(pal_seq)) theme$pal_seq <- pal_seq
-    if (!missing(frame)) theme$frame <- frame
-    if (!missing(frame_lwd)) theme$frame_lwd <- frame_lwd
-    if (!missing(frame_lty)) theme$frame_lty <- frame_lty
-  }
+  if (!missing(title_tab)) theme$title_tab <- title_tab
+  if (!missing(title_pos)) theme$title_pos <- title_pos
+  if (!missing(title_inner)) theme$title_inner <- title_inner
+  if (!missing(title_line)) theme$title_line <- title_line
+  if (!missing(title_cex)) theme$title_cex <- title_cex
+  if (!missing(title_font)) theme$title_font <- title_font
+  if (!missing(title_banner)) theme$title_banner <- title_banner
+  if (!missing(foreground)) theme$foreground <- foreground
+  if (!missing(background)) theme$background <- background
+  if (!missing(highlight)) theme$highlight <- highlight
+  if (!missing(pal_quali)) theme$pal_quali <- pal_quali
+  if (!missing(pal_seq)) theme$pal_seq <- pal_seq
+  if (!missing(frame)) theme$frame <- frame
+  if (!missing(frame_lwd)) theme$frame_lwd <- frame_lwd
+  if (!missing(frame_lty)) theme$frame_lty <- frame_lty
   if (!missing(mar)) theme$mar <- mar
 
 
@@ -258,12 +207,9 @@ mf_theme <- function(x,
     mapsf.highlight    = theme$highlight,
     mapsf.pal_quali    = theme$pal_quali,
     mapsf.pal_seq      = theme$pal_seq,
-    mapsf.legacy       = theme$legacy,
     mapsf.frame        = theme$frame,
     mapsf.frame_lwd    = theme$frame_lwd,
     mapsf.frame_lty    = theme$frame_lty
   )
-
-
   return(invisible(as.list(theme)))
 }

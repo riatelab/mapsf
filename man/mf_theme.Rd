@@ -21,8 +21,7 @@ mf_theme(
   frame_lwd,
   frame_lty,
   pal_quali,
-  pal_seq,
-  ...
+  pal_seq
 )
 }
 \arguments{
@@ -64,9 +63,6 @@ Palette names can be obtained with \link{hcl.pals}.}
 
 \item{pal_seq}{default sequential color palette (name or function).
 Palette names can be obtained with \link{hcl.pals}.}
-
-\item{...}{deprecated arguments ('bg', 'fg', 'tab', 'pos', 'inner',
-'line', 'cex' and 'font'). See the Note section.}
 }
 \value{
 \code{mf_theme} (invisibly) returns the list of current theme parameters.
@@ -96,23 +92,6 @@ the current theme (see examples).
 
 Use \code{mf_theme(NULL)} or \code{mf_theme('base')} to reset to default theme
 settings.
-}
-\note{
-The following themes are deprecated: "default", "brutal",
-"ink", "dark", "agolalight", "candy", "darkula", "iceberg", "green",
-"nevermind", "jsk" and "barcelona".\cr
-The following arguments are deprecated: "bg", "fg", "tab",
-"pos", "inner", "line", "cex" and "font".\cr
-
-Although the map theming system has been radically changed in version 1.0.0
-of the package, you can still use the old themes by referencing them by name.
-If you need to use the \emph{pre} v1.0.0 default theme, set \code{x} to "default".\cr
-If an old theme is set, only deprecated arguments are used and others are
-ignored.\cr
-If current and deprecated arguments are mixed, only deprecated arguments are
-used and others are ignored.\cr
-All references and usages of the old theming system will be removed in the
-next major version.
 }
 \examples{
 mtq <- mf_get_mtq()

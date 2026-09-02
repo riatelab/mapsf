@@ -34,11 +34,11 @@ mf_title <- function(txt = "Map Title", pos, tab,
   line <- go(line, "title_line")
   cex <- go(cex, "title_cex")
   font <- go(font, "title_font")
-  fg <- go(fg, "highlight", getOption("mapsf.background"))
+  fg <- go(fg, "highlight")
   banner <- go(banner, "title_banner")
 
   if (isFALSE(banner)) {
-    bg <- go(bg, opt = "background", legacy = bg)
+    bg <- go(bg, "background")
   } else {
     bg <- go(bg, "foreground")
   }

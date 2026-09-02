@@ -24,7 +24,7 @@ base <- function(x,
   xtype <- get_geom_type(x)
 
   if (xtype == "LINE") {
-    col <- go(col, "highlight", "grey20")
+    col <- go(col, "highlight")
     if (!is.null(alpha)) {
       col <- get_hex_pal(col, alpha)
     }
@@ -36,8 +36,8 @@ base <- function(x,
   }
 
   if (xtype == "POLYGON") {
-    col <- go(col, "foreground", "grey80")
-    border <- go(border, "highlight", "grey20")
+    col <- go(col, "foreground")
+    border <- go(border, "highlight")
     if (!is.null(alpha)) {
       col <- get_hex_pal(col, alpha)
     }
@@ -49,13 +49,13 @@ base <- function(x,
   }
 
   if (xtype == "POINT") {
-    col <- go(col, "highlight", "grey20")
+    col <- go(col, "highlight")
     if (!is.null(alpha)) {
       col <- get_hex_pal(col, alpha)
     }
     if (pch %in% 21:25) {
       if (missing(border)) {
-        border <- go(border, "foreground", "grey80")
+        border <- go(border, "foreground")
       }
       mycolspt <- border
     } else {

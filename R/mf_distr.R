@@ -152,7 +152,7 @@ mf_distr <- function(x, nbins, bw, breaks, pal, alpha = 1, rev = FALSE,
     x = dx,
     y = dy,
     lwd = 2,
-    col = go(opt = "highlight", legacy = "#cf0000")
+    col = go(opt = "highlight")
   )
   axis(
     side = 1,

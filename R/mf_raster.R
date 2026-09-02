@@ -138,14 +138,11 @@ mf_raster <- function(x,
   }
 
 
-  bg <- ifelse(missing(bg), getOption("mapsf.background"), bg)
-  leg_box_border <- go(leg_box_border, "highlight", "#333333")
+  bg <- go(bg, getOption("mapsf.background"))
+  leg_box_border <- go(leg_box_border, "highlight")
   leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
-  leg_frame_border <- go(
-    leg_frame_border, "foreground",
-    getOption("mapsf.highlight")
-  )
+  leg_bg <- go(leg_bg, "foreground")
+  leg_frame_border <- go(leg_frame_border, "foreground")
 
 
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)

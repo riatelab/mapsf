@@ -39,12 +39,9 @@ symb <- function(x, var,
   bgc <- go(bg, "background")
   border <- go(border, "background")
   leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
-  leg_frame_border <- go(
-    leg_frame_border, "foreground",
-    getOption("mapsf.highlight")
-  )
-  pal <- go(pal, "pal_quali", "Dynamic")
+  leg_bg <- go(leg_bg, "foreground")
+  leg_frame_border <- go(leg_frame_border, "foreground")
+  pal <- go(pal, "pal_quali")
 
 
   xout <- x

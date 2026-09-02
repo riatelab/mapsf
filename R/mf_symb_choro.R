@@ -48,12 +48,9 @@ symb_choro <- function(x, var,
   border <- go(border, "background")
   leg_box_border <- go(leg_box_border, "highlight")
   leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground", getOption("mapsf.background"))
-  leg_frame_border <- go(
-    leg_frame_border, "foreground",
-    getOption("mapsf.highlight")
-  )
-  pal <- go(pal, "pal_seq", "Mint")
+  leg_bg <- go(leg_bg, "foreground")
+  leg_frame_border <- go(leg_frame_border, "foreground")
+  pal <- go(pal, "pal_seq")
 
 
   xout <- x
