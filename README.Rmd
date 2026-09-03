@@ -48,7 +48,7 @@ install.packages("mapsf", repos = c("https://riatelab.r-universe.dev", "https://
 
 This is a basic example which shows how to create a map with `mapsf`.  
 
-```{r example1, fig.width = 4, fig.height = 5}
+```{r example1, fig.width = 4, fig.height = 5, fig.alt="A simple map created with mapsf"}
 library(mapsf)
 # Import the sample dataset
 mtq <- mf_get_mtq()
@@ -68,7 +68,7 @@ You can find more detailed examples on the ["Get Started"](https://riatelab.gith
 
 
 
-## mapsf.gui <img src="man/figures/mapsf_gui_logo.png" align="right" width="60"/>
+## mapsf.gui <img src="man/figures/mapsf_gui_logo.png" alt="mapsf.gui logo" align="right" width="60"/>
 
 The [`mapsf.gui` package](https://codeberg.org/riatelab/mapsf.gui) provides a Shiny interface for creating thematic maps using `mapsf`.
 Users of the application can **build thematic maps interactively and automatically generate the corresponding R code** to reproduce the map identically.

@@ -52,7 +52,7 @@ mf_layout(
 )
 ```
 
-![](man/figures/example1-1.png)<!-- -->
+<img src="man/figures/example1-1.png" alt="A simple map created with mapsf"  />
 
 You can find more detailed examples on the [“Get
 Started”](https://riatelab.github.io/mapsf/articles/mapsf) section of
@@ -62,7 +62,7 @@ sheet](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/map
 [![Cheat
 Sheet](man/figures/mapsf_cheatsheet.png)](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf)
 
-## mapsf.gui <img src="man/figures/mapsf_gui_logo.png" align="right" width="60"/>
+## mapsf.gui <img src="man/figures/mapsf_gui_logo.png" alt="mapsf.gui logo" align="right" width="60"/>
 
 The [`mapsf.gui` package](https://codeberg.org/riatelab/mapsf.gui)
 provides a Shiny interface for creating thematic maps using `mapsf`.

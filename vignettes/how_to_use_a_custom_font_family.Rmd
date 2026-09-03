@@ -15,7 +15,7 @@ For example, use `par(family = "Fira Code")` to use the **Fira Code** font.
 Note that the font has to be installed on your system and recognized by R. 
 
 
-```{r a, fig.width = 6, fig.height = 7, cache=FALSE, dpi=110, eval = TRUE, fig.path="fig/wo_font_"}
+```{r a, fig.width = 6, fig.height = 7, cache=FALSE, dpi=110, eval = TRUE, fig.path="fig/wo_font_", fig.alt="A map with a customp font family (Fira Code)"}
 library(mapsf)
 # Import the sample data set
 mtq <- mf_get_mtq()

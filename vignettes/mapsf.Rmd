@@ -52,15 +52,15 @@ Along with the cartographic functions, some other functions are dedicated to lay
 
 The following map types are available:
 
-* ![](fig/mf_base.svg) **base**: displays sf objects geometries  
-* ![](fig/mf_prop.svg) **prop**: displays symbols with areas proportional to a quantitative variable (stocks)  
-* ![](fig/mf_choro.svg) **choro**: areas are shaded according to the variation of a quantitative variable   
-* ![](fig/mf_typo.svg) **typo**: displays a typology map of a qualitative variable    
-* ![](fig/mf_symb.svg) **symb**: displays the different modalities of a qualitative variable as symbols  
-* ![](fig/mf_grad.svg) **grad**: displays graduated symbols   
-* ![](fig/mf_prop_choro.svg) **prop_choro**: displays symbols with sizes proportional to values of a first variable and colored to reflect the classification of a second quantitative variable  
-* ![](fig/mf_prop_typo.svg) **prop_typo**: displays symbols with sizes proportional to values of a first variable and and colored to reflect the modalities of a second qualitative variable   
-* ![](fig/mf_symb_choro.svg) **symb_choro**: displays the different modalities of a first qualitative variable as symbols colored to reflect the classification of a second quantitative variable  
+* ![base type logo](fig/mf_base.svg)\ **base**: displays sf objects geometries  
+* ![prop type logo](fig/mf_prop.svg)\ **prop**: displays symbols with areas proportional to a quantitative variable (stocks)  
+* ![choro type logo](fig/mf_choro.svg)\ **choro**: areas are shaded according to the variation of a quantitative variable   
+* ![typo type logo](fig/mf_typo.svg)\ **typo**: displays a typology map of a qualitative variable    
+* ![symb type logo](fig/mf_symb.svg)\ **symb**: displays the different modalities of a qualitative variable as symbols  
+* ![grad type logo](fig/mf_grad.svg)\ **grad**: displays graduated symbols   
+* ![prop_choro type logo](fig/mf_prop_choro.svg)\ **prop_choro**: displays symbols with sizes proportional to values of a first variable and colored to reflect the classification of a second quantitative variable  
+* ![prop_typo type logo](fig/mf_prop_typo.svg)\ **prop_typo**: displays symbols with sizes proportional to values of a first variable and and colored to reflect the modalities of a second qualitative variable   
+* ![symb_choro type logo](fig/mf_symb_choro.svg)\ **symb_choro**: displays the different modalities of a first qualitative variable as symbols colored to reflect the classification of a second quantitative variable  
 
 
 Additionaly, `mf_raster()` can be used to displays raster objects (single/multi band, continuous, classes, intervals). 
@@ -74,7 +74,7 @@ Additionaly, `mf_raster()` can be used to displays raster objects (single/multi 
 These functions are dedicated to the map layout design.
 
 
-![](fig/maplayout.png)
+![Map with a full layout created with the mapsf package](fig/maplayout.png)\
 
 |         |     |
 |--------|----------------------|
@@ -113,7 +113,7 @@ The exported map width/height ratio will match the one of a spatial object.
 
 Map layout elements are set with `mf_title()`, `mf_credits()`, `mf_arrow()` and `mf_scale()`).
 
-```{r mf_basemap, message=FALSE, warning=FALSE}
+```{r mf_basemap, message=FALSE, warning=FALSE, fig.alt="A map of Martinique municipalities that uses the 'base' map type"}
 library(mapsf)
 # import the sample data set
 mtq <- mf_get_mtq()
@@ -131,7 +131,7 @@ mf_scale()
 
 `mf_map(x, var, type = "prop")` displays symbols with areas proportional to a quantitative variable (stocks). The `inches` argument is used to customize the symbols sizes.
 
-```{r mf_prop, message=FALSE, warning=FALSE}
+```{r mf_prop, message=FALSE, warning=FALSE, fig.alt="A map of Martinique municipalities that uses the 'prop' map type"}
 # plot municipalities
 mf_map(mtq)
 # plot population
@@ -157,7 +157,7 @@ mf_scale()
 In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.\
 `mf_map(x, var, type = "choro")` displays choropleth maps . Arguments `nbreaks`, and `breaks` allow to customize the variable classification. `mf_get_breaks()` allows to classify data outside of the function itself. Colors palettes, defined with `pal`, can be created with `mf_get_pal()` or you can use palette names from `hcl.pals()`.
 
-```{r mf_map_c}
+```{r mf_map_c, fig.alt="A map of Martinique municipalities that uses the 'choro' map type"}
 # population density (inhab./km2) using sf::st_area()
 mtq$POPDENS <- 1e6 * mtq$POP / sf::st_area(mtq)
 # plot population density
@@ -187,7 +187,7 @@ mf_scale()
 
 `mf_label()` displays labels on the map.
 
-```{r mf_map_t}
+```{r mf_map_t, fig.alt="A map of Martinique municipalities that uses the 'typo' map type"}
 # plot administrative status
 mf_map(
   x = mtq,
@@ -222,7 +222,7 @@ mf_scale()
 
 `expandBB` argument in `mf_map()` allows to expand the map space. Here, we increase the space available on the right of the map to avoid overlaps between the legends and the map.
 
-```{r mf_map_pc, fig.width=5}
+```{r mf_map_pc, fig.width=5, fig.alt="A map of Martinique municipalities that uses the 'prop_choro' map type"}
 # Plot the municipalities and expand the map space on the right
 mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
 # Plot symbols with choropleth coloration
@@ -251,7 +251,7 @@ mf_scale()
 
 `mf_map(x, var, type = "prop_typo")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.
 
-```{r mf_map_pt, fig.width=5}
+```{r mf_map_pt, fig.width=5, fig.alt="A map of Martinique municipalities that uses the 'prop_typo' map type"}
 # plot the municipalities and expand the map space on the right
 mf_map(x = mtq, expandBB = c(0, 0, 0, .15))
 # plot symbols with choropleth coloration
@@ -280,7 +280,7 @@ mf_scale()
 
 `mf_label()` is dedicated to the display of labels on a map. The `overlap = FALSE` argument displays non overlapping labels.
 
-```{r mf_label}
+```{r mf_label, fig.alt="A map of Martinique municipalities that uses the mf_label() function"}
 # plot municipalities
 mf_map(mtq, col = "#e4e9de", border = "darkseagreen4")
 # plot labels
@@ -309,7 +309,7 @@ mf_scale()
 `mf_map(x, var, type = "grad")` displays graduated links.
 
 
-```{r mf_grad}
+```{r mf_grad, fig.alt="A map of Martinique municipalities that uses the 'grad' map type for flows"}
 # import the csv file embedded in mapsf
 mob <- read.csv(system.file("csv/mob.csv", package = "mapsf"))
 # Select links from Fort-de-France (97209))

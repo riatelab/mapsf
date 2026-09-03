@@ -65,21 +65,21 @@ for (i in 1:length(themes)) {
   dev.off()
 }
 ```
-![](fig/wo_theme_base1.png) ![](fig/wo_theme_base2.png)
-![](fig/wo_theme_sol_dark1.png) ![](fig/wo_theme_sol_dark2.png)
-![](fig/wo_theme_sol_light1.png) ![](fig/wo_theme_sol_light2.png)
-![](fig/wo_theme_grey1.png) ![](fig/wo_theme_grey2.png)
-![](fig/wo_theme_mint1.png) ![](fig/wo_theme_mint2.png)
-![](fig/wo_theme_pistachio1.png) ![](fig/wo_theme_pistachio2.png)
-![](fig/wo_theme_dracula1.png) ![](fig/wo_theme_dracula2.png)
-![](fig/wo_theme_rzine1.png) ![](fig/wo_theme_rzine2.png)
+![proportional symbols map with base theme](fig/wo_theme_base1.png)\ ![choropleth map with base theme](fig/wo_theme_base2.png)\
+![proportional symbols map with sol_dark theme](fig/wo_theme_sol_dark1.png)\ ![choropleth map with sol_dark theme](fig/wo_theme_sol_dark2.png)\
+![proportional symbols map with sol_light theme](fig/wo_theme_sol_light1.png)\ ![choropleth map with sol_light theme](fig/wo_theme_sol_light2.png)\
+![proportional symbols map with grey theme](fig/wo_theme_grey1.png)\ ![choropleth map with grey theme](fig/wo_theme_grey2.png)\
+![proportional symbols map with mint theme](fig/wo_theme_mint1.png)\ ![choropleth map with mint theme](fig/wo_theme_mint2.png)\
+![proportional symbols map with pistachio theme](fig/wo_theme_pistachio1.png)\ ![choropleth map with pistachio theme](fig/wo_theme_pistachio2.png)\
+![proportional symbols map with dracula theme](fig/wo_theme_dracula1.png)\ ![choropleth map with dracula theme](fig/wo_theme_dracula2.png)\
+![proportional symbols map with rzine theme](fig/wo_theme_rzine1.png)\ ![choropleth map with rzine theme](fig/wo_theme_rzine2.png)\
 
 
 ## How to modify an existing theme
 
 It is possible to modify an existing theme. In this example we use the "base" theme and modify some title parameters. 
 
-```{r modified}
+```{r modified, fig.alt="Map with a midified theme"}
 library(mapsf)
 mtq <- mf_get_mtq()
 mf_theme("base", title_banner = TRUE, title_font = 4)
@@ -91,7 +91,7 @@ mf_title('Mofified "default" theme')
 
 It is possible to create a new theme from scratch. 
 
-```{r from_scratch}
+```{r from_scratch, fig.alt="Map with a custom theme"}
 mf_theme(
   mar          = c(0.1, 0.1, 1.85, 0.1),
   title_tab    = FALSE,
@@ -117,12 +117,14 @@ mf_title("New theme")
 It is also possible to assign a theme to a variable. 
 
 
-```{r blue_green}
+```{r blue, fig.alt = "map with a blue theme"}
 blue_theme <- mf_theme("base", background = "lightblue")
 green_theme <- mf_theme("base", background = "lightgreen")
 mf_theme(blue_theme)
 mf_map(mtq)
 mf_title("Blue Theme")
+```
+```{r green, fig.alt = "map with a green theme"}
 mf_theme(green_theme)
 mf_map(mtq)
 mf_title("Green Theme")
@@ -133,7 +135,7 @@ mf_title("Green Theme")
 
 Although the map theming system has been radically changed in version 1.0.0 of the package, you can still use the old themes by referencing them by name.
 
-```{r legacy}
+```{r legacy, fig.alt = "map with a legacy theme"}
 mf_theme("default")
 mf_map(mtq)
 mf_title("Legacy default theme")
