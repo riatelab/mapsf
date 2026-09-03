@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,8 +128,8 @@ should be reversed (TRUE) or not (FALSE)</p></dd>
 
 
 <dt id="arg-expandbb">expandBB<a class="anchor" aria-label="anchor" href="#arg-expandbb"></a></dt>
-<dd><p>expension of the map area in each direction (bottom, left,
-top, right). The expension is expressed as a share of <code>x</code> width
+<dd><p>expansion of the map area in each direction (bottom, left,
+top, right). The expansion is expressed as a share of <code>x</code> width
 (for left and right values) or a share of <code>x</code> height (for bottom and top
 values).</p></dd>
 
@@ -257,16 +257,16 @@ not (FALSE)</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co">## classes</span></span></span>
 <span class="r-in"><span>  <span class="va">elev2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/classify.html" class="external-link">classify</a></span><span class="op">(</span><span class="va">elev</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="fl">400</span>, <span class="fl">450</span>, <span class="fl">549</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">lev_evel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span>, elevation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Low"</span>, <span class="st">"High"</span>, <span class="st">"Super High"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">lev_evel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span>, elevation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Low"</span>, <span class="st">"High"</span>, <span class="st">"Very High"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/factors.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">elev2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">lev_evel</span></span></span>
 <span class="r-in"><span>  <span class="fu">mf_raster</span><span class="op">(</span><span class="va">elev2</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">mf_raster</span><span class="op">(</span><span class="va">elev2</span>,</span></span>
 <span class="r-in"><span>    pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"salmon4"</span>, <span class="st">"olivedrab"</span>, <span class="st">"yellow3"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Super High"</span>, <span class="st">"High"</span>, <span class="st">"Low"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Very High"</span>, <span class="st">"High"</span>, <span class="st">"Low"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: terra</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.9.27</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.9.46</span>
 <span class="r-plt img"><img src="mf_raster-1.png" alt="" width="576" height="576"></span>
 <span class="r-plt img"><img src="mf_raster-2.png" alt="" width="576" height="576"></span>
 <span class="r-plt img"><img src="mf_raster-3.png" alt="" width="576" height="576"></span>

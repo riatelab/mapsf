@@ -19,29 +19,6 @@ These functions display cartographic layers.
 - [`mf_raster()`](https://riatelab.github.io/mapsf/reference/mf_raster.md)
   : Plot a raster
 
-## mf_map
-
-Each map type is described in the following help pages
-
-- [`mf_map_base`](https://riatelab.github.io/mapsf/reference/mf_map_base.md)
-  : Plot a base map
-- [`mf_map_prop`](https://riatelab.github.io/mapsf/reference/mf_map_prop.md)
-  : Plot proportional symbols
-- [`mf_map_choro`](https://riatelab.github.io/mapsf/reference/mf_map_choro.md)
-  : Plot a choropleth map
-- [`mf_map_typo`](https://riatelab.github.io/mapsf/reference/mf_map_typo.md)
-  : Plot a typology map
-- [`mf_map_symb`](https://riatelab.github.io/mapsf/reference/mf_map_symb.md)
-  : Plot symbols
-- [`mf_map_grad`](https://riatelab.github.io/mapsf/reference/mf_map_grad.md)
-  : Plot graduated symbols
-- [`mf_map_prop_choro`](https://riatelab.github.io/mapsf/reference/mf_map_prop_choro.md)
-  : Plot proportional symbols with choropleth coloration
-- [`mf_map_prop_typo`](https://riatelab.github.io/mapsf/reference/mf_map_prop_typo.md)
-  : Plot proportional symbols with typology coloration
-- [`mf_map_symb_choro`](https://riatelab.github.io/mapsf/reference/mf_map_symb_choro.md)
-  : Plot symbols with choropleth coloration
-
 ## Map Layout
 
 These functions are dedicated to the map layout design.

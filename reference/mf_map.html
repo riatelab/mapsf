@@ -6,24 +6,14 @@ x, an sf object,
 var, the name(s) of a variable(s) to map,
 type, the map type.
 
-
-Relevant arguments and default values are different for each map type and are
-described in dedicated help pages (see base,
-choro, typo, prop,
-prop_choro, prop_typo,
-symb, grad or symb_choro)."><meta property="og:description" content="mf_map() is the main function of the package, it displays map layers on a
+"><meta property="og:description" content="mf_map() is the main function of the package, it displays map layers on a
 georeferenced plot.
 mf_map() has three main arguments:
 x, an sf object,
 var, the name(s) of a variable(s) to map,
 type, the map type.
 
-
-Relevant arguments and default values are different for each map type and are
-described in dedicated help pages (see base,
-choro, typo, prop,
-prop_choro, prop_typo,
-symb, grad or symb_choro)."><meta property="og:image" content="https://riatelab.github.io/mapsf/reference/figures/logo.png"><meta property="og:image:alt" content="mapsf: thematic cartography"></head><body>
+"><meta property="og:image" content="https://riatelab.github.io/mapsf/reference/figures/logo.png"><meta property="og:image:alt" content="mapsf: thematic cartography"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -31,7 +21,7 @@ symb, grad or symb_choro)."><meta property="og:image" content="https://riatelab.
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,12 +62,7 @@ georeferenced plot.</p>
 <p><code>mf_map()</code> has three main arguments:</p><ul><li><p><code>x</code>, an sf object,</p></li>
 <li><p><code>var</code>, the name(s) of a variable(s) to map,</p></li>
 <li><p><code>type</code>, the map type.</p></li>
-</ul><p>Relevant arguments and default values are different for each map type and are
-described in dedicated help pages (see <a href="mf_map_base.html">base</a>,
-<a href="mf_map_choro.html">choro</a>, <a href="mf_map_typo.html">typo</a>, <a href="mf_map_prop.html">prop</a>,
-<a href="mf_map_prop_choro.html">prop_choro</a>, <a href="mf_map_prop_typo.html">prop_typo</a>,
-<a href="mf_map_symb.html">symb</a>, <a href="mf_map_grad.html">grad</a> or <a href="mf_map_symb_choro.html">symb_choro</a>).</p>
-    </div>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
@@ -100,38 +85,36 @@ described in dedicated help pages (see <a href="mf_map_base.html">base</a>,
 
 
 <dt id="arg-var">var<a class="anchor" aria-label="anchor" href="#arg-var"></a></dt>
-<dd><p>name(s) of the variable(s) to map</p></dd>
+<dd><p>name(s) of the variable(s) to map (see Details)</p></dd>
 
 
 <dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
-<dd><ul><li><p><strong><a href="mf_map_base.html">base</a></strong>: base maps</p></li>
-<li><p><strong><a href="mf_map_choro.html">choro</a></strong>: choropleth maps</p></li>
-<li><p><strong><a href="mf_map_typo.html">typo</a></strong>: typology maps</p></li>
-<li><p><strong><a href="mf_map_prop.html">prop</a></strong>: proportional symbols maps</p></li>
-<li><p><strong><a href="mf_map_prop_choro.html">prop_choro</a></strong>: proportional symbols with choropleth
+<dd><p>map type</p><ul><li><p><em>base</em>: base maps</p></li>
+<li><p><em>choro</em>: choropleth maps</p></li>
+<li><p><em>typo</em>: typology maps</p></li>
+<li><p><em>prop</em>: proportional symbols maps</p></li>
+<li><p><em>prop_choro</em>: proportional symbols with choropleth
 coloration</p></li>
-<li><p><strong><a href="mf_map_prop_typo.html">prop_typo</a></strong>: proportional symbols with typology
+<li><p><em>prop_typo</em>: proportional symbols with typology
 coloration</p></li>
-<li><p><strong><a href="mf_map_symb.html">symb</a></strong>: symbols maps</p></li>
-<li><p><strong><a href="mf_map_grad.html">grad</a></strong>: graduated symbols maps</p></li>
-<li><p><strong><a href="mf_map_symb_choro.html">symb_choro</a></strong>: symbols with choropleth coloration</p></li>
+<li><p><em>symb</em>: symbols maps</p></li>
+<li><p><em>grad</em>: graduated symbols maps</p></li>
+<li><p><em>symb_choro</em>: symbols with choropleth coloration</p></li>
 </ul></dd>
 
 
 <dt id="arg-breaks">breaks<a class="anchor" aria-label="anchor" href="#arg-breaks"></a></dt>
-<dd><p>either a numeric vector with the actual breaks, or a
-classification method name. The main methods are 'quantile',
-'equal', 'msd', 'ckmeans' (natural breaks), 'Q6' and 'geom'.
-See <a href="mf_get_breaks.html">mf_get_breaks</a> for details.</p></dd>
+<dd><p>break values or classification method name such as
+'quantile', 'equal', 'msd', 'ckmeans' (natural breaks), 'Q6' or
+'geom' (see Details)</p></dd>
 
 
 <dt id="arg-nbreaks">nbreaks<a class="anchor" aria-label="anchor" href="#arg-nbreaks"></a></dt>
-<dd><p>number of classes</p></dd>
+<dd><p>number of classes.</p></dd>
 
 
 <dt id="arg-pal">pal<a class="anchor" aria-label="anchor" href="#arg-pal"></a></dt>
-<dd><p>a set of colors (hex codes) or a palette name. Palette names can
-be obtained with <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals</a>.</p></dd>
+<dd><p>a set of colors or a palette name (see Details)</p></dd>
 
 
 <dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
@@ -158,7 +141,8 @@ half width for squares)</p></dd>
 
 
 <dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
-<dd><p>a color, hex code or color name given by <a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a></p></dd>
+<dd><p>fill color of polygons, lines, points, proportional and graduated
+symbols. It can be a hex code or a color name given by <a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a>.</p></dd>
 
 
 <dt id="arg-lwd-max">lwd_max<a class="anchor" aria-label="anchor" href="#arg-lwd-max"></a></dt>
@@ -167,42 +151,44 @@ half width for squares)</p></dd>
 
 <dt id="arg-val-order">val_order<a class="anchor" aria-label="anchor" href="#arg-val-order"></a></dt>
 <dd><p>modalities order in the legend, a character vector that
-matches <code>var</code> modalities</p></dd>
+matches <code>var</code> modalities. Default to alphabetic order of modalities.</p></dd>
 
 
 <dt id="arg-pch">pch<a class="anchor" aria-label="anchor" href="#arg-pch"></a></dt>
-<dd><p>type of symbol to use for points, see <a href="https://rdrr.io/r/graphics/points.html" class="external-link">pch</a></p></dd>
+<dd><p>type of point symbol (see Details)</p></dd>
 
 
 <dt id="arg-cex">cex<a class="anchor" aria-label="anchor" href="#arg-cex"></a></dt>
-<dd><p>symbols size, 2 means 2 times bigger</p></dd>
+<dd><p>point symbol size, numerical value giving the amount by which
+symbols should be magnified relative to the default (see Details)</p></dd>
 
 
 <dt id="arg-border">border<a class="anchor" aria-label="anchor" href="#arg-border"></a></dt>
-<dd><p>border color for polygons or symbols. It can be a hex
-code or a color name given by <a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a>.</p></dd>
+<dd><p>border color of polygons, points and symbols,
+a hex code or a color name given by <a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a>.</p></dd>
 
 
 <dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
-<dd><p>border width of polygons, symbols or lines</p></dd>
+<dd><p>line width of borders of polygons, points and symbols
+or lines (see Details)</p></dd>
 
 
 <dt id="arg-col-na">col_na<a class="anchor" aria-label="anchor" href="#arg-col-na"></a></dt>
-<dd><p>color for missing values, a hex code or
-a color name given by <a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a>.</p></dd>
+<dd><p>color for missing values, a hex code or a color name given by
+<a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a>.</p></dd>
 
 
 <dt id="arg-cex-na">cex_na<a class="anchor" aria-label="anchor" href="#arg-cex-na"></a></dt>
-<dd><p>symbols size for missing values on points</p></dd>
+<dd><p>point symbol size for missing values on points</p></dd>
 
 
 <dt id="arg-pch-na">pch_na<a class="anchor" aria-label="anchor" href="#arg-pch-na"></a></dt>
-<dd><p>symbol to use for missing values on points, see <a href="https://rdrr.io/r/graphics/points.html" class="external-link">pch</a></p></dd>
+<dd><p>type of point symbol for missing values on points</p></dd>
 
 
 <dt id="arg-expandbb">expandBB<a class="anchor" aria-label="anchor" href="#arg-expandbb"></a></dt>
-<dd><p>expension of the map area in each direction (bottom, left,
-top, right). The expension is expressed as a share of <code>x</code> width
+<dd><p>expansion of the map area in each direction (bottom, left,
+top, right). The expansion is expressed as a share of <code>x</code> width
 (for left and right values) or a share of <code>x</code> height (for bottom and top
 values).</p></dd>
 
@@ -229,7 +215,7 @@ use 'interactive' to choose the legend position by clicking on the map.</p></dd>
 
 
 <dt id="arg-leg-title">leg_title<a class="anchor" aria-label="anchor" href="#arg-leg-title"></a></dt>
-<dd><p>legend title</p></dd>
+<dd><p>legend title (see Details)</p></dd>
 
 
 <dt id="arg-leg-title-cex">leg_title_cex<a class="anchor" aria-label="anchor" href="#arg-leg-title-cex"></a></dt>
@@ -242,7 +228,7 @@ use 'interactive' to choose the legend position by clicking on the map.</p></dd>
 
 <dt id="arg-leg-val-rnd">leg_val_rnd<a class="anchor" aria-label="anchor" href="#arg-leg-val-rnd"></a></dt>
 <dd><p>number of decimal places of the values displayed in the
-legend</p></dd>
+legend (see Details)</p></dd>
 
 
 <dt id="arg-leg-val-dec">leg_val_dec<a class="anchor" aria-label="anchor" href="#arg-leg-val-dec"></a></dt>
@@ -254,7 +240,7 @@ legend</p></dd>
 
 
 <dt id="arg-leg-no-data">leg_no_data<a class="anchor" aria-label="anchor" href="#arg-leg-no-data"></a></dt>
-<dd><p>label for missing values</p></dd>
+<dd><p>label for missing values (see Details)</p></dd>
 
 
 <dt id="arg-leg-frame">leg_frame<a class="anchor" aria-label="anchor" href="#arg-leg-frame"></a></dt>
@@ -266,8 +252,8 @@ legend</p></dd>
 
 
 <dt id="arg-leg-horiz">leg_horiz<a class="anchor" aria-label="anchor" href="#arg-leg-horiz"></a></dt>
-<dd><p>display the legend horizontally (for proportional symbols
-and choropleth types)</p></dd>
+<dd><p>display the legend horizontally. It only applies to <em>prop</em>
+and <em>choro</em> map types (see Details)</p></dd>
 
 
 <dt id="arg-leg-adj">leg_adj<a class="anchor" aria-label="anchor" href="#arg-leg-adj"></a></dt>
@@ -293,7 +279,8 @@ choropleth and typology)</p></dd>
 
 
 <dt id="arg-leg-box-cex">leg_box_cex<a class="anchor" aria-label="anchor" href="#arg-leg-box-cex"></a></dt>
-<dd><p>width and height size expansion of boxes</p></dd>
+<dd><p>width and height size expansion of boxes (for types
+related to choropleth and typology)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -304,10 +291,323 @@ choropleth and typology)</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>x is (invisibly) returned.</p>
     </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+
+<dl><dt>x</dt>
+<dd><p>an <code>sf</code> object, for <em>base</em>  map type <code>sfc</code> and <code>sfg</code> objects are
+also accepted.</p></dd>
+
+<dt>var</dt>
+<dd><p>A vector of two names is required for the following map types.<br>
+For <em>prop_choro</em> map type, the first name refers to the
+proportional symbols, the second one to the choropleth coloration.<br>
+For <em>prop_typo</em> map type, the first name refers to the
+proportional symbols, the second one to the typology coloration.<br>
+For <em>symb_choro</em> map type the first name refers to the
+symbols categories, the second one to the choropleth coloration.</p></dd>
+
+<dt>breaks</dt>
+<dd><p>It can be either a numeric vector with the actual breaks, or a
+classification method name.
+See <a href="mf_get_breaks.html">mf_get_breaks</a> for details on available methods.</p></dd>
+
+<dt>pal</dt>
+<dd><p><code>pal</code> can be a palette name (such as "Reds 2" or "Inferno").
+These names can be obtained with <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals</a> and an overview of all available
+palettes is given in <a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals</a> examples.<br><code>pal</code> can be a vector of colors defined by their hex codes or color names
+given by <a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a>: c("#7F000D", "#A9565A", "#CA9496", "#E2CBCB", "#F1F1F1")
+or c("red", "yellow", "green", "black")</p></dd>
+
+<dt>pch</dt>
+<dd><p>For <em>base</em>, <em>choro</em>, <em>typo</em> and <em>grad</em> map types,
+a single value is needed.<br>
+For <em>symb</em> and <em>symb_choro</em> map types, a vector of point symbols with a
+length that matches the number of modalities is needed.<br>
+See <a href="https://rdrr.io/r/graphics/points.html" class="external-link">pch</a> for the available symbols.</p></dd>
+
+<dt>cex</dt>
+<dd><p>For <em>base</em>, <em>choro</em>, <em>typo</em>, <em>prop</em> and <em>prop_typo</em> map types, it should be
+a single value.<br>
+For <em>symb</em> and <em>symb_choro</em> map types, it shoud be a single value or a
+vector of sizes (the vector length must match the number of modalities).<br>
+For the <em>grad</em> map type applied to points or polygons, it must be a vector
+of sizes (the vector length must match the number of classes).</p></dd>
+
+<dt>lwd</dt>
+<dd><p>It must be a single value for all map types. The only exception is the
+<em>grad</em> map type applied to lines, for which it should be a vector of line
+widths. The vector length must match the number of classes.</p></dd>
+
+<dt>leg_title</dt>
+<dd><p>This argument need two values when using <em>prop_choro</em>, the first
+values refers to the proportional symbols legend, the second one to the
+choropleth legend.<br>
+This argument need two values when using <em>prop_typo</em>, the first
+values refers to the proportional symbols legend, the second one to the
+typology legend.<br>
+This argument need two values when using <em>symb_choro</em>, the first value
+refers to the symbols legend, the second one to the choropleth legend.</p></dd>
+
+<dt>leg_val_rnd</dt>
+<dd><p>The values are only rounded for the legend and raw values are
+used on the map.<br>
+This argument need two values when using <em>prop_choro</em>, the first value
+refers to the symbols legend, the second one to the choropleth legend.</p></dd>
+
+<dt>leg_no_data</dt>
+<dd><p>This argument need two values when using <em>symb_choro</em>, the first value
+refers to the symbols legend, the second one to the choropleth legend.</p></dd>
+
+<dt>leg_horiz</dt>
+<dd><p>This argument need two values when using <em>prop_choro</em>, the first value
+refers to the symbols legend, the second one to the choropleth legend.</p></dd>
+
+
+</dl><div class="section">
+<h3 id="default-colors-and-palettes">Default colors and palettes<a class="anchor" aria-label="anchor" href="#default-colors-and-palettes"></a></h3>
+
+
+<p>Default colors and palettes are defined by the cartographic
+theme. <a href="mf_theme.html">mf_theme</a> documentation explains how to inspect and modify these
+default colors and palettes.<br>
+Current theme parameters are set in <code>mapsf</code> options and are extracted with
+getOption() in the following section.</p>
+</div>
+
+<div class="section">
+<h3 id="relevant-arguments-and-default-values-for-each-map-type-">Relevant arguments and default values for each map type:<a class="anchor" aria-label="anchor" href="#relevant-arguments-and-default-values-for-each-map-type-"></a></h3>
+
+
+<p>Relevant arguments and default values are different for each map type, and
+they also may differ given the type of object that is displayed (polygons,
+lines or points).</p><div class="section">
+<h4 id="base-maps-default-">Base maps (default)<a class="anchor" aria-label="anchor" href="#base-maps-default-"></a></h4>
+
+
+<p><code>mf_map()</code> can be used to display geographic layers (<code>sf</code> objects), using
+the default map type <strong>base</strong>.</p>
+<p>For polygons:</p>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">x</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"mapsf.foreground"</span><span class="op">)</span>,</span>
+<span>       border <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"mapsf.highlight"</span><span class="op">)</span>,</span>
+<span>       lwd <span class="op">=</span> <span class="fl">.7</span>, lty <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>       <span class="va">alpha</span>, <span class="va">expandBB</span>, <span class="va">extent</span>, <span class="va">bg</span>, add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre><p></p></div>
+<p>For points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, col = getOption("mapsf.highlight),
+       border = getOption("mapsf.foreground"),
+       pch = 20, cex = 1, lwd = .7,
+       alpha, expandBB, extent, bg, add = FALSE)
+</code></pre><p></p></div>
+<p>For lines:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, col = getOption("mapsf.highlight),
+       lwd = .7, lty = 1,
+       alpha, expandBB, extent, bg, add = FALSE)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="choropleth-maps">Choropleth maps<a class="anchor" aria-label="anchor" href="#choropleth-maps"></a></h4>
+
+
+<p>With the <strong>choro</strong> map type, <code>mf_map()</code> displays a choropleth map.<br>
+In choropleth maps, areas are shaded according to the variation of a
+quantitative variable.<br>
+They are used to represent ratios or indices.</p>
+<p>For polygons:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "choro",
+       breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
+       rev = FALSE, border = getOption("mapsf.highlight"),
+       lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+<p>For points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "choro",
+       breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
+       rev = FALSE, border = getOption("mapsf.background"),
+       pch = 21, cex = 2, lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+<p>For lines:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "choro",
+       breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
+       rev = FALSE, lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="typology-maps">Typology maps<a class="anchor" aria-label="anchor" href="#typology-maps"></a></h4>
+
+
+<p>With the <strong>typo</strong> map type, <code>mf_map()</code> displays a typology map.<br>
+In typology maps, areas are shaded according to the modalities of a
+qualitative variable.</p>
+<p>For polygons:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "typo",
+       pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
+       border = getOption("mapsf.highlight"), lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+<p>For points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "typo",
+       pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
+       border = getOption("mapsf.background"),
+       pch = 21, cex = 2, lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+<p>For lines:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "typo",
+       pal = getOption("mapsf.pal_quali"), rev = FALSE,
+       val_order, lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="proportional-symbols-maps">Proportional symbols maps<a class="anchor" aria-label="anchor" href="#proportional-symbols-maps"></a></h4>
+
+
+<p>With the <strong>prop</strong> map type, <code>mf_map()</code> displays symbols (squares or circles)
+with areas proportional to a quantitative variable (stocks).<br>
+For polygons, centroids are used to plot proportional symbols.</p>
+<p>For polygons and points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "prop",
+       inches = .3, val_max, symbol = "circle",
+       col = getOption("mapsf.highlight),
+       border = getOption("mapsf.background), lwd = .7,
+       expandBB, extent, bg, alpha, add = FALSE, leg_*)
+
+</code></pre><p></p></div>
+<p>For lines:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "prop",
+       val_max, lwd_max = 20, col = getOption("mapsf.highlight),
+       expandBB, extent, bg, alpha, add = FALSE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="proportional-symbols-with-choropleth-coloration-maps">Proportional symbols with choropleth coloration maps<a class="anchor" aria-label="anchor" href="#proportional-symbols-with-choropleth-coloration-maps"></a></h4>
+
+
+<p><code>mf_map()</code> with <strong>prop_choro</strong> type creates symbols that are proportional
+to values of a first variable and colored to reflect the classification of a
+second variable.<br>
+This map types uses two variables and some arguments need to be set for both
+variables (see <code>leg_title</code>, <code>leg_val_rnd</code> and <code>leg_horiz</code> Details).<br>
+For polygons, centroids are used to plot proportional symbols. This map type
+is not available for lines.</p>
+<p>For polygons and points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "prop_choro",
+       inches = .3, val_max,  symbol = "circle",
+       pal = getOption("mapsf.pal_seq"), rev = FALSE,
+       breaks = "quantile", nbreaks, border = getOption("mapsf.background"),
+       lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="proportional-symbols-with-typology-coloration-maps">Proportional symbols with typology coloration maps<a class="anchor" aria-label="anchor" href="#proportional-symbols-with-typology-coloration-maps"></a></h4>
+
+
+<p><code>mf_map()</code> with <strong>prop_typo</strong> type creates symbols that are proportional
+to values of a first variable and colored to reflect the modalities of a
+second qualitative variable.<br>
+This map types uses two variables and some <code>leg_title</code> need to be set for
+both variables (see <code>leg_title</code> Details).<br>
+For polygons, centroids are used to plot proportional symbols.</p>
+<p>For polygons and points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "prop_typo",
+       inches = .3, val_max, symbol = "circle",
+       border = getOption("mapsf.background"),
+       pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
+       lwd = .7, col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+<p>For lines:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "typo",
+       lwd_max = 15,
+       pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
+       col_na = "white",
+       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="symbols-maps">Symbols maps<a class="anchor" aria-label="anchor" href="#symbols-maps"></a></h4>
+
+
+<p><code>mf_map()</code> can use symbols to display qualitative data, using <strong>symb</strong>
+map type.<br>
+For polygons, centroids are used to plot symbols. This map type
+is not available for lines.</p>
+<p>For polygons and points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "symb",
+       pch, cex = 2, lwd = .7, pal = getOption("mapsf.pal_quali"),
+       rev = FALSE, border = getOption("mapsf.background"),
+       val_order,
+       col_na = "grey", pch_na = 4, cex_na = 1,
+       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="graduated-symbols-maps">Graduated symbols maps<a class="anchor" aria-label="anchor" href="#graduated-symbols-maps"></a></h4>
+
+
+<p>With the <strong>grad</strong> map type, <code>mf_map()</code> displays graduated symbols
+on a map.<br>
+Graduated symbols are based on classified quantitative variables.<br>
+For polygons, centroids are used to plot graduated symbols.</p>
+<p>For polygons and points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "grad",
+       breaks = "quantile", nbreaks = 3,
+       col = getOption("mapsf.highlight"),
+       border = getOption("mapsf.background"),
+       lwd = .7, pch = 21, cex = seq(1, 4, length.out = nbreaks),
+       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+</code></pre><p></p></div>
+<p>For lines:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "grad",
+       breaks = "quantile", nbreaks = 3,
+       col = getOption("mapsf.highlight"),
+       lwd = seq(1, 4, length.out = nbreaks),
+       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="symbols-with-choropleth-coloration-maps">Symbols with choropleth coloration maps<a class="anchor" aria-label="anchor" href="#symbols-with-choropleth-coloration-maps"></a></h4>
+
+
+<p><code>mf_map()</code> with <strong>symb_choro</strong> type creates symbols that reflect modalities
+of a first qualitative variable and colored to reflect the classification of
+a second variable.<br>
+This map types uses two variables and some arguments need to be set for both
+variables (see <code>leg_title</code> and <code>leg_no_data</code> Details).<br>
+For polygons, centroids are used to plot symbols. This map type
+is not available for lines.</p>
+<p>For polygons and points:</p>
+<p></p><div class="sourceCode r"><pre><code>mf_map(x, var, type = "symb_choro",
+       pch, cex = 2, lwd = .7,
+       border = getOption("mapsf.background"), val_order,
+       pal = getOption("mapsf.pal_seq"), rev = FALSE,
+       breaks = "quantile", nbreaks,
+       pch_na = 4, cex_na = 1, col_na = "white",
+       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+</code></pre><p></p></div>
+</div>
+
+
+</div>
+
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="st">"points"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">flows</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="st">"lines"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># basic examples</span></span></span>
 <span class="r-in"><span><span class="co"># type = "base"</span></span></span>
 <span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
@@ -341,6 +641,168 @@ choropleth and typology)</p></dd>
 <span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"STATUS"</span>, <span class="st">"MED"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"symb_choro"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mf_map-8.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Base map type</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, lty <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">pts</span>, col <span class="op">=</span> <span class="st">"red"</span>, border <span class="op">=</span> <span class="st">"white"</span>, pch <span class="op">=</span> <span class="fl">21</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">flows</span>, col <span class="op">=</span> <span class="st">"coral"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-9.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Choropleth map type</span></span></span>
+<span class="r-in"><span><span class="co"># polygons</span></span></span>
+<span class="r-in"><span><span class="va">mtq</span><span class="op">[</span><span class="fl">6</span>, <span class="st">"MED"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,</span></span>
+<span class="r-in"><span>  col_na <span class="op">=</span> <span class="st">"grey90"</span>, pal <span class="op">=</span> <span class="st">"Cividis"</span>,</span></span>
+<span class="r-in"><span>  breaks <span class="op">=</span> <span class="st">"equal"</span>, nbreaks <span class="op">=</span> <span class="fl">5</span>, border <span class="op">=</span> <span class="st">"white"</span>,</span></span>
+<span class="r-in"><span>  lwd <span class="op">=</span> <span class="fl">.5</span>, leg_pos <span class="op">=</span> <span class="st">"topleft"</span>,</span></span>
+<span class="r-in"><span>  leg_title <span class="op">=</span> <span class="st">"Median Income"</span>, leg_title_cex <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  leg_val_cex <span class="op">=</span> <span class="fl">.9</span>, leg_val_rnd <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>, leg_no_data <span class="op">=</span> <span class="st">"No data"</span>,</span></span>
+<span class="r-in"><span>  leg_box_cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">3</span><span class="op">)</span>, leg_box_border <span class="op">=</span> <span class="cn">NA</span>, leg_frame <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-10.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span><span class="co"># points</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">pts</span>, var <span class="op">=</span> <span class="st">"MED"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,</span></span>
+<span class="r-in"><span>  pch <span class="op">=</span> <span class="fl">21</span>, cex <span class="op">=</span> <span class="fl">3</span>, lwd <span class="op">=</span> <span class="fl">1.2</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="st">"Teal"</span>, border <span class="op">=</span> <span class="st">"white"</span>,</span></span>
+<span class="r-in"><span>  leg_horiz <span class="op">=</span> <span class="cn">FALSE</span>, leg_val_big <span class="op">=</span> <span class="st">" "</span>,</span></span>
+<span class="r-in"><span>  leg_val_rnd <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>, leg_pos <span class="op">=</span> <span class="st">"topright"</span>,</span></span>
+<span class="r-in"><span>  leg_frame <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-11.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span><span class="co"># lines</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, extent <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">flows</span>, var <span class="op">=</span> <span class="st">"fij"</span>, type <span class="op">=</span> <span class="st">"choro"</span>,</span></span>
+<span class="r-in"><span>  breaks <span class="op">=</span> <span class="st">"equal"</span>, nbreaks <span class="op">=</span> <span class="fl">3</span>, add <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  lwd <span class="op">=</span> <span class="fl">5</span>, pal <span class="op">=</span> <span class="st">"Burg"</span>, leg_horiz <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  leg_box_cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.7</span>, <span class="fl">1</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_val_rnd <span class="op">=</span> <span class="fl">0</span>, leg_pos <span class="op">=</span> <span class="st">"bottomleft"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-12.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Typology map type</span></span></span>
+<span class="r-in"><span><span class="co"># polygons</span></span></span>
+<span class="r-in"><span><span class="va">mtq</span><span class="op">[</span><span class="fl">6</span>, <span class="st">"STATUS"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, type <span class="op">=</span> <span class="st">"typo"</span>,</span></span>
+<span class="r-in"><span>  col_na <span class="op">=</span> <span class="st">"grey90"</span>, border <span class="op">=</span> <span class="st">"white"</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#FFE93F"</span>, <span class="st">"#00214E"</span>, <span class="st">"#7C7C7C"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, <span class="st">"Simple municipality"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  lwd <span class="op">=</span> <span class="fl">.5</span>, leg_pos <span class="op">=</span> <span class="st">"bottomleft"</span>,</span></span>
+<span class="r-in"><span>  leg_title <span class="op">=</span> <span class="st">""</span>, leg_title_cex <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  leg_val_cex <span class="op">=</span> <span class="fl">.9</span>, leg_no_data <span class="op">=</span> <span class="st">"No data"</span>,</span></span>
+<span class="r-in"><span>  leg_box_cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">3</span><span class="op">)</span>, leg_box_border <span class="op">=</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-13.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span><span class="co"># points</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">pts</span>, var <span class="op">=</span> <span class="st">"STATUS"</span>, type <span class="op">=</span> <span class="st">"typo"</span>,</span></span>
+<span class="r-in"><span>  cex <span class="op">=</span> <span class="fl">3</span>, pal <span class="op">=</span> <span class="st">"Dark 3"</span>, border <span class="op">=</span> <span class="st">"grey"</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"bottomleft"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-14.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span><span class="co"># lines</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, extent <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">flows</span>, var <span class="op">=</span> <span class="st">"sj"</span>, type <span class="op">=</span> <span class="st">"typo"</span>,</span></span>
+<span class="r-in"><span>  add <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  lwd <span class="op">=</span> <span class="fl">2</span>, pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"bottomleft"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-15.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Proportional symbols map type</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="st">"POP"</span>, type <span class="op">=</span> <span class="st">"prop"</span>,</span></span>
+<span class="r-in"><span>  inches <span class="op">=</span> <span class="fl">.4</span>, symbol <span class="op">=</span> <span class="st">"circle"</span>, val_max <span class="op">=</span> <span class="fl">90000</span>,</span></span>
+<span class="r-in"><span>  col <span class="op">=</span> <span class="st">"tomato1"</span>, border <span class="op">=</span> <span class="st">"blue"</span>, lwd <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"topright"</span>, leg_title <span class="op">=</span> <span class="st">"Population"</span>,</span></span>
+<span class="r-in"><span>  leg_title_cex <span class="op">=</span> <span class="fl">1</span>, leg_val_cex <span class="op">=</span> <span class="fl">.8</span>, leg_val_rnd <span class="op">=</span> <span class="fl">0</span>,</span></span>
+<span class="r-in"><span>  leg_frame <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-16.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Proportional symbols with choropleth coloration map type</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"MED"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"prop_choro"</span>,</span></span>
+<span class="r-in"><span>  inches <span class="op">=</span> <span class="fl">.2</span>,</span></span>
+<span class="r-in"><span>  val_max <span class="op">=</span> <span class="fl">90000</span>, symbol <span class="op">=</span> <span class="st">"circle"</span>,</span></span>
+<span class="r-in"><span>  col_na <span class="op">=</span> <span class="st">"grey90"</span>, pal <span class="op">=</span> <span class="st">"Cividis"</span>,</span></span>
+<span class="r-in"><span>  breaks <span class="op">=</span> <span class="st">"msd"</span>, nbreaks <span class="op">=</span> <span class="fl">4</span>, lwd <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"topright"</span>,</span></span>
+<span class="r-in"><span>  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"Median Income"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_val_rnd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_horiz <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_title_cex <span class="op">=</span> <span class="fl">.9</span>,</span></span>
+<span class="r-in"><span>  leg_val_dec <span class="op">=</span> <span class="st">","</span>,</span></span>
+<span class="r-in"><span>  leg_val_cex <span class="op">=</span> <span class="fl">.8</span>,</span></span>
+<span class="r-in"><span>  leg_size <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  add <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-17.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Proportional symbols with typology coloration map type</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, extent <span class="op">=</span> <span class="va">flows</span>, expandBB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.5</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">flows</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fij"</span>, <span class="st">"sj"</span><span class="op">)</span>, <span class="st">"prop_typo"</span>,</span></span>
+<span class="r-in"><span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sub-prefecture"</span>, <span class="st">"Simple municipality"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"steelblue"</span>, <span class="st">"lightblue"</span><span class="op">)</span>, lwd_max <span class="op">=</span> <span class="fl">30</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"topleft"</span>, leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"commuters"</span>, <span class="st">"destination"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">mtq</span>, var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"POP"</span>, <span class="st">"STATUS"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"prop_typo"</span>,</span></span>
+<span class="r-in"><span>  inches <span class="op">=</span> <span class="fl">.2</span>, border <span class="op">=</span> <span class="st">"tomato4"</span>, lwd <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkblue"</span>, <span class="st">"steelblue"</span>, <span class="st">"lightblue"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, <span class="st">"Simple municipality"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"bottomleft"</span>,</span></span>
+<span class="r-in"><span>  leg_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">""</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_no_data <span class="op">=</span> <span class="st">"No dada"</span>,</span></span>
+<span class="r-in"><span>  add <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-18.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Symbols map type</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, <span class="st">"STATUS"</span>, <span class="st">"symb"</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="st">"Berlin"</span>, border <span class="op">=</span> <span class="st">"white"</span>, lwd <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span><span class="op">:</span><span class="fl">23</span><span class="op">)</span>, col_na <span class="op">=</span> <span class="st">"red"</span>,</span></span>
+<span class="r-in"><span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, <span class="st">"Simple municipality"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_title <span class="op">=</span> <span class="st">""</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-19.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Graduated symbols map type</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, bg <span class="op">=</span> <span class="st">"cornsilk2"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">flows</span>, <span class="st">"fij"</span>, <span class="st">"grad"</span>,</span></span>
+<span class="r-in"><span>  breaks <span class="op">=</span> <span class="st">"geom"</span>, nbreaks <span class="op">=</span> <span class="fl">3</span>,</span></span>
+<span class="r-in"><span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">7</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  leg_title <span class="op">=</span> <span class="st">"N. commuters"</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"bottomleft"</span>, leg_val_rnd <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, <span class="st">"POP"</span>, <span class="st">"grad"</span>,</span></span>
+<span class="r-in"><span>  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">686</span>, <span class="fl">5000</span>, <span class="fl">25000</span>, <span class="fl">82502</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">22</span>, col <span class="op">=</span> <span class="st">"steelblue"</span>,</span></span>
+<span class="r-in"><span>  leg_title <span class="op">=</span> <span class="st">"Population"</span>, leg_pos <span class="op">=</span> <span class="st">"topright"</span>,</span></span>
+<span class="r-in"><span>  leg_frame <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-20.png" alt="" width="576" height="576"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Symbols with choropleth coloration map type</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mtq</span><span class="op">$</span><span class="va">STATUS</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></span>
+<span class="r-in"><span><span class="fu">mf_map</span><span class="op">(</span><span class="va">mtq</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"STATUS"</span>, <span class="st">"MED"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"symb_choro"</span>, lwd <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  pal <span class="op">=</span> <span class="st">"Reds 3"</span>, breaks <span class="op">=</span> <span class="st">"quantile"</span>, nbreaks <span class="op">=</span> <span class="fl">4</span>,</span></span>
+<span class="r-in"><span>  cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">21</span>, <span class="fl">23</span><span class="op">)</span>, pch_na <span class="op">=</span> <span class="fl">22</span>,</span></span>
+<span class="r-in"><span>  leg_pos <span class="op">=</span> <span class="st">"topright"</span>, border <span class="op">=</span> <span class="st">"white"</span>, col_na <span class="op">=</span> <span class="st">"blue"</span>,</span></span>
+<span class="r-in"><span>  val_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Prefecture"</span>, <span class="st">"Sub-prefecture"</span>, <span class="st">"Simple municipality"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="mf_map-21.png" alt="" width="576" height="576"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

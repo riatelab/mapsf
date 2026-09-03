@@ -87,8 +87,8 @@ mf_raster(
 
 - expandBB:
 
-  expension of the map area in each direction (bottom, left, top,
-  right). The expension is expressed as a share of `x` width (for left
+  expansion of the map area in each direction (bottom, left, top,
+  right). The expansion is expressed as a share of `x` width (for left
   and right values) or a share of `x` height (for bottom and top
   values).
 
@@ -217,16 +217,16 @@ if (require("terra")) {
 
   ## classes
   elev2 <- classify(elev, c(140, 400, 450, 549))
-  lev_evel <- data.frame(ID = 0:2, elevation = c("Low", "High", "Super High"))
+  lev_evel <- data.frame(ID = 0:2, elevation = c("Low", "High", "Very High"))
   levels(elev2) <- lev_evel
   mf_raster(elev2)
   mf_raster(elev2,
     pal = c("salmon4", "olivedrab", "yellow3"),
-    val_order = c("Super High", "High", "Low")
+    val_order = c("Very High", "High", "Low")
   )
 }
 #> Loading required package: terra
-#> terra 1.9.27
+#> terra 1.9.46
 
 
 

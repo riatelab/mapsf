@@ -50,7 +50,7 @@ mf_map(mtq_target, add = FALSE, col = "tomato")
 mf_inset_off()
 ```
 
-![](fig/wo_inset_target-1.png)
+![A map with an inset in the topright corner](fig/wo_inset_target-1.png)
 
 Once an inset is opened, map elements can be added to it.  
 Here we add a title, a shadow, a scale bar, other Martinique
@@ -92,7 +92,7 @@ mf_scale(size = 5)
 mf_credits(txt = "T. Giraud, 2021")
 ```
 
-![](fig/wo_inset_target_plus-1.png)
+![A map with a complex inset](fig/wo_inset_target_plus-1.png)
 
 The second solution to set the size and position of an inset is to use
 the `fig` argument.  
@@ -121,7 +121,8 @@ box()
 mf_inset_off()
 ```
 
-![](fig/wo_inset_fig_par-1.png)
+![A map with an inset at a specific
+location](fig/wo_inset_fig_par-1.png)
 
 ## World Map Inset
 
@@ -137,7 +138,7 @@ mf_worldmap(mtq)
 mf_inset_off()
 ```
 
-![](fig/wo_inset_worldmap-1.png)
+![A map with a world map inset](fig/wo_inset_worldmap-1.png)
 
 ## Non-cartographic Insets
 
@@ -187,4 +188,4 @@ mf_credits(paste0(
 ))
 ```
 
-![](fig/wo_inset_non_carto-1.png)
+![A map with a non-cartographic inset](fig/wo_inset_non_carto-1.png)

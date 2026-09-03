@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2026-05-29</h4>
+            <h4 data-toc-skip class="date">2026-09-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/how_to_export_maps.Rmd" class="external-link"><code>vignettes/how_to_export_maps.Rmd</code></a></small>
       <div class="d-none name"><code>how_to_export_maps.Rmd</code></div>
@@ -110,7 +110,7 @@ editing or resizing.</p>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"SVG export"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_export_fixed_height.svg"></p>
+<p><img src="fig/wo_export_fixed_height.svg" alt="A SVG export"><br></p>
 <p>The default driver for building SVG files,
 <code><a href="https://rdrr.io/r/grDevices/cairo.html" class="external-link">grDevices::svg()</a></code>, has limitations regarding speed, file
 size, editability, and font support. The <a href="https://svglite.r-lib.org/" class="external-link"><code>svglite</code></a> package aims
@@ -133,7 +133,7 @@ figure.</p>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=608px (deduced)"</span>, cex <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_export_fixed_width.png"></p>
+<p><img src="fig/wo_export_fixed_width.png" alt="A PNG export with a fixed width"><br></p>
 <p>In the following example, we used the “dracula” theme and we added
 space to the right of the plot (50% of <code>x</code> width) in order to
 get some extra space for the legend.</p>
@@ -149,7 +149,7 @@ get some extra space for the legend.</p>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, <span class="st">"POP"</span>, <span class="st">"prop"</span>, leg_pos <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"PNG export: width=500px, height=425px (deduced)"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_export_fixed_width_expand.png"></p>
+<p><img src="fig/wo_export_fixed_width_expand.png" alt="A PNG export with a fixed width and margins"><br></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

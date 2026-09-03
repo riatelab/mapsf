@@ -37,7 +37,7 @@ mf_title(txt = "SVG export")
 dev.off()
 ```
 
-![](fig/wo_export_fixed_height.svg)
+![A SVG export](fig/wo_export_fixed_height.svg)  
 
 The default driver for building SVG files,
 [`grDevices::svg()`](https://rdrr.io/r/grDevices/cairo.html), has
@@ -64,7 +64,7 @@ mf_title(txt = "PNG export: width=500px, height=608px (deduced)", cex = 1)
 dev.off()
 ```
 
-![](fig/wo_export_fixed_width.png)
+![A PNG export with a fixed width](fig/wo_export_fixed_width.png)  
 
 In the following example, we used the “dracula” theme and we added space
 to the right of the plot (50% of `x` width) in order to get some extra
@@ -85,4 +85,5 @@ mf_title(txt = "PNG export: width=500px, height=425px (deduced)")
 dev.off()
 ```
 
-![](fig/wo_export_fixed_width_expand.png)
+![A PNG export with a fixed width and
+margins](fig/wo_export_fixed_width_expand.png)  

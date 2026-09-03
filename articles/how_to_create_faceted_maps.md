@@ -22,7 +22,7 @@ mf_title("Median Income")
 mf_scale()
 ```
 
-![](fig/wo_facet_side_by_side-1.png)
+![Two maps on the same figure](fig/wo_facet_side_by_side-1.png)
 
 When relevant the user can use a `for` loop.
 
@@ -45,4 +45,5 @@ for (i in seq_len(nrow(mtq))) {
 }
 ```
 
-![](fig/wo_facet_six_by_six-1.png)
+![A figure with a map for each municipality, organised 6 by
+6](fig/wo_facet_six_by_six-1.png)

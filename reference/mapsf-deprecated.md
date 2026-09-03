@@ -10,40 +10,31 @@ Instead of using the following deprecated functions, one can use
 corresponding type:
 
 - [`mf_base()`](https://riatelab.github.io/mapsf/reference/mf_base.md)
-  =\>
-  [mf_map_base](https://riatelab.github.io/mapsf/reference/mf_map_base.md)
+  =\> **base**
 
 - [`mf_choro()`](https://riatelab.github.io/mapsf/reference/mf_choro.md)
-  =\>
-  [mf_map_choro](https://riatelab.github.io/mapsf/reference/mf_map_choro.md)
+  =\> **choro**
 
 - [`mf_prop()`](https://riatelab.github.io/mapsf/reference/mf_prop.md)
-  =\>
-  [mf_map_prop](https://riatelab.github.io/mapsf/reference/mf_map_prop.md)
+  =\> **prop**
 
 - [`mf_typo()`](https://riatelab.github.io/mapsf/reference/mf_typo.md)
-  =\>
-  [mf_map_typo](https://riatelab.github.io/mapsf/reference/mf_map_typo.md)
+  =\> **typo**
 
 - [`mf_symb()`](https://riatelab.github.io/mapsf/reference/mf_symb.md)
-  =\>
-  [mf_map_symb](https://riatelab.github.io/mapsf/reference/mf_map_symb.md)
+  =\> **symb**
 
 - [`mf_grad()`](https://riatelab.github.io/mapsf/reference/mf_grad.md)
-  =\>
-  [mf_map_grad](https://riatelab.github.io/mapsf/reference/mf_map_grad.md)
+  =\> **grad**
 
 - [`mf_prop_typo()`](https://riatelab.github.io/mapsf/reference/mf_prop_typo.md)
-  =\>
-  [mf_map_prop_typo](https://riatelab.github.io/mapsf/reference/mf_map_prop_typo.md)
+  =\> **prop_typo**
 
 - [`mf_prop_choro()`](https://riatelab.github.io/mapsf/reference/mf_prop_choro.md)
-  =\>
-  [mf_map_prop_choro](https://riatelab.github.io/mapsf/reference/mf_map_prop_choro.md)
+  =\> **prop_choro**
 
 - [`mf_symb_choro()`](https://riatelab.github.io/mapsf/reference/mf_symb_choro.md)
-  =\>
-  [mf_map_symb_choro](https://riatelab.github.io/mapsf/reference/mf_map_symb_choro.md)
+  =\> **symb_choro**
 
 ### `mf_init`
 

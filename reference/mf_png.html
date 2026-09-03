@@ -21,7 +21,7 @@ Use dev.off() to finish the export (see Examples)."><meta property="og:image" co
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,8 +101,8 @@ This helps to produce maps without too much wasted space.</p>
 
 
 <dt id="arg-expandbb">expandBB<a class="anchor" aria-label="anchor" href="#arg-expandbb"></a></dt>
-<dd><p>expension of the map area in each direction (bottom, left,
-top, right). The expension is expressed as a share of <code>x</code> width
+<dd><p>expansion of the map area in each direction (bottom, left,
+top, right). The expansion is expressed as a share of <code>x</code> width
 (for left and right values) or a share of <code>x</code> height (for bottom and top
 values).</p></dd>
 
@@ -124,13 +124,13 @@ values).</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mtq</span> <span class="op">&lt;-</span> <span class="fu"><a href="mf_get_mtq.html">mf_get_mtq</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".png"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpI8cWov/file17df627534462.png"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmp8fWYSN/file79757a6f0a2a.png"</span>
 <span class="r-in"><span><span class="fu">mf_png</span><span class="op">(</span><span class="va">mtq</span>, filename <span class="op">=</span> <span class="va">filename</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="mf_title.html">mf_title</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> agg_record_17df64b3ef4a7 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> agg_record_797528fd49fa </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       2 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -40,4 +40,4 @@ mf_layout(
 )
 ```
 
-![](fig/wo_font_a-1.png)
+![A map with a customp font family (Fira Code)](fig/wo_font_a-1.png)

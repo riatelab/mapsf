@@ -19,7 +19,30 @@ maps produced by `mapsf` (e.g. they survive a
 
 Here are the builtin themes.
 
-![](fig/wo_theme_base1.png)![](fig/wo_theme_base2.png)![](fig/wo_theme_sol_dark1.png)![](fig/wo_theme_sol_dark2.png)![](fig/wo_theme_sol_light1.png)![](fig/wo_theme_sol_light2.png)![](fig/wo_theme_grey1.png)![](fig/wo_theme_grey2.png)![](fig/wo_theme_mint1.png)![](fig/wo_theme_mint2.png)![](fig/wo_theme_pistachio1.png)![](fig/wo_theme_pistachio2.png)![](fig/wo_theme_dracula1.png)![](fig/wo_theme_dracula2.png)![](fig/wo_theme_rzine1.png)![](fig/wo_theme_rzine2.png)
+![proportional symbols map with base
+theme](fig/wo_theme_base1.png) ![choropleth map with base
+theme](fig/wo_theme_base2.png)  
+![proportional symbols map with sol_dark
+theme](fig/wo_theme_sol_dark1.png) ![choropleth map with sol_dark
+theme](fig/wo_theme_sol_dark2.png)  
+![proportional symbols map with sol_light
+theme](fig/wo_theme_sol_light1.png) ![choropleth map with sol_light
+theme](fig/wo_theme_sol_light2.png)  
+![proportional symbols map with grey
+theme](fig/wo_theme_grey1.png) ![choropleth map with grey
+theme](fig/wo_theme_grey2.png)  
+![proportional symbols map with mint
+theme](fig/wo_theme_mint1.png) ![choropleth map with mint
+theme](fig/wo_theme_mint2.png)  
+![proportional symbols map with pistachio
+theme](fig/wo_theme_pistachio1.png) ![choropleth map with pistachio
+theme](fig/wo_theme_pistachio2.png)  
+![proportional symbols map with dracula
+theme](fig/wo_theme_dracula1.png) ![choropleth map with dracula
+theme](fig/wo_theme_dracula2.png)  
+![proportional symbols map with rzine
+theme](fig/wo_theme_rzine1.png) ![choropleth map with rzine
+theme](fig/wo_theme_rzine2.png)  
 
 ## How to modify an existing theme
 
@@ -35,7 +58,7 @@ mf_map(mtq)
 mf_title('Mofified "default" theme')
 ```
 
-![](fig/wo_theme_modified-1.png)
+![Map with a midified theme](fig/wo_theme_modified-1.png)
 
 ## How to create a new theme
 
@@ -64,7 +87,7 @@ mf_map(mtq, "MED", "choro")
 mf_title("New theme")
 ```
 
-![](fig/wo_theme_from_scratch-1.png)
+![Map with a custom theme](fig/wo_theme_from_scratch-1.png)
 
 It is also possible to assign a theme to a variable.
 
@@ -77,7 +100,7 @@ mf_map(mtq)
 mf_title("Blue Theme")
 ```
 
-![](fig/wo_theme_blue_green-1.png)
+![map with a blue theme](fig/wo_theme_blue-1.png)
 
 ``` r
 
@@ -86,7 +109,7 @@ mf_map(mtq)
 mf_title("Green Theme")
 ```
 
-![](fig/wo_theme_blue_green-2.png)
+![map with a green theme](fig/wo_theme_green-1.png)
 
 ## Legacy themes
 
@@ -105,4 +128,4 @@ mf_map(mtq)
 mf_title("Legacy default theme")
 ```
 
-![](fig/wo_theme_legacy-1.png)
+![map with a legacy theme](fig/wo_theme_legacy-1.png)

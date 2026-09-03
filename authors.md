@@ -20,9 +20,6 @@
 - **Ian Fellows**. Copyright holder.  
   No overlap algorithm for labels, from wordcloud package
 
-- **Jim Lemon**. Copyright holder.  
-  Arc drawing algorithm for annotations, from plotrix package
-
 - **Danielle Navarro**. Copyright holder.
   [](https://orcid.org/0000-0001-7648-6578)  
   Bézier curve algorithm for text annotations

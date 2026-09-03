@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2026-05-29</h4>
+            <h4 data-toc-skip class="date">2026-09-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/how_to_use_themes.Rmd" class="external-link"><code>vignettes/how_to_use_themes.Rmd</code></a></small>
       <div class="d-none name"><code>how_to_use_themes.Rmd</code></div>
@@ -98,7 +98,7 @@ a <code><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev
 <h2 id="builtin-themes">Builtin themes<a class="anchor" aria-label="anchor" href="#builtin-themes"></a>
 </h2>
 <p>Here are the builtin themes.</p>
-<p><img src="fig/wo_theme_base1.png"><img src="fig/wo_theme_base2.png"><img src="fig/wo_theme_sol_dark1.png"><img src="fig/wo_theme_sol_dark2.png"><img src="fig/wo_theme_sol_light1.png"><img src="fig/wo_theme_sol_light2.png"><img src="fig/wo_theme_grey1.png"><img src="fig/wo_theme_grey2.png"><img src="fig/wo_theme_mint1.png"><img src="fig/wo_theme_mint2.png"><img src="fig/wo_theme_pistachio1.png"><img src="fig/wo_theme_pistachio2.png"><img src="fig/wo_theme_dracula1.png"><img src="fig/wo_theme_dracula2.png"><img src="fig/wo_theme_rzine1.png"><img src="fig/wo_theme_rzine2.png"></p>
+<p><img src="fig/wo_theme_base1.png" alt="proportional symbols map with base theme"> <img src="fig/wo_theme_base2.png" alt="choropleth map with base theme"><br><img src="fig/wo_theme_sol_dark1.png" alt="proportional symbols map with sol_dark theme"> <img src="fig/wo_theme_sol_dark2.png" alt="choropleth map with sol_dark theme"><br><img src="fig/wo_theme_sol_light1.png" alt="proportional symbols map with sol_light theme"> <img src="fig/wo_theme_sol_light2.png" alt="choropleth map with sol_light theme"><br><img src="fig/wo_theme_grey1.png" alt="proportional symbols map with grey theme"> <img src="fig/wo_theme_grey2.png" alt="choropleth map with grey theme"><br><img src="fig/wo_theme_mint1.png" alt="proportional symbols map with mint theme"> <img src="fig/wo_theme_mint2.png" alt="choropleth map with mint theme"><br><img src="fig/wo_theme_pistachio1.png" alt="proportional symbols map with pistachio theme"> <img src="fig/wo_theme_pistachio2.png" alt="choropleth map with pistachio theme"><br><img src="fig/wo_theme_dracula1.png" alt="proportional symbols map with dracula theme"> <img src="fig/wo_theme_dracula2.png" alt="choropleth map with dracula theme"><br><img src="fig/wo_theme_rzine1.png" alt="proportional symbols map with rzine theme"> <img src="fig/wo_theme_rzine2.png" alt="choropleth map with rzine theme"><br></p>
 </div>
 <div class="section level2">
 <h2 id="how-to-modify-an-existing-theme">How to modify an existing theme<a class="anchor" aria-label="anchor" href="#how-to-modify-an-existing-theme"></a>
@@ -111,7 +111,7 @@ the “base” theme and modify some title parameters.</p>
 <span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"base"</span>, title_banner <span class="op">=</span> <span class="cn">TRUE</span>, title_font <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">'Mofified "default" theme'</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_theme_modified-1.png" class="r-plt" alt="" width="384"></p>
+<p><img src="fig/wo_theme_modified-1.png" class="r-plt" alt="Map with a midified theme" width="384"></p>
 </div>
 <div class="section level2">
 <h2 id="how-to-create-a-new-theme">How to create a new theme<a class="anchor" aria-label="anchor" href="#how-to-create-a-new-theme"></a>
@@ -137,7 +137,7 @@ the “base” theme and modify some title parameters.</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span>, <span class="st">"MED"</span>, <span class="st">"choro"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"New theme"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_theme_from_scratch-1.png" class="r-plt" alt="" width="384"></p>
+<p><img src="fig/wo_theme_from_scratch-1.png" class="r-plt" alt="Map with a custom theme" width="384"></p>
 <p>It is also possible to assign a theme to a variable.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">blue_theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"base"</span>, background <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span></span>
@@ -145,12 +145,12 @@ the “base” theme and modify some title parameters.</p>
 <span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="va">blue_theme</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Blue Theme"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_theme_blue_green-1.png" class="r-plt" alt="" width="384"></p>
+<p><img src="fig/wo_theme_blue-1.png" class="r-plt" alt="map with a blue theme" width="384"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="va">green_theme</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Green Theme"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_theme_blue_green-2.png" class="r-plt" alt="" width="384"></p>
+<p><img src="fig/wo_theme_green-1.png" class="r-plt" alt="map with a green theme" width="384"></p>
 </div>
 <div class="section level2">
 <h2 id="legacy-themes">Legacy themes<a class="anchor" aria-label="anchor" href="#legacy-themes"></a>
@@ -166,7 +166,7 @@ them by name.</p>
 <span><span class="co">#&gt; See the Note section in the help page (?mf_theme).</span></span>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Legacy default theme"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_theme_legacy-1.png" class="r-plt" alt="" width="384"></p>
+<p><img src="fig/wo_theme_legacy-1.png" class="r-plt" alt="map with a legacy theme" width="384"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

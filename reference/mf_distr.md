@@ -22,7 +22,8 @@ mf_distr(
   rev = FALSE,
   main = "Distribution",
   yaxt = TRUE,
-  ylab = "Density"
+  ylab = "Density",
+  seed = 46
 )
 ```
 
@@ -76,14 +77,14 @@ mf_distr(
 
   y axis label
 
+- seed:
+
+  seed used to position the points on the strip chart
+
 ## Value
 
 The number of bins of the histogram and the bandwidth of the density
 curve are (invisibly) returned in a list.
-
-## See also
-
-[mf_map_choro](https://riatelab.github.io/mapsf/reference/mf_map_choro.md)
 
 ## Examples
 

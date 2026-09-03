@@ -40,25 +40,29 @@ three main arguments:
 
 The following map types are available:
 
-- ![](fig/mf_base.svg)**base**: displays sf objects geometries  
-- ![](fig/mf_prop.svg)**prop**: displays symbols with areas proportional
-  to a quantitative variable (stocks)  
-- ![](fig/mf_choro.svg)**choro**: areas are shaded according to the
-  variation of a quantitative variable  
-- ![](fig/mf_typo.svg)**typo**: displays a typology map of a qualitative
+- ![base type logo](fig/mf_base.svg) **base**: displays sf objects
+  geometries  
+- ![prop type logo](fig/mf_prop.svg) **prop**: displays symbols with
+  areas proportional to a quantitative variable (stocks)  
+- ![choro type logo](fig/mf_choro.svg) **choro**: areas are shaded
+  according to the variation of a quantitative variable  
+- ![typo type logo](fig/mf_typo.svg) **typo**: displays a typology map
+  of a qualitative variable  
+- ![symb type logo](fig/mf_symb.svg) **symb**: displays the different
+  modalities of a qualitative variable as symbols  
+- ![grad type logo](fig/mf_grad.svg) **grad**: displays graduated
+  symbols  
+- ![prop_choro type logo](fig/mf_prop_choro.svg) **prop_choro**:
+  displays symbols with sizes proportional to values of a first variable
+  and colored to reflect the classification of a second quantitative
   variable  
-- ![](fig/mf_symb.svg)**symb**: displays the different modalities of a
-  qualitative variable as symbols  
-- ![](fig/mf_grad.svg)**grad**: displays graduated symbols  
-- ![](fig/mf_prop_choro.svg)**prop_choro**: displays symbols with sizes
-  proportional to values of a first variable and colored to reflect the
-  classification of a second quantitative variable  
-- ![](fig/mf_prop_typo.svg)**prop_typo**: displays symbols with sizes
-  proportional to values of a first variable and and colored to reflect
-  the modalities of a second qualitative variable  
-- ![](fig/mf_symb_choro.svg)**symb_choro**: displays the different
-  modalities of a first qualitative variable as symbols colored to
-  reflect the classification of a second quantitative variable
+- ![prop_typo type logo](fig/mf_prop_typo.svg) **prop_typo**: displays
+  symbols with sizes proportional to values of a first variable and and
+  colored to reflect the modalities of a second qualitative variable  
+- ![symb_choro type logo](fig/mf_symb_choro.svg) **symb_choro**:
+  displays the different modalities of a first qualitative variable as
+  symbols colored to reflect the classification of a second quantitative
+  variable
 
 Additionaly,
 [`mf_raster()`](https://riatelab.github.io/mapsf/reference/mf_raster.md)
@@ -69,7 +73,8 @@ classes, intervals).
 
 These functions are dedicated to the map layout design.
 
-![](fig/maplayout.png)
+![Map with a full layout created with the mapsf
+package](fig/maplayout.png)  
 
 |  |  |
 |----|----|
@@ -77,7 +82,7 @@ These functions are dedicated to the map layout design.
 | ② [`mf_arrow()`](https://riatelab.github.io/mapsf/reference/mf_arrow.md) | North arrow |
 | ③ [`mf_credits()`](https://riatelab.github.io/mapsf/reference/mf_credits.md) | Author, sources… |
 | ④ [`mf_scale()`](https://riatelab.github.io/mapsf/reference/mf_scale.md) | Scale bar |
-| ⑤ [`mf_annotation()`](https://riatelab.github.io/mapsf/reference/mf_annotation.md) | Annotations |
+| ⑤ [`mf_text()`](https://riatelab.github.io/mapsf/reference/mf_text.md) | Annotations |
 | ⑥ [`mf_label()`](https://riatelab.github.io/mapsf/reference/mf_label.md) | Labels |
 | ⑦ [`mf_shadow()`](https://riatelab.github.io/mapsf/reference/mf_shadow.md) | Shadow |
 
@@ -144,7 +149,8 @@ mf_arrow()
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_basemap-1.png)
+![A map of Martinique municipalities that uses the 'base' map
+type](mapsf_files/figure-html/mf_basemap-1.png)
 
 ### Proportional Symbols
 
@@ -174,7 +180,8 @@ mf_arrow()
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_prop-1.png)
+![A map of Martinique municipalities that uses the 'prop' map
+type](mapsf_files/figure-html/mf_prop-1.png)
 
 ### Choropleth Map
 
@@ -214,7 +221,8 @@ mf_arrow()
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_map_c-1.png)
+![A map of Martinique municipalities that uses the 'choro' map
+type](mapsf_files/figure-html/mf_map_c-1.png)
 
 ### Typology Map
 
@@ -254,7 +262,8 @@ mf_arrow()
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_map_t-1.png)
+![A map of Martinique municipalities that uses the 'typo' map
+type](mapsf_files/figure-html/mf_map_t-1.png)
 
 ### Proportional Symbols using Choropleth Coloration
 
@@ -293,7 +302,8 @@ mf_arrow()
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_map_pc-1.png)
+![A map of Martinique municipalities that uses the 'prop_choro' map
+type](mapsf_files/figure-html/mf_map_pc-1.png)
 
 ### Proportional Symbols using Typology Coloration
 
@@ -327,7 +337,8 @@ mf_arrow()
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_map_pt-1.png)
+![A map of Martinique municipalities that uses the 'prop_typo' map
+type](mapsf_files/figure-html/mf_map_pt-1.png)
 
 ### Label Map
 
@@ -358,7 +369,8 @@ mf_arrow(pos = "topright")
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_label-1.png)
+![A map of Martinique municipalities that uses the mf_label()
+function](mapsf_files/figure-html/mf_label-1.png)
 
 ### Links Map
 
@@ -396,40 +408,5 @@ mf_arrow()
 mf_scale()
 ```
 
-![](mapsf_files/figure-html/mf_grad-1.png)
-
-## Datasets
-
-Several datasets are embedded in the package:
-
-- A [GeoPackage](https://www.geopackage.org/) of Martinique
-  municipalities can be imported with
-  [`mf_get_mtq()`](https://riatelab.github.io/mapsf/reference/mf_get_mtq.md)
-  (or via
-  [`sf::st_read()`](https://r-spatial.github.io/sf/reference/st_read.html)).
-  - Sources: [Base comparateur de
-    territoires](https://www.insee.fr/fr/statistiques/2521169) (data,
-    upload date: 2018-09-25) & ADMIN EXPRESS-COG (geometry, 2018
-    edition).
-  - Citation: Insee and IGN, 2018
-  - Fields:
-    - **INSEE_COM**: Municipality identifier
-    - **STATUS**: Municipality administrative status
-    - **LIBGEO**: Municipality name
-    - **POP**: Total population, 2015
-    - **MED**: Median disposable income adjusted per equivalent
-      household member, in euros, 2015
-    - **CHOM**: Unemployed population, 2015
-    - **ACT**: Active population, 2015
-- A csv file of professional mobility flows between Martinique
-  municipalities.
-  - Sources: [Flux de mobilité - déplacements domicile-lieu de
-    travail](https://www.insee.fr/fr/statistiques/3566477) (upload date:
-    2018-08-01)
-  - Citation: Insee, 2018
-  - Fields:
-    - **i**: Municipality of residence identifier
-    - **j**: Municipality of workplace identifier
-    - **fij**: Flows of workers (employed population, 15 y.o. or more,
-      2015, only flows \> 100)
-    - **sj**: Administrative status of the workplace municipality
+![A map of Martinique municipalities that uses the 'grad' map type for
+flows](mapsf_files/figure-html/mf_grad-1.png)

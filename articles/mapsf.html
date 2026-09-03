@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2026-05-29</h4>
+            <h4 data-toc-skip class="date">2026-09-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/mapsf.Rmd" class="external-link"><code>vignettes/mapsf.Rmd</code></a></small>
       <div class="d-none name"><code>mapsf.Rmd</code></div>
@@ -124,47 +124,44 @@ import…).</p></li>
 <p>The following map types are available:</p>
 <ul>
 <li>
-<img src="fig/mf_base.svg"><strong>base</strong>: displays sf
-objects geometries<br>
+<img src="fig/mf_base.svg" alt="base type logo"> <strong>base</strong>: displays sf objects
+geometries<br>
 </li>
 <li>
-<img src="fig/mf_prop.svg"><strong>prop</strong>: displays
-symbols with areas proportional to a quantitative variable
-(stocks)<br>
+<img src="fig/mf_prop.svg" alt="prop type logo"> <strong>prop</strong>: displays symbols with
+areas proportional to a quantitative variable (stocks)<br>
 </li>
 <li>
-<img src="fig/mf_choro.svg"><strong>choro</strong>: areas are
-shaded according to the variation of a quantitative variable<br>
+<img src="fig/mf_choro.svg" alt="choro type logo"> <strong>choro</strong>: areas are shaded
+according to the variation of a quantitative variable<br>
 </li>
 <li>
-<img src="fig/mf_typo.svg"><strong>typo</strong>: displays a
-typology map of a qualitative variable<br>
+<img src="fig/mf_typo.svg" alt="typo type logo"> <strong>typo</strong>: displays a typology map
+of a qualitative variable<br>
 </li>
 <li>
-<img src="fig/mf_symb.svg"><strong>symb</strong>: displays the
-different modalities of a qualitative variable as symbols<br>
+<img src="fig/mf_symb.svg" alt="symb type logo"> <strong>symb</strong>: displays the different
+modalities of a qualitative variable as symbols<br>
 </li>
 <li>
-<img src="fig/mf_grad.svg"><strong>grad</strong>: displays
-graduated symbols<br>
+<img src="fig/mf_grad.svg" alt="grad type logo"> <strong>grad</strong>: displays graduated
+symbols<br>
 </li>
 <li>
-<img src="fig/mf_prop_choro.svg"><strong>prop_choro</strong>:
-displays symbols with sizes proportional to values of a first variable
-and colored to reflect the classification of a second quantitative
+<img src="fig/mf_prop_choro.svg" alt="prop_choro type logo"> <strong>prop_choro</strong>: displays
+symbols with sizes proportional to values of a first variable and
+colored to reflect the classification of a second quantitative
 variable<br>
 </li>
 <li>
-<img src="fig/mf_prop_typo.svg"><strong>prop_typo</strong>:
-displays symbols with sizes proportional to values of a first variable
-and and colored to reflect the modalities of a second qualitative
-variable<br>
+<img src="fig/mf_prop_typo.svg" alt="prop_typo type logo"> <strong>prop_typo</strong>: displays
+symbols with sizes proportional to values of a first variable and and
+colored to reflect the modalities of a second qualitative variable<br>
 </li>
 <li>
-<img src="fig/mf_symb_choro.svg"><strong>symb_choro</strong>:
-displays the different modalities of a first qualitative variable as
-symbols colored to reflect the classification of a second quantitative
-variable</li>
+<img src="fig/mf_symb_choro.svg" alt="symb_choro type logo"> <strong>symb_choro</strong>: displays the
+different modalities of a first qualitative variable as symbols colored
+to reflect the classification of a second quantitative variable</li>
 </ul>
 <p>Additionaly, <code><a href="../reference/mf_raster.html">mf_raster()</a></code> can be used to displays raster
 objects (single/multi band, continuous, classes, intervals).</p>
@@ -173,7 +170,7 @@ objects (single/multi band, continuous, classes, intervals).</p>
 <h3 id="map-layout">Map Layout<a class="anchor" aria-label="anchor" href="#map-layout"></a>
 </h3>
 <p>These functions are dedicated to the map layout design.</p>
-<p><img src="fig/maplayout.png"></p>
+<p><img src="fig/maplayout.png" alt="Map with a full layout created with the mapsf package"><br></p>
 <table class="table"><tbody>
 <tr class="odd">
 <td>① <code><a href="../reference/mf_title.html">mf_title()</a></code>
@@ -196,7 +193,7 @@ objects (single/multi band, continuous, classes, intervals).</p>
 <td>Scale bar</td>
 </tr>
 <tr class="odd">
-<td>⑤ <code><a href="../reference/mf_annotation.html">mf_annotation()</a></code>
+<td>⑤ <code><a href="../reference/mf_text.html">mf_text()</a></code>
 </td>
 <td>Annotations</td>
 </tr>
@@ -265,7 +262,7 @@ own spatial datasets.</p>
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_basemap-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_basemap-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the 'base' map type" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="proportional-symbols">Proportional Symbols<a class="anchor" aria-label="anchor" href="#proportional-symbols"></a>
@@ -292,7 +289,7 @@ areas proportional to a quantitative variable (stocks). The
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_prop-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_prop-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the 'prop' map type" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="choropleth-map">Choropleth Map<a class="anchor" aria-label="anchor" href="#choropleth-map"></a>
@@ -328,7 +325,7 @@ defined with <code>pal</code>, can be created with
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_map_c-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_map_c-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the 'choro' map type" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="typology-map">Typology Map<a class="anchor" aria-label="anchor" href="#typology-map"></a>
@@ -364,7 +361,7 @@ modalities order in the legend.</p>
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_map_t-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_map_t-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the 'typo' map type" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="proportional-symbols-using-choropleth-coloration">Proportional Symbols using Choropleth Coloration<a class="anchor" aria-label="anchor" href="#proportional-symbols-using-choropleth-coloration"></a>
@@ -398,7 +395,7 @@ of the map to avoid overlaps between the legends and the map.</p>
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_map_pc-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_map_pc-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the 'prop_choro' map type" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="proportional-symbols-using-typology-coloration">Proportional Symbols using Typology Coloration<a class="anchor" aria-label="anchor" href="#proportional-symbols-using-typology-coloration"></a>
@@ -429,7 +426,7 @@ to reflect the modalities of a second qualitative variable.</p>
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_map_pt-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_map_pt-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the 'prop_typo' map type" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="label-map">Label Map<a class="anchor" aria-label="anchor" href="#label-map"></a>
@@ -457,7 +454,7 @@ labels.</p>
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span>pos <span class="op">=</span> <span class="st">"topright"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_label-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_label-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the mf_label() function" width="480"></p>
 </div>
 <div class="section level3">
 <h3 id="links-map">Links Map<a class="anchor" aria-label="anchor" href="#links-map"></a>
@@ -492,67 +489,8 @@ links.</p>
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span><span class="va">credits</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_arrow.html">mf_arrow</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mapsf_files/figure-html/mf_grad-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="mapsf_files/figure-html/mf_grad-1.png" class="r-plt" alt="A map of Martinique municipalities that uses the 'grad' map type for flows" width="480"></p>
 </div>
-</div>
-<div class="section level2">
-<h2 id="datasets">Datasets<a class="anchor" aria-label="anchor" href="#datasets"></a>
-</h2>
-<p>Several datasets are embedded in the package:</p>
-<ul>
-<li>A <a href="https://www.geopackage.org/" class="external-link">GeoPackage</a> of Martinique
-municipalities can be imported with <code><a href="../reference/mf_get_mtq.html">mf_get_mtq()</a></code> (or via
-<code><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">sf::st_read()</a></code>).
-<ul>
-<li>Sources: <a href="https://www.insee.fr/fr/statistiques/2521169" class="external-link">Base
-comparateur de territoires</a> (data, upload date: 2018-09-25) &amp;
-ADMIN EXPRESS-COG (geometry, 2018 edition).</li>
-<li>Citation: Insee and IGN, 2018</li>
-<li>Fields:
-<ul>
-<li>
-<strong>INSEE_COM</strong>: Municipality identifier</li>
-<li>
-<strong>STATUS</strong>: Municipality administrative status</li>
-<li>
-<strong>LIBGEO</strong>: Municipality name</li>
-<li>
-<strong>POP</strong>: Total population, 2015</li>
-<li>
-<strong>MED</strong>: Median disposable income adjusted per
-equivalent household member, in euros, 2015</li>
-<li>
-<strong>CHOM</strong>: Unemployed population, 2015</li>
-<li>
-<strong>ACT</strong>: Active population, 2015</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>A csv file of professional mobility flows between Martinique
-municipalities.
-<ul>
-<li>Sources: <a href="https://www.insee.fr/fr/statistiques/3566477" class="external-link">Flux
-de mobilité - déplacements domicile-lieu de travail</a> (upload date:
-2018-08-01)</li>
-<li>Citation: Insee, 2018</li>
-<li>Fields:
-<ul>
-<li>
-<strong>i</strong>: Municipality of residence identifier</li>
-<li>
-<strong>j</strong>: Municipality of workplace identifier</li>
-<li>
-<strong>fij</strong>: Flows of workers (employed population, 15 y.o.
-or more, 2015, only flows &gt; 100)</li>
-<li>
-<strong>sj</strong>: Administrative status of the workplace
-municipality</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

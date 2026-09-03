@@ -43,8 +43,8 @@ mf_graticule(
 
 - expandBB:
 
-  expension of the map area in each direction (bottom, left, top,
-  right). The expension is expressed as a share of `x` width (for left
+  expansion of the map area in each direction (bottom, left, top,
+  right). The expansion is expressed as a share of `x` width (for left
   and right values) or a share of `x` height (for bottom and top
   values).
 

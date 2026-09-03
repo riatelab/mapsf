@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mapsf</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Timothée
 Giraud</h4>
             
-            <h4 data-toc-skip class="date">2026-05-29</h4>
+            <h4 data-toc-skip class="date">2026-09-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/riatelab/mapsf/blob/HEAD/vignettes/how_to_create_inset_maps.Rmd" class="external-link"><code>vignettes/how_to_create_inset_maps.Rmd</code></a></small>
       <div class="d-none name"><code>how_to_create_inset_maps.Rmd</code></div>
@@ -128,7 +128,7 @@ municipality in the topright corner of the map.</p>
 <span><span class="fu"><a href="../reference/mf_map.html">mf_map</a></span><span class="op">(</span><span class="va">mtq_target</span>, add <span class="op">=</span> <span class="cn">FALSE</span>, col <span class="op">=</span> <span class="st">"tomato"</span><span class="op">)</span></span>
 <span><span class="co"># close the inset</span></span>
 <span><span class="fu"><a href="../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_inset_target-1.png" class="r-plt" alt="" width="576"></p>
+<p><img src="fig/wo_inset_target-1.png" class="r-plt" alt="A map with an inset in the topright corner" width="576"></p>
 <p>Once an inset is opened, map elements can be added to it.<br>
 Here we add a title, a shadow, a scale bar, other Martinique
 municipalities and a frame.</p>
@@ -165,7 +165,7 @@ municipalities and a frame.</p>
 <span><span class="fu"><a href="../reference/mf_scale.html">mf_scale</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co"># display credits</span></span>
 <span><span class="fu"><a href="../reference/mf_credits.html">mf_credits</a></span><span class="op">(</span>txt <span class="op">=</span> <span class="st">"T. Giraud, 2021"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_inset_target_plus-1.png" class="r-plt" alt="" width="576"></p>
+<p><img src="fig/wo_inset_target_plus-1.png" class="r-plt" alt="A map with a complex inset" width="576"></p>
 <p>The second solution to set the size and position of an inset is to
 use the <code>fig</code> argument.<br><code>fig</code> coordinates (xmin, xmax, ymin, ymax) are expressed as
 fractions of the mapping space (i.e. excluding margins).<br><code>mf_inset_on(fig = c(0, 0.25, 0, 0.25))</code> will create an inset
@@ -186,7 +186,7 @@ municipality in the bottom left corner of the map.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/box.html" class="external-link">box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># close the inset</span></span>
 <span><span class="fu"><a href="../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_inset_fig_par-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="fig/wo_inset_fig_par-1.png" class="r-plt" alt="A map with an inset at a specific location" width="480"></p>
 </div>
 <div class="section level2">
 <h2 id="world-map-inset">World Map Inset<a class="anchor" aria-label="anchor" href="#world-map-inset"></a>
@@ -198,7 +198,7 @@ municipality in the bottom left corner of the map.</p>
 <span><span class="fu"><a href="../reference/mf_inset_on.html">mf_inset_on</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"worldmap"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_worldmap.html">mf_worldmap</a></span><span class="op">(</span><span class="va">mtq</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/mf_inset_on.html">mf_inset_off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_inset_worldmap-1.png" class="r-plt" alt="" width="480"></p>
+<p><img src="fig/wo_inset_worldmap-1.png" class="r-plt" alt="A map with a world map inset" width="480"></p>
 </div>
 <div class="section level2">
 <h2 id="non-cartographic-insets">Non-cartographic Insets<a class="anchor" aria-label="anchor" href="#non-cartographic-insets"></a>
@@ -245,7 +245,7 @@ classification.</p>
 <span>  <span class="st">"Sources: Insee and IGN, 2018\n"</span>,</span>
 <span>  <span class="st">"mapsf "</span>, <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="fig/wo_inset_non_carto-1.png" class="r-plt" alt="" width="600"></p>
+<p><img src="fig/wo_inset_non_carto-1.png" class="r-plt" alt="A map with a non-cartographic inset" width="600"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
