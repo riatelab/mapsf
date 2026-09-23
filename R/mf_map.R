@@ -285,14 +285,14 @@
 #'        inches = .3, val_max, symbol = "circle",
 #'        col = getOption("mapsf.highlight),
 #'        border = getOption("mapsf.background), lwd = .7,
-#'        expandBB, extent, bg, alpha, add = FALSE, leg_*)
+#'        expandBB, extent, bg, alpha, add = TRUE, leg_*)
 #'
 #' ```
 #' For lines:
 #' ```r
 #' mf_map(x, var, type = "prop",
 #'        val_max, lwd_max = 20, col = getOption("mapsf.highlight),
-#'        expandBB, extent, bg, alpha, add = FALSE, leg_*)
+#'        expandBB, extent, bg, alpha, add = TRUE, leg_*)
 #' ```
 #'
 #' ### Proportional symbols with choropleth coloration maps
