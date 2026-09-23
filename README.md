@@ -2,11 +2,12 @@
 # mapsf <img src="man/figures/logo.png" align="right" width="120"/>
 
 [![CRAN](https://www.r-pkg.org/badges/version-ago/mapsf)](https://cran.r-project.org/package=mapsf)
-[![R-CMD-check](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/riatelab/mapsf/actions/workflows/R-CMD-check.yaml)
-[![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
-[![Codecov test
-coverage](https://codecov.io/gh/riatelab/mapsf/branch/master/graph/badge.svg)](https://app.codecov.io/gh/riatelab/mapsf?branch=master)
+[![mapsf status
+badge](https://riatelab.r-universe.dev/mapsf/badges/version)](https://riatelab.r-universe.dev/mapsf)
+![code coverage:
+95%](https://img.shields.io/badge/code_coverage-95%25-green)
 [![status](https://tinyverse.netlify.app/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
+[![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
 
 **Create thematic maps and integrate them into your R workflow.**
 
@@ -44,7 +45,7 @@ mtq <- mf_get_mtq()
 # Plot the base map
 mf_map(x = mtq)
 # Plot proportional symbols
-mf_map(x = mtq, var = "POP", type = "prop", leg_pos = "topright")
+mf_map(x = mtq, var = "POP", type = "prop", leg_pos = "topright", add = TRUE)
 # Plot a map layout
 mf_layout(
   title = "Population in Martinique",
@@ -58,7 +59,7 @@ You can find more detailed examples on the [“Get
 Started”](https://riatelab.github.io/mapsf/articles/mapsf) section of
 the [package website](https://riatelab.github.io/mapsf/) and you can
 also download its [cheat
-sheet](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf).  
+sheet](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf).\
 [![Cheat
 Sheet](man/figures/mapsf_cheatsheet.png)](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/fig/mapsf_cheatsheet.pdf)
 
@@ -72,7 +73,7 @@ identically.
 
 ## Alternatives
 
-- [`tmap`](https://github.com/r-tmap/tmap)  
+- [`tmap`](https://github.com/r-tmap/tmap)
 - [`ggplot2`](https://github.com/tidyverse/ggplot2) +
   [`ggspatial`](https://github.com/paleolimbot/ggspatial)
 
@@ -82,7 +83,7 @@ One can contribute to the package through [pull
 requests](https://github.com/riatelab/mapsf/pulls) and report issues or
 ask questions [here](https://github.com/riatelab/mapsf/issues). See the
 [CONTRIBUTING.md](https://github.com/riatelab/mapsf/blob/master/CONTRIBUTING.md)
-file for detailed instructions on how to contribute.  
+file for detailed instructions on how to contribute.\
 This project uses [conventional
 commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/) and
 [semantic versioning](https://semver.org/).
