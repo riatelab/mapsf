@@ -41,6 +41,7 @@
 #' @param arrow add an arrow to the line
 #' @param cex_arrow arrow size
 #' @param adj adjust the text position in x and y directions
+#' @param xpd if FALSE, the text is clipped to the map region.
 #'
 #' @return No return value, an text is displayed.
 #' @export
@@ -161,10 +162,11 @@ mf_text <- function(
   col_line,
   arrow = TRUE,
   cex_arrow = 1,
-  adj = c(0, 0)
+  adj = c(0, 0),
+  xpd = FALSE
 ) {
   test_cur_plot()
-  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
+  op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE, xpd = xpd)
   on.exit(par(op))
 
   if (inherits(x, "character") && x == "interactive") {

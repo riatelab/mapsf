@@ -27,7 +27,8 @@ mf_text(
   col_line,
   arrow = TRUE,
   cex_arrow = 1,
-  adj = c(0, 0)
+  adj = c(0, 0),
+  xpd = FALSE
 )
 }
 \arguments{
@@ -91,6 +92,8 @@ The default color is the highlight color (see \link{mf_theme}).}
 \item{cex_arrow}{arrow size}
 
 \item{adj}{adjust the text position in x and y directions}
+
+\item{xpd}{if FALSE, the text is clipped to the map region.}
 }
 \value{
 No return value, an text is displayed.
