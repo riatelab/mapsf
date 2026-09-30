@@ -36,9 +36,23 @@ No return value, a title is displayed.
 \description{
 Default values for \code{mf_title()} arguments are set with the map theme
 (see \link{mf_theme}).
+
+It is possible to display a title and a subtitle with a combinaison of
+\link{mf_theme} parameters and \link{mf_text} calls, see in examples.
 }
 \examples{
 mtq <- mf_get_mtq()
 mf_map(mtq)
 mf_title()
+
+# Main and sub titles with mf_theme() params and mf_text() calls
+mf_theme(x = "base", mar = c(.5, .5, .5 + 3, .5), title_line = 3,
+         title_banner = TRUE)
+mf_map(m)
+mf_title(txt = "")
+mf_text(x = "top", txt = "Main Title", adj = c(0, 11),
+        cex = 1.5, font = 2,  xpd = TRUE)
+mf_text(x = "top", txt = "Sub Title", adj = c(0, 5),
+        cex = 1, font = 3, xpd = TRUE)
+mf_theme(NULL)
 }
