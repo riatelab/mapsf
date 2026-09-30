@@ -43,15 +43,6 @@ mf_title <- function(txt = "Map Title", pos, tab,
     bg <- go(bg, "foreground")
   }
 
-  # correct line space for multiplot
-  mmf <- par("mfrow")
-  if (mmf[1] == 2 && mmf[2] == 2) {
-    line <- line * 0.83
-  }
-  if (max(mmf) > 2) {
-    line <- line * .66
-  }
-
   recordGraphics(
     {
       mf_title_display(txt, pos, tab, bg, fg, cex, line, font, inner, banner)
@@ -79,7 +70,7 @@ mf_title_display <- function(txt = "Map Title", pos, tab,
   on.exit(par(op))
   # size refs
   pu <- par("usr")
-  hbox <- line * 0.2 * yinch(1)
+  hbox <- line * par("csi") * yinch(1)
   inset_x <- xinch(par("csi")) / 4
 
   wtitle <- strwidth(txt, units = "user", cex = cex, font = font)
