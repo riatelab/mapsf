@@ -119,14 +119,7 @@ prop_choro <- function(x,
 
   leg_pos <- defunct_leg(leg_pos)
 
-  if (is.null(getOption("mapsf.legacy"))) {
-    ccol <- getOption("mapsf.foreground")
-  } else {
-    ccol <- "grey80"
-  }
-  if (all(leg_frame, !leg_horiz)) {
-    ccol <- getOption("mapsf.foreground")
-  }
+  ccol <- getOption("mapsf.foreground")
 
   leg_title <- test2args(leg_title)
   leg_val_rnd <- test2args(leg_val_rnd)

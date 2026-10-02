@@ -130,16 +130,3 @@ mf_map(mtq)
 mf_title("Green Theme")
 ```
 
-
-## Legacy themes
-
-Although the map theming system has been radically changed in version 1.0.0 of the package, you can still use the old themes by referencing them by name.
-
-```{r legacy, fig.alt = "map with a legacy theme"}
-mf_theme("default")
-mf_map(mtq)
-mf_title("Legacy default theme")
-```
-
-
-

@@ -140,14 +140,7 @@ symb_choro <- function(x, var,
   )
 
   leg_pos <- defunct_leg(leg_pos)
-  if (is.null(getOption("mapsf.legacy"))) {
-    ccol <- getOption("mapsf.foreground")
-  } else {
-    ccol <- "grey80"
-  }
-  if (all(leg_frame, !leg_horiz, is.null(getOption("mapsf.legacy")))) {
-    ccol <- getOption("mapsf.highlight")
-  }
+  ccol <- getOption("mapsf.foreground")
   border <- rep(border, length(cex))
 
   leg_title <- test2args(leg_title)
