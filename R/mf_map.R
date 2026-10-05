@@ -19,7 +19,7 @@
 #'        leg_box_border, leg_box_cex, ...)
 #'
 #'
-#' @param x object of class `sf`
+#' @param x object of class `sf` (see Details)
 #' @param var name(s) of the variable(s) to map (see Details)
 #' @param type map type
 #' * *base*: base maps
@@ -105,7 +105,8 @@
 #'
 #' \describe{
 #' \item{x}{
-#' an `sf` object, for *base*  map type `sfc` and `sfg` objects are
+#' an object of class `sf`, or a `SpatVector` from `terra`.
+#' For the *base* map type `sfc` and `sfg` objects are
 #' also accepted.
 #' }
 #' \item{var}{
@@ -654,12 +655,17 @@ mf_map <- function(x,
     )
   }
 
-  cl <- inherits(x = x, what = c("sf", "sfc", "sfg"), which = TRUE) != 0
-  if (cl[1] == FALSE && cl[2] == TRUE && type != "base") {
-    stop(paste0("'x' should be an sf object."), call. = FALSE)
+  if (isTRUE(inherits(x, "SpatVector"))) {
+    x <- st_as_sf(x)
   }
-  if (cl[1] == FALSE && cl[2] == FALSE && cl[3] == FALSE) {
+
+  cl <- inherits(x = x, what = c("sf", "sfc", "sfg"), which = TRUE) != 0
+  if (!any(cl)) {
     stop(paste0("'x' should be an sf, sfc or sfg object."), call. = FALSE)
+  }
+
+  if (cl[1] == FALSE && type != "base") {
+    stop(paste0("'x' should be an sf object."), call. = FALSE)
   }
 
   if (!missing(var)) {

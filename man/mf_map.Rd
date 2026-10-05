@@ -14,7 +14,7 @@ mf_map(x, var, type = "base",
        leg_box_border, leg_box_cex, ...)
 }
 \arguments{
-\item{x}{object of class \code{sf}}
+\item{x}{object of class \code{sf} (see Details)}
 
 \item{var}{name(s) of the variable(s) to map (see Details)}
 
@@ -157,7 +157,8 @@ georeferenced plot.
 \details{
 \describe{
 \item{x}{
-an \code{sf} object, for \emph{base}  map type \code{sfc} and \code{sfg} objects are
+an object of class \code{sf}, or a \code{SpatVector} from \code{terra}.
+For the \emph{base} map type \code{sfc} and \code{sfg} objects are
 also accepted.
 }
 \item{var}{

@@ -7,7 +7,7 @@
 #' @importFrom stats aggregate median na.omit quantile runif sd bw.SJ density
 #' @importFrom sf st_polygon st_multilinestring st_multipolygon st_buffer
 #' @importFrom sf st_coordinates st_buffer st_geometry st_crs st_bbox st_as_sf
-#' @importFrom sf  st_transform st_is_empty st_intersection
+#' @importFrom sf st_transform st_is_empty st_intersection
 #' @importFrom sf st_is_longlat st_as_sfc st_centroid st_crs<- st_geometry<-
 #' @importFrom sf st_collection_extract st_cast st_read st_geometry_type st_agr
 #' @importFrom sf st_set_agr st_convex_hull st_make_grid st_union st_intersects
