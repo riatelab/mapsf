@@ -1,3 +1,26 @@
+# mapsf 2.0.0
+
+This is the second major version of mapsf. 
+
+## Feat
+- add a new "auto" position for legends tha finds the less occupied space on
+the current plot to put the legend
+- add a "xpd" argument to mf_text() to allow displaying texts on plot margins
+- add minimal support for SpatVect from terra to mf_map()
+
+## Breaking changes
+- remove all deprecated functions: mf_annotation(), mf_export(), mf_init(), 
+mf_base(), mf_choro(), mf_prop(), mf_typo(), mf_symb(), mf_grad(), 
+mf_prop_typo(), mf_prop_choro(), mf_symb_choro()
+- remove all "legacy" themes : "default", "brutal", "ink", "dark", "agolalight", 
+"candy", "darkula", "iceberg", "green", "nevermind", "jsk" and "barcelona"
+- remove the following arguments from mf_theme(): "bg", "fg", "tab", "pos", 
+"inner", "line", "cex" and "font"
+- remove distinct legends in mf_map() with types "prop_choro", "prop_typo" 
+and "symb_choro"
+- use smaller defautl inner margins for all map types (expandBB)
+
+
 # mapsf 1.3.0
 
 This is a maintenance release to prepare for an upcoming major release.
