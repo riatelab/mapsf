@@ -2,7 +2,7 @@
 #'
 #' @description
 #' These functions and features still work but will be removed in the next
-#' major version of the package.
+#' major version of the package, which is scheduled in January 2027.
 #'
 #' ## `mf_map` sub-functions
 #'

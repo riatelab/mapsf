@@ -268,12 +268,16 @@ mf_symb_choro <- function(x, var,
       adj = leg_adj, frame_border = leg_frame_border
     )
   } else {
-    message(paste0(
-      "The use of separated legends for this map type is deprecated.\n",
-      "Please, use only one value for leg_pos",
-      " or use mf_legend() to display two legends."
-    ))
-
+    warning(
+      paste0(
+        "The use of separated legends for this map type is deprecated.\n",
+        "It will be removed from mapsf with the next major version of the ",
+        "package (scheduled in January 2027).\n",
+        "Please, use a single value for leg_pos",
+        " or use mf_legend() to display two legends."
+      ),
+      call. = FALSE
+    )
     leg(
       type = "symb",
       pos = leg_pos[[1]],

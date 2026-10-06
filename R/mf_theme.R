@@ -180,14 +180,15 @@ mf_theme <- function(x,
       } else {
         theme <- .gmapsf$themes[[x]]
         if (isTRUE(theme$legacy)) {
-          message(
+          warning(
             paste0(
-              "The following themes are deprecated:\n",
+              "The following map themes will be removed with the next major ",
+              "version of the package (scheduled in January 2027):\n",
               "'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', ",
-              "'darkula',\n",
-              "'iceberg', 'green', 'nevermind', 'jsk', and 'barcelona'.\n",
-              "See the Note section in the help page (?mf_theme)."
-            )
+              "'darkula', 'iceberg', 'green', 'nevermind', 'jsk' ",
+              "and 'barcelona'."
+            ),
+            call. = FALSE
           )
         }
       }
@@ -202,12 +203,12 @@ mf_theme <- function(x,
     argx$cex, argx$font
   )
   if (!is.null(legacy_argx)) {
-    message(paste0(
-      "The following arguments are deprecated:\n",
+    warning(paste0(
+      "The following arguments will be removed from mf_theme() with the next ",
+      "major version of the package (scheduled in January 2027):\n",
       "'bg', 'fg', 'tab', 'pos', 'inner', 'line', 'cex'",
-      " and 'font'.\n",
-      "See the Note section in the help page (?mf_theme)."
-    ))
+      " and 'font'."
+    ), call. = FALSE)
     theme$legacy <- TRUE
     theme$title_banner <- TRUE
     theme$pal_quali <- "Dynamic"

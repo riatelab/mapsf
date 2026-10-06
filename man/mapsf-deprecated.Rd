@@ -5,7 +5,7 @@
 \title{Deprecated functions in mapsf}
 \description{
 These functions and features still work but will be removed in the next
-major version of the package.
+major version of the package, which is scheduled in January 2027.
 \subsection{\code{mf_map} sub-functions}{
 
 Instead of using the following deprecated functions, one can use \link{mf_map}

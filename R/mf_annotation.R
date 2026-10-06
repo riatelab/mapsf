@@ -55,7 +55,11 @@ mf_annotation <- function(x,
                           bg,
                           s = 1,
                           ...) {
-  warning("mf_annotation() is deprecated. Use mf_text() instead.",
+  warning(paste0(
+    "mf_annotation() is deprecated.\n",
+    "It will be removed from mapsf with the next major version of the ",
+    "package (scheduled in January 2027).\n",
+    "Use mf_text() instead."),
     call. = FALSE
   )
 

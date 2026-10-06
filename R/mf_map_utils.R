@@ -1,6 +1,11 @@
 deprecate_direct_calls_to <- function(m) {
   if (any(grepl(m, sys.call(1)))) {
-    warning(paste0(m, "() is deprecated. Use mf_map() instead."), call. = FALSE)
+    warning(
+      paste0(m, "() is deprecated.\n",
+             "It will be removed from mapsf with the next ",
+      "major version of the package (scheduled in January 2027).",
+      "\nUse mf_map() instead."),
+      call. = FALSE)
   }
 }
 

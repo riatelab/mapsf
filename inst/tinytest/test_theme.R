@@ -1,10 +1,10 @@
 
 ## mf_theme
 expect_silent(mf_theme())
-expect_message(mf_theme("iceberg"))
+expect_warning(mf_theme("iceberg"))
 expect_silent(mf_theme("sol_light"))
 expect_error(mf_theme("NoT a thEmE"))
-expect_message(mf_theme(x = list(
+expect_warning(mf_theme(x = list(
   name = "custom",
   bg = "black",
   fg = "yellow",
@@ -16,7 +16,7 @@ expect_message(mf_theme(x = list(
   cex = 2,
   font = 3
 )))
-expect_message(mf_theme(bg = "darkslategrey", fg = "cornsilk3",
+expect_warning(mf_theme(bg = "darkslategrey", fg = "cornsilk3",
                        mar = c(2, 2, 4, 2),
                        tab = FALSE, pos = "center", inner = FALSE,
                        line = 2, cex = 2, font = 4)

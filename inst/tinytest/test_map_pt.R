@@ -28,7 +28,7 @@ expect_silent(mf_map(mtq_l, c("fij", "sj"), "prop_typo",
                      val_max = 5000, add = FALSE, col_na = "red"))
 
 
-expect_message(mf_map(mtq, c("POP", "STATUS"), type = "prop_typo",
+expect_warning(mf_map(mtq, c("POP", "STATUS"), type = "prop_typo",
                       leg_pos = c("top", "bottom")))
-expect_message(mf_map(mtq_l, c("fij", "sj"), type = "prop_typo",
+expect_warning(mf_map(mtq_l, c("fij", "sj"), type = "prop_typo",
                       leg_pos = c("top", "bottom")))

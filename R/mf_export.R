@@ -41,7 +41,9 @@ mf_export <- function(x,
                       expandBB = rep(0, 4)) {
   warning(
     paste0(
-      "mf_export() is deprecated. ",
+      "mf_export() is deprecated.\n",
+      "It will be removed from mapsf with the next major version of the ",
+      "package (scheduled in January 2027).\n",
       "Use mf_png() or mf_svg() instead."
     ),
     call. = FALSE
