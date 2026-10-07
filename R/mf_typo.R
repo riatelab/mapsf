@@ -25,7 +25,7 @@ typo <- function(x,
                     leg_box_cex = c(1, 1),
                     leg_fg,
                     leg_bg,
-                    add = FALSE) {
+                    add) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))

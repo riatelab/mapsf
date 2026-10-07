@@ -208,20 +208,20 @@
 #' mf_map(x, col = getOption("mapsf.foreground"),
 #'        border = getOption("mapsf.highlight"),
 #'        lwd = .7, lty = 1,
-#'        alpha, expandBB, extent, bg, add = FALSE)
+#'        alpha, expandBB, extent, bg, add)
 #' ```
 #' For points:
 #' ```r
 #' mf_map(x, col = getOption("mapsf.highlight),
 #'        border = getOption("mapsf.foreground"),
 #'        pch = 20, cex = 1, lwd = .7,
-#'        alpha, expandBB, extent, bg, add = FALSE)
+#'        alpha, expandBB, extent, bg, add)
 #' ```
 #' For lines:
 #' ```r
 #' mf_map(x, col = getOption("mapsf.highlight),
 #'        lwd = .7, lty = 1,
-#'        alpha, expandBB, extent, bg, add = FALSE)
+#'        alpha, expandBB, extent, bg, add)
 #' ```
 #'
 #' ### Choropleth maps
@@ -237,7 +237,7 @@
 #'        breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
 #'        rev = FALSE, border = getOption("mapsf.highlight"),
 #'        lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #' For points:
 #' ```r
@@ -245,14 +245,14 @@
 #'        breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
 #'        rev = FALSE, border = getOption("mapsf.background"),
 #'        pch = 21, cex = 2, lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #' For lines:
 #' ```r
 #' mf_map(x, var, type = "choro",
 #'        breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
 #'        rev = FALSE, lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #'
 #' ### Typology maps
@@ -266,7 +266,7 @@
 #' mf_map(x, var, type = "typo",
 #'        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
 #'        border = getOption("mapsf.highlight"), lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #' For points:
 #' ```r
@@ -274,14 +274,14 @@
 #'        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
 #'        border = getOption("mapsf.background"),
 #'        pch = 21, cex = 2, lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #' For lines:
 #' ```r
 #' mf_map(x, var, type = "typo",
 #'        pal = getOption("mapsf.pal_quali"), rev = FALSE,
 #'        val_order, lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #'
 #' ### Proportional symbols maps
@@ -686,15 +686,15 @@ mf_map <- function(x,
   # add mgmgt, set default add, do not add if no device is launch
   if (missing(add)) {
     add <- switch(type,
-      prop = TRUE,
-      choro = FALSE,
-      typo = FALSE,
-      symb = TRUE,
-      base = FALSE,
-      grad = TRUE,
-      prop_choro = TRUE,
-      prop_typo = TRUE,
-      symb_choro = TRUE
+                  base = FALSE,
+                  choro = FALSE,
+                  typo = FALSE,
+                  symb = TRUE,
+                  prop = TRUE,
+                  grad = TRUE,
+                  prop_choro = TRUE,
+                  prop_typo = TRUE,
+                  symb_choro = TRUE
     )
   }
   if (is.null(dev.list())) {

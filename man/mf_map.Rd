@@ -259,7 +259,7 @@ For polygons:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, col = getOption("mapsf.foreground"),
        border = getOption("mapsf.highlight"),
        lwd = .7, lty = 1,
-       alpha, expandBB, extent, bg, add = FALSE)
+       alpha, expandBB, extent, bg, add)
 }\if{html}{\out{</div>}}
 
 For points:
@@ -267,14 +267,14 @@ For points:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, col = getOption("mapsf.highlight),
        border = getOption("mapsf.foreground"),
        pch = 20, cex = 1, lwd = .7,
-       alpha, expandBB, extent, bg, add = FALSE)
+       alpha, expandBB, extent, bg, add)
 }\if{html}{\out{</div>}}
 
 For lines:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, col = getOption("mapsf.highlight),
        lwd = .7, lty = 1,
-       alpha, expandBB, extent, bg, add = FALSE)
+       alpha, expandBB, extent, bg, add)
 }\if{html}{\out{</div>}}
 }
 
@@ -291,7 +291,7 @@ For polygons:
        breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
        rev = FALSE, border = getOption("mapsf.highlight"),
        lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 
 For points:
@@ -300,7 +300,7 @@ For points:
        breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
        rev = FALSE, border = getOption("mapsf.background"),
        pch = 21, cex = 2, lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 
 For lines:
@@ -308,7 +308,7 @@ For lines:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, var, type = "choro",
        breaks = "quantile", nbreaks, pal = getOption("mapsf.pal_seq"),
        rev = FALSE, lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 
@@ -323,7 +323,7 @@ For polygons:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, var, type = "typo",
        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
        border = getOption("mapsf.highlight"), lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 
 For points:
@@ -332,7 +332,7 @@ For points:
        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
        border = getOption("mapsf.background"),
        pch = 21, cex = 2, lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 
 For lines:
@@ -340,7 +340,7 @@ For lines:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, var, type = "typo",
        pal = getOption("mapsf.pal_quali"), rev = FALSE,
        val_order, lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 

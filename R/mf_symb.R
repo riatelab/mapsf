@@ -24,7 +24,7 @@ symb <- function(x, var,
                     leg_fg,
                     leg_bg,
                     leg_size = 1,
-                    add = FALSE) {
+                    add) {
   xtype <- get_geom_type(x)
   # linestring special case
   if (xtype == "LINE") {

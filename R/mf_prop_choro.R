@@ -31,7 +31,7 @@ prop_choro <- function(x,
                           leg_size = 1,
                           leg_box_border,
                           leg_box_cex = c(1, 1),
-                          add = FALSE) {
+                          add) {
   xtype <- get_geom_type(x)
   # linestring special case
   if (xtype == "LINE") {

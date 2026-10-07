@@ -29,7 +29,7 @@ choro <- function(x, var,
                   leg_fg,
                   leg_bg,
                   leg_frame_border,
-                  add = FALSE) {
+                  add) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
