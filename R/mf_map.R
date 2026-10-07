@@ -64,7 +64,7 @@
 #' `extent` and `x` must use the same CRS.
 #' @param bg background color of the map, hex code or color name given by
 #' [colors], ignored if `add = TRUE`
-#' @param add whether to add the layer to an existing plot (TRUE) or not (FALSE)
+#' @param add whether to add the layer to an existing plot or not (see Details)
 #' @param col fill color of polygons, lines, points, proportional and graduated
 #' symbols. It can be a hex code or a color name given by [colors].
 #' @param pch_na type of point symbol for missing values on points
@@ -146,6 +146,13 @@
 #' It must be a single value for all map types. The only exception is the
 #' *grad* map type applied to lines, for which it should be a vector of line
 #' widths. The vector length must match the number of classes.
+#' }
+#' \item{add}{
+#' The default value is FALSE but if a graphics device is opened (i.e. if a
+#' map layer has already been plotted) then the default value switches to TRUE
+#' for the following map types: "prop", "symb", "grad", "prop_choro",
+#' "prop_typo" and "symb_choro".
+#' For clarity, it is better to set the argument explicitly.
 #' }
 #' \item{leg_title}{
 #' This argument need two values when using *prop_choro*, the first
@@ -285,14 +292,14 @@
 #'        inches = .3, val_max, symbol = "circle",
 #'        col = getOption("mapsf.highlight),
 #'        border = getOption("mapsf.background), lwd = .7,
-#'        expandBB, extent, bg, alpha, add = TRUE, leg_*)
+#'        expandBB, extent, bg, alpha, add, leg_*)
 #'
 #' ```
 #' For lines:
 #' ```r
 #' mf_map(x, var, type = "prop",
 #'        val_max, lwd_max = 20, col = getOption("mapsf.highlight),
-#'        expandBB, extent, bg, alpha, add = TRUE, leg_*)
+#'        expandBB, extent, bg, alpha, add, leg_*)
 #' ```
 #'
 #' ### Proportional symbols with choropleth coloration maps
@@ -312,7 +319,7 @@
 #'        pal = getOption("mapsf.pal_seq"), rev = FALSE,
 #'        breaks = "quantile", nbreaks, border = getOption("mapsf.background"),
 #'        lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = TRUE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #'
 #' ### Proportional symbols with typology coloration maps
@@ -331,7 +338,7 @@
 #'        border = getOption("mapsf.background"),
 #'        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
 #'        lwd = .7, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #' For lines:
 #' ```r
@@ -339,7 +346,7 @@
 #'        lwd_max = 15,
 #'        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
 #'        col_na = "white",
-#'        alpha, expandBB, extent, bg, add = FALSE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #'
 #' ### Symbols maps
@@ -356,7 +363,7 @@
 #'        rev = FALSE, border = getOption("mapsf.background"),
 #'        val_order,
 #'        col_na = "grey", pch_na = 4, cex_na = 1,
-#'        alpha, expandBB, extent, bg, add = TRUE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #'
 #' ### Graduated symbols maps
@@ -373,7 +380,7 @@
 #'        col = getOption("mapsf.highlight"),
 #'        border = getOption("mapsf.background"),
 #'        lwd = .7, pch = 21, cex = seq(1, 4, length.out = nbreaks),
-#'        alpha, expandBB, extent, bg, add = TRUE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #' For lines:
 #' ```r
@@ -381,7 +388,7 @@
 #'        breaks = "quantile", nbreaks = 3,
 #'        col = getOption("mapsf.highlight"),
 #'        lwd = seq(1, 4, length.out = nbreaks),
-#'        alpha, expandBB, extent, bg, add = TRUE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #'
 #' ### Symbols with choropleth coloration maps
@@ -402,7 +409,7 @@
 #'        pal = getOption("mapsf.pal_seq"), rev = FALSE,
 #'        breaks = "quantile", nbreaks,
 #'        pch_na = 4, cex_na = 1, col_na = "white",
-#'        alpha, expandBB, extent, bg, add = TRUE, leg_*)
+#'        alpha, expandBB, extent, bg, add, leg_*)
 #' ```
 #' @export
 #' @return x is (invisibly) returned.
@@ -678,15 +685,13 @@ mf_map <- function(x,
       symb_choro = TRUE
     )
   }
-
-
   if (is.null(dev.list())) {
     add <- FALSE
   }
 
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% c("type")]
-
+  argx$add <- add
 
   if (type != "base") {
     argx <- check_args(argx, type)

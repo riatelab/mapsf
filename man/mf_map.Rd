@@ -91,7 +91,7 @@ values).}
 \item{bg}{background color of the map, hex code or color name given by
 \link{colors}, ignored if \code{add = TRUE}}
 
-\item{add}{whether to add the layer to an existing plot (TRUE) or not (FALSE)}
+\item{add}{whether to add the layer to an existing plot or not (see Details)}
 
 \item{leg_pos}{position of the legend, one of 'topleft', 'top','topright',
 'right', 'bottomright', 'bottom', 'bottomleft', 'left' or a vector of two
@@ -198,6 +198,13 @@ of sizes (the vector length must match the number of classes).
 It must be a single value for all map types. The only exception is the
 \emph{grad} map type applied to lines, for which it should be a vector of line
 widths. The vector length must match the number of classes.
+}
+\item{add}{
+The default value is FALSE but if a graphics device is opened (i.e. if a
+map layer has already been plotted) then the default value switches to TRUE
+for the following map types: "prop", "symb", "grad", "prop_choro",
+"prop_typo" and "symb_choro".
+For clarity, it is better to set the argument explicitly.
 }
 \item{leg_title}{
 This argument need two values when using \emph{prop_choro}, the first
@@ -345,7 +352,7 @@ For polygons and points:
        inches = .3, val_max, symbol = "circle",
        col = getOption("mapsf.highlight),
        border = getOption("mapsf.background), lwd = .7,
-       expandBB, extent, bg, alpha, add = TRUE, leg_*)
+       expandBB, extent, bg, alpha, add, leg_*)
 
 }\if{html}{\out{</div>}}
 
@@ -353,7 +360,7 @@ For lines:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mf_map(x, var, type = "prop",
        val_max, lwd_max = 20, col = getOption("mapsf.highlight),
-       expandBB, extent, bg, alpha, add = TRUE, leg_*)
+       expandBB, extent, bg, alpha, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 
@@ -374,7 +381,7 @@ For polygons and points:
        pal = getOption("mapsf.pal_seq"), rev = FALSE,
        breaks = "quantile", nbreaks, border = getOption("mapsf.background"),
        lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 
@@ -394,7 +401,7 @@ For polygons and points:
        border = getOption("mapsf.background"),
        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
        lwd = .7, col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 
 For lines:
@@ -403,7 +410,7 @@ For lines:
        lwd_max = 15,
        pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
        col_na = "white",
-       alpha, expandBB, extent, bg, add = FALSE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 
@@ -421,7 +428,7 @@ For polygons and points:
        rev = FALSE, border = getOption("mapsf.background"),
        val_order,
        col_na = "grey", pch_na = 4, cex_na = 1,
-       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 
@@ -439,7 +446,7 @@ For polygons and points:
        col = getOption("mapsf.highlight"),
        border = getOption("mapsf.background"),
        lwd = .7, pch = 21, cex = seq(1, 4, length.out = nbreaks),
-       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 
 For lines:
@@ -448,7 +455,7 @@ For lines:
        breaks = "quantile", nbreaks = 3,
        col = getOption("mapsf.highlight"),
        lwd = seq(1, 4, length.out = nbreaks),
-       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 
@@ -470,7 +477,7 @@ For polygons and points:
        pal = getOption("mapsf.pal_seq"), rev = FALSE,
        breaks = "quantile", nbreaks,
        pch_na = 4, cex_na = 1, col_na = "white",
-       alpha, expandBB, extent, bg, add = TRUE, leg_*)
+       alpha, expandBB, extent, bg, add, leg_*)
 }\if{html}{\out{</div>}}
 }
 
