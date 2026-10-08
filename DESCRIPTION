@@ -1,6 +1,6 @@
 Package: mapsf
 Title: Thematic Cartography
-Version: 1.2.2.9000
+Version: 1.3.0
 Authors@R: 
     c(person(given = "Timothée",
              family = "Giraud",
