@@ -81,11 +81,11 @@ after export.
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".svg"))
-#> [1] "/tmp/Rtmp8fWYSN/file79757c813db1.svg"
+#> [1] "/tmp/Rtmpn3AUPU/filebe0c728afb54.svg"
 mf_svg(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_79757f1903a 
-#>                      2 
+#> agg_record_be0c40421747 
+#>                       2 
 ```

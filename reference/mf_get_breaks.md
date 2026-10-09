@@ -84,22 +84,22 @@ The "msd" method is based on the **mean** and the **standard deviation**
 of a numeric vector. The `nbreaks` parameter is not relevant, use `k`
 and `central` instead. `k` indicates the extent of each class in share
 of standard deviation. If `central=TRUE` then the mean value is the
-center of a class else the mean is a break value.  
-  
+center of a class else the mean is a break value.\
+\
 The "q6" method uses the following
 [`quantile`](https://rdrr.io/r/stats/quantile.html) probabilities: 0,
-0.05, 0.275, 0.5, 0.725, 0.95, 1.  
-  
+0.05, 0.275, 0.5, 0.725, 0.95, 1.\
+\
 The "Q6" method uses the following
 [`quantile`](https://rdrr.io/r/stats/quantile.html) probabilities: 0,
-0.05, 0.25, 0.5, 0.75, 0.95, 1.  
-  
+0.05, 0.25, 0.5, 0.75, 0.95, 1.\
+\
 The "geom" method is based on a geometric progression along the variable
-values, all values must be strictly greater than zero.  
-  
+values, all values must be strictly greater than zero.\
+\
 The "arith" method is based on an arithmetic progression along the
-variable values.  
-  
+variable values.\
+\
 The "em" method is based on nested averages computation.
 
 ### Class boundaries

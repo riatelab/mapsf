@@ -2,7 +2,7 @@
 
 **[`mf_theme()`](https://riatelab.github.io/mapsf/reference/mf_theme.md)**
 sets a map theme. A theme is a set of graphical parameters that are
-applied to maps created with `mapsf`.  
+applied to maps created with `mapsf`.\
 These parameters are:
 
 - figure margins and frames,
@@ -21,28 +21,28 @@ Here are the builtin themes.
 
 ![proportional symbols map with base
 theme](fig/wo_theme_base1.png) ![choropleth map with base
-theme](fig/wo_theme_base2.png)  
+theme](fig/wo_theme_base2.png)\
 ![proportional symbols map with sol_dark
 theme](fig/wo_theme_sol_dark1.png) ![choropleth map with sol_dark
-theme](fig/wo_theme_sol_dark2.png)  
+theme](fig/wo_theme_sol_dark2.png)\
 ![proportional symbols map with sol_light
 theme](fig/wo_theme_sol_light1.png) ![choropleth map with sol_light
-theme](fig/wo_theme_sol_light2.png)  
+theme](fig/wo_theme_sol_light2.png)\
 ![proportional symbols map with grey
 theme](fig/wo_theme_grey1.png) ![choropleth map with grey
-theme](fig/wo_theme_grey2.png)  
+theme](fig/wo_theme_grey2.png)\
 ![proportional symbols map with mint
 theme](fig/wo_theme_mint1.png) ![choropleth map with mint
-theme](fig/wo_theme_mint2.png)  
+theme](fig/wo_theme_mint2.png)\
 ![proportional symbols map with pistachio
 theme](fig/wo_theme_pistachio1.png) ![choropleth map with pistachio
-theme](fig/wo_theme_pistachio2.png)  
+theme](fig/wo_theme_pistachio2.png)\
 ![proportional symbols map with dracula
 theme](fig/wo_theme_dracula1.png) ![choropleth map with dracula
-theme](fig/wo_theme_dracula2.png)  
+theme](fig/wo_theme_dracula2.png)\
 ![proportional symbols map with rzine
 theme](fig/wo_theme_rzine1.png) ![choropleth map with rzine
-theme](fig/wo_theme_rzine2.png)  
+theme](fig/wo_theme_rzine2.png)\
 
 ## How to modify an existing theme
 
@@ -120,10 +120,8 @@ them by name.
 ``` r
 
 mf_theme("default")
-#> The following themes are deprecated:
-#> 'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', 'darkula',
-#> 'iceberg', 'green', 'nevermind', 'jsk', and 'barcelona'.
-#> See the Note section in the help page (?mf_theme).
+#> Warning: The following map themes will be removed with the next major version of the package (scheduled in January 2027):
+#> 'default', 'brutal', 'ink', 'dark', 'agolalight', 'candy', 'darkula', 'iceberg', 'green', 'nevermind', 'jsk' and 'barcelona'.
 mf_map(mtq)
 mf_title("Legacy default theme")
 ```

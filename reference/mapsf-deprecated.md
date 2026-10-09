@@ -1,7 +1,7 @@
 # Deprecated functions in mapsf
 
 These functions and features still work but will be removed in the next
-major version of the package.
+major version of the package, which is scheduled in January 2027.
 
 ### `mf_map` sub-functions
 
@@ -68,17 +68,17 @@ separated legends are needed.
 In [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md),
 the following themes are deprecated: "default", "brutal", "ink", "dark",
 "agolalight", "candy", "darkula", "iceberg", "green", "nevermind", "jsk"
-and "barcelona".  
+and "barcelona".\
 The following arguments are also deprecated: "bg", "fg", "tab", "pos",
-"inner", "line", "cex" and "font".  
+"inner", "line", "cex" and "font".\
 
 Although the map theming system has been radically changed in version
 1.0.0 of the package, you can still use the old themes by referencing
 them by name. If you need to use the *pre* v1.0.0 default theme, set `x`
-to "default".  
+to "default".\
 If an old theme is set, only deprecated arguments are used and others
-are ignored.  
+are ignored.\
 If current and deprecated arguments are mixed, only deprecated arguments
-are used and others are ignored.  
+are used and others are ignored.\
 All references and usages of the old theming system will be removed in
 the next major version.

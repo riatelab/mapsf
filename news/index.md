@@ -1,6 +1,15 @@
 # Changelog
 
+## mapsf 1.3.0
+
+This is a maintenance release to prepare for an upcoming major release.
+Information about future deprecations (arguments and functions) has been
+transformed from messages to warnings and a date has been announced for
+the upcoming major release.
+
 ## mapsf 1.2.2
+
+CRAN release: 2026-09-02
 
 ### Fix
 

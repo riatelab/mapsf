@@ -3,12 +3,12 @@
 ## Introduction
 
 The aim of `mapsf` is to obtain thematic maps with the visual quality of
-those build with a classical mapping or GIS software.  
+those build with a classical mapping or GIS software.\
 `mapsf` uses [`sf`](https://CRAN.R-project.org/package=sf) objects to
-produce `base` graphics.  
+produce `base` graphics.\
 `mapsf` functions can be classified in the following categories:
 
-- **Symbology**  
+- **Symbology**\
   [`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) is
   the main function of the package, it displays map layers on a
   georeferenced plot. Many parameters are available to fine tune the
@@ -17,12 +17,12 @@ produce `base` graphics.
   color palettes used in choropleth maps, symbols sizes used in
   proportional symbols maps…).
 
-- **Map Layout**  
+- **Map Layout**\
   Along with the cartographic functions, some other functions are
   dedicated to layout design (e.g. legends, scale bar, north arrow,
   title, credits…).
 
-- **Utility Functions**  
+- **Utility Functions**\
   A set of functions is dedicated to the creation of spatial objects
   (e.g. links creation) or other utility tasks (e.g. color palette
   management, class intervals extraction, sample dataset import…).
@@ -41,24 +41,24 @@ three main arguments:
 The following map types are available:
 
 - ![base type logo](fig/mf_base.svg) **base**: displays sf objects
-  geometries  
+  geometries\
 - ![prop type logo](fig/mf_prop.svg) **prop**: displays symbols with
-  areas proportional to a quantitative variable (stocks)  
+  areas proportional to a quantitative variable (stocks)\
 - ![choro type logo](fig/mf_choro.svg) **choro**: areas are shaded
-  according to the variation of a quantitative variable  
+  according to the variation of a quantitative variable\
 - ![typo type logo](fig/mf_typo.svg) **typo**: displays a typology map
-  of a qualitative variable  
+  of a qualitative variable\
 - ![symb type logo](fig/mf_symb.svg) **symb**: displays the different
-  modalities of a qualitative variable as symbols  
+  modalities of a qualitative variable as symbols\
 - ![grad type logo](fig/mf_grad.svg) **grad**: displays graduated
-  symbols  
+  symbols\
 - ![prop_choro type logo](fig/mf_prop_choro.svg) **prop_choro**:
   displays symbols with sizes proportional to values of a first variable
   and colored to reflect the classification of a second quantitative
-  variable  
+  variable\
 - ![prop_typo type logo](fig/mf_prop_typo.svg) **prop_typo**: displays
   symbols with sizes proportional to values of a first variable and and
-  colored to reflect the modalities of a second qualitative variable  
+  colored to reflect the modalities of a second qualitative variable\
 - ![symb_choro type logo](fig/mf_symb_choro.svg) **symb_choro**:
   displays the different modalities of a first qualitative variable as
   symbols colored to reflect the classification of a second quantitative
@@ -74,7 +74,7 @@ classes, intervals).
 These functions are dedicated to the map layout design.
 
 ![Map with a full layout created with the mapsf
-package](fig/maplayout.png)  
+package](fig/maplayout.png)\
 
 |  |  |
 |----|----|
@@ -106,10 +106,10 @@ themes](https://riatelab.github.io/mapsf/articles/how_to_use_themes)
 [`mf_svg()`](https://riatelab.github.io/mapsf/reference/mf_svg.md) and
 [`mf_png()`](https://riatelab.github.io/mapsf/reference/mf_png.md)
 export maps in SVG and PNG formats, respectively. The exported map
-width/height ratio will match the one of a spatial object.  
+width/height ratio will match the one of a spatial object.\
 **SVG export** is the perfect solution for editing maps with desktop
 vector graphics software, such as Inkscape. SVG is a [vector
-graphics](https://en.wikipedia.org/wiki/Vector_graphics) file format.  
+graphics](https://en.wikipedia.org/wiki/Vector_graphics) file format.\
 **PNG export** should be used for maps that do not require further
 modification. PNG is a [raster
 graphics](https://en.wikipedia.org/wiki/Raster_graphics) file format.
@@ -121,7 +121,7 @@ maps](https://riatelab.github.io/mapsf/articles/how_to_export_maps)
 
 ### Base map
 
-`mf_map(x, type = "base")` displays `sf` objects geometries.  
+`mf_map(x, type = "base")` displays `sf` objects geometries.\
 [`mf_get_mtq()`](https://riatelab.github.io/mapsf/reference/mf_get_mtq.md)
 is used to import a sample dataset as an `sf` object. Use
 [`sf::st_read()`](https://r-spatial.github.io/sf/reference/st_read.html)
@@ -186,7 +186,7 @@ type](mapsf_files/figure-html/mf_prop-1.png)
 ### Choropleth Map
 
 In choropleth maps, areas are shaded according to the variation of a
-quantitative variable. They are used to represent ratios or indices.  
+quantitative variable. They are used to represent ratios or indices.\
 `mf_map(x, var, type = "choro")` displays choropleth maps . Arguments
 `nbreaks`, and `breaks` allow to customize the variable classification.
 [`mf_get_breaks()`](https://riatelab.github.io/mapsf/reference/mf_get_breaks.md)

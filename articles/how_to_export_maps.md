@@ -7,7 +7,7 @@ export maps in SVG and PNG formats, respectively.
 
 **SVG export** is the perfect solution for editing maps with desktop
 vector graphics software, such as Inkscape. SVG is a [vector
-graphics](https://en.wikipedia.org/wiki/Vector_graphics) file format.  
+graphics](https://en.wikipedia.org/wiki/Vector_graphics) file format.\
 **PNG export** should be used for maps that do not require further
 modification. PNG is a [raster
 graphics](https://en.wikipedia.org/wiki/Raster_graphics) file format.
@@ -15,7 +15,7 @@ graphics](https://en.wikipedia.org/wiki/Raster_graphics) file format.
 The width/height ratio of the exported map matches that of a spatial
 object. If `width` is specified, then `height` is deduced from the
 width/height ratio of `x`. Alternatively, if `height` is specified, then
-`width` is deduced from the width/height ratio of `x`.  
+`width` is deduced from the width/height ratio of `x`.\
 This helps to produce maps without too much wasted space.
 
 ## SVG Export
@@ -37,7 +37,7 @@ mf_title(txt = "SVG export")
 dev.off()
 ```
 
-![A SVG export](fig/wo_export_fixed_height.svg)  
+![A SVG export](fig/wo_export_fixed_height.svg)\
 
 The default driver for building SVG files,
 [`grDevices::svg()`](https://rdrr.io/r/grDevices/cairo.html), has
@@ -64,7 +64,7 @@ mf_title(txt = "PNG export: width=500px, height=608px (deduced)", cex = 1)
 dev.off()
 ```
 
-![A PNG export with a fixed width](fig/wo_export_fixed_width.png)  
+![A PNG export with a fixed width](fig/wo_export_fixed_width.png)\
 
 In the following example, we used the “dracula” theme and we added space
 to the right of the plot (50% of `x` width) in order to get some extra
@@ -86,4 +86,4 @@ dev.off()
 ```
 
 ![A PNG export with a fixed width and
-margins](fig/wo_export_fixed_width_expand.png)  
+margins](fig/wo_export_fixed_width_expand.png)\

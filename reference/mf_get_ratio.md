@@ -1,11 +1,11 @@
 # Get map width and height values
 
 This function is to be used to get width and height values for maps
-created in reports (\*.Rmd, \*.qmd).  
+created in reports (\*.Rmd, \*.qmd).\
 It uses the width / height ratio of a spatial object bounding box to
-find a matching ratio for the map.  
+find a matching ratio for the map.\
 If width is specified, then height is deduced from the width / height
-ratio of x, figure margins and title size.  
+ratio of x, figure margins and title size.\
 If height is specified, then width is deduced from the width / height
 ratio of x, figure margins and title size.
 

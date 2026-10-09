@@ -5,13 +5,13 @@ This function is deprecated. Please use
 [`mf_svg`](https://riatelab.github.io/mapsf/reference/mf_svg.md)
 instead.
 
-Export a map with the extent of a spatial object.  
-The map is exported in PNG or SVG format.  
+Export a map with the extent of a spatial object.\
+The map is exported in PNG or SVG format.\
 If only one of `width` or `height` is set, `mf_export` uses the
 width/height ratio of `x` bounding box to find a matching ratio for the
-export.  
+export.\
 Always use `add = TRUE` in `mf_map` calls following an `mf_export`
-call.  
+call.\
 Use `dev.off` to finish the export (see Examples).
 
 ## Usage
@@ -70,11 +70,11 @@ No return value, a map file is initiated (in PNG or SVG format).
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".png"))
-#> [1] "/tmp/Rtmp8fWYSN/file7975764d7a8d.png"
+#> [1] "/tmp/Rtmpn3AUPU/filebe0c32d0d17.png"
 mf_png(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_797511826de5 
+#> agg_record_be0c6ce30697 
 #>                       2 
 ```

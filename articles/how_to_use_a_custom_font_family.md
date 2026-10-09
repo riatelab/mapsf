@@ -3,7 +3,7 @@
 To use a custom font family, the user can use the `family` argument of
 the [`par()`](https://rdrr.io/r/graphics/par.html) function before
 plotting the map. For example, use `par(family = "Fira Code")` to use
-the **Fira Code** font.  
+the **Fira Code** font.\
 Note that the font has to be installed on your system and recognized by
 R.
 

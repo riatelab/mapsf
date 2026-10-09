@@ -8,8 +8,8 @@ closes it.
 
 If map layers have to be plotted after the inset (i.e after
 [`mf_inset_off()`](https://riatelab.github.io/mapsf/reference/mf_inset_on.md)),
-please use `add = TRUE`.  
-It is not possible to plot an inset within an inset.  
+please use `add = TRUE`.\
+It is not possible to plot an inset within an inset.\
 It is possible to plot anything (base plots) within the inset, not only
 map layers.
 
@@ -20,9 +20,9 @@ There is 2 solutions for defining the size and position of an inset.
 The first solution is based on `x`, `pos` and `cex` arguments:
 
 - `x` is an sf object, the width/height ratio of the inset will match
-  the width/height ratio of `x` bounding box;  
+  the width/height ratio of `x` bounding box;\
 - `pos` must be one of “bottomleft”, “left”, “topleft”, “top”, “bottom”,
-  “bottomright”, “right” or”topright”;  
+  “bottomright”, “right” or”topright”;\
 - `cex` defines the share of the map width covered by the inset (0.5
   means 50%).
 
@@ -52,7 +52,7 @@ mf_inset_off()
 
 ![A map with an inset in the topright corner](fig/wo_inset_target-1.png)
 
-Once an inset is opened, map elements can be added to it.  
+Once an inset is opened, map elements can be added to it.\
 Here we add a title, a shadow, a scale bar, other Martinique
 municipalities and a frame.
 
@@ -95,9 +95,9 @@ mf_credits(txt = "T. Giraud, 2021")
 ![A map with a complex inset](fig/wo_inset_target_plus-1.png)
 
 The second solution to set the size and position of an inset is to use
-the `fig` argument.  
+the `fig` argument.\
 `fig` coordinates (xmin, xmax, ymin, ymax) are expressed as fractions of
-the mapping space (i.e. excluding margins).  
+the mapping space (i.e. excluding margins).\
 `mf_inset_on(fig = c(0, 0.25, 0, 0.25))` will create an inset on the
 bottomleft corner of the map and will cover a quarter of the map in
 width and height.

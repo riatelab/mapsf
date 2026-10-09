@@ -160,7 +160,7 @@ mf_map(x, var, type = "base",
 
 - add:
 
-  whether to add the layer to an existing plot (TRUE) or not (FALSE)
+  whether to add the layer to an existing plot or not (see Details)
 
 - leg_pos:
 
@@ -256,11 +256,11 @@ x is (invisibly) returned.
 
 - var:
 
-  A vector of two names is required for the following map types.  
+  A vector of two names is required for the following map types.\
   For *prop_choro* map type, the first name refers to the proportional
-  symbols, the second one to the choropleth coloration.  
+  symbols, the second one to the choropleth coloration.\
   For *prop_typo* map type, the first name refers to the proportional
-  symbols, the second one to the typology coloration.  
+  symbols, the second one to the typology coloration.\
   For *symb_choro* map type the first name refers to the symbols
   categories, the second one to the choropleth coloration.
 
@@ -277,7 +277,7 @@ x is (invisibly) returned.
   names can be obtained with
   [hcl.pals](https://rdrr.io/r/grDevices/palettes.html) and an overview
   of all available palettes is given in
-  [hcl.pals](https://rdrr.io/r/grDevices/palettes.html) examples.  
+  [hcl.pals](https://rdrr.io/r/grDevices/palettes.html) examples.\
   `pal` can be a vector of colors defined by their hex codes or color
   names given by [colors](https://rdrr.io/r/grDevices/colors.html):
   c("#7F000D", "#A9565A", "#CA9496", "#E2CBCB", "#F1F1F1") or c("red",
@@ -286,19 +286,19 @@ x is (invisibly) returned.
 - pch:
 
   For *base*, *choro*, *typo* and *grad* map types, a single value is
-  needed.  
+  needed.\
   For *symb* and *symb_choro* map types, a vector of point symbols with
-  a length that matches the number of modalities is needed.  
+  a length that matches the number of modalities is needed.\
   See [pch](https://rdrr.io/r/graphics/points.html) for the available
   symbols.
 
 - cex:
 
   For *base*, *choro*, *typo*, *prop* and *prop_typo* map types, it
-  should be a single value.  
+  should be a single value.\
   For *symb* and *symb_choro* map types, it shoud be a single value or a
   vector of sizes (the vector length must match the number of
-  modalities).  
+  modalities).\
   For the *grad* map type applied to points or polygons, it must be a
   vector of sizes (the vector length must match the number of classes).
 
@@ -308,21 +308,29 @@ x is (invisibly) returned.
   *grad* map type applied to lines, for which it should be a vector of
   line widths. The vector length must match the number of classes.
 
+- add:
+
+  The default value is FALSE but if a graphics device is opened (i.e. if
+  a map layer has already been plotted) then the default value switches
+  to TRUE for the following map types: "prop", "symb", "grad",
+  "prop_choro", "prop_typo" and "symb_choro". For clarity, it is better
+  to set the argument explicitly.
+
 - leg_title:
 
   This argument need two values when using *prop_choro*, the first
   values refers to the proportional symbols legend, the second one to
-  the choropleth legend.  
+  the choropleth legend.\
   This argument need two values when using *prop_typo*, the first values
   refers to the proportional symbols legend, the second one to the
-  typology legend.  
+  typology legend.\
   This argument need two values when using *symb_choro*, the first value
   refers to the symbols legend, the second one to the choropleth legend.
 
 - leg_val_rnd:
 
   The values are only rounded for the legend and raw values are used on
-  the map.  
+  the map.\
   This argument need two values when using *prop_choro*, the first value
   refers to the symbols legend, the second one to the choropleth legend.
 
@@ -341,7 +349,7 @@ x is (invisibly) returned.
 Default colors and palettes are defined by the cartographic theme.
 [mf_theme](https://riatelab.github.io/mapsf/reference/mf_theme.md)
 documentation explains how to inspect and modify these default colors
-and palettes.  
+and palettes.\
 Current theme parameters are set in `mapsf` options and are extracted
 with getOption() in the following section.
 
@@ -378,9 +386,9 @@ For lines:
 
 #### Choropleth maps
 
-With the **choro** map type, `mf_map()` displays a choropleth map.  
+With the **choro** map type, `mf_map()` displays a choropleth map.\
 In choropleth maps, areas are shaded according to the variation of a
-quantitative variable.  
+quantitative variable.\
 They are used to represent ratios or indices.
 
 For polygons:
@@ -408,7 +416,7 @@ For lines:
 
 #### Typology maps
 
-With the **typo** map type, `mf_map()` displays a typology map.  
+With the **typo** map type, `mf_map()` displays a typology map.\
 In typology maps, areas are shaded according to the modalities of a
 qualitative variable.
 
@@ -437,7 +445,7 @@ For lines:
 #### Proportional symbols maps
 
 With the **prop** map type, `mf_map()` displays symbols (squares or
-circles) with areas proportional to a quantitative variable (stocks).  
+circles) with areas proportional to a quantitative variable (stocks).\
 For polygons, centroids are used to plot proportional symbols.
 
 For polygons and points:
@@ -446,22 +454,22 @@ For polygons and points:
            inches = .3, val_max, symbol = "circle",
            col = getOption("mapsf.highlight),
            border = getOption("mapsf.background), lwd = .7,
-           expandBB, extent, bg, alpha, add = FALSE, leg_*)
+           expandBB, extent, bg, alpha, add, leg_*)
 
 For lines:
 
     mf_map(x, var, type = "prop",
            val_max, lwd_max = 20, col = getOption("mapsf.highlight),
-           expandBB, extent, bg, alpha, add = FALSE, leg_*)
+           expandBB, extent, bg, alpha, add, leg_*)
 
 #### Proportional symbols with choropleth coloration maps
 
 `mf_map()` with **prop_choro** type creates symbols that are
 proportional to values of a first variable and colored to reflect the
-classification of a second variable.  
+classification of a second variable.\
 This map types uses two variables and some arguments need to be set for
 both variables (see `leg_title`, `leg_val_rnd` and `leg_horiz`
-Details).  
+Details).\
 For polygons, centroids are used to plot proportional symbols. This map
 type is not available for lines.
 
@@ -472,15 +480,15 @@ For polygons and points:
            pal = getOption("mapsf.pal_seq"), rev = FALSE,
            breaks = "quantile", nbreaks, border = getOption("mapsf.background"),
            lwd = .7, col_na = "white",
-           alpha, expandBB, extent, bg, add = TRUE, leg_*)
+           alpha, expandBB, extent, bg, add, leg_*)
 
 #### Proportional symbols with typology coloration maps
 
 `mf_map()` with **prop_typo** type creates symbols that are proportional
 to values of a first variable and colored to reflect the modalities of a
-second qualitative variable.  
+second qualitative variable.\
 This map types uses two variables and some `leg_title` need to be set
-for both variables (see `leg_title` Details).  
+for both variables (see `leg_title` Details).\
 For polygons, centroids are used to plot proportional symbols.
 
 For polygons and points:
@@ -490,7 +498,7 @@ For polygons and points:
            border = getOption("mapsf.background"),
            pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
            lwd = .7, col_na = "white",
-           alpha, expandBB, extent, bg, add = FALSE, leg_*)
+           alpha, expandBB, extent, bg, add, leg_*)
 
 For lines:
 
@@ -498,12 +506,12 @@ For lines:
            lwd_max = 15,
            pal = getOption("mapsf.pal_quali"), rev = FALSE, val_order,
            col_na = "white",
-           alpha, expandBB, extent, bg, add = FALSE, leg_*)
+           alpha, expandBB, extent, bg, add, leg_*)
 
 #### Symbols maps
 
 `mf_map()` can use symbols to display qualitative data, using **symb**
-map type.  
+map type.\
 For polygons, centroids are used to plot symbols. This map type is not
 available for lines.
 
@@ -514,13 +522,13 @@ For polygons and points:
            rev = FALSE, border = getOption("mapsf.background"),
            val_order,
            col_na = "grey", pch_na = 4, cex_na = 1,
-           alpha, expandBB, extent, bg, add = TRUE, leg_*)
+           alpha, expandBB, extent, bg, add, leg_*)
 
 #### Graduated symbols maps
 
 With the **grad** map type, `mf_map()` displays graduated symbols on a
-map.  
-Graduated symbols are based on classified quantitative variables.  
+map.\
+Graduated symbols are based on classified quantitative variables.\
 For polygons, centroids are used to plot graduated symbols.
 
 For polygons and points:
@@ -530,7 +538,7 @@ For polygons and points:
            col = getOption("mapsf.highlight"),
            border = getOption("mapsf.background"),
            lwd = .7, pch = 21, cex = seq(1, 4, length.out = nbreaks),
-           alpha, expandBB, extent, bg, add = TRUE, leg_*)
+           alpha, expandBB, extent, bg, add, leg_*)
 
 For lines:
 
@@ -538,15 +546,15 @@ For lines:
            breaks = "quantile", nbreaks = 3,
            col = getOption("mapsf.highlight"),
            lwd = seq(1, 4, length.out = nbreaks),
-           alpha, expandBB, extent, bg, add = TRUE, leg_*)
+           alpha, expandBB, extent, bg, add, leg_*)
 
 #### Symbols with choropleth coloration maps
 
 `mf_map()` with **symb_choro** type creates symbols that reflect
 modalities of a first qualitative variable and colored to reflect the
-classification of a second variable.  
+classification of a second variable.\
 This map types uses two variables and some arguments need to be set for
-both variables (see `leg_title` and `leg_no_data` Details).  
+both variables (see `leg_title` and `leg_no_data` Details).\
 For polygons, centroids are used to plot symbols. This map type is not
 available for lines.
 
@@ -558,7 +566,7 @@ For polygons and points:
            pal = getOption("mapsf.pal_seq"), rev = FALSE,
            breaks = "quantile", nbreaks,
            pch_na = 4, cex_na = 1, col_na = "white",
-           alpha, expandBB, extent, bg, add = TRUE, leg_*)
+           alpha, expandBB, extent, bg, add, leg_*)
 
 ## Examples
 

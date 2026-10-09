@@ -6,22 +6,22 @@
   [](https://orcid.org/0000-0002-1932-3323)
 
 - **Hugues Pecout**. Contributor.
-  [](https://orcid.org/0000-0002-0246-0954)  
+  [](https://orcid.org/0000-0002-0246-0954)\
   Logo
 
 - **Ronan Ysebaert**. Contributor.
-  [](https://orcid.org/0000-0002-7344-5911)  
+  [](https://orcid.org/0000-0002-7344-5911)\
   Cheat sheet
 
 - **Elina Marveaux**. Contributor.
-  [](https://orcid.org/0009-0000-8667-3019)  
+  [](https://orcid.org/0009-0000-8667-3019)\
   Themes
 
-- **Ian Fellows**. Copyright holder.  
+- **Ian Fellows**. Copyright holder.\
   No overlap algorithm for labels, from wordcloud package
 
 - **Danielle Navarro**. Copyright holder.
-  [](https://orcid.org/0000-0001-7648-6578)  
+  [](https://orcid.org/0000-0001-7648-6578)\
   Bézier curve algorithm for text annotations
 
 ## Citation

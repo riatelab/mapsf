@@ -69,11 +69,11 @@ No return value, a PNG device is initiated.
 ``` r
 mtq <- mf_get_mtq()
 (filename <- tempfile(fileext = ".png"))
-#> [1] "/tmp/Rtmp8fWYSN/file79757a6f0a2a.png"
+#> [1] "/tmp/Rtmpn3AUPU/filebe0c192303f0.png"
 mf_png(mtq, filename = filename)
 mf_map(mtq)
 mf_title()
 dev.off()
-#> agg_record_797528fd49fa 
+#> agg_record_be0c42c48e63 
 #>                       2 
 ```

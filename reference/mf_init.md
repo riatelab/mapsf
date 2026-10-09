@@ -3,7 +3,7 @@
 This function is deprecated. Please use
 `mf_map(x, col = NA, border = NA)` instead.
 
-Plot an invisible layer with the extent of a spatial object.  
+Plot an invisible layer with the extent of a spatial object.\
 Always use `add = TRUE` in
 [`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.md) calls
 following an `mf_init()` call. This function is similar to

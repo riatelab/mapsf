@@ -37,12 +37,12 @@ No return value, an inset is initiated or closed.
 ## Details
 
 If x is used (with pos and cex), the width/height ratio of the inset
-will match the width/height ratio of x bounding box.  
+will match the width/height ratio of x bounding box.\
 If fig is used, coordinates (xmin, xmax, ymin, ymax) are expressed as
-fractions of the mapping space (i.e. excluding margins).  
+fractions of the mapping space (i.e. excluding margins).\
 If map layers have to be plotted after the inset (i.e after
-mf_inset_off()), please use add = TRUE.  
-It is not possible to plot an inset within an inset.  
+mf_inset_off()), please use add = TRUE.\
+It is not possible to plot an inset within an inset.\
 It is possible to plot anything (base plots) within the inset, not only
 map layers.
 
