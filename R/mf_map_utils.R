@@ -352,8 +352,8 @@ get_val_rnd <- function(val, val_rnd, val_dec = getOption("OutDec"),
 
 
 
-get_leg_pos <- function(x) {
-  if (length(x) == 1 && !is.na(x) && x == "auto") {
+get_leg_pos <- function(x, leg_pos) {
+  if (length(leg_pos) == 1 && !is.na(leg_pos) && leg_pos == "auto") {
     if (is.null(dev.list())) {
       bb <- st_bbox(x)
     } else {
@@ -382,6 +382,6 @@ get_leg_pos <- function(x) {
     )
     return(tpos[pos])
   } else {
-    return(x)
+    return(leg_pos)
   }
 }

@@ -5,7 +5,7 @@
 [![mapsf status
 badge](https://riatelab.r-universe.dev/mapsf/badges/version)](https://riatelab.r-universe.dev/mapsf)
 ![code coverage:
-95%](https://img.shields.io/badge/code_coverage-95%25-green)
+94%](https://img.shields.io/badge/code_coverage-94%25-green)
 [![status](https://tinyverse.netlify.app/badge/mapsf)](https://CRAN.R-project.org/package=mapsf)
 [![downloads](https://cranlogs.r-pkg.org/badges/mapsf?color=brightgreen)](https://cran.r-project.org/package=mapsf)
 

@@ -707,7 +707,7 @@ mf_map <- function(x,
   argx$add <- add
 
   if (type != "base") {
-    argx$leg_pos <- get_leg_pos(x)
+    argx$leg_pos <- get_leg_pos(x, leg_pos)
     argx <- check_args(argx, type)
   }
 

@@ -1,6 +1,6 @@
 graphics.off()
 expect_error(mapsf:::test_cur_plot())
-expect_equal(mapsf:::get_leg_pos(mtq), "bottomleft")
+expect_equal(mapsf:::get_leg_pos(mtq, "auto"), "bottomleft")
 expect_error(mapsf:::interleg())
 mf_map(mtq)
 expect_silent(mf_legend(type = "prop", pos = "topright",
