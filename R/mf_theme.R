@@ -154,15 +154,16 @@ mf_theme <- function(x,
     }
     # if x is a list of args
     if (is.list(x)) {
-      argx <- c("mar", "foreground", "background", "highlight",
-                "title_tab",  "title_pos", "title_inner",
-                "title_line", "title_cex", "title_font",
-                "title_banner", "frame", "frame_lwd",
-                "frame_lty", "pal_quali", "pal_seq")
+      argx <- c(
+        "mar", "foreground", "background", "highlight",
+        "title_tab", "title_pos", "title_inner",
+        "title_line", "title_cex", "title_font",
+        "title_banner", "frame", "frame_lwd",
+        "frame_lty", "pal_quali", "pal_seq"
+      )
       if (all(names(x) %in% argx)) {
         theme <- x[names(x) %in% argx]
       }
-
     } else {
       if (!x %in% names(.gmapsf$themes)) {
         stop("x is not a theme name.", call. = FALSE)

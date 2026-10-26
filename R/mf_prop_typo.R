@@ -1,36 +1,36 @@
 prop_typo <- function(x, var,
-                         inches = 0.3,
-                         val_max,
-                         symbol = "circle",
-                         pal,
-                         alpha = NULL,
-                         rev = FALSE,
-                         val_order,
-                         border,
-                         lwd = .7,
-                         lwd_max = 15,
-                         col_na = "white",
-                         extent = x,
-                         bg,
-                         expandBB = rep(0, 4),
-                         leg_pos = "top",
-                         leg_title = var,
-                         leg_title_cex = .8,
-                         leg_val_cex = .6,
-                         leg_val_rnd = 0,
-                         leg_val_dec = ".",
-                         leg_val_big = "",
-                         leg_no_data = "No data",
-                         leg_frame = FALSE,
-                         leg_frame_border,
-                         leg_horiz = FALSE,
-                         leg_adj = c(0, 0),
-                         leg_fg,
-                         leg_bg,
-                         leg_size = 1,
-                         leg_box_border,
-                         leg_box_cex = c(1, 1),
-                         add) {
+                      inches = 0.3,
+                      val_max,
+                      symbol = "circle",
+                      pal,
+                      alpha = NULL,
+                      rev = FALSE,
+                      val_order,
+                      border,
+                      lwd = .7,
+                      lwd_max = 15,
+                      col_na = "white",
+                      extent = x,
+                      bg,
+                      expandBB = rep(0, 4),
+                      leg_pos = "top",
+                      leg_title = var,
+                      leg_title_cex = .8,
+                      leg_val_cex = .6,
+                      leg_val_rnd = 0,
+                      leg_val_dec = ".",
+                      leg_val_big = "",
+                      leg_no_data = "No data",
+                      leg_frame = FALSE,
+                      leg_frame_border,
+                      leg_horiz = FALSE,
+                      leg_adj = c(0, 0),
+                      leg_fg,
+                      leg_bg,
+                      leg_size = 1,
+                      leg_box_border,
+                      leg_box_cex = c(1, 1),
+                      add) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op))
@@ -119,10 +119,10 @@ prop_typo <- function(x, var,
     )
     lg <- do.call(leg_comp, la2)
     leg_draw(lg,
-             pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
-             frame = leg_frame, title_cex = leg_title_cex,
-             val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
-             adj = leg_adj, frame_border = leg_frame_border
+      pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
+      frame = leg_frame, title_cex = leg_title_cex,
+      val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
+      adj = leg_adj, frame_border = leg_frame_border
     )
     return(invisible(x))
   }
@@ -230,10 +230,10 @@ prop_typo <- function(x, var,
   )
   lg <- do.call(leg_comp, la2)
   leg_draw(lg,
-           pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
-           frame = leg_frame, title_cex = leg_title_cex,
-           val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
-           adj = leg_adj, frame_border = leg_frame_border
+    pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
+    frame = leg_frame, title_cex = leg_title_cex,
+    val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
+    adj = leg_adj, frame_border = leg_frame_border
   )
 
   return(invisible(x))

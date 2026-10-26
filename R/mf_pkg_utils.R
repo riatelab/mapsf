@@ -54,7 +54,7 @@ interleg <- function(txt = c("legend", "Legend")) {
     return(x)
   } else {
     stop('You cannot use "interactive" in a non-interactive R session.',
-         call. = FALSE
+      call. = FALSE
     )
   }
 }
@@ -167,54 +167,54 @@ posinset <- function(pos, pusr, wdest, hdest, adj = c(0, 0)) {
   pusr <- pusr + c(x_spacing, -x_spacing, y_spacing, -y_spacing)
 
   xy <- switch(pos,
-               bottomleft = c(
-                 pusr[1],
-                 pusr[1] + wdest,
-                 pusr[3],
-                 pusr[3] + hdest
-               ),
-               topleft = c(
-                 pusr[1],
-                 pusr[1] + wdest,
-                 pusr[4] - hdest,
-                 pusr[4]
-               ),
-               left = c(
-                 pusr[1],
-                 pusr[1] + wdest,
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
-               ),
-               top = c(
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
-                 pusr[4] - hdest,
-                 pusr[4]
-               ),
-               bottom = c(
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
-                 pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
-                 pusr[3],
-                 pusr[3] + hdest
-               ),
-               bottomright = c(
-                 pusr[2] - wdest,
-                 pusr[2],
-                 pusr[3],
-                 pusr[3] + hdest
-               ),
-               right = c(
-                 pusr[2] - wdest,
-                 pusr[2],
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
-                 pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
-               ),
-               topright = c(
-                 pusr[2] - wdest,
-                 pusr[2],
-                 pusr[4] - hdest,
-                 pusr[4]
-               )
+    bottomleft = c(
+      pusr[1],
+      pusr[1] + wdest,
+      pusr[3],
+      pusr[3] + hdest
+    ),
+    topleft = c(
+      pusr[1],
+      pusr[1] + wdest,
+      pusr[4] - hdest,
+      pusr[4]
+    ),
+    left = c(
+      pusr[1],
+      pusr[1] + wdest,
+      pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+      pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+    ),
+    top = c(
+      pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+      pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+      pusr[4] - hdest,
+      pusr[4]
+    ),
+    bottom = c(
+      pusr[1] + (pusr[2] - pusr[1]) / 2 - (wdest) / 2,
+      pusr[1] + (pusr[2] - pusr[1]) / 2 + (wdest) / 2,
+      pusr[3],
+      pusr[3] + hdest
+    ),
+    bottomright = c(
+      pusr[2] - wdest,
+      pusr[2],
+      pusr[3],
+      pusr[3] + hdest
+    ),
+    right = c(
+      pusr[2] - wdest,
+      pusr[2],
+      pusr[3] + (pusr[4] - pusr[3]) / 2 - (hdest) / 2,
+      pusr[3] + (pusr[4] - pusr[3]) / 2 + (hdest) / 2
+    ),
+    topright = c(
+      pusr[2] - wdest,
+      pusr[2],
+      pusr[4] - hdest,
+      pusr[4]
+    )
   )
   xy <- xy + c(adj[1], adj[1], adj[2], adj[2]) *
     c(x_spacing, x_spacing, y_spacing, y_spacing)

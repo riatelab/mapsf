@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r, include=FALSE}
 library(covr)
-coverage <- round(percent_coverage(package_coverage()),0)
+coverage <- round(percent_coverage(package_coverage()), 0)
 ```
 
 

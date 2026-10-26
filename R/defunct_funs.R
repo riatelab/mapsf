@@ -74,7 +74,7 @@ mf_prop_choro <- function(...) {
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_map(mtq, c("POP", "STATUS"), "prop_typo", add = TRUE)
-mf_prop_typo <- function(...){
+mf_prop_typo <- function(...) {
   .Defunct(msg = "'mf_prop_typo()' is defunct.\nUse 'mf_map()' instead.")
 }
 
@@ -90,7 +90,7 @@ mf_prop_typo <- function(...){
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_map(mtq, "POP", "prop", add = TRUE)
-mf_prop <- function(...){
+mf_prop <- function(...) {
   .Defunct(msg = "'mf_prop()' is defunct.\nUse 'mf_map()' instead.")
 }
 
@@ -107,7 +107,7 @@ mf_prop <- function(...){
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_map(mtq, c("STATUS", "MED"), "symb_choro", add = TRUE)
-mf_symb_choro <- function(...){
+mf_symb_choro <- function(...) {
   .Defunct(msg = "'mf_symb_choro()' is defunct.\nUse 'mf_map()' instead.")
 }
 
@@ -123,7 +123,7 @@ mf_symb_choro <- function(...){
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
 #' mf_map(mtq, "STATUS", "symb", add = TRUE)
-mf_symb <- function(...){
+mf_symb <- function(...) {
   .Defunct(msg = "'mf_symb()' is defunct.\nUse 'mf_map()' instead.")
 }
 
@@ -138,7 +138,7 @@ mf_symb <- function(...){
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq, "STATUS", "typo")
-mf_typo <- function(...){
+mf_typo <- function(...) {
   .Defunct(msg = "'mf_typo()' is defunct.\nUse 'mf_map()' instead.")
 }
 
@@ -158,7 +158,7 @@ mf_typo <- function(...){
 #' mf_map(mtq, add = TRUE)
 #' # or
 #' mf_map(mtq, extent = target)
-mf_init <- function(...){
+mf_init <- function(...) {
   .Defunct(
     msg = "'mf_init()' is defunct.\nUse 'mf_map()' instead."
   )

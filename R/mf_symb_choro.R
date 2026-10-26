@@ -1,38 +1,38 @@
 symb_choro <- function(x, var,
-                          pal,
-                          alpha = NULL,
-                          rev = FALSE,
-                          breaks = "quantile",
-                          nbreaks,
-                          border,
-                          pch,
-                          cex = 2,
-                          lwd = .7,
-                          pch_na = 4,
-                          cex_na = 1,
-                          col_na = "white",
-                          val_order,
-                          extent = x,
-                          bg,
-                          expandBB = rep(0, 4),
-                          leg_pos = "top",
-                          leg_title = var,
-                          leg_title_cex = .8,
-                          leg_val_cex = .6,
-                          leg_val_rnd = 2,
-                          leg_val_dec = ".",
-                          leg_val_big = "",
-                          leg_no_data = c("No data", "No data"),
-                          leg_frame = FALSE,
-                          leg_frame_border,
-                          leg_horiz = FALSE,
-                          leg_adj = c(0, 0),
-                          leg_fg,
-                          leg_bg,
-                          leg_size = 1,
-                          leg_box_border,
-                          leg_box_cex = c(1, 1),
-                          add) {
+                       pal,
+                       alpha = NULL,
+                       rev = FALSE,
+                       breaks = "quantile",
+                       nbreaks,
+                       border,
+                       pch,
+                       cex = 2,
+                       lwd = .7,
+                       pch_na = 4,
+                       cex_na = 1,
+                       col_na = "white",
+                       val_order,
+                       extent = x,
+                       bg,
+                       expandBB = rep(0, 4),
+                       leg_pos = "top",
+                       leg_title = var,
+                       leg_title_cex = .8,
+                       leg_val_cex = .6,
+                       leg_val_rnd = 2,
+                       leg_val_dec = ".",
+                       leg_val_big = "",
+                       leg_no_data = c("No data", "No data"),
+                       leg_frame = FALSE,
+                       leg_frame_border,
+                       leg_horiz = FALSE,
+                       leg_adj = c(0, 0),
+                       leg_fg,
+                       leg_bg,
+                       leg_size = 1,
+                       leg_box_border,
+                       leg_box_cex = c(1, 1),
+                       add) {
   xtype <- get_geom_type(x)
   # linestring special case
   if (xtype == "LINE") {
@@ -135,8 +135,8 @@ symb_choro <- function(x, var,
   }
 
   plot(st_geometry(x),
-       col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,
-       lwd = lwd, add = TRUE
+    col = mycolspt, bg = mycolsptbg, cex = mycex, pch = mysym,
+    lwd = lwd, add = TRUE
   )
 
   leg_pos <- defunct_leg(leg_pos)
@@ -180,10 +180,10 @@ symb_choro <- function(x, var,
   )
   lg <- do.call(leg_comp, la2)
   leg_draw(lg,
-           pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
-           frame = leg_frame, title_cex = leg_title_cex,
-           val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
-           adj = leg_adj, frame_border = leg_frame_border
+    pos = leg_pos, bg = leg_bg, fg = leg_fg, size = leg_size,
+    frame = leg_frame, title_cex = leg_title_cex,
+    val_cex = leg_val_cex, mar = getOption("mapsf.mar"),
+    adj = leg_adj, frame_border = leg_frame_border
   )
   return(invisible(xout))
 }
