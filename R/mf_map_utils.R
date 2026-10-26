@@ -355,32 +355,36 @@ get_val_rnd <- function(val, val_rnd, val_dec = getOption("OutDec"),
 
 
 get_leg_pos <- function(x) {
-  if (is.null(dev.list())) {
-    bb <- st_bbox(x)
-  } else {
-    p <- par("usr")
-    bb <- st_bbox(
-      c(
-        xmin = p[1], ymin = p[3],
-        xmax = p[2], ymax = p[4]
-      ),
-      crs = st_crs(x)
+  if (length(x) == 1 && !is.na(x) && x == "auto") {
+    if (is.null(dev.list())) {
+      bb <- st_bbox(x)
+    } else {
+      p <- par("usr")
+      bb <- st_bbox(
+        c(
+          xmin = p[1], ymin = p[3],
+          xmax = p[2], ymax = p[4]
+        ),
+        crs = st_crs(x)
+      )
+    }
+    g <- st_make_grid(x = st_as_sfc(bb), n = c(3, 3), crs = st_crs(x))
+    y <- st_union(st_convex_hull(st_geometry(x)))
+    z <- st_intersects(g, y)
+    ind <- which(unlist(lapply(z, length)) == 0)
+    if (length(ind) > 0) {
+      pos <- max(ind)
+    } else {
+      pos <- which.min(st_area(st_intersection(g, y)))
+    }
+    tpos <- c(
+      "bottomleft", "bottom", "bottomright",
+      "left", "center", "right",
+      "topleft", "top", "topright"
     )
-  }
-  g <- st_make_grid(x = st_as_sfc(bb), n = c(3, 3), crs = st_crs(x))
-  y <- st_union(st_convex_hull(st_geometry(x)))
-  z <- st_intersects(g, y)
-  ind <- which(unlist(lapply(z, length)) == 0)
-  if (length(ind) > 0) {
-    pos <- max(ind)
+    return(tpos[pos])
   } else {
-    pos <- which.min(st_area(st_intersection(g, y)))
+    return(x)
   }
-  tpos <- c(
-    "bottomleft", "bottom", "bottomright",
-    "left", "center", "right",
-    "topleft", "top", "topright"
-  )
-  return(tpos[pos])
 }
 

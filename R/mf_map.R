@@ -707,9 +707,7 @@ mf_map <- function(x,
   argx$add <- add
 
   if (type != "base") {
-    if (!is.na(leg_pos) && leg_pos == "auto"){
-      argx$leg_pos <- get_leg_pos(x)
-    }
+    argx$leg_pos <- get_leg_pos(x)
     argx <- check_args(argx, type)
   }
 
