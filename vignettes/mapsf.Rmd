@@ -242,7 +242,7 @@ mf_map(
   add = TRUE
 )
 # layout elements
-mf_title("Population & Wealth in Martinique, 2015")
+mf_title("Population & Income in Martinique, 2015")
 mf_credits(credits)
 mf_arrow()
 mf_scale()

@@ -173,7 +173,7 @@ title("Median Income\nin euros",
 # close the inset
 mf_inset_off()
 # Add map layout
-mf_title("Wealth in Martinique, 2015", pos = "left")
+mf_title("Income in Martinique, 2015", pos = "left")
 mf_scale(5)
 mf_credits(paste0(
   "Sources: Insee and IGN, 2018\n",
