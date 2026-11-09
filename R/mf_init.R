@@ -73,5 +73,7 @@ mf_ini <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
       lty = getOption("mapsf.frame_lty")
     )
   }
+  mf_title("                ")
+
   return(invisible(x))
 }
