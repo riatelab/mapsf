@@ -2,9 +2,11 @@
 #' @description
 #' Plot different types of legend. The "type" argument defines the
 #' legend type.
+#'
 #' Please note that some arguments are available for all types of legend and
 #' some others are only relevant for specific legend types (see Details).
-#' `mf_legend()` is a wrapper for `maplegend::leg()`.
+#'
+#' `mf_legend()` is mostly a wrapper for `maplegend::leg()`.
 #' @param type type of legend:
 #' * **prop** for proportional symbols,
 #' * **choro** for choropleth maps,
@@ -17,14 +19,16 @@
 #' * **choro_point** for choropleth points maps,
 #' * **choro_line** for choropleth lines maps,
 #' * **choro_symb** for choropleth on symbols maps
-#' * **typo_line** for typology lines maps.
+#' * **typo_line** for typology lines maps,
+#' * **choro_histo** a combination of *choro* and *histo* legends, for
+#' choropleth maps.
 #' @param val
 #' vector of value(s) (for "prop" and "prop_line", at least c(min, max)
 #' for "cont"),
 #' vector of categories (for "symb", "typo", "typo_line"),
 #' break labels (for "choro", "choro_point", "choro_line", "choro_symb",
 #' and "grad_line"),
-#' histogram parameters (for "histo").
+#' histogram parameters (for "histo" and "choro_histo").
 #' @param pos position of the legend. It can be one of 'topleft', 'top',
 #' 'topright', 'right', 'bottomright', 'bottom','bottomleft',
 #' 'left', 'interactive' or a vector of two coordinates
@@ -57,8 +61,8 @@
 #' @param box_border border color of legend boxes
 #' @param box_cex width and height size expansion of boxes, histogram
 #' circles, squares or lines
-#' @param return_bbox return only bounding box of the legend.
-#' No legend is plotted.
+#' @param return_bbox return only the coordinates of the bounding box of
+#' the legend. No legend is plotted. It does not work with "choro_histo" type.
 #' @param col color of the symbols (for "prop") or color of the lines (for
 #' "prop_line" and "grad_line"), hex code or color name given by [colors].
 #' @param lwd width(s) of the symbols borders (for "prop", "symb",
@@ -74,8 +78,9 @@
 #' @param horiz if TRUE plot an horizontal legend
 #' @param adj adjust the position of the legend in x and y directions
 #' @param frame_border border color of the frame
-#' @return No value is returned, a legend is displayed
-#' (except if `return_bbox` is used).
+#' @return No value is returned, a legend is displayed. If `return_bbox` is
+#' TRUE, nothing is plotted and the legend bounding box coordinates are returned
+#' invisibly.
 #' @export
 #' @details
 #' Some arguments are available for all types of legend: `val`, `pos`, `title`,
@@ -90,12 +95,12 @@
 #' * `mf_legend(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)`
 #' * `mf_legend(type = "prop_line", val, col, lwd, val_rnd, val_big, val_dec)`
 #' * `mf_legend(type = "grad_line", val, col, lwd, val_rnd, val_big, val_dec)`
-#' * `mf_legend(type = "histo", val, pal, box_border, val_rnd, val_big, val_dec)`
+#' * `mf_legend(type = "histo", val, pal, val_rnd, val_big, val_dec, box_border)`
 #' * `mf_legend(type = "choro_point", val, pal, symbol, border, cex, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, horiz)`
 #' * `mf_legend(type = "choro_line", val, pal, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)`
 #' * `mf_legend(type = "choro_symb", val, pal, pch, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)`
 #' * `mf_legend(type = "typo_line", val, pal, lwd, col_na, no_data, no_data_txt, box_cex)`
-
+#' * `mf_legend(type = "choro_histo", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex)`
 #' @examples
 #' mtq <- mf_get_mtq()
 #' mf_map(mtq)
@@ -118,6 +123,12 @@
 #'   lwd = c(0.2, 2, 4, 5, 10)
 #' )
 #' mf_legend(type = "prop_line", pos = "bottom", lwd = 20, val = c(5, 50, 100))
+#' bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = "geom")
+#' h <- hist(mtq$MED, breaks = bks, plot = FALSE)
+#' mf_legend(
+#'   type = "choro_histo", pos = "left", val = h,
+#'   pal = "Reds 2"
+#' )
 mf_legend <- function(type,
                       val,
                       pos = "left",
@@ -159,7 +170,51 @@ mf_legend <- function(type,
   args$bg <- go(bg, "foreground")
   args$fg <- go(fg, "highlight")
   args$frame_border <- go(frame_border, "foreground")
-  args[[1]] <- quote(maplegend::leg)
-  r <- eval.parent(args)
-  return(invisible(r))
+
+  if(type == "choro_histo"){
+    la1 <- list(
+      type = "choro",
+      val = val$breaks,
+      title = title,
+      val_rnd = val_rnd,
+      val_dec = val_dec,
+      val_big = val_big,
+      col_na = col_na,
+      no_data = no_data,
+      no_data_txt = no_data_txt,
+      pal = pal,
+      horiz = TRUE,
+      box_border = box_border,
+      box_cex = box_cex
+    )
+    lg <- do.call(leg_comp, la1)
+    la2 <- list(
+      leg = lg,
+      type = "histo",
+      val = val,
+      title = "",
+      val_rnd = val_rnd,
+      val_dec = val_dec,
+      val_big = val_big,
+      col_na = col_na,
+      pal = pal,
+      box_border = box_border,
+      box_cex = box_cex * c(2, .8)
+    )
+    lg <- do.call(leg_comp, la2)
+    leg_draw(lg,
+             pos = pos, bg = args$bg, fg = args$fg, size = size,
+             frame = frame, title_cex = title_cex,
+             val_cex = val_cex, mar = args$mar,
+             adj = adj, frame_border = args$frame_border
+    )
+
+    return(invisible(NULL))
+  } else {
+
+
+    args[[1]] <- quote(maplegend::leg)
+    r <- eval.parent(args)
+    return(invisible(r))
+  }
 }

@@ -45,3 +45,14 @@ expect_silent(mf_legend(type = "prop_line",
                         val = c(5, 50, 100),
                         frame = TRUE))
 
+bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = "geom")
+h <- hist(mtq$MED, breaks = bks, plot = FALSE)
+expect_silent(mf_legend(
+  type = "choro_histo", pos = "right", val = h,
+  pal = "Reds 2"
+))
+rch <- mf_legend(
+  type = "choro_histo", pos = "right", val = h,
+  pal = "Reds 2"
+)
+expect_null(rch)

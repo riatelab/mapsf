@@ -56,7 +56,9 @@ mf_legend(
 \item \strong{choro_point} for choropleth points maps,
 \item \strong{choro_line} for choropleth lines maps,
 \item \strong{choro_symb} for choropleth on symbols maps
-\item \strong{typo_line} for typology lines maps.
+\item \strong{typo_line} for typology lines maps,
+\item \strong{choro_histo} a combination of \emph{choro} and \emph{histo} legends, for
+choropleth maps.
 }}
 
 \item{val}{vector of value(s) (for "prop" and "prop_line", at least c(min, max)
@@ -64,7 +66,7 @@ for "cont"),
 vector of categories (for "symb", "typo", "typo_line"),
 break labels (for "choro", "choro_point", "choro_line", "choro_symb",
 and "grad_line"),
-histogram parameters (for "histo").}
+histogram parameters (for "histo" and "choro_histo").}
 
 \item{pos}{position of the legend. It can be one of 'topleft', 'top',
 'topright', 'right', 'bottomright', 'bottom','bottomleft',
@@ -143,21 +145,24 @@ hex code or color name given by \link{colors}.}
 
 \item{size}{size of the legend; 2 means two times bigger}
 
-\item{return_bbox}{return only bounding box of the legend.
-No legend is plotted.}
+\item{return_bbox}{return only the coordinates of the bounding box of
+the legend. No legend is plotted. It does not work with "choro_histo" type.}
 
 \item{adj}{adjust the position of the legend in x and y directions}
 }
 \value{
-No value is returned, a legend is displayed
-(except if \code{return_bbox} is used).
+No value is returned, a legend is displayed. If \code{return_bbox} is
+TRUE, nothing is plotted and the legend bounding box coordinates are returned
+invisibly.
 }
 \description{
 Plot different types of legend. The "type" argument defines the
 legend type.
+
 Please note that some arguments are available for all types of legend and
 some others are only relevant for specific legend types (see Details).
-\code{mf_legend()} is a wrapper for \code{maplegend::leg()}.
+
+\code{mf_legend()} is mostly a wrapper for \code{maplegend::leg()}.
 }
 \details{
 Some arguments are available for all types of legend: \code{val}, \code{pos}, \code{title},
@@ -173,11 +178,12 @@ Relevant arguments for each specific legend types:
 \item \code{mf_legend(type = "symb", val, pal, pch, cex, lwd, pch_na, cex_na, col_na, no_data, no_data_txt)}
 \item \code{mf_legend(type = "prop_line", val, col, lwd, val_rnd, val_big, val_dec)}
 \item \code{mf_legend(type = "grad_line", val, col, lwd, val_rnd, val_big, val_dec)}
-\item \code{mf_legend(type = "histo", val, pal, box_border, val_rnd, val_big, val_dec)}
+\item \code{mf_legend(type = "histo", val, pal, val_rnd, val_big, val_dec, box_border)}
 \item \code{mf_legend(type = "choro_point", val, pal, symbol, border, cex, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, horiz)}
 \item \code{mf_legend(type = "choro_line", val, pal, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)}
 \item \code{mf_legend(type = "choro_symb", val, pal, pch, lwd, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt)}
 \item \code{mf_legend(type = "typo_line", val, pal, lwd, col_na, no_data, no_data_txt, box_cex)}
+\item \code{mf_legend(type = "choro_histo", val, pal, val_rnd, val_big, val_dec, col_na, no_data, no_data_txt, box_border, box_cex)}
 }
 }
 \examples{
@@ -202,4 +208,10 @@ mf_legend(
   lwd = c(0.2, 2, 4, 5, 10)
 )
 mf_legend(type = "prop_line", pos = "bottom", lwd = 20, val = c(5, 50, 100))
+bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = "geom")
+h <- hist(mtq$MED, breaks = bks, plot = FALSE)
+mf_legend(
+  type = "choro_histo", pos = "left", val = h,
+  pal = "Reds 2"
+)
 }
