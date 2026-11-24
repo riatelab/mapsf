@@ -1,3 +1,50 @@
+#' @title Defunct - Plot an annotation
+#' @description
+#' This function is defunct. Please use [mf_text] instead.
+#' @param ... ignored
+#' @export
+#' @keywords internal
+#' @return No return value.
+#' @examples
+#' mtq <- mf_get_mtq()
+#' mf_map(mtq)
+#' mf_text(
+#'   x = mtq[2, ],
+#'   txt = "pos = 'bottomleft'\nline = 2\nclockwise = FALSE",
+#'   pos = "bottomleft",
+#'   offset = 6,
+#'   clockwise = FALSE,
+#'   line = 2,
+#'   box = FALSE
+#' )
+mf_annotation <- function(...) {
+  .Defunct(msg = "'mf_annotation()' is defunct.\nUse 'mf_text()' instead.")
+}
+
+
+#' @title Defunct - Export a map
+#' @name mf_export
+#' @description
+#' This function is defunct. Please use [mf_png] or [mf_svg] instead.
+#' @param ... ignored
+#' @export
+#' @keywords internal
+#' @return No return value.
+#' @examples
+#' mtq <- mf_get_mtq()
+#' (filename <- tempfile(fileext = ".png"))
+#' mf_png(mtq, filename = filename)
+#' mf_map(mtq)
+#' mf_title()
+#' dev.off()
+mf_export <- function(...) {
+  .Defunct(
+    msg = "'mf_export()' is defunct.\nUse 'mf_png()' or `mf_svg()` instead."
+  )
+}
+
+
+
 #' @title Defunct - Plot an sf object
 #' @description
 #' This function is defunct. Please use `mf_map()` with `type = "base"`
