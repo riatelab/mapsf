@@ -14,7 +14,7 @@ expect_error(mf_map("not an sf object"))
 expect_error(mf_map(st_geometry(mtq), "POP", "prop"))
 expect_message(mf_map(mtq, "POP", "prop", breaks = "q6"))
 expect_message(mf_map(mtq, "POP", "prop", breaks = "q6", nbreaks = 8))
-
+expect_error(mf_map(mtq, extent = st_stransform(mtq, 4326)))
 
 # test for alpha
 expect_silent(mf_map(mtq, var = "POP", type = "prop", alpha = .2))

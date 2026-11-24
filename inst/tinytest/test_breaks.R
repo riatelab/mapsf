@@ -29,4 +29,9 @@ expect_equal(mf_get_breaks(x = x, breaks = "ckmeans"),
 expect_error(mf_get_breaks(x = c(0, x), breaks = "geom"))
 expect_equal(mf_get_breaks(x = x,  breaks = "Q6"),
              c(11929, 13168.65, 14457.25, 15685.5, 17979.75, 20159.35, 21761))
-
+expect_equal(mapsf:::get_breaks_methods_names(),
+             c(
+               "quantile", "equal", "msd", "ckmeans", "Q6", "geom", "fixed", "sd",
+               "pretty", "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih",
+               "headtails", "maximum", "box", "q6", "arith", "em"
+             ))

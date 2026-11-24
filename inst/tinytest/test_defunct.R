@@ -1,0 +1,13 @@
+
+expect_error(mf_annotation(mtq))
+expect_error(mf_export(mtq))
+expect_error(mf_init(mtq))
+expect_error(mf_base(mtq))
+expect_error(mf_choro(mtq))
+expect_error(mf_prop(mtq))
+expect_error(mf_typo(mtq))
+expect_error(mf_symb(mtq))
+expect_error(mf_grad(mtq))
+expect_error(mf_prop_typo(mtq))
+expect_error(mf_prop_choro(mtq))
+expect_error(mf_symb_choro(mtq))
