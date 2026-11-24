@@ -24,11 +24,6 @@
 .gmapsf <- new.env(parent = emptyenv())
 globalVariables(".gmapsf", package = "mapsf", add = FALSE)
 .gmapsf$inset <- FALSE
-.gmapsf$positions <- c(
-  "bottomleft", "left", "topleft", "top", "bottom",
-  "bottomright", "right", "topright",
-  "interactive"
-)
 
 go <- function(x, opt) {
   if (missing(x)) {
@@ -96,11 +91,7 @@ get_breaks_methods_names <- function() {
 
 
 get_themes_names <- function() {
-  n <- names(.gmapsf$themes)
-  return(n[!n %in% c(
-    "default", "brutal", "ink", "dark", "agolalight", "candy",
-    "darkula", "iceberg", "green", "nevermind", "jsk", "barcelona"
-  )])
+  return(names(.gmapsf$themes))
 }
 
 
