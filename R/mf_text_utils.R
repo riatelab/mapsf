@@ -76,7 +76,7 @@ get_position_from_name <- function(pos) {
   return(posr)
 }
 
-display_line <- function(line, pos, box, x, y, xy, offset_x, offset_y,
+display_line <- function(line, pos, x, y, xy, offset_x, offset_y,
                          lwd, col_line, arrow, cex_arrow, offset,
                          htext, wtext, clockwise) {
   if (pos == 0 || line == 0) {

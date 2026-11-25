@@ -167,7 +167,7 @@ mf_text <- function(
 ) {
   test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE, xpd = xpd)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   if (inherits(x, "character") && x == "interactive") {
     x <- interleg(txt = c("text", "Text"))
@@ -476,7 +476,7 @@ mf_text_display <- function(
 
 
   display_line(
-    line = line, pos = pos, box = box, x = x, y = y, xy = xy,
+    line = line, pos = pos, x = x, y = y, xy = xy,
     offset_x = offset_x, offset_y = offset_y, lwd = lwd,
     col_line = col_line, arrow = arrow, cex_arrow, offset = offset,
     htext = htext, wtext = wtext, clockwise = clockwise
