@@ -137,7 +137,6 @@ mf_distr <- function(x, nbins, bw, breaks, pal, alpha = 1, rev = FALSE,
     col.axis = getOption("mapsf.highlight"),
     col = getOption("mapsf.foreground"),
     border = getOption("mapsf.background"),
-    lwd = .2,
     add = TRUE
   )
   title(
