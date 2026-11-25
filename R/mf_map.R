@@ -667,7 +667,71 @@ mf_map <- function(x,
   # enabling pipe without side effect
   argx$x <- eval(x)
 
+  if (type == "base"){
+   def_arg <- default_values(type, geom_type)
+   argx <- modifyList(def_arg, argx)
+  }
+
+
+
   do.call(what = get(type), argx, envir = parent.frame())
 
   return(invisible(x))
 }
+
+
+
+
+default_values <- function(type, geom_type){
+  if (type == "base"){
+    if(geom_type == "POINT"){
+      dv <- list(
+        col = getOption('mapsf.highlight'),
+        border = getOption('mapsf.foreground'),
+        alpha = 1,
+        cex = 1,
+        pch = 20,
+        lwd = .7,
+        add = NULL,
+        extent = NULL,
+        bg = getOption("mapsf.background"),
+        expandBB = rep(0, 4)
+      )
+    }
+    if(geom_type == "LINE"){
+      dv <- list(
+        col,
+        border,
+        alpha = NULL,
+        cex = 1,
+        pch = 20,
+        lwd = .7,
+        lty = 1,
+        add,
+        extent = x,
+        bg,
+        expandBB = rep(0, 4)
+      )
+    }
+    if(geom_type == "POLYGON"){
+      dv <- list(
+        col = getOption('mapsf.highlight'),
+        border,
+        alpha = 1,
+        cex = 1,
+        pch = 20,
+        lwd = .7,
+        lty = 1,
+        add,
+        extent = x,
+        bg,
+        expandBB = rep(0, 4)
+      )
+    }
+  }
+
+  return(dv)
+}
+
+
+

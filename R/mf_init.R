@@ -1,4 +1,7 @@
 mf_ini <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
+  if(is.null(extent)){
+    extent <- x
+  }
   if (inherits(x, "SpatRaster")) {
     if (!requireNamespace("terra", quietly = TRUE)) {
       stop(

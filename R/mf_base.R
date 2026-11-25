@@ -7,7 +7,7 @@ base <- function(x,
                  lwd = .7,
                  lty = 1,
                  add,
-                 extent = x,
+                 extent,
                  bg,
                  expandBB = rep(0, 4),
                  ...) {
