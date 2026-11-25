@@ -27,7 +27,7 @@ mf_shadow <- function(x, col, cex = 1, add = FALSE, extent = x, bg,
     stop("x must be an sf or sfc POLYGON object.", call. = FALSE)
   }
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
   bgc <- go(bg, "background")
 
   if (add == FALSE) {

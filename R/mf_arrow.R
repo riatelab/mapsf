@@ -55,7 +55,7 @@ mf_arrow_display <- function(pos = "topleft",
                              adj = c(0, 0),
                              align) {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
   map_extent <- par("usr")
   xe <- map_extent[1:2]
   ye <- map_extent[3:4]

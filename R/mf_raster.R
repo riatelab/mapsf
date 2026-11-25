@@ -146,7 +146,7 @@ mf_raster <- function(x,
 
 
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
 
   # catch arguments

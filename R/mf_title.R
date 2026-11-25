@@ -86,7 +86,7 @@ mf_title_display <- function(txt = "Map Title", pos, tab,
                              bg, fg, cex, line, font,
                              inner, banner) {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
   # size refs
   pu <- par("usr")
   hbox <- line * par("csi") * yinch(1)

@@ -27,7 +27,7 @@ mf_logo <- function(filename, pos = "bottomright", cex = 1, adj = c(0, 0),
                     resize = TRUE) {
   test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   logo <- readimage(filename)
 

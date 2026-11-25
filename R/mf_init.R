@@ -30,7 +30,7 @@ mf_ini <- function(x, expandBB = rep(0, 4), extent = x, bgc) {
 
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   if (missing(bgc)) {
     bgc <- getOption("mapsf.background")

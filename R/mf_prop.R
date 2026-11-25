@@ -28,7 +28,7 @@ prop <- function(x,
                  add) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   bgc <- go(bg, "background")
   col <- go(col, "highlight")

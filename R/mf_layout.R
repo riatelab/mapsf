@@ -23,7 +23,7 @@ mf_layout <- function(title = "Map Title",
                       frame = FALSE) {
   test_cur_plot()
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
   fg <- go(opt = "highlight")
 
   if (title != "") {

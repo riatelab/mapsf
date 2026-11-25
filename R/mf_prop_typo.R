@@ -33,7 +33,7 @@ prop_typo <- function(x, var,
                       add) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   bgc <- go(bg, "background")
   pal <- go(pal, "pal_quali")
@@ -87,7 +87,7 @@ prop_typo <- function(x, var,
     }
     mycols[is.na(mycols)] <- col_na
     op2 <- par(lend = 1)
-    on.exit(par(op2))
+    on.exit(par(op), add = TRUE)
     mf_map(xl, lwd = xl$lwd, add = TRUE, col = mycols)
     val <- seq(min(xl[[var1]]), max(xl[[var1]]), length.out = 4)
     leg_pos <- defunct_leg(leg_pos)

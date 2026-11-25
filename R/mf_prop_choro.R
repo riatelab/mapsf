@@ -41,7 +41,7 @@ prop_choro <- function(x,
 
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   bgc <- go(bg, "background")
   pal <- go(pal, "pal_seq")

@@ -42,7 +42,7 @@ symb_choro <- function(x, var,
 
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   bgc <- go(bg, "background")
   border <- go(border, "background")

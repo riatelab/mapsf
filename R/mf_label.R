@@ -51,7 +51,7 @@ mf_label <- function(x,
                      ...) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
 
   if (add == FALSE) {
     mf_ini(x, expandBB = expandBB, extent = extent)

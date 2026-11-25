@@ -49,7 +49,7 @@ mf_credits_display <- function(txt = "Source(s) & Author(s)",
                                font = 3,
                                bg = NA) {
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
-  on.exit(par(op))
+  on.exit(par(op), add = TRUE)
   xyi <- xyinch(1)
   ratio <- xyi[2] / xyi[1]
 
