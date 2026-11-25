@@ -36,4 +36,4 @@ expect_silent(
 expect_error(mf_map(x = mtq, var = c("POP", "MED"), type = "prop_choro",
                     leg_title = "Solo title"))
 
-expect_message(mf_map(x = mtq_l, var = c("fij", "fij"), type = "prop_choro"))
+expect_error(mf_map(x = mtq_l, var = c("fij", "fij"), type = "prop_choro"))

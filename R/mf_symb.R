@@ -25,12 +25,6 @@ symb <- function(x, var,
                  leg_bg,
                  leg_size = 1,
                  add) {
-  xtype <- get_geom_type(x)
-  # linestring special case
-  if (xtype == "LINE") {
-    message("This map type is not available for lines.")
-    return(invisible(NULL))
-  }
 
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)

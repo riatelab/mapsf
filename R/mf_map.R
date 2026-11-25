@@ -641,65 +641,18 @@ mf_map <- function(x,
                    leg_box_border,
                    leg_box_cex,
                    ...) {
-  # check args
-  if (!type %in% c(
-    "base", "prop", "choro", "typo", "symb", "grad",
-    "prop_choro", "prop_typo", "symb_choro"
-  )) {
-    stop(
-      paste0(
-        '\'type\' should be one of "base", "prop", "choro", "typo", ',
-        '"symb", "grad", "prop_choro", "prop_typo" or "symb_choro".'
-      ),
-      call. = FALSE
-    )
-  }
 
   if (isTRUE(inherits(x, "SpatVector"))) {
     x <- st_as_sf(x)
   }
 
-  cl <- inherits(x = x, what = c("sf", "sfc", "sfg"), which = TRUE) != 0
-  if (!any(cl)) {
-    stop(paste0("'x' should be an sf, sfc or sfg object."), call. = FALSE)
-  }
+  input_validation(x, var, type)
 
-  if (cl[1] == FALSE && type != "base") {
-    stop(paste0("'x' should be an sf object."), call. = FALSE)
-  }
+  geom_type <- get_geom_type(x)
 
-  if (!missing(var)) {
-    if (type == "base") {
-      message("Please use the 'type' argument to map variables.")
-    } else {
-      lv <- length(var)
-      lin <- var %in% names(x)
-      if (lv != length(lin[lin == TRUE])) {
-        stop(
-          paste0("It is likely that 'var' is not a valid variable name."),
-          call. = FALSE
-        )
-      }
-    }
-  }
+  x <- geom_preparation(x, type, geom_type)
 
-  # add mgmgt, set default add, do not add if no device is launch
-  if (missing(add)) {
-    add <- switch(type,
-      base = FALSE,
-      choro = FALSE,
-      typo = FALSE,
-      symb = TRUE,
-      prop = TRUE,
-      grad = TRUE,
-      prop_choro = TRUE,
-      prop_typo = TRUE,
-      symb_choro = TRUE
-    )
-  }
-  if (is.null(dev.list())) {
-    add <- FALSE
-  }
+  add <- default_add(add, type)
 
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% "type"]

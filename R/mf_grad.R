@@ -100,8 +100,6 @@ grad <- function(x,
 
   if (missing(lwd)) lwd <- .7
 
-  # Transform to point
-  st_geometry(x) <- st_centroid(st_geometry(x), of_largest_polygon = TRUE)
   # cex mgmt
   if (missing(cex)) {
     cex <- seq(1, 4, length.out = nbreaks)

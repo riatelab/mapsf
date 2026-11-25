@@ -32,13 +32,6 @@ prop_choro <- function(x,
                        leg_box_border,
                        leg_box_cex = c(1, 1),
                        add) {
-  xtype <- get_geom_type(x)
-  # linestring special case
-  if (xtype == "LINE") {
-    message("This map type is not available for lines.")
-    return(invisible(NULL))
-  }
-
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op), add = TRUE)

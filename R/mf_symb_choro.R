@@ -33,13 +33,6 @@ symb_choro <- function(x, var,
                        leg_box_border,
                        leg_box_cex = c(1, 1),
                        add) {
-  xtype <- get_geom_type(x)
-  # linestring special case
-  if (xtype == "LINE") {
-    message("This map type is not available for lines.")
-    return(invisible(NULL))
-  }
-
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op), add = TRUE)
@@ -56,9 +49,6 @@ symb_choro <- function(x, var,
   xout <- x
   var2 <- var[2]
   var1 <- var[1]
-
-  # Transform to point
-  st_geometry(x) <- st_centroid(st_geometry(x), of_largest_polygon = TRUE)
 
   # jenks
   jen <- FALSE

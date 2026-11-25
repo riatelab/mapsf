@@ -99,10 +99,7 @@ get_col_vec <- function(x, breaks, pal, jen = FALSE) {
 create_dots <- function(x = x, var = var) {
   # get centroid coords
   x <- cbind(
-    st_coordinates(st_centroid(
-      x = st_geometry(x),
-      of_largest_polygon = TRUE
-    )),
+    st_coordinates(x),
     x
   )
   lx <- nrow(x)
@@ -305,8 +302,11 @@ get_geom_type <- function(x) {
   type <- st_geometry_type(x)
   levels(type) <- a
   type <- as.character(unique(type))
-  if (length(type) > 1) {
-    stop("GEOMETRYCOLLECTION objects should have consistent type",
+  if (length(type) > 1 || type %in% "other") {
+    stop(paste0("mapsf support the following geometry types:\n",
+                "(MULTI)POINT, (MULTI)LINESTRING and (MULTI)POLYGON.\n",
+                "sf::st_cast() and sf::st_collection_extract() can help ",
+                "building sf objects with a consistent geometry type."),
       call. = FALSE
     )
   }
@@ -385,3 +385,91 @@ get_leg_pos <- function(x, leg_pos) {
     return(leg_pos)
   }
 }
+
+
+
+input_validation <- function(x, var, type){
+
+  # Valid x
+  cl <- inherits(x = x, what = c("sf", "sfc", "sfg"), which = TRUE) != 0
+  if (!any(cl)) {
+    stop(paste0("'x' should be an sf, sfc or sfg object."), call. = FALSE)
+  }
+  if (cl[1] == FALSE && type != "base") {
+    stop(paste0("'x' should be an sf object."), call. = FALSE)
+  }
+
+  # Valid var
+  if (!missing(var)) {
+    if (type == "base") {
+      message("Please use the 'type' argument to map variables.")
+    } else {
+      lv <- length(var)
+      lin <- var %in% names(x)
+      if (lv != length(lin[lin == TRUE])) {
+        stop(
+          paste0("It is likely that 'var' is not a valid variable name."),
+          call. = FALSE
+        )
+      }
+    }
+  }
+
+  # Valid type
+  if (!type %in% c(
+    "base", "prop", "choro", "typo", "symb", "grad",
+    "prop_choro", "prop_typo", "symb_choro"
+  )) {
+    stop(
+      paste0(
+        '\'type\' should be one of "base", "prop", "choro", "typo", ',
+        '"symb", "grad", "prop_choro", "prop_typo" or "symb_choro".'
+      ),
+      call. = FALSE
+    )
+  }
+  return(NULL)
+}
+
+default_add <- function(add, type){
+  # add mgmgt, set default add, do not add if no device is launch
+  if (missing(add)) {
+    add <- switch(type,
+                  base = FALSE,
+                  choro = FALSE,
+                  typo = FALSE,
+                  symb = TRUE,
+                  prop = TRUE,
+                  grad = TRUE,
+                  prop_choro = TRUE,
+                  prop_typo = TRUE,
+                  symb_choro = TRUE
+    )
+
+    if (is.null(dev.list())) {
+      add <- FALSE
+    }
+  } else {
+    if(is.null(dev.list()) && isTRUE(add)) {
+      stop("No geographic layer has been mapped yet. Use add=FALSE.",
+           call. = FALSE)
+    }
+  }
+
+  return(add)
+}
+
+geom_preparation <- function(x, type, geom_type){
+
+  if (geom_type %in% c("LINE") && type %in% c("prop_choro", "symb_choro", "symb")){
+    stop("This map type is not available for lines.", call. = FALSE)
+  }
+
+  if (geom_type %in% c("POLYGON") && type %in% c("prop", "prop_typo", "grad", "prop_choro", "symb_choro", "symb")) {
+    st_geometry(x) <- st_centroid(x = st_geometry(x), of_largest_polygon = TRUE)
+  }
+
+  return(x)
+
+}
+
