@@ -702,7 +702,7 @@ mf_map <- function(x,
   }
 
   argx <- as.list(match.call()[-1])
-  argx <- argx[!names(argx) %in% c("type")]
+  argx <- argx[!names(argx) %in% "type"]
 
   argx$add <- add
 

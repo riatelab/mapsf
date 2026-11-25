@@ -44,7 +44,7 @@ mtq <- mf_get_mtq()
 mf_svg(
   x = mtq,
   filename = "fig/wo_export_fixed_height.svg",
-  height = 5,
+  height = 5
 )
 mf_map(mtq)
 mf_title(txt = "SVG export")

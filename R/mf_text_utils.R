@@ -100,10 +100,10 @@ display_line <- function(line, pos, x, y, xy, offset_x, offset_y,
       line <- 1
     } else {
       if (clockwise == TRUE) {
-        if (pos %in% c(4)) {
+        if (pos %in% 4) {
           xy0[2] <- xy0[2] + offset_y / 2 + htext / 2
         }
-        if (pos %in% c(8)) {
+        if (pos %in% 8) {
           xy0[2] <- xy0[2] - offset_y / 2 - htext / 2
         }
         if (pos %in% c(4, 8)) {
@@ -116,10 +116,10 @@ display_line <- function(line, pos, x, y, xy, offset_x, offset_y,
             lwd = lwd, col = col_line, length = 0.05 * cex_arrow
           )
         }
-        if (pos %in% c(6)) {
+        if (pos %in% 6) {
           xy0[1] <- xy0[1] + offset_x / 2 + wtext / 2
         }
-        if (pos %in% c(2)) {
+        if (pos %in% 2) {
           xy0[1] <- xy0[1] - offset_x / 2 - wtext / 2
         }
         if (pos %in% c(2, 6)) {
@@ -133,10 +133,10 @@ display_line <- function(line, pos, x, y, xy, offset_x, offset_y,
           )
         }
       } else {
-        if (pos %in% c(6)) {
+        if (pos %in% 6) {
           xy0[2] <- xy0[2] + offset_y / 2 + htext / 2
         }
-        if (pos %in% c(2)) {
+        if (pos %in% 2) {
           xy0[2] <- xy0[2] - offset_y / 2 - htext / 2
         }
         if (pos %in% c(2, 6)) {
@@ -149,10 +149,10 @@ display_line <- function(line, pos, x, y, xy, offset_x, offset_y,
             lwd = lwd, col = col_line, length = 0.05 * cex_arrow
           )
         }
-        if (pos %in% c(8)) {
+        if (pos %in% 8) {
           xy0[1] <- xy0[1] + offset_x / 2 + wtext / 2
         }
-        if (pos %in% c(4)) {
+        if (pos %in% 4) {
           xy0[1] <- xy0[1] - offset_x / 2 - wtext / 2
         }
         if (pos %in% c(4, 8)) {

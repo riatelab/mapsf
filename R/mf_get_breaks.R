@@ -27,7 +27,7 @@
 #'
 #' ## Natural breaks method
 #' The "jenks", "fisher" and "ckmeans" methods are based on the same concept of
-#' **natural breaks** and and produce similar groupings. The use of "ckmeans" is
+#' **natural breaks** and produce similar groupings. The use of "ckmeans" is
 #' recommended.
 #'
 #' * The "jenks" method produces class boundaries falling on data points and is
@@ -171,7 +171,7 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
       int <- c(min_vec, max_vec)
 
       for (a in 1:it) {
-        valprv <- c()
+        valprv <- NULL
         for (i in 1:(length(int) - 1)) {
           if (i == 1) {
             sub_vec <- x[x >= int[i] & x <= int[i + 1]]

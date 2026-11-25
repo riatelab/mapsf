@@ -89,7 +89,7 @@ typo <- function(x,
       fg = leg_fg,
       box_cex = c(1.2, .1),
       adj = leg_adj,
-      size = leg_size,
+      size = leg_size
     )
   }
   if (xtype == "POLYGON") {
