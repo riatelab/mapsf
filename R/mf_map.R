@@ -648,15 +648,14 @@ mf_map <- function(x,
 
   input_validation(x, var, type)
 
-  geom_type <- get_geom_type(x)
+  x <- geom_preparation(x, type)
 
-  x <- geom_preparation(x, type, geom_type)
+  geom_type <- get_geom_type(x)
 
   add <- default_add(add, type)
 
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% "type"]
-  argx$geom_type <- geom_type
   argx$add <- add
 
   if (type != "base") {
@@ -667,15 +666,15 @@ mf_map <- function(x,
   # enabling pipe without side effect
   argx$x <- eval(x)
 
-  if (type == "base"){
-   def_arg <- default_values(type, geom_type)
-   argx <- modifyList(def_arg, argx)
+  if (type %in% c("base", "prop")){
+    def_arg <- default_values(type, geom_type)
+    argx <- modifyList(def_arg, argx)
+    argx$geom_type <- geom_type
   }
 
 
 
   do.call(what = get(type), argx, envir = parent.frame())
-
   return(invisible(x))
 }
 
@@ -721,12 +720,45 @@ default_values <- function(type, geom_type){
         extent = NULL,
         bg = getOption("mapsf.background"),
         expandBB = rep(0, 4)
-        )
+      )
     }
   }
+  if (type == "prop"){
+    if(geom_type == "POINT"){
+      dv <- list(
+        inches = 0.3,
+        val_max = NULL,
+        lwd_max = 20,
+        symbol = "circle",
+        col = getOption("mapsf.highlight"),
+        alpha = 1,
+        border = getOption("mapsf.background"),
+        lwd = .7,
+        extent = NULL,
+        bg = getOption("mapsf.background"),
+        expandBB = rep(0, 4),
+        leg_pos = "auto",
+        leg_title = "TAKE CARE OF THE TITLE",
+        leg_title_cex = .8,
+        leg_val_cex = .6,
+        leg_val_rnd = 0,
+        leg_val_dec = ".",
+        leg_val_big = "",
+        leg_frame = FALSE,
+        leg_frame_border = getOption("mapsf.foreground"),
+        leg_horiz = FALSE,
+        leg_adj = c(0, 0),
+        leg_fg = getOption("mapsf.hightlight"),
+        leg_bg = getOption("mapsf.foreground"),
+        leg_size = 1,
+        add = NULL
+      )
+
+
+    }
+
+  }
+
 
   return(dv)
 }
-
-
-

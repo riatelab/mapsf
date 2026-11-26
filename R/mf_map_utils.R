@@ -144,6 +144,17 @@ create_dots <- function(x = x, var = var) {
 }
 
 
+get_point_cols <- function(pch, col, border){
+  if (pch %in% 21:25) {
+    pt_col <- border
+  } else {
+    pt_col <- col
+  }
+  pt_bg <- col
+  return(list(col = pt_col, bg = pt_bg))
+}
+
+
 #' @name get_size
 #' @title get_size
 #' @description get a vector of radii
@@ -446,7 +457,8 @@ default_add <- function(add, type){
   return(add)
 }
 
-geom_preparation <- function(x, type, geom_type){
+geom_preparation <- function(x, type){
+  geom_type <- get_geom_type(x)
 
   if (geom_type %in% c("LINE") && type %in% c("prop_choro", "symb_choro", "symb")){
     stop("This map type is not available for lines.", call. = FALSE)
@@ -460,3 +472,64 @@ geom_preparation <- function(x, type, geom_type){
 
 }
 
+
+
+
+
+prop_data_cleaning <- function(x = x, var = var) {
+  lx <- nrow(x)
+
+  # remove NAs and 0 values
+  x <- x[!is.na(x = x[[var]]), ]
+  lxna <- nrow(x)
+
+  x <- x[x[[var]] != 0, ]
+  lx0 <- nrow(x)
+
+  x <- x[is.finite(x[[var]]), ]
+  lxinf <- nrow(x)
+
+
+  nna <- lx - lxna
+  nn0 <- lx - nna - lx0
+  nni <- lx - nna - nn0 - lxinf
+
+  if (nna > 0) {
+    if (nna == 1) {
+      message("1 'NA' value is not plotted on the map.")
+    } else {
+      message(paste0(nna, " 'NA' values are not plotted on the map."))
+    }
+  }
+  if (nn0 > 0) {
+    if (nn0 == 1) {
+      message("1 '0' value is not plotted on the map.")
+    } else {
+      message(paste0(nn0, " '0' values are not plotted on the map."))
+    }
+  }
+  if (nni > 0) {
+    if (nni == 1) {
+      message("1 'Infinite' value is not plotted on the map.")
+    } else {
+      message(paste0(nni, " 'Infinite' values are not plotted on the map."))
+    }
+  }
+  if (nrow(x) == 0) {
+    stop("Nothing is plotted on the map.", call. = FALSE)
+  }
+  if (min(x[[var]]) < 0) {
+    message("Negative values have been transformed into positive values.")
+    x[[var]] <- abs(x[[var]])
+  }
+  x <- x[order(x[[var]], decreasing = TRUE), ]
+  return(x)
+}
+
+
+get_val_max <- function(x, var, val_max){
+  if (is.null(val_max)) {
+    val_max <- max(x[[var]])
+  }
+  return(val_max)
+}

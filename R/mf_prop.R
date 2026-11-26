@@ -25,41 +25,28 @@ prop <- function(x,
                  leg_fg,
                  leg_bg,
                  leg_size = 1,
-                 add) {
+                 add,
+                 geom_type) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op), add = TRUE)
-
-  bgc <- go(bg, "background")
-  col <- go(col, "highlight")
-  border <- go(border, "background")
-  leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground")
-  leg_frame_border <- go(leg_frame_border, "foreground")
-
   border <- border[[1]]
+  col <- mapsf:::get_hex_pal(col, alpha)
+  x <- prop_data_cleaning(x, var)
+  val_max <- get_val_max(x, var, val_max)
 
-  if (!is.null(alpha)) {
-    col <- get_hex_pal(col, alpha)
+    # empty plot if needed
+  if (add == FALSE) {
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bg)
   }
 
-  xtype <- get_geom_type(x)
-  # linestring special case
-  if (xtype == "LINE") {
-    xl <- x[!is.na(x[[var]]), ]
-    if (!missing(val_max)) {
-      maxval <- val_max
-    } else {
-      maxval <- max(xl[[var]])
-    }
-    xl$lwd <- xl[[var]] * lwd_max / maxval
-    if (add == FALSE) {
-      mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
-    }
-    op2 <- par(lend = 1)
-    mf_map(xl, lwd = xl$lwd, add = TRUE, col = col)
+  if (geom_type == "LINE") {
+    op_line <- par(lend = 1)
+    on.exit(par(op_line), add = TRUE)
 
-    val <- seq(min(xl[[var]]), max(xl[[var]]), length.out = 4)
+    x$lwd <- x[[var]] * lwd_max / val_max
+    mf_map(x, lwd = x$lwd, add = TRUE, col = col)
+    val <- seq(min(x[[var]]), max(x[[var]]), length.out = 4)
     leg(
       type = "prop_line",
       pos = leg_pos,
@@ -79,23 +66,11 @@ prop <- function(x,
       frame_border = leg_frame_border,
       size = leg_size
     )
-
-    par(op2)
-
-    return(invisible(x))
+    return(invisible(NULL))
   }
-
 
   # check merge and order
-  dots <- create_dots(x = x, var = var)
-
-  # default col
-  mycols <- rep(col, nrow(dots))
-
-  # Default max value
-  if (missing(val_max)) {
-    val_max <- max(dots[[var]])
-  }
+  dots <- cbind(st_coordinates(x),st_set_geometry(x, NULL))
 
   # get sizes
   sizes <- get_size(
@@ -108,6 +83,8 @@ prop <- function(x,
   val <- seq(sqrt(min(dots[[var]])), sqrt(max(dots[[var]])), length.out = 4)
   val <- val * val
 
+  mycols <- rep(col, nrow(dots))
+
   if (inches <= size_max) {
     inches <- size_max
     borders <- border
@@ -117,11 +94,6 @@ prop <- function(x,
     dots <- rbind(dots[1, ], dots)
     dots[1, var] <- val_max
     sizes <- c(inches, sizes)
-  }
-
-  # empty plot if needed
-  if (add == FALSE) {
-    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
   }
 
   # Plot the symbols
@@ -158,5 +130,5 @@ prop <- function(x,
     size = leg_size
   )
 
-  return(invisible(x))
+  return(invisible(NULL))
 }
