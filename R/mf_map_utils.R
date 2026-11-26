@@ -38,24 +38,11 @@ get_the_pal <- function(pal, nbreaks, alpha, rev = TRUE) {
 
 get_hex_pal <- function(pal, alpha) {
   pal <- col2rgb(pal, alpha = FALSE)
+  alpha <- sprintf("%02X", as.integer(255.999 * max(min(alpha, 1), 0)))
   ffun <- function(x) {
-    rgb(pal[1, x],
-      pal[2, x],
-      pal[3, x],
-      maxColorValue = 255
-    )
+    rgb(pal[1, x], pal[2, x], pal[3, x], maxColorValue = 255)
   }
-  paste0(sapply(seq_len(ncol(pal)), ffun), get_alpha(alpha))
-}
-
-get_alpha <- function(alpha) {
-  if (alpha < 0) {
-    alpha <- 0
-  }
-  if (alpha > 1) {
-    alpha <- 1
-  }
-  sprintf("%02X", as.integer(255.999 * alpha))
+  return(paste0(sapply(seq_len(ncol(pal)), ffun), alpha))
 }
 
 

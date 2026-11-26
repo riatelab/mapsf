@@ -656,7 +656,7 @@ mf_map <- function(x,
 
   argx <- as.list(match.call()[-1])
   argx <- argx[!names(argx) %in% "type"]
-
+  argx$geom_type <- geom_type
   argx$add <- add
 
   if (type != "base") {
@@ -700,33 +700,28 @@ default_values <- function(type, geom_type){
     }
     if(geom_type == "LINE"){
       dv <- list(
-        col,
-        border,
-        alpha = NULL,
-        cex = 1,
-        pch = 20,
+        col = getOption('mapsf.highlight'),
+        alpha = 1,
         lwd = .7,
         lty = 1,
-        add,
-        extent = x,
-        bg,
+        add = NULL,
+        extent = NULL,
+        bg = getOption("mapsf.background"),
         expandBB = rep(0, 4)
       )
     }
     if(geom_type == "POLYGON"){
       dv <- list(
-        col = getOption('mapsf.highlight'),
-        border,
+        col = getOption('mapsf.foreground'),
+        border = getOption('mapsf.highlight'),
         alpha = 1,
-        cex = 1,
-        pch = 20,
         lwd = .7,
         lty = 1,
-        add,
-        extent = x,
-        bg,
+        add = NULL,
+        extent = NULL,
+        bg = getOption("mapsf.background"),
         expandBB = rep(0, 4)
-      )
+        )
     }
   }
 

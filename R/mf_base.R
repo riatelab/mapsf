@@ -10,24 +10,18 @@ base <- function(x,
                  extent,
                  bg,
                  expandBB = rep(0, 4),
-                 ...) {
+                 geom_type) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op), add = TRUE)
-
-  bgc <- go(bg, "background")
+  col <- get_hex_pal(col, alpha)
 
   if (add == FALSE) {
-    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bg)
   }
 
-  xtype <- get_geom_type(x)
 
-  if (xtype == "LINE") {
-    col <- go(col, "highlight")
-    if (!is.null(alpha)) {
-      col <- get_hex_pal(col, alpha)
-    }
+  if (geom_type == "LINE") {
     plot(
       st_geometry(x),
       col = col, lwd = lwd, lty = lty,
@@ -35,12 +29,7 @@ base <- function(x,
     )
   }
 
-  if (xtype == "POLYGON") {
-    col <- go(col, "foreground")
-    border <- go(border, "highlight")
-    if (!is.null(alpha)) {
-      col <- get_hex_pal(col, alpha)
-    }
+  if (geom_type == "POLYGON") {
     plot(
       st_geometry(x),
       col = col, border = border, lwd = lwd, lty = lty,
@@ -48,15 +37,8 @@ base <- function(x,
     )
   }
 
-  if (xtype == "POINT") {
-    col <- go(col, "highlight")
-    if (!is.null(alpha)) {
-      col <- get_hex_pal(col, alpha)
-    }
+  if (geom_type == "POINT") {
     if (pch %in% 21:25) {
-      if (missing(border)) {
-        border <- go(border, "foreground")
-      }
       mycolspt <- border
     } else {
       mycolspt <- col
