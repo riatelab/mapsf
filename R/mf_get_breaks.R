@@ -21,7 +21,7 @@
 #'
 #' ## `classInt` methods
 #' "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust",
-#' "fisher", "jenks", "dpih", "headtails", "maximum", and "box"
+#' "fisher", "dpih", "headtails", "maximum", and "box"
 #' are \code{\link[classInt:classIntervals]{classIntervals}}
 #' methods. You may need to pass additional arguments for some of them.
 #'
@@ -30,8 +30,9 @@
 #' **natural breaks** and produce similar groupings. The use of "ckmeans" is
 #' recommended.
 #'
-#' * The "jenks" method produces class boundaries falling on data points and is
-#' slow.
+#' * The "jenks" method is slow. It produces class boundaries falling on data
+#' points. These boundaries are difficult to use in choropleth maps as it
+#' would imply the use right-closed breaks. This method is no longer available.
 #' * The "fisher" method produces class boundaries located more conveniently
 #' between data points, and is faster than the "jenks" method.
 #' * The "ckmeans" method produces exactly the same class boundaries as the
@@ -84,6 +85,18 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   # default number of classes
   if (nbreaks == "auto") {
     nbreaks <- round(1 + 3.3 * log10(length(x)), 0)
+  }
+
+  if (breaks == "jenks") {
+    warning(
+      paste0(
+        "The 'jenks' classification method is no longer supported.\n",
+        "The 'ckmeans' or the 'fisher' method will be used instead.\n",
+        "See ?mf_get_breaks for complete explanations."
+      ),
+      call. = FALSE
+    )
+    breaks <- "ckmeans"
   }
 
   if (breaks == "ckmeans") {
@@ -162,7 +175,7 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   if (breaks == "em") {
     t <- bitwAnd(nbreaks, (nbreaks - 1))
     if (t != 0) {
-      stop("The number of classes must be a power of 2")
+      stop("The number of classes must be a power of 2.")
     } else {
       min_vec <- min(x)
       max_vec <- max(x)

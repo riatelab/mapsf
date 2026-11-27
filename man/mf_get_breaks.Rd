@@ -37,7 +37,7 @@ with some additional methods.
 \subsection{\code{classInt} methods}{
 
 "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust",
-"fisher", "jenks", "dpih", "headtails", "maximum", and "box"
+"fisher", "dpih", "headtails", "maximum", and "box"
 are \code{\link[classInt:classIntervals]{classIntervals}}
 methods. You may need to pass additional arguments for some of them.
 }
@@ -48,8 +48,9 @@ The "jenks", "fisher" and "ckmeans" methods are based on the same concept of
 \strong{natural breaks} and produce similar groupings. The use of "ckmeans" is
 recommended.
 \itemize{
-\item The "jenks" method produces class boundaries falling on data points and is
-slow.
+\item The "jenks" method is slow. It produces class boundaries falling on data
+points. These boundaries are difficult to use in choropleth maps as it
+would imply the use right-closed breaks. This method is no longer available.
 \item The "fisher" method produces class boundaries located more conveniently
 between data points, and is faster than the "jenks" method.
 \item The "ckmeans" method produces exactly the same class boundaries as the
