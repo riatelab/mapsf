@@ -82,7 +82,7 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
   custom_methods <- c("geom", "arith", "q6", "Q6", "em", "msd", "ckmeans")
 
   # default number of classes
-  if (missing(nbreaks)) {
+  if (nbreaks == "auto") {
     nbreaks <- round(1 + 3.3 * log10(length(x)), 0)
   }
 
