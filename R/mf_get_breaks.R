@@ -72,7 +72,7 @@
 #' mf_get_breaks(x = mtq$MED, nbreaks = 6, breaks = "quantile")
 #' @return A numeric vector of breaks
 #' @export
-mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
+mf_get_breaks <- function(x, nbreaks = "auto", breaks, k = 1, central = FALSE, ...) {
   if (is.numeric(breaks)) {
     intervals <- sort(breaks)
     return(intervals)
@@ -91,7 +91,7 @@ mf_get_breaks <- function(x, nbreaks, breaks, k = 1, central = FALSE, ...) {
     warning(
       paste0(
         "The 'jenks' classification method is no longer supported.\n",
-        "The 'ckmeans' or the 'fisher' method will be used instead.\n",
+        "The 'ckmeans' or the 'fisher' method is used instead.\n",
         "See ?mf_get_breaks for complete explanations."
       ),
       call. = FALSE

@@ -1,75 +1,58 @@
 choro <- function(x, var,
                   pal,
-                  alpha = NULL,
-                  rev = FALSE,
-                  breaks = "quantile",
+                  alpha,
+                  rev,
+                  breaks,
                   nbreaks,
                   border,
-                  pch = 21,
-                  cex = 2,
-                  lwd = .7,
-                  col_na = "white",
-                  extent = x,
+                  pch,
+                  cex,
+                  lwd,
+                  col_na,
+                  extent,
                   bg,
-                  expandBB = rep(0, 4),
-                  leg_pos = "top",
-                  leg_title = var,
-                  leg_title_cex = .8,
-                  leg_val_cex = .6,
-                  leg_val_rnd = 2,
-                  leg_val_dec = ".",
-                  leg_val_big = "",
-                  leg_no_data = "No data",
-                  leg_frame = FALSE,
-                  leg_horiz = FALSE,
-                  leg_adj = c(0, 0),
-                  leg_size = 1,
+                  expandBB,
+                  leg_pos,
+                  leg_title,
+                  leg_title_cex,
+                  leg_val_cex,
+                  leg_val_rnd,
+                  leg_val_dec,
+                  leg_val_big,
+                  leg_no_data,
+                  leg_frame,
+                  leg_horiz,
+                  leg_adj,
+                  leg_size,
                   leg_box_border,
-                  leg_box_cex = c(1, 1),
+                  leg_box_cex,
                   leg_fg,
                   leg_bg,
                   leg_frame_border,
-                  add) {
+                  add,
+                  geom_type) {
   # default
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
   on.exit(par(op), add = TRUE)
 
-  bgc <- go(bg, "background")
-  pal <- go(pal, "pal_seq")
-  leg_box_border <- go(leg_box_border, "highlight")
-  leg_fg <- go(leg_fg, "highlight")
-  leg_bg <- go(leg_bg, "foreground")
-  leg_frame_border <- go(leg_frame_border, "foreground")
-
-  # jenks
-  jen <- FALSE
-  if (any(breaks %in% "jenks")) {
-    jen <- TRUE
-  }
-
   # get the breaks
   breaks <- mf_get_breaks(x = x[[var]], nbreaks = nbreaks, breaks = breaks)
   nbreaks <- length(breaks) - 1
-  # get the cols
+  # get the color palette
   pal <- get_the_pal(pal = pal, nbreaks = nbreaks, alpha = alpha, rev = !rev)
   # get the color vector
-  mycols <- get_col_vec(x = x[[var]], breaks = breaks, pal = pal, jen = jen)
-
-  no_data <- FALSE
-  if (max(is.na(mycols)) == 1) {
-    no_data <- TRUE
-  }
-  mycols[is.na(mycols)] <- col_na
+  cols <- get_col_vec(x = x[[var]], breaks = breaks, pal = pal)
+  ## NA mgmt
+  no_data <- ifelse(any(is.na(cols)), TRUE, FALSE)
+  cols[is.na(cols)] <- col_na
 
 
   if (add == FALSE) {
-    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bgc)
+    mf_ini(x, expandBB = expandBB, extent = extent, bgc = bg)
   }
 
-  xtype <- get_geom_type(x)
-
-  if (xtype == "LINE") {
-    plot(st_geometry(x), col = mycols, lwd = lwd, add = TRUE)
+  if (geom_type == "LINE") {
+    plot(st_geometry(x), col = cols, lwd = lwd, add = TRUE)
     leg(
       type = "choro_line",
       pos = leg_pos,
@@ -95,11 +78,10 @@ choro <- function(x, var,
     )
   }
 
-  if (xtype == "POLYGON") {
-    border <- go(border, opt = "highlight")
+  if (geom_type == "POLYGON") {
     plot(
       st_geometry(x),
-      col = mycols, border = border, lwd = lwd,
+      col = cols, border = border, lwd = lwd,
       add = TRUE
     )
     leg(
@@ -127,17 +109,12 @@ choro <- function(x, var,
       adj = leg_adj
     )
   }
-  if (xtype == "POINT") {
-    border <- go(border, "background")
-    if (pch %in% 21:25) {
-      mycolspt <- border
-    } else {
-      mycolspt <- mycols
-    }
-    mycolsptbg <- mycols
+
+  if (geom_type == "POINT") {
+    cols <- get_point_cols(pch, cols, border)
     plot(
       st_geometry(x),
-      col = mycolspt, bg = mycolsptbg, cex = cex, pch = pch,
+      col = cols$col, bg = cols$bg, cex = cex, pch = pch,
       lwd = lwd, add = TRUE
     )
     leg(
@@ -163,7 +140,7 @@ choro <- function(x, var,
       bg = leg_bg,
       fg = leg_fg,
       size = leg_size,
-      box_cex = leg_box_cex * c(.75, .85),
+      box_cex = leg_box_cex,
       frame_border = leg_frame_border,
       adj = leg_adj
     )

@@ -624,7 +624,7 @@ mf_map <- function(x,
                    bg,
                    add,
                    leg_pos = "auto",
-                   leg_title,
+                   leg_title = "auto",
                    leg_title_cex,
                    leg_val_cex,
                    leg_val_rnd,
@@ -660,19 +660,18 @@ mf_map <- function(x,
 
   if (type != "base") {
     argx$leg_pos <- get_leg_pos(x, leg_pos)
+    argx$leg_title <- get_leg_title(leg_title, var)
     argx <- check_args(argx, type)
   }
 
   # enabling pipe without side effect
   argx$x <- eval(x)
 
-  if (type %in% c("base", "prop")){
+  if (type %in% c("base", "prop", "choro")){
     def_arg <- default_values(type, geom_type)
     argx <- modifyList(def_arg, argx)
     argx$geom_type <- geom_type
   }
-
-
 
   do.call(what = get(type), argx, envir = parent.frame())
   return(invisible(x))
@@ -687,7 +686,7 @@ default_values <- function(type, geom_type){
       dv <- list(
         col = getOption('mapsf.highlight'),
         border = getOption('mapsf.foreground'),
-        alpha = 1,
+        alpha = NULL,
         cex = 1,
         pch = 20,
         lwd = .7,
@@ -700,7 +699,7 @@ default_values <- function(type, geom_type){
     if(geom_type == "LINE"){
       dv <- list(
         col = getOption('mapsf.highlight'),
-        alpha = 1,
+        alpha = NULL,
         lwd = .7,
         lty = 1,
         add = NULL,
@@ -713,7 +712,7 @@ default_values <- function(type, geom_type){
       dv <- list(
         col = getOption('mapsf.foreground'),
         border = getOption('mapsf.highlight'),
-        alpha = 1,
+        alpha = NULL,
         lwd = .7,
         lty = 1,
         add = NULL,
@@ -728,17 +727,16 @@ default_values <- function(type, geom_type){
       dv <- list(
         inches = 0.3,
         val_max = NULL,
-        lwd_max = 20,
         symbol = "circle",
         col = getOption("mapsf.highlight"),
-        alpha = 1,
+        alpha = NULL,
         border = getOption("mapsf.background"),
         lwd = .7,
         extent = NULL,
         bg = getOption("mapsf.background"),
         expandBB = rep(0, 4),
         leg_pos = "auto",
-        leg_title = "TAKE CARE OF THE TITLE",
+        leg_title = "auto",
         leg_title_cex = .8,
         leg_val_cex = .6,
         leg_val_rnd = 0,
@@ -748,17 +746,138 @@ default_values <- function(type, geom_type){
         leg_frame_border = getOption("mapsf.foreground"),
         leg_horiz = FALSE,
         leg_adj = c(0, 0),
-        leg_fg = getOption("mapsf.hightlight"),
+        leg_fg = getOption("mapsf.highlight"),
         leg_bg = getOption("mapsf.foreground"),
         leg_size = 1,
         add = NULL
       )
-
-
     }
-
+    if(geom_type == "LINE"){
+      dv <- list(
+        val_max = NULL,
+        lwd_max = 20,
+        col = getOption("mapsf.highlight"),
+        alpha = NULL,
+        extent = NULL,
+        bg = getOption("mapsf.background"),
+        expandBB = rep(0, 4),
+        leg_pos = "auto",
+        leg_title = "auto",
+        leg_title_cex = .8,
+        leg_val_cex = .6,
+        leg_val_rnd = 0,
+        leg_val_dec = ".",
+        leg_val_big = "",
+        leg_frame = FALSE,
+        leg_frame_border = getOption("mapsf.foreground"),
+        leg_adj = c(0, 0),
+        leg_fg = getOption("mapsf.highlight"),
+        leg_bg = getOption("mapsf.foreground"),
+        leg_size = 1,
+        add = NULL
+      )
+    }
   }
-
+  if (type == "choro"){
+    if(geom_type == "POINT"){
+      dv <- list(
+        pal = getOption("mapsf.pal_seq"),
+        alpha = NULL,
+        rev = FALSE,
+        breaks = "quantile",
+        nbreaks = "auto",
+        border = getOption("mapsf.highlight"),
+        pch = 21,
+        cex = 2,
+        lwd = .7,
+        col_na = "white",
+        extent = NULL,
+        bg = getOption("mapsf.background"),
+        expandBB = rep(0, 4),
+        leg_pos = "auto",
+        leg_title = "auto",
+        leg_title_cex = .8,
+        leg_val_cex = .6,
+        leg_val_rnd = 0,
+        leg_val_dec = ".",
+        leg_val_big = "",
+        leg_no_data = "No data",
+        leg_frame = FALSE,
+        leg_horiz = FALSE,
+        leg_adj = c(0, 0),
+        leg_size = 1,
+        leg_box_cex = c(.75, .85),
+        leg_fg = getOption("mapsf.highlight"),
+        leg_bg = getOption("mapsf.foreground"),
+        leg_frame_border = getOption("mapsf.foreground"),
+        add = NULL
+      )
+    }
+    if(geom_type == "LINE"){
+      dv <- list(
+        pal = getOption("mapsf.pal_seq"),
+        alpha = NULL,
+        rev = FALSE,
+        breaks = "quantile",
+        nbreaks = "auto",
+        lwd = .7,
+        col_na = "white",
+        extent = NULL,
+        bg = getOption("mapsf.background"),
+        expandBB = rep(0, 4),
+        leg_pos = "auto",
+        leg_title = "auto",
+        leg_title_cex = .8,
+        leg_val_cex = .6,
+        leg_val_rnd = 0,
+        leg_val_dec = ".",
+        leg_val_big = "",
+        leg_no_data = "No data",
+        leg_frame = FALSE,
+        leg_horiz = FALSE,
+        leg_adj = c(0, 0),
+        leg_size = 1,
+        leg_box_cex = c(1, 1),
+        leg_fg = getOption("mapsf.highlight"),
+        leg_bg = getOption("mapsf.foreground"),
+        leg_frame_border = getOption("mapsf.foreground"),
+        add = NULL
+      )
+    }
+    if(geom_type == "POLYGON"){
+      dv <- list(
+        pal = getOption("mapsf.pal_seq"),
+        alpha = NULL,
+        rev = FALSE,
+        breaks = "quantile",
+        nbreaks = "auto",
+        border = getOption("mapsf.highlight"),
+        lwd = .7,
+        col_na = "white",
+        extent = NULL,
+        bg = getOption("mapsf.background"),
+        expandBB = rep(0, 4),
+        leg_pos = "auto",
+        leg_title = "auto",
+        leg_title_cex = .8,
+        leg_val_cex = .6,
+        leg_val_rnd = 0,
+        leg_val_dec = ".",
+        leg_val_big = "",
+        leg_no_data = "No data",
+        leg_frame = FALSE,
+        leg_horiz = FALSE,
+        leg_adj = c(0, 0),
+        leg_size = 1,
+        leg_box_cex = c(1, 1),
+        leg_box_border = getOption("mapsf.highlight"),
+        leg_fg = getOption("mapsf.highlight"),
+        leg_bg = getOption("mapsf.foreground"),
+        leg_frame_border = getOption("mapsf.foreground"),
+        add = NULL
+      )
+    }
+  }
 
   return(dv)
 }

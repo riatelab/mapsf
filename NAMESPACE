@@ -142,4 +142,7 @@ importFrom(stats,
   runif,
   sd
 )
-importFrom(utils,globalVariables)
+importFrom(utils,
+  globalVariables,
+  modifyList
+)

@@ -18,7 +18,7 @@
 #' @importFrom graphics rasterImage rect segments strheight strwidth symbols
 #' @importFrom graphics title xinch xyinch yinch points polygon text
 #' @importFrom classInt classIntervals
-#' @importFrom utils globalVariables
+#' @importFrom utils globalVariables modifyList
 #' @importFrom maplegend leg
 #'
 .gmapsf <- new.env(parent = emptyenv())
@@ -83,7 +83,7 @@ get_breaks_methods_names <- function() {
   return(
     c(
       "quantile", "equal", "msd", "ckmeans", "Q6", "geom", "fixed", "sd",
-      "pretty", "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih",
+      "pretty", "kmeans", "hclust", "bclust", "fisher", "dpih",
       "headtails", "maximum", "box", "q6", "arith", "em"
     )
   )

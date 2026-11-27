@@ -11,12 +11,6 @@ test2args <- function(x) {
   return(x)
 }
 
-#' Title
-#'
-#' @param pal pal
-#' @param nbreaks nbreaks
-#' @param alpha alpha
-#' @noRd
 get_the_pal <- function(pal, nbreaks, alpha, rev = TRUE) {
   if (length(pal) == 1) {
     if (is.function(pal)) {
@@ -29,30 +23,25 @@ get_the_pal <- function(pal, nbreaks, alpha, rev = TRUE) {
   } else {
     cols <- pal[1:nbreaks]
   }
-  if (!is.null(alpha)) {
-    cols <- get_hex_pal(cols, alpha)
-  }
-
+  cols <- get_hex_pal(cols, alpha)
   return(cols)
 }
 
 get_hex_pal <- function(pal, alpha) {
-  pal <- col2rgb(pal, alpha = FALSE)
-  alpha <- sprintf("%02X", as.integer(255.999 * max(min(alpha, 1), 0)))
-  ffun <- function(x) {
-    rgb(pal[1, x], pal[2, x], pal[3, x], maxColorValue = 255)
+  if (!is.null(alpha)) {
+    pal <- col2rgb(pal, alpha = FALSE)
+    alpha <- sprintf("%02X", as.integer(255.999 * max(min(alpha, 1), 0)))
+    ffun <- function(x) {
+      rgb(pal[1, x], pal[2, x], pal[3, x], maxColorValue = 255)
+    }
+    return(paste0(sapply(seq_len(ncol(pal)), ffun), alpha))
   }
-  return(paste0(sapply(seq_len(ncol(pal)), ffun), alpha))
+  return(pal)
 }
 
 
-get_col_vec <- function(x, breaks, pal, jen = FALSE) {
-  if (jen) {
-    itv <- apply(array(apply(outer(x, breaks, ">"), 1, sum)), 1, max, 1)
-  } else {
-    itv <- findInterval(x, breaks, all.inside = FALSE, rightmost.closed = TRUE)
-  }
-
+get_col_vec <- function(x, breaks, pal) {
+  itv <- findInterval(x, breaks, all.inside = FALSE, rightmost.closed = TRUE)
   lb <- length(breaks)
   nout <- sum(itv %in% c(0, lb))
   if (nout > 0) {
@@ -68,21 +57,11 @@ get_col_vec <- function(x, breaks, pal, jen = FALSE) {
       ))
     }
   }
-
   itv[itv == 0] <- length(breaks)
   colvec <- pal[itv]
   return(colvec)
 }
 
-
-#' @name create_dots
-#' @title create_dots
-#' @description Create clean, sorted sf object with centroid coordinates from
-#' an sf object
-#' @param x x
-#' @param var var
-#' @return A sorted and cleaned sf object with centroid coordinates.
-#' @noRd
 create_dots <- function(x = x, var = var) {
   # get centroid coords
   x <- cbind(
@@ -155,15 +134,6 @@ get_point_cols <- function(pch, col, border){
 }
 
 
-#' @name get_size
-#' @title get_size
-#' @description get a vector of radii
-#' @param inches inches
-#' @param var var
-#' @param fixmax fixmax
-#' @param symbol symbols
-#' @return a vector of radii
-#' @noRd
 get_size <- function(var, inches, val_max, symbol) {
   switch(symbol,
     circle = {
@@ -385,6 +355,12 @@ get_leg_pos <- function(x, leg_pos) {
 }
 
 
+get_leg_title <- function(leg_title, var){
+  if (length(leg_title) %in% 1:2 && "auto" %in% leg_title){
+    return(var)
+  }
+  return(leg_title)
+}
 
 input_validation <- function(x, var, type){
 
@@ -532,4 +508,67 @@ get_val_max <- function(x, var, val_max){
     val_max <- max(x[[var]])
   }
   return(val_max)
+}
+
+prop_leg_values <- function(x){
+  val <- seq(sqrt(min(x)), sqrt(max(x)), length.out = 4)
+  val <- val * val
+  return(val)
+}
+
+
+# adjust sizes for val_max & size_max use
+adjust_size <- function(x, var, sizes, val_max, border, col, inches){
+  col <- rep(col, nrow(x))
+  border <- border[[1]]
+  size_max <- max(sizes)
+
+  if (inches <= size_max) {
+    inches <- size_max
+  } else {
+    col <- c(NA, col)
+    border <- c(NA, rep(border, nrow(x)))
+    x <- rbind(x[1, ], x)
+    x[1, var] <- val_max
+    sizes <- c(inches, sizes)
+  }
+
+  x <- cbind(x, sizes, col, border)
+
+  return(list(x = x, inches = inches))
+}
+
+plot_prop_symb <- function(symbol, x, lwd, inches) {
+  switch(symbol,
+         circle = {
+           symbols(
+             x = x[, 1],
+             y = x[, 2],
+             circles = x$sizes,
+             bg = x$col,
+             fg = x$border,
+             lwd = lwd,
+             add = TRUE,
+             inches = inches,
+             asp = 1
+           )
+         },
+         square = {
+           symbols(
+             x = x[, 1],
+             y = x[, 2],
+             squares = x$sizes,
+             bg = x$col,
+             fg = x$border,
+             lwd = lwd,
+             add = TRUE,
+             inches = inches * 2,
+             asp = 1
+           )
+         }
+  )
+}
+
+sf_to_coords <- function(x){
+  cbind(st_coordinates(x), st_set_geometry(x, NULL))
 }

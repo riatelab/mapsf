@@ -4,7 +4,7 @@
 \alias{mf_get_breaks}
 \title{Get class intervals}
 \usage{
-mf_get_breaks(x, nbreaks, breaks, k = 1, central = FALSE, ...)
+mf_get_breaks(x, nbreaks = "auto", breaks, k = 1, central = FALSE, ...)
 }
 \arguments{
 \item{x}{a vector of numeric values. NA and Inf values are not used in the

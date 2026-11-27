@@ -1,15 +1,15 @@
 base <- function(x,
                  col,
                  border,
-                 alpha = NULL,
-                 cex = 1,
-                 pch = 20,
-                 lwd = .7,
-                 lty = 1,
+                 alpha,
+                 cex,
+                 pch,
+                 lwd,
+                 lty,
                  add,
                  extent,
                  bg,
-                 expandBB = rep(0, 4),
+                 expandBB,
                  geom_type) {
   # margins mgmt
   op <- par(mar = getOption("mapsf.mar"), no.readonly = TRUE)
@@ -20,7 +20,6 @@ base <- function(x,
   if (add == FALSE) {
     mf_ini(x, expandBB = expandBB, extent = extent, bgc = bg)
   }
-
 
   if (geom_type == "LINE") {
     plot(
